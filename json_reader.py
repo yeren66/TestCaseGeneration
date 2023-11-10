@@ -13,4 +13,4 @@ json_file_path = 'data/ClassEval_data.json'
 json_data = read_json_file(json_file_path)
 
 # 打印 JSON 数据
-print(json_data)
+# print(json_data)

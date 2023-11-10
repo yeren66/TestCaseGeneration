@@ -1,3 +1,7 @@
+import sys
+sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+from benchmark_solution_code.Statistics3 import Statistics3
+import math
 import unittest
 
 class Statistics3TestMedian(unittest.TestCase):

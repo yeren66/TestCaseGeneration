@@ -1,3 +1,7 @@
+import sys
+sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+from benchmark_solution_code.RegexUtils import RegexUtils
+import re
 import unittest
 
 

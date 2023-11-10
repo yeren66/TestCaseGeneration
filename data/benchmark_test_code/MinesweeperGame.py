@@ -1,3 +1,7 @@
+import sys
+sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+from benchmark_solution_code.MinesweeperGame import MinesweeperGame
+import random
 import unittest
 
 class MinesweeperGameTestGenerateMineSweeperMap(unittest.TestCase):

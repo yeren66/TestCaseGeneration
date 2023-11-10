@@ -1,8 +1,10 @@
-import unittest
 import sys
-sys.path.append("/home/yeren/TestCaseEvaluate/data/benchmark_solution_code")
-print(sys.path)
-import AccessGatewayFilter
+sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+from benchmark_solution_code.AccessGatewayFilter import AccessGatewayFilter
+import logging
+import datetime
+import unittest
+
 
 class AccessGatewayFilterTestFilter(unittest.TestCase):
     def test_filter_1(self):

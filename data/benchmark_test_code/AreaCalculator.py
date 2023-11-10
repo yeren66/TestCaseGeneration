@@ -1,3 +1,7 @@
+import sys
+sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+from benchmark_solution_code.AreaCalculator import AreaCalculator
+import math
 import unittest
 
 class AreaCalculatorTestCalculateCircleArea(unittest.TestCase):

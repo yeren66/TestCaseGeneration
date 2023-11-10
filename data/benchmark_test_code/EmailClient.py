@@ -1,3 +1,7 @@
+import sys
+sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+from benchmark_solution_code.EmailClient import EmailClient
+from datetime import datetime
 import unittest
 
 class EmailClientTestSendTo(unittest.TestCase):

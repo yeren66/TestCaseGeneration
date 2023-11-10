@@ -1,3 +1,7 @@
+import sys
+sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+from benchmark_solution_code.StudentDatabaseProcessor import StudentDatabaseProcessor
+import sqlite3
 import unittest
 
 

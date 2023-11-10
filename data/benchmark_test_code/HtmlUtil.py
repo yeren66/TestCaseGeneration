@@ -1,3 +1,10 @@
+import sys
+sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+from benchmark_solution_code.HtmlUtil import HtmlUtil
+import re
+import string
+import gensim
+from bs4 import BeautifulSoup
 import unittest
 import sys
 sys.path.append(r'C:\Users\86181\Desktop\forgit\SE-Eval-Benchmark')

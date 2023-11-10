@@ -1,3 +1,7 @@
+import sys
+sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+from benchmark_solution_code.ImageProcessor import ImageProcessor
+from PIL import Image, ImageEnhance, ImageChops
 import unittest
 import os
 

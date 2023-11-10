@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+from benchmark_solution_code.VendingMachine import VendingMachine
 import unittest
 class VendingMachineTestAddItem(unittest.TestCase):
     def test_add_item(self):

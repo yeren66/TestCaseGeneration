@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+from benchmark_solution_code.ArgumentParser import ArgumentParser
 import unittest
 
 class ArgumentParserTestParseArguments(unittest.TestCase):

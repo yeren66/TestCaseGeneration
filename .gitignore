@@ -1,6 +1,11 @@
 # dataset下的内容可通过python_file_genrate.py生成，故不再上传。
 dataset/
 generate_data/
+data/*.csv
+data/*.zip
+data/test.txt
+data/cookies.json
+data/output_direrctory/
 
 *_test.py
 

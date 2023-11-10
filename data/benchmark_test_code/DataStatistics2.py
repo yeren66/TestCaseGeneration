@@ -1,3 +1,7 @@
+import sys
+sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+from benchmark_solution_code.DataStatistics2 import DataStatistics2
+import numpy as np
 import unittest
 
 

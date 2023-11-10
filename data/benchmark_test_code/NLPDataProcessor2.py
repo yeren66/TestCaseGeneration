@@ -1,3 +1,8 @@
+import sys
+sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+from benchmark_solution_code.NLPDataProcessor2 import NLPDataProcessor2
+from collections import Counter
+import re
 import unittest
 
 class NLPDataProcessorTestProcessData(unittest.TestCase):

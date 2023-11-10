@@ -1,3 +1,7 @@
+import sys
+sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+from benchmark_solution_code.MetricsCalculator2 import MetricsCalculator2
+import numpy as np
 import unittest
 
 

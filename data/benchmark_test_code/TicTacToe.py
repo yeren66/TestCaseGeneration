@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+from benchmark_solution_code.TicTacToe import TicTacToe
 import unittest
 
 class TicTacToeTestMakeMove(unittest.TestCase):

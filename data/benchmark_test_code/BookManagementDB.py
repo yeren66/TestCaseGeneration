@@ -1,3 +1,7 @@
+import sys
+sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+from benchmark_solution_code.BookManagementDB import BookManagementDB
+import sqlite3
 import unittest
 import os
 

@@ -1,3 +1,7 @@
+import sys
+sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+from benchmark_solution_code.Thermostat import Thermostat
+import time
 import unittest
 
 class ThermostatTestGetTargetTemperature(unittest.TestCase):
