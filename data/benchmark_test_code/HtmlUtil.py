@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+sys.path.append('.')
 from benchmark_solution_code.HtmlUtil import HtmlUtil
 import re
 import string

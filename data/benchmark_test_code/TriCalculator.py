@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+sys.path.append('.')
 from benchmark_solution_code.TriCalculator import TriCalculator
 from math import pi, fabs
 import unittest

@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+sys.path.append('.')
 from benchmark_solution_code.Class_Registration_System import Class_Registration_System
 
 

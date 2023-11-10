@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+sys.path.append('.')
 from benchmark_solution_code.MetricsCalculator2 import MetricsCalculator2
 import numpy as np
 import unittest

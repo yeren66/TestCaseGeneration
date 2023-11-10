@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+sys.path.append('.')
 from benchmark_solution_code.XMLProcessor import XMLProcessor
 import xml.etree.ElementTree as ET
 import unittest

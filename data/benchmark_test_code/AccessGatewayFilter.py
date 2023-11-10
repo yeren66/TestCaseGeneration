@@ -1,10 +1,9 @@
 import sys
-sys.path.append('/home/yeren/TestCaseEvaluate/data/')
+sys.path.append('.')
 from benchmark_solution_code.AccessGatewayFilter import AccessGatewayFilter
 import logging
 import datetime
 import unittest
-
 
 class AccessGatewayFilterTestFilter(unittest.TestCase):
     def test_filter_1(self):
