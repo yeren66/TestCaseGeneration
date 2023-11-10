@@ -5,7 +5,7 @@ data/*.csv
 data/*.zip
 data/test.txt
 data/cookies.json
-data/output_direrctory/
+data/output_directory/
 
 *_test.py
 
