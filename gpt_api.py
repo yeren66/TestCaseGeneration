@@ -5,8 +5,7 @@ from dotenv import load_dotenv
 # 加载.env文件中的环境变量
 load_dotenv()
  
-# openai.api_key = os.getenv("OPENAI_API_KEY")
-openai.api_key = "ak-HnOJaaZJcu2Ws6AwBMxmvwCiDSYMc5zWA7rEveQvpriLXToC"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 openai.api_base = os.getenv("OPENAI_API_BASE")
 
 
