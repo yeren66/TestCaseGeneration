@@ -1,6 +1,6 @@
 import sys
 sys.path.append('.')
-from benchmark_solution_code.OrderManagement import OrderManagement
+from benchmark_solution_code.OrderManagement import Order
 import unittest
 
 

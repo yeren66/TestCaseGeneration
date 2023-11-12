@@ -2,6 +2,7 @@ import sys
 sys.path.append('.')
 from benchmark_solution_code.TextFileProcessor import TextFileProcessor
 import json
+
 import unittest
 import json
 from unittest.mock import MagicMock

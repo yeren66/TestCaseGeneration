@@ -2,6 +2,7 @@ import sys
 sys.path.append('.')
 from benchmark_solution_code.ImageProcessor import ImageProcessor
 from PIL import Image, ImageEnhance, ImageChops
+
 import unittest
 import os
 

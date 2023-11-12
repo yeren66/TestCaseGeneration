@@ -2,6 +2,7 @@ import sys
 sys.path.append('.')
 from benchmark_solution_code.DataStatistics2 import DataStatistics2
 import numpy as np
+
 import unittest
 
 

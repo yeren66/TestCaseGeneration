@@ -1,6 +1,8 @@
 import sys
 sys.path.append('.')
-from benchmark_solution_code.ClassroomManagement import ClassroomManagement
+from benchmark_solution_code.ClassroomManagement import Classroom
+from datetime import datetime
+
 import unittest
 from datetime import datetime
 

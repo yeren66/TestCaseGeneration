@@ -2,6 +2,7 @@ import sys
 sys.path.append('.')
 from benchmark_solution_code.DataStatistics import DataStatistics
 from collections import Counter
+
 import unittest
 
 

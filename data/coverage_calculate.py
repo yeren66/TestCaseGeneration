@@ -18,27 +18,29 @@ coverage_result = []
 excuting_result = []
 
 # 对每个测试用例进行覆盖率测试
-for file_name in tqdm(file_names):
-    with suppress_stdout_stderr(): # 此行用于屏蔽无关输出
-        cov.start()
-        # 人工测试用例
-        suite = unittest.defaultTestLoader.discover("./benchmark_test_code", file_name)
-        # 生成测试用例
-        # suite = unittest.defaultTestLoader.discover("./dataset", f"generate_test_code_{i}.py")
-        try:
-            unittest.TextTestRunner().run(suite)
-        except:
-            excuting_result.append(1)
-        else:
-            excuting_result.append(0)
-        # coverage_score = cov.report(morfs=f"source_code_{i}.py")
-        # result.append(coverage_score)
-        cov.stop()
-        cov.save()
-        # cov.report()
-        coverage_score = cov.html_report(morfs="./benchmark_solution_code/" + file_name, directory='./official_result_html')
-        coverage_result.append(coverage_score)
-        cov.erase()
+for file_name in file_names:
+    # with suppress_stdout_stderr(): # 此行用于屏蔽无关输出
+    cov.start()
+    # 人工测试用例
+    suite = unittest.defaultTestLoader.discover("./benchmark_test_code", file_name)
+    # 生成测试用例
+    # suite = unittest.defaultTestLoader.discover("./dataset", f"generate_test_code_{i}.py")
+    try:
+        unittest.TextTestRunner().run(suite)
+    except:
+        excuting_result.append(1)
+    else:
+        excuting_result.append(0)
+    # coverage_score = cov.report(morfs=f"source_code_{i}.py")
+    # result.append(coverage_score)
+    cov.stop()
+    cov.save()
+    # cov.report()
+    coverage_score = cov.html_report(morfs="./benchmark_solution_code/" + file_name, directory='./official_result_html')
+    print(coverage_score)
+    print()
+    coverage_result.append(coverage_score)
+    cov.erase()
 
 
 with open('coverage_result.txt', 'w') as f:

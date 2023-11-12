@@ -2,8 +2,11 @@ import sys
 sys.path.append('.')
 from benchmark_solution_code.ExpressionCalculator import ExpressionCalculator
 import re
+
 from collections import deque
+
 from decimal import Decimal
+
 import unittest
 
 

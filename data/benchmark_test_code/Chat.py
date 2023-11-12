@@ -2,6 +2,7 @@ import sys
 sys.path.append('.')
 from benchmark_solution_code.Chat import Chat
 from datetime import datetime
+
 import unittest
 
 class ChatTestAddUser(unittest.TestCase):

@@ -2,6 +2,7 @@ import sys
 sys.path.append('.')
 from benchmark_solution_code.KappaCalculator import KappaCalculator
 import numpy as np
+
 import unittest
 
 

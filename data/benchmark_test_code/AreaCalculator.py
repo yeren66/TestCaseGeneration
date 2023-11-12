@@ -2,6 +2,7 @@ import sys
 sys.path.append('.')
 from benchmark_solution_code.AreaCalculator import AreaCalculator
 import math
+
 import unittest
 
 class AreaCalculatorTestCalculateCircleArea(unittest.TestCase):

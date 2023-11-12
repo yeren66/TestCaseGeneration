@@ -1,6 +1,10 @@
 import sys
 sys.path.append('.')
-from benchmark_solution_code.JSONHandler import JSONHandler
+from benchmark_solution_code.JSONHandler import JSONProcessor
+import json
+
+import os
+
 import os
 import stat
 import json

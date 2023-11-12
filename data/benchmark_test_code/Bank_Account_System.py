@@ -1,6 +1,6 @@
 import sys
 sys.path.append('.')
-from benchmark_solution_code.Bank_Account_System import Bank_Account_System
+from benchmark_solution_code.Bank_Account_System import BankAccount
 import unittest
 
 class BankAccountTestDeposit(unittest.TestCase):

@@ -1,6 +1,10 @@
 import sys
 sys.path.append('.')
-from benchmark_solution_code.DatabaseOperation import DatabaseOperation
+from benchmark_solution_code.DatabaseOperation import DatabaseProcessor
+import sqlite3
+
+import pandas as pd
+
 import unittest
 import sqlite3
 

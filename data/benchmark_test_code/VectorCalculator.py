@@ -1,6 +1,12 @@
 import sys
 sys.path.append('.')
-from benchmark_solution_code.VectorCalculator import VectorCalculator
+from benchmark_solution_code.VectorCalculator import VectorUtil
+import numpy as np
+
+from gensim import matutils
+
+from numpy import dot, array
+
 import unittest
 
 

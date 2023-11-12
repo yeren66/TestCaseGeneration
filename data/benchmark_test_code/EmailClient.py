@@ -2,6 +2,7 @@ import sys
 sys.path.append('.')
 from benchmark_solution_code.EmailClient import EmailClient
 from datetime import datetime
+
 import unittest
 
 class EmailClientTestSendTo(unittest.TestCase):

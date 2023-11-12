@@ -1,6 +1,6 @@
-HtmlUtil.py	4.6875
+HtmlUtil.py	15.625
 ImageProcessor.py	100.0
-ExcelProcessor.py	2.5
+ExcelProcessor.py	100.0
 MetricsCalculator.py	100.0
 MovieBookingSystem.py	100.0
 ShoppingCart.py	100.0
@@ -25,7 +25,7 @@ DataStatistics4.py	100.0
 Server.py	100.0
 NLPDataProcessor2.py	100.0
 PageUtil.py	100.0
-JSONHandler.py	21.428571428571427
+JSONHandler.py	100.0
 EncryptionUtils.py	100.0
 NumericEntityUnescaper.py	100.0
 ComplexCalculator.py	100.0
@@ -39,24 +39,24 @@ StudentDatabaseProcessor.py	100.0
 BookManagement.py	100.0
 BoyerMooreSearch.py	100.0
 SplitSentence.py	100.0
-Lemmatization.py	2.9411764705882355
+Lemmatization.py	55.88235294117647
 TriCalculator.py	100.0
-IPUtil.py	34.78260869565217
+IPUtil.py	100.0
 AccessGatewayFilter.py	100.0
 SQLGenerator.py	100.0
 Warehouse.py	100.0
 WeatherSystem.py	100.0
 CurrencyConverter.py	100.0
 Chat.py	100.0
-DatabaseOperation.py	22.22222222222222
-Class_Registration_System.py	21.21212121212121
+DatabaseOperation.py	100.0
+Class_Registration_System.py	100.0
 VendingMachine.py	100.0
 EmailClient.py	100.0
 Manacher.py	100.0
 EightPuzzle.py	100.0
 Calculator.py	100.0
 HRManagementSystem.py	100.0
-OrderManagement.py	20.0
+OrderManagement.py	100.0
 NumberWordFormatter.py	100.0
 UserLoginDB.py	100.0
 JobMarketplace.py	100.0
@@ -73,12 +73,12 @@ NumberConverter.py	100.0
 SQLQueryBuilder.py	100.0
 ZipFileProcessor.py	100.0
 MetricsCalculator2.py	97.36842105263158
-VectorCalculator.py	5.714285714285714
-PDFHandler.py	4.761904761904762
+VectorCalculator.py	100.0
+PDFHandler.py	100.0
 BookManagementDB.py	100.0
 AssessmentSystem.py	100.0
-Bank_Account_System.py	30.0
-ClassroomManagement.py	24.137931034482758
+Bank_Account_System.py	100.0
+ClassroomManagement.py	100.0
 ExpressionCalculator.py	100.0
 TicTacToe.py	100.0
 BitStatusUtil.py	100.0
@@ -98,4 +98,4 @@ AreaCalculator.py	100.0
 NLPDataProcessor.py	100.0
 IPAddress.py	100.0
 CombinationCalculator.py	100.0
-覆盖率平均值为：88.7765965469218
+覆盖率平均值为：97.54778686093529

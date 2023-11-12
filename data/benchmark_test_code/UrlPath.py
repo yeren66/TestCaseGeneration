@@ -2,6 +2,7 @@ import sys
 sys.path.append('.')
 from benchmark_solution_code.UrlPath import UrlPath
 import urllib.parse
+
 import unittest
 
 

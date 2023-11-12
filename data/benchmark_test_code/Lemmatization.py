@@ -2,9 +2,13 @@ import sys
 sys.path.append('.')
 from benchmark_solution_code.Lemmatization import Lemmatization
 import nltk
+
 from nltk.stem import WordNetLemmatizer
+
 from nltk import pos_tag, word_tokenize
+
 import string
+
 import unittest
 
 

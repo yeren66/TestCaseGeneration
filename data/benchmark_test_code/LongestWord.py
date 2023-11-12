@@ -2,7 +2,9 @@ import sys
 sys.path.append('.')
 from benchmark_solution_code.LongestWord import LongestWord
 import re
+
 import string
+
 import unittest
 
 class LongestWordTestAddWord(unittest.TestCase):

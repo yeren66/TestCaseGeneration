@@ -2,6 +2,7 @@ import sys
 sys.path.append('.')
 from benchmark_solution_code.RegexUtils import RegexUtils
 import re
+
 import unittest
 
 

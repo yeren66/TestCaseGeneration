@@ -2,6 +2,7 @@ import sys
 sys.path.append('.')
 from benchmark_solution_code.MinesweeperGame import MinesweeperGame
 import random
+
 import unittest
 
 class MinesweeperGameTestGenerateMineSweeperMap(unittest.TestCase):

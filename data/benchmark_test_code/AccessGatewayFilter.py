@@ -2,7 +2,9 @@ import sys
 sys.path.append('.')
 from benchmark_solution_code.AccessGatewayFilter import AccessGatewayFilter
 import logging
+
 import datetime
+
 import unittest
 
 class AccessGatewayFilterTestFilter(unittest.TestCase):

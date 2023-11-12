@@ -2,6 +2,7 @@ import sys
 sys.path.append('.')
 from benchmark_solution_code.Thermostat import Thermostat
 import time
+
 import unittest
 
 class ThermostatTestGetTargetTemperature(unittest.TestCase):

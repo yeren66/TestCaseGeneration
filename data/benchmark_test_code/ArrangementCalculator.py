@@ -2,6 +2,7 @@ import sys
 sys.path.append('.')
 from benchmark_solution_code.ArrangementCalculator import ArrangementCalculator
 import itertools
+
 import unittest
 
 

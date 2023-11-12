@@ -1,6 +1,8 @@
 import sys
 sys.path.append('.')
-from benchmark_solution_code.IPUtil import IPUtil
+from benchmark_solution_code.IPUtil import IpUtil
+import socket
+
 import unittest
 
 

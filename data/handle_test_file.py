@@ -7,9 +7,11 @@ folder_path = 'benchmark_test_code'  # 这里假设 data 文件夹与你的脚�
 
 # 获取文件夹中的所有文件名
 file_names = [f for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f)) and f.endswith('.py')]
+file_names = sorted(file_names, key=str.casefold)
 
 
 # 处理每份文件，加入 import 语句使测试文件能够正确访问并运行被测代码
+index = 0
 for file_name in tqdm(file_names):
     if file_name == 'coverage_calculate.py' or file_name == 'handle_test_file.py':
         continue
@@ -20,13 +22,26 @@ for file_name in tqdm(file_names):
         content = file.read()
         class_name = file_name.split('.')[0]
         modified_content = "import sys\nsys.path.append('.')\n"
-        modified_content += "from benchmark_solution_code." + class_name + " import " + class_name + "\n"
-        # modified_content += "from " + class_name + " import " + class_name + "\n"
-        for data in json_data:
-            if data['class_name'] == class_name:
-                for statement in data['import_statement']:
-                    modified_content += statement + '\n'
-                break
+        if index == 21: # 特殊处理
+            modified_content += "from benchmark_solution_code." + class_name + " import " + json_data[index + 1]['class_name'] + "\n"
+            for statement in json_data[index + 1]['import_statement']:
+                modified_content += statement + '\n\n'
+        elif index == 22: # 特殊处理
+            modified_content += "from benchmark_solution_code." + class_name + " import " + json_data[index - 1]['class_name'] + "\n"
+            for statement in json_data[index - 1]['import_statement']:
+                modified_content += statement + '\n\n'
+        else:
+            modified_content += "from benchmark_solution_code." + class_name + " import " + json_data[index]['class_name'] + "\n"
+            # modified_content += "from " + class_name + " import " + class_name + "\n"
+            # for data in json_data:
+            #     if data['class_name'] == class_name:
+            #         for statement in data['import_statement']:
+            #             modified_content += statement + '\n'
+            #         break
+            for statement in json_data[index]['import_statement']:
+                modified_content += statement + '\n\n'
         modified_content += content
     with open(file_path, 'w') as file:
         file.write(modified_content)
+
+    index += 1
