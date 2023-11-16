@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: humaneval.TEST_CAN_ARRANGE
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in humaneval.TEST_CAN_ARRANGE

@@ -3,7 +3,7 @@ package humaneval;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ERROR_TEST_GET_ROW {
+public class TEST_GET_ROW {
     @org.junit.Test(timeout = 3000)
     public void test_0() throws java.lang.Exception {
         ArrayList<humaneval.correct.GET_ROW.Tuple> result = humaneval.correct.GET_ROW.get_row(

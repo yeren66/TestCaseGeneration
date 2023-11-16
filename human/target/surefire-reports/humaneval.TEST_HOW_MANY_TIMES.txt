@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: humaneval.TEST_HOW_MANY_TIMES
--------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in humaneval.TEST_HOW_MANY_TIMES

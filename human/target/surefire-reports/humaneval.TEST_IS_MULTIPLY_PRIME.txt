@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: humaneval.TEST_IS_MULTIPLY_PRIME
--------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.253 s - in humaneval.TEST_IS_MULTIPLY_PRIME
