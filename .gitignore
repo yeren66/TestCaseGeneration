@@ -1,6 +1,5 @@
 human/target/*
-!human/target/clover/
-!human/target/surefire-reports/
+!human/target/site/*
 
 *_test.py
 
