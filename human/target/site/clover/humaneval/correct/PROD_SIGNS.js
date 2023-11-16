@@ -1,0 +1,10 @@
+var clover = new Object();
+
+// JSON: {classes : [{name, id, sl, el,  methods : [{sl, el}, ...]}, ...]}
+clover.pageData = {"classes":[{"el":29,"id":4018,"methods":[{"el":28,"sc":5,"sl":16}],"name":"PROD_SIGNS","sl":15}]}
+
+// JSON: {test_ID : {"methods": [ID1, ID2, ID3...], "name" : "testXXX() void"}, ...};
+clover.testTargets = {"test_176":{"methods":[{"sl":16}],"name":"test_2","pass":true,"statements":[{"sl":17},{"sl":18},{"sl":19},{"sl":20},{"sl":21},{"sl":23},{"sl":24},{"sl":25},{"sl":27}]},"test_259":{"methods":[{"sl":16}],"name":"test_7","pass":true,"statements":[{"sl":17},{"sl":18},{"sl":19},{"sl":20},{"sl":21},{"sl":23},{"sl":24},{"sl":25},{"sl":27}]},"test_396":{"methods":[{"sl":16}],"name":"test_4","pass":true,"statements":[{"sl":17},{"sl":18},{"sl":19},{"sl":20},{"sl":21},{"sl":23},{"sl":24},{"sl":25},{"sl":27}]},"test_659":{"methods":[{"sl":16}],"name":"test_0","pass":true,"statements":[{"sl":17},{"sl":18},{"sl":19},{"sl":20},{"sl":21},{"sl":23},{"sl":24},{"sl":25},{"sl":27}]},"test_789":{"methods":[{"sl":16}],"name":"test_3","pass":true,"statements":[{"sl":17}]},"test_895":{"methods":[{"sl":16}],"name":"test_1","pass":true,"statements":[{"sl":17},{"sl":18},{"sl":19},{"sl":20},{"sl":21},{"sl":23},{"sl":24},{"sl":25},{"sl":27}]},"test_939":{"methods":[{"sl":16}],"name":"test_6","pass":true,"statements":[{"sl":17},{"sl":18},{"sl":19},{"sl":20},{"sl":21},{"sl":23},{"sl":24},{"sl":25},{"sl":27}]},"test_997":{"methods":[{"sl":16}],"name":"test_5","pass":true,"statements":[{"sl":17},{"sl":18},{"sl":19},{"sl":20},{"sl":21},{"sl":23},{"sl":24},{"sl":25},{"sl":27}]}}
+
+// JSON: { lines : [{tests : [testid1, testid2, testid3, ...]}, ...]};
+clover.srcFileLines = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [789, 997, 895, 396, 939, 176, 259, 659], [789, 997, 895, 396, 939, 176, 259, 659], [997, 895, 396, 939, 176, 259, 659], [997, 895, 396, 939, 176, 259, 659], [997, 895, 396, 939, 176, 259, 659], [997, 895, 396, 939, 176, 259, 659], [], [997, 895, 396, 939, 176, 259, 659], [997, 895, 396, 939, 176, 259, 659], [997, 895, 396, 939, 176, 259, 659], [], [997, 895, 396, 939, 176, 259, 659], [], []]

@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    
+    
+    <link rel="SHORTCUT ICON" href="img/clover.ico" />
+
+    <link rel="stylesheet" href="aui/css/aui.min.css" media="all"/>
+    <link rel="stylesheet" href="aui/css/aui-experimental.min.css" media="all"/>
+    <!--[if IE 9]><link rel="stylesheet" href="aui/css/aui-ie9.min.css" media="all"/><![endif]-->
+
+    <style type="text/css" media="all">
+        @import url('style.css');
+        @import url('tree.css');
+        
+    </style>
+
+    <script src="jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="aui/js/aui.min.js" type="text/javascript"></script>
+    <script src="aui/js/aui-experimental.min.js" type="text/javascript"></script>
+    <script src="aui/js/aui-soy.min.js" type="text/javascript"></script>
+
+    <script src="package-nodes-tree.js" type="text/javascript"></script>
+    <script src="clover-tree.js" type="text/javascript"></script>
+    <script src="clover.js" type="text/javascript"></script>
+    <script src="clover-descriptions.js" type="text/javascript"></script>
+    <script src="cloud.js" type="text/javascript"></script>
+
+            <title>humaneval-java 1.0</title>
+    </head>
+
+<body onresize="processTreeMapDashJson(treeMapJson);" >
+    <div id="page">
+        
+        
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation">
+        <div class="aui-header-inner">
+            <div class="aui-header-primary">
+                <h1 id="logo" class="aui-header-logo aui-header-logo-clover">
+                    <a href="http://openclover.org" title="Visit OpenClover home page"><span class="aui-header-logo-device">OpenClover</span></a>
+                </h1>
+                            </div>
+            <div class="aui-header-secondary">
+                <ul class="aui-nav">
+                    <li id="system-help-menu">
+                        <a class="aui-nav-link" title="Open online documentation" target="_blank"
+                           href="http://openclover.org/documentation">
+                            <span class="aui-icon aui-icon-small aui-iconfont-help">&#160;Help</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+        
+        <div class="aui-page-panel">
+            <div class="aui-page-panel-inner">
+                <div class="aui-page-panel-nav aui-page-panel-nav-clover">
+                    
+
+<div class="aui-page-header-inner" style="margin-bottom: 20px;">
+    <div class="aui-page-header-image">
+                    <a href="http://www.example.com" target="_top">
+                <div class="aui-avatar aui-avatar-large aui-avatar-project">
+            <div class="aui-avatar-inner">
+                                    <img src="img/clover_logo_large.png" alt="Clover icon"/>
+                            </div>
+        </div>
+                    </a>
+            </div>
+    <div class="aui-page-header-main" >
+        <h1>
+                            <a href="http://www.example.com" target="_top">
+                                        humaneval-java 1.0
+                                        </a>
+                    </h1>
+    </div>
+</div>
+
+<nav class="aui-navgroup aui-navgroup-vertical">
+    <div class="aui-navgroup-inner">
+                                            <ul class="aui-nav">
+                <li class="aui-nav-selected">
+                    <a href="dashboard.html">Project overview</a>
+                </li>
+            </ul>
+        
+                <div class="aui-nav-heading packages-nav-heading">
+            <strong>Packages</strong>
+        </div>
+        <div class="aui-nav project-packages">
+            <form method="get" action="#" class="aui package-filter-container">
+                <input type="text" autocomplete="off" class="package-filter text"
+                       placeholder="Type to filter packages..." name="package-filter" id="package-filter"
+                       title="Start typing package name (or part of the name) to search through the tree. Use arrow keys and the Enter key to navigate."/>
+            </form>
+            <p class="package-filter-no-results-message hidden">
+                <small>No results found.</small>
+            </p>
+                                                  <div class="packages-tree-wrapper" data-root-relative="" data-package-name="">
+                <div class="packages-tree-container"></div>
+                <div class="clover-packages-lozenges"></div>
+            </div>
+        </div>
+        
+            </div>
+</nav>                </div>
+                <section class="aui-page-panel-content">
+                    <div class="aui-page-panel-content-clover">
+
+                    
+                    <ol class="aui-nav aui-nav-breadcrumbs">
+            
+        <li><a href="dashboard.html">Project Clover database 星期四 十一月 16 2023 17:27:20 GMT+08:00</a></li>
+    </ol>
+    
+<h1 class="aui-h2-clover">
+            Project overview
+    </h1>
+<div class="aui-tabs horizontal-tabs">
+        <ul class="tabs-menu">
+            <li class="menu-item active-tab">
+            <a href="dashboard.html">Dashboard</a>
+        </li>
+                <li class="menu-item ">
+            <a href="pkg-summary.html"><strong>Application code</strong></a>
+        </li>
+                <li class="menu-item ">
+            <a href="testsrc-pkg-summary.html"><strong>Test code</strong></a>
+        </li>
+        <li class="menu-item ">
+            <a href="test-pkg-summary.html"><strong>Test results</strong></a>
+        </li>
+                <li class="menu-item ">
+            <a href="top-risks.html"><strong>Top risks</strong></a>
+        </li>
+        <li class="menu-item ">
+            <a href="quick-wins.html"><strong>Quick wins</strong></a>
+        </li>
+                                                <li class="menu-item ">
+                <a href="treemap.html"><strong>Coverage tree map</strong></a>
+            </li>
+            </ul>
+    <div class="tabs-pane active-pane" id="tabs-first">
+
+        <div>&#160;</div>
+
+
+
+
+
+
+<div class="aui-group">
+    <div class="aui-item">
+        <div class="dashboard-widget">
+            <header class="dashboard-widget-header">
+                
+                <h3>
+                    Code coverage
+                    <small style="float:right; font-weight: normal">
+                        330 classes,
+                        2,386 /
+                        4,778 elements
+                    </small>
+                </h3>
+            </header>
+            <div class="dashboard-widget-content">
+                <div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.49937212</span>49.9%</div><div style="display: table-cell">
+ <div title="49.9% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:49.9%"></div></div></div></div>
+                <p><a href="pkg-summary.html">See more</a></p>
+            </div>
+        </div>
+
+        <div class="dashboard-widget">
+            <header class="dashboard-widget-header">
+                <h3>
+                    Test results
+                    <small style="float:right; font-weight: normal">
+                        1,085 /
+                        1,085 tests
+                        5.22 secs
+                    </small>
+                </h3>
+            </header>
+            <div class="dashboard-widget-content">
+                                    
+
+<div style="display: table; width: 100%">
+            <div class="barGraphValue"><span class="sortValue">1.0</span>100%</div>         <div style="display: table-cell">
+            
+            <div title="0% Errors" style="min-width: 40px;" class="testBarError">
+                <div title="100% of tests passed&lt;br/&gt;0% of tests failed" class="testBarFail" style="width: 100%"><div class="testBarPass" style="width: 100%"></div></div>
+            </div>
+        </div>
+    </div>                                <p><a href="test-pkg-summary.html">See more</a></p>
+            </div>
+        </div>
+
+        <div class="dashboard-widget">
+            <header class="dashboard-widget-header">
+                <h3>Code metrics</h3>
+            </header>
+                         
+
+<div id="$statsId" class="aui-item" style="display: ${display}">
+<div style="display: table">
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of branches in this project">Branches:</label></div>
+        <div class="stats-box-value">1,602</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of statements in this project">Statements:</label></div>
+        <div class="stats-box-value">2,819</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of methods in this project">Methods:</label></div>
+        <div class="stats-box-value">357</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of classes in this project">Classes:</label></div>
+        <div class="stats-box-value">330</div>
+    </div>
+            <div class="stats-box">
+            <div class="stats-box-label"><label title="Total number of files in this project">Files:</label></div>
+            <div class="stats-box-value">326</div>
+        </div>
+                <div class="stats-box">
+            <div class="stats-box-label"><label title="Total number of packages in this project">Packages:</label></div>
+            <div class="stats-box-value">2</div>
+        </div>
+        <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of lines of code in this project">LOC:</label></div>
+        <div class="stats-box-value">8,802</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of non-comment lines of code in this project">NCLOC:</label></div>
+        <div class="stats-box-value">5,232</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Cyclomatic complexity is the number of paths in this project">Total complexity:</label></div>
+        <div class="stats-box-value">1,313</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label">
+            <label title="Complexity density is the complexity divided by the number of statements in this project">Complexity density:</label>
+        </div>
+        <div class="stats-box-value">0.47</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Number of statements per method.">Statements/Method:</label></div>
+        <div class="stats-box-value">7.9</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Number of methods per class.">Methods/Class:</label></div>
+        <div class="stats-box-value">1.08</div>
+    </div>
+            <div class="stats-box">
+            <div class="stats-box-label"><label title="Number of classes per package.">Classes/Package:</label></div>
+            <div class="stats-box-value">165</div>
+        </div>
+        <div class="stats-box">
+        <div class="stats-box-label"><label title="Complexity divided by the number of methods in this project">Average method complexity:</label></div>
+        <div class="stats-box-value">3.68</div>
+    </div>
+</div>
+
+</div>        </div>
+
+                <div class="dashboard-widget">
+            <header class="dashboard-widget-header">
+                <h3>Class Coverage Distribution</h3>
+            </header>
+            <div class="dashboard-widget-content">
+                <div style="text-align: center">                     <img src="img/classDistrubutionChart.png" alt="img/classDistrubutionChart.png" usemap="#classDistrubutionChart.png"/>
+                </div>
+                <map id="classDistrubutionChart.png" name="classDistrubutionChart.png">
+<area shape="rect" coords="282,30,304,204" title="154 classes have 91-100% coverage" alt="" nohref="nohref"/>
+<area shape="rect" coords="258,198,280,204" title="6 classes have 81-90% coverage" alt="" nohref="nohref"/>
+<area shape="rect" coords="233,202,255,204" title="2 classes have 71-80% coverage" alt="" nohref="nohref"/>
+<area shape="rect" coords="209,203,231,204" title="1 class has 61-70% coverage" alt="" nohref="nohref"/>
+<area shape="rect" coords="38,15,60,204" title="167 classes have 0% coverage" alt="" nohref="nohref"/>
+</map>
+            </div>
+        </div>
+        
+                <div class="dashboard-widget">
+            <header class="dashboard-widget-header">
+                <h3>Class Complexity</h3>
+            </header>
+            <div class="dashboard-widget-content">
+                <div style="text-align: center">
+                    <img src="img/classComplexityChart.png" alt="img/classComplexityChart.png" usemap="#classComplexityChart.png"/>
+                </div>
+                <map id="classComplexityChart.png" name="classComplexityChart.png">
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,136,302,138,299,136,302,133,304,136,304,136" title="Complexity: 6; Coverage: 100%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/correct/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="304,148,302,150,299,148,302,145,304,148,304,148" title="Complexity: 5; Coverage: 100%; Class: WILL_IT_FLY" alt="" href="humaneval/correct/WILL_IT_FLY.html#WILL_IT_FLY"/>
+<area shape="poly" coords="304,53,302,56,299,53,302,51,304,53,304,53" title="Complexity: 13; Coverage: 100%; Class: VOWELS_COUNT" alt="" href="humaneval/correct/VOWELS_COUNT.html#VOWELS_COUNT"/>
+<area shape="poly" coords="277,17,274,20,272,17,274,15,277,17,277,17" title="Complexity: 16; Coverage: 89%; Class: VALID_DATE" alt="" href="humaneval/correct/VALID_DATE.html#VALID_DATE"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="304,148,302,150,299,148,302,145,304,148,304,148" title="Complexity: 5; Coverage: 100%; Class: WILL_IT_FLY" alt="" href="humaneval/correct/WILL_IT_FLY.html#WILL_IT_FLY"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,136,302,138,299,136,302,133,304,136,304,136" title="Complexity: 6; Coverage: 100%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/correct/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="297,89,294,91,292,89,294,86,297,89,297,89" title="Complexity: 10; Coverage: 97%; Class: SORT_ARRAY_BINARY" alt="" href="humaneval/correct/SORT_ARRAY_BINARY.html#SORT_ARRAY_BINARY"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,148,302,150,299,148,302,145,304,148,304,148" title="Complexity: 5; Coverage: 100%; Class: WILL_IT_FLY" alt="" href="humaneval/correct/WILL_IT_FLY.html#WILL_IT_FLY"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,124,302,127,299,124,302,122,304,124,304,124" title="Complexity: 7; Coverage: 100%; Class: SKJKASDKD" alt="" href="humaneval/correct/SKJKASDKD.html#SKJKASDKD"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,124,302,127,299,124,302,122,304,124,304,124" title="Complexity: 7; Coverage: 100%; Class: SKJKASDKD" alt="" href="humaneval/correct/SKJKASDKD.html#SKJKASDKD"/>
+<area shape="poly" coords="304,136,302,138,299,136,302,133,304,136,304,136" title="Complexity: 6; Coverage: 100%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/correct/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="277,160,274,162,272,160,274,157,277,160,277,160" title="Complexity: 4; Coverage: 89%; Class: ROUNDED_AVG" alt="" href="humaneval/correct/ROUNDED_AVG.html#ROUNDED_AVG"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,148,302,150,299,148,302,145,304,148,304,148" title="Complexity: 5; Coverage: 100%; Class: WILL_IT_FLY" alt="" href="humaneval/correct/WILL_IT_FLY.html#WILL_IT_FLY"/>
+<area shape="poly" coords="304,136,302,138,299,136,302,133,304,136,304,136" title="Complexity: 6; Coverage: 100%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/correct/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,136,302,138,299,136,302,133,304,136,304,136" title="Complexity: 6; Coverage: 100%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/correct/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,124,302,127,299,124,302,122,304,124,304,124" title="Complexity: 7; Coverage: 100%; Class: SKJKASDKD" alt="" href="humaneval/correct/SKJKASDKD.html#SKJKASDKD"/>
+<area shape="poly" coords="304,148,302,150,299,148,302,145,304,148,304,148" title="Complexity: 5; Coverage: 100%; Class: WILL_IT_FLY" alt="" href="humaneval/correct/WILL_IT_FLY.html#WILL_IT_FLY"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,112,302,115,299,112,302,110,304,112,304,112" title="Complexity: 8; Coverage: 100%; Class: ORDER_BY_POINTS" alt="" href="humaneval/correct/ORDER_BY_POINTS.html#ORDER_BY_POINTS"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="277,41,274,44,272,41,274,39,277,41,277,41" title="Complexity: 14; Coverage: 89%; Class: NUMERICAL_LETTER_GRADE" alt="" href="humaneval/correct/NUMERICAL_LETTER_GRADE.html#NUMERICAL_LETTER_GRADE"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="304,112,302,115,299,112,302,110,304,112,304,112" title="Complexity: 8; Coverage: 100%; Class: ORDER_BY_POINTS" alt="" href="humaneval/correct/ORDER_BY_POINTS.html#ORDER_BY_POINTS"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,89,302,91,299,89,302,86,304,89,304,89" title="Complexity: 10; Coverage: 100%; Class: MIN_PATH" alt="" href="humaneval/correct/MIN_PATH.html#MIN_PATH"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,124,302,127,299,124,302,122,304,124,304,124" title="Complexity: 7; Coverage: 100%; Class: SKJKASDKD" alt="" href="humaneval/correct/SKJKASDKD.html#SKJKASDKD"/>
+<area shape="poly" coords="304,124,302,127,299,124,302,122,304,124,304,124" title="Complexity: 7; Coverage: 100%; Class: SKJKASDKD" alt="" href="humaneval/correct/SKJKASDKD.html#SKJKASDKD"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,136,302,138,299,136,302,133,304,136,304,136" title="Complexity: 6; Coverage: 100%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/correct/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="282,112,279,115,277,112,279,110,282,112,282,112" title="Complexity: 8; Coverage: 91%; Class: LARGEST_PRIME_FACTOR" alt="" href="humaneval/correct/LARGEST_PRIME_FACTOR.html#LARGEST_PRIME_FACTOR"/>
+<area shape="poly" coords="247,171,244,174,242,171,244,169,247,171,247,171" title="Complexity: 3; Coverage: 77%; Class: LARGEST_DIVISOR" alt="" href="humaneval/correct/LARGEST_DIVISOR.html#LARGEST_DIVISOR"/>
+<area shape="poly" coords="304,124,302,127,299,124,302,122,304,124,304,124" title="Complexity: 7; Coverage: 100%; Class: SKJKASDKD" alt="" href="humaneval/correct/SKJKASDKD.html#SKJKASDKD"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,148,302,150,299,148,302,145,304,148,304,148" title="Complexity: 5; Coverage: 100%; Class: WILL_IT_FLY" alt="" href="humaneval/correct/WILL_IT_FLY.html#WILL_IT_FLY"/>
+<area shape="poly" coords="304,77,302,79,299,77,302,74,304,77,304,77" title="Complexity: 11; Coverage: 100%; Class: IS_MULTIPLY_PRIME" alt="" href="humaneval/correct/IS_MULTIPLY_PRIME.html#IS_MULTIPLY_PRIME"/>
+<area shape="poly" coords="304,136,302,138,299,136,302,133,304,136,304,136" title="Complexity: 6; Coverage: 100%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/correct/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="217,100,214,103,212,100,214,98,217,100,217,100" title="Complexity: 9; Coverage: 65%; Class: INTERSECTION" alt="" href="humaneval/correct/INTERSECTION.html#INTERSECTION"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="287,124,284,127,282,124,284,122,287,124,287,124" title="Complexity: 7; Coverage: 93%; Class: HISTOGRAM" alt="" href="humaneval/correct/HISTOGRAM.html#HISTOGRAM"/>
+<area shape="poly" coords="304,124,302,127,299,124,302,122,304,124,304,124" title="Complexity: 7; Coverage: 100%; Class: SKJKASDKD" alt="" href="humaneval/correct/SKJKASDKD.html#SKJKASDKD"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,148,302,150,299,148,302,145,304,148,304,148" title="Complexity: 5; Coverage: 100%; Class: WILL_IT_FLY" alt="" href="humaneval/correct/WILL_IT_FLY.html#WILL_IT_FLY"/>
+<area shape="poly" coords="304,136,302,138,299,136,302,133,304,136,304,136" title="Complexity: 6; Coverage: 100%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/correct/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="304,136,302,138,299,136,302,133,304,136,304,136" title="Complexity: 6; Coverage: 100%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/correct/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,136,302,138,299,136,302,133,304,136,304,136" title="Complexity: 6; Coverage: 100%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/correct/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="292,100,289,103,287,100,289,98,292,100,292,100" title="Complexity: 9; Coverage: 95%; Class: FIX_SPACES" alt="" href="humaneval/correct/FIX_SPACES.html#FIX_SPACES"/>
+<area shape="poly" coords="304,136,302,138,299,136,302,133,304,136,304,136" title="Complexity: 6; Coverage: 100%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/correct/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,148,302,150,299,148,302,145,304,148,304,148" title="Complexity: 5; Coverage: 100%; Class: WILL_IT_FLY" alt="" href="humaneval/correct/WILL_IT_FLY.html#WILL_IT_FLY"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="287,53,284,56,282,53,284,51,287,53,287,53" title="Complexity: 13; Coverage: 93%; Class: FILE_NAME_CHECK" alt="" href="humaneval/correct/FILE_NAME_CHECK.html#FILE_NAME_CHECK"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="272,171,269,174,267,171,269,169,272,171,272,171" title="Complexity: 3; Coverage: 87%; Class: FIB4" alt="" href="humaneval/correct/FIB4.html#FIB4"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,148,302,150,299,148,302,145,304,148,304,148" title="Complexity: 5; Coverage: 100%; Class: WILL_IT_FLY" alt="" href="humaneval/correct/WILL_IT_FLY.html#WILL_IT_FLY"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,112,302,115,299,112,302,110,304,112,304,112" title="Complexity: 8; Coverage: 100%; Class: ORDER_BY_POINTS" alt="" href="humaneval/correct/ORDER_BY_POINTS.html#ORDER_BY_POINTS"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="254,171,252,174,249,171,252,169,254,171,254,171" title="Complexity: 3; Coverage: 80%; Class: ENCRYPT" alt="" href="humaneval/correct/ENCRYPT.html#ENCRYPT"/>
+<area shape="poly" coords="304,53,302,56,299,53,302,51,304,53,304,53" title="Complexity: 13; Coverage: 100%; Class: VOWELS_COUNT" alt="" href="humaneval/correct/VOWELS_COUNT.html#VOWELS_COUNT"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="304,148,302,150,299,148,302,145,304,148,304,148" title="Complexity: 5; Coverage: 100%; Class: WILL_IT_FLY" alt="" href="humaneval/correct/WILL_IT_FLY.html#WILL_IT_FLY"/>
+<area shape="poly" coords="304,124,302,127,299,124,302,122,304,124,304,124" title="Complexity: 7; Coverage: 100%; Class: SKJKASDKD" alt="" href="humaneval/correct/SKJKASDKD.html#SKJKASDKD"/>
+<area shape="poly" coords="304,136,302,138,299,136,302,133,304,136,304,136" title="Complexity: 6; Coverage: 100%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/correct/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="277,100,274,103,272,100,274,98,277,100,277,100" title="Complexity: 9; Coverage: 89%; Class: COMPARE_ONE" alt="" href="humaneval/correct/COMPARE_ONE.html#COMPARE_ONE"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="267,124,264,127,262,124,264,122,267,124,267,124" title="Complexity: 7; Coverage: 85%; Class: CLOSEST_INTEGER" alt="" href="humaneval/correct/CLOSEST_INTEGER.html#CLOSEST_INTEGER"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,160,302,162,299,160,302,157,304,160,304,160" title="Complexity: 4; Coverage: 100%; Class: X_OR_Y" alt="" href="humaneval/correct/X_OR_Y.html#X_OR_Y"/>
+<area shape="poly" coords="289,148,287,150,284,148,287,145,289,148,289,148" title="Complexity: 5; Coverage: 94%; Class: CHECK_IF_LAST_CHAR_IS_A_LETTER" alt="" href="humaneval/correct/CHECK_IF_LAST_CHAR_IS_A_LETTER.html#CHECK_IF_LAST_CHAR_IS_A_LETTER"/>
+<area shape="poly" coords="304,89,302,91,299,89,302,86,304,89,304,89" title="Complexity: 10; Coverage: 100%; Class: MIN_PATH" alt="" href="humaneval/correct/MIN_PATH.html#MIN_PATH"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,136,302,138,299,136,302,133,304,136,304,136" title="Complexity: 6; Coverage: 100%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/correct/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,124,302,127,299,124,302,122,304,124,304,124" title="Complexity: 7; Coverage: 100%; Class: SKJKASDKD" alt="" href="humaneval/correct/SKJKASDKD.html#SKJKASDKD"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="304,183,302,186,299,183,302,181,304,183,304,183" title="Complexity: 2; Coverage: 100%; Class: UNIQUE" alt="" href="humaneval/correct/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,171,302,174,299,171,302,169,304,171,304,171" title="Complexity: 3; Coverage: 100%; Class: STRING_XOR" alt="" href="humaneval/correct/STRING_XOR.html#STRING_XOR"/>
+<area shape="poly" coords="304,195,302,198,299,195,302,193,304,195,304,195" title="Complexity: 1; Coverage: 100%; Class: TRUNCATE_NUMBER" alt="" href="humaneval/correct/TRUNCATE_NUMBER.html#TRUNCATE_NUMBER"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,148,52,150,49,148,52,145,54,148,54,148" title="Complexity: 5; Coverage: 0%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/buggy/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="54,148,52,150,49,148,52,145,54,148,54,148" title="Complexity: 5; Coverage: 0%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/buggy/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="54,65,52,67,49,65,52,62,54,65,54,65" title="Complexity: 12; Coverage: 0%; Class: VOWELS_COUNT" alt="" href="humaneval/buggy/VOWELS_COUNT.html#VOWELS_COUNT"/>
+<area shape="poly" coords="54,17,52,20,49,17,52,15,54,17,54,17" title="Complexity: 16; Coverage: 0%; Class: VALID_DATE" alt="" href="humaneval/buggy/VALID_DATE.html#VALID_DATE"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,148,52,150,49,148,52,145,54,148,54,148" title="Complexity: 5; Coverage: 0%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/buggy/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,136,52,138,49,136,52,133,54,136,54,136" title="Complexity: 6; Coverage: 0%; Class: SPLIT_WORDS" alt="" href="humaneval/buggy/SPLIT_WORDS.html#SPLIT_WORDS"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,89,52,91,49,89,52,86,54,89,54,89" title="Complexity: 10; Coverage: 0%; Class: SORT_ARRAY_BINARY" alt="" href="humaneval/buggy/SORT_ARRAY_BINARY.html#SORT_ARRAY_BINARY"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,124,52,127,49,124,52,122,54,124,54,124" title="Complexity: 7; Coverage: 0%; Class: SKJKASDKD" alt="" href="humaneval/buggy/SKJKASDKD.html#SKJKASDKD"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,124,52,127,49,124,52,122,54,124,54,124" title="Complexity: 7; Coverage: 0%; Class: SKJKASDKD" alt="" href="humaneval/buggy/SKJKASDKD.html#SKJKASDKD"/>
+<area shape="poly" coords="54,148,52,150,49,148,52,145,54,148,54,148" title="Complexity: 5; Coverage: 0%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/buggy/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,148,52,150,49,148,52,145,54,148,54,148" title="Complexity: 5; Coverage: 0%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/buggy/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="54,136,52,138,49,136,52,133,54,136,54,136" title="Complexity: 6; Coverage: 0%; Class: SPLIT_WORDS" alt="" href="humaneval/buggy/SPLIT_WORDS.html#SPLIT_WORDS"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,136,52,138,49,136,52,133,54,136,54,136" title="Complexity: 6; Coverage: 0%; Class: SPLIT_WORDS" alt="" href="humaneval/buggy/SPLIT_WORDS.html#SPLIT_WORDS"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,124,52,127,49,124,52,122,54,124,54,124" title="Complexity: 7; Coverage: 0%; Class: SKJKASDKD" alt="" href="humaneval/buggy/SKJKASDKD.html#SKJKASDKD"/>
+<area shape="poly" coords="54,148,52,150,49,148,52,145,54,148,54,148" title="Complexity: 5; Coverage: 0%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/buggy/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,136,52,138,49,136,52,133,54,136,54,136" title="Complexity: 6; Coverage: 0%; Class: SPLIT_WORDS" alt="" href="humaneval/buggy/SPLIT_WORDS.html#SPLIT_WORDS"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,41,52,44,49,41,52,39,54,41,54,41" title="Complexity: 14; Coverage: 0%; Class: NUMERICAL_LETTER_GRADE" alt="" href="humaneval/buggy/NUMERICAL_LETTER_GRADE.html#NUMERICAL_LETTER_GRADE"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,112,52,115,49,112,52,110,54,112,54,112" title="Complexity: 8; Coverage: 0%; Class: MOVE_ONE_BALL" alt="" href="humaneval/buggy/MOVE_ONE_BALL.html#MOVE_ONE_BALL"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,89,52,91,49,89,52,86,54,89,54,89" title="Complexity: 10; Coverage: 0%; Class: SORT_ARRAY_BINARY" alt="" href="humaneval/buggy/SORT_ARRAY_BINARY.html#SORT_ARRAY_BINARY"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,124,52,127,49,124,52,122,54,124,54,124" title="Complexity: 7; Coverage: 0%; Class: SKJKASDKD" alt="" href="humaneval/buggy/SKJKASDKD.html#SKJKASDKD"/>
+<area shape="poly" coords="54,136,52,138,49,136,52,133,54,136,54,136" title="Complexity: 6; Coverage: 0%; Class: SPLIT_WORDS" alt="" href="humaneval/buggy/SPLIT_WORDS.html#SPLIT_WORDS"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,136,52,138,49,136,52,133,54,136,54,136" title="Complexity: 6; Coverage: 0%; Class: SPLIT_WORDS" alt="" href="humaneval/buggy/SPLIT_WORDS.html#SPLIT_WORDS"/>
+<area shape="poly" coords="54,124,52,127,49,124,52,122,54,124,54,124" title="Complexity: 7; Coverage: 0%; Class: SKJKASDKD" alt="" href="humaneval/buggy/SKJKASDKD.html#SKJKASDKD"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,124,52,127,49,124,52,122,54,124,54,124" title="Complexity: 7; Coverage: 0%; Class: SKJKASDKD" alt="" href="humaneval/buggy/SKJKASDKD.html#SKJKASDKD"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,148,52,150,49,148,52,145,54,148,54,148" title="Complexity: 5; Coverage: 0%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/buggy/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="54,89,52,91,49,89,52,86,54,89,54,89" title="Complexity: 10; Coverage: 0%; Class: SORT_ARRAY_BINARY" alt="" href="humaneval/buggy/SORT_ARRAY_BINARY.html#SORT_ARRAY_BINARY"/>
+<area shape="poly" coords="54,148,52,150,49,148,52,145,54,148,54,148" title="Complexity: 5; Coverage: 0%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/buggy/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,100,52,103,49,100,52,98,54,100,54,100" title="Complexity: 9; Coverage: 0%; Class: INTERSECTION" alt="" href="humaneval/buggy/INTERSECTION.html#INTERSECTION"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,124,52,127,49,124,52,122,54,124,54,124" title="Complexity: 7; Coverage: 0%; Class: SKJKASDKD" alt="" href="humaneval/buggy/SKJKASDKD.html#SKJKASDKD"/>
+<area shape="poly" coords="54,148,52,150,49,148,52,145,54,148,54,148" title="Complexity: 5; Coverage: 0%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/buggy/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,148,52,150,49,148,52,145,54,148,54,148" title="Complexity: 5; Coverage: 0%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/buggy/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="54,136,52,138,49,136,52,133,54,136,54,136" title="Complexity: 6; Coverage: 0%; Class: SPLIT_WORDS" alt="" href="humaneval/buggy/SPLIT_WORDS.html#SPLIT_WORDS"/>
+<area shape="poly" coords="54,136,52,138,49,136,52,133,54,136,54,136" title="Complexity: 6; Coverage: 0%; Class: SPLIT_WORDS" alt="" href="humaneval/buggy/SPLIT_WORDS.html#SPLIT_WORDS"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,136,52,138,49,136,52,133,54,136,54,136" title="Complexity: 6; Coverage: 0%; Class: SPLIT_WORDS" alt="" href="humaneval/buggy/SPLIT_WORDS.html#SPLIT_WORDS"/>
+<area shape="poly" coords="54,136,52,138,49,136,52,133,54,136,54,136" title="Complexity: 6; Coverage: 0%; Class: SPLIT_WORDS" alt="" href="humaneval/buggy/SPLIT_WORDS.html#SPLIT_WORDS"/>
+<area shape="poly" coords="54,136,52,138,49,136,52,133,54,136,54,136" title="Complexity: 6; Coverage: 0%; Class: SPLIT_WORDS" alt="" href="humaneval/buggy/SPLIT_WORDS.html#SPLIT_WORDS"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,148,52,150,49,148,52,145,54,148,54,148" title="Complexity: 5; Coverage: 0%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/buggy/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,53,52,56,49,53,52,51,54,53,54,53" title="Complexity: 13; Coverage: 0%; Class: FILE_NAME_CHECK" alt="" href="humaneval/buggy/FILE_NAME_CHECK.html#FILE_NAME_CHECK"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,148,52,150,49,148,52,145,54,148,54,148" title="Complexity: 5; Coverage: 0%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/buggy/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,112,52,115,49,112,52,110,54,112,54,112" title="Complexity: 8; Coverage: 0%; Class: MOVE_ONE_BALL" alt="" href="humaneval/buggy/MOVE_ONE_BALL.html#MOVE_ONE_BALL"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,53,52,56,49,53,52,51,54,53,54,53" title="Complexity: 13; Coverage: 0%; Class: FILE_NAME_CHECK" alt="" href="humaneval/buggy/FILE_NAME_CHECK.html#FILE_NAME_CHECK"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,148,52,150,49,148,52,145,54,148,54,148" title="Complexity: 5; Coverage: 0%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/buggy/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="54,124,52,127,49,124,52,122,54,124,54,124" title="Complexity: 7; Coverage: 0%; Class: SKJKASDKD" alt="" href="humaneval/buggy/SKJKASDKD.html#SKJKASDKD"/>
+<area shape="poly" coords="54,136,52,138,49,136,52,133,54,136,54,136" title="Complexity: 6; Coverage: 0%; Class: SPLIT_WORDS" alt="" href="humaneval/buggy/SPLIT_WORDS.html#SPLIT_WORDS"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,100,52,103,49,100,52,98,54,100,54,100" title="Complexity: 9; Coverage: 0%; Class: INTERSECTION" alt="" href="humaneval/buggy/INTERSECTION.html#INTERSECTION"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,136,52,138,49,136,52,133,54,136,54,136" title="Complexity: 6; Coverage: 0%; Class: SPLIT_WORDS" alt="" href="humaneval/buggy/SPLIT_WORDS.html#SPLIT_WORDS"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,112,52,115,49,112,52,110,54,112,54,112" title="Complexity: 8; Coverage: 0%; Class: MOVE_ONE_BALL" alt="" href="humaneval/buggy/MOVE_ONE_BALL.html#MOVE_ONE_BALL"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,160,52,162,49,160,52,157,54,160,54,160" title="Complexity: 4; Coverage: 0%; Class: GET_ROW" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,148,52,150,49,148,52,145,54,148,54,148" title="Complexity: 5; Coverage: 0%; Class: WORDS_IN_SENTENCE" alt="" href="humaneval/buggy/WORDS_IN_SENTENCE.html#WORDS_IN_SENTENCE"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+<area shape="poly" coords="54,183,52,186,49,183,52,181,54,183,54,183" title="Complexity: 2; Coverage: 0%; Class: WORDS_STRINGS" alt="" href="humaneval/buggy/WORDS_STRINGS.html#WORDS_STRINGS"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,171,52,174,49,171,52,169,54,171,54,171" title="Complexity: 3; Coverage: 0%; Class: GET_ROW.Tuple" alt="" href="humaneval/correct/GET_ROW.html#GET_ROW.Tuple"/>
+<area shape="poly" coords="54,195,52,198,49,195,52,193,54,195,54,195" title="Complexity: 1; Coverage: 0%; Class: UNIQUE" alt="" href="humaneval/buggy/UNIQUE.html#UNIQUE"/>
+</map>
+            </div>
+        </div>
+        
+                    <div class="dashboard-widget">
+                <header class="dashboard-widget-header">
+                    <h3>Coverage tree map</h3>
+                </header>
+                <div class="dashboard-widget-content">
+                    <div id="infovis" style="width:100%; height:250px;">
+                        <div id="treemap-loader" style="position:relative;top:50px;">
+                            <p>
+                                Generating Coverage Tree Map. Please wait...
+                            </p>
+                            <p>
+                                <img src="img/ajax-loader.gif" alt="Loading Treemap"/>
+                            </p>
+                        </div>
+                    </div>
+                    <p><a href="treemap.html">See more</a></p>
+                </div>
+
+            </div>
+            </div>
+
+
+    <div class="aui-item">
+        <div class="dashboard-widget">
+            <header class="dashboard-widget-header">
+                <h3>Top 20 project risks</h3>
+            </header>
+            <div class="dashboard-widget-content">
+                
+                                                                <a class="tag" href="humaneval/correct/VALID_DATE.html"
+                            style="font-size: 28px;color:#14892c"
+                            title="Average Method Complexity - 16 , Coverage - 89.2% ">VALID_DATE</a>
+                                    
+                                                                <a class="tag" href="humaneval/correct/FILE_NAME_CHECK.html"
+                            style="font-size: 25px;color:#89c495"
+                            title="Average Method Complexity - 13 , Coverage - 93.1% ">FILE_NAME_CHECK</a>
+                                    
+                                                                <a class="tag" href="humaneval/correct/NUMERICAL_LETTER_GRADE.html"
+                            style="font-size: 26px;color:#14892c"
+                            title="Average Method Complexity - 14 , Coverage - 89.3% ">NUMERICAL_LETTER_GRADE</a>
+                                    
+                                                                <a class="tag" href="humaneval/correct/FIX_SPACES.html"
+                            style="font-size: 21px;color:#89c495"
+                            title="Average Method Complexity - 9 , Coverage - 95% ">FIX_SPACES</a>
+                                    
+                                                                <a class="tag" href="humaneval/buggy/VALID_DATE.html"
+                            style="font-size: 28px;color:#d04437"
+                            title="Average Method Complexity - 16 , Coverage - 0% ">VALID_DATE</a>
+                                    
+                                                                <a class="tag" href="humaneval/correct/HISTOGRAM.html"
+                            style="font-size: 19px;color:#89c495"
+                            title="Average Method Complexity - 7 , Coverage - 93.8% ">HISTOGRAM</a>
+                                    
+                                                                <a class="tag" href="humaneval/correct/COMPARE_ONE.html"
+                            style="font-size: 21px;color:#14892c"
+                            title="Average Method Complexity - 9 , Coverage - 89.7% ">COMPARE_ONE</a>
+                                    
+                                                                <a class="tag" href="humaneval/buggy/NUMERICAL_LETTER_GRADE.html"
+                            style="font-size: 26px;color:#d04437"
+                            title="Average Method Complexity - 14 , Coverage - 0% ">NUMERICAL_LETTER_GRADE</a>
+                                    
+                                                                <a class="tag" href="humaneval/buggy/FILE_NAME_CHECK.html"
+                            style="font-size: 25px;color:#d04437"
+                            title="Average Method Complexity - 13 , Coverage - 0% ">FILE_NAME_CHECK</a>
+                                    
+                                                                <a class="tag" href="humaneval/buggy/ENCODE.html"
+                            style="font-size: 25px;color:#d04437"
+                            title="Average Method Complexity - 13 , Coverage - 0% ">ENCODE</a>
+                                    
+                                                                <a class="tag" href="humaneval/correct/CLOSEST_INTEGER.html"
+                            style="font-size: 19px;color:#14892c"
+                            title="Average Method Complexity - 7 , Coverage - 85.7% ">CLOSEST_INTEGER</a>
+                                    
+                                                                <a class="tag" href="humaneval/buggy/VOWELS_COUNT.html"
+                            style="font-size: 24px;color:#d04437"
+                            title="Average Method Complexity - 12 , Coverage - 0% ">VOWELS_COUNT</a>
+                                    
+                                                                <a class="tag" href="humaneval/buggy/MIN_PATH.html"
+                            style="font-size: 22px;color:#d04437"
+                            title="Average Method Complexity - 10 , Coverage - 0% ">MIN_PATH</a>
+                                    
+                                                                <a class="tag" href="humaneval/buggy/COMPARE_ONE.html"
+                            style="font-size: 21px;color:#d04437"
+                            title="Average Method Complexity - 9 , Coverage - 0% ">COMPARE_ONE</a>
+                                    
+                                                                <a class="tag" href="humaneval/correct/CHECK_IF_LAST_CHAR_IS_A_LETTER.html"
+                            style="font-size: 17px;color:#89c495"
+                            title="Average Method Complexity - 5 , Coverage - 94.1% ">CHECK_IF_LAST_CHAR_IS_A_LETTER</a>
+                                    
+                                                                <a class="tag" href="humaneval/buggy/MOVE_ONE_BALL.html"
+                            style="font-size: 20px;color:#d04437"
+                            title="Average Method Complexity - 8 , Coverage - 0% ">MOVE_ONE_BALL</a>
+                                    
+                                                                <a class="tag" href="humaneval/buggy/CHECK_DICT_CASE.html"
+                            style="font-size: 20px;color:#d04437"
+                            title="Average Method Complexity - 8 , Coverage - 0% ">CHECK_DICT_CASE</a>
+                                    
+                                                                <a class="tag" href="humaneval/buggy/HISTOGRAM.html"
+                            style="font-size: 19px;color:#d04437"
+                            title="Average Method Complexity - 7 , Coverage - 0% ">HISTOGRAM</a>
+                                    
+                                                                <a class="tag" href="humaneval/buggy/SELECT_WORDS.html"
+                            style="font-size: 19px;color:#d04437"
+                            title="Average Method Complexity - 7 , Coverage - 0% ">SELECT_WORDS</a>
+                                    
+                                                                <a class="tag" href="humaneval/buggy/IS_SORTED.html"
+                            style="font-size: 19px;color:#d04437"
+                            title="Average Method Complexity - 7 , Coverage - 0% ">IS_SORTED</a>
+                                                    <p><a href="top-risks.html">See more</a></p>
+            </div>
+        </div>
+
+        <div class="dashboard-widget">
+            <header class="dashboard-widget-header">
+                <h3>Most complex packages</h3>
+            </header>
+            <div class="dashboard-widget-content">
+                
+                <table class="aui">
+                                            
+                                                <tr>
+                            <td>1. </td>
+                            <td><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.9730832</span>97.3%</div><div style="display: table-cell">
+ <div title="97.3% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:97.3%"></div></div></div></div></td>
+                            <td>
+                                <a href="humaneval/correct/pkg-summary.html">humaneval.correct</a>
+                                <span class="aui-badge" title="Package complexity">679</span>
+                            </td>
+                        </tr>
+                                            
+                                                <tr>
+                            <td>2. </td>
+                            <td><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                            <td>
+                                <a href="humaneval/buggy/pkg-summary.html">humaneval.buggy</a>
+                                <span class="aui-badge" title="Package complexity">634</span>
+                            </td>
+                        </tr>
+                                    </table>
+            </div>
+        </div>
+
+        <div class="dashboard-widget">
+            <header class="dashboard-widget-header">
+                <h3>Most complex classes</h3>
+            </header>
+            <div class="dashboard-widget-content">
+                <table class="aui">
+                                            
+                                                <tr>
+                            <td>1. </td>
+                            <td><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.8918919</span>89.2%</div><div style="display: table-cell">
+ <div title="89.2% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:89.2%"></div></div></div></div></td>
+                            <td>
+                                <a  href="humaneval/correct/VALID_DATE.html"  title="humaneval.correct.VALID_DATE">VALID_DATE</a>
+                                <span class="aui-badge" title="Class complexity">16</span>
+                            </td>
+                        </tr>
+                                            
+                                                <tr>
+                            <td>2. </td>
+                            <td><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                            <td>
+                                <a  href="humaneval/buggy/VALID_DATE.html"  title="humaneval.buggy.VALID_DATE">VALID_DATE</a>
+                                <span class="aui-badge" title="Class complexity">16</span>
+                            </td>
+                        </tr>
+                                            
+                                                <tr>
+                            <td>3. </td>
+                            <td><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.89285713</span>89.3%</div><div style="display: table-cell">
+ <div title="89.3% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:89.3%"></div></div></div></div></td>
+                            <td>
+                                <a  href="humaneval/correct/NUMERICAL_LETTER_GRADE.html"  title="humaneval.correct.NUMERICAL_LETTER_GRADE">NUMERICAL_LETTER_GRADE</a>
+                                <span class="aui-badge" title="Class complexity">14</span>
+                            </td>
+                        </tr>
+                                            
+                                                <tr>
+                            <td>4. </td>
+                            <td><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                            <td>
+                                <a  href="humaneval/buggy/NUMERICAL_LETTER_GRADE.html"  title="humaneval.buggy.NUMERICAL_LETTER_GRADE">NUMERICAL_LETTER_GRADE</a>
+                                <span class="aui-badge" title="Class complexity">14</span>
+                            </td>
+                        </tr>
+                                            
+                                                <tr>
+                            <td>5. </td>
+                            <td><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">1.0</span>100%</div><div style="display: table-cell">
+ <div title="100% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:100%"></div></div></div></div></td>
+                            <td>
+                                <a  href="humaneval/correct/VOWELS_COUNT.html"  title="humaneval.correct.VOWELS_COUNT">VOWELS_COUNT</a>
+                                <span class="aui-badge" title="Class complexity">13</span>
+                            </td>
+                        </tr>
+                                    </table>
+            </div>
+        </div>
+
+                <div class="dashboard-widget">
+            <header class="dashboard-widget-header">
+                <h3>Least tested methods</h3>
+            </header>
+            <div class="dashboard-widget-content">
+                <table class="aui">
+                                            
+
+                    <tr>
+                        <td align="right">1.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="NUMERICAL_LETTER_GRADE.numerical_letter_grade(double[])&#160;:&#160;String[]" href="humaneval/buggy/NUMERICAL_LETTER_GRADE.html?line=26#src-26">NUMERICAL_LETTER_GRADE.numerical_letter_grade(double[])&#160;:&#160;String[]</a>
+                            <span class="aui-badge" title="Method complexity">14</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">2.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="COMPARE_ONE.compare_one(Object,Object)&#160;:&#160;Object" href="humaneval/buggy/COMPARE_ONE.html?line=17#src-17">COMPARE_ONE.compare_one(Object,Object)&#160;:&#160;Object</a>
+                            <span class="aui-badge" title="Method complexity">9</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">3.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="MIN_PATH.min_path(int[][],int)&#160;:&#160;int[]" href="humaneval/buggy/MIN_PATH.html?line=35#src-35">MIN_PATH.min_path(int[][],int)&#160;:&#160;int[]</a>
+                            <span class="aui-badge" title="Method complexity">10</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">4.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="VALID_DATE.valid_date(String)&#160;:&#160;boolean" href="humaneval/buggy/VALID_DATE.html?line=25#src-25">VALID_DATE.valid_date(String)&#160;:&#160;boolean</a>
+                            <span class="aui-badge" title="Method complexity">16</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">5.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="MOVE_ONE_BALL.move_one_ball(ArrayList&lt;Integer&gt;)&#160;:&#160;boolean" href="humaneval/buggy/MOVE_ONE_BALL.html?line=7#src-7">MOVE_ONE_BALL.move_one_ball(ArrayList&lt;Integer&gt;)&#160;:&#160;boolean</a>
+                            <span class="aui-badge" title="Method complexity">8</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">6.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="CHECK_DICT_CASE.check_dict_case(HashMap&lt;Object,&#160;Object&gt;)&#160;:&#160;boolean" href="humaneval/buggy/CHECK_DICT_CASE.html?line=16#src-16">CHECK_DICT_CASE.check_dict_case(HashMap&lt;Object,&#160;Object&gt;)&#160;:&#160;boolean</a>
+                            <span class="aui-badge" title="Method complexity">8</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">7.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="HISTOGRAM.histogram(String)&#160;:&#160;HashMap&lt;Character,&#160;Integer&gt;" href="humaneval/buggy/HISTOGRAM.html?line=19#src-19">HISTOGRAM.histogram(String)&#160;:&#160;HashMap&lt;Character,&#160;Integer&gt;</a>
+                            <span class="aui-badge" title="Method complexity">7</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">8.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="ORDER_BY_POINTS.order_by_points(Integer[])&#160;:&#160;Integer[]" href="humaneval/buggy/ORDER_BY_POINTS.html?line=17#src-17">ORDER_BY_POINTS.order_by_points(Integer[])&#160;:&#160;Integer[]</a>
+                            <span class="aui-badge" title="Method complexity">6</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">9.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="FILE_NAME_CHECK.file_name_check(String)&#160;:&#160;String" href="humaneval/buggy/FILE_NAME_CHECK.html?line=17#src-17">FILE_NAME_CHECK.file_name_check(String)&#160;:&#160;String</a>
+                            <span class="aui-badge" title="Method complexity">13</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">10.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="SELECT_WORDS.select_words(String,int)&#160;:&#160;ArrayList&lt;String&gt;" href="humaneval/buggy/SELECT_WORDS.html?line=20#src-20">SELECT_WORDS.select_words(String,int)&#160;:&#160;ArrayList&lt;String&gt;</a>
+                            <span class="aui-badge" title="Method complexity">7</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">11.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="FIX_SPACES.fix_spaces(String)&#160;:&#160;String" href="humaneval/buggy/FIX_SPACES.html?line=13#src-13">FIX_SPACES.fix_spaces(String)&#160;:&#160;String</a>
+                            <span class="aui-badge" title="Method complexity">6</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">12.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="LARGEST_SMALLEST_INTEGERS.largest_smallest_integers(int[])&#160;:&#160;int[]" href="humaneval/buggy/LARGEST_SMALLEST_INTEGERS.html?line=16#src-16">LARGEST_SMALLEST_INTEGERS.largest_smallest_integers(int[])&#160;:&#160;int[]</a>
+                            <span class="aui-badge" title="Method complexity">6</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">13.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="IS_SORTED.is_sorted(int[])&#160;:&#160;boolean" href="humaneval/buggy/IS_SORTED.html?line=22#src-22">IS_SORTED.is_sorted(int[])&#160;:&#160;boolean</a>
+                            <span class="aui-badge" title="Method complexity">7</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">14.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="IS_MULTIPLY_PRIME.is_multiply_prime(int)&#160;:&#160;boolean" href="humaneval/buggy/IS_MULTIPLY_PRIME.html?line=19#src-19">IS_MULTIPLY_PRIME.is_multiply_prime(int)&#160;:&#160;boolean</a>
+                            <span class="aui-badge" title="Method complexity">7</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">15.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="COUNT_NUMS.count_nums(ArrayList&lt;Integer&gt;)&#160;:&#160;int" href="humaneval/buggy/COUNT_NUMS.html?line=6#src-6">COUNT_NUMS.count_nums(ArrayList&lt;Integer&gt;)&#160;:&#160;int</a>
+                            <span class="aui-badge" title="Method complexity">6</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">16.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="PROD_SIGNS.prod_signs(int[])&#160;:&#160;int" href="humaneval/buggy/PROD_SIGNS.html?line=16#src-16">PROD_SIGNS.prod_signs(int[])&#160;:&#160;int</a>
+                            <span class="aui-badge" title="Method complexity">6</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">17.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="SORT_ARRAY_BINARY.compare(Integer,Integer)&#160;:&#160;int" href="humaneval/buggy/SORT_ARRAY_BINARY.html?line=31#src-31">SORT_ARRAY_BINARY.compare(Integer,Integer)&#160;:&#160;int</a>
+                            <span class="aui-badge" title="Method complexity">6</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">18.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="FIND_CLOSEST_ELEMENTS.find_closest_elements(double[])&#160;:&#160;double[]" href="humaneval/buggy/FIND_CLOSEST_ELEMENTS.html?line=4#src-4">FIND_CLOSEST_ELEMENTS.find_closest_elements(double[])&#160;:&#160;double[]</a>
+                            <span class="aui-badge" title="Method complexity">5</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">19.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="CLOSEST_INTEGER.closest_integer(String)&#160;:&#160;int" href="humaneval/buggy/CLOSEST_INTEGER.html?line=20#src-20">CLOSEST_INTEGER.closest_integer(String)&#160;:&#160;int</a>
+                            <span class="aui-badge" title="Method complexity">6</span>
+
+                        </td>
+                    </tr>
+                                            
+
+                    <tr>
+                        <td align="right">20.</td>
+                        <td align="right"><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:40px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+                        <td>
+                              <!-- normal method -->
+                                                      <a title="GET_MAX_TRIPLES.get_max_triples(int)&#160;:&#160;int" href="humaneval/buggy/GET_MAX_TRIPLES.html?line=16#src-16">GET_MAX_TRIPLES.get_max_triples(int)&#160;:&#160;int</a>
+                            <span class="aui-badge" title="Method complexity">6</span>
+
+                        </td>
+                    </tr>
+                                    </table>
+            </div>
+        </div>
+        
+    </div>
+</div>
+                            </div> <!-- tabs-pane active-pane -->
+                        </div>
+
+    <script type="text/javascript" src="jit.js" ></script>
+    <script type="text/javascript" src="treemap-dash-json.js" ></script>
+
+                        </div> <!-- class="aui-page-panel-content-clover" -->
+                    <footer id="footer" role="contentinfo">
+    <section class="footer-body">
+        <ul>
+            <li>
+                Report generated by <a target="_new" href="http://openclover.org">OpenClover</a> v 4.4.1
+                on 星期四 十一月 16 2023 17:27:40 GMT+08:00 using coverage data from 星期四 十一月 16 2023 17:27:37 GMT+08:00.
+            </li>
+        </ul>
+        <ul>
+            <li>OpenClover is free and open-source software. </li>
+        </ul>
+    </section>
+</footer>                </section> <!-- class="aui-page-panel-content" -->
+            </div> <!-- class="aui-page-panel-inner" -->
+        </div> <!-- class="aui-page-panel" -->
+    </div> <!-- id="page" -->
+</body>
+</html>

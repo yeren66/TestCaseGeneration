@@ -1,0 +1,10 @@
+var clover = new Object();
+
+// JSON: {classes : [{name, id, sl, el,  methods : [{sl, el}, ...]}, ...]}
+clover.pageData = {"classes":[{"el":13,"id":3468,"methods":[{"el":12,"sc":5,"sl":4}],"name":"IS_PRIME","sl":3}]}
+
+// JSON: {test_ID : {"methods": [ID1, ID2, ID3...], "name" : "testXXX() void"}, ...};
+clover.testTargets = {"test_296":{"methods":[{"sl":4}],"name":"test_4","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":11}]},"test_331":{"methods":[{"sl":4}],"name":"test_1","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":11}]},"test_530":{"methods":[{"sl":4}],"name":"test_6","pass":true,"statements":[{"sl":5},{"sl":6}]},"test_555":{"methods":[{"sl":4}],"name":"test_3","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":11}]},"test_629":{"methods":[{"sl":4}],"name":"test_5","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":9}]},"test_679":{"methods":[{"sl":4}],"name":"test_10","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":9}]},"test_708":{"methods":[{"sl":4}],"name":"test_8","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":11}]},"test_758":{"methods":[{"sl":4}],"name":"test_0","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":9}]},"test_880":{"methods":[{"sl":4}],"name":"test_7","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":11}]},"test_905":{"methods":[{"sl":4}],"name":"test_11","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":9}]},"test_974":{"methods":[{"sl":4}],"name":"test_2","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":11}]},"test_995":{"methods":[{"sl":4}],"name":"test_9","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":9}]}}
+
+// JSON: { lines : [{tests : [testid1, testid2, testid3, ...]}, ...]};
+clover.srcFileLines = [[], [], [], [], [974, 905, 679, 880, 296, 995, 629, 555, 530, 708, 331, 758], [974, 905, 679, 880, 296, 995, 629, 555, 530, 708, 331, 758], [530], [974, 905, 679, 880, 296, 995, 629, 555, 708, 331, 758], [974, 905, 679, 880, 296, 995, 629, 555, 708, 331, 758], [905, 679, 995, 629, 758], [], [974, 880, 296, 555, 708, 331], [], []]

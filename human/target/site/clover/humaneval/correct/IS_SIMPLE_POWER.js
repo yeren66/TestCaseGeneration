@@ -1,0 +1,10 @@
+var clover = new Object();
+
+// JSON: {classes : [{name, id, sl, el,  methods : [{sl, el}, ...]}, ...]}
+clover.pageData = {"classes":[{"el":24,"id":3481,"methods":[{"el":23,"sc":5,"sl":15}],"name":"IS_SIMPLE_POWER","sl":14}]}
+
+// JSON: {test_ID : {"methods": [ID1, ID2, ID3...], "name" : "testXXX() void"}, ...};
+clover.testTargets = {"test_1023":{"methods":[{"sl":15}],"name":"test_8","pass":true,"statements":[{"sl":16},{"sl":17}]},"test_1044":{"methods":[{"sl":15}],"name":"test_10","pass":true,"statements":[{"sl":16},{"sl":17}]},"test_113":{"methods":[{"sl":15}],"name":"test_3","pass":true,"statements":[{"sl":16},{"sl":18},{"sl":19},{"sl":20},{"sl":22}]},"test_159":{"methods":[{"sl":15}],"name":"test_2","pass":true,"statements":[{"sl":16},{"sl":18},{"sl":19},{"sl":20},{"sl":22}]},"test_213":{"methods":[{"sl":15}],"name":"test_5","pass":true,"statements":[{"sl":16},{"sl":18},{"sl":19},{"sl":20},{"sl":22}]},"test_320":{"methods":[{"sl":15}],"name":"test_9","pass":true,"statements":[{"sl":16},{"sl":18},{"sl":19},{"sl":22}]},"test_324":{"methods":[{"sl":15}],"name":"test_7","pass":true,"statements":[{"sl":16},{"sl":18},{"sl":19},{"sl":20},{"sl":22}]},"test_431":{"methods":[{"sl":15}],"name":"test_1","pass":true,"statements":[{"sl":16},{"sl":18},{"sl":19},{"sl":20},{"sl":22}]},"test_51":{"methods":[{"sl":15}],"name":"test_6","pass":true,"statements":[{"sl":16},{"sl":18},{"sl":19},{"sl":20},{"sl":22}]},"test_667":{"methods":[{"sl":15}],"name":"test_4","pass":true,"statements":[{"sl":16},{"sl":18},{"sl":19},{"sl":20},{"sl":22}]},"test_991":{"methods":[{"sl":15}],"name":"test_0","pass":true,"statements":[{"sl":16},{"sl":18},{"sl":19},{"sl":20},{"sl":22}]}}
+
+// JSON: { lines : [{tests : [testid1, testid2, testid3, ...]}, ...]};
+clover.srcFileLines = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [213, 1044, 1023, 320, 51, 113, 324, 991, 667, 431, 159], [213, 1044, 1023, 320, 51, 113, 324, 991, 667, 431, 159], [1044, 1023], [213, 320, 51, 113, 324, 991, 667, 431, 159], [213, 320, 51, 113, 324, 991, 667, 431, 159], [213, 51, 113, 324, 991, 667, 431, 159], [], [213, 320, 51, 113, 324, 991, 667, 431, 159], [], []]

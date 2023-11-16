@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    
+    
+    <link rel="SHORTCUT ICON" href="../../img/clover.ico" />
+
+    <link rel="stylesheet" href="../../aui/css/aui.min.css" media="all"/>
+    <link rel="stylesheet" href="../../aui/css/aui-experimental.min.css" media="all"/>
+    <!--[if IE 9]><link rel="stylesheet" href="../../aui/css/aui-ie9.min.css" media="all"/><![endif]-->
+
+    <style type="text/css" media="all">
+        @import url('../../style.css');
+        @import url('../../tree.css');
+        
+    </style>
+
+    <script src="../../jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="../../aui/js/aui.min.js" type="text/javascript"></script>
+    <script src="../../aui/js/aui-experimental.min.js" type="text/javascript"></script>
+    <script src="../../aui/js/aui-soy.min.js" type="text/javascript"></script>
+
+    <script src="../../package-nodes-tree.js" type="text/javascript"></script>
+    <script src="../../clover-tree.js" type="text/javascript"></script>
+    <script src="../../clover.js" type="text/javascript"></script>
+    <script src="../../clover-descriptions.js" type="text/javascript"></script>
+    <script src="../../cloud.js" type="text/javascript"></script>
+
+            <title>humaneval-java 1.0</title>
+    </head>
+
+<body  >
+    <div id="page">
+        
+        
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation">
+        <div class="aui-header-inner">
+            <div class="aui-header-primary">
+                <h1 id="logo" class="aui-header-logo aui-header-logo-clover">
+                    <a href="http://openclover.org" title="Visit OpenClover home page"><span class="aui-header-logo-device">OpenClover</span></a>
+                </h1>
+                            </div>
+            <div class="aui-header-secondary">
+                <ul class="aui-nav">
+                    <li id="system-help-menu">
+                        <a class="aui-nav-link" title="Open online documentation" target="_blank"
+                           href="http://openclover.org/documentation">
+                            <span class="aui-icon aui-icon-small aui-iconfont-help">&#160;Help</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+        
+        <div class="aui-page-panel">
+            <div class="aui-page-panel-inner">
+                <div class="aui-page-panel-nav aui-page-panel-nav-clover">
+                    
+
+<div class="aui-page-header-inner" style="margin-bottom: 20px;">
+    <div class="aui-page-header-image">
+                    <a href="http://www.example.com" target="_top">
+                <div class="aui-avatar aui-avatar-large aui-avatar-project">
+            <div class="aui-avatar-inner">
+                                    <img src="../../img/clover_logo_large.png" alt="Clover icon"/>
+                            </div>
+        </div>
+                    </a>
+            </div>
+    <div class="aui-page-header-main" >
+        <h1>
+                            <a href="http://www.example.com" target="_top">
+                                        humaneval-java 1.0
+                                        </a>
+                    </h1>
+    </div>
+</div>
+
+<nav class="aui-navgroup aui-navgroup-vertical">
+    <div class="aui-navgroup-inner">
+                                            <ul class="aui-nav">
+                <li class="">
+                    <a href="../../dashboard.html">Project overview</a>
+                </li>
+            </ul>
+        
+                <div class="aui-nav-heading packages-nav-heading">
+            <strong>Packages</strong>
+        </div>
+        <div class="aui-nav project-packages">
+            <form method="get" action="#" class="aui package-filter-container">
+                <input type="text" autocomplete="off" class="package-filter text"
+                       placeholder="Type to filter packages..." name="package-filter" id="package-filter"
+                       title="Start typing package name (or part of the name) to search through the tree. Use arrow keys and the Enter key to navigate."/>
+            </form>
+            <p class="package-filter-no-results-message hidden">
+                <small>No results found.</small>
+            </p>
+                                                <div class="packages-tree-wrapper" data-root-relative="../../" data-package-name="humaneval.correct">
+                <div class="packages-tree-container"></div>
+                <div class="clover-packages-lozenges"></div>
+            </div>
+        </div>
+        
+            </div>
+</nav>                </div>
+                <section class="aui-page-panel-content">
+                    <div class="aui-page-panel-content-clover">
+
+                    
+                    <ol class="aui-nav aui-nav-breadcrumbs">
+            
+        <li><a href="../../dashboard.html">Project Clover database 星期四 十一月 16 2023 17:27:20 GMT+08:00</a></li> 
+    </ol>
+    
+<h1 class="aui-h2-clover">
+            Package humaneval.correct
+    </h1>
+<div class="aui-tabs horizontal-tabs">
+            <ul class="tabs-menu">
+                <li class="menu-item ">
+            <a href="pkg-summary.html"><strong>Application code</strong></a>
+        </li>
+                    <li class="menu-item ">
+            <a href="top-risks.html"><strong>Top risks</strong></a>
+        </li>
+        <li class="menu-item active-tab">
+            <a href="quick-wins.html"><strong>Quick wins</strong></a>
+        </li>
+                            </ul>
+    <div class="tabs-pane active-pane" id="tabs-first">
+
+        <div>&#160;</div>
+
+        
+
+
+                        <div style="text-align: right; margin-bottom: 10px">
+            
+            
+                                    <button class="aui-button aui-button-subtle" id="popupHelp">
+    <span class="aui-icon aui-icon-small aui-iconfont-help"></span>&#160;How to read this chart
+</button>
+<script>
+    AJS.InlineDialog(AJS.$("#popupHelp"), "helpDialog",
+            function (content, trigger, showPopup) {
+                var description = quickWinsDescription();
+                var title = 'Quick Wins';
+                content.css({"padding": "20px"}).html(
+                        '<h2>' + title + '</h2>' + description);
+                showPopup();
+                return false;
+            },
+            {
+                width: 600
+            }
+    );
+</script>
+        </div>
+
+        
+
+<div style="padding: 20px; border: 1px solid #cccccc; background-color: #f5f5f5; border-radius: 3px">
+   
+          <div id="shallowPackageCloud"  >
+                          
+    
+        
+    
+            <a href="../correct/ADD.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 2 , # Elements Covered - 2 ">ADD</a>
+            
+    
+            <a href="../correct/ADD_ELEMENTS.html" class="tag"
+            style="font-size: 18px;color:#d9695f"
+            title="# Elements - 10 , # Elements Covered - 10 ">ADD_ELEMENTS</a>
+            
+    
+            <a href="../correct/ADD_EVEN_AT_ODD.html" class="tag"
+            style="font-size: 18px;color:#d9695f"
+            title="# Elements - 10 , # Elements Covered - 10 ">ADD_EVEN_AT_ODD</a>
+            
+    
+            <a href="../correct/ALL_PREFIXES.html" class="tag"
+            style="font-size: 16px;color:#d5584c"
+            title="# Elements - 7 , # Elements Covered - 7 ">ALL_PREFIXES</a>
+            
+    
+            <a href="../correct/ANTI_SHUFFLE.html" class="tag"
+            style="font-size: 16px;color:#d5584c"
+            title="# Elements - 7 , # Elements Covered - 7 ">ANTI_SHUFFLE</a>
+            
+    
+            <a href="../correct/ANY_INT.html" class="tag"
+            style="font-size: 17px;color:#d9695f"
+            title="# Elements - 9 , # Elements Covered - 9 ">ANY_INT</a>
+            
+    
+            <a href="../correct/BELOW_THRESHOLD.html" class="tag"
+            style="font-size: 17px;color:#d9695f"
+            title="# Elements - 9 , # Elements Covered - 9 ">BELOW_THRESHOLD</a>
+            
+    
+            <a href="../correct/BELOW_ZERO.html" class="tag"
+            style="font-size: 17px;color:#d9695f"
+            title="# Elements - 9 , # Elements Covered - 9 ">BELOW_ZERO</a>
+            
+    
+            <a href="../correct/BF.html" class="tag"
+            style="font-size: 25px;color:#e28e87"
+            title="# Elements - 21 , # Elements Covered - 21 ">BF</a>
+            
+    
+            <a href="../correct/BY_LENGTH.html" class="tag"
+            style="font-size: 24px;color:#de7b72"
+            title="# Elements - 19 , # Elements Covered - 19 ">BY_LENGTH</a>
+            
+    
+            <a href="../correct/CAN_ARRANGE.html" class="tag"
+            style="font-size: 18px;color:#d9695f"
+            title="# Elements - 10 , # Elements Covered - 10 ">CAN_ARRANGE</a>
+            
+    
+            <a href="../correct/CAR_RACE_COLLISION.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 2 , # Elements Covered - 2 ">CAR_RACE_COLLISION</a>
+            
+    
+            <a href="../correct/CHANGE_BASE.html" class="tag"
+            style="font-size: 17px;color:#d5584c"
+            title="# Elements - 8 , # Elements Covered - 8 ">CHANGE_BASE</a>
+            
+    
+            <a href="../correct/CHECK_DICT_CASE.html" class="tag"
+            style="font-size: 32px;color:#f6c342"
+            title="# Elements - 32 , # Elements Covered - 32 ">CHECK_DICT_CASE</a>
+            
+    
+            <a href="../correct/CHECK_IF_LAST_CHAR_IS_A_LETTER.html" class="tag"
+            style="font-size: 22px;color:#de7b72"
+            title="# Elements - 17 , # Elements Covered - 16 ">CHECK_IF_LAST_CHAR_IS_A_LETTER</a>
+            
+    
+            <a href="../correct/CHOOSE_NUM.html" class="tag"
+            style="font-size: 21px;color:#de7b72"
+            title="# Elements - 14 , # Elements Covered - 14 ">CHOOSE_NUM</a>
+            
+    
+            <a href="../correct/CIRCULAR_SHIFT.html" class="tag"
+            style="font-size: 19px;color:#d9695f"
+            title="# Elements - 12 , # Elements Covered - 12 ">CIRCULAR_SHIFT</a>
+            
+    
+            <a href="../correct/CLOSEST_INTEGER.html" class="tag"
+            style="font-size: 25px;color:#de7b72"
+            title="# Elements - 21 , # Elements Covered - 18 ">CLOSEST_INTEGER</a>
+            
+    
+            <a href="../correct/COMMON.html" class="tag"
+            style="font-size: 24px;color:#de7b72"
+            title="# Elements - 19 , # Elements Covered - 19 ">COMMON</a>
+            
+    
+            <a href="../correct/COMPARE.html" class="tag"
+            style="font-size: 16px;color:#d5584c"
+            title="# Elements - 7 , # Elements Covered - 7 ">COMPARE</a>
+            
+    
+            <a href="../correct/COMPARE_ONE.html" class="tag"
+            style="font-size: 37px;color:#f6c342"
+            title="# Elements - 39 , # Elements Covered - 35 ">COMPARE_ONE</a>
+            
+    
+            <a href="../correct/CONCATENATE.html" class="tag"
+            style="font-size: 15px;color:#d5584c"
+            title="# Elements - 5 , # Elements Covered - 5 ">CONCATENATE</a>
+            
+    
+            <a href="../correct/CORRECT_BRACKETING.html" class="tag"
+            style="font-size: 20px;color:#d9695f"
+            title="# Elements - 13 , # Elements Covered - 13 ">CORRECT_BRACKETING</a>
+            
+    
+            <a href="../correct/COUNT_DISTINCT_CHARACTERS.html" class="tag"
+            style="font-size: 17px;color:#d5584c"
+            title="# Elements - 8 , # Elements Covered - 8 ">COUNT_DISTINCT_CHARACTERS</a>
+            
+    
+            <a href="../correct/COUNT_NUMS.html" class="tag"
+            style="font-size: 26px;color:#e28e87"
+            title="# Elements - 23 , # Elements Covered - 23 ">COUNT_NUMS</a>
+            
+    
+            <a href="../correct/COUNT_UPPER.html" class="tag"
+            style="font-size: 19px;color:#d9695f"
+            title="# Elements - 11 , # Elements Covered - 11 ">COUNT_UPPER</a>
+            
+    
+            <a href="../correct/COUNT_UP_TO.html" class="tag"
+            style="font-size: 24px;color:#de7b72"
+            title="# Elements - 19 , # Elements Covered - 19 ">COUNT_UP_TO</a>
+            
+    
+            <a href="../correct/CYCPATTERN_CHECK.html" class="tag"
+            style="font-size: 21px;color:#de7b72"
+            title="# Elements - 14 , # Elements Covered - 14 ">CYCPATTERN_CHECK</a>
+            
+    
+            <a href="../correct/DECIMAL_TO_BINARY.html" class="tag"
+            style="font-size: 13px;color:#d5584c"
+            title="# Elements - 3 , # Elements Covered - 3 ">DECIMAL_TO_BINARY</a>
+            
+    
+            <a href="../correct/DECODE_CYCLIC.html" class="tag"
+            style="font-size: 13px;color:#d5584c"
+            title="# Elements - 3 , # Elements Covered - 3 ">DECODE_CYCLIC</a>
+            
+    
+            <a href="../correct/DECODE_CYCLIC.html" class="tag"
+            style="font-size: 21px;color:#de7b72"
+            title="# Elements - 15 , # Elements Covered - 15 ">DECODE_CYCLIC.Cyclic</a>
+            
+    
+            <a href="../correct/DECODE_SHIFT.html" class="tag"
+            style="font-size: 19px;color:#d9695f"
+            title="# Elements - 12 , # Elements Covered - 12 ">DECODE_SHIFT</a>
+            
+    
+            <a href="../correct/DERIVATIVE.html" class="tag"
+            style="font-size: 16px;color:#d5584c"
+            title="# Elements - 7 , # Elements Covered - 7 ">DERIVATIVE</a>
+            
+    
+            <a href="../correct/DIGITS.html" class="tag"
+            style="font-size: 23px;color:#de7b72"
+            title="# Elements - 18 , # Elements Covered - 18 ">DIGITS</a>
+            
+    
+            <a href="../correct/DIGIT_SUM.html" class="tag"
+            style="font-size: 17px;color:#d5584c"
+            title="# Elements - 8 , # Elements Covered - 8 ">DIGIT_SUM</a>
+            
+    
+            <a href="../correct/DOUBLE_THE_DIFFERENCE.html" class="tag"
+            style="font-size: 19px;color:#d9695f"
+            title="# Elements - 12 , # Elements Covered - 12 ">DOUBLE_THE_DIFFERENCE</a>
+            
+    
+            <a href="../correct/DO_ALGEBRA.html" class="tag"
+            style="font-size: 17px;color:#d9695f"
+            title="# Elements - 9 , # Elements Covered - 9 ">DO_ALGEBRA</a>
+            
+    
+            <a href="../correct/EAT.html" class="tag"
+            style="font-size: 15px;color:#d5584c"
+            title="# Elements - 6 , # Elements Covered - 6 ">EAT</a>
+            
+    
+            <a href="../correct/ENCODE.html" class="tag"
+            style="font-size: 22px;color:#de7b72"
+            title="# Elements - 17 , # Elements Covered - 17 ">ENCODE</a>
+            
+    
+            <a href="../correct/ENCRYPT.html" class="tag"
+            style="font-size: 18px;color:#d5584c"
+            title="# Elements - 10 , # Elements Covered - 8 ">ENCRYPT</a>
+            
+    
+            <a href="../correct/EVEN_ODD_COUNT.html" class="tag"
+            style="font-size: 21px;color:#de7b72"
+            title="# Elements - 14 , # Elements Covered - 14 ">EVEN_ODD_COUNT</a>
+            
+    
+            <a href="../correct/EVEN_ODD_PALINDROME.html" class="tag"
+            style="font-size: 26px;color:#e28e87"
+            title="# Elements - 23 , # Elements Covered - 23 ">EVEN_ODD_PALINDROME</a>
+            
+    
+            <a href="../correct/EXCHANGE.html" class="tag"
+            style="font-size: 22px;color:#de7b72"
+            title="# Elements - 17 , # Elements Covered - 17 ">EXCHANGE</a>
+            
+    
+            <a href="../correct/FACTORIAL.html" class="tag"
+            style="font-size: 25px;color:#e28e87"
+            title="# Elements - 21 , # Elements Covered - 21 ">FACTORIAL</a>
+            
+    
+            <a href="../correct/FACTORIZE.html" class="tag"
+            style="font-size: 22px;color:#de7b72"
+            title="# Elements - 17 , # Elements Covered - 17 ">FACTORIZE</a>
+            
+    
+            <a href="../correct/FIB.html" class="tag"
+            style="font-size: 15px;color:#d5584c"
+            title="# Elements - 6 , # Elements Covered - 6 ">FIB</a>
+            
+    
+            <a href="../correct/FIB4.html" class="tag"
+            style="font-size: 22px;color:#de7b72"
+            title="# Elements - 16 , # Elements Covered - 14 ">FIB4</a>
+            
+    
+            <a href="../correct/FIBFIB.html" class="tag"
+            style="font-size: 21px;color:#de7b72"
+            title="# Elements - 14 , # Elements Covered - 14 ">FIBFIB</a>
+            
+    
+            <a href="../correct/FILE_NAME_CHECK.html" class="tag"
+            style="font-size: 30px;color:#e7a19b"
+            title="# Elements - 29 , # Elements Covered - 27 ">FILE_NAME_CHECK</a>
+            
+    
+            <a href="../correct/FILTER_BY_PREFIX.html" class="tag"
+            style="font-size: 17px;color:#d5584c"
+            title="# Elements - 8 , # Elements Covered - 8 ">FILTER_BY_PREFIX</a>
+            
+    
+            <a href="../correct/FILTER_BY_SUBSTRING.html" class="tag"
+            style="font-size: 17px;color:#d5584c"
+            title="# Elements - 8 , # Elements Covered - 8 ">FILTER_BY_SUBSTRING</a>
+            
+    
+            <a href="../correct/FILTER_INTEGERS.html" class="tag"
+            style="font-size: 17px;color:#d5584c"
+            title="# Elements - 8 , # Elements Covered - 8 ">FILTER_INTEGERS</a>
+            
+    
+            <a href="../correct/FIND_CLOSEST_ELEMENTS.html" class="tag"
+            style="font-size: 26px;color:#e28e87"
+            title="# Elements - 22 , # Elements Covered - 22 ">FIND_CLOSEST_ELEMENTS</a>
+            
+    
+            <a href="../correct/FIND_MAX.html" class="tag"
+            style="font-size: 20px;color:#d9695f"
+            title="# Elements - 13 , # Elements Covered - 13 ">FIND_MAX</a>
+            
+    
+            <a href="../correct/FIND_ZERO.html" class="tag"
+            style="font-size: 28px;color:#e7a19b"
+            title="# Elements - 25 , # Elements Covered - 25 ">FIND_ZERO</a>
+            
+    
+            <a href="../correct/FIX_SPACES.html" class="tag"
+            style="font-size: 37px;color:#fae1a0"
+            title="# Elements - 40 , # Elements Covered - 38 ">FIX_SPACES</a>
+            
+    
+            <a href="../correct/FIZZ_BUZZ.html" class="tag"
+            style="font-size: 22px;color:#de7b72"
+            title="# Elements - 16 , # Elements Covered - 16 ">FIZZ_BUZZ</a>
+            
+    
+            <a href="../correct/FLIP_CASE.html" class="tag"
+            style="font-size: 19px;color:#d9695f"
+            title="# Elements - 12 , # Elements Covered - 12 ">FLIP_CASE</a>
+            
+    
+            <a href="../correct/FRUIT_DISTRIBUTION.html" class="tag"
+            style="font-size: 17px;color:#d5584c"
+            title="# Elements - 8 , # Elements Covered - 8 ">FRUIT_DISTRIBUTION</a>
+            
+    
+            <a href="../correct/GENERATE_INTEGERS.html" class="tag"
+            style="font-size: 19px;color:#d9695f"
+            title="# Elements - 12 , # Elements Covered - 12 ">GENERATE_INTEGERS</a>
+            
+    
+            <a href="../correct/GET_CLOSET_VOWEL.html" class="tag"
+            style="font-size: 22px;color:#de7b72"
+            title="# Elements - 17 , # Elements Covered - 17 ">GET_CLOSET_VOWEL</a>
+            
+    
+            <a href="../correct/GET_MAX_TRIPLES.html" class="tag"
+            style="font-size: 25px;color:#e28e87"
+            title="# Elements - 21 , # Elements Covered - 21 ">GET_MAX_TRIPLES</a>
+            
+    
+            <a href="../correct/GET_ODD_COLLATZ.html" class="tag"
+            style="font-size: 24px;color:#e28e87"
+            title="# Elements - 20 , # Elements Covered - 20 ">GET_ODD_COLLATZ</a>
+            
+    
+            <a href="../correct/GET_POSITIVE.html" class="tag"
+            style="font-size: 17px;color:#d5584c"
+            title="# Elements - 8 , # Elements Covered - 8 ">GET_POSITIVE</a>
+            
+    
+            <a href="../correct/GREATEST_COMMON_DIVISOR.html" class="tag"
+            style="font-size: 17px;color:#d5584c"
+            title="# Elements - 8 , # Elements Covered - 8 ">GREATEST_COMMON_DIVISOR</a>
+            
+    
+            <a href="../correct/HAS_CLOSE_ELEMENTS.html" class="tag"
+            style="font-size: 20px;color:#d9695f"
+            title="# Elements - 13 , # Elements Covered - 13 ">HAS_CLOSE_ELEMENTS</a>
+            
+    
+            <a href="../correct/HEX_KEY.html" class="tag"
+            style="font-size: 17px;color:#d5584c"
+            title="# Elements - 8 , # Elements Covered - 8 ">HEX_KEY</a>
+            
+    
+            <a href="../correct/HISTOGRAM.html" class="tag"
+            style="font-size: 32px;color:#e7a19b"
+            title="# Elements - 32 , # Elements Covered - 30 ">HISTOGRAM</a>
+            
+    
+            <a href="../correct/HOW_MANY_TIMES.html" class="tag"
+            style="font-size: 18px;color:#d9695f"
+            title="# Elements - 10 , # Elements Covered - 10 ">HOW_MANY_TIMES</a>
+            
+    
+            <a href="../correct/INCR_LIST.html" class="tag"
+            style="font-size: 15px;color:#d5584c"
+            title="# Elements - 5 , # Elements Covered - 5 ">INCR_LIST</a>
+            
+    
+            <a href="../correct/INTERSECTION.html" class="tag"
+            style="font-size: 28px;color:#de7b72"
+            title="# Elements - 26 , # Elements Covered - 17 ">INTERSECTION</a>
+            
+    
+            <a href="../correct/INTERSPERSE.html" class="tag"
+            style="font-size: 20px;color:#d9695f"
+            title="# Elements - 13 , # Elements Covered - 13 ">INTERSPERSE</a>
+            
+    
+            <a href="../correct/INT_TO_MINI_ROMAN.html" class="tag"
+            style="font-size: 22px;color:#de7b72"
+            title="# Elements - 17 , # Elements Covered - 17 ">INT_TO_MINI_ROMAN</a>
+            
+    
+            <a href="../correct/ISCUBE.html" class="tag"
+            style="font-size: 15px;color:#d5584c"
+            title="# Elements - 6 , # Elements Covered - 6 ">ISCUBE</a>
+            
+    
+            <a href="../correct/IS_BORED.html" class="tag"
+            style="font-size: 18px;color:#d9695f"
+            title="# Elements - 10 , # Elements Covered - 10 ">IS_BORED</a>
+            
+    
+            <a href="../correct/IS_EQUAL_TO_SUM_EVEN.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 2 , # Elements Covered - 2 ">IS_EQUAL_TO_SUM_EVEN</a>
+            
+    
+            <a href="../correct/IS_HAPPY.html" class="tag"
+            style="font-size: 20px;color:#d9695f"
+            title="# Elements - 13 , # Elements Covered - 13 ">IS_HAPPY</a>
+            
+    
+            <a href="../correct/IS_MULTIPLY_PRIME.html" class="tag"
+            style="font-size: 35px;color:#f6c342"
+            title="# Elements - 36 , # Elements Covered - 36 ">IS_MULTIPLY_PRIME</a>
+            
+    
+            <a href="../correct/IS_NESTED.html" class="tag"
+            style="font-size: 24px;color:#e28e87"
+            title="# Elements - 20 , # Elements Covered - 20 ">IS_NESTED</a>
+            
+    
+            <a href="../correct/IS_PALINDROME.html" class="tag"
+            style="font-size: 17px;color:#d9695f"
+            title="# Elements - 9 , # Elements Covered - 9 ">IS_PALINDROME</a>
+            
+    
+            <a href="../correct/IS_PRIME.html" class="tag"
+            style="font-size: 20px;color:#d9695f"
+            title="# Elements - 13 , # Elements Covered - 13 ">IS_PRIME</a>
+            
+    
+            <a href="../correct/IS_SIMPLE_POWER.html" class="tag"
+            style="font-size: 19px;color:#d9695f"
+            title="# Elements - 11 , # Elements Covered - 11 ">IS_SIMPLE_POWER</a>
+            
+    
+            <a href="../correct/IS_SORTED.html" class="tag"
+            style="font-size: 28px;color:#e7a19b"
+            title="# Elements - 25 , # Elements Covered - 25 ">IS_SORTED</a>
+            
+    
+            <a href="../correct/LARGEST_DIVISOR.html" class="tag"
+            style="font-size: 17px;color:#d5584c"
+            title="# Elements - 9 , # Elements Covered - 7 ">LARGEST_DIVISOR</a>
+            
+    
+            <a href="../correct/LARGEST_PRIME_FACTOR.html" class="tag"
+            style="font-size: 26px;color:#e28e87"
+            title="# Elements - 23 , # Elements Covered - 21 ">LARGEST_PRIME_FACTOR</a>
+            
+    
+            <a href="../correct/LARGEST_SMALLEST_INTEGERS.html" class="tag"
+            style="font-size: 28px;color:#e7a19b"
+            title="# Elements - 26 , # Elements Covered - 26 ">LARGEST_SMALLEST_INTEGERS</a>
+            
+    
+            <a href="../correct/LONGEST.html" class="tag"
+            style="font-size: 20px;color:#d9695f"
+            title="# Elements - 13 , # Elements Covered - 13 ">LONGEST</a>
+            
+    
+            <a href="../correct/MAKE_A_PILE.html" class="tag"
+            style="font-size: 16px;color:#d5584c"
+            title="# Elements - 7 , # Elements Covered - 7 ">MAKE_A_PILE</a>
+            
+    
+            <a href="../correct/MAKE_PALINDROME.html" class="tag"
+            style="font-size: 28px;color:#e7a19b"
+            title="# Elements - 25 , # Elements Covered - 25 ">MAKE_PALINDROME</a>
+            
+    
+            <a href="../correct/MATCH_PARENS.html" class="tag"
+            style="font-size: 26px;color:#e28e87"
+            title="# Elements - 23 , # Elements Covered - 23 ">MATCH_PARENS</a>
+            
+    
+            <a href="../correct/MAXIMUM_K.html" class="tag"
+            style="font-size: 17px;color:#d5584c"
+            title="# Elements - 8 , # Elements Covered - 8 ">MAXIMUM_K</a>
+            
+    
+            <a href="../correct/MAX_ELEMENT.html" class="tag"
+            style="font-size: 17px;color:#d5584c"
+            title="# Elements - 8 , # Elements Covered - 8 ">MAX_ELEMENT</a>
+            
+    
+            <a href="../correct/MAX_FILL.html" class="tag"
+            style="font-size: 19px;color:#d9695f"
+            title="# Elements - 12 , # Elements Covered - 12 ">MAX_FILL</a>
+            
+    
+            <a href="../correct/MEAN_ABSOLUTE_DEVIATION.html" class="tag"
+            style="font-size: 17px;color:#d9695f"
+            title="# Elements - 9 , # Elements Covered - 9 ">MEAN_ABSOLUTE_DEVIATION</a>
+            
+    
+            <a href="../correct/MEDIAN.html" class="tag"
+            style="font-size: 16px;color:#d5584c"
+            title="# Elements - 7 , # Elements Covered - 7 ">MEDIAN</a>
+            
+    
+            <a href="../correct/MIN_PATH.html" class="tag"
+            style="font-size: 36px;color:#fae1a0"
+            title="# Elements - 38 , # Elements Covered - 38 ">MIN_PATH</a>
+            
+    
+            <a href="../correct/MIN_SUBARRAY_SUM.html" class="tag"
+            style="font-size: 24px;color:#e28e87"
+            title="# Elements - 20 , # Elements Covered - 20 ">MIN_SUBARRAY_SUM</a>
+            
+    
+            <a href="../correct/MODP.html" class="tag"
+            style="font-size: 16px;color:#d5584c"
+            title="# Elements - 7 , # Elements Covered - 7 ">MODP</a>
+            
+    
+            <a href="../correct/MONOTONIC.html" class="tag"
+            style="font-size: 21px;color:#de7b72"
+            title="# Elements - 14 , # Elements Covered - 14 ">MONOTONIC</a>
+            
+    
+            <a href="../correct/MOVE_ONE_BALL.html" class="tag"
+            style="font-size: 33px;color:#f6c342"
+            title="# Elements - 33 , # Elements Covered - 33 ">MOVE_ONE_BALL</a>
+            
+    
+            <a href="../correct/MULTIPLY.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 2 , # Elements Covered - 2 ">MULTIPLY</a>
+            
+    
+            <a href="../correct/NEXT_SMALLEST.html" class="tag"
+            style="font-size: 19px;color:#d9695f"
+            title="# Elements - 11 , # Elements Covered - 11 ">NEXT_SMALLEST</a>
+            
+    
+            <a href="../correct/NUMERICAL_LETTER_GRADE.html" class="tag"
+            style="font-size: 48px;color:#89c495"
+            title="# Elements - 56 , # Elements Covered - 50 ">NUMERICAL_LETTER_GRADE</a>
+            
+    
+            <a href="../correct/ODD_COUNT.html" class="tag"
+            style="font-size: 21px;color:#de7b72"
+            title="# Elements - 14 , # Elements Covered - 14 ">ODD_COUNT</a>
+            
+    
+            <a href="../correct/ORDER_BY_POINTS.html" class="tag"
+            style="font-size: 36px;color:#fae1a0"
+            title="# Elements - 38 , # Elements Covered - 38 ">ORDER_BY_POINTS</a>
+            
+    
+            <a href="../correct/PAIRS_SUM_TO_ZERO.html" class="tag"
+            style="font-size: 19px;color:#d9695f"
+            title="# Elements - 12 , # Elements Covered - 12 ">PAIRS_SUM_TO_ZERO</a>
+            
+    
+            <a href="../correct/PARSE_MUSIC.html" class="tag"
+            style="font-size: 20px;color:#d9695f"
+            title="# Elements - 13 , # Elements Covered - 13 ">PARSE_MUSIC</a>
+            
+    
+            <a href="../correct/PARSE_NESTED_PARENS.html" class="tag"
+            style="font-size: 21px;color:#de7b72"
+            title="# Elements - 15 , # Elements Covered - 15 ">PARSE_NESTED_PARENS</a>
+            
+    
+            <a href="../correct/PLUCK.html" class="tag"
+            style="font-size: 22px;color:#de7b72"
+            title="# Elements - 16 , # Elements Covered - 16 ">PLUCK</a>
+            
+    
+            <a href="../correct/PRIME_FIB.html" class="tag"
+            style="font-size: 30px;color:#e7a19b"
+            title="# Elements - 28 , # Elements Covered - 28 ">PRIME_FIB</a>
+            
+    
+            <a href="../correct/PRIME_LENGTH.html" class="tag"
+            style="font-size: 21px;color:#de7b72"
+            title="# Elements - 14 , # Elements Covered - 14 ">PRIME_LENGTH</a>
+            
+    
+            <a href="../correct/PROD_SIGNS.html" class="tag"
+            style="font-size: 26px;color:#e28e87"
+            title="# Elements - 23 , # Elements Covered - 23 ">PROD_SIGNS</a>
+            
+    
+            <a href="../correct/REMOVE_DUPLICATES.html" class="tag"
+            style="font-size: 21px;color:#de7b72"
+            title="# Elements - 15 , # Elements Covered - 15 ">REMOVE_DUPLICATES</a>
+            
+    
+            <a href="../correct/REMOVE_VOWELS.html" class="tag"
+            style="font-size: 18px;color:#d9695f"
+            title="# Elements - 10 , # Elements Covered - 10 ">REMOVE_VOWELS</a>
+            
+    
+            <a href="../correct/RESCALE_TO_UNIT.html" class="tag"
+            style="font-size: 24px;color:#e28e87"
+            title="# Elements - 20 , # Elements Covered - 20 ">RESCALE_TO_UNIT</a>
+            
+    
+            <a href="../correct/REVERSE_DELETE.html" class="tag"
+            style="font-size: 23px;color:#de7b72"
+            title="# Elements - 18 , # Elements Covered - 18 ">REVERSE_DELETE</a>
+            
+    
+            <a href="../correct/RIGHT_ANGLE_TRIANGLE.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 2 , # Elements Covered - 2 ">RIGHT_ANGLE_TRIANGLE</a>
+            
+    
+            <a href="../correct/ROLLING_MAX.html" class="tag"
+            style="font-size: 19px;color:#d9695f"
+            title="# Elements - 11 , # Elements Covered - 11 ">ROLLING_MAX</a>
+            
+    
+            <a href="../correct/ROUNDED_AVG.html" class="tag"
+            style="font-size: 24px;color:#de7b72"
+            title="# Elements - 19 , # Elements Covered - 17 ">ROUNDED_AVG</a>
+            
+    
+            <a href="../correct/SAME_CHARS.html" class="tag"
+            style="font-size: 17px;color:#d5584c"
+            title="# Elements - 8 , # Elements Covered - 8 ">SAME_CHARS</a>
+            
+    
+            <a href="../correct/SEARCH.html" class="tag"
+            style="font-size: 25px;color:#e28e87"
+            title="# Elements - 21 , # Elements Covered - 21 ">SEARCH</a>
+            
+    
+            <a href="../correct/SELECT_WORDS.html" class="tag"
+            style="font-size: 30px;color:#e7a19b"
+            title="# Elements - 29 , # Elements Covered - 29 ">SELECT_WORDS</a>
+            
+    
+            <a href="../correct/SEPARATE_PAREN_GROUPS.html" class="tag"
+            style="font-size: 25px;color:#e28e87"
+            title="# Elements - 21 , # Elements Covered - 21 ">SEPARATE_PAREN_GROUPS</a>
+            
+    
+            <a href="../correct/SIMPLIFY.html" class="tag"
+            style="font-size: 19px;color:#d9695f"
+            title="# Elements - 12 , # Elements Covered - 12 ">SIMPLIFY</a>
+            
+    
+            <a href="../correct/SKJKASDKD.html" class="tag"
+            style="font-size: 27px;color:#e28e87"
+            title="# Elements - 24 , # Elements Covered - 24 ">SKJKASDKD</a>
+            
+    
+            <a href="../correct/SMALLEST_CHANGE.html" class="tag"
+            style="font-size: 18px;color:#d9695f"
+            title="# Elements - 10 , # Elements Covered - 10 ">SMALLEST_CHANGE</a>
+            
+    
+            <a href="../correct/SOLUTION.html" class="tag"
+            style="font-size: 18px;color:#d9695f"
+            title="# Elements - 10 , # Elements Covered - 10 ">SOLUTION</a>
+            
+    
+            <a href="../correct/SOLVE.html" class="tag"
+            style="font-size: 16px;color:#d5584c"
+            title="# Elements - 7 , # Elements Covered - 7 ">SOLVE</a>
+            
+    
+            <a href="../correct/SOLVE_STRING.html" class="tag"
+            style="font-size: 26px;color:#e28e87"
+            title="# Elements - 23 , # Elements Covered - 23 ">SOLVE_STRING</a>
+            
+    
+            <a href="../correct/SORTED_LIST_SUM.html" class="tag"
+            style="font-size: 21px;color:#de7b72"
+            title="# Elements - 15 , # Elements Covered - 15 ">SORTED_LIST_SUM</a>
+            
+    
+            <a href="../correct/SORT_ARRAY.html" class="tag"
+            style="font-size: 22px;color:#de7b72"
+            title="# Elements - 17 , # Elements Covered - 17 ">SORT_ARRAY</a>
+            
+    
+            <a href="../correct/SORT_ARRAY_BINARY.html" class="tag"
+            style="font-size: 36px;color:#fae1a0"
+            title="# Elements - 38 , # Elements Covered - 37 ">SORT_ARRAY_BINARY</a>
+            
+    
+            <a href="../correct/SORT_EVEN.html" class="tag"
+            style="font-size: 22px;color:#de7b72"
+            title="# Elements - 17 , # Elements Covered - 17 ">SORT_EVEN</a>
+            
+    
+            <a href="../correct/SORT_NUMBERS.html" class="tag"
+            style="font-size: 24px;color:#e28e87"
+            title="# Elements - 20 , # Elements Covered - 20 ">SORT_NUMBERS</a>
+            
+    
+            <a href="../correct/SORT_THIRD.html" class="tag"
+            style="font-size: 22px;color:#de7b72"
+            title="# Elements - 17 , # Elements Covered - 17 ">SORT_THIRD</a>
+            
+    
+            <a href="../correct/SPECIAL_FACTORIAL.html" class="tag"
+            style="font-size: 17px;color:#d5584c"
+            title="# Elements - 8 , # Elements Covered - 8 ">SPECIAL_FACTORIAL</a>
+            
+    
+            <a href="../correct/SPECIAL_FILTER.html" class="tag"
+            style="font-size: 20px;color:#d9695f"
+            title="# Elements - 13 , # Elements Covered - 13 ">SPECIAL_FILTER</a>
+            
+    
+            <a href="../correct/SPLIT_WORDS.html" class="tag"
+            style="font-size: 24px;color:#e28e87"
+            title="# Elements - 20 , # Elements Covered - 20 ">SPLIT_WORDS</a>
+            
+    
+            <a href="../correct/STARTS_ONE_ENDS.html" class="tag"
+            style="font-size: 15px;color:#d5584c"
+            title="# Elements - 6 , # Elements Covered - 6 ">STARTS_ONE_ENDS</a>
+            
+    
+            <a href="../correct/STRANGE_SORT_LIST.html" class="tag"
+            style="font-size: 21px;color:#de7b72"
+            title="# Elements - 14 , # Elements Covered - 14 ">STRANGE_SORT_LIST</a>
+            
+    
+            <a href="../correct/STRING_SEQUENCE.html" class="tag"
+            style="font-size: 16px;color:#d5584c"
+            title="# Elements - 7 , # Elements Covered - 7 ">STRING_SEQUENCE</a>
+            
+    
+            <a href="../correct/STRING_TO_MD5.html" class="tag"
+            style="font-size: 17px;color:#d9695f"
+            title="# Elements - 9 , # Elements Covered - 9 ">STRING_TO_MD5</a>
+            
+    
+            <a href="../correct/STRING_XOR.html" class="tag"
+            style="font-size: 19px;color:#d9695f"
+            title="# Elements - 11 , # Elements Covered - 11 ">STRING_XOR</a>
+            
+    
+            <a href="../correct/STRLEN.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 2 , # Elements Covered - 2 ">STRLEN</a>
+            
+    
+            <a href="../correct/STRONGEST_EXTENSION.html" class="tag"
+            style="font-size: 25px;color:#e28e87"
+            title="# Elements - 21 , # Elements Covered - 21 ">STRONGEST_EXTENSION</a>
+            
+    
+            <a href="../correct/SUM_PRODUCT.html" class="tag"
+            style="font-size: 15px;color:#d5584c"
+            title="# Elements - 6 , # Elements Covered - 6 ">SUM_PRODUCT</a>
+            
+    
+            <a href="../correct/SUM_SQUARED_NUMS.html" class="tag"
+            style="font-size: 16px;color:#d5584c"
+            title="# Elements - 7 , # Elements Covered - 7 ">SUM_SQUARED_NUMS</a>
+            
+    
+            <a href="../correct/SUM_SQUARES.html" class="tag"
+            style="font-size: 21px;color:#de7b72"
+            title="# Elements - 15 , # Elements Covered - 15 ">SUM_SQUARES</a>
+            
+    
+            <a href="../correct/SUM_TO_N.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 2 , # Elements Covered - 2 ">SUM_TO_N</a>
+            
+    
+            <a href="../correct/TOTAL_MATCH.html" class="tag"
+            style="font-size: 19px;color:#d9695f"
+            title="# Elements - 12 , # Elements Covered - 12 ">TOTAL_MATCH</a>
+            
+    
+            <a href="../correct/TRI.html" class="tag"
+            style="font-size: 23px;color:#de7b72"
+            title="# Elements - 18 , # Elements Covered - 18 ">TRI</a>
+            
+    
+            <a href="../correct/TRIANGLE_AREA.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 2 , # Elements Covered - 2 ">TRIANGLE_AREA</a>
+            
+    
+            <a href="../correct/TRIANGLE_AREA_2.html" class="tag"
+            style="font-size: 18px;color:#d9695f"
+            title="# Elements - 10 , # Elements Covered - 10 ">TRIANGLE_AREA_2</a>
+            
+    
+            <a href="../correct/TRIPLES_SUM_TO_ZERO.html" class="tag"
+            style="font-size: 21px;color:#de7b72"
+            title="# Elements - 15 , # Elements Covered - 15 ">TRIPLES_SUM_TO_ZERO</a>
+            
+    
+            <a href="../correct/TRUNCATE_NUMBER.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 2 , # Elements Covered - 2 ">TRUNCATE_NUMBER</a>
+            
+    
+            <a href="../correct/UNIQUE.html" class="tag"
+            style="font-size: 18px;color:#d9695f"
+            title="# Elements - 10 , # Elements Covered - 10 ">UNIQUE</a>
+            
+    
+            <a href="../correct/UNIQUE_DIGITS.html" class="tag"
+            style="font-size: 25px;color:#e28e87"
+            title="# Elements - 21 , # Elements Covered - 21 ">UNIQUE_DIGITS</a>
+            
+    
+            <a href="../correct/VALID_DATE.html" class="tag"
+            style="font-size: 35px;color:#f6c342"
+            title="# Elements - 37 , # Elements Covered - 33 ">VALID_DATE</a>
+            
+    
+            <a href="../correct/VOWELS_COUNT.html" class="tag"
+            style="font-size: 20px;color:#d9695f"
+            title="# Elements - 13 , # Elements Covered - 13 ">VOWELS_COUNT</a>
+            
+    
+            <a href="../correct/WILL_IT_FLY.html" class="tag"
+            style="font-size: 26px;color:#e28e87"
+            title="# Elements - 22 , # Elements Covered - 22 ">WILL_IT_FLY</a>
+            
+    
+            <a href="../correct/WORDS_IN_SENTENCE.html" class="tag"
+            style="font-size: 24px;color:#e28e87"
+            title="# Elements - 20 , # Elements Covered - 20 ">WORDS_IN_SENTENCE</a>
+            
+    
+            <a href="../correct/WORDS_STRINGS.html" class="tag"
+            style="font-size: 22px;color:#de7b72"
+            title="# Elements - 17 , # Elements Covered - 17 ">WORDS_STRINGS</a>
+            
+    
+            <a href="../correct/X_OR_Y.html" class="tag"
+            style="font-size: 20px;color:#d9695f"
+            title="# Elements - 13 , # Elements Covered - 13 ">X_OR_Y</a>
+           </div>
+   </div>
+    </div> <!-- tabs-pane active-pane -->
+</div> <!-- aui-tabs horizontal-tabs -->
+
+                        </div> <!-- class="aui-page-panel-content-clover" -->
+                    <footer id="footer" role="contentinfo">
+    <section class="footer-body">
+        <ul>
+            <li>
+                Report generated by <a target="_new" href="http://openclover.org">OpenClover</a> v 4.4.1
+                on 星期四 十一月 16 2023 17:27:40 GMT+08:00 using coverage data from 星期四 十一月 16 2023 17:27:37 GMT+08:00.
+            </li>
+        </ul>
+        <ul>
+            <li>OpenClover is free and open-source software. </li>
+        </ul>
+    </section>
+</footer>                </section> <!-- class="aui-page-panel-content" -->
+            </div> <!-- class="aui-page-panel-inner" -->
+        </div> <!-- class="aui-page-panel" -->
+    </div> <!-- id="page" -->
+</body>
+</html>

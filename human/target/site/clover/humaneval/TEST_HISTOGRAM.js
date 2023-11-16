@@ -1,0 +1,10 @@
+var clover = new Object();
+
+// JSON: {classes : [{name, id, sl, el,  methods : [{sl, el}, ...]}, ...]}
+clover.pageData = {"classes":[{"el":71,"id":6081,"methods":[{"el":13,"sc":2,"sl":6},{"el":21,"sc":2,"sl":14},{"el":32,"sc":2,"sl":22},{"el":41,"sc":2,"sl":33},{"el":48,"sc":2,"sl":42},{"el":57,"sc":2,"sl":49},{"el":63,"sc":2,"sl":58},{"el":70,"sc":2,"sl":64}],"name":"TEST_HISTOGRAM","sl":5}]}
+
+// JSON: {test_ID : {"methods": [ID1, ID2, ID3...], "name" : "testXXX() void"}, ...};
+clover.testTargets = {"test_146":{"methods":[{"sl":6}],"name":"test_0","pass":true,"statements":[{"sl":8},{"sl":9},{"sl":10},{"sl":11},{"sl":12}]},"test_478":{"methods":[{"sl":22}],"name":"test_2","pass":true,"statements":[{"sl":24},{"sl":25},{"sl":26},{"sl":27},{"sl":28},{"sl":29},{"sl":30},{"sl":31}]},"test_644":{"methods":[{"sl":64}],"name":"test_7","pass":true,"statements":[{"sl":66},{"sl":67},{"sl":68},{"sl":69}]},"test_663":{"methods":[{"sl":58}],"name":"test_6","pass":true,"statements":[{"sl":60},{"sl":61},{"sl":62}]},"test_694":{"methods":[{"sl":33}],"name":"test_3","pass":true,"statements":[{"sl":35},{"sl":36},{"sl":37},{"sl":38},{"sl":39},{"sl":40}]},"test_721":{"methods":[{"sl":42}],"name":"test_4","pass":true,"statements":[{"sl":44},{"sl":45},{"sl":46},{"sl":47}]},"test_799":{"methods":[{"sl":14}],"name":"test_1","pass":true,"statements":[{"sl":16},{"sl":17},{"sl":18},{"sl":19},{"sl":20}]},"test_944":{"methods":[{"sl":49}],"name":"test_5","pass":true,"statements":[{"sl":51},{"sl":52},{"sl":53},{"sl":54},{"sl":55},{"sl":56}]}}
+
+// JSON: { lines : [{tests : [testid1, testid2, testid3, ...]}, ...]};
+clover.srcFileLines = [[], [], [], [], [], [], [146], [], [146], [146], [146], [146], [146], [], [799], [], [799], [799], [799], [799], [799], [], [478], [], [478], [478], [478], [478], [478], [478], [478], [478], [], [694], [], [694], [694], [694], [694], [694], [694], [], [721], [], [721], [721], [721], [721], [], [944], [], [944], [944], [944], [944], [944], [944], [], [663], [], [663], [663], [663], [], [644], [], [644], [644], [644], [644], [], []]
