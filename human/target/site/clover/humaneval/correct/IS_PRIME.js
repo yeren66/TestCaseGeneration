@@ -1,0 +1,10 @@
+var clover = new Object();
+
+// JSON: {classes : [{name, id, sl, el,  methods : [{sl, el}, ...]}, ...]}
+clover.pageData = {"classes":[{"el":13,"id":3468,"methods":[{"el":12,"sc":5,"sl":4}],"name":"IS_PRIME","sl":3}]}
+
+// JSON: {test_ID : {"methods": [ID1, ID2, ID3...], "name" : "testXXX() void"}, ...};
+clover.testTargets = {"test_1009":{"methods":[{"sl":4}],"name":"test_5","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":9}]},"test_146":{"methods":[{"sl":4}],"name":"test_11","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":9}]},"test_183":{"methods":[{"sl":4}],"name":"test_2","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":11}]},"test_204":{"methods":[{"sl":4}],"name":"test_3","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":11}]},"test_447":{"methods":[{"sl":4}],"name":"test_6","pass":true,"statements":[{"sl":5},{"sl":6}]},"test_503":{"methods":[{"sl":4}],"name":"test_0","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":9}]},"test_513":{"methods":[{"sl":4}],"name":"test_10","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":9}]},"test_643":{"methods":[{"sl":4}],"name":"test_1","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":11}]},"test_775":{"methods":[{"sl":4}],"name":"test_8","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":11}]},"test_811":{"methods":[{"sl":4}],"name":"test_4","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":11}]},"test_845":{"methods":[{"sl":4}],"name":"test_7","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":11}]},"test_889":{"methods":[{"sl":4}],"name":"test_9","pass":true,"statements":[{"sl":5},{"sl":7},{"sl":8},{"sl":9}]}}
+
+// JSON: { lines : [{tests : [testid1, testid2, testid3, ...]}, ...]};
+clover.srcFileLines = [[], [], [], [], [183, 503, 146, 643, 811, 1009, 845, 889, 775, 204, 447, 513], [183, 503, 146, 643, 811, 1009, 845, 889, 775, 204, 447, 513], [447], [183, 503, 146, 643, 811, 1009, 845, 889, 775, 204, 513], [183, 503, 146, 643, 811, 1009, 845, 889, 775, 204, 513], [503, 146, 1009, 889, 513], [], [183, 643, 811, 845, 775, 204], [], []]

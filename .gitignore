@@ -1,5 +1,5 @@
 human/target/*
-!human/target/site/*
+!human/target/site/
 
 *_test.py
 

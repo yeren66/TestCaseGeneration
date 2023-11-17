@@ -1,0 +1,10 @@
+var clover = new Object();
+
+// JSON: {classes : [{name, id, sl, el,  methods : [{sl, el}, ...]}, ...]}
+clover.pageData = {"classes":[{"el":87,"id":5287,"methods":[{"el":14,"sc":5,"sl":8},{"el":22,"sc":5,"sl":16},{"el":30,"sc":5,"sl":24},{"el":38,"sc":5,"sl":32},{"el":46,"sc":5,"sl":40},{"el":54,"sc":5,"sl":48},{"el":62,"sc":5,"sl":56},{"el":70,"sc":5,"sl":64},{"el":78,"sc":5,"sl":72},{"el":86,"sc":5,"sl":80}],"name":"TEST_COUNT_UP_TO","sl":7}]}
+
+// JSON: {test_ID : {"methods": [ID1, ID2, ID3...], "name" : "testXXX() void"}, ...};
+clover.testTargets = {"test_1":{"methods":[{"sl":48}],"name":"test_5","pass":true,"statements":[{"sl":50},{"sl":51}]},"test_195":{"methods":[{"sl":64}],"name":"test_7","pass":true,"statements":[{"sl":66},{"sl":67}]},"test_271":{"methods":[{"sl":40}],"name":"test_4","pass":true,"statements":[{"sl":42},{"sl":43}]},"test_28":{"methods":[{"sl":16}],"name":"test_1","pass":true,"statements":[{"sl":18},{"sl":19}]},"test_400":{"methods":[{"sl":80}],"name":"test_9","pass":true,"statements":[{"sl":82},{"sl":83}]},"test_415":{"methods":[{"sl":32}],"name":"test_3","pass":true,"statements":[{"sl":34},{"sl":35}]},"test_426":{"methods":[{"sl":72}],"name":"test_8","pass":true,"statements":[{"sl":74},{"sl":75}]},"test_506":{"methods":[{"sl":24}],"name":"test_2","pass":true,"statements":[{"sl":26},{"sl":27}]},"test_928":{"methods":[{"sl":8}],"name":"test_0","pass":true,"statements":[{"sl":10},{"sl":11}]},"test_980":{"methods":[{"sl":56}],"name":"test_6","pass":true,"statements":[{"sl":58},{"sl":59}]}}
+
+// JSON: { lines : [{tests : [testid1, testid2, testid3, ...]}, ...]};
+clover.srcFileLines = [[], [], [], [], [], [], [], [], [928], [], [928], [928], [], [], [], [], [28], [], [28], [28], [], [], [], [], [506], [], [506], [506], [], [], [], [], [415], [], [415], [415], [], [], [], [], [271], [], [271], [271], [], [], [], [], [1], [], [1], [1], [], [], [], [], [980], [], [980], [980], [], [], [], [], [195], [], [195], [195], [], [], [], [], [426], [], [426], [426], [], [], [], [], [400], [], [400], [400], [], [], [], []]
