@@ -34,6 +34,24 @@ print(json_data[0]['methods_info'][0]['solution_code'])
 print()
 print("--------------------------------------------------")
 
+@staticmethod
+def _parse_ret(ret: Dict) -> List:
+    rets = []
+    output = ret["choices"][0]["message"]["content"]
+    if "```" in output:
+        for x in output.split("```")[1].splitlines():
+            if x.strip() == "":
+                continue
+            try:
+                # remove comments
+                input = ast.literal_eval(f"[{x.split('#')[0].strip()}]")
+            except:  # something wrong.
+                continue
+            rets.append(input)
+    # else:
+    #     rets = output
+    return rets
+
 output = process_json_stream(response.text)
 print(output)
 with open('generate_test_code_1.py', 'w') as f:
