@@ -1,16 +1,15 @@
+import re
 import requests
 import json
-from json_reader import json_data
-from prompt import instruct_prompt, instruct_prompt_ooold
+from prompts import instruct_prompt
+from source_code_extract import java_files_content
+import javalang
+from tqdm import tqdm
+import logging
 
 url = 'http://localhost:11434/api/generate'
-data = {
-    "model": "codellama",
-    "prompt": instruct_prompt_ooold(json_data[1]['solution_code'])
-}
-headers = {'Content-Type': 'application/json'}
+logging.basicConfig(filename='log_file.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
-response = requests.post(url, data=json.dumps(data), headers=headers)
 
 # 用于处理JSON流的函数
 def process_json_stream(json_stream):
@@ -28,32 +27,82 @@ def process_json_stream(json_stream):
     # return json.dumps(result, ensure_ascii=False)
     return concatenated_responses
 
+def parse_ret(ret: str):
+    output = ""
+    if "```" in ret:
+        # 如果返回内容中包括```，则进行提取
+        pattern = r"```java\n([\s\S]*?)\n```"
+        matches = re.findall(pattern, ret)
+        if matches:
+            output = matches[0]
+        else:
+            output = ret.split("```")[1]
+    else:
+        # 否则对可能存在的Note增加注释
+        pattern = r"Note:"
+        replacement = "#\\g<0>"
+        output = re.sub(pattern, replacement, ret)
+    return output
 
-# print(response.text)
-print(json_data[0]['methods_info'][0]['solution_code'])
-print()
-print("--------------------------------------------------")
+def handle_ret(generate_code: str, source_code: str):
+    try:
+        source_tree = javalang.parse.parse(source_code)
+        generate_tree = javalang.parse.parse(generate_code)
+    except:
+        return "Syntax Error"
+    
+    source_package_name = source_tree.package.name
+    source_class_name = source_tree.types[0].name 
+    source_method_name = source_tree.types[0].body[0].name 
 
-@staticmethod
-def _parse_ret(ret: Dict) -> List:
-    rets = []
-    output = ret["choices"][0]["message"]["content"]
-    if "```" in output:
-        for x in output.split("```")[1].splitlines():
-            if x.strip() == "":
+    try:
+        generate_package_name = generate_tree.package.name
+    except AttributeError:
+        generate_code = "package humaneval;\n" + generate_code
+        generate_package_name = "humaneval";
+    generate_class_name = generate_tree.types[0].name
+
+    # 修改test case的package name
+    if generate_package_name != "humaneval":
+        generate_code = re.sub(generate_package_name, "humaneval", generate_code)
+    
+    # 修改test case调用的方法名，使之可用
+    generate_code = re.sub(" " + source_method_name, " " + source_package_name + "." + source_class_name + "." + source_method_name, generate_code)
+    generate_code = re.sub(" " + source_class_name + "." + source_method_name, " " + source_package_name + "." + source_class_name + "." + source_method_name, generate_code)
+
+    # 修改test case的类名
+    generate_code = re.sub("public class " + generate_class_name, "public class " + source_class_name + "Test", generate_code)
+
+    return generate_code, source_class_name + "Test"
+
+if __name__ == "__main__":
+    for i in tqdm(range(38, len(java_files_content))):
+        logging.info('\n--------------- source code ---------------\n')
+        logging.info('\n' + java_files_content[i])
+        index = 0
+        error_index = 0
+        while 1:
+            if index == 1:
+                break
+            data = {
+                "model": "codellama:13b-instruct",
+                "prompt": instruct_prompt(java_files_content[i])
+            }
+            headers = {'Content-Type': 'application/json'}
+            response = requests.post(url, data=json.dumps(data), headers=headers)
+            output = process_json_stream(response.text)
+            logging.info('\n--------------- generate content ---------------\n')
+            logging.info('\n' + output)
+            output = parse_ret(output)
+            ret = handle_ret(output, java_files_content[i])
+            if ret == "Syntax Error" and error_index < 3:
+                error_index += 1
+                logging.error("Syntax Error")
                 continue
-            try:
-                # remove comments
-                input = ast.literal_eval(f"[{x.split('#')[0].strip()}]")
-            except:  # something wrong.
-                continue
-            rets.append(input)
-    # else:
-    #     rets = output
-    return rets
-
-output = process_json_stream(response.text)
-print(output)
-with open('generate_test_code_1.py', 'w') as f:
-    f.write(output)
-# print(output['concatenated_responses'])
+            if error_index == 3:
+                break
+            index += 1
+            # with open("test/" + ret[1] + "_" + str(index) + ".java", 'w') as f:
+            #     f.write(ret[0])
+            with open("test/" + ret[1] + ".java", 'w') as f:
+                f.write(ret[0])

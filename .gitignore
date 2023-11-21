@@ -1,6 +1,9 @@
 human/target/*
 !human/target/site/
 
+data/*
+dataset/*
+
 *_test.py
 
 __pycache__/
