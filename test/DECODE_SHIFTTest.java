@@ -1,13 +1,15 @@
 package humaneval;
-
-import static org.junit.Assert.*;
 import org.junit.Test;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.DECODE_SHIFT;
 
 public class DECODE_SHIFTTest {
     @Test
-    public void testEncodeShift() {
+    public void encode_shiftTEST() {
         String input = "hello";
-        String expectedOutput = "mjqqt"; // mjqqt is the encoded string with shift of 5 in the alphabet
-        assertEquals(expectedOutput, humaneval.correct.DECODE_SHIFT.encode_shift(input));
+        String expectedOutput = "mjqqt";
+        assertEquals(expectedOutput, DECODE_SHIFT.encode_shift(input));
     }
 }

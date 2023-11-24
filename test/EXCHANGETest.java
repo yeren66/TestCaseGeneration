@@ -1,75 +1,54 @@
-package humaneval;
-import static org.junit.Assert.*;
 
+package humaneval;
+import java.util.List;
+import org.junit.Test;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.EXCHANGE;
 import java.util.ArrayList;
 
 public class EXCHANGETest {
     @Test
-    public void testExchange_lst1HasOnlyEvenNumbers() {
+    public void exchangeTEST() {
         ArrayList<Integer> lst1 = new ArrayList<>();
+        ArrayList<Integer> lst2 = new ArrayList<>();
+        
+        // Test case 1: lst1 and lst2 have only even numbers
         lst1.add(2);
         lst1.add(4);
         lst1.add(6);
-        
-        String result = humaneval.correct.EXCHANGE.exchange(lst1, new ArrayList<>());
-        
-        assertEquals("YES", result);
-    }
-    
-    @Test
-    public void testExchange_lst2HasOnlyEvenNumbers() {
-        ArrayList<Integer> lst2 = new ArrayList<>();
-        lst2.add(4);
-        lst2.add(6);
         lst2.add(8);
+        lst2.add(10);
+        lst2.add(12);
         
-        String result = humaneval.correct.EXCHANGE.exchange(new ArrayList<>(), lst2);
-        
+        String result = EXCHANGE.exchange(lst1, lst2);
         assertEquals("YES", result);
-    }
-    
-    @Test
-    public void testExchange_lst1AndLst2HaveOnlyEvenNumbers() {
-        ArrayList<Integer> lst1 = new ArrayList<>();
-        lst1.add(2);
-        lst1.add(4);
         
-        ArrayList<Integer> lst2 = new ArrayList<>();
-        lst2.add(6);
-        lst2.add(8);
-        
-        String result = humaneval.correct.EXCHANGE.exchange(lst1, lst2);
-        
-        assertEquals("YES", result);
-    }
-    
-    @Test
-    public void testExchange_lst1AndLst2HaveOnlyOddNumbers() {
-        ArrayList<Integer> lst1 = new ArrayList<>();
+        // Test case 2: lst1 has only odd numbers and lst2 has only even numbers
+        lst1.clear();
+        lst2.clear();
         lst1.add(1);
         lst1.add(3);
-        
-        ArrayList<Integer> lst2 = new ArrayList<>();
-        lst2.add(5);
-        lst2.add(7);
-        
-        String result = humaneval.correct.EXCHANGE.exchange(lst1, lst2);
-        
-        assertEquals("NO", result);
-    }
-    
-    @Test
-    public void testExchange_lst1AndLst2HaveOnlyMixedNumbers() {
-        ArrayList<Integer> lst1 = new ArrayList<>();
-        lst1.add(2);
-        lst1.add(3);
-        
-        ArrayList<Integer> lst2 = new ArrayList<>();
+        lst1.add(5);
+        lst2.add(2);
         lst2.add(4);
         lst2.add(6);
         
-        String result = humaneval.correct.EXCHANGE.exchange(lst1, lst2);
+        result = EXCHANGE.exchange(lst1, lst2);
+        assertEquals("YES", result);
         
+        // Test case 3: lst1 has only even numbers and lst2 has only odd numbers
+        lst1.clear();
+        lst2.clear();
+        lst1.add(2);
+        lst1.add(4);
+        lst1.add(6);
+        lst2.add(1);
+        lst2.add(3);
+        lst2.add(5);
+        
+        result = EXCHANGE.exchange(lst1, lst2);
         assertEquals("NO", result);
     }
 }

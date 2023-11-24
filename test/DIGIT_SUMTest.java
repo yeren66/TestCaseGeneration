@@ -1,49 +1,33 @@
-
 package humaneval;
-
 import org.junit.Test;
+  import org.junit.Assert;
+import humaneval.correct.DIGIT_SUM;
 
 public class DIGIT_SUMTest {
-
     @Test
-    public void testDigitSum_EmptyString() {
-        String input = "";
-        int expectedOutput = 0;
-        assertEquals(expectedOutput, humaneval.correct.DIGIT_SUM.digit_sum(input));
-    }
+    public void digit_sumTEST() {
+        int expected = 0;
+        String input1 = "";
+        Assert.assertEquals(expected, DIGIT_SUM.digit_sum(input1));
 
-    @Test
-    public void testDigitSum_abAB() {
-        String input = "abAB";
-        int expectedOutput = 131;
-        assertEquals(expectedOutput, humaneval.correct.DIGIT_SUM.digit_sum(input));
-    }
+        expected = 131;
+        String input2 = "abAB";
+        Assert.assertEquals(expected, DIGIT_SUM.digit_sum(input2));
 
-    @Test
-    public void testDigitSum_abcCd() {
-        String input = "abcCd";
-        int expectedOutput = 67;
-        assertEquals(expectedOutput, humaneval.correct.DIGIT_SUM.digit_sum(input));
-    }
+        expected = 67;
+        String input3 = "abcCd";
+        Assert.assertEquals(expected, DIGIT_SUM.digit_sum(input3));
 
-    @Test
-    public void testDigitSum_helloE() {
-        String input = "helloE";
-        int expectedOutput = 69;
-        assertEquals(expectedOutput, humaneval.correct.DIGIT_SUM.digit_sum(input));
-    }
+        expected = 69;
+        String input4 = "helloE";
+        Assert.assertEquals(expected, DIGIT_SUM.digit_sum(input4));
 
-    @Test
-    public void testDigitSum_woArBld() {
-        String input = "woArBld";
-        int expectedOutput = 131;
-        assertEquals(expectedOutput, humaneval.correct.DIGIT_SUM.digit_sum(input));
-    }
+        expected = 131;
+        String input5 = "woArBld";
+        Assert.assertEquals(expected, DIGIT_SUM.digit_sum(input5));
 
-    @Test
-    public void testDigitSum_aAaaaXa() {
-        String input = "aAaaaXa";
-        int expectedOutput = 153;
-        assertEquals(expectedOutput, humaneval.correct.DIGIT_SUM.digit_sum(input));
+        expected = 153;
+        String input6 = "aAaaaXa";
+        Assert.assertEquals(expected, DIGIT_SUM.digit_sum(input6));
     }
 }

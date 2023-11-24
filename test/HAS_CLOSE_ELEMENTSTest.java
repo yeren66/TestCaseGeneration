@@ -1,38 +1,19 @@
 package humaneval;
+import java.util.List;
+import java.util.Arrays;
+import org.junit.Test;
 
 import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.HAS_CLOSE_ELEMENTS;
 import java.util.List;
 
 public class HAS_CLOSE_ELEMENTSTest {
     @Test
-    public void testHasCloseElements_returnsTrueWhenDistanceLessThanThreshold() {
-        List<Double> numbers = List.of(1.0, 2.0);
-        double threshold = 0.5;
-        
-        assertEquals(true, humaneval.correct.HAS_CLOSE_ELEMENTS.has_close_elements(numbers, threshold));
-    }
-    
-    @Test
-    public void testHasCloseElements_returnsFalseWhenDistanceGreaterThanThreshold() {
-        List<Double> numbers = List.of(1.0, 2.0);
-        double threshold = 0.25;
-        
-        assertEquals(false, humaneval.correct.HAS_CLOSE_ELEMENTS.has_close_elements(numbers, threshold));
-    }
-    
-    @Test
-    public void testHasCloseElements_returnsTrueWhenThresholdZero() {
-        List<Double> numbers = List.of(1.0, 2.0);
-        double threshold = 0;
-        
-        assertEquals(true, humaneval.correct.HAS_CLOSE_ELEMENTS.has_close_elements(numbers, threshold));
-    }
-    
-    @Test
-    public void testHasCloseElements_returnsFalseWhenThresholdGreaterThanDistance() {
-        List<Double> numbers = List.of(1.0, 2.0);
-        double threshold = 0.75;
-        
-        assertEquals(false, humaneval.correct.HAS_CLOSE_ELEMENTS.has_close_elements(numbers, threshold));
+    public void has_close_elementsTEST() {
+        List<Double> numbers = Arrays.asList(1.0, 2.0, 3.0, 4.0);
+        double threshold = 1.5;
+        boolean result = HAS_CLOSE_ELEMENTS.has_close_elements(numbers, threshold);
+        assertTrue(result);
     }
 }

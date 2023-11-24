@@ -1,30 +1,20 @@
 package humaneval;
+import org.junit.Test;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.FIX_SPACES;
 
 public class FIX_SPACESTest {
     @Test
-    public void test1() {
-        String text = "Example";
-        assertEquals("Example", humaneval.correct.FIX_SPACES.fix_spaces(text));
-    }
-    
-    @Test
-    public void test2() {
-        String text = "Example 1";
-        assertEquals("Example_1", humaneval.correct.FIX_SPACES.fix_spaces(text));
-    }
-    
-    @Test
-    public void test3() {
-        String text = " Example 2";
-        assertEquals("_Example_2", humaneval.correct.FIX_SPACES.fix_spaces(text));
-    }
-    
-    @Test
-    public void test4() {
-        String text = " Example   3";
-        assertEquals("_Example-3", humaneval.correct.FIX_SPACES.fix_spaces(text));
+    public void fix_spacesTEST() {
+        // Test cases for empty string input
+        assertEquals("", FIX_SPACES.fix_spaces(""));
+
+        // Test cases for single space input
+        assertEquals("Example", FIX_SPACES.fix_spaces("Example"));
+        assertEquals("Example_1", FIX_SPACES.fix_spaces("Example 1"));
+        assertEquals("_Example_2", FIX_SPACES.fix_spaces(" Example 2"));
+        assertEquals("_Example-3", FIX_SPACES.fix_spaces(" Example   3"));
     }
 }

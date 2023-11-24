@@ -1,14 +1,20 @@
+
 package humaneval;
+import java.util.List;
+import java.util.Arrays;
 import org.junit.Test;
-import java.util.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.MEAN_ABSOLUTE_DEVIATION;
+import java.util.List;
+
 public class MEAN_ABSOLUTE_DEVIATIONTest {
     @Test
-    public void test() {
-        List<Double> numbers = new ArrayList<>();
-        numbers.add(1.0);
-        numbers.add(2.0);
-        numbers.add(3.0);
-        double mean = 14.67;
-        assertEquals(mean, humaneval.correct.MEAN_ABSOLUTE_DEVIATION.mean_absolute_deviation(numbers), 0.01);
+    public void mean_absolute_deviationTEST() {
+        List<Double> numbers = Arrays.asList(2., 4., 6., 8., 10.);
+        double expectedDeviation = 3.;
+        
+        assertEquals(expectedDeviation, MEAN_ABSOLUTE_DEVIATION.mean_absolute_deviation(numbers), 0.01);
     }
 }

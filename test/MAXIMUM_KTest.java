@@ -1,55 +1,51 @@
 package humaneval;
+import java.util.List;
+import org.junit.Test;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.MAXIMUM_K;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class MAXIMUM_KTest {
     @Test
-    public void testMaximumK() {
+    public void maximum_kTEST() {
+        // Test case 1: empty array and k=0
         ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(-3);
-        arr.add(-4);
-        arr.add(5);
-        int k = 3;
-        
+        int k = 0;
         ArrayList<Integer> expectedResult = new ArrayList<>();
-        expectedResult.add(-4);
-        expectedResult.add(-3);
-        expectedResult.add(5);
+        assertEquals(expectedResult, MAXIMUM_K.maximum_k(arr, k));
         
-        assertEquals(expectedResult, humaneval.correct.MAXIMUM_K.maximum_k(arr, k));
-    }
-    
-    @Test
-    public void testMaximumKWithDuplicateElements() {
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(4);
-        arr.add(-4);
-        arr.add(4);
-        int k = 2;
-        
-        ArrayList<Integer> expectedResult = new ArrayList<>();
-        expectedResult.add(4);
-        expectedResult.add(4);
-        
-        assertEquals(expectedResult, humaneval.correct.MAXIMUM_K.maximum_k(arr, k));
-    }
-    
-    @Test
-    public void testMaximumKWithNegativeElements() {
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(-3);
-        arr.add(2);
-        arr.add(1);
-        arr.add(2);
+        // Test case 2: array with positive and negative numbers and k=3
+        arr = new ArrayList<>();
         arr.add(-1);
-        arr.add(-2);
-        arr.add(1);
-        int k = 1;
-        
-        ArrayList<Integer> expectedResult = new ArrayList<>();
+        arr.add(2);
+        arr.add(4);
+        arr.add(-7);
+        arr.add(5);
+        arr.add(-9);
+        k = 3;
+        expectedResult = new ArrayList<>();
+        expectedResult.add(-1);
         expectedResult.add(2);
+        expectedResult.add(4);
+        assertEquals(expectedResult, MAXIMUM_K.maximum_k(arr, k));
         
-        assertEquals(expectedResult, humaneval.correct.MAXIMUM_K.maximum_k(arr, k));
+        // Test case 3: array with all positive numbers and k=5
+        arr = new ArrayList<>();
+        arr.add(1);
+        arr.add(2);
+        arr.add(4);
+        arr.add(7);
+        arr.add(9);
+        k = 5;
+        expectedResult = new ArrayList<>();
+        expectedResult.add(1);
+        expectedResult.add(2);
+        expectedResult.add(4);
+        expectedResult.add(7);
+        expectedResult.add(9);
+        assertEquals(expectedResult, MAXIMUM_K.maximum_k(arr, k));
     }
 }

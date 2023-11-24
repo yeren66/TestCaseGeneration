@@ -1,15 +1,13 @@
 package humaneval;
-import static org.junit.jupiter.api.Assertions.*;
-import humaneval.correct.LARGEST_SMALLEST_INTEGERS;
-
-public class LARGEST_SMALLEST_INTEGERSTest {
+import org.junit.Test;
+  import org.junit.Assert;
+  import humaneval.correct.LARGEST_SMALLEST_INTEGERS;
+  
+  public class LARGEST_SMALLEST_INTEGERSTest {
     @Test
-    public void testEmptyList() {
-        int[] input = {};
-        int[] expectedOutput = new int[2];
-        expectedOutput[0] = 0;
-        expectedOutput[1] = 0;
-        
-        assertEquals(LARGEST_SMALLEST_INTEGERS.largestSmallestIntegers(input), expectedOutput);
+    public void largest_smallest_integersTEST() {
+        int[] lst = new int[]{2, 4, 1, 3, 5, 7};
+        int[] result = LARGEST_SMALLEST_INTEGERS.largest_smallest_integers(lst);
+        assertArrayEquals(new int[] {0, 1}, result);
     }
-}
+  }

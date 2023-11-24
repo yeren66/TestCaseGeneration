@@ -1,31 +1,16 @@
+
 package humaneval;
+import org.junit.Test;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import humaneval.correct.STRLEN;
 
 public class STRLENTest {
-  
-  @Test
-  public void testStrlen() {
-    String inputString = "hello";
-    int expectedLength = 5;
-    
-    assertEquals(expectedLength, humaneval.correct.STRLEN.strlen(inputString));
-  }
-  
-  @Test
-  public void testEmptyString() {
-    String inputString = "";
-    int expectedLength = 0;
-    
-    assertEquals(expectedLength, humaneval.correct.STRLEN.strlen(inputString));
-  }
-  
-  @Test
-  public void testNullString() {
-    String inputString = null;
-    int expectedLength = -1; // or any other appropriate value
-    
-    assertEquals(expectedLength, humaneval.correct.STRLEN.strlen(inputString));
-  }
+    @Test
+    public void strlenTEST() {
+        assertEquals(3, STRLEN.strlen("abc"));
+        assertEquals(5, STRLEN.strlen("hello"));
+        assertEquals(0, STRLEN.strlen(""));
+    }
 }

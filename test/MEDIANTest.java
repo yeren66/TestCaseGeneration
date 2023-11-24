@@ -1,19 +1,20 @@
-package humaneval;
 
+package humaneval;
+import java.util.Arrays;
+import org.junit.Test;
+
+import org.junit.Test;
 import static org.junit.Assert.*;
+import humaneval.correct.MEDIAN;
+import java.util.Arrays;
 
 public class MEDIANTest {
     @Test
-    public void testMedianOddLength() {
-        int[] list = new int[]{3, 1, 2, 4, 5};
-        double expected = 3;
-        assertEquals(expected, humaneval.correct.MEDIAN.median(list), 0);
-    }
-    
-    @Test
-    public void testMedianEvenLength() {
-        int[] list = new int[]{-10, 4, 6, 1000, 10, 20};
-        double expected = 15.0;
-        assertEquals(expected, humaneval.correct.MEDIAN.median(list), 0);
+    public void medianTEST() {
+        int[] list1 = new int[]{3, 1, 2, 4, 5};
+        assertEquals(MEDIAN.median(list1), 3);
+
+        int[] list2 = new int[]{-10, 4, 6, 1000, 10, 20};
+        assertEquals(MEDIAN.median(list2), 15.0);
     }
 }

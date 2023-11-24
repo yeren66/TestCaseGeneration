@@ -1,29 +1,28 @@
-package humaneval;
 
-import static org.junit.Assert.*;
-import java.util.ArrayList;
+package humaneval;
+import java.util.List;
 import java.util.Arrays;
 import org.junit.Test;
 
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.BF;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class BFTest {
     @Test
-    public void testBF() {
-        ArrayList<String> result = humaneval.correct.BF.bf("Jupiter", "Neptune");
-        assertEquals(2, result.size());
-        assertTrue(result.contains("Saturn"));
-        assertTrue(result.contains("Uranus"));
-    }
-
-    @Test
-    public void testBFWithInvalidPlanetName() {
-        ArrayList<String> result = humaneval.correct.BF.bf("Earth", "Mercury");
-        assertEquals(1, result.size());
-        assertTrue(result.contains("Venus"));
-    }
-
-    @Test
-    public void testBFWithSamePlanetNames() {
-        ArrayList<String> result = humaneval.correct.BF.bf("Mercury", "Mercury");
-        assertEquals(0, result.size());
+    public void bfTEST() {
+        // Test case 1: planet1 = "Jupiter", planet2 = "Neptune"
+        ArrayList<String> expectedResult = new ArrayList<String>(Arrays.asList("Saturn", "Uranus"));
+        assertEquals(expectedResult, BF.bf("Jupiter", "Neptune"));
+        
+        // Test case 2: planet1 = "Earth", planet2 = "Mercury"
+        expectedResult = new ArrayList<String>(Arrays.asList("Venus"));
+        assertEquals(expectedResult, BF.bf("Earth", "Mercury"));
+        
+        // Test case 3: planet1 = "Mercury", planet2 = "Uranus"
+        expectedResult = new ArrayList<String>(Arrays.asList("Venus", "Earth", "Mars", "Jupiter", "Saturn"));
+        assertEquals(expectedResult, BF.bf("Mercury", "Uranus"));
     }
 }

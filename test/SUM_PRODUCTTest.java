@@ -1,31 +1,19 @@
+
 package humaneval;
+import java.util.List;
+import java.util.Arrays;
+import org.junit.Test;
 
 import org.junit.Test;
-import java.util.List;
 import static org.junit.Assert.*;
+import humaneval.correct.SUM_PRODUCT;
+import java.util.List;
 
 public class SUM_PRODUCTTest {
     @Test
-    public void testSumProduct() {
+    public void sum_productTEST() {
         List<Integer> numbers = Arrays.asList(1, 2, 3);
-        Integer[] result = humaneval.correct.SUM_PRODUCT.sum_product(numbers);
-        
+        Integer[] result = SUM_PRODUCT.sum_product(numbers);
         assertArrayEquals(new Integer[]{6, 6}, result);
-    }
-    
-    @Test
-    public void testSumProductWithNegativeNumbers() {
-        List<Integer> numbers = Arrays.asList(-1, -2, -3);
-        Integer[] result = humaneval.correct.SUM_PRODUCT.sum_product(numbers);
-        
-        assertArrayEquals(new Integer[]{-6, 6}, result);
-    }
-    
-    @Test
-    public void testSumProductWithZeroNumbers() {
-        List<Integer> numbers = Arrays.asList();
-        Integer[] result = humaneval.correct.SUM_PRODUCT.sum_product(numbers);
-        
-        assertArrayEquals(new Integer[]{0, 1}, result);
     }
 }

@@ -1,57 +1,16 @@
+
 package humaneval;
-import static org.junit.jupiter.api.Assertions.*;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Arrays;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.NUMERICAL_LETTER_GRADE;
 
 public class NUMERICAL_LETTER_GRADETest {
     @Test
-    public void testAPlus() {
-        double[] grades = new double[] {4.0};
-        String[] expectedLetterGrades = new String[] {"A+"};
-        assertArrayEquals(expectedLetterGrades, humaneval.correct.NUMERICAL_LETTER_GRADE.numerical_letter_grade(grades));
-    }
-    
-    @Test
-    public void testA() {
-        double[] grades = new double[] {3.8};
-        String[] expectedLetterGrades = new String[] {"A"};
-        assertArrayEquals(expectedLetterGrades, humaneval.correct.NUMERICAL_LETTER_GRADE.numerical_letter_grade(grades));
-    }
-    
-    @Test
-    public void testAPlusAndA() {
-        double[] grades = new double[] {4.0, 3.8};
-        String[] expectedLetterGrades = new String[] {"A+", "A"};
-        assertArrayEquals(expectedLetterGrades, humaneval.correct.NUMERICAL_LETTER_GRADE.numerical_letter_grade(grades));
-    }
-    
-    @Test
-    public void testBPlus() {
-        double[] grades = new double[] {3.7};
-        String[] expectedLetterGrades = new String[] {"B+"};
-        assertArrayEquals(expectedLetterGrades, humaneval.correct.NUMERICAL_LETTER_GRADE.numerical_letter_grade(grades));
-    }
-    
-    @Test
-    public void testCPlus() {
-        double[] grades = new double[] {3.0};
-        String[] expectedLetterGrades = new String[] {"C+"};
-        assertArrayEquals(expectedLetterGrades, humaneval.correct.NUMERICAL_LETTER_GRADE.numerical_letter_grade(grades));
-    }
-    
-    @Test
-    public void testDPlus() {
-        double[] grades = new double[] {2.0};
-        String[] expectedLetterGrades = new String[] {"D+"};
-        assertArrayEquals(expectedLetterGrades, humaneval.correct.NUMERICAL_LETTER_GRADE.numerical_letter_grade(grades));
-    }
-    
-    @Test
-    public void testE() {
-        double[] grades = new double[] {0.0};
-        String[] expectedLetterGrades = new String[] {"E"};
-        assertArrayEquals(expectedLetterGrades, humaneval.correct.NUMERICAL_LETTER_GRADE.numerical_letter_grade(grades));
+    public void numerical_letter_gradeTEST() {
+        double[] grades = new double[]{4.0, 3.0, 1.7, 2.0, 3.5};
+        String[] expectedGrades = new String[]{"A+", "B-", "C-", "D+", "A-"};
+        assertArrayEquals(expectedGrades, NUMERICAL_LETTER_GRADE.numerical_letter_grade(grades));
     }
 }

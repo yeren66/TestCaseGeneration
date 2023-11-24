@@ -1,11 +1,15 @@
 package humaneval;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
 
-class CHANGE_BASETest {
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.CHANGE_BASE;
+
+public class CHANGE_BASETest {
     @Test
-    void testChangeBase() {
-        assertEquals("22", humaneval.correct.CHANGE_BASE.change_base(8, 3));
-        assertEquals("1000", humaneval.correct.CHANGE_BASE.change_base(8, 2));
-        assertEquals("111", humaneval.correct.CHANGE_BASE.change_base(7, 2));
+    public void change_baseTEST() {
+        assertEquals("22", CHANGE_BASE.change_base(8, 3));
+        assertEquals("1000", CHANGE_BASE.change_base(8, 2));
+        assertEquals("111", CHANGE_BASE.change_base(7, 2));
     }
 }

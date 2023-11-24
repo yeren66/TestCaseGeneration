@@ -1,41 +1,36 @@
 package humaneval;
-
-import static org.junit.Assert.*;
+import java.util.List;
 import org.junit.Test;
 
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.BY_LENGTH;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Map;
+import java.util.HashMap;
+
 public class BY_LENGTHTest {
-  @Test
-  public void testByLength() {
-    ArrayList<Integer> arr = new ArrayList<>();
-    assertEquals(0, humaneval.correct.BY_LENGTH.by_length(arr).size());
-  }
-  
-  @Test
-  public void testByLengthWithOneElement() {
-    ArrayList<Integer> arr = new ArrayList<>();
-    arr.add(1);
-    assertEquals(1, humaneval.correct.BY_LENGTH.by_length(arr).size());
-  }
-  
-  @Test
-  public void testByLengthWithMultipleElements() {
-    ArrayList<Integer> arr = new ArrayList<>();
-    arr.add(2);
-    arr.add(1);
-    arr.add(4);
-    assertEquals(3, humaneval.correct.BY_LENGTH.by_length(arr).size());
-  }
-  
-  @Test
-  public void testByLengthWithEmptyArray() {
-    ArrayList<Integer> arr = new ArrayList<>();
-    assertEquals(0, humaneval.correct.BY_LENGTH.by_length(arr).size());
-  }
-  
-  @Test
-  public void testByLengthWithStrangeNumber() {
-    ArrayList<Integer> arr = new ArrayList<>();
-    arr.add(-1);
-    assertEquals(0, humaneval.correct.BY_LENGTH.by_length(arr).size());
-  }
+    @Test
+    public void by_lengthTEST() {
+        ArrayList<Integer> input = new ArrayList<>();
+        input.add(2);
+        input.add(1);
+        input.add(1);
+        input.add(4);
+        input.add(5);
+        input.add(8);
+        input.add(2);
+        input.add(3);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("Eight");
+        expected.add("Five");
+        expected.add("Four");
+        expected.add("Three");
+        expected.add("Two");
+        expected.add("Two");
+        expected.add("One");
+        expected.add("One");
+        assertEquals(expected, BY_LENGTH.by_length(input));
+    }
 }

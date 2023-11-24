@@ -1,25 +1,15 @@
-
 package humaneval;
-
-import static org.junit.Assert.*;
 import org.junit.Test;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.CONCATENATE;
 
 public class CONCATENATETest {
     @Test
-    public void testConcatenate() {
-        String[] strings = {"hello", " ", "world"};
-        assertEquals("hello world", humaneval.correct.CONCATENATE.concatenate(strings));
-    }
-    
-    @Test
-    public void testConcatenateWithEmptyString() {
-        String[] strings = {"hello", "", "world"};
-        assertEquals("hello world", humaneval.correct.CONCATENATE.concatenate(strings));
-    }
-    
-    @Test
-    public void testConcatenateWithNullString() {
-        String[] strings = {"hello", null, "world"};
-        assertEquals("hello world", humaneval.correct.CONCATENATE.concatenate(strings));
+    public void concatenateTEST() {
+        String[] strings = {"hello", "world"};
+        String result = CONCATENATE.concatenate(strings);
+        assertEquals("helloworld", result);
     }
 }

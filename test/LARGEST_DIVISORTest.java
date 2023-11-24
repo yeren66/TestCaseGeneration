@@ -1,15 +1,16 @@
 package humaneval;
-import static org.junit.Assert.*;
 import org.junit.Test;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.LARGEST_DIVISOR;
 
 public class LARGEST_DIVISORTest {
     @Test
-    public void testLargestDivisor() {
-        int[] inputs = new int[]{10, 20, 30, 40};
-        int[] expectedOutputs = new int[]{5, 10, 15, 20};
-
-        for (int i = 0; i < inputs.length; i++) {
-            assertEquals(expectedOutputs[i], LARGEST_DIVISOR.largestDivisor(inputs[i]));
-        }
+    public void largest_divisorTEST() {
+        assertEquals(1, LARGEST_DIVISOR.largest_divisor(1));
+        assertEquals(2, LARGEST_DIVISOR.largest_divisor(2));
+        assertEquals(3, LARGEST_DIVISOR.largest_divisor(6));
+        assertEquals(4, LARGEST_DIVISOR.largest_divisor(12));
     }
 }

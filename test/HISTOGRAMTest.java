@@ -1,39 +1,29 @@
 package humaneval;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.HISTOGRAM;
+import java.util.HashMap;
 
 public class HISTOGRAMTest {
     @Test
-    public void testHistogram_singleLetter() {
-        String s = "a";
-        HashMap<Character, Integer> expected = new HashMap<>();
-        expected.put('a', 1);
-        assertEquals(expected, humaneval.correct.HISTOGRAM.histogram(s));
-    }
-    
-    @Test
-    public void testHistogram_multipleLetters() {
-        String s = "abcd";
-        HashMap<Character, Integer> expected = new HashMap<>();
-        expected.put('a', 1);
-        expected.put('b', 1);
-        expected.put('c', 1);
-        expected.put('d', 1);
-        assertEquals(expected, humaneval.correct.HISTOGRAM.histogram(s));
-    }
-    
-    @Test
-    public void testHistogram_sameLetter() {
-        String s = "aaa";
-        HashMap<Character, Integer> expected = new HashMap<>();
-        expected.put('a', 3);
-        assertEquals(expected, humaneval.correct.HISTOGRAM.histogram(s));
-    }
-    
-    @Test
-    public void testHistogram_emptyString() {
-        String s = "";
-        HashMap<Character, Integer> expected = new HashMap<>();
-        assertEquals(expected, humaneval.correct.HISTOGRAM.histogram(s));
+    public void histogramTEST() {
+        // Create a new instance of the HISTOGRAM class
+        HISTOGRAM histogram = new HISTOGRAM();
+
+        // Call the histogram() method with different input strings
+        HashMap<Character, Integer> result1 = histogram.histogram("a b c");
+        HashMap<Character, Integer> result2 = histogram.histogram("a b b a");
+        HashMap<Character, Integer> result3 = histogram.histogram("a b c a b");
+        HashMap<Character, Integer> result4 = histogram.histogram("b b b b a");
+        HashMap<Character, Integer> result5 = histogram.histogram("");
+
+        // Assert that the returned values are correct based on the expected output
+        assertEquals(result1, new HashMap<>());
+        assertEquals(result2, new HashMap<>());
+        assertEquals(result3, new HashMap<>());
+        assertEquals(result4, new HashMap<>());
+        assertEquals(result5, new HashMap<>());
     }
 }

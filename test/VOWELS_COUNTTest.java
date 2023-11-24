@@ -1,14 +1,15 @@
 package humaneval;
+import org.junit.Test;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.VOWELS_COUNT;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class VOWELS_COUNTTest {
+public class VOWELS_COUNTTest {
     @Test
-    void testVowelsCount() {
-        assertEquals(0, humaneval.correct.VOWELS_COUNT.vowels_count(""));
-        assertEquals(1, humaneval.correct.VOWELS_COUNT.vowels_count("a"));
-        assertEquals(2, humaneval.correct.VOWELS_COUNT.vowels_count("ae"));
-        assertEquals(3, humaneval.correct.VOWELS_COUNT.vowels_count("abcde"));
-        assertEquals(4, humaneval.correct.VOWELS_COUNT.vowels_count("ACEDY"));
+    public void vowels_countTEST() {
+        assertEquals(2, VOWELS_COUNT.vowels_count("abcde"));
+        assertEquals(3, VOWELS_COUNT.vowels_count("ACEDY"));
+        assertEquals(4, VOWELS_COUNT.vowels_count("AacedIUy"));
+        assertEquals(0, VOWELS_COUNT.vowels_count(""));
     }
 }

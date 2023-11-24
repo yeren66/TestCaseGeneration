@@ -1,24 +1,21 @@
-package humaneval;
 
-import static org.junit.Assert.*;
+package humaneval;
 import org.junit.Test;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.SEARCH;
 
 public class SEARCHTest {
     @Test
-    public void humaneval.correct.SEARCH.search_example1() {
-        int[] lst = new int[] {4, 1, 2, 2, 3, 1};
-        assertEquals(2, humaneval.correct.SEARCH.search(lst));
-    }
-    
-    @Test
-    public void humaneval.correct.SEARCH.search_example2() {
-        int[] lst = new int[] {1, 2, 2, 3, 3, 3, 4, 4, 4};
-        assertEquals(3, humaneval.correct.SEARCH.search(lst));
-    }
-    
-    @Test
-    public void humaneval.correct.SEARCH.search_example3() {
-        int[] lst = new int[] {5, 5, 4, 4, 4};
-        assertEquals(-1, humaneval.correct.SEARCH.search(lst));
+    public void searchTEST() {
+        int[] lst = new int[]{4, 1, 2, 2, 3, 1};
+        assertEquals(2, SEARCH.search(lst));
+        
+        lst = new int[]{1, 2, 2, 3, 3, 3, 4, 4, 4};
+        assertEquals(3, SEARCH.search(lst));
+        
+        lst = new int[]{5, 5, 4, 4, 4};
+        assertEquals(-1, SEARCH.search(lst));
     }
 }

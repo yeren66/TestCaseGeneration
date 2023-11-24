@@ -1,17 +1,15 @@
 package humaneval;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
 
-class CLOSEST_INTEGERTest {
-    @Test
-    void shouldReturnClosestInteger() {
-        assertEquals(10, humaneval.correct.CLOSEST_INTEGER.closest_integer("10"));
-        assertEquals(15, humaneval.correct.CLOSEST_INTEGER.closest_integer("15.3"));
-        assertEquals(-14, humaneval.correct.CLOSEST_INTEGER.closest_integer("-14.5"));
-    }
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.CLOSEST_INTEGER;
 
+public class CLOSEST_INTEGERTest {
     @Test
-    void shouldReturnClosestIntegerWithFraction() {
-        assertEquals(20, humaneval.correct.CLOSEST_INTEGER.closest_integer("20.3"));
-        assertEquals(-20, humaneval.correct.CLOSEST_INTEGER.closest_integer("-20.6"));
+    public void closest_integerTEST() {
+        assertEquals(10, CLOSEST_INTEGER.closest_integer("10"));
+        assertEquals(15, CLOSEST_INTEGER.closest_integer("15.3"));
+        assertEquals(-15, CLOSEST_INTEGER.closest_integer("-14.5"));
     }
 }

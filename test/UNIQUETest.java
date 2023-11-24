@@ -1,47 +1,34 @@
-
 package humaneval;
-
-import static org.junit.Assert.*;
-import org.junit.Test;
 import java.util.List;
+import org.junit.Test;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.UNIQUE;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class UNIQUETest {
     @Test
-    public void testUnique() {
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(5);
+    public void uniqueTEST() {
+        // Test for an empty list
+        List<Integer> input = new ArrayList<>();
+        List<Integer> expectedOutput = Collections.emptyList();
+        assertEquals(expectedOutput, UNIQUE.unique(input));
 
-        assertEquals(list, humaneval.correct.UNIQUE.unique(list));
-    }
+        // Test for a single element list
+        input = new ArrayList<>();
+        input.add(1);
+        expectedOutput = Collections.singletonList(1);
+        assertEquals(expectedOutput, UNIQUE.unique(input));
 
-    @Test
-    public void testUniqueEmpty() {
-        List<Integer> list = new ArrayList<>();
-
-        assertEquals(Collections.<Integer>emptyList(), humaneval.correct.UNIQUE.unique(list));
-    }
-
-    @Test
-    public void testUniqueNull() {
-        assertEquals(null, humaneval.correct.UNIQUE.unique(null));
-    }
-
-    @Test
-    public void testUniqueWithDuplicates() {
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(5);
-        list.add(5);
-
-        assertEquals(list, humaneval.correct.UNIQUE.unique(list));
+        // Test for a multi-element list with duplicates
+        input = new ArrayList<>();
+        input.add(1);
+        input.add(2);
+        input.add(3);
+        input.add(2);
+        expectedOutput = Collections.singletonList(1, 2, 3);
+        assertEquals(expectedOutput, UNIQUE.unique(input));
     }
 }

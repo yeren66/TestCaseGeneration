@@ -1,21 +1,19 @@
 package humaneval;
-import static org.junit.Assert.*;
+import org.junit.Test;
 
-class IS_HAPPYTest {
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.IS_HAPPY;
+
+public class IS_HAPPYTest {
     @Test
-    public void testIsHappy() {
-        assertFalse(IS_HAPPY.is_happy("")); // string is empty, so it's not happy
-        
-        assertFalse(IS_HAPPY.is_happy("a")); // length is less than 3, so it's not happy
-        
-        assertFalse(IS_HAPPY.is_happy("aa")); // length is less than 3, so it's not happy
-        
-        assertTrue(IS_HAPPY.is_happy("abcd")); // length is at least 3 and every 3 consecutive letters are distinct
-        
-        assertFalse(IS_HAPPY.is_happy("aabb")); // length is at least 3 but not all 3 consecutive letters are distinct
-        
-        assertTrue(IS_HAPPY.is_happy("adb")); // length is at least 3 and every 3 consecutive letters are distinct
-        
-        assertFalse(IS_HAPPY.is_happy("xyy")); // length is at least 3 but not all 3 consecutive letters are distinct
+    public void is_happyTEST() {
+        assertFalse(IS_HAPPY.is_happy(""));
+        assertFalse(IS_HAPPY.is_happy("a"));
+        assertFalse(IS_HAPPY.is_happy("aa"));
+        assertTrue(IS_HAPPY.is_happy("abcd"));
+        assertFalse(IS_HAPPY.is_happy("aabb"));
+        assertTrue(IS_HAPPY.is_happy("adb"));
+        assertFalse(IS_HAPPY.is_happy("xyy"));
     }
 }

@@ -1,36 +1,20 @@
-package humaneval;
 
-import static org.junit.Assert.*;
+package humaneval;
+import java.util.List;
 import org.junit.Test;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.FIND_ZERO;
+import java.util.List;
 
 public class FIND_ZEROTest {
     @Test
-    public void testFindZero() {
-        List<Double> xs = Arrays.asList(0.5, 2.3);
-        assertEquals(-1., FIND_ZERO.find_zero(xs), 1e-6);
-    }
-    
-    @Test
-    public void testFindZeroWithNonZeroStart() {
-        List<Double> xs = Arrays.asList(0.5, 2.3);
-        assertEquals(-0.75, FIND_ZERO.find_zero(xs), 1e-6);
-    }
-    
-    @Test
-    public void testFindZeroWithNonZeroEnd() {
-        List<Double> xs = Arrays.asList(0.5, 2.3);
-        assertEquals(-0.75, FIND_ZERO.find_zero(xs), 1e-6);
-    }
-    
-    @Test
-    public void testFindZeroWithNegativePolynomial() {
-        List<Double> xs = Arrays.asList(-1., -2.3);
-        assertEquals(0., FIND_ZERO.find_zero(xs), 1e-6);
-    }
-    
-    @Test
-    public void testFindZeroWithPositivePolynomial() {
-        List<Double> xs = Arrays.asList(1., 2.3);
-        assertEquals(-0.75, FIND_ZERO.find_zero(xs), 1e-6);
+    public void polyTEST() {
+        List<Double> xs = new ArrayList<>();
+        double x = 1.0;
+        
+        // expected result: 3
+        assertEquals(FIND_ZERO.poly(xs, x), 3);
     }
 }

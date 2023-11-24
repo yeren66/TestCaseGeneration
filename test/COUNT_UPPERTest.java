@@ -1,27 +1,23 @@
 package humaneval;
+import org.junit.Test;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import humaneval.correct.COUNT_UPPER;
 
 public class COUNT_UPPERTest {
     @Test
-    public void testCountUpper() {
+    public void count_upperTEST() {
         String s = "aBCdEf";
-        int expected = 1;
-        assertEquals(expected, humaneval.correct.COUNT_UPPER.count_upper(s));
-    }
-    
-    @Test
-    public void testCountUpperWithNoVowels() {
-        String s = "abcdefg";
-        int expected = 0;
-        assertEquals(expected, humaneval.correct.COUNT_UPPER.count_upper(s));
-    }
-    
-    @Test
-    public void testCountUpperWithAllVowels() {
-        String s = "dBBE";
-        int expected = 0;
-        assertEquals(expected, humaneval.correct.COUNT_UPPER.count_upper(s));
+        int expectedOutput = 1;
+        assertEquals(expectedOutput, COUNT_UPPER.count_upper(s));
+        
+        s = "abcdefg";
+        expectedOutput = 0;
+        assertEquals(expectedOutput, COUNT_UPPER.count_upper(s));
+        
+        s = "dBBE";
+        expectedOutput = 0;
+        assertEquals(expectedOutput, COUNT_UPPER.count_upper(s));
     }
 }

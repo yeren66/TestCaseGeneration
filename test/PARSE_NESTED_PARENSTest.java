@@ -1,61 +1,23 @@
 
 package humaneval;
+import java.util.List;
+import org.junit.Test;
 
+import org.junit.Test;
 import static org.junit.Assert.*;
+import humaneval.correct.PARSE_NESTED_PARENS;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PARSE_NESTED_PARENSTest {
     @Test
-    public void testEmptyString() {
-        String parenString = "";
-        List<Integer> expectedDepths = new ArrayList<>();
+    public void parse_nested_parensTEST() {
+        String input = "( ( ) )";
+        List<Integer> expectedOutput = new ArrayList<>();
+        expectedOutput.add(0);
+        expectedOutput.add(1);
+        expectedOutput.add(2);
         
-        List<Integer> actualDepths = PARSE_NESTED_PARENS.parseNestedParens(parenString);
-        
-        assertEquals(expectedDepths, actualDepths);
-    }
-    
-    @Test
-    public void testSingleGroup() {
-        String parenString = "(())";
-        List<Integer> expectedDepths = new ArrayList<>();
-        expectedDepths.add(1);
-        
-        List<Integer> actualDepths = PARSE_NESTED_PARENS.parseNestedParens(parenString);
-        
-        assertEquals(expectedDepths, actualDepths);
-    }
-    
-    @Test
-    public void testMultipleGroups() {
-        String parenString = "(()) (())";
-        List<Integer> expectedDepths = new ArrayList<>();
-        expectedDepths.add(1);
-        expectedDepths.add(2);
-        
-        List<Integer> actualDepths = PARSE_NESTED_PARENS.parseNestedParens(parenString);
-        
-        assertEquals(expectedDepths, actualDepths);
-    }
-    
-    @Test
-    public void testMixedGroups() {
-        String parenString = "(()) (((()))";
-        List<Integer> expectedDepths = new ArrayList<>();
-        expectedDepths.add(1);
-        expectedDepths.add(3);
-        
-        List<Integer> actualDepths = PARSE_NESTED_PARENS.parseNestedParens(parenString);
-        
-        assertEquals(expectedDepths, actualDepths);
-    }
-    
-    @Test
-    public void testNullInput() {
-        String parenString = null;
-        List<Integer> expectedDepths = new ArrayList<>();
-        
-        List<Integer> actualDepths = PARSE_NESTED_PARENS.parseNestedParens(parenString);
-        
-        assertEquals(expectedDepths, actualDepths);
+        assertEquals(expectedOutput, PARSE_NESTED_PARENS.parse_nested_parens(input));
     }
 }

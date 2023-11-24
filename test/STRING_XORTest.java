@@ -1,19 +1,15 @@
 package humaneval;
+import org.junit.Test;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import java.lang.IllegalArgumentException;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.STRING_XOR;
 
 public class STRING_XORTest {
     @Test
-    public void testSTRING_XOR() {
-        assertEquals("01", humaneval.correct.STRING_XOR.string_xor("00", "01"));
-        assertEquals("10", humaneval.correct.STRING_XOR.string_xor("01", "10"));
-        assertEquals("11", humaneval.correct.STRING_XOR.string_xor("11", "11"));
-    }
-    
-    @Test(expected = IllegalArgumentException.class)
-    public void testSTRING_XORWithDifferentLength() {
-        humaneval.correct.STRING_XOR.string_xor("00", "010");
+    public void string_xorTEST() {
+        String a = "abc";
+        String b = "def";
+        assertEquals("101", STRING_XOR.string_xor(a, b));
     }
 }

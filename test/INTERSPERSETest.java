@@ -1,41 +1,27 @@
-
 package humaneval;
-
+import java.util.List;
+import org.junit.Test;
+import org.junit.Test;
 import static org.junit.Assert.*;
+import humaneval.correct.INTERSPERSE;
 import java.util.ArrayList;
 import java.util.List;
-import junit.framework.TestCase;
 
-public class INTERSPERSETest extends TestCase {
-    public void testEmptyList() {
-        List<Integer> input = new ArrayList<>();
-        List<Integer> expectedOutput = new ArrayList<>();
+public class INTERSPERSETest {
+    @Test
+    public void intersperseTEST() {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(3);
+        int delimeter = 0;
+        List<Integer> expectedResult = new ArrayList<>();
+        expectedResult.add(1);
+        expectedResult.add(0);
+        expectedResult.add(2);
+        expectedResult.add(0);
+        expectedResult.add(3);
         
-        assertEquals(expectedOutput, humaneval.correct.INTERSPERSE.intersperse(input, 0));
-    }
-    
-    public void testSingleElementList() {
-        List<Integer> input = new ArrayList<>();
-        input.add(1);
-        List<Integer> expectedOutput = new ArrayList<>();
-        expectedOutput.add(1);
-        
-        assertEquals(expectedOutput, humaneval.correct.INTERSPERSE.intersperse(input, 0));
-    }
-    
-    public void testMultipleElementsList() {
-        List<Integer> input = new ArrayList<>();
-        input.add(1);
-        input.add(2);
-        input.add(3);
-        
-        List<Integer> expectedOutput = new ArrayList<>();
-        expectedOutput.add(1);
-        expectedOutput.add(0);
-        expectedOutput.add(2);
-        expectedOutput.add(0);
-        expectedOutput.add(3);
-        
-        assertEquals(expectedOutput, humaneval.correct.INTERSPERSE.intersperse(input, 0));
+        assertEquals(expectedResult, INTERSPERSE.intersperse(numbers, delimeter));
     }
 }

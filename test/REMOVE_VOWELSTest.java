@@ -1,41 +1,18 @@
 package humaneval;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.REMOVE_VOWELS;
 
 public class REMOVE_VOWELSTest {
     @Test
-    public void testEmptyString() {
-        String result = humaneval.correct.REMOVE_VOWELS.remove_vowels("");
-        assertEquals(result, "");
-    }
-
-    @Test
-    public void testNoVowels() {
-        String result = humaneval.correct.REMOVE_VOWELS.remove_vowels("abcdefghijklm");
-        assertEquals(result, "bcdf\nghjklm");
-    }
-
-    @Test
-    public void testSingleVowel() {
-        String result = humaneval.correct.REMOVE_VOWELS.remove_vowels("a");
-        assertEquals(result, "");
-    }
-
-    @Test
-    public void testMultipleVowels() {
-        String result = humaneval.correct.REMOVE_VOWELS.remove_vowels("aaaaa");
-        assertEquals(result, "");
-    }
-
-    @Test
-    public void testUppercaseVowel() {
-        String result = humaneval.correct.REMOVE_VOWELS.remove_vowels("aaBAA");
-        assertEquals(result, "B");
-    }
-
-    @Test
-    public void testLowercaseVowel() {
-        String result = humaneval.correct.REMOVE_VOWELS.remove_vowels("zbcd");
-        assertEquals(result, "zbcd");
+    public void remove_vowelsTEST() {
+        assertEquals("", REMOVE_VOWELS.remove_vowels(""));
+        assertEquals("bcdf\nghjklm", REMOVE_VOWELS.remove_vowels("abcdef\nghijklm"));
+        assertEquals("bcdf", REMOVE_VOWELS.remove_vowels("abcdef"));
+        assertEquals("", REMOVE_VOWELS.remove_vowels("aaaaa"));
+        assertEquals("B", REMOVE_VOWELS.remove_vowels("aaBAA"));
+        assertEquals("zbcd", REMOVE_VOWELS.remove_vowels("zbcd"));
     }
 }

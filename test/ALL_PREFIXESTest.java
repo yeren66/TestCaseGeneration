@@ -1,37 +1,26 @@
 package humaneval;
+import java.util.List;
+import org.junit.Test;
 
+import org.junit.Test;
 import static org.junit.Assert.*;
+import humaneval.correct.ALL_PREFIXES;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ALL_PREFIXESTest {
     @Test
-    public void testEmptyString() {
-        String input = "";
-        List<String> expectedResult = Collections.emptyList();
-        
-        assertEquals(expectedResult, humaneval.correct.ALL_PREFIXES.all_prefixes(input));
-    }
-    
-    @Test
-    public void testSingleCharString() {
-        String input = "a";
-        List<String> expectedResult = Collections.singletonList("a");
-        
-        assertEquals(expectedResult, humaneval.correct.ALL_PREFIXES.all_prefixes(input));
-    }
-    
-    @Test
-    public void testLongerString() {
+    public void all_prefixesTEST() {
+        // Call the method with a valid input string
         String input = "hello";
-        List<String> expectedResult = Arrays.asList("h", "he", "hel", "hell", "hello");
+        List<String> expectedOutput = new ArrayList<>();
+        expectedOutput.add("h");
+        expectedOutput.add("he");
+        expectedOutput.add("hel");
+        expectedOutput.add("hell");
+        expectedOutput.add("hello");
         
-        assertEquals(expectedResult, humaneval.correct.ALL_PREFIXES.all_prefixes(input));
-    }
-    
-    @Test
-    public void testDuplicateString() {
-        String input = "aaaa";
-        List<String> expectedResult = Arrays.asList("a", "aa", "aaa", "aaaa");
-        
-        assertEquals(expectedResult, humaneval.correct.ALL_PREFIXES.all_prefixes(input));
+        // Make the assertion
+        assertEquals(expectedOutput, ALL_PREFIXES.all_prefixes(input));
     }
 }

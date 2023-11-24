@@ -1,14 +1,16 @@
-package humaneval;
 
-import static org.junit.Assert.*;
+package humaneval;
 import org.junit.Test;
 
-public class FIBTest {
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.FIB;
 
+public class FIBTest {
     @Test
-    public void testFib() {
-        assertEquals(55, humaneval.correct.FIB.fib(10));
-        assertEquals(1, humaneval.correct.FIB.fib(1));
-        assertEquals(21, humaneval.correct.FIB.fib(8));
+    public void fibTEST() {
+        assertEquals(55, FIB.fib(10));
+        assertEquals(1, FIB.fib(1));
+        assertEquals(21, FIB.fib(8));
     }
 }

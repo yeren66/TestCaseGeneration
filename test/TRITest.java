@@ -1,15 +1,15 @@
-package humaneval;
 
-import static org.junit.Assert.*;
-import java.util.Arrays;
+package humaneval;
 import org.junit.Test;
 
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.TRI;
+
 public class TRITest {
-    
     @Test
-    public void testTri() {
-        int[] sequence = humaneval.correct.TRI.tri(3);
-        assertEquals("Wrong length of sequence", 4, sequence.length);
-        assertArrayEquals("Wrong values in sequence", new int[]{1, 3, 2, 8}, sequence);
+    public void triTEST() {
+        int[] expected = new int[]{1, 3, 2, 8};
+        assertArrayEquals(expected, TRI.tri(3));
     }
 }

@@ -1,51 +1,24 @@
 package humaneval;
+import java.util.List;
+import java.util.Arrays;
+import org.junit.Test;
+
+import org.junit.Test;
 import static org.junit.Assert.*;
+import humaneval.correct.ADD_ELEMENTS;
 import java.util.ArrayList;
 
 public class ADD_ELEMENTSTest {
     @Test
-    public void testAddElements() {
-        ArrayList<Integer> arr = new ArrayList<>();
+    public void add_elementsTEST() {
+        // Given a non-empty array of integers arr and an integer k, return the sum of the elements with at most two digits from the first k elements of arr.
+        int[] arr = {111, 21, 3, 4000, 5, 6, 7, 8, 9};
         int k = 4;
-        assertEquals(24, humaneval.correct.ADD_ELEMENTS.add_elements(arr, k));
-    }
-    
-    @Test
-    public void testEmptyArray() {
-        ArrayList<Integer> arr = new ArrayList<>();
-        int k = 0;
-        assertEquals(0, humaneval.correct.ADD_ELEMENTS.add_elements(arr, k));
-    }
-    
-    @Test
-    public void testNegativeNumber() {
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(-1);
-        int k = 1;
-        assertEquals(0, humaneval.correct.ADD_ELEMENTS.add_elements(arr, k));
-    }
-    
-    @Test
-    public void testNonNegativeNumber() {
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(1);
-        int k = 1;
-        assertEquals(1, humaneval.correct.ADD_ELEMENTS.add_elements(arr, k));
-    }
-    
-    @Test
-    public void testTwoDigitNumber() {
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(10);
-        int k = 1;
-        assertEquals(10, humaneval.correct.ADD_ELEMENTS.add_elements(arr, k));
-    }
-    
-    @Test
-    public void testMoreThanTwoDigitNumber() {
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(123);
-        int k = 1;
-        assertEquals(0, humaneval.correct.ADD_ELEMENTS.add_elements(arr, k));
+
+        // When add_elements is called with arr and k
+        int result = ADD_ELEMENTS.add_elements(new ArrayList<Integer>(Arrays.asList(arr)), k);
+
+        // Then the sum of the elements with at most two digits should be returned
+        assertEquals(24, result);
     }
 }

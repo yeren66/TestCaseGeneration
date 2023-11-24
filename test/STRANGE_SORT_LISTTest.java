@@ -1,32 +1,28 @@
 package humaneval;
-import static org.junit.Assert.*;
-import java.util.ArrayList;
 import java.util.List;
+import org.junit.Test;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 public class STRANGE_SORT_LISTTest {
+    
     @Test
-    public void testStrangeSort() {
-        List<Integer> lst = new ArrayList<>();
+    public void strange_sort_listTEST() {
+        List<Integer> lst = new ArrayList<Integer>();
+        
         lst.add(1);
         lst.add(2);
         lst.add(3);
         lst.add(4);
-        assertEquals("[1, 4, 2, 3]", humaneval.correct.STRANGE_SORT_LIST.strange_sort_list(lst).toString());
-    }
-    
-    @Test
-    public void testStrangeSortWithMultipleMinValues() {
-        List<Integer> lst = new ArrayList<>();
-        lst.add(5);
-        lst.add(5);
-        lst.add(5);
-        lst.add(5);
-        assertEquals("[5, 5, 5, 5]", humaneval.correct.STRANGE_SORT_LIST.strange_sort_list(lst).toString());
-    }
-    
-    @Test
-    public void testStrangeSortWithEmptyList() {
-        List<Integer> lst = new ArrayList<>();
-        assertEquals("[]", humaneval.correct.STRANGE_SORT_LIST.strange_sort_list(lst).toString());
+        
+        List<Integer> expectedResult = new ArrayList<Integer>();
+        
+        expectedResult.add(1);
+        expectedResult.add(4);
+        expectedResult.add(2);
+        expectedResult.add(3);
+        
+        Assert.assertEquals(expectedResult, STRANGE_SORT_LIST.strange_sort_list(lst));
     }
 }

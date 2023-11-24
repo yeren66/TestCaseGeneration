@@ -1,8 +1,9 @@
 
 # 打开 log_file.log 文件
-with open('log_file.log', 'r') as file:
+with open('log/log_file_11_24_2.log', 'r') as file:
     # 初始化计数器
     count = 0
+    flag = 0
     
     # 逐行读取文件内容
     for line in file:
@@ -10,6 +11,7 @@ with open('log_file.log', 'r') as file:
         if "- ERROR - Syntax Error" in line:
             # 计数器加一
             count += 1
+            
     
     # 输出计数器的值
     print("共出现", count, "次“ - ERROR - Syntax Error”")

@@ -1,32 +1,19 @@
 package humaneval;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
 
-class EVEN_ODD_COUNTTest {
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.EVEN_ODD_COUNT;
+
+public class EVEN_ODD_COUNTTest {
     @Test
-    void testEvenOddCount() {
-        int[] result = humaneval.correct.EVEN_ODD_COUNT.even_odd_count(123);
-        assertEquals(1, result[0]);
-        assertEquals(2, result[1]);
-    }
-    
-    @Test
-    void testEvenOddCountNegative() {
-        int[] result = humaneval.correct.EVEN_ODD_COUNT.even_odd_count(-12);
-        assertEquals(1, result[0]);
-        assertEquals(1, result[1]);
-    }
-    
-    @Test
-    void testEvenOddCountZero() {
-        int[] result = humaneval.correct.EVEN_ODD_COUNT.even_odd_count(0);
-        assertEquals(0, result[0]);
-        assertEquals(0, result[1]);
-    }
-    
-    @Test
-    void testEvenOddCountSingleDigit() {
-        int[] result = humaneval.correct.EVEN_ODD_COUNT.even_odd_count(5);
-        assertEquals(0, result[0]);
-        assertEquals(1, result[1]);
+    public void even_odd_countTEST() {
+        int[] result = EVEN_ODD_COUNT.even_odd_count(-12);
+        assertEquals(result[0], 1);
+        assertEquals(result[1], 1);
+        
+        result = EVEN_ODD_COUNT.even_odd_count(123);
+        assertEquals(result[0], 1);
+        assertEquals(result[1], 2);
     }
 }

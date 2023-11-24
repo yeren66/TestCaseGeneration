@@ -1,33 +1,23 @@
-package humaneval;
 
-import static org.junit.Assert.*;
+package humaneval;
 import org.junit.Test;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.COMPARE;
 
 public class COMPARETest {
     @Test
-    public void testCompare() {
-        int[] game = new int[] {1, 2, 3};
-        int[] guess = new int[] {4, 5, 6};
-        int[] expectedResult = new int[] {3, 4, 5};
+    public void compareTEST() {
+        int[] gameScores = new int[] { 1, 2, 3 };
+        int[] guesses = new int[] { 1, 4, 6 };
         
-        assertArrayEquals(expectedResult, humaneval.correct.COMPARE.compare(game, guess));
-    }
-    
-    @Test
-    public void testCompareWithZeroDifference() {
-        int[] game = new int[] {1, 2, 3};
-        int[] guess = new int[] {1, 2, 3};
-        int[] expectedResult = new int[] {0, 0, 0};
+        // Calculate the absolute differences between each element in the input arrays
+        int[] result = COMPARE.compare(gameScores, guesses);
         
-        assertArrayEquals(expectedResult, humaneval.correct.COMPARE.compare(game, guess));
-    }
-    
-    @Test
-    public void testCompareWithNegativeDifference() {
-        int[] game = new int[] {1, 2, 3};
-        int[] guess = new int[] {-1, -2, -3};
-        int[] expectedResult = new int[] {2, 4, 6};
-        
-        assertArrayEquals(expectedResult, humaneval.correct.COMPARE.compare(game, guess));
+        assertEquals("Output array has incorrect length", gameScores.length, result.length);
+        for (int i = 0; i < gameScores.length; i++) {
+            assertEquals("Incorrect absolute difference at index " + i, Math.abs(gameScores[i] - guesses[i]), result[i]);
+        }
     }
 }

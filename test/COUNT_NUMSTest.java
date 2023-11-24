@@ -1,34 +1,23 @@
 package humaneval;
+import java.util.List;
+import org.junit.Test;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.COUNT_NUMS;
+import java.util.ArrayList;
 
 public class COUNT_NUMSTest {
     @Test
-    public void testCountNumsWithNoPositiveNumbers() {
+    public void count_numsTEST() {
         ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(0);
-        arr.add(-1);
-        arr.add(2);
-        assertEquals(0, humaneval.correct.COUNT_NUMS.count_nums(arr));
-    }
-
-    @Test
-    public void testCountNumsWithOnePositiveNumber() {
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(-1);
+        arr.add(1);
         arr.add(-2);
         arr.add(3);
-        assertEquals(1, humaneval.correct.COUNT_NUMS.count_nums(arr));
-    }
-
-    @Test
-    public void testCountNumsWithMultiplePositiveNumbers() {
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(-5);
         arr.add(-4);
-        arr.add(3);
-        arr.add(6);
-        assertEquals(2, humaneval.correct.COUNT_NUMS.count_nums(arr));
+        arr.add(5);
+        int expectedCount = 3; // 1, 3, and 5 are positive numbers
+        COUNT_NUMS cn = new COUNT_NUMS();
+        assertEquals(expectedCount, cn.count_nums(arr));
     }
 }

@@ -1,20 +1,26 @@
+
 package humaneval;
+import java.util.List;
+import java.util.Arrays;
+import org.junit.Test;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import humaneval.correct.DERIVATIVE;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DERIVATIVETest {
     @Test
-    public void testDerivative() {
-        List<Integer> xs = Arrays.asList(3, 1, 2, 4, 5);
-        List<Integer> expectedResult = Arrays.asList(1, 4, 12, 20);
-        assertEquals(expectedResult, humaneval.correct.DERIVATIVE.derivative(xs));
-    }
-    
-    @Test
-    public void testDerivativeWithDifferentSize() {
-        List<Integer> xs = Arrays.asList(1, 2, 3);
-        List<Integer> expectedResult = Arrays.asList(2, 6);
-        assertEquals(expectedResult, humaneval.correct.DERIVATIVE.derivative(xs));
+    public void derivativeTEST() {
+        List<Integer> xs = new ArrayList<Integer>();
+        xs.add(3);
+        xs.add(1);
+        xs.add(2);
+        xs.add(4);
+        xs.add(5);
+        
+        List<Integer> result = DERIVATIVE.derivative(xs);
+        assertEquals(result, new ArrayList<Integer>(Arrays.asList(1, 4, 12, 20)));
     }
 }

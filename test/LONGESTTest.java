@@ -1,26 +1,19 @@
+
 package humaneval;
+import java.util.List;
+import java.util.Arrays;
+import org.junit.Test;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import java.util.Arrays;
+import humaneval.correct.LONGEST;
 import java.util.List;
 
 public class LONGESTTest {
     @Test
-    public void testLongest_emptyList() {
-        List<String> strings = Arrays.asList("");
-        assertNull(LONGEST.longest(strings));
-    }
-    
-    @Test
-    public void testLongest_singleElement() {
-        List<String> strings = Arrays.asList("a");
-        assertEquals("a", humaneval.correct.LONGEST.longest(strings));
-    }
-    
-    @Test
-    public void testLongest_multipleElements() {
-        List<String> strings = Arrays.asList("a", "ab", "abc");
-        assertEquals("abc", humaneval.correct.LONGEST.longest(strings));
+    public void longestTEST() {
+        List<String> input = Arrays.asList("hello", "world");
+        String actual = LONGEST.longest(input);
+        assertEquals("hello world", actual);
     }
 }

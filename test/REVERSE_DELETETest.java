@@ -1,46 +1,19 @@
-
 package humaneval;
+import java.util.List;
+import org.junit.Test;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import humaneval.correct.REVERSE_DELETE;
+import java.util.ArrayList;
 
 public class REVERSE_DELETETest {
     @Test
-    public void testReverseDelete() {
+    public void reverse_deleteTEST() {
         String s = "abcde";
         String c = "ae";
-        ArrayList<Object> expectedResult = new ArrayList<>();
-        expectedResult.add("bcd");
-        expectedResult.add(false);
-        
-        ArrayList<Object> actualResult = humaneval.correct.REVERSE_DELETE.reverse_delete(s, c);
-        
-        assertEquals(expectedResult, actualResult);
-    }
-    
-    @Test
-    public void testReverseDelete2() {
-        String s = "abcdef";
-        String c = "b";
-        ArrayList<Object> expectedResult = new ArrayList<>();
-        expectedResult.add("acdef");
-        expectedResult.add(false);
-        
-        ArrayList<Object> actualResult = humaneval.correct.REVERSE_DELETE.reverse_delete(s, c);
-        
-        assertEquals(expectedResult, actualResult);
-    }
-    
-    @Test
-    public void testReverseDelete3() {
-        String s = "abcdedcba";
-        String c = "ab";
-        ArrayList<Object> expectedResult = new ArrayList<>();
-        expectedResult.add("cdedc");
-        expectedResult.add(true);
-        
-        ArrayList<Object> actualResult = humaneval.correct.REVERSE_DELETE.reverse_delete(s, c);
-        
-        assertEquals(expectedResult, actualResult);
+        ArrayList<Object> res = REVERSE_DELETE.reverse_delete(s, c);
+        assertEquals("bcd", res.get(0));
+        assertFalse((Boolean)res.get(1));
     }
 }

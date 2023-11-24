@@ -1,21 +1,23 @@
 package humaneval;
-import static org.junit.Assert.*;
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Tuple;
 import org.junit.Test;
 
-public class GET_ROWTest {
-    @Test
-    public void testGetRow() {
-        ArrayList<ArrayList<Integer>> lst = new ArrayList<>();
-        lst.add(new ArrayList<>()); // add an empty list to the outer list
-        assertEquals("Should return an empty array if no match is found", 0, GET_ROW.get_row(lst, 1).size());
-    }
+import org.junit.Test;
+import static org.junit.Assert.*;
+import humaneval.correct.GET_ROW;
+import java.util.ArrayList;
 
+public class GET_ROWTest extends JUnit.framework.TestCase {
     @Test
-    public void testGetRowWithMatch() {
-        ArrayList<ArrayList<Integer>> lst = new ArrayList<>();
-        lst.add(new ArrayList<>()); // add an empty list to the outer list
-        lst.get(0).add(1); // add a single element to the inner list
-        assertEquals("Should return the correct row index and column index", 1, GET_ROW.get_row(lst, 1).size());
+    public void TupleTEST() {
+        // Test that the Tuple constructor sets the x and y values correctly
+        Tuple tuple = new Tuple(1, 2);
+        assertEquals(tuple.x, 1);
+        assertEquals(tuple.y, 2);
+
+        // Test that the equals() method returns true when comparing two tuples with the same coordinates
+        Tuple tuple2 = new Tuple(1, 2);
+        assertTrue(tuple.equals(tuple2));
     }
 }

@@ -11,6 +11,8 @@ To see the useage of coverage.py, please click: https://coverage.readthedocs.io/
 
 相较前两个分支，使用java代码代替python代码，human文件夹里的是找到的别人论文里的java源码以及测试代码，-->[clm](https://github.com/lin-tan/clm/tree/main)<--
 
+使用了Code Llama模型进行用例生成:[:Click Here::](https://github.com/facebookresearch/codellama)
+
 这个数据库中的内容在本项目所使用到的主要包括，其他为无关内容。
 ```
 .
@@ -25,6 +27,8 @@ To see the useage of coverage.py, please click: https://coverage.readthedocs.io/
 运行下述代码以获取报告
 ```
 cd human
+```
+```
 mvn clean clover:setup test clover:aggregate clover:clover -Dmaven.test.failure.ignore=true surefire-report:report
 ```
 上述`maven`命令可理解为
