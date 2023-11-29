@@ -4,6 +4,7 @@ human/target/*
 data/*
 dataset/*
 
-*_test.py
+*test.py
+*test/*
 
 __pycache__/

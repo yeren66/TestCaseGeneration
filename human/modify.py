@@ -2,7 +2,7 @@ import os
 import re
 
 # 定义文件夹路径
-folder_path = 'C:\\Users\\yeren\\Desktop\\human\\src\\test\\java\\humaneval'
+folder_path = 'human/src/main/java/humaneval/correct'
 
 print(folder_path)
 
@@ -17,7 +17,7 @@ for root, dirs, files in os.walk(folder_path):
                 file_content = f.read()
 
             # 使用正则表达式替换文本
-            modified_content = re.sub(r'humaneval.buggy', 'humaneval.correct', file_content) # 替换为correct
+            modified_content = re.sub(r'humaneval.correct', 'humaneval', file_content) # 替换为correct
 
             # modified_content = re.sub(r'humaneval.correct', 'humaneval.buggy', file_content) # 替换为buggy
 
