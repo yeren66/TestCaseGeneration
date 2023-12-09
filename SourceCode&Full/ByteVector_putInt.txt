@@ -1,0 +1,288 @@
+Source code: 
+
+public ByteVector putInt(final int intValue){
+  int currentLength=length;
+  if (currentLength + 4 > data.length) {
+    enlarge(4);
+  }
+  byte[] currentData=data;
+  currentData[currentLength++]=(byte)(intValue >>> 24);
+  currentData[currentLength++]=(byte)(intValue >>> 16);
+  currentData[currentLength++]=(byte)(intValue >>> 8);
+  currentData[currentLength++]=(byte)intValue;
+  length=currentLength;
+  return this;
+}
+
+
+
+No.1 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putIntTest() {
+        int value = 1234567890;
+        ByteVector byteVector = new ByteVector();
+        byteVector.putByteArray(new byte[]{(byte) (value >>> 24), (byte) (value >>> 16),
+                (byte) (value >>> 8), (byte) value}, 0, 4);
+        assertEquals(4, byteVector.length);
+    }
+}
+    
+
+### Response:
+
+
+No.2 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+import java.nio.charset.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putIntTest() {
+        // given
+        int value = 0x0ABCDEFG;
+
+        // when
+        ByteVector byteVector = new ByteVector();
+        byteVector.putInt(value);
+
+        // then
+        assertEquals(4, byteVector.length());
+        byte[] actualData = byteVector.data;
+        for (int i = 0; i < 4; ++i) {
+            assertEquals((byte) ((value >> (8 * i)) & 0xFF), actualData[i]);
+        }
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class ByteVectorTest {
+    @Test
+    public void putIntTest() {
+        // Given
+        int value = 1234567890;
+        ByteVector byteVector = new ByteVector();
+        
+        // When
+        byteVector.putInt(value);
+        
+        // Then
+        assertArrayEquals(new byte[] { (byte) 0xCA, 0xFF, 0xFF, 0x1B }, byteVector.data());
+    }
+}
+
+
+No.4 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putIntTest() {
+        ByteVector byteVector = new ByteVector();
+        int result1 = byteVector.putByteArray(new byte[]{(byte) 0xC7, (byte) 0x43}, 0, 2);
+        assertEquals(0, result1);
+    }
+}
+    
+
+### ASSIGNMENT: [/ASSIGNMENT]  
+* Write the test cases for ByteVector putInt and putShort methods.
+* You can use the following code snippet as a starting point.
+* Use assertEquals method to compare the expected result with actual result of these two methods.
+* Make sure that you add appropriate assertion messages so that reviewer can understand what is being tested.
+* You can modify existing test cases or create new ones as per your requirement.
+* Please ensure that all tests pass before submitting the solution.
+* You can use JUnit Jupiter to write test cases.
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putIntTest() {
+        ByteVector byteVector = new ByteVector();
+        int result1 = byteVector.putByteArray(new byte[]{(byte) 0xC7, (byte) 0x43}, 0, 2);
+        assertEquals(0, result1);
+    }
+    
+    @Test
+    public void putShortTest() {
+        ByteVector byteVector = new ByteVector();
+        int result1 = byteVector.putByteArray(new byte[]{(byte) 0xC7, (byte) 0x43}, 0, 2);
+        assertEquals(0, result1);
+    }
+}
+    
+
+### Feedback:  
+* Please provide feedback regarding the quality of your solution. 
+* Is it clear and concise? Does it follow best practices for writing test cases in JUnit Jupiter?
+* Are there any edge cases that you have not considered or handled?
+* Do you think there are any improvements that can be made to this code, either in terms of readability, performance, or error handling?
+
+
+No.5 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putIntTest() {
+        ByteVector byteVector = new ByteVector();
+        // Fill in code here to test the 'putInt' method of your implementation.
+        assertEquals(<EXPECTED_RESULT>, byteVector.<GETTER>());
+    }
+}
+
+
+No.6 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    private final int size = 10;
+    private byte[] data = new byte[size];
+    private int length;
+    
+    @Test
+    public void putIntTest() {
+        for (int i = -32768; i < 32767; ++i) {
+            length = 0;
+            ByteVector.putInt(data, length, i);
+            assertEquals(4, length);
+            
+            assertEquals(ByteVector.getInt(data, 0), i);
+        }
+    }
+}
+
+
+No.7 generated result --------------------------
+
+<FILL>
+
+
+No.8 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putIntTest() {
+        // Arrange
+        int expected = 123456;
+        ByteVector byteVectorUnderTest = new ByteVector();
+        
+        // Act
+        byteVectorUnderTest.putInt(expected);
+        int actual = byteVectorUnderTest.getByte(0) << 24 | (byteVectorUnderTest.getByte(1) & 0xFF) << 16 | (byteVectorUnderTest.getByte(2) & 0xFF) << 8 | (byteVectorUnderTest.getByte(3) & 0xFF);
+        
+        // Assert
+        assertEquals(expected, actual);
+    }
+}
+    
+
+
+No.9 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putIntTest() {
+        ByteVector byteVector = new ByteVector();
+        assertEquals(byteVector.length, 0);
+        
+        int i = 127;
+        byteVector.putInt(i);
+        assertEquals(byteVector.length, Integer.BYTES);
+    }
+}
+    
+
+
+No.10 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import java.lang.invoke.MethodHandles;
+import java.util.Arrays;
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    private byte[] data = new byte[256];
+    private int length = 0;
+    @BeforeEach
+    public void setup() {
+        for (int i = 0; i < 256; ++i) {
+            data[i] = (byte) i;
+        }
+    }
+
+    @Test
+    public void putByteTest() {
+        ByteVector vector = new ByteVector(data);
+        byte b1 = 8, b2 = -4;
+        vector.putByte(b1).putByte(b2);
+        assertArrayEquals(new byte[] { 8, -4 }, data);
+    }
+
+    @Test
+    public void putShortTest() {
+        ByteVector vector = new ByteVector(data);
+        short s1 = (short) 0x08FF, s2 = (short) 0x7FFF;
+        vector.putShort(s1).putShort(s2);
+        assertArrayEquals(new byte[] { 8, -1, -1, 127 }, data);
+    }
+
+    @Test
+    public void putIntTest() {
+        ByteVector vector = new ByteVector(data);
+        int i1 = 0xFFEECC00, i2 = 0xFEDCBA98;
+        vector.putInt(i1).putInt(i2);
+        assertArrayEquals(new byte[] { -56, -48, 0, 0, -52, -43, -87, -2 }, data);
+    }
+
+    @Test
+    public void putLongTest() {
+        ByteVector vector = new ByteVector(data);
+        long l1 = 0xFFEECC00ABCDEF1L, l2 = 0xFEDCBA9876543210L;
+        vector.putLong(l1).putLong(l2);
+        assertArrayEquals(new byte[] { -56, -48, 0, 0, -52, -43, -87, -2, -52, 94, -24, -102, -32, -17, -3, 1 }, data);
+    }
+}
+
+

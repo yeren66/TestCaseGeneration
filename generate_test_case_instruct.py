@@ -2,7 +2,7 @@ import re
 import requests
 import json
 from prompts import instruct_prompt, instruct_prompt_2, instruct_prompt_3, instruct_prompt_4
-from source_code_extract import java_files_content
+# from source_code_extract import java_files_content
 import javalang
 from tqdm import tqdm
 import logging

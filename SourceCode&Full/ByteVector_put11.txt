@@ -1,0 +1,295 @@
+Source code: 
+
+final ByteVector put11(final int byteValue1,final int byteValue2){
+  int currentLength=length;
+  if (currentLength + 2 > data.length) {
+    enlarge(2);
+  }
+  byte[] currentData=data;
+  currentData[currentLength++]=(byte)byteValue1;
+  currentData[currentLength++]=(byte)byteValue2;
+  length=currentLength;
+  return this;
+}
+
+
+
+No.1 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class ByteVectorTest {
+    @Test
+    public void put11Test() {
+        ByteVector byteVector = new ByteVector();
+        byte[] bytes = "Hello".getBytes();
+        
+        // Put the string "Hello" to the ByteVector, and check that length is 5.
+        byteVector.putByteArray(bytes, 0, 5);
+        Assertions.assertEquals(byteVector.length(), 5);
+    }
+}
+
+
+No.2 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import java.io.*;
+
+/**
+ * A byte vector that can be used to store the bytes of a binary file. The storage is enlarged as needed, by
+ * doubling its current capacity when a new element is added.
+ */
+public class ByteVector {
+    /**
+     * Size of this byte vector (in bytes).
+     */
+    public int length;
+
+    /**
+     * Contained data, as a byte array. The data in this vector is the concatenation of all its elements, in the
+     * order they were added.
+     */
+    private byte[] data;
+
+    /**
+     * Creates a new ByteVector with an initial capacity of 64 bytes.
+     */
+    public ByteVector() {
+        this(64);
+    }
+
+    /**
+     * Creates a new ByteVector with the given initial capacity (in bytes).
+     *
+     * @param size the initial capacity of this byte vector.
+     */
+    public ByteVector(final int size) {
+        data = new byte[size];
+    }
+
+    /**
+     * Puts a byte into this byte vector. The byte vector is automatically enlarged if necessary.
+     *
+     * @param b the byte to be added to this byte vector.
+     * @return this byte vector.
+     */
+    public ByteVector put11(final int b) {
+        int length = this.length;
+        if (length + 1 > data.length) {
+            enlarge(1);
+        }
+        data[length] = (byte) b;
+        this.length = length + 1;
+        return this;
+    }
+
+    /**
+     * Enlarges this byte vector so that it can receive 'size' more bytes.
+     *
+     * @param size number of additional bytes that this byte vector should be able to receive.
+     */
+    private void enlarge(final int size) {
+        int doubleCapacity = 2 * data.length;
+        int minimalCapacity = length + size;
+        byte[] newData = new byte[doubleCapacity > minimalCapacity ? doubleCapacity : minimalCapacity];
+        System.arraycopy(data, 0, newData, 0, length);
+        data = newData;
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import java.util.*;
+
+public class ByteVectorTest {
+    @Test
+    public void put11Test() {
+        ByteVector byteVector = new ByteVector();
+        assertEquals(0, byteVector.length());
+        byteVector.putByteArray(null, 0, 1);
+        assertEquals(1, byteVector.length());
+    }
+}
+
+
+No.4 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import java.util.*;
+
+public class ByteVectorTest {
+
+    @Test
+    public void put11Test() {
+        byte[] data = new byte[0];
+        int length = 0;
+        ByteVector byteVector = new ByteVector(data, length);
+        byteVector.putByteArray("HelloWorld".getBytes(), 0, "HelloWorld".length());
+        assertEquals("HelloWorld", byteVector.toString());
+    }
+}
+
+
+No.5 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void put11Test() {
+        int byteLength = 0xabcd; // <-- Replace this line with the actual test case you want to run.
+        assertEquals(2, getByteVector().put11(byteLength).length);
+    }
+    
+    private ByteVector getByteVector() {
+        return new ByteVector();
+    }
+}
+
+
+
+No.6 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void put11Test() {
+        ByteVector byteVector = new ByteVector();
+        assertEquals(0, byteVector.length);
+
+        byteVector.put11(256 * 2 + 1, 0); // [1000 0000] [0000 0001]
+        assertArrayEquals(new int[] {0xC0, 0x01}, byteVector.data);
+    }
+}
+    
+
+### Test Case: [/PROJECT_NAME/]
+package com.alibaba.fastjson2;
+import java.io.*;
+public class FastJsonTest {
+    public static void main(String[] args) throws IOException {
+        String test = "{\"test\":\"value\",\"test1\":[1,true]}";
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                OutputStream os = new BufferedOutputStream(baos);
+                FastJsonWriter fastJsonWriter = new FastJsonWriter(os)) {
+            FastJsonConfig config = new FastJsonConfig();
+            config.setAutoUnicode(true);
+            fastJsonWriter.config(config, JsonSerialize.globalInstance());
+            fastJsonWriter.writeObject(test);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+No.7 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void put11Test() {
+        int[] array = new int[256];
+        for (int i = 0; i < 256; ++i) {
+            array[i] = i + 1;
+        }
+        ByteVector byteVector = new ByteVector();
+        byteVector.putByteArray(array, 0, 256);
+    }
+}
+
+
+No.8 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import java.io.*;
+
+public final class ByteVector implements DataOutput, Closeable {
+    private byte[] data;
+    private int length;
+
+    public ByteVector() {
+        this(32);
+    }
+
+    public ByteVector(final int initialSize) {
+        data = new byte[initialSize];
+    }
+
+    @Override
+    public void write(int b) throws IOException {
+        if (length >= data.length) {
+            enlarge();
+        }
+        data[length++] = (byte) b;
+    }
+
+    private void enlarge() {
+        int doubleCapacity = 2 * data.length;
+        byte[] newData = new byte[doubleCapacity];
+        System.arraycopy(data, 0, newData, 0, length);
+        data = newData;
+    }
+
+    public void put11Test() {
+        ByteVector bv = new ByteVector();
+        for (int i = 0; i < 50; i++) {
+            bv.write(i);
+        }
+        byte[] bytes = bv.toByteArray();
+    }
+}
+
+
+No.9 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void put11Test() {
+        // Arrange
+        final int offset = 3;
+        final byte[] bytesToPut = new byte[]{0x1, 0x2};
+        
+        // Act
+        final ByteVector sut = new ByteVector();
+        assertEquals(0, sut.length);
+        sut.putByteArray(bytesToPut, offset, 2);
+        
+        // Assert
+        assertEquals(2, sut.length);
+    }
+}
+    
+
+### Response:
+
+
+No.10 generated result --------------------------
+
+Timeout
+
+

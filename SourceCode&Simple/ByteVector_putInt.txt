@@ -1,0 +1,248 @@
+Source code: 
+
+public ByteVector putInt(final int intValue){
+  int currentLength=length;
+  if (currentLength + 4 > data.length) {
+    enlarge(4);
+  }
+  byte[] currentData=data;
+  currentData[currentLength++]=(byte)(intValue >>> 24);
+  currentData[currentLength++]=(byte)(intValue >>> 16);
+  currentData[currentLength++]=(byte)(intValue >>> 8);
+  currentData[currentLength++]=(byte)intValue;
+  length=currentLength;
+  return this;
+}
+
+
+
+No.1 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putIntTest() {
+        // Test 1: Check that the putInt method returns a valid instance of ByteVector
+        int testValue = 0x12345678;
+        ByteVector byteVector = new ByteVector();
+        assertEquals(byteVector, byteVector.putInt(testValue));
+
+        // Test 2: Check that the putInt method correctly encodes the input value as a series of bytes
+        testValue = 0xFFEEDDCC;
+        byte[] expectedBytes = new byte[] { (byte) 0xCC, (byte) 0xDD, (byte) 0xEE, (byte) 0xFF };
+        byteVector.putInt(testValue);
+        assertArrayEquals(expectedBytes, byteVector.data, "Incorrect encoding of integer value");
+    }
+}
+
+
+No.2 generated result --------------------------
+
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putIntTest() {
+        int value = 123456789; // arbitrary integer value to test
+        byte[] expectedBytes = new byte[] { (byte) 0xCD, (byte) 0xAB, (byte) 0xEF, (byte) 0xBE };
+
+        ByteVector byteVector = new ByteVector();
+        byteVector.putInt(value);
+
+        assertArrayEquals(expectedBytes, byteVector.data);
+    }
+}
+
+
+
+No.3 generated result --------------------------
+
+@Test
+public void putIntTest() {
+    // Create a new instance of the ByteVector class
+    ByteVector byteVector = new ByteVector(10);
+
+    // Call the putInt method with an int value
+    byteVector.putInt(123456789);
+
+    // Check that the length property has been updated correctly
+    assertEquals(4, byteVector.length());
+
+    // Check that the data array contains the correct bytes
+    byte[] expectedBytes = new byte[] { 0x07, 0x5B, (byte) 0xCD, (byte) 0xED };
+    for (int i = 0; i < 4; i++) {
+        assertEquals(expectedBytes[i], byteVector.data()[i]);
+    }
+}
+
+
+No.4 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putIntTest() {
+        // given:
+        ByteVector byteVector = new ByteVector(10);
+        
+        // when:
+        int result = byteVector.putInt(123456789);
+        
+        // then:
+        assertEquals(result, 4);
+    }
+}
+
+
+No.5 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putIntTest() {
+        int intValue = 1024;
+        ByteVector byteVector = new ByteVector(10);
+        
+        byte[] expectedBytes = new byte[]{ (byte) ((intValue >>> 24) & 0xFF), 
+                                            (byte) ((intValue >>> 16) & 0xFF), 
+                                            (byte) ((intValue >>> 8) & 0xFF), 
+                                            (byte) (intValue & 0xFF) };
+        
+        byteVector.putInt(intValue);
+        
+        assertArrayEquals(expectedBytes, byteVector.data);
+    }
+}
+
+
+No.6 generated result --------------------------
+
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putIntTest() {
+        // Create a new ByteVector with an initial capacity of 10
+        ByteVector byteVector = new ByteVector(10);
+        
+        // Call the putInt method to add an integer value to the vector
+        byteVector.putInt(42);
+        
+        // Assert that the length of the vector is now 4 (the size of an int)
+        assertEquals(4, byteVector.length());
+        
+        // Check that the data array contains the correct values for the integer
+        byte[] data = byteVector.data();
+        assertArrayEquals(new byte[] {0x00, 0x00, 0x00, (byte) 42}, data);
+    }
+}
+
+
+
+No.7 generated result --------------------------
+
+@Test
+public void putIntTest() {
+    ByteVector byteVector = new ByteVector(10); // initial capacity is 10
+    int intValue = 257;
+    byte[] expectedBytes = new byte[]{(byte) (intValue >>> 24), (byte) (intValue >>> 16), (byte) (intValue >>> 8), (byte) intValue}; // expected bytes after enlargement is 4
+    byteVector.putInt(intValue);
+    assertArrayEquals(expectedBytes, byteVector.data, "The data array should be filled with the correct bytes");
+    assertEquals(4, byteVector.length, "The length of the ByteVector should be updated correctly");
+}
+
+
+No.8 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putIntTest() {
+        // Create a new instance of ByteVector
+        ByteVector byteVector = new ByteVector(4);
+        
+        // Call the putInt method with an integer value and verify that it returns the correct result
+        assertEquals((byte)0x12, byteVector.putInt(0x12345678).data[0]);
+        assertEquals((byte)0x34, byteVector.putInt(0x12345678).data[1]);
+        assertEquals((byte)0x56, byteVector.putInt(0x12345678).data[2]);
+        assertEquals((byte)0x78, byteVector.putInt(0x12345678).data[3]);
+        
+        // Verify that the length of the ByteVector has been updated correctly
+        assertEquals(4, byteVector.length);
+    }
+}
+
+
+No.9 generated result --------------------------
+
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putIntTest() {
+        // Create a new instance of ByteVector and call the putInt method with an integer as its argument
+        ByteVector byteVector = new ByteVector(10);
+        int intValue = 12345;
+        byteVector.putInt(intValue);
+
+        // Check that the contents of the byte array are correct
+        assertEquals(4, byteVector.length());
+        assertArrayEquals(new byte[] { 0x00, 0x00, (byte) 0x39, 0x15 }, byteVector.getBytes(), "The bytes in the byte vector are not correct");
+    }
+}
+
+
+
+No.10 generated result --------------------------
+
+
+public class ByteVectorTest {
+    @Test
+    public void putIntTest() {
+        // Create an instance of the ByteVector class
+        ByteVector byteVector = new ByteVector(10);
+
+        // Call the putInt method with a positive input value
+        int resultPositive = byteVector.putInt(42);
+        assertEquals(resultPositive, 42);
+
+        // Call the putInt method with a negative input value
+        int resultNegative = byteVector.putInt(-100);
+        assertEquals(resultNegative, -100);
+
+        // Call the putInt method with a zero input value
+        int resultZero = byteVector.putInt(0);
+        assertEquals(resultZero, 0);
+    }
+}
+
+
+

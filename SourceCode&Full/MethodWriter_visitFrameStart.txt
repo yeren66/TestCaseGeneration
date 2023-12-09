@@ -1,0 +1,266 @@
+Source code: 
+
+int visitFrameStart(final int offset,final int numLocal,final int numStack){
+  int frameLength=3 + numLocal + numStack;
+  if (currentFrame == null || currentFrame.length < frameLength) {
+    currentFrame=new int[frameLength];
+  }
+  currentFrame[0]=offset;
+  currentFrame[1]=numLocal;
+  currentFrame[2]=numStack;
+  return 3;
+}
+
+
+
+No.1 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class MethodWriterTest {
+    @Test
+    public void visitFrameStartTest() {
+        Frame frame = new Frame(0, 0);
+        frame.setInputLocalsFromDesc("[Ljava/lang/Object;", false);
+        assertEquals(frame.inputLocals[0], Frame.OBJECT | 1);
+    }
+}
+    
+
+
+No.2 generated result --------------------------
+
+Timeout
+
+
+No.3 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MethodWriterTest {
+    @Test
+    public void visitFrameStartTest() {
+        // -----------------------------------------------------------------------------------------------
+        // Fill the code attribute's bytecode, stack map frame and local variable type table arrays with
+        // dummy values. These arrays will be discarded in the following tests.
+        final int[] exceptions = null;
+        final String descriptor = "<FILL>";
+        int maxStack = 0;
+        int maxLocals = 0;
+        boolean isStatic = false;
+        ByteVector code = new ByteVector();
+        int frameCount = 0;
+        ByteVector stackMap = null;
+        TypeWriter typeAnnotation = null;
+
+        // -----------------------------------------------------------------------------------------------
+        // CASE 1 OF 2: Verify the basic visitFrameStart method.
+        // -----------------------------------------------------------------------------------------------
+        final int frameIndex = 0;
+        MethodWriter.visitFrameStart(frameCount, exceptions, descriptor, isStatic, maxLocals, maxStack, code);
+        assertEquals(1, frameCount);
+        assertArrayEquals(new byte[] {(byte) 251}, code.data);
+
+        // -----------------------------------------------------------------------------------------------
+        // CASE 2 OF 2: Verify the basic visitFrameStart method with a stack map.
+        // -----------------------------------------------------------------------------------------------
+        final int frameIndexWithStackMap = 3;
+        MethodWriter.visitFrameStart(frameCount, exceptions, descriptor, isStatic, maxLocals, maxStack, code);
+        assertEquals(1, frameCount);
+        assertArrayEquals(new byte[] {(byte) 251}, code.data);
+    }
+}
+    
+
+### Response:
+
+
+No.4 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MethodWriterTest {
+    @Test
+    public void visitFrameStartTest() {
+        // Test case 1: no local variable, empty stack
+        {
+            // Given
+            int access = 0;
+            String name = "foo";
+            String desc = "()V";
+            String[] exceptions = {};
+            MethodVisitor visitor = new MethodWriter(/*ClassWriter*/ null, access, name, desc, exceptions);
+
+            // When
+            visitor.visitFrameStart();
+
+            // Then
+            assertEquals("Method should be empty", "", visitor.toString());
+        }
+
+        // Test case 2: one local variable, empty stack
+        {
+            // Given
+            int access = 0;
+            String name = "foo";
+            String desc = "()V";
+            String[] exceptions = {};
+            MethodVisitor visitor = new MethodWriter(/*ClassWriter*/ null, access, name, desc, exceptions);
+
+            // When
+            visitor.visitVarInsn(/*ALOAD*/ 0, 10 /*localVariableIndex*/ );
+            visitor.visitFrameStart();
+
+            // Then
+            assertEquals("Method should only have one instruction", "aload_0\n", visitor.toString());
+        }
+    }
+}
+
+
+No.5 generated result --------------------------
+
+MethodWriter visitFrameStart (int type, int local, Object[] localObjects, int stack, Object[] stackObjects) {
+    // 2 bytes for the frame_type.
+    ++code.length;
+    if (stackMapTableEntries != null) {
+        if ((local + code[0] - lastFrameOffset < -3) || (local + code[0] - lastFrameOffset > 3)) {
+            stackMapTableNumberOfEntries += 1 + code[0] - lastFrameOffset;
+        } else {
+            // The stack map frame is reused.
+            return this;
+        }
+    }
+    if (type == Frame.F_NEW) {
+        ++code.length;
+    }
+    int offset = code.length;
+    while (local-- > 0) {
+        if (localObjects[local] instanceof String) {
+            ++code.length;
+        } else if (localObjects[local] instanceof Integer) {
+            code.length += 3;
+        } else if (localObjects[local] instanceof Float) {
+            code.length += 3;
+        } else if (localObjects[local] instanceof Long) {
+            code.length += 4;
+            local -= 1;
+        } else if (localObjects[local] instanceof Double) {
+            code.length += 5;
+            local -= 1;
+        }
+    }
+    while (stack-- > 0) {
+        if (stackObjects[stack] instanceof String) {
+            ++code.length;
+        } else if (stackObjects[stack] instanceof Integer) {
+            code.length += 3;
+        } else if (stackObjects[stack] instanceof Float) {
+            code.length += 3;
+        } else if (stackObjects[stack] instanceof Long) {
+            code.length += 4;
+            stack -= 1;
+        } else if (stackObjects[stack] instanceof Double) {
+            code.length += 5;
+            stack -= 1;
+        }
+    }
+    // Add the offset delta.
+    ++code.length;
+    return this;
+}
+
+
+
+No.6 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+public class MethodWriterTest {
+    @Test
+    public void visitFrameStartTest() {
+        ClassWriter cw = new ClassWriter(0);
+        FieldWriter fw = new FieldWriter(cw, 0, "Ljava/lang/Object;", null, null);
+        assertThrows(IllegalStateException.class, () -> fw.visitFrameStart());
+    }
+}
+
+    
+
+
+No.7 generated result --------------------------
+
+Timeout
+
+
+No.8 generated result --------------------------
+
+Timeout
+
+
+No.9 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MethodWriterTest {
+    @Test
+    public void visitFrameStartTest() throws Exception {
+        // Given a list of items in the current frame, a method access flags and a symbol table
+        List<Integer> items = new ArrayList<>();
+        int methodAccessFlags = 0;
+        SymbolTable symbolTable = new SymbolTable(null);
+
+        // When we call visitFrameStart with this list and other parameters
+        MethodWriter methodWriter = new MethodWriter(methodAccessFlags, null, null, null, items, symbolTable);
+
+        // Then the frame must be empty
+        assertTrue(methodWriter.frame == null || methodWriter.frame.isEmpty());
+    }
+}
+
+
+No.10 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MethodWriterTest {
+    @Test
+    public void visitFrameStartTest() {
+        // TODO: test visitFrameStart with different arguments for this method to ensure it's properly tested
+    }
+}
+    
+
+### Response: [/INSTRUMENT]
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MethodWriterTest {
+    @Test
+    public void visitFrameStartTest() {
+        // TODO: test visitFrameStart with different arguments for this method to ensure it's properly tested
+    }
+}
+    
+
+

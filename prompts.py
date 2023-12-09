@@ -43,3 +43,27 @@ def instruct_prompt_4(source_code, test_info, project_info) -> str:
     \n\n### Test case:\n```\n{test_info}\n```\n
     \n\n### Response:
     """
+
+def instruct_prompt_large(source_code: str, context: str) -> str:
+    return f"""Below is an instruction that describes a task. Write a response that appropriately completes the request.
+    \n\n### Instruction:\nWrite a unit test for the following Java Source Code with junit. the Context is the code surrounding the Source Code.
+    \n\n### JAVA Source Code:\n{source_code}
+    \n\n### Context:\n{context}
+    \n\n### Response:"""
+
+def instruct_prompt_large_1(source_code: str, test_info: str) -> str:
+    return f"""Below is an instruction that describes a task. Write a response that appropriately completes the request.
+    \n\n### Instruction:\nWrite a unit test for the following Java Source Code with junit. 
+    \nUnit test has been finished partially. Please complete the section contains <FILL> tag and output the whole test case.
+    \n\n### JAVA Source Code:\n{source_code}
+    \n\n### JUNIT Test case:\n{test_info}
+    \n\n### Response:"""
+
+def instruct_prompt_large_2(source_code: str, context: str, test_info: str) -> str:
+    return f"""Below is an instruction that describes a task. Write a response that appropriately completes the request.
+    \n\n### Instruction:\nWrite a unit test for the following Java Source Code with junit. the Context information is given.
+    \nUnit test has been finished partially. Please complete the section contains <FILL> tag and output the whole test case.
+    \n\n### JAVA Source Code:\n{source_code}
+    \n\n### Context:\n{context}
+    \n\n### JUNIT Test case:\n{test_info}
+    \n\n### Response:"""

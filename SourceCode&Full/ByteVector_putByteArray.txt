@@ -1,0 +1,305 @@
+Source code: 
+
+public ByteVector putByteArray(final byte[] byteArrayValue,final int byteOffset,final int byteLength){
+  if (length + byteLength > data.length) {
+    enlarge(byteLength);
+  }
+  if (byteArrayValue != null) {
+    System.arraycopy(byteArrayValue,byteOffset,data,length,byteLength);
+  }
+  length+=byteLength;
+  return this;
+}
+
+
+
+No.1 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putByteArrayTest() {
+        // Arrange
+        byte[] bytes = new byte[10];
+        for (int i = 0; i < bytes.length; i++) {
+            bytes[i] = (byte) i;
+        }
+        ByteVector byteVector = new ByteVector();
+        
+        // Act
+        byteVector.putByteArray(bytes, 1, 8);
+        
+        // Assert
+        assertEquals(8, byteVector.length());
+        for (int i = 0; i < bytes.length - 1; i++) {
+            assertEquals((byte) i, byteVector.data[i]);
+        }
+    }
+}
+
+
+No.2 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putByteArrayTest() {
+        final byte[] data = new byte[]{0, 1, 2, 3};
+        ByteVector bv = new ByteVector(4);
+        bv.putByteArray(data, 0, 4);
+        
+        assertEquals(bv.get(0), (byte)0x00);
+        assertEquals(bv.get(1), (byte)0x01);
+        assertEquals(bv.get(2), (byte)0x02);
+        assertEquals(bv.get(3), (byte)0x03);
+        
+        bv = new ByteVector(4, 8);
+        bv.putByteArray(data, 1, 2);
+        
+        assertEquals(bv.get(0), (byte)0x01);
+        assertEquals(bv.get(1), (byte)0x02);
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putByteArrayTest() {
+        ByteVector byteVector = new ByteVector();
+        byte[] testData = "hello world".getBytes();
+        byteVector.putByteArray(testData, 0, testData.length);
+        assertEquals("hello world", new String(byteVector.data));
+    }
+}
+
+
+No.4 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putByteArrayTest() {
+        // Given: a non-null array with 3 bytes and a byte offset of 1
+        int[] byteArrayValue = new int[]{0x00, 0x80, 0xFF};
+        int byteOffset = 1;
+        int byteLength = 2;
+        
+        // When: putByteArray is called with the given arguments
+        ByteVector byteVector = new ByteVector();
+        byteVector.putByteArray(byteArrayValue, byteOffset, byteLength);
+        
+        // Then: The resulting ByteVector should contain the bytes from 1 to 2 of byteArrayValue
+        int[] actualBytes = byteVector.data;
+        assertEquals(actualBytes[0], (int) 0x80);
+        assertEquals(actualBytes[1], (int) 0xFF);
+    }
+}
+
+
+No.5 generated result --------------------------
+
+    /**
+     * Enlarges this byte vector so that it can receive 'size' more bytes.
+     *
+     * @param size number of additional bytes that this byte vector should be able to receive.
+     */
+    private void enlarge(final int size) {
+        int doubleCapacity = 2 * data.length;
+        int minimalCapacity = length + size;
+        byte[] newData = new byte[doubleCapacity > minimalCapacity ? doubleCapacity : minimalCapacity];
+        System.arraycopy(data, 0, newData, 0, length);
+        data = newData;
+    }
+
+
+No.6 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putByteArrayTest() {
+        byte[] data = new byte[10];
+        for (int i = 0; i < 5; i++) {
+            data[i] = (byte) i;
+        }
+        ByteVector vector = new ByteVector();
+        vector.putByteArray(data, 0, 3);
+        byte[] result1 = vector.getByteArray();
+        assertEquals(3, result1.length);
+        for (int i = 0; i < 3; i++) {
+            assertEquals((byte) i, result1[i]);
+        }
+        
+        vector.putByteArray(data, 2, 5);
+        byte[] result2 = vector.getByteArray();
+        assertEquals(5, result2.length);
+        for (int i = 0; i < 3; i++) {
+            assertEquals((byte) i, result2[i]);
+        }
+        for (int i = 2; i < 5; i++) {
+            assertEquals((byte) i, result2[i + 3 - 2]);
+        }
+    }
+}
+    
+
+### Code:
+
+
+No.7 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putByteArrayTest() {
+        int size = 100;
+        byte[] b = new byte[size];
+        for (int i = 0; i < size; ++i) {
+            b[i] = (byte) (i & 0xFF);
+        }
+        ByteVector byteVector = new ByteVector(1024);
+        assertThrows(IndexOutOfBoundsException.class, () -> byteVector.putByteArray(b, -1, size));
+        assertThrows(IndexOutOfBoundsException.class, () -> byteVector.putByteArray(b, 0, size + 1));
+        assertEquals(byteVector.length(), 0);
+        byteVector.putByteArray(b, 0, size / 2);
+        byteVector.putByteArray(b, size / 2, size - size / 2);
+        assertTrue(Arrays.equals(b, byteVector.data));
+    }
+}
+    
+
+
+
+
+No.8 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+public class ByteVectorTest {
+    @Test
+    public void putByteArrayTest() {
+        // 1. create a new byte vector instance with the initial size of 2 bytes.
+        ByteVector byteVector = new ByteVector(2);
+
+        // 2. put 3 bytes into the byte vector.
+        byte[] bytes = new byte[3];
+        int index = byteVector.putByteArray(bytes, 0, 3);
+        assertEquals(index, 3);
+
+        // 3. verify that the length of the byte vector has been increased by 3.
+        assertEquals(byteVector.length(), 5);
+    }
+}
+    
+
+
+No.9 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class ByteVectorTest {
+    private static final int INITIAL_SIZE = 1024;
+    private static final int MAX_ARRAY_LENGTH = Integer.MAX_VALUE - 8;
+    private static final byte[] TEST_DATA = new byte[MAX_ARRAY_LENGTH];
+
+    private ByteVector byteVectorUnderTest;
+
+    @BeforeEach
+    public void setup() {
+        this.byteVectorUnderTest = new ByteVector(INITIAL_SIZE);
+    }
+    
+    @Test
+    public void putByteArrayShouldEnlargeIfNotEnoughSpace() {
+        // given
+        int byteLength = MAX_ARRAY_LENGTH + 1;
+        
+        // when
+        this.byteVectorUnderTest.putByteArray(TEST_DATA, 0, byteLength);
+        
+        // then
+        assertTrue(this.byteVectorUnderTest.data.length > INITIAL_SIZE);
+    }
+}
+    
+
+
+No.10 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putByteArrayTest() {
+        ByteVector byteVector = new ByteVector();
+        // 插入10个null字节
+        byte[] data1 = null;
+        int byteOffset1 = 0;
+        int byteLength1 = 10;
+        byteVector.putByteArray(data1, byteOffset1, byteLength1);
+        assertEquals(byteVector.length(), byteLength1);
+        
+        // 插入3个字节'abc'
+        byte[] data2 = new byte[]{97, 98, 99};
+        int byteOffset2 = 0;
+        int byteLength2 = 3;
+        byteVector.putByteArray(data2, byteOffset2, byteLength2);
+        assertEquals(byteVector.length(), byteLength1 + byteLength2);
+        
+        // 插入'defg'字符串，每个字符占用两个字节
+        String stringValue = "defg";
+        int offset = byteVector.length();
+        byte[] data3 = null;
+        int byteOffset3 = 0;
+        int byteLength3 = stringValue.getBytes().length * 2;
+        byteVector.putByteArray(data3, byteOffset3, byteLength3);
+        
+        // 插入'hijklmn'字符串，每个字符占用三个字节
+        String stringValue = "hijklmn";
+        int offset = byteVector.length();
+        byte[] data4 = null;
+        int byteOffset4 = 0;
+        int byteLength4 = stringValue.getBytes().length * 3;
+        byteVector.putByteArray(data4, byteOffset4, byteLength4);
+    }
+}
+    
+
+### Response:
+
+

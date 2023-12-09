@@ -1,0 +1,231 @@
+Source code: 
+
+public static int nextPrime(int desiredCapacity){
+  if (desiredCapacity >= largestPrime) {
+    return largestPrime;
+  }
+  int i=Arrays.binarySearch(primeCapacities,desiredCapacity);
+  if (i < 0) {
+    i=-i - 1;
+  }
+  return primeCapacities[i];
+}
+
+
+
+No.1 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.trove.impl;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PrimeFinderTest {
+    @Test
+    public void nextPrimeTest() {
+        int[] primeCapacities = new int[]{2, 3, 5, 7, 11};
+        assertEquals(nextPrime(0), 0);
+        assertEquals(nextPrime(1), 1);
+        assertEquals(nextPrime(2), 2);
+        assertEquals(nextPrime(3), 3);
+        assertEquals(nextPrime(4), 5);
+        assertEquals(nextPrime(5), 5);
+        assertEquals(nextPrime(6), 7);
+        assertEquals(nextPrime(7), 7);
+        assertEquals(nextPrime(8), 11);
+    }
+}
+
+
+No.2 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.trove.impl;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PrimeFinderTest {
+    @Test
+    public void nextPrimeTest() {
+        int[] primeCapacities = new int[]{2, 3, 5, 7, 11, 13};
+        int largestPrime = 13;
+
+        // Test with desired capacity less than the smallest prime number
+        assertEquals(2, PrimeFinder.nextPrime(-1));
+        assertEquals(2, PrimeFinder.nextPrime(0));
+        assertEquals(2, PrimeFinder.nextPrime(1));
+
+        // Test with desired capacity equal to a prime number
+        for (int i = 0; i < primeCapacities.length; i++) {
+            int capacity = primeCapacities[i];
+            assertEquals(capacity, PrimeFinder.nextPrime(capacity));
+        }
+
+        // Test with desired capacity greater than all prime numbers
+        for (int i = 0; i < primeCapacities.length; i++) {
+            int capacity = primeCapacities[i] + 1;
+            assertEquals(largestPrime, PrimeFinder.nextPrime(capacity));
+        }
+    }
+}
+
+
+No.3 generated result --------------------------
+
+int desiredCapacity = 10;
+int nextPrime = PrimeFinder.nextPrime(desiredCapacity);
+System.out.println("Next prime after " + desiredCapacity + " is " + nextPrime);
+
+
+No.4 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.trove.impl;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PrimeFinderTest {
+    @Test
+    public void nextPrimeTest() {
+        int desiredCapacity = 10;
+        int expectedResult = 7; // The next prime number after 10 is 7
+
+        int actualResult = PrimeFinder.nextPrime(desiredCapacity);
+
+        assertEquals(expectedResult, actualResult);
+    }
+}
+
+
+No.5 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.trove.impl;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PrimeFinderTest {
+    @Test
+    public void nextPrimeTest() {
+        int desiredCapacity = 10;
+        int expectedPrime = 13;
+        assertEquals(expectedPrime, PrimeFinder.nextPrime(desiredCapacity));
+    }
+}
+
+
+No.6 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.trove.impl;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PrimeFinderTest {
+    @Test
+    public void nextPrimeTest() {
+        int input = 10;
+        int expectedOutput = 11;
+        assertEquals(expectedOutput, PrimeFinder.nextPrime(input));
+
+        input = 25;
+        expectedOutput = 37;
+        assertEquals(expectedOutput, PrimeFinder.nextPrime(input));
+
+        input = 36;
+        expectedOutput = 41;
+        assertEquals(expectedOutput, PrimeFinder.nextPrime(input));
+    }
+}
+
+
+No.7 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.trove.impl;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PrimeFinderTest {
+    @Test
+    public void nextPrimeTest() {
+        // Test case 1: input = 0, expected output = 2
+        assertEquals(2, PrimeFinder.nextPrime(0));
+        
+        // Test case 2: input = 1, expected output = 3
+        assertEquals(3, PrimeFinder.nextPrime(1));
+        
+        // Test case 3: input = 4, expected output = 5
+        assertEquals(5, PrimeFinder.nextPrime(4));
+        
+        // Test case 4: input = 9, expected output = 11
+        assertEquals(11, PrimeFinder.nextPrime(9));
+    }
+}
+
+
+No.8 generated result --------------------------
+
+
+package com.alibaba.fastjson2.internal.trove.impl;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PrimeFinderTest {
+    @Test
+    public void nextPrimeTest() {
+        int desiredCapacity = 1024;
+        int expectedNextPrime = 1025;
+        
+        assertEquals(expectedNextPrime, PrimeFinder.nextPrime(desiredCapacity));
+    }
+}
+
+
+No.9 generated result --------------------------
+
+
+package com.alibaba.fastjson2.internal.trove.impl;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PrimeFinderTest {
+    @Test
+    public void nextPrimeTest() {
+        // Test that the method returns the correct value for a prime input
+        int result = PrimeFinder.nextPrime(17);
+        assertEquals(19, result);
+
+        // Test that the method returns the correct value for a non-prime input
+        result = PrimeFinder.nextPrime(24);
+        assertEquals(29, result);
+    }
+}
+
+
+
+No.10 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.trove.impl;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PrimeFinderTest {
+    @Test
+    public void nextPrimeTest() {
+        // Arrange
+        int desiredCapacity = 10;
+        int expectedResult = 17;
+        
+        // Act
+        int result = PrimeFinder.nextPrime(desiredCapacity);
+        
+        // Assert
+        assertEquals(expectedResult, result);
+    }
+}
+
+

@@ -1,0 +1,283 @@
+Source code: 
+
+private void enlarge(final int size){
+  int doubleCapacity=2 * data.length;
+  int minimalCapacity=length + size;
+  byte[] newData=new byte[doubleCapacity > minimalCapacity ? doubleCapacity : minimalCapacity];
+  System.arraycopy(data,0,newData,0,length);
+  data=newData;
+}
+
+
+
+No.1 generated result --------------------------
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    private byte[] data;
+    private int length;
+
+    @BeforeEach
+    public void setup() {
+        data = new byte[8];
+        length = 0;
+    }
+
+    @Test
+    public void enlargeTest() {
+        ByteVector vector = new ByteVector(data, length);
+        assertEquals(vector.size(), 0);
+
+        vector.enlarge();
+        assertEquals(vector.capacity(), 16);
+        assertArrayEquals(vector.array(), data);
+    }
+}
+
+
+No.2 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void enlargeTest() {
+        // Arrange
+        int initialCapacity = 10;
+        int size = 5;
+        ByteVector byteVector = new ByteVector(initialCapacity);
+
+        // Act
+        byteVector.enlarge(size);
+
+        // Assert
+        assertEquals(byteVector.length, initialCapacity + size);
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void enlargeTest() {
+        // Set up the test environment
+        final int initialCapacity = 10;
+        final byte[] data = new byte[initialCapacity];
+        final int length = 0;
+        final int size = 5;
+        ByteVector bv = new ByteVector(data, length);
+
+        // Run the test method
+        bv.enlarge(size);
+
+        // Assert that the data and length fields have been updated correctly
+        assertArrayEquals(new byte[] {0, 0, 0, 0, 0}, data);
+        assertEquals(15, length);
+    }
+}
+
+
+No.4 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void enlargeTest() {
+        // Create a new instance of the ByteVector class with an initial capacity of 10 bytes
+        ByteVector byteVector = new ByteVector(10);
+        
+        // Add some data to the ByteVector
+        byte[] data = { (byte) 0xCA, (byte) 0xFE };
+        byteVector.putByteArray(data, 0, data.length);
+        
+        // Enlarge the ByteVector by a factor of 2
+        int newSize = byteVector.enlarge(1);
+        
+        // Verify that the new size is equal to the original capacity times 2
+        assertEquals(byteVector.data.length * 2, newSize);
+    }
+}
+
+
+No.5 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void enlargeTest() {
+        int initialCapacity = 10;
+        ByteVector vector = new ByteVector(initialCapacity);
+        int size = 5;
+        
+        assertEquals(initialCapacity, vector.data.length);
+        assertEquals(0, vector.length);
+        
+        vector.enlarge(size);
+        
+        assertNotEquals(initialCapacity, vector.data.length);
+        assertEquals(size, vector.length);
+    }
+}
+
+
+No.6 generated result --------------------------
+
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void enlargeTest() {
+        // Create an instance of the ByteVector class
+        ByteVector vector = new ByteVector();
+
+        // Set up some initial data for the vector
+        int[] values = new int[] { 1, 2, 3 };
+        vector.putInt(values[0]);
+        vector.putInt(values[1]);
+        vector.putInt(values[2]);
+
+        // Check that the length of the data is correct before enlarging
+        assertEquals(3 * Integer.BYTES, vector.length);
+
+        // Enlarge the vector by a certain amount
+        int size = 10;
+        vector.enlarge(size);
+
+        // Check that the length of the data is now correct after enlarging
+        assertEquals((3 * Integer.BYTES) + (Integer.BYTES * size), vector.length);
+
+        // Check that all existing data has been preserved in the new array
+        for (int i = 0; i < values.length; i++) {
+            int expectedValue = values[i];
+            assertEquals(expectedValue, vector.getInt(i));
+        }
+    }
+}
+
+
+
+No.7 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void enlargeTest() {
+        int size = 10;
+        ByteVector byteVector = new ByteVector(size);
+        
+        // Before the method is called, data should be null and length should be 0.
+        assertNull(byteVector.data);
+        assertEquals(byteVector.length, 0);
+        
+        // Call the enlarge method with a size of 10
+        byteVector.enlarge(size);
+        
+        // After the method is called, data should be an array with a length of 20 (2 * 10) and length should be 10.
+        assertEquals(byteVector.data.length, 20);
+        assertEquals(byteVector.length, size);
+    }
+}
+
+
+No.8 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void enlargeTest() {
+        int size = 100;
+        int doubleCapacity = 2 * data.length;
+        int minimalCapacity = length + size;
+        byte[] newData = new byte[doubleCapacity > minimalCapacity ? doubleCapacity : minimalCapacity];
+        System.arraycopy(data, 0, newData, 0, length);
+        data = newData;
+    }
+}
+
+
+No.9 generated result --------------------------
+
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void enlargeTest() {
+        int size = 100;
+        byte[] data = new byte[size];
+        for (int i = 0; i < size; i++) {
+            data[i] = (byte) i;
+        }
+
+        ByteVector bv = new ByteVector(data);
+        int minimalCapacity = bv.length + size;
+        byte[] newData = new byte[minimalCapacity];
+        System.arraycopy(bv.data, 0, newData, 0, bv.length);
+
+        assertEquals(newData.length, minimalCapacity);
+        for (int i = 0; i < bv.length; i++) {
+            assertEquals(newData[i], data[i]);
+        }
+    }
+}
+
+
+
+No.10 generated result --------------------------
+
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void enlargeTest() {
+        int initialCapacity = 10;
+        byte[] data = new byte[initialCapacity];
+        int length = 5;
+        ByteVector byteVector = new ByteVector(data, length);
+        
+        int size = 10;
+        byteVector.enlarge(size);
+        
+        assertEquals(16, byteVector.data.length);
+    }
+}
+
+

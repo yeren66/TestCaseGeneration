@@ -1,0 +1,252 @@
+Source code: 
+
+final ByteVector put11(final int byteValue1,final int byteValue2){
+  int currentLength=length;
+  if (currentLength + 2 > data.length) {
+    enlarge(2);
+  }
+  byte[] currentData=data;
+  currentData[currentLength++]=(byte)byteValue1;
+  currentData[currentLength++]=(byte)byteValue2;
+  length=currentLength;
+  return this;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void put11Test() {
+    // Create a new ByteVector with initial capacity 0
+    ByteVector bv = new ByteVector();
+    
+    // Check that the length is initially 0
+    assertEquals(0, bv.length());
+    
+    // Put two bytes into the vector and check that the length increases by 2
+    int byteValue1 = 5;
+    int byteValue2 = 10;
+    bv.put11(byteValue1, byteValue2);
+    assertEquals(2, bv.length());
+    
+    // Check that the bytes are correctly written to the data array
+    byte[] expectedData = new byte[2];
+    expectedData[0] = (byte) byteValue1;
+    expectedData[1] = (byte) byteValue2;
+    assertArrayEquals(expectedData, bv.data);
+    
+    // Check that the length is still 2 after writing to the vector again
+    int newByteValue1 = 15;
+    int newByteValue2 = 20;
+    bv.put11(newByteValue1, newByteValue2);
+    assertEquals(4, bv.length());
+    
+    // Check that the bytes are correctly written to the data array again
+    expectedData = new byte[4];
+    expectedData[0] = (byte) byteValue1;
+    expectedData[1] = (byte) byteValue2;
+    expectedData[2] = (byte) newByteValue1;
+    expectedData[3] = (byte) newByteValue2;
+    assertArrayEquals(expectedData, bv.data);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void put11Test() {
+    final ByteVector byteVector = new ByteVector();
+    int currentLength = byteVector.length;
+    if (currentLength + 2 > byteVector.data.length) {
+        byteVector.enlarge(2);
+    }
+    byte[] currentData = byteVector.data;
+    currentData[currentLength++] = (byte) 10;
+    currentData[currentLength++] = (byte) 20;
+    length = currentLength;
+    
+    int expectedResult = 30; // Expected result is 10 + 20
+    
+    assertEquals(expectedResult, byteVector.length);
+}
+
+
+No.3 generated result --------------------------
+
+
+public class ByteVectorTest {
+    @Test
+    public void put11Test() {
+        int byteValue1 = 0xFF; // Replace with the expected value
+        int byteValue2 = 0xEE; // Replace with the expected value
+        ByteVector vector = new ByteVector();
+        vector.put11(byteValue1, byteValue2);
+        assertEquals(vector.length(), 2);
+        assertArrayEquals(new byte[] { (byte)byteValue1, (byte)byteValue2 }, vector.data());
+    }
+}
+
+
+No.4 generated result --------------------------
+
+
+public class ByteVectorTest {
+    @Test
+    public void put11Test() {
+        // Arrange
+        final int byteValue1 = 2;
+        final int byteValue2 = 3;
+        final int currentLength = 0;
+        final byte[] data = new byte[4];
+        final ByteVector vector = new ByteVector(data);
+        
+        // Act
+        vector.put11(byteValue1, byteValue2);
+        
+        // Assert
+        assertEquals(2, vector.length);
+        assertArrayEquals(new byte[] { 2, 3 }, data);
+    }
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void put11Test() {
+    ByteVector bv = new ByteVector();
+    int byteValue1 = 0xFF; // 255
+    int byteValue2 = 0xAABBCCDD; // 3405691582
+    
+    bv.put11(byteValue1, byteValue2);
+    
+    assertEquals(4, bv.length()); // The byte array should have a length of 4 after adding two integers
+    assertArrayEquals(new byte[] { (byte)0xFF, (byte)0xAABBCCDD }, bv.data); // The byte array should contain the two input integers
+    
+    assertSame(bv, bv.put11(byteValue1, byteValue2)); // The method should return a reference to the updated ByteVector object
+}
+
+
+No.6 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void put11Test() {
+        // Create a new instance of the ByteVector class
+        ByteVector byteVector = new ByteVector();
+
+        // Call the put11 method with some input values
+        int byteValue1 = 10;
+        int byteValue2 = 20;
+        byteVector.put11(byteValue1, byteValue2);
+
+        // Check that the length of the byte array is correct
+        assertEquals(2, byteVector.length);
+
+        // Check that the contents of the byte array are correct
+        byte[] expectedBytes = { (byte) byteValue1, (byte) byteValue2 };
+        assertArrayEquals(expectedBytes, byteVector.data);
+    }
+}
+
+
+No.7 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void put11Test() {
+        // Initialize the byte vector with an initial capacity of 2
+        final ByteVector bv = new ByteVector(2);
+        
+        // Call the put11 method with two integer arguments
+        int result = bv.put11(0, 1);
+        
+        // Check that the returned value is equal to the expected value
+        assertEquals(result, 3);
+        
+        // Check that the byte vector has the correct length after the call
+        assertEquals(bv.length(), 3);
+        
+        // Check that the data array of the byte vector contains the correct values
+        int[] expectedData = {0, 1};
+        for (int i = 0; i < expectedData.length; i++) {
+            assertEquals(bv.data()[i], expectedData[i]);
+        }
+    }
+}
+
+
+No.8 generated result --------------------------
+
+
+@Test
+public void put11Test() {
+    // Arrange
+    final int byteValue1 = 0;
+    final int byteValue2 = 1;
+    ByteVector byteVector = new ByteVector();
+
+    // Act
+    byteVector.put11(byteValue1, byteValue2);
+
+    // Assert
+    assertEquals(byteValue1, byteVector.data[0]);
+    assertEquals(byteValue2, byteVector.data[1]);
+}
+
+
+No.9 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void put11Test() {
+        final int byteValue1 = 10; // arbitrary value for testing purposes
+        final int byteValue2 = 20; // arbitrary value for testing purposes
+
+        // create a new instance of the ByteVector class
+        ByteVector vector = new ByteVector();
+
+        // call the put11 method on the vector with the two input values
+        vector.put11(byteValue1, byteValue2);
+
+        // check that the length of the vector has increased by 2
+        assertEquals(vector.length, 2);
+
+        // check that the data array at the end index is equal to the expected value
+        assertEquals(vector.data[vector.length - 1], byteValue1);
+        assertEquals(vector.data[vector.length - 2], byteValue2);
+    }
+}
+
+
+No.10 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+public class ByteVectorTest {
+    @Test
+    public void put11Test() {
+        ByteVector byteVector = new ByteVector();
+        int expectedLength = 2;
+        assertEquals(expectedLength, byteVector.put11(10, 20).length);
+    }
+}
+
+

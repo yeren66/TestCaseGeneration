@@ -1,0 +1,283 @@
+Source code: 
+
+int visitFrameStart(final int offset,final int numLocal,final int numStack){
+  int frameLength=3 + numLocal + numStack;
+  if (currentFrame == null || currentFrame.length < frameLength) {
+    currentFrame=new int[frameLength];
+  }
+  currentFrame[0]=offset;
+  currentFrame[1]=numLocal;
+  currentFrame[2]=numStack;
+  return 3;
+}
+
+
+
+No.1 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MethodWriterTest {
+    @Test
+    public void visitFrameStartTest() {
+        // Arrange
+        int offset = 0;
+        int numLocal = 2;
+        int numStack = 3;
+        
+        // Act
+        int frameLength = visitFrameStart(offset, numLocal, numStack);
+        
+        // Assert
+        assertEquals(5, frameLength);
+    }
+}
+
+
+No.2 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MethodWriterTest {
+    @Test
+    public void visitFrameStartTest() {
+        int offset = 0;
+        int numLocal = 2;
+        int numStack = 3;
+        
+        // Create a new frame with the specified number of locals and stack elements
+        int[] currentFrame = new int[numLocal + numStack];
+        
+        // Set the current frame to the newly created frame
+        MethodWriter mv = new MethodWriter(symbolTable, accessFlags, nameIndex, descriptorIndex);
+        mv.currentFrame = currentFrame;
+        
+        // Call the visitFrameStart() method with the specified arguments
+        int result = mv.visitFrameStart(offset, numLocal, numStack);
+        
+        // Check that the returned value is 3 (the expected length of a frame)
+        assertEquals(3, result);
+        
+        // Check that the current frame has been initialized correctly
+        for (int i = 0; i < numLocal + numStack; i++) {
+            if (i == 0) {
+                assertEquals(offset, currentFrame[i]);
+            } else if (i == 1) {
+                assertEquals(numLocal, currentFrame[i]);
+            } else if (i == 2) {
+                assertEquals(numStack, currentFrame[i]);
+            } else {
+                assertEquals(0, currentFrame[i]);
+            }
+        }
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MethodWriterTest {
+    @Test
+    public void visitFrameStartTest() {
+        int offset = 0;
+        int numLocal = 1;
+        int numStack = 2;
+        
+        int frameLength = 3 + numLocal + numStack;
+        if (currentFrame == null || currentFrame.length < frameLength) {
+            currentFrame=new int[frameLength];
+        }
+        currentFrame[0]=offset;
+        currentFrame[1]=numLocal;
+        currentFrame[2]=numStack;
+        
+        assertEquals(3, visitFrameStart(offset, numLocal, numStack));
+    }
+}
+
+
+No.4 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MethodWriterTest {
+    @Test
+    public void visitFrameStartTest() {
+        int offset = 0;
+        int numLocal = 1;
+        int numStack = 2;
+        
+        int frameLength = 3 + numLocal + numStack;
+        assertEquals(frameLength, visitFrameStart(offset, numLocal, numStack));
+    }
+}
+
+
+No.5 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MethodWriterTest {
+    @Test
+    public void visitFrameStartTest() {
+        int offset = 10;
+        int numLocal = 20;
+        int numStack = 30;
+        int frameLength = 3 + numLocal + numStack;
+        int[] currentFrame = new int[frameLength];
+        
+        MethodWriter mv = new MethodWriter();
+        assertEquals(mv.visitFrameStart(offset, numLocal, numStack), 3);
+        assertArrayEquals(currentFrame, mv.currentFrame);
+    }
+}
+
+
+No.6 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MethodWriterTest {
+    @Test
+    public void visitFrameStartTest() {
+        int offset = 10;
+        int numLocal = 5;
+        int numStack = 3;
+        int frameLength = 3 + numLocal + numStack;
+
+        int[] currentFrame = new int[frameLength];
+
+        assertEquals(frameLength, visitFrameStart(offset, numLocal, numStack));
+
+        for (int i = 0; i < frameLength; i++) {
+            if (i == 0) {
+                assertEquals(offset, currentFrame[i]);
+            } else if (i > 1 && i <= numLocal + 1) {
+                assertEquals(numStack, currentFrame[i]);
+            }
+        }
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void visitFrameStartTest() {
+  int offset = 1;
+  int numLocal = 2;
+  int numStack = 3;
+  
+  int frameLength = 3 + numLocal + numStack;
+  
+  currentFrame[0] = offset;
+  currentFrame[1] = numLocal;
+  currentFrame[2] = numStack;
+  
+  assertEquals(frameLength, currentFrame.length);
+}
+
+
+No.8 generated result --------------------------
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MethodWriterTest {
+    @Test
+    public void visitFrameStartTest() {
+        // Set up the test data
+        int offset = 0;
+        int numLocal = 10;
+        int numStack = 5;
+        
+        // Create a new instance of the MethodWriter class
+        MethodWriter writer = new MethodWriter(/* insert any necessary arguments here */);
+        
+        // Call the visitFrameStart method with the test data
+        int frameLength = writer.visitFrameStart(offset, numLocal, numStack);
+        
+        // Assert that the frame length is correct
+        assertEquals(frameLength, 3 + numLocal + numStack);
+    }
+}
+
+
+No.9 generated result --------------------------
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MethodWriterTest {
+    @Test
+    public void visitFrameStartTest() {
+        // Set up the test environment
+        SymbolTable symbolTable = new SymbolTable();
+        int accessFlags = 0;
+        String name = "myMethod";
+        String descriptor = "()V";
+        MethodWriter mv = new MethodWriter(symbolTable, accessFlags, name, descriptor);
+
+        // Call the method under test
+        int offset = 1234;
+        int numLocal = 5678;
+        int numStack = 9012;
+        int frameLength = mv.visitFrameStart(offset, numLocal, numStack);
+
+        // Verify the output of the method
+        assertEquals(frameLength, 3 + numLocal + numStack);
+    }
+}
+
+
+No.10 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MethodWriterTest {
+    @Test
+    public void visitFrameStartTest() {
+        // Arrange
+        int offset = 0;
+        int numLocal = 1;
+        int numStack = 2;
+        SymbolTable symbolTable = new SymbolTable();
+        MethodWriter mv = new MethodWriter(symbolTable, accessFlags, nameIndex, descriptorIndex, maxLocals);
+        // Act
+        int frameLength = 3 + numLocal + numStack;
+        if (currentFrame == null || currentFrame.length < frameLength) {
+            currentFrame=new int[frameLength];
+        }
+        currentFrame[0]=offset;
+        currentFrame[1]=numLocal;
+        currentFrame[2]=numStack;
+        return 3;
+        // Assert
+        assertEquals(frameLength, currentFrame.length);
+    }
+}
+
+

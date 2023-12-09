@@ -1,0 +1,158 @@
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class ByteVectorTest {
+    @Test
+    public void testPutInt() {
+        int initialCapacity = 10;
+        ByteVector byteVector = new ByteVector(initialCapacity);
+        
+        // Test that the byte vector is automatically enlarged if necessary
+        int intValue = Integer.MAX_VALUE;
+        byteVector.putInt(intValue);
+        assertEquals(byteVector.length, initialCapacity + 4);
+        assertArrayEquals(byteVector.data, new byte[] {0x7F, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF});
+        
+        // Test that the correct bytes are put into the data array
+        intValue = 12345;
+        byteVector.putInt(intValue);
+        assertEquals(byteVector.length, initialCapacity + 8);
+        assertArrayEquals(byteVector.data, new byte[] {0x00, 0x00, 0x00, 0x30, (byte) 0x7B});
+    }
+}
+
+@Test
+public void testPutInt() {
+    ByteVector byteVector = new ByteVector(10);
+    int expectedLength = 10;
+    int intValue = 123456789;
+    
+    // Set the length of the vector to 10
+    byteVector.length = 10;
+    
+    // Put the integer value into the vector
+    byteVector.putInt(intValue);
+    
+    // Check that the length of the vector has been increased by 4 bytes
+    assertEquals(expectedLength + 4, byteVector.length);
+    
+    // Check that the last four bytes of the vector contain the integer value in big-endian format
+    int[] expectedBytes = { (intValue >>> 24) & 0xFF, (intValue >>> 16) & 0xFF, (intValue >>> 8) & 0xFF, intValue & 0xFF };
+    assertArrayEquals(expectedBytes, byteVector.data.slice(byteVector.length - 4));
+}
+
+
+
+public class ByteVectorTest {
+    @Test
+    public void putInt_enlargesIfNecessary() {
+        // Arrange
+        ByteVector byteVector = new ByteVector(1);
+        int intValue = 42;
+        
+        // Act
+        byteVector.putInt(intValue);
+        
+        // Assert
+        assertEquals(byteVector.length, 4);
+    }
+}
+
+
+--------------------------------------------------
+
+public class ByteVectorTest extends TestCase {
+    public void testPutInt() {
+        ByteVector vec = new ByteVector(10);
+        int intValue = 42;
+        vec.putInt(intValue);
+        assertEquals(vec.length, 4);
+        byte[] data = vec.data;
+        for (int i = 0; i < 4; i++) {
+            assertEquals(data[i], intValue >> (8 * i));
+        }
+    }
+}
+
+--------------------------------------------------
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class ByteVectorTest {
+    private ByteVector vector;
+
+    @Before
+    public void setUp() {
+        // initialize the byte vector with a capacity of 100 bytes
+        vector = new ByteVector(100);
+    }
+
+    @Test
+    public void testPutInt() {
+        // test that putting an integer value into the byte vector increases its length by 4
+        int initialLength = vector.length;
+        vector.putInt(123456789);
+        assertEquals(initialLength + 4, vector.length);
+    }
+}
+
+--------------------------------------------------
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class ByteVectorTest {
+    @Test
+    void putInt_withValidValues_addsBytesToDataArray() {
+        ByteVector byteVector = new ByteVector(10); // create a new ByteVector with initial capacity of 10
+        int intValue = 42; // an arbitrary integer value
+        byte[] expectedBytes = {0, 0, 0, (byte) intValue}; // the expected bytes after adding intValue to the data array
+        
+        byteVector.putInt(intValue); // call putInt method with intValue
+        
+        assertEquals(expectedBytes.length, byteVector.getData().length); // verify that length of data array is equal to the expected value
+        for (int i = 0; i < expectedBytes.length; i++) {
+            assertEquals(expectedBytes[i], byteVector.getData()[i]); // verify that each byte in the data array is set correctly
+        }
+    }
+}
+
+--------------------------------------------------
+
+
+@Test
+public void testPutInt() {
+    ByteVector bv = new ByteVector(8);
+    int expected = 12345678;
+    bv.putInt(expected);
+    byte[] data = bv.data();
+    assertEquals(expected, (int) ((data[0] << 24) + (data[1] << 16) + (data[2] << 8) + data[3]));
+}
+
+--------------------------------------------------
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTests {
+    @Test
+    public void testPutInt() {
+        // Create a new ByteVector instance with an initial capacity of 10 bytes
+        ByteVector byteVector = new ByteVector(10);
+        
+        // Put an integer value into the ByteVector object
+        int inputValue = 12345;
+        byteVector.putInt(inputValue);
+        
+        // Check that the length of the byte array is correct
+        assertEquals(4, byteVector.length());
+        
+        // Check that the contents of the byte array are correct
+        byte[] expectedBytes = {0x30, 0x39, 0x00, 0x00};
+        byte[] actualBytes = Arrays.copyOfRange(byteVector.data, 0, byteVector.length);
+        assertArrayEquals(expectedBytes, actualBytes);
+    }
+}
+
+--------------------------------------------------
+

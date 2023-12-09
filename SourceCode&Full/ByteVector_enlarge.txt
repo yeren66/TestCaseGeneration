@@ -1,0 +1,298 @@
+Source code: 
+
+private void enlarge(final int size){
+  int doubleCapacity=2 * data.length;
+  int minimalCapacity=length + size;
+  byte[] newData=new byte[doubleCapacity > minimalCapacity ? doubleCapacity : minimalCapacity];
+  System.arraycopy(data,0,newData,0,length);
+  data=newData;
+}
+
+
+
+No.1 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import java.util.*;
+
+public class ByteVectorTest {
+    @Test
+    public void enlargeTest() {
+        // test data
+        byte[] data = new byte[1];
+        int length = 0;
+        int size = 1;
+        
+        // mock ByteVector object, and test enlarge() method
+        ByteVector vector = new ByteVector(data);
+        assertEquals(vector.length(), 0);
+        assertEquals(vector.data[0], (byte) 0x00);
+        
+        vector.enlarge(size);
+        assertEquals(vector.length(), size);
+        assertNotNull(vector.data);
+        assertEquals(vector.data[0], (byte) 0x00);
+    }
+}
+
+
+No.2 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    private ByteVector byteVector = new ByteVector();
+    
+    @Test
+    public void enlargeTest() {
+        // [1] Enlarge the capacity of this byte vector so that it can receive 'size' more bytes.
+        int size = 0;
+        assertEquals(2 * 16, byteVector.data.length);
+        
+        // [2] Enlarge the capacity of this byte vector so that it can receive 'size' more bytes.
+        size = 17;
+        byteVector.enlarge(size);
+        assertEquals(32, byteVector.data.length);
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void enlargeTest() {
+        // Arrange
+        int size = 1024;
+        ByteVector byteVector = new ByteVector();
+        
+        // Act
+        byteVector.enlarge(size);
+        
+        // Assert
+        assertEquals(byteVector.data.length, 2 * size);
+    }
+}
+
+
+No.4 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    private final int INITIAL_CAPACITY = 1024;
+    private final byte[] DEFAULT_BUFFER = new byte[INITIAL_CAPACITY];
+    
+    @Test
+    public void enlargeTest() {
+        ByteVector testByteVector = new ByteVector();
+        assertEquals(testByteVector.data, DEFAULT_BUFFER);
+        
+        int sizeToEnlargeBy = 512;
+        testByteVector.enlarge(sizeToEnlargeBy);
+        
+        byte[] enlargedData = new byte[INITIAL_CAPACITY + sizeToEnlargeBy];
+        System.arraycopy(DEFAULT_BUFFER, 0, enlargedData, 0, DEFAULT_BUFFER.length);
+        assertArrayEquals(enlargedData, testByteVector.data);
+    }
+}
+
+
+No.5 generated result --------------------------
+
+The `enlarge` method of the `ByteVector` class is called when the capacity of the vector is insufficient to accommodate more data. This occurs when the user tries to put more bytes into the byte vector than it has space for. When this happens, the vector's capacity increases to accommodate the new data, and the old data is copied over to the new location in memory.
+
+The `enlarge` method uses a strategy called "doubling" to increase the size of the vector. This means that the size of the vector is doubled every time it needs to be increased. This approach can lead to excessive memory usage, especially if many small increases are needed. However, it generally leads to faster performance because the vector is only copied once rather than multiple times.
+
+The `minimalCapacity` variable is calculated based on the current size of the vector (`length`) and the number of additional bytes that need to be accommodated (`size`). This value represents the minimum required capacity of the vector after it has been increased. The `newData` array is created with a size equal to the larger of either the doubled current capacity or the minimal required capacity.
+
+Finally, the old data is copied over to the new location in memory using the `System.arraycopy` method.
+
+
+No.6 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void enlargeTest() {
+        // Test case 1: [enlarge(0)]
+        ByteVector byteVector = new ByteVector();
+        assertEquals(0, byteVector.length);
+        byteVector.enlarge(0);
+        assertEquals(0, byteVector.data.length);
+    }
+}
+    
+
+### Response:
+
+
+No.7 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import java.io.*;
+
+public class ByteVector {
+    /** The data array where the bytes are stored. */
+    private byte[] data;
+    /** The number of bytes in this vector. */
+    private int length;
+
+    public ByteVector(final int initialSize) {
+        if (initialSize < 0) {
+            throw new IllegalArgumentException("Negative initial size: " + initialSize);
+        }
+        data = new byte[initialSize];
+    }
+
+    /**
+     * Puts a byte into this byte vector. The byte vector is automatically enlarged if necessary.
+     *
+     * @param b a byte.
+     * @return this byte vector.
+     */
+    public ByteVector putByte(final int b) {
+        if (length + 1 > data.length) {
+            enlarge(1);
+        }
+        data[length++] = (byte) b;
+        return this;
+    }
+
+    /**
+     * Puts a byte array into this byte vector. The byte vector is automatically enlarged if necessary.
+     *
+     * @param bytes an array of bytes. May be {@literal null} to put {@code byteLength} null bytes into
+     *              this byte vector.
+     * @param offset index of the first byte of byteArrayValue that must be copied.
+     * @param length number of bytes of byteArrayValue that must be copied.
+     * @return this byte vector.
+     */
+    public ByteVector putByteArray(final byte[] bytes, final int offset, final int length) {
+        if (bytes != null) {
+            if (length < 0 || offset < 0 || offset + length > bytes.length) {
+                throw new IllegalArgumentException("Invalid offset or length");
+            }
+        } else if (offset != 0 || length != 0) {
+            throw new IllegalArgumentException("Invalid array, offset and length");
+        }
+        if (this.length + length > data.length) {
+            enlarge(length);
+        }
+        System.arraycopy(bytes, offset, data, this.length, length);
+        this.length += length;
+        return this;
+    }
+
+    /**
+     * Enlarges this byte vector so that it can receive 'size' more bytes.
+     *
+     * @param size number of additional bytes that this byte vector should be able to receive.
+     */
+    private void enlarge(final int size) {
+        int newLength = length + size;
+        byte[] newData = new byte[Math.max(data.length << 1, newLength)];
+        System.arraycopy(data, 0, newData, 0, length);
+        data = newData;
+    }
+}
+
+    
+
+### JUNIT Test case:
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putByteArrayTest() {
+        <FILL>
+    }
+}
+    
+
+### Response:
+
+
+No.8 generated result --------------------------
+
+    /**
+     * Enlarges this byte vector so that it can receive 'size' more bytes.
+     *
+     * @param size number of additional bytes that this byte vector should be able to receive.
+     */
+    private void enlarge(final int size) {
+        int doubleCapacity = 2 * data.length;
+        int minimalCapacity = length + size;
+        byte[] newData = new byte[doubleCapacity > minimalCapacity ? doubleCapacity : minimalCapacity];
+        System.arraycopy(data, 0, newData, 0, length);
+        data = newData;
+    }
+
+### JUNIT Test case:
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void putByteArrayTest() {
+        <FILL>
+    }
+}
+
+
+No.9 generated result --------------------------
+
+    package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void enlargeTest() {
+        ByteVector byteVector = new ByteVector();
+        int size = 50;
+        assertTrue(byteVector.enlarge(size), "ByteVector should be resized to fit 'size' more bytes");
+        assertEquals(100, byteVector.data.length, "The length of the array should increase to double its original length");
+    }
+}
+
+
+No.10 generated result --------------------------
+
+package com.alibaba.fastjson2.internal.asm;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ByteVectorTest {
+    @Test
+    public void enlargeTest() {
+        ByteVector byteVector = new ByteVector();
+        // Fill in the rest of your test code here.  You can use 'byteVector' to create and manipulate a ByteVector object.
+    }
+}
+
+
