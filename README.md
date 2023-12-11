@@ -11,29 +11,56 @@
 
 ### 进程
 
-> $ main $ --> $ class\_eval $ --> $ human\_java $ --> $ codereval $ --> $ ... $
+> $ main $ --> $ class\_eval $ --> $ human\_java $ --> $ codereval $ --> $ githubeval(now) $
 
 
 ### 目前阶段
-`out.json`是保存有源代码信息的数据文件，通过generate_test_case_fastjson.py进行测试用例生成。
 
-我们使用三种prompt进行测试用例生成：
+请查看 [-- Click here --](https://sky-pie-b52.notion.site/unknown-7a44a631444d4555ace0789238ed125e?pvs=4)
 
-1. source code only
-2. source code + full context
-3. source code + simple context
+### 使用说明
 
-此外，在每种prompt中都会添加test_info，以期模型能够输出格式规范的测试用例。
+#### 1. 挑选待测函数
+本项目在如图所示的三个项目中挑选了18个函数用于生成测试用例。
+![project](./img/project.jpg)
+>对于项目选择的要求是：Build Tool = maven；JUnit version > 4; java version > 1.8
 
-结果保存在三个目录中，结构如下：
+内容保存在source_file.txt(可以按照格式要求进行增添)。
+
+#### 2. 对项目进行解析
+> 需要将 `extract_raw_file.py` 中 `relative_project_path` 改为保存java项目的路径。
+
 ```
-.
-├── SourceCodeOnly  
-│   ├── ***.json              # handle easily
-│   └── ***.txt               # read easily
-├── SourceCode&Full
-├── SourceCode&Simple
+python extract_raw_file.py
+```
+
+结果保存在 `./output/` 文件夹中。
+
+#### 3. 根据解析结果生成测试用例(基于codellama)
+> 运行前需确保运行 `ollama server` 或能够通过端口访问到该服务。
+> 还需确保已下载codellama:13b模型。
+```
+python generate_test_codellama.py
+```
+结果保存在 `./test/` 文件夹中，目录结果如下：
+```
+project_name
+├── class_method_1              # add number to avoid overwrite cause same method with different arguments
+│   ├── SourceCodeOnly
+│   │   ├── result.json         # handle easily
+│   │   ├── result.txt          # read easily
+│   ├── SourceCode&Full
+│   └── SourceCode&Simple
+├── class_method_2
+├── class_method_3
 └── ......
 ```
 
-生成的结果存储在了result.json文件中。
+#### 4. 执行测试用例查看指标
+
+```
+python execute_test.py
+```
+结果保存在 `test_result.json` 中。
+
+#### 5. 结果

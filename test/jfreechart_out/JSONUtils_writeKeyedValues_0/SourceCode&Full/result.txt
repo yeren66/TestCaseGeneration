@@ -1,0 +1,272 @@
+Source code: 
+
+
+public static String writeKeyedValues(KeyedValues data) {
+    Args.nullNotPermitted(data, "data");
+    StringWriter sw = new StringWriter();
+    try {
+        writeKeyedValues(data, sw);
+    } catch (IOException ex) {
+        throw new RuntimeException(ex);
+    }
+    return sw.toString();
+}
+
+
+
+No.1 generated result --------------------------
+
+import org.jfree.data.json.*;
+import java.io.StringWriter;
+
+public class Test {
+    public static void main(String[] args) throws Exception {
+        KeyedValues keyedValues = new KeyedValues();
+        // Add your data to the keyed values object...
+        StringWriter sw = new StringWriter();
+        JSONUtils.writeKeyedValues(keyedValues, sw);
+        System.out.println("JSON: " + sw.toString());
+    }
+}
+
+
+No.2 generated result --------------------------
+
+package org.jfree.data.json;
+
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.Arrays;
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class JSONUtilsTest {
+    @Test
+    public void writeKeyedValuesTest() throws IOException {
+        KeyedValues data = new DefaultKeyedValues();
+        data.put("item1", 20);
+        data.put("item2", 30);
+        StringWriter sw = new StringWriter();
+        JSONUtils.writeKeyedValues(data, sw);
+        assertEquals("[ [\"item1\", 20], [\"item2\", 30] ]", sw.toString());
+    }
+}
+
+
+No.3 generated result --------------------------
+
+@RunWith(JUnitPlatform.class)
+public class JSONUtilsTest {
+    private static final Logger logger = LoggerFactory.getLogger(JSONUtilsTest.class);
+    @Test
+    public void writeKeyedValuesTest() {
+        KeyedValues data = new DefaultKeyedValues();
+        //add some values to the dataset
+        for (int i=1;i<=5;i++) {
+            data.setValue(Integer.toString(i), Math.random());
+        }
+        logger.info("Original Data:");
+        StringWriter sw = new StringWriter();
+        try {
+            JSONUtils.writeKeyedValues(data, sw);
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
+        assertNotNull(sw.toString());
+    }
+}
+
+
+No.4 generated result --------------------------
+
+package org.jfree.data.json;
+
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class JSONUtilsTest {
+    @Test
+    public void writeKeyedValuesTest() throws IOException {
+        KeyedValues data = new DefaultKeyedValues();
+        data.setValue("R1C1", 1);
+        data.setValue("R2C1", 2);
+        StringWriter sw = new StringWriter();
+        JSONUtils.writeKeyedValues(data, sw);
+        assertEquals("[\"R1C1\", 1], [\"R2C1\", 2]", sw.toString());
+    }
+}
+    
+### Response:
+
+
+No.5 generated result --------------------------
+
+package org.jfree.data.json;
+
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.Iterator;
+import java.util.List;
+
+import org.jfree.chart.api.PublicCloneable;
+
+public class JSONUtilsTest {
+    private static void assertEqualJSON(String expected, String actual) {
+        // implement this method using your preferred JSON comparison library
+    }
+    
+    @Test
+    public void writeKeyedValuesTest() throws IOException {
+        KeyedValues data = new DefaultKeyedValues();
+        data.setValue("A", 1.0);
+        data.setValue("B", 2.0);
+        
+        StringWriter writer = new StringWriter();
+        JSONUtils.writeKeyedValues(data, writer);
+        
+        assertEqualJSON("[['A', 1], ['B', 2]]", writer.toString());
+    }
+    
+    @Test
+    public void writeKeyedValues2DTest() throws IOException {
+        KeyedValues2D data = new DefaultKeyedValues2D();
+        data.setValue("A", "X", 1.0);
+        data.setValue("B", "Y", 2.0);
+        
+        StringWriter writer = new StringWriter();
+        JSONUtils.writeKeyedValues2D(data, writer);
+        
+        assertEqualJSON("{'columnKeys': ['X', 'Y'], rows: [['A', [1, null]], ['B', [null, 2]]]}", writer.toString());
+    }
+}
+
+
+No.6 generated result --------------------------
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.jfree.data.json.JSONUtils;
+
+
+No.7 generated result --------------------------
+
+import java.io.*;
+import java.util.*;
+import org.jfree.chart.plot.*;
+import org.jfree.data.category.*;
+import org.jfree.data.general.*;
+import org.jfree.ui.*;
+
+public class CSVPieChartDemo {
+    public static void main(String[] args) throws IOException {
+        String fileName = "data/pie-chart-example.csv";  // replace with your file name
+        CategoryDataset dataset = createDatasetFromCSVFile(fileName);
+        JFreeChart chart = createPieChart("Pie Chart", dataset);
+        PiePlot plot = (PiePlot) chart.getPlot();
+        plot.setLabelFormat(new DecimalFormat("#0.0"));  // display values as percentages
+        plot.setLabelLinkPaint(Color.WHITE);  
+        new SwingWrapper(chart).displayChart();     // opens a window with the pie chart 
+    }
+
+    private static CategoryDataset createDatasetFromCSVFile(String fileName) throws IOException {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // split the line into parts separated by commas
+                String[] columns = line.split(",");  
+                if (columns[0].equals("Category")) continue;  // skip the header row
+                dataset.addValue(Integer.parseInt(columns[1]), "Pie Chart", columns[0]);
+            }
+        }
+        return dataset;
+    }
+
+    private static JFreeChart createPieChart(String title, CategoryDataset dataset) {
+        JFreeChart chart = ChartFactory.createPieChart(title, dataset);
+        PiePlot plot = (PiePlot) chart.getPlot();
+        plot.setLabelLinkStyle(LinkStyle.Standard);  // add links to the slices of the pie chart
+        return chart;
+    }
+}
+
+
+No.8 generated result --------------------------
+
+package org.jfree.data.json;
+
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class JSONUtilsTest {
+    @Test
+    public void writeKeyedValuesTest() throws IOException {
+        KeyedValues data = new DefaultKeyedValues();
+        List<String> keys = new ArrayList<>();
+        keys.add("First");
+        keys.add("Second");
+        keys.add("Third");
+        for (String key : keys) {
+            data.setValue(key, Math.random());
+        }
+        StringWriter sw = new StringWriter();
+        JSONUtils.writeKeyedValues(data, sw);
+    }
+}
+
+
+No.9 generated result --------------------------
+
+
+package org.jfree.data;
+import java.io.StringWriter;
+import java.util.*;
+import org.junit.jupiter.api.*;
+public class JSONUtilsTest {
+    private static final KeyedValues KEYED_VALUES = new DefaultKeyedValues();
+    static {
+        KEYED_VALUES.put("key1", 1);
+        KEYED_VALUES.put("key2", 34);
+        KEYED_VALUES.put("key3", -50);
+        KEYED_VALUES.put("key4", 789);
+    }
+    
+    private static final StringWriter OUTPUT = new StringWriter();
+    @Test
+    public void writeKeyedValues2D() {
+        JSONUtils.writeKeyedValues(KEYED_VALUES, OUTPUT);
+        assertEquals("[\"key1\", 1], [\"key2\", 34], "
+                + "[\"key3\", -50], [\"key4\", 789]",
+                    OUTPUT.toString());
+    }
+}
+
+
+No.10 generated result --------------------------
+
+
+import java.io.*;
+import org.jfree.data.json.JSONUtils;
+import org.jfree.data.keyed.KeyedValues;
+
+public class WriteKeyedValues {
+    public static void main(String[] args) throws IOException {
+        KeyedValues data = new KeyedValues();
+        data.put("A", 1);
+        data.put("B", 2);
+        data.put("C", 3);
+        
+        JSONUtils.writeKeyedValues(data, new PrintWriter(System.out));
+    }
+}
+
+
+

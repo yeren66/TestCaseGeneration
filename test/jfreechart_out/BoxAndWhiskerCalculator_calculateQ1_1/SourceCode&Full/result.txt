@@ -1,0 +1,216 @@
+Source code: 
+
+
+public static double calculateQ1(List values) {
+    Args.nullNotPermitted(values, "values");
+
+    double result = Double.NaN;
+    int count = values.size();
+    if (count > 0) {
+        if (count % 2 == 1) {
+            if (count > 1) {
+                result = Statistics.calculateMedian(values, 0, count / 2);
+            }
+            else {
+                result = Statistics.calculateMedian(values, 0, 0);
+            }
+        }
+        else {
+            result = Statistics.calculateMedian(values, 0, count / 2 - 1);
+        }
+
+    }
+    return result;
+}
+
+
+
+No.1 generated result --------------------------
+
+Timeout
+
+
+No.2 generated result --------------------------
+
+<FILL>
+
+### Response: 
+
+
+No.3 generated result --------------------------
+
+package org.jfree.data.statistics;
+
+import java.util.*;
+
+public class BoxAndWhiskerCalculator {
+    /**
+     * Calculates the quartiles for a list of numbers.  The values are assumed
+     * to be in ascending order.
+     * <P>
+     * If the list is empty, this method returns {@code Double.NaN} for all
+     * the quartile values.
+     *
+     * @param values  the list of values ({@code null} not permitted).
+     */
+    public static double[] calculateQuartiles(List<Double> values) {
+        Args.nullNotPermitted(values, "values");
+        if (values.isEmpty()) {
+            return new double[]{Double.NaN, Double.NaN, Double.NaN};
+        }
+        int midpoint = 0;
+        if ((values.size() % 2) == 1) {
+            midpoint = values.size() / 2;
+        }
+        else {
+            midpoint = (int) Math.floor(values.size() / 2);
+        }
+        double q1 = Statistics.calculateMedian(values, 0, midpoint);
+        double q3 = Statistics.calculateMedian(values, midpoint + 1, values.size() - 1);
+        return new double[]{q1, q3};
+    }
+}
+
+
+No.4 generated result --------------------------
+
+Timeout
+
+
+No.5 generated result --------------------------
+
+package org.jfree.data.statistics;
+
+import java.util.*;
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BoxAndWhiskerCalculatorTest {
+    @Test
+    public void calculateQ1Test() {
+        List vlist = new ArrayList();
+        vlist.add(2.0);
+        vlist.add(3.0);
+        vlist.add(4.0);
+        double q1 = BoxAndWhiskerCalculator.calculateQ1(vlist);
+        assertEquals(q1, 2.5, 0.0);
+    }
+}
+
+
+No.6 generated result --------------------------
+
+package org.jfree.data.statistics;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * An implementation of the {@link BoxAndWhiskerCalculator} interface.
+ */
+public class DefaultBoxAndWhiskerCalculator implements BoxAndWhiskerCalculator {
+
+    /**
+     * Calculates a box and whisker item for the specified dataset.
+     *
+     * @param dataset  the dataset ({@code null} not permitted).
+     *
+     * @return The box and whisker item (never {@code null}).
+     */
+    @Override
+    public BoxAndWhiskerItem calculateBoxAndWhiskerStatistics(
+            List<Number> dataset) {
+        Args.nullNotPermitted(dataset, "dataset");
+        double[] sorted = new double[dataset.size()];
+        for (int i = 0; i < dataset.size(); i++) {
+            Number n = dataset.get(i);
+            if (!n.equals(Double.NaN)) {
+                sorted[i] = n.doubleValue();
+            } else {
+                sorted[i] = Double.POSITIVE_INFINITY;
+            }
+        }
+        double min = 0.0;
+        double max = Double.MAX_VALUE;
+        int count = dataset.size();
+        if (count > 0) {
+            double sum = 0.0;
+            for (int i = 0; i < sorted.length; i++) {
+                sum += sorted[i];
+            }
+            min = sorted[0];
+            max = sorted[sorted.length - 1];
+        }
+        return new BoxAndWhiskerItem(min, max, count);
+    }
+}
+
+
+No.7 generated result --------------------------
+
+package org.jfree.data.statistics;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class BoxAndWhiskerCalculator {
+
+    /**
+     * Calculates the first quartile for a list of numbers in ascending order.
+     * If the items in the list are not in ascending order, the result is
+     * unspecified.  If the list contains items that are {@code null}, not
+     * an instance of {@code Number}, or equivalent to
+     * {@code Double.NaN}, the result is unspecified.
+     *
+     * @param values  the numbers in ascending order ({@code null} not
+     *     permitted).
+     *
+     * @return The first quartile.
+     */
+    public static double calculateQ1(List values) {
+        Args.nullNotPermitted(values, "values");
+
+        double result = Double.NaN;
+        int count = values.size();
+        if (count > 0) {
+            if (count % 2 == 1) {
+                if (count > 1) {
+                    result = Statistics.calculateMedian(values, 0, count / 2);
+                }
+                else {
+                    result = Statistics.calculateMedian(values, 0, 0);
+                }
+            }
+            else {
+                result = Statistics.calculateMedian(values, 0, count / 2 - 1);
+            }
+        }
+        return result;
+    }
+}
+
+
+No.8 generated result --------------------------
+
+Timeout
+
+
+No.9 generated result --------------------------
+
+BoxAndWhiskerItem item = BoxAndWhiskerCalculator.calculateBoxAndWhiskerStatistics(values, true);
+double q1 = item.getQ1();
+
+
+
+No.10 generated result --------------------------
+
+
+@Test
+public void calculateQ1Test() {
+    List<Number> vlist = new ArrayList<>();
+    // Add elements to list
+    assertEquals(calculateQ1(vlist), Double.NaN, 0);
+}
+
+
