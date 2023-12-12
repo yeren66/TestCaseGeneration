@@ -141,7 +141,8 @@ def generate_test(json_data, path, number=10):
                     file.flush()
                     record.append(output)
             with open(third_path + "result.json", 'w') as file:
-                json.dump(record, file)
+                # TODO: 这里需要在json文件中加入project name，class name，method name等定位信息
+                json.dump(record, file, indent=4)
 
 
 if __name__ == "__main__":

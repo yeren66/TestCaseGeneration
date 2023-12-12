@@ -271,6 +271,7 @@ if __name__ == "__main__":
         file = read_file(relative_path)
         simple_context, full_context, package_name, class_name = parse_file(file, relative_path + ":" + str(each['start_line']) + "-" + str(each['end_line']))
         source_code, docstring, method_name, arguments = parse_source_code(code, relative_path + ":" + str(each['start_line']) + "-" + str(each['end_line']))
+        # TODO: add java execute path
         data = {
             "project_name": project_name,
             "file_name": file_name,

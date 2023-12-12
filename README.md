@@ -22,7 +22,9 @@
 
 #### 1. 挑选待测函数
 本项目在如图所示的三个项目中挑选了18个函数用于生成测试用例。
-![project](./img/project.jpg)
+<!-- ![project](./img/project.jpg) -->
+<img src="./img/project.jpg" alt="无法加载，请见/img/project.jpg">
+<p align="center">项目信息</p>
 >对于项目选择的要求是：Build Tool = maven；JUnit version > 4; java version > 1.8
 
 内容保存在source_file.txt(可以按照格式要求进行增添)。
@@ -64,3 +66,21 @@ python execute_test.py
 结果保存在 `test_result.json` 中。
 
 #### 5. 结果
+```
+python parse_result.py
+```
+结果保存在 `/img/` 文件夹中。
+<img src="./img/bar_total.png" alt="无法加载，请见/img/bar_total.png">
+<p align="center">总和统计</p>
+
+<img src="./img/pie_total.png" alt="无法加载，请见/img/pie_total.png">
+<p align="center">总和统计</p>
+
+<img src="./img/pie_only.png" alt="无法加载，请见/img/pie_only.png">
+<p align="center">SourceCodeOnly</p>
+
+<img src="./img/pie_full.png" alt="无法加载，请见/img/pie_full.png">
+<p align="center">SourceCode&Full</p>
+
+<img src="./img/pie_simple.png" alt="无法加载，请见/img/pie_simple.png">
+<p align="center">SourceCode&Simple</p>
