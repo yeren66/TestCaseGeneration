@@ -71,17 +71,17 @@ python parse_result.py
 ```
 结果保存在 `/img/` 文件夹中。
 
-<img src="./img/bar_total.png" alt="无法加载，请见/img/bar_total.png">
+<img align="center" src="./img/bar_total.png" alt="无法加载，请见/img/bar_total.png">
 <p align="center">总和统计</p>
 
-<img src="./img/pie_total.png" alt="无法加载，请见/img/pie_total.png">
+<img align="center" src="./img/pie_total.png" alt="无法加载，请见/img/pie_total.png">
 <p align="center">总和统计</p>
 
-<img src="./img/pie_only.png" alt="无法加载，请见/img/pie_only.png">
+<img align="center" src="./img/pie_only.png" alt="无法加载，请见/img/pie_only.png">
 <p align="center">SourceCodeOnly</p>
 
-<img src="./img/pie_full.png" alt="无法加载，请见/img/pie_full.png">
+<img align="center" src="./img/pie_full.png" alt="无法加载，请见/img/pie_full.png">
 <p align="center">SourceCode&Full</p>
 
-<img src="./img/pie_simple.png" alt="无法加载，请见/img/pie_simple.png">
+<img align="center" src="./img/pie_simple.png" alt="无法加载，请见/img/pie_simple.png">
 <p align="center">SourceCode&Simple</p>
