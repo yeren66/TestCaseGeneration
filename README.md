@@ -70,6 +70,7 @@ python execute_test.py
 python parse_result.py
 ```
 结果保存在 `/img/` 文件夹中。
+
 <img src="./img/bar_total.png" alt="无法加载，请见/img/bar_total.png">
 <p align="center">总和统计</p>
 
