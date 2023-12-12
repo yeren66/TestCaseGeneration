@@ -1,0 +1,188 @@
+Source code: 
+
+
+@Override
+public int hashCode() {
+    int result = key == null ? 0 : key.hashCode();
+
+    final int h = value == null ? 0 : value.hashCode();
+    result = 37 * result + h ^ (h >>> 16);
+
+    return result;
+}
+
+
+
+No.1 generated result --------------------------
+
+package org.apache.commons.math4.legacy.core;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PairTest {
+    @Test
+    public void hashCodeTest() {
+        // Create a pair with null key and value components
+        Pair<String, Integer> p1 = new Pair<>(null, null);
+        assertEquals(0, p1.hashCode());
+
+        // Create a pair with non-null key and value components
+        String key = "key";
+        int value = 1234;
+        Pair<String, Integer> p2 = new Pair<>(key, value);
+        assertEquals(Integer.valueOf(key.hashCode() ^ (value >>> 16)), p2.hashCode());
+    }
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void hashCodeTest() {
+    Pair<String, Integer> pair1 = new Pair<>("apple", 1);
+    Pair<String, Integer> pair2 = new Pair<>("banana", 2);
+    Pair<String, Integer> pair3 = new Pair<>("cherry", 3);
+    assertEquals(pair1.hashCode(), pair1.hashCode());
+    assertNotEquals(pair1.hashCode(), pair2.hashCode());
+    assertNotEquals(pair1.hashCode(), pair3.hashCode());
+}
+
+
+No.3 generated result --------------------------
+
+package org.apache.commons.math4.legacy.core;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PairTest {
+    @Test
+    public void hashCodeTest() {
+        // Create two different pairs with the same key and value
+        Pair<Integer, String> pair1 = new Pair<>(1, "value");
+        Pair<Integer, String> pair2 = new Pair<>(1, "value");
+        
+        // Test that the hash codes of the two pairs are equal
+        assertEquals(pair1.hashCode(), pair2.hashCode());
+    }
+}
+
+
+No.4 generated result --------------------------
+
+int result = key == null ? 0 : key.hashCode();
+final int h = value == null ? 0 : value.hashCode();
+result = 37 * result + h ^ (h >>> 16);
+return result;
+
+
+No.5 generated result --------------------------
+
+package org.apache.commons.math4.legacy.core;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PairTest {
+    @Test
+    public void hashCodeTest() {
+        Pair<String, Integer> p1 = new Pair<>("a", 1);
+        Pair<String, Integer> p2 = new Pair<>("b", 2);
+        Pair<String, Integer> p3 = new Pair<>("c", 3);
+        
+        assertEquals(p1.hashCode(), p1.hashCode());
+        assertNotEquals(p1.hashCode(), p2.hashCode());
+        assertNotEquals(p1.hashCode(), p3.hashCode());
+    }
+}
+
+
+No.6 generated result --------------------------
+
+package org.apache.commons.math4.legacy.core;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PairTest {
+    @Test
+    public void hashCodeTest() {
+        // Create an instance of the Pair class with a key and value
+        Pair<Integer, String> pair1 = new Pair<>(10, "Apache");
+        // Check that the hash code of the first element is correct
+        assertEquals(pair1.getKey().hashCode(), 37 * (0 ^ (10 >>> 16)));
+        // Check that the hash code of the second element is correct
+        assertEquals(pair1.getValue().hashCode(), 37 * (0 ^ (10 >>> 16)));
+    }
+}
+
+
+No.7 generated result --------------------------
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PairTest {
+    @Test
+    public void hashCodeTest() {
+        Pair<String, String> pair1 = new Pair<>("key1", "value1");
+        assertEquals(pair1.hashCode(), 37 * ("key1".hashCode()) + ("value1".hashCode()));
+
+        Pair<Integer, Integer> pair2 = new Pair<>(10, 20);
+        assertEquals(pair2.hashCode(), 37 * (10) + (20));
+    }
+}
+
+
+No.8 generated result --------------------------
+
+package org.apache.commons.math4.legacy.core;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PairTest {
+    @ParameterizedTest
+    @ValueSource(strings = {"null", "0", "1", "2", "3"})
+    public void hashCodeTest(String key, String value) {
+        // Create a pair with the given input values.
+        Pair<String, String> pair = new Pair<>(key, value);
+
+        // Test that the hash code is consistent for different values.
+        assertEquals(pair.hashCode(), pair.hashCode());
+    }
+}
+
+
+No.9 generated result --------------------------
+
+package org.apache.commons.math4.legacy.core;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PairTest {
+    @Test
+    public void hashCodeTest() {
+        // Test with null key and value
+        Pair<String, Integer> pair1 = new Pair<>(null, null);
+        assertEquals(0, pair1.hashCode());
+
+        // Test with non-null key and value
+        Pair<String, Integer> pair2 = new Pair<>("key", 5);
+        assertEquals(-834976354, pair2.hashCode());
+    }
+}
+
+
+No.10 generated result --------------------------
+
+
+public void hashCodeTest() {
+    Pair<String, Integer> pair = new Pair<>("key", 10);
+    int expectedHashCode = 37 * "key".hashCode() + 10.hashCode();
+    assertEquals(expectedHashCode, pair.hashCode());
+}
+
+
+

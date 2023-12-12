@@ -1,0 +1,198 @@
+Source code: 
+
+
+public CompareToBuilder append(final double[] lhs, final double[] rhs) {
+    if (comparison != 0) {
+        return this;
+    }
+    if (lhs == rhs) {
+        return this;
+    }
+    if (lhs == null) {
+        comparison = -1;
+        return this;
+    }
+    if (rhs == null) {
+        comparison = 1;
+        return this;
+    }
+    if (lhs.length != rhs.length) {
+        comparison = lhs.length < rhs.length ? -1 : 1;
+        return this;
+    }
+    for (int i = 0; i < lhs.length && comparison == 0; i++) {
+        append(lhs[i], rhs[i]);
+    }
+    return this;
+}
+
+
+
+No.1 generated result --------------------------
+
+Timeout
+
+
+No.2 generated result --------------------------
+
+
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CompareToBuilderTest {
+    @Test
+    public void appendTest() {
+        // Create two arrays of doubles to compare
+        double[] lhs = new double[] {1.0, 2.0, 3.0};
+        double[] rhs = new double[] {1.0, 2.0, 4.0};
+        
+        // Create a CompareToBuilder and append the arrays to it
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        
+        // Verify that the comparison value is not equal to 0
+        assertNotEquals(0, builder.toComparison());
+    }
+}
+
+
+No.3 generated result --------------------------
+
+I'm not sure what you're trying to accomplish with the given code. The `append` method seems to be a part of the `CompareToBuilder` class, which is used for comparing objects. The method appears to take two double arrays as arguments and returns a comparison result based on their lengths. However, there are no instructions or context provided in the question that would help me understand what you're trying to do with this code.
+
+If you could provide more information about your task or goal, I may be able to assist you better.
+
+
+No.4 generated result --------------------------
+
+double[] arr1 = new double[] { 1.0, 2.0 };
+double[] arr2 = new double[] { 3.0, 4.0 };
+CompareToBuilder builder = new CompareToBuilder();
+builder.append(arr1, arr2);
+assertEquals(builder.toComparison(), -1); // arr1 should come before arr2 in a lexicographic ordering
+
+
+No.5 generated result --------------------------
+
+@Test
+public void appendTest() {
+    // Set up input values
+    double[] lhs = new double[]{1.0, 2.0, 3.0};
+    double[] rhs = new double[]{4.0, 5.0, 6.0};
+
+    // Create a CompareToBuilder object
+    CompareToBuilder builder = new CompareToBuilder();
+
+    // Append the input values to the builder
+    builder.append(lhs, rhs);
+
+    // Check that the comparison result is correct
+    assertEquals(-1, builder.toComparison());
+}
+
+
+No.6 generated result --------------------------
+
+
+@Test
+public void appendTest() {
+    // Test append(double[] lhs, double[] rhs)
+    double[] a = new double[]{1.0, 2.0};
+    double[] b = new double[]{3.0, 4.0};
+    CompareToBuilder builder = new CompareToBuilder();
+    assertEquals(-1, builder.append(a, b).toComparison());
+}
+
+
+No.7 generated result --------------------------
+
+
+@Test
+public void appendTest() {
+    double[] lhs = {1.0, 2.0};
+    double[] rhs = {1.0, 3.0};
+    CompareToBuilder builder = new CompareToBuilder();
+    builder.append(lhs, rhs);
+    assertEquals(-1, builder.toComparison());
+}
+
+
+No.8 generated result --------------------------
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CompareToBuilderTest {
+    @Test
+    public void appendTest() {
+        // Test appending two equal arrays
+        double[] array1 = new double[] { 1.0, 2.0 };
+        double[] array2 = new double[] { 1.0, 2.0 };
+        CompareToBuilder builder = new CompareToBuilder();
+        int result = builder.append(array1, array2).toComparison();
+        assertEquals(0, result);
+
+        // Test appending two different arrays
+        double[] array3 = new double[] { 1.0, 3.0 };
+        double[] array4 = new double[] { 1.0, 2.0 };
+        builder = new CompareToBuilder();
+        result = builder.append(array3, array4).toComparison();
+        assertEquals(-1, result);
+    }
+}
+
+
+No.9 generated result --------------------------
+
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CompareToBuilderTest {
+    @Test
+    public void appendTest() {
+        // Test 1: Empty arrays
+        double[] arr1 = new double[0];
+        double[] arr2 = new double[0];
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(arr1, arr2);
+        assertEquals(builder.build(), 0);
+
+        // Test 2: Same length arrays with different values
+        arr1 = new double[] {1.0, 2.0};
+        arr2 = new double[] {3.0, 4.0};
+        builder = new CompareToBuilder();
+        builder.append(arr1, arr2);
+        assertEquals(builder.build(), -1);
+
+        // Test 3: Same length arrays with same values
+        arr1 = new double[] {5.0, 6.0};
+        arr2 = new double[] {5.0, 6.0};
+        builder = new CompareToBuilder();
+        builder.append(arr1, arr2);
+        assertEquals(builder.build(), 0);
+
+        // Test 4: Different length arrays with different values
+        arr1 = new double[] {7.0, 8.0};
+        arr2 = new double[] {9.0, 10.0, 11.0};
+        builder = new CompareToBuilder();
+        builder.append(arr1, arr2);
+        assertEquals(builder.build(), -1);
+    }
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void appendDoubleArrayTest() {
+    double[] lhs = new double[] {1.0, 2.0};
+    double[] rhs = new double[] {3.0, 4.0};
+    CompareToBuilder builder = new CompareToBuilder();
+    int result = builder.append(lhs, rhs).build();
+    assertEquals(-1, result); // The result should be -1 because the left array is less than the right array
+}
+
+

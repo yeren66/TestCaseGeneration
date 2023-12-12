@@ -1,0 +1,209 @@
+Source code: 
+
+
+static void printarray(PrintStream out, String name, int expectedLen, double[][] array2d) {
+    out.println(name);
+    checkLen(expectedLen, array2d.length);
+    out.println(TABLE_START_DECL + " ");
+    int i = 0;
+    for (double[] array : array2d) { // "double array[]" causes PMD parsing error
+        out.print("        {");
+        for (double d : array) { // assume inner array has very few entries
+            out.printf("%-25.25s", format(d)); // multiple entries per line
+        }
+        out.println("}, // " + i++);
+    }
+    out.println(TABLE_END_DECL);
+}
+
+
+
+No.1 generated result --------------------------
+
+Timeout
+
+
+No.2 generated result --------------------------
+
+Timeout
+
+
+No.3 generated result --------------------------
+
+Timeout
+
+
+No.4 generated result --------------------------
+
+The provided test case does not cover any of the methods in the `AccurateMathCalc` class. Therefore, it is not a valid test for that class. Additionally, the test case contains invalid syntax and does not compile as written. 
+
+To fix this issue, you will need to first identify which method or methods in the `AccurateMathCalc` class you want to test, then write a JUnit test case that exercises those methods using valid JUnit syntax.
+
+
+No.5 generated result --------------------------
+
+
+printarray(out, "expectedLen", expectedLen, result);
+
+
+
+No.6 generated result --------------------------
+
+AccurateMathCalc.java:
+package org.apache.commons.math4.core.jdkmath;
+
+import java.io.PrintStream;
+
+public class AccurateMathCalc {
+    /** Print an array. */
+    public static void printarray(PrintStream out, String name, int expectedLen, double[][] array2d) {
+        <FILL>
+    }
+}
+
+AccurateMathCalcTest.java:
+package org.apache.commons.math4.core.jdkmath;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void printarrayTest() {
+        double[][] array = new double[2][];
+        array[0] = new double[]{1, 2};
+        array[1] = new double[]{3, 4};
+        AccurateMathCalc.printarray(System.out, "test", 2, array);
+    }
+}
+
+
+No.7 generated result --------------------------
+
+Timeout
+
+
+No.8 generated result --------------------------
+
+AccurateMathCalcTest.java
+package org.apache.commons.math4.core.jdkmath;
+import java.io.*;
+class AccurateMathCalc {
+  void printarray(PrintStream out, String name, int expectedLen, double[] array) {
+    out.println(name + "=");
+    checkLen(expectedLen, array.length);
+    out.println("[");
+    for (double d : array) { // one entry per line
+      out.printf("%-25.25s", format(d)); 
+    }
+    out.println();
+    out.println("]");
+  }
+  
+  void printarray(PrintStream out, String name, int expectedLen, double[][] array) {
+    out.println(name);
+    checkLen(expectedLen, array.length);
+    for (double[] array2d : array) { // assume inner array has very few entries
+      out.print("        [");
+      for (double d : array2d) { 
+        out.printf("%-25.25s", format(d)); 
+      }
+      out.println("],");
+    }
+  }
+  
+  String format(double d) {
+    if (Double.isNaN(d)) {
+      return "Double.NaN,";
+    } else {
+      return ((d >= 0) ? "+" : "") + Double.toString(d) + "d,";
+    }
+  }
+  
+  void checkLen(int expectedLen, int actual) {
+    if (expectedLen != actual) {
+      throw new IllegalStateException(actual + " != " + expectedLen);
+    }
+  }
+}
+
+AccurateMathCalcTest.java
+package org.apache.commons.math4.core.jdkmath;
+import java.io.*;
+public class AccurateMathCalcTest {
+  @Test
+  public void printarrayTest() {
+    PrintStream out = System.out;
+    double[] array = {0, 1, 2};
+    AccurateMathCalc.printarray(out, "name", 3, array);
+    
+    double[][] array2d = {{0, 1}, {2, 3}};
+    AccurateMathCalc.printarray(out, "name2D", 2, array2d);
+  }
+}
+
+
+
+No.9 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class AccurateMathCalcTest {
+    @Test
+    public void printarrayTest() {
+        // Arrange
+        double[] array = new double[1];
+        
+        // Act
+        AccurateMathCalc.printarray(System.out, "test", 0, array);
+        
+        // Assert
+        assertTrue(true);
+    }
+}
+
+
+No.10 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import java.io.*;
+import java.util.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void printarrayTest() {
+        double[] x = new double[2];
+        System.out.println("log(xi)");
+        System.out.println();
+        
+        for (double i = 0; i < 1/3; i += 1/180) {
+            split(i, x);
+            
+            double[] a = new double[2];
+            splitReciprocal(x, a);
+            System.out.println("splitReciprocal: " + format(a[0]) + format(a[1]));
+        }
+        
+        for (double i = 0; i < 1/3; i += 1/6) {
+            split(i, x);
+            
+            double[] a = new double[2];
+            double[] b = new double[2];
+            splitSqrt(x, a, b);
+            System.out.println("splitSqrt: " + format(a[0]) + format(a[1]) + format(b[0]) + format(b[1]));
+        }
+    }
+    
+    private String format(double d) {
+        if (Double.isNaN(d)) {
+            return "Double.NaN,";
+        } else {
+            return ((d >= 0) ? "+" : "") + Double.toString(d) + "d,";
+        }
+    }
+}
+
+

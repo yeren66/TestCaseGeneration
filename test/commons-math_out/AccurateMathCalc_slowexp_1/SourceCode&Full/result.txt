@@ -1,0 +1,208 @@
+Source code: 
+
+
+static double slowexp(final double x, final double[] result) {
+    final double[] xs = new double[2];
+    final double[] ys = new double[2];
+    final double[] facts = new double[2];
+    final double[] as = new double[2];
+    split(x, xs);
+    ys[0] = ys[1] = 0.0;
+
+    for (int i = FACT.length - 1; i >= 0; i--) {
+        splitMult(xs, ys, as);
+        ys[0] = as[0];
+        ys[1] = as[1];
+
+        split(FACT[i], as);
+        splitReciprocal(as, facts);
+
+        splitAdd(ys, facts, as);
+        ys[0] = as[0];
+        ys[1] = as[1];
+    }
+
+    if (result != null) {
+        result[0] = ys[0];
+        result[1] = ys[1];
+    }
+
+    return ys[0] + ys[1];
+}
+
+
+
+No.1 generated result --------------------------
+
+Timeout
+
+
+No.2 generated result --------------------------
+
+Timeout
+
+
+No.3 generated result --------------------------
+
+
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+public class AccurateMathCalcTest {
+    @ParameterizedTest
+    @MethodSource("slowexpProvider")
+    public void slowexpTest(final double[] input, final double expected) {
+        Assertions.assertEquals(expected, AccurateMathCalc.slowexp(input));
+    }
+
+    private static Stream<Arguments> slowexpProvider() {
+        return Stream.of(
+            Arguments.of(new double[] { 1 }, Math.E),
+            // Add more test cases here
+        );
+    }
+}
+
+
+
+No.4 generated result --------------------------
+
+
+public static void main(String[] args) {
+    double x = 0.5;
+    double y = splitExp(x);
+    System.out.println("exp(" + x + ") = " + y);
+}
+
+private static double splitExp(double x) {
+    return Math.exp(split(x));
+}
+
+
+
+No.5 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import java.util.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void slowexpTest() {
+        final double x = 1000.325; // x is in the range of [0, log(Double.MAX_VALUE)]
+        double expected = Math.exp(x);
+        double actual = AccurateMath.slowExp(x)[0];
+        assertEquals(expected, actual, 1e-14);
+    }
+}
+
+
+
+No.6 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import java.io.*;
+import java.util.Arrays;
+
+/**
+ * Compute the basic math functions using only split-double arithmetic.
+ */
+public class AccurateMathCalc {
+    /** Split-double representation of 1/ln(2). */
+    static final double[] LN_INV_SPLIT = new double[]{0x4a85, 0x4370}; // 1.4426950408889634
+
+    /**
+     * Compute exp(xi).
+     * @param xi number from which exp is requested
+     * @return exp(xi)
+     */
+    static double[] slowexp(double xi) {
+        <FILL>
+    }
+}
+
+
+
+No.7 generated result --------------------------
+
+Sorry, I do not have an example of this test case. If you would like me to generate a sample test case based on the given code snippets, please let me know and I will be happy to assist you further.
+
+
+No.8 generated result --------------------------
+
+The `slowexp()` method in the `AccurateMath` class calculates an approximation of $e^x$ using a Taylor series. The method uses the following formula to calculate the exponential value of `xi`:
+
+$$e^{x} \approx 1 + x + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \cdots $$
+
+Here, `xi` is a double-precision floating-point number that represents the input to the function. The method splits the input into its integer and fractional parts using the `split()` method and stores them in the `x[]` array. The method then calculates the exponential value of `x[0]`, which corresponds to the integer part of the input, by summing the terms of the Taylor series until the term of smallest magnitude is reached.
+
+The `slowexp()` method then combines the result of the integer part with a similar calculation for the fractional part using the `splitMult()` and `resplit()` methods. The resulting approximation of $e^{xi}$ is returned as an array containing two double-precision floating-point numbers, which correspond to the most significant and least significant bits of the result, respectively.
+
+The `slowexp()` method is more accurate than the built-in exponential function in `Math` because it uses a Taylor series that is tailored for the specific requirements of the exponential function. The Taylor series used by `slowexp()` is optimized to minimize roundoff errors and ensure high accuracy, especially near zero.
+
+It's important to note that the `split()` method splits a double-precision floating-point number into two parts: one with the integer part and another with the fractional part. This is done by using bit manipulation operations, which allow for fast and efficient calculations without losing precision. The `resplit()` method then combines these split values to create a new double-precision floating-point number that represents the original input.
+
+Overall, the `slowexp()` method in the `AccurateMath` class provides an accurate approximation of $e^x$ using a Taylor series that is optimized for the specific requirements of the exponential function. The use of bit manipulation operations and split calculations helps to minimize roundoff errors and ensure high accuracy, especially near zero.
+
+### Additional Information:
+* <a href='https://commons.apache.org/proper/commons-math//apidocs/org/apache/commons/math4/core/jdkmath/AccurateMath.html' target='_blank' rel='nofollow'>AccurateMath Class</a>
+* <a href='https://commons.apache.org/proper/commons-math//userguide/simplified.html#simplified-fast-and-accurate-mathematical-functions' target='_blank' rel='nofollow'>Simplified Fast and Accurate Mathematical Functions</a>
+* <a href='https://en.wikipedia.org/wiki/Taylor_series' target='_blank' rel='nofollow'>Taylor Series on Wikipedia</a>
+
+
+No.9 generated result --------------------------
+
+
+import org.apache.commons.math4.core.jdkmath.AccurateMath;
+
+public class Main {
+    public static void main(String[] args) {
+        double result = AccurateMath.slowexp(0); // 1.0
+        System.out.println("result: " + result);
+    }
+}
+
+
+
+No.10 generated result --------------------------
+
+@Test
+public void slowexpTest(){
+  double[] x = new double[2];
+  x[0] = 1.0;
+  x[1] = 0.0;
+  
+  assertEquals(AccurateMathCalc.slowExp(x), AccurateMathCalc.EXP_SPLIT_COEF[9]); // exp(x) = 2^(x/ln(2))
+}
+    
+    
+### JUnit Test Cases:
+package org.apache.commons.math4.core.jdkmath;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void slowexpTest() {
+        double[] x = new double[2];
+        x[0] = 1.0;
+        x[1] = 0.0;
+        
+        assertEquals(AccurateMathCalc.slowExp(x), AccurateMathCalc.EXP_SPLIT_COEF[9]); // exp(x) = 2^(x/ln(2))
+    }
+    
+    @Test
+    public void slowlogTest() {
+        double[] x = new double[2];
+        x[0] = 1.0;
+        x[1] = 0.0;
+        
+        assertEquals(AccurateMathCalc.slowLog(x), AccurateMathCalc.LN_SPLIT_COEF[9]); // ln(x) = -ln((1-x)/(1+x)) / ln(2)
+    }
+}
+
+

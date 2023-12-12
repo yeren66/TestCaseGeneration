@@ -1,0 +1,198 @@
+Source code: 
+
+
+public static double calculatePieDatasetTotal(PieDataset dataset) {
+    Args.nullNotPermitted(dataset, "dataset");
+    List keys = dataset.getKeys();
+    double totalValue = 0;
+    Iterator iterator = keys.iterator();
+    while (iterator.hasNext()) {
+        Comparable current = (Comparable) iterator.next();
+        if (current != null) {
+            Number value = dataset.getValue(current);
+            double v = 0.0;
+            if (value != null) {
+                v = value.doubleValue();
+            }
+            if (v > 0) {
+                totalValue = totalValue + v;
+            }
+        }
+    }
+    return totalValue;
+}
+
+
+
+No.1 generated result --------------------------
+
+The response to the question "What is the purpose of this JUnit test case?" would be:
+
+The purpose of this JUnit test case is to verify that the `calculatePieDatasetTotal` method in the `DatasetUtils` class returns the correct total for a pie dataset. The test case uses a mock data set and asserts that the calculated total matches the expected value. This ensures that the method works correctly and accurately calculates the total for different input data sets.
+
+
+No.2 generated result --------------------------
+
+package org.jfree.data.general;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DatasetUtilsTest {
+    @Test
+    public void calculatePieDatasetTotalTest() {
+        PieDataset dataset = new DefaultPieDataset();
+        dataset.setValue("A", 10);
+        dataset.setValue("B", 20);
+        double total = DatasetUtils.calculatePieDatasetTotal(dataset);
+        assertEquals(30, total);
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package org.jfree.data.general;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DatasetUtilsTest {
+    @Test
+    public void calculatePieDatasetTotalTest() {
+        PieDataset dataset = new DefaultPieDataset();
+        dataset.setValue("A", 10);
+        dataset.setValue("B", 20);
+        double total = DatasetUtils.calculatePieDatasetTotal(dataset);
+        assertEquals(30, total);
+    }
+}
+
+
+No.4 generated result --------------------------
+
+public static double calculatePieDatasetTotal(PieDataset dataset) {
+    double total = 0;
+    for (int i = 0; i < dataset.getItemCount(); i++) {
+        total += dataset.getValue(i);
+    }
+    return total;
+}
+
+
+No.5 generated result --------------------------
+
+package org.jfree.data.general;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DatasetUtilsTest {
+    @Test
+    public void calculatePieDatasetTotalTest() {
+        // Create a pie chart dataset with 3 data items
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        dataset.setValue("Item 1", 20);
+        dataset.setValue("Item 2", 40);
+        dataset.setValue("Item 3", 60);
+
+        // Calculate the total of all data items in the pie chart dataset
+        double total = DatasetUtils.calculatePieDatasetTotal(dataset);
+
+        // Check that the calculated total is correct
+        assertEquals(20 + 40 + 60, total, 0.01);
+    }
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void calculatePieDatasetTotalTest() {
+    PieDataset dataset = new DefaultPieDataset();
+    dataset.setValue("A", 10);
+    dataset.setValue("B", 20);
+    dataset.setValue("C", 30);
+    double total = DatasetUtils.calculatePieDatasetTotal(dataset);
+    assertEquals(60, total);
+}
+
+
+No.7 generated result --------------------------
+
+import org.jfree.data.general.*;
+
+public class DatasetUtilsTest {
+    @Test
+    public void calculatePieDatasetTotalTest() {
+        PieDataset dataset = new DefaultPieDataset();
+        dataset.setValue("Item 1", 20);
+        dataset.setValue("Item 2", 30);
+        dataset.setValue("Item 3", 50);
+
+        double total = DatasetUtils.calculatePieDatasetTotal(dataset);
+
+        assertEquals(100, total);
+    }
+}
+
+
+No.8 generated result --------------------------
+
+
+@Test
+public void calculatePieDatasetTotalTest() {
+    PieDataset dataset = new DefaultPieDataset();
+    dataset.setValue("A", 10);
+    dataset.setValue("B", 20);
+    dataset.setValue("C", 30);
+    
+    assertEquals(60, DatasetUtils.calculatePieDatasetTotal(dataset));
+}
+
+
+No.9 generated result --------------------------
+
+package org.jfree.data.general;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DatasetUtilsTest {
+    @Test
+    public void calculatePieDatasetTotalTest() {
+        PieDataset dataset = new DefaultPieDataset();
+        dataset.setValue("A", 10.0);
+        dataset.setValue("B", 20.0);
+        double total = DatasetUtils.calculatePieDatasetTotal(dataset);
+        assertEquals(30.0, total);
+    }
+}
+
+
+No.10 generated result --------------------------
+
+package org.jfree.data.general;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DatasetUtilsTest {
+    @Test
+    public void calculatePieDatasetTotalTest() {
+        // create a pie dataset with 5 data items
+        PieDataset dataset = new DefaultPieDataset();
+        dataset.setValue("Item 1", 10);
+        dataset.setValue("Item 2", 20);
+        dataset.setValue("Item 3", 30);
+        dataset.setValue("Item 4", 40);
+        dataset.setValue("Item 5", 50);
+
+        // calculate the total value of the dataset
+        double total = DatasetUtils.calculatePieDatasetTotal(dataset);
+
+        // assert that the total is equal to the sum of all data item values
+        assertEquals(10 + 20 + 30 + 40 + 50, total);
+    }
+}
+
+

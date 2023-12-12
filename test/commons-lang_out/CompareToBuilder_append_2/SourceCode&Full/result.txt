@@ -1,0 +1,203 @@
+Source code: 
+
+
+public CompareToBuilder append(final double[] lhs, final double[] rhs) {
+    if (comparison != 0) {
+        return this;
+    }
+    if (lhs == rhs) {
+        return this;
+    }
+    if (lhs == null) {
+        comparison = -1;
+        return this;
+    }
+    if (rhs == null) {
+        comparison = 1;
+        return this;
+    }
+    if (lhs.length != rhs.length) {
+        comparison = lhs.length < rhs.length ? -1 : 1;
+        return this;
+    }
+    for (int i = 0; i < lhs.length && comparison == 0; i++) {
+        append(lhs[i], rhs[i]);
+    }
+    return this;
+}
+
+
+
+No.1 generated result --------------------------
+
+Timeout
+
+
+No.2 generated result --------------------------
+
+@Test
+public void appendTest() {
+    CompareToBuilder builder = new CompareToBuilder();
+    assertEquals(builder.toComparison(), 0);
+    builder.append(0, -1);
+    assertEquals(builder.toComparison(), +1);
+    builder.append(1, 0);
+    assertEquals(builder.toComparison(), +1);
+    builder.append(2, 2);
+    assertEquals(builder.toComparison(), 0);
+}
+
+
+No.3 generated result --------------------------
+
+package org.apache.commons.lang3.builder;
+
+import java.util.Comparator;
+
+/**
+ * Tests {@link CompareToBuilder}.
+ */
+public class CompareToBuilderTest {
+    @Test
+    public void appendTest() {
+        // test empty builder
+        CompareToBuilder bldr = new CompareToBuilder();
+        assertEquals(0, bldr.toComparison());
+
+        // add a null and a value
+        bldr.append((Object) null, "hello");
+        assertTrue(bldr.toComparison() < 0);
+        bldr = new CompareToBuilder();
+        bldr.append("world", (Object) null);
+        assertTrue(bldr.toComparison() > 0);
+        bldr = new CompareToBuilder();
+        bldr.append((Object) null, (Object) null);
+        assertEquals(0, bldr.toComparison());
+
+        // add some values of different types
+        bldr = new CompareToBuilder();
+        bldr.append("hello", "world");
+        assertTrue(bldr.toComparison() < 0);
+        bldr = new CompareToBuilder();
+        bldr.append(1, 2);
+        assertTrue(bldr.toComparison() < 0);
+        bldr = new CompareToBuilder();
+        bldr.append("hello", "world");
+        assertEquals(0, bldr.toComparison());
+
+        // add some values of the same type
+        bldr = new CompareToBuilder();
+        bldr.append("world", "hello").append('a', 'b');
+        assertTrue(bldr.toComparison() < 0);
+        bldr = new CompareToBuilder();
+        bldr.append("world", "hello").append('b', 'a');
+        assertTrue(bldr.toComparison() > 0);
+        bldr = new CompareToBuilder();
+        bldr.append("world", "hello").append('b', 'b');
+        assertEquals(0, bldlr.toComparison());
+
+    }
+}
+
+
+No.4 generated result --------------------------
+
+Timeout
+
+
+No.5 generated result --------------------------
+
+Timeout
+
+
+No.6 generated result --------------------------
+
+@Test
+public void testAppend() throws Exception {
+    // Tests for the various types
+    assertEquals(0, new CompareToBuilder().append("A", "B").toComparison());
+    assertEquals(-1, new CompareToBuilder().append("A", "C").toComparison());
+    assertEquals(1, new CompareToBuilder().append("D", "C").toComparison());
+    
+    // Tests for arrays
+    Object[] array1 = new Object[] {"abc"};
+    Object[] array2 = new Object[] {"def"};
+    assertEquals(-1, new CompareToBuilder().append(array1, array2).toComparison());
+    
+    array1 = new Object[] {"abc"};
+    array2 = new Object[] {"abc", "def"};
+    assertEquals(-1, new CompareToBuilder().append(array1, array2).toComparison());
+    
+    array1 = new Object[] {"abc", "bcd"};
+    array2 = new Object[] {"abc", "cde"};
+    assertEquals(-1, new CompareToBuilder().append(array1, array2).toComparison());
+}
+
+
+No.7 generated result --------------------------
+
+
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class CompareToBuilderTest {
+
+    @Test
+    public void testCompareToBuilderAppendSuper() {
+        final int superCompareTo = 100;
+        // Test with only a super value (the other is zero)
+        assertEquals(superCompareTo, new CompareToBuilder().appendSuper(superCompareTo).toComparison());
+        // Test with another value
+        assertTrue(new CompareToBuilder().append(0).appendSuper(superCompareTo).toComparison() < 0);
+    }
+}
+
+
+No.8 generated result --------------------------
+
+public class Person implements Comparable<Person> {
+    private int age;
+    private String name;
+    
+    public Person(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+    
+    @Override
+    public int compareTo(Person other) {
+        return CompareToBuilder.reflectionCompare(this, other);
+    }
+}
+
+
+No.9 generated result --------------------------
+
+Timeout
+
+
+No.10 generated result --------------------------
+
+CompareToBuilder can be used to compare two objects by calling the following methods in this order: 
+1. append() - This method compares two objects using the equals() method if they are comparable or else it uses the == operator. If an exception is thrown during comparison, then a negative integer is returned. Otherwise, zero is returned.  
+2. appendSuper() - This method returns the result of calling the superclass's compareTo() method. 
+3. toComparison() - This method converts the results of the comparisons into a final int value that can be used as return from compareTo().  
+Here is an example of how you would use CompareToBuilder: 
+CompareToBuilder builder = new CompareToBuilder(); 
+builder.append(obj1, obj2); // This will return a negative integer if obj1 is less than obj2 or zero if they are equal or greater than each other. 
+int result = builder.toComparison(); 
+return result; 
+This is how you would use it to compare the contents of two arrays. 
+CompareToBuilder builder = new CompareToBuilder(); 
+builder.append(arr1, arr2); // This will return a negative integer if arr1 is less than arr2 or zero if they are equal or greater than each other. 
+int result = builder.toComparison(); 
+return result; 
+This is how you would use it to compare the contents of two arrays using the == operator. 
+CompareToBuilder builder = new CompareToBuilder(); 
+builder.append(arr1, arr2); // This will return a negative integer if arr1 is less than arr2 or zero if they are equal or greater than each other. 
+int result = builder.toComparison(); 
+return result;
+
+

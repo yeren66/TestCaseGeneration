@@ -1,0 +1,365 @@
+Source code: 
+
+
+public static double[] getPowerRegression(double[][] data) {
+
+    int n = data.length;
+    if (n < 2) {
+        throw new IllegalArgumentException("Not enough data.");
+    }
+
+    double sumX = 0;
+    double sumY = 0;
+    double sumXX = 0;
+    double sumXY = 0;
+    for (int i = 0; i < n; i++) {
+        double x = Math.log(data[i][0]);
+        double y = Math.log(data[i][1]);
+        sumX += x;
+        sumY += y;
+        double xx = x * x;
+        sumXX += xx;
+        double xy = x * y;
+        sumXY += xy;
+    }
+    double sxx = sumXX - (sumX * sumX) / n;
+    double sxy = sumXY - (sumX * sumY) / n;
+    double xbar = sumX / n;
+    double ybar = sumY / n;
+
+    double[] result = new double[2];
+    result[1] = sxy / sxx;
+    result[0] = Math.pow(Math.exp(1.0), ybar - result[1] * xbar);
+
+    return result;
+
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void getPowerRegressionTest(){
+        double[] xValues = new double[]{1.0, 2.0, 3.0, 4.0};
+        double[] yValues = new double[]{1.0, 2.5, 4.7, 8.0};
+        PolynomialRegression regression = new PolynomialRegression(xValues, yValues, 2);
+        assertArrayEquals(new double[]{3.9630, -2.4534}, regression.getCoefficients(), 0.01);
+    }
+}
+
+
+No.2 generated result --------------------------
+
+
+package org.jfree.data.statistics;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RegressionTest {
+    @Test
+    public void getPowerRegressionTest() {
+        double[] xValues = new double[]{1, 2, 3, 4, 5};
+        double[] yValues = new double[]{8, 9, 7, 6, 10};
+        LinearRegression regression = new LinearRegression(xValues, yValues);
+        double rSquare = regression.getPowerRegression();
+        assertEquals(rSquare, 0.25);
+    }
+}
+
+
+
+No.3 generated result --------------------------
+
+public static double[] getPowerRegression(double[] x, double[] y) {
+  int n = x.length;
+  double sx = 0, sy = 0, sxx = 0, sxy = 0, syy = 0;
+  for (int i = 0; i < n; i++) {
+    sx += x[i];
+    sy += y[i];
+    sxx += x[i] * x[i];
+    sxy += x[i] * y[i];
+    syy += y[i] * y[i];
+  }
+  double a = (n*sxx - sx*sx) / (n*syy - sy*sy);
+  double b = ((sx*sy - n*sxy) / (n*syy - sy*sy)) * Math.sqrt(a/2);
+  return new double[]{a, b};
+}
+
+
+No.4 generated result --------------------------
+
+
+package org.jfree.data.statistics;
+
+import java.util.Arrays;
+
+public class RegressionTest {
+    
+    private static final double EPSILON = 1E-6;
+
+    @Test
+    public void getPowerRegressionTest() {
+        // Test data
+        double[] xData = new double[]{0, 1, 2, 3};
+        double[] yData = new double[]{1, 4, 9, 16};
+
+        // Regression parameters (alpha, beta)
+        double alpha = 1.0;
+        double beta = 3.0;
+        
+        // Expected regression parameters
+        double expectedAlpha = 1.0;
+        double expectedBeta = 3.0;
+        
+        // Calculate the coefficients using the getPowerRegression method
+        Regression r = new Regression(xData, yData);
+        double[] coeffs = r.getPowerRegression();
+        
+        // Verify that the calculated regression parameters are close enough to 
+        // the expected values
+        assertEquals(expectedAlpha, coeffs[0], EPSILON);
+        assertEquals(expectedBeta, coeffs[1], EPSILON);
+    }
+}
+
+
+
+No.5 generated result --------------------------
+
+package com.example;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+public class PowerRegressionTest {
+    private Regression regression;
+    @BeforeEach
+    public void setUp() {
+        regression = new Regression(new double[][]{
+                {10., 100.},
+                {20., 150.},
+                {30., 220.}});
+    }
+    @Test
+    public void testGetPowerRegression() {
+        assertArrayEquals(new double[] {1, 1}, regression.getPowerRegression());
+    }
+}
+    
+
+### Response:
+
+
+No.6 generated result --------------------------
+
+    import java.util.Arrays;
+
+    // 1.0 = the best fit, -1.0 = the worst fit
+    double[] values = new double[]{1.0, 0.95, 0.83};
+    Arrays.sort(values);
+    System.out.println(values[2] - values[0]); // output: 0.17 = 1.0 - (-1.0)
+    
+### JUNIT Test case:
+package org.jfree.data.statistics;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RegressionTest {
+    @Test
+    public void getPowerRegressionTest() {
+        // 1.0 = the best fit, -1.0 = the worst fit
+        double[] values = new double[]{1.0, 0.95, 0.83};
+        Arrays.sort(values);
+        assertEquals(0.17, values[2] - values[0]); // output: 0.17 = 1.0 - (-1.0)
+    }
+}
+    
+
+### Response:
+
+
+No.7 generated result --------------------------
+
+@SuppressWarnings("unused")
+public class RegressionTest {
+    private static double EPSILON = 1e-6;
+
+    @Test
+    public void getPowerRegressionTest() {
+        double[] xData = new double[]{0.0, 0.1, 0.2, 0.3, 0.4, 0.5};
+        double[] yData = new double[]{0.0, 10.0, 100.0, 1000.0, 10000.0, 100000.0};
+        double expectedSlope = 2;
+        double expectedIntercept = -5;
+        Regression regression = new Regression(xData, yData);
+        assertEquals(expectedSlope, regression.getSlope(), EPSILON);
+        assertEquals(expectedIntercept, regression.getIntercept(), EPSILON);
+    }
+}
+    
+
+### CLASS: [/CLASS]
+@SuppressWarnings("unused")
+public class Regression {
+    private double slope;
+    private double intercept;
+    public Regression(double[] xData, double[] yData) {
+        int n = xData.length;
+        if (n != yData.length) throw new IllegalArgumentException("Arrays must be of equal length.");
+        double sumX = 0;
+        double sumY = 0;
+        for (int i = 0; i < n; i++) {
+            sumX += xData[i];
+            sumY += yData[i];
+        }
+        double sumXY = 0;
+        double sumXX = 0;
+        for (int i = 0; i < n; i++) {
+            sumXY += xData[i] * yData[i];
+            sumXX += Math.pow(xData[i], 2);
+        }
+        slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+        intercept = (sumY - slope * sumX) / n;
+    }
+    public double getSlope() { return this.slope; }
+    public double getIntercept() { return this.intercept; }
+}
+    
+
+### JUNIT Test case:
+package org.jfree.data.statistics;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RegressionTest {
+    @Test
+    public void getLinearRegressionTest() {
+        <FILL>
+    }
+}
+    
+
+### Response:
+
+
+No.8 generated result --------------------------
+
+@DisplayName("Get power regression test")
+public class GetPowerRegressionTest {
+    
+    private static final double EPSILON = 1e-9;
+    
+    @Test
+    public void getPowerRegression_WithValidDataAndOrder_ReturnsCorrectResults() {
+        // Arrange
+        Regression regression = new Regression();
+        double[][] data = {{0, 2}, {1, 4}, {3, 8}};
+        
+        // Act
+        double[] result = regression.getPowerRegression(data, 1);
+        
+        // Assert
+        assertEquals(2.5, result[0], EPSILON);
+    }
+    
+    @Test
+    public void getPowerRegression_WithValidDataAndOrderGreaterThanOne_ReturnsCorrectResults() {
+        // Arrange
+        Regression regression = new Regression();
+        double[][] data = {{0, 2}, {1, 4}, {3, 8}};
+        
+        // Act
+        double[] result = regression.getPowerRegression(data, 2);
+        
+        // Assert
+        assertEquals(-0.5, result[0], EPSILON);
+    }
+    
+    @Test
+    public void getPowerRegression_WithNullData_ThrowsNullPointerException() {
+        // Arrange
+        Regression regression = new Regression();
+        
+        // Act
+        assertThrows(NullPointerException.class, () -> regression.getPowerRegression(null, 1));
+    }
+    
+    @Test
+    public void getPowerRegression_WithEmptyData_ThrowsIllegalArgumentException() {
+        // Arrange
+        Regression regression = new Regression();
+        
+        // Act
+        assertThrows(IllegalArgumentException.class, () -> regression.getPowerRegression(new double[0][], 1));
+    }
+    
+    @Test
+    public void getPowerRegression_WithTooFewItems_ThrowsIllegalArgumentException() {
+        // Arrange
+        Regression regression = new Regression();
+        double[][] data = {{1, 2}, {3, 4}};
+        
+        // Act
+        assertThrows(IllegalArgumentException.class, () -> regression.getPowerRegression(data, 1));
+    }
+    
+    @Test
+    public void getPowerRegression_WithNegativeOrder_ThrowsIllegalArgumentException() {
+        // Arrange
+        Regression regression = new Regression();
+        double[][] data = {{0, 2}, {1, 4}};
+        
+        // Act
+        assertThrows(IllegalArgumentException.class, () -> regression.getPowerRegression(data, -1));
+    }
+}
+
+
+No.9 generated result --------------------------
+
+package org.jfree.data.statistics;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class RegressionTests {
+    @Test
+    public void getPowerRegressionTest() {
+        double[][] data = new double[2][3];
+        data[0][0] = 1.0;
+        data[0][1] = 8.0;
+        data[0][2] = 27.0;
+        data[1][0] = 1.0;
+        data[1][1] = 4.0;
+        data[1][2] = 9.0;
+        double[] result = Regression.getPowerRegression(data, 3);
+        assertEquals(result[0], -7.865395462222056E-4);
+        assertEquals(result[1], 1.2175636369271045);
+    }
+}
+
+### Response:
+
+
+No.10 generated result --------------------------
+
+package org.jfree.data.statistics;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RegressionTest {
+    @Test
+    public void getPowerRegressionTest() {
+        double[][] data = { { 10, 2 }, { 20, 3 }, { 30, 4 }, { 40, 5 } };
+        double[] result = Regression.getPowerRegression(data);
+        assertEquals(1.0, result[0], 0.0001);
+    }
+}
+    
+
+### Response:
+
+

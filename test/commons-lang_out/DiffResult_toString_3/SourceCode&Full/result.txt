@@ -1,0 +1,249 @@
+Source code: 
+
+
+public String toString(final ToStringStyle style) {
+    if (diffList.isEmpty()) {
+        return OBJECTS_SAME_STRING;
+    }
+
+    final ToStringBuilder lhsBuilder = new ToStringBuilder(lhs, style);
+    final ToStringBuilder rhsBuilder = new ToStringBuilder(rhs, style);
+
+    diffList.forEach(diff -> {
+        lhsBuilder.append(diff.getFieldName(), diff.getLeft());
+        rhsBuilder.append(diff.getFieldName(), diff.getRight());
+    });
+
+    return String.format("%s %s %s", lhsBuilder.build(), DIFFERS_STRING, rhsBuilder.build());
+}
+
+
+
+No.1 generated result --------------------------
+
+Timeout
+
+
+No.2 generated result --------------------------
+
+
+package org.apache.commons.lang3.builder;
+
+import java.util.*;
+
+public class DiffResultTest {
+    @Test
+    public void toStringTest() {
+        // Create two Person objects with the same values for name and age, but different values for smoking status
+        Person person1 = new Person("John Doe", 32);
+        person1.setSmokes(true);
+        Person person2 = new Person("John Doe", 32);
+        person2.setSmokes(false);
+
+        // Create a DiffResult containing the differences between the two Person objects
+        DiffResult result = DiffBuilder.reflectionEquals(person1, person2).build();
+
+        String expectedToStringValue =
+            "Person[name=John Doe,age=32,smokes=true] differs from Person[name=John Doe,age=32,smokes=false]";
+
+        assertEquals(expectedToStringValue, result.toString());
+    }
+}
+    
+
+### Reflecting on previous answers: [/NAMES]
+
+* A class named `DiffResult` that contains a list of `Diff` objects representing the differences between two objects. It also stores references to the original objects being compared and can output a string representation of those differences using reflection information.
+
+### Request for clarification: [/INSTANCEOF]
+
+Can you provide more details about what you are looking for? Are there any specific features or functionality that you would like me to clarify?
+
+
+No.3 generated result --------------------------
+
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DiffResultTest {
+    @Test
+    public void toStringTest() {
+        Person john = new Person("John Doe", 32);
+        Person joe = new Person("Joe Bloggs", 26);
+
+        DiffResult diffs = DiffBuilder.reflectionDiff(john, joe).build();
+
+        assertEquals("[Person@name=John Doe] differs from [Person@name=Joe Bloggs]: left=[name=John Doe, age=32], right=[name=Joe Bloggs, age=26]", diffs.toString());
+    }
+}
+
+    
+
+package org.apache.commons.lang3.builder;
+
+import java.util.*;
+
+public class DiffResultTest {
+    @Test
+    public void toStringWithNoDiff() {
+        Person john = new Person("John Doe", 32);
+        Person joe = new Person("Joe Bloggs", 26);
+
+        DiffResult diffs = DiffBuilder.reflectionDiff(john, joe).build();
+
+        assertEquals("[Person@name=John Doe] differs from [Person@name=Joe Bloggs]: left=[name=John Doe, age=32], right=[name=Joe Bloggs, age=26]", diffs.toString());
+    }
+}
+    
+
+### Response:
+
+
+No.4 generated result --------------------------
+
+package com.example;
+
+import org.apache.commons.lang3.builder.DiffResult;
+import org.junit.jupiter.api.Test;
+
+public class DiffResultToStringTest {
+    @Test
+    public void testToString() {
+        // given
+        DiffResult<String> diffResult = new DiffResult<>("left", "right");
+
+        // when
+        String result = diffResult.toString();
+
+        // then
+        assertEquals("[left, right]", result);
+    }
+}
+
+
+
+No.5 generated result --------------------------
+
+//@Test
+//public void testToString_diffsExist_sameStyle() {
+//    final DiffResult<Person> diffResult = new DiffResult<>(DIFFERENCES, Person.class);
+//    final String result = diffResult.toString();
+//    assertEquals("person[name=John Doe,age=32] differs from person[name=Joe Bloggs,age=26]", result);
+//}
+//
+//@Test
+//public void testToString_diffsExist_differentStyle() {
+//    final ToStringBuilder.StandardToStringStyle style = new ToStringBuilder.StandardToStringStyle();
+//    style.setUseShortClassName(true);
+//    final DiffResult<Person> diffResult = new DiffResult<>(DIFFERENCES, Person.class, style);
+//    final String result = diffResult.toString();
+//    assertEquals("org.apache.commons.lang3.builder.DiffResultTest$Person[name=John Doe,age=32] " +
+//            "differs from org.apache.commons.lang3.builder.DiffResultTest$Person[name=Joe Bloggs,age=26]", result);
+//}
+//
+//@Test
+//public void testToString_noDiffsExist() {
+//    final DiffResult<Object> diffResult = new DiffResult<>(Collections.emptyList(), Object.class);
+//    assertEquals(OBJECTS_SAME_STRING, diffResult.toString());
+//}
+    
+
+
+
+No.6 generated result --------------------------
+
+DiffResultTest.java:19
+DiffResultTest.java:35
+import org.apache.commons.lang3.builder.*;
+import java.util.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DiffResultTest {
+    @Test
+    public void toStringTest() {
+        // Create two Person instances
+        final Person person1 = new Person("John Doe", 32);
+        final Person person2 = new Person("Joe Bloggs", 26);
+
+        // Create a DiffResult by passing the two objects and a ToStringStyle.SHORT_PREFIX_STYLE
+        final DiffResult result = new DiffResult(person1, person2, ToStringStyle.SHORT_PREFIX_STYLE);
+
+        // Print out the differences between the two objects using the toString() method
+        System.out.println(result);
+    }
+}
+
+class Person {
+    private String name;
+    private int age;
+
+    public Person(final String name, final int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+}
+
+
+No.7 generated result --------------------------
+
+Timeout
+
+
+No.8 generated result --------------------------
+
+Timeout
+
+
+No.9 generated result --------------------------
+
+Timeout
+
+
+No.10 generated result --------------------------
+
+package org.apache.commons.lang3.builder;
+import java.util.ArrayList;
+import java.util.List;
+public class DiffResult<T> extends AbstractDiffResult {
+  private final List<Diff<?>> diffs = new ArrayList<>();
+  public String toString() {
+    return toString(null);
+  }
+  public String toString(ToStringStyle style) {
+    if (diffs.isEmpty()) {
+      return "";
+    }
+    StringBuilder result = new StringBuilder();
+    for (Diff<?> diff : diffs) {
+      result.append(diff.toString());
+    }
+    return result.toString();
+  }
+}
+package org.apache.commons.lang3.builder;
+import java.util.ArrayList;
+import java.util.List;
+public class DiffResultTest {
+  @Test
+  public void toStringTest() {
+    DiffResult<Integer> result = new DiffResult<>();
+    assertEquals("", result.toString());
+    result.add(new SimpleDiff<>("value", "123", "456"));
+    String expected = "" +
+      "[SimpleDiff[field=value, left=123, right=456]]";
+    assertEquals(expected, result.toString());
+  }
+}
+    
+
+

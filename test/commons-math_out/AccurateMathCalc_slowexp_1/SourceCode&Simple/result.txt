@@ -1,0 +1,231 @@
+Source code: 
+
+
+static double slowexp(final double x, final double[] result) {
+    final double[] xs = new double[2];
+    final double[] ys = new double[2];
+    final double[] facts = new double[2];
+    final double[] as = new double[2];
+    split(x, xs);
+    ys[0] = ys[1] = 0.0;
+
+    for (int i = FACT.length - 1; i >= 0; i--) {
+        splitMult(xs, ys, as);
+        ys[0] = as[0];
+        ys[1] = as[1];
+
+        split(FACT[i], as);
+        splitReciprocal(as, facts);
+
+        splitAdd(ys, facts, as);
+        ys[0] = as[0];
+        ys[1] = as[1];
+    }
+
+    if (result != null) {
+        result[0] = ys[0];
+        result[1] = ys[1];
+    }
+
+    return ys[0] + ys[1];
+}
+
+
+
+No.1 generated result --------------------------
+
+
+package org.apache.commons.math4.core.jdkmath;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void slowexpTest() {
+        double x = 0.5;
+        double[] result = new double[2];
+        double expectedResult = Math.exp(x);
+        assertEquals(expectedResult, AccurateMathCalc.slowexp(x, result));
+    }
+}
+
+
+
+No.2 generated result --------------------------
+
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void slowexpTest() {
+        // Test case 1: x = 0
+        double[] result = new double[2];
+        assertEquals(slowexp(0.0, result), result[0], 0.0);
+
+        // Test case 2: x = 0.5
+        result = new double[2];
+        assertEquals(slowexp(0.5, result), result[0] + result[1], 0.0);
+
+        // Test case 3: x = -0.5
+        result = new double[2];
+        assertEquals(slowexp(-0.5, result), result[0] + result[1], 0.0);
+
+        // Test case 4: x = 1.5
+        result = new double[2];
+        assertEquals(slowexp(1.5, result), result[0] + result[1], 0.0);
+
+        // Test case 5: x = -1.5
+        result = new double[2];
+        assertEquals(slowexp(-1.5, result), result[0] + result[1], 0.0);
+    }
+}
+
+
+
+No.3 generated result --------------------------
+
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void slowexpTest() {
+        double[] result = new double[2];
+        double x = 10.0;
+        double expected = Math.exp(x);
+
+        AccurateMathCalc.slowexp(x, result);
+
+        assertEquals(expected, result[0], 1E-6);
+    }
+}
+
+
+No.4 generated result --------------------------
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void slowexpTest() {
+        double input = 0.5;
+        double[] result = new double[2];
+        double expectedOutput = Math.exp(input);
+        
+        assertEquals(expectedOutput, AccurateMathCalc.slowexp(input, result));
+    }
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void slowexpTest() {
+    // Test cases:
+    assertEquals(2.718281828459045, AccurateMathCalc.slowexp(0, null));
+    assertEquals(7.38905609893065, AccurateMathCalc.slowexp(1, null));
+    assertEquals(20.085536923187668, AccurateMathCalc.slowexp(2, null));
+}
+
+
+No.6 generated result --------------------------
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void slowexpTest() {
+        double input = 2.0;
+        double[] result = new double[2];
+        AccurateMathCalc.slowexp(input, result);
+        assertEquals(result[0] + result[1], Math.pow(Math.E, input), 1e-6);
+    }
+}
+
+
+No.7 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void slowexpTest() {
+        double x = 0.5;
+        double[] result = new double[2];
+        assertArrayEquals(slowexp(x, result), result);
+        assertEquals(result[0], Math.cos(x));
+        assertEquals(result[1], -Math.sin(x));
+    }
+}
+
+
+No.8 generated result --------------------------
+
+The `slowexp()` method in the `AccurateMathCalc` class is a static method that calculates an exponential function using a series expansion. It takes two arguments: `x`, which is the input value, and `result`, which is an array of double values that will hold the result of the calculation.
+
+The method first splits the input value into two parts using the `split()` method, which is also static and part of the same class. This is necessary because the exponential series expansion requires a Taylor series representation of the function, which requires the use of a split-complex number.
+
+Next, the method initializes two arrays: `xs` for the real and imaginary parts of the input value, and `ys` for the real and imaginary parts of the result. It then sets the values of these arrays to 0.0.
+
+The method then begins a loop that calculates the exponential series expansion using the formula:
+
+exp(x) = \sum_{n=0}^{\infty} \frac{x^n}{n!}
+
+The `splitMult()` method is used to perform the multiplication of two split-complex numbers, and the result is stored in an array called `as`. The values of `ys` are then updated using the formula:
+
+ys[i] = ys[i-1] + as[i]
+
+This process is repeated for each term in the series expansion. Finally, if the `result` argument was not null, the method sets its value to be the real part of the result (which is the first element of the `ys` array). The method then returns the sum of the real and imaginary parts of the result.
+
+The test case for this method would need to ensure that the input value and the expected output values are correct, as well as ensuring that the method correctly calculates the exponential series expansion.
+
+
+No.9 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void slowexpTest() {
+        // Test Case 1: x = 0.5, result should be 2^(x - 1) + 2^(-x + 1)
+        double[] result = new double[2];
+        AccurateMathCalc.slowexp(0.5, result);
+        assertEquals(2.0 * Math.pow(2, 0.5), result[0] + result[1]);
+
+        // Test Case 2: x = -0.5, result should be 2^(x + 1) + 2^(-x - 1)
+        result = new double[2];
+        AccurateMathCalc.slowexp(-0.5, result);
+        assertEquals(2.0 * Math.pow(2, -0.5), result[0] + result[1]);
+    }
+}
+
+
+No.10 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void slowexpTest() {
+        double[] result = new double[2];
+        assertEquals(1, slowexp(-1, result), 1e-10);
+        assertEquals(Math.E, result[0] + result[1], 1e-10);
+    }
+}
+
+

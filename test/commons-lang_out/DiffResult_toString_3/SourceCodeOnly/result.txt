@@ -1,0 +1,281 @@
+Source code: 
+
+
+public String toString(final ToStringStyle style) {
+    if (diffList.isEmpty()) {
+        return OBJECTS_SAME_STRING;
+    }
+
+    final ToStringBuilder lhsBuilder = new ToStringBuilder(lhs, style);
+    final ToStringBuilder rhsBuilder = new ToStringBuilder(rhs, style);
+
+    diffList.forEach(diff -> {
+        lhsBuilder.append(diff.getFieldName(), diff.getLeft());
+        rhsBuilder.append(diff.getFieldName(), diff.getRight());
+    });
+
+    return String.format("%s %s %s", lhsBuilder.build(), DIFFERS_STRING, rhsBuilder.build());
+}
+
+
+
+No.1 generated result --------------------------
+
+The `toString()` method in the provided code generates a string representation of an object using a `ToStringStyle`. The method first checks if the `diffList` is empty and returns a constant string `OBJECTS_SAME_STRING` if it is. Otherwise, it creates two new `ToStringBuilder` objects for the left-hand side (lhs) and right-hand side (rhs) objects, respectively, using the provided `style`.
+
+Next, the method iterates over the `diffList` and appends each difference to both `lhsBuilder` and `rhsBuilder`, using their respective `append()` methods. The appended strings are formatted using a `String.format()` call that includes placeholders for the lhs and rhs builders, as well as the constant string `DIFFERS_STRING`.
+
+Finally, the method returns the formatted string.
+
+To write a unit test for this method, you can follow these steps:
+
+1. First, create an instance of the class that contains the `toString()` method you want to test, and initialize it with some sample data.
+2. Next, call the `toString()` method on the instance and check its return value. You can use a tool like JUnit or TestNG to write unit tests for this code.
+3. In your test case, you can check if the returned string is what you expect it to be based on the sample data you provided in step 1. For example, if the `diffList` is empty, you should get back the constant string `OBJECTS_SAME_STRING`. If there are differences in the list, you should see a formatted string that includes the lhs and rhs builders, as well as the constant string `DIFFERS_STRING`.
+4. You can also test the behavior of the method when different values are passed into the `style` parameter. For example, you could pass in a `ToStringStyle.SIMPLE_STYLE`, which should produce a simple string representation of the object.
+5. Finally, you can use coverage tools like Jacoco or Cobertura to ensure that your tests cover all branches and lines of code in the method.
+
+
+No.2 generated result --------------------------
+
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DiffResultTest {
+    @Test
+    public void toStringTest() {
+        // Arrange
+        final ToStringStyle style = ToStringStyle.NO_FIELD_NAMES_STYLE;
+        final String expectedToStringOutput = "lhs rhs DIFFERS";
+        
+        // Act
+        final DiffResult diffResult = new DiffResult(null, null);
+        final String actualToStringOutput = diffResult.toString(style);
+        
+        // Assert
+        assertEquals(expectedToStringOutput, actualToStringOutput);
+    }
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void toStringTest() {
+    DiffResult diff = new DiffResult(lhs, rhs);
+    assertEquals("LHS object is empty", OBJECTS_SAME_STRING, diff.toString());
+}
+
+
+No.4 generated result --------------------------
+
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DiffResultTest {
+    @Test
+    public void toStringTest() {
+        DiffResult result = new DiffResult();
+        ToStringStyle style = new StandardToStringStyle();
+        assertEquals(OBJECTS_SAME_STRING, result.toString(style));
+    }
+}
+
+
+No.5 generated result --------------------------
+
+
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DiffResultTest {
+    @Test
+    public void toStringTest() {
+        // Create an instance of the DiffResult class
+        DiffResult result = new DiffResult();
+        
+        // Set up some sample data for the diffList field
+        List<Diff> diffList = new ArrayList<>();
+        Diff diff1 = new Diff("field1", "value1");
+        Diff diff2 = new Diff("field2", "value2");
+        diffList.add(diff1);
+        diffList.add(diff2);
+        
+        // Set the diffList field on the result object
+        result.setDiffList(diffList);
+        
+        // Call the toString() method with a ToStringStyle argument
+        String output = result.toString(ToStringStyle.DEFAULT_STYLE);
+        
+        // Assert that the output string is correct
+        assertEquals("field1:value1 field2:value2", output);
+    }
+}
+
+
+
+No.6 generated result --------------------------
+
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DiffResultTest {
+    private final String OBJECTS_SAME_STRING = "Objects are same";
+    private final String DIFFERS_STRING = "differs";
+    
+    @Test
+    public void toStringTest() {
+        // Test case 1: Empty diff list
+        DiffResult result = new DiffResult();
+        assertEquals(OBJECTS_SAME_STRING, result.toString());
+        
+        // Test case 2: Non-empty diff list with all different values
+        DiffResult result = new DiffResult();
+        result.addDiff(new Diff<>(null, null));
+        assertEquals("", result.toString());
+        
+        // Test case 3: Non-empty diff list with all same values
+        DiffResult result = new DiffResult();
+        result.addDiff(new Diff<>("foo", "foo"));
+        assertEquals("foo", result.toString());
+        
+        // Test case 4: Non-empty diff list with different values and field names
+        DiffResult result = new DiffResult();
+        result.addDiff(new Diff<>("foo", "bar"));
+        result.addDiff(new Diff<>("baz", "qux"));
+        assertEquals("foo=bar baz=qux", result.toString());
+        
+        // Test case 5: Non-empty diff list with different values and field names and styles
+        DiffResult result = new DiffResult();
+        result.addDiff(new Diff<>("foo", "bar"));
+        result.addDiff(new Diff<>("baz", "qux"));
+        assertEquals("foo=bar baz=qux", result.toString());
+        
+        // Test case 6: Non-empty diff list with different values and field names and styles, but some are same
+        DiffResult result = new DiffResult();
+        result.addDiff(new Diff<>("foo", "bar"));
+        result.addDiff(new Diff<>("baz", "qux"));
+        assertEquals("foo=bar baz=qux", result.toString());
+        
+        // Test case 7: Non-empty diff list with different values and field names and styles, but some are same
+        DiffResult result = new DiffResult();
+        result.addDiff(new Diff<>("foo", "bar"));
+        result.addDiff(new Diff<>("baz", "qux"));
+        assertEquals("foo=bar baz=qux", result.toString());
+        
+        // Test case 8: Non-empty diff list with different values and field names and styles, but some are same
+        DiffResult result = new DiffResult();
+        result.addDiff(new Diff<>("foo", "bar"));
+        result.addDiff(new Diff<>("baz", "qux"));
+        assertEquals("foo=bar baz=qux", result.toString());
+        
+        // Test case 9: Non-empty diff list with different values and field names and styles, but some are same
+        DiffResult result = new DiffResult();
+        result.addDiff(new Diff<>("foo", "bar"));
+        result.addDiff(new Diff<>("baz", "qux"));
+        assertEquals("foo=bar baz=qux", result.toString());
+        
+        // Test case 10: Non-empty diff list with different values and field names and styles, but some are same
+        DiffResult result = new DiffResult();
+        result.addDiff(new Diff<>("foo", "bar"));
+        result.addDiff(new Diff<>("baz", "qux"));
+        assertEquals("foo=bar baz=qux", result.toString());
+    }
+}
+
+
+No.7 generated result --------------------------
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DiffResultTest {
+    @Test
+    public void toStringTest() {
+        // Create a new instance of the DiffResult class
+        DiffResult diffResult = new DiffResult(lhs, rhs);
+
+        // Add some differences to the list
+        diffResult.getDiffList().add(new Difference("field1", "value1"));
+        diffResult.getDiffList().add(new Difference("field2", "value2"));
+
+        // Call the toString method with the style argument
+        String result = diffResult.toString(ToStringStyle.DEFAULT_STYLE);
+
+        // Assert that the result is as expected
+        assertEquals("lhs: {field1=value1, field2=value2} rhs: {field1=value1, field2=value2}", result);
+    }
+}
+
+
+No.8 generated result --------------------------
+
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DiffResultTest {
+    @Test
+    public void toStringTest() {
+        // Initialize an instance of the DiffResult class
+        final DiffResult diffResult = new DiffResult(null, null);
+        
+        // Call the toString method with a specific style
+        final String result = diffResult.toString(ToStringStyle.MULTI_LINE_STYLE);
+        
+        // Verify that the returned string is as expected
+        assertEquals("", result);
+    }
+}
+
+
+No.9 generated result --------------------------
+
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DiffResultTest {
+    @Test
+    public void toStringTest() {
+        // Create an instance of the DiffResult class and set up its fields or methods as needed
+        DiffResult diffResult = new DiffResult();
+        
+        // Call the toString() method with the appropriate arguments
+        String result = diffResult.toString(ToStringStyle.DEFAULT_STYLE);
+        
+        // Check that the result is what we expect it to be
+        assertEquals("Testing the toString() method", "Expected output", result);
+    }
+}
+
+
+No.10 generated result --------------------------
+
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DiffResultTest {
+    @Test
+    public void toStringTest() {
+        // Create two objects to compare
+        Object lhs = new Object();
+        Object rhs = new Object();
+        
+        // Compare the two objects and get a DiffResult instance
+        DiffResult result = new DiffResult(lhs, rhs);
+        
+        // Check that the toString() method returns the expected string representation
+        assertEquals("Objects are different", result.toString());
+    }
+}
+
+

@@ -1,0 +1,291 @@
+Source code: 
+
+
+public static double calculatePieDatasetTotal(PieDataset dataset) {
+    Args.nullNotPermitted(dataset, "dataset");
+    List keys = dataset.getKeys();
+    double totalValue = 0;
+    Iterator iterator = keys.iterator();
+    while (iterator.hasNext()) {
+        Comparable current = (Comparable) iterator.next();
+        if (current != null) {
+            Number value = dataset.getValue(current);
+            double v = 0.0;
+            if (value != null) {
+                v = value.doubleValue();
+            }
+            if (v > 0) {
+                totalValue = totalValue + v;
+            }
+        }
+    }
+    return totalValue;
+}
+
+
+
+No.1 generated result --------------------------
+
+package org.jfree.data.general;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class DatasetUtilsTest {
+    @Test
+    public void calculatePieDatasetTotalTest() {
+        PieDataset dataset = createSamplePieDataset();
+        double total = DatasetUtils.calculatePieDatasetTotal(dataset);
+        Assertions.assertEquals(50, total);
+    }
+    
+    private static PieDataset createSamplePieDataset() {
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        dataset.setValue("Category 1", 10);
+        dataset.setValue("Category 2", 25);
+        dataset.setValue("Category 3", 15);
+        return dataset;
+    }
+}
+
+    
+
+
+No.2 generated result --------------------------
+
+package org.jfree.data.general;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DatasetUtils {
+
+    public static double calculatePieDatasetTotal(PieDataset dataset) {
+        List<Double> values = new ArrayList<>();
+        for (int i = 0; i < dataset.getItemCount(); i++) {
+            values.add(dataset.getValue(i));
+        }
+        return sum(values);
+    }
+
+    private static double sum(List<Double> list) {
+        double total = 0;
+        for (double item : list) {
+            total += item;
+        }
+        return total;
+    }
+}
+
+
+No.3 generated result --------------------------
+
+@SuppressWarnings("unused")
+class PieDataset extends DefaultPieDataset {
+  private static final int NUM_ITEMS = 5;
+  
+  public PieDataset() {
+    for (int i = 0; i < NUM_ITEMS; i++) {
+      add("Item " + i, Math.random());
+    }
+  }
+}
+
+public class DatasetUtilsTest {
+    @Test
+    public void calculatePieDatasetTotal() {
+        PieDataset dataset = new PieDataset();
+        double total = DatasetUtils.calculatePieDatasetTotal(dataset);
+        assertEquals(10, total); // The total is 10 because each item's value is a random number between 0 and 1
+    }
+}
+    
+
+### JUNIT Test case:
+package org.jfree.data.general;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DatasetUtilsTest {
+    @Test
+    public void calculatePieDatasetTotalTest() {
+        <FILL>
+    }
+}
+    
+
+### Response:
+
+
+No.4 generated result --------------------------
+
+
+public static double calculatePieDatasetTotal(PieDataset dataset) {
+    int seriesCount = dataset.getSeriesCount();
+    double total = 0;
+    for (int i = 0; i < seriesCount; i++) {
+        double seriesTotal = 0;
+        int itemCount = dataset.getItemCount(i);
+        for (int j = 0; j < itemCount; j++) {
+            double value = dataset.getValue(i, j).doubleValue();
+            seriesTotal += value;
+        }
+        total += seriesTotal;
+    }
+    return total;
+}
+
+
+
+No.5 generated result --------------------------
+
+package org.jfree.data.general;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+
+public class DatasetUtilsTest {
+    @Test
+    public void calculatePieDatasetTotalTest() {
+        List<Double> list = new ArrayList<>();
+        assertEquals(0, DatasetUtils.calculatePieDatasetTotal(list), 0.01);
+        
+        list.add(2.5);
+        assertEquals(2.5, DatasetUtils.calculatePieDatasetTotal(list), 0.01);
+        
+        list.add(-3.4);
+        assertEquals(2.5 - 3.4, DatasetUtils.calculatePieDatasetTotal(list), 0.01);
+    }
+}
+
+
+No.6 generated result --------------------------
+
+package org.jfree.data.general;
+
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DatasetUtilsTest {
+    private double EPSILON = 1e-6;
+
+    @Test
+    public void calculatePieDatasetTotalTest() {
+        List<? extends Number> values = Arrays.asList(20.0, 30.0, 50.0);
+        PieDataset dataset = new DefaultPieDataset();
+        for (int i = 0; i < values.size(); i++) {
+            dataset.setValue("Sector " + i, values.get(i).doubleValue());
+        }
+        double total = DatasetUtils.calculatePieDatasetTotal(dataset);
+        assertEquals(100.0, total, EPSILON);
+    }
+}
+
+
+No.7 generated result --------------------------
+
+public class DatasetUtils {
+    public static double calculatePieDatasetTotal(PieDataset dataset) {
+        double total = 0.0;
+        for (int i = 0; i < dataset.getItemCount(); i++) {
+            PieDatasetItem item = dataset.getItem(i);
+            total += item.getValue();
+        }
+        return total;
+    }
+}
+
+
+No.8 generated result --------------------------
+
+package org.jfree.data.general;
+
+import java.util.ArrayList;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DatasetUtils;
+import org.jfree.data.general.PieDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+class DatasetUtilsTest {
+    @Test
+    public void calculatePieDatasetTotal() {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        assertEquals(0, DatasetUtils.calculatePieDatasetTotal(dataset));
+        dataset.addValue(1, "A", "B");
+        dataset.addValue(2, "C", "D");
+        dataset.addValue(-3, "E", "F");
+        assertEquals(0, DatasetUtils.calculatePieDatasetTotal(dataset));
+    }
+}
+
+
+No.9 generated result --------------------------
+
+package org.jfree.data.general;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DatasetUtils {
+    public static double calculatePieDatasetTotal(PieDataset dataset) {
+        List<Double> values = new ArrayList<>();
+        for (int i = 0; i < dataset.getItemCount(); i++) {
+            values.add(dataset.getValue(i));
+        }
+        return calculateSum(values);
+    }
+
+    private static double calculateSum(List<Double> values) {
+        double result = 0;
+        for (double value : values) {
+            result += value;
+        }
+        return result;
+    }
+}
+
+
+No.10 generated result --------------------------
+
+package org.jfree.data;
+
+import java.util.List;
+
+/**
+ * Utilities for working with datasets.
+ */
+public class DatasetUtils {
+   /**
+    * Calculates the total for a pie dataset.
+    * 
+    * @param dataset  the dataset ({@code null} not permitted).
+    * 
+    * @return The total.
+    */
+   public static double calculatePieDatasetTotal(PieDataset dataset) {
+      Args.nullNotPermitted(dataset, "dataset");
+      double total = 0;
+      int seriesCount = dataset.getSeriesCount();
+      for (int i = 0; i < seriesCount; i++) {
+         String seriesKey = dataset.getSeriesKey(i);
+         double sum = 0;
+         for (int j = 0; j < dataset.getItemCount(seriesKey); j++) {
+            Number value = dataset.getValue(seriesKey, j);
+            if (value != null) {
+               sum += value.doubleValue();
+            }
+         }
+         total += sum;
+      }
+      return total;
+   }
+}
+
+

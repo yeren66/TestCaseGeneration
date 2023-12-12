@@ -1,0 +1,237 @@
+Source code: 
+
+
+@Override
+public boolean equals(Object obj) {
+    if (obj == this) {
+        return true;
+    }
+    if (!(obj instanceof Series)) {
+        return false;
+    }
+    Series that = (Series) obj;
+    if (!Objects.equals(this.key, that.key)) {
+        return false;
+    }
+    if (!Objects.equals(this.description, that.description)) {
+        return false;
+    }
+    if (!that.canEqual(this)) {
+        return false;
+    }
+    return true;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Override
+public boolean equals(Object obj) {
+    if (obj == this) {
+        return true;
+    }
+    if (!(obj instanceof Series)) {
+        return false;
+    }
+    Series that = (Series) obj;
+    if (!this.key.equals(that.getKey())) {
+        return false;
+    }
+    return true;
+}
+
+
+No.2 generated result --------------------------
+
+package org.jfree.data.general;
+
+import java.util.Objects;
+
+/**
+ * Tests the equals method of Series (part of a JUnit test case).
+ */
+public class SeriesTest {
+    @Test
+    public void equalsTest() {
+        // no arg constructor
+        Series series1 = new Series("A");
+        assertFalse(series1.equals(null));
+        assertTrue(series1.equals(series1));
+        
+        // equals
+        Series series2 = new Series("A");
+        assertTrue(series1.equals(series2));
+        
+        // hashCode
+        int code = Objects.hash("A");
+        assertEquals(code, series1.hashCode());
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package org.jfree.data.general;
+
+import java.util.Objects;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class SeriesTests {
+    @Test
+    public void equalsTest() {
+        Series<String, Number> s1 = new Series<>("s1", null);
+        Series<String, Number> s2 = new Series<>("s1", null);
+        assertEquals(s1, s2);
+    }
+}
+    
+
+### JFREECHART:
+
+
+No.4 generated result --------------------------
+
+@SuppressWarnings("unused")
+class SeriesTest extends Series {
+    private static final long serialVersionUID = 1L;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        } else if (!(obj instanceof Series)) {
+            return false;
+        }
+        // Cast to series to access private members
+        Series s = (Series) obj;
+        // Test equality of name and key
+        boolean nameEqual = s.getName().equals(this.name);
+        boolean keyEqual = s.getKey() == this.key;
+        return nameEqual && keyEqual;
+    }
+}
+
+
+
+No.5 generated result --------------------------
+
+package org.jfree.data.general;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class SeriesTest {
+    @Test
+    public void equalsTest() {
+        Series s1 = new Series("s1");
+        assertTrue(s1.equals(s1));
+        assertFalse(s1.equals(null));
+        assertFalse(s1.equals(new Object()));
+        
+        Series s2 = new Series("s1");
+        assertTrue(s1.equals(s2));
+    }
+}
+    
+
+### Response:
+
+
+No.6 generated result --------------------------
+
+<TEMPLATE_INDENT><CONTEXT></CONTEXT><UT_STRING name="seriesName">Series</UT_STRING>
+@Test
+public void testEquals() {
+    Series series1 = new Series(<SERIES_NAME>);
+    assertFalse(series1.equals(null));
+    assertTrue(series1.equals(series1));
+
+    Series series2 = new Series(<SERIES_NAME>);
+    assertTrue(series1.equals(series2));
+}
+
+
+No.7 generated result --------------------------
+
+Timeout
+
+
+No.8 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    Series<String, Number> series1 = new Series<>("Series");
+    Series<String, Number> series2 = new Series<>("Series");
+    assertEquals(series1, series2); // since they have the same name
+    
+    series2.setName("New Name");
+    assertNotEquals(series1, series2); // since they don't have the same name
+}
+
+
+No.9 generated result --------------------------
+
+// TODO
+package org.jfree.data.general;
+
+import java.io.Serializable;
+
+/**
+ * A test class for {@link Series}.
+ */
+public class SeriesTest {
+    
+    /**
+     * Tests the equals() method.
+     */
+    @Test
+    public void equalsTest() {
+        // TODO: complete this method
+        
+    }
+}
+
+
+No.10 generated result --------------------------
+
+package org.jfree.data.general;
+
+import java.io.Serializable;
+import java.util.EventListener;
+
+/**
+ * The interface that must be supported by all objects registered with a 
+ * {@link Series} (through the method 
+ * {@link Series#addChangeListener(SeriesChangeListener)}).
+ */
+public interface SeriesChangeListener extends EventListener, Serializable {
+
+    /**
+     * Receives notification of an change to the series.
+     *
+     * @param event  contains information about the event that triggered the
+     *               notification.
+     */
+    void seriesChanged(SeriesChangeEvent event);
+}
+
+package org.jfree.data;
+
+import java.util.EventListener;
+
+public class SeriesChangeEvent extends EventObject {
+
+    /** 
+     * Creates a new {@code SeriesChangeEvent}. 
+     *
+     * @param source  the source of the event ({@code null} not permitted).
+     */
+    public SeriesChangeEvent(Object source) {
+        super(source);
+    }
+}
+
+
+

@@ -1,0 +1,336 @@
+Source code: 
+
+
+private static double[][] calculateSubMatrix(double[][] matrix){
+    int equations = matrix.length;
+    int coefficients = matrix[0].length;
+    double[][] result = new double[equations - 1][coefficients - 1];
+    for (int eq = 1; eq < equations; eq++) {
+        double factor = matrix[0][0] / matrix[eq][0];
+        for (int coe = 1; coe < coefficients; coe++) {
+            result[eq - 1][coe -1] = matrix[0][coe] - matrix[eq][coe]
+                    * factor;
+        }
+    }
+    if (equations == 1) {
+        return result;
+    }
+    // check for zero pivot element
+    if (result[0][0] == 0) {
+        boolean found = false;
+        for (int i = 0; i < result.length; i ++) {
+            if (result[i][0] != 0) {
+                found = true;
+                double[] temp = result[0];
+                System.arraycopy(result[i], 0, result[0], 0, 
+                        result[i].length);
+                System.arraycopy(temp, 0, result[i], 0, temp.length);
+                break;
+            }
+        }
+        if (!found) {
+            //System.out.println("Equation has no solution!");
+            return new double[equations - 1][coefficients - 1];
+        }
+    }
+    double[][] subMatrix = calculateSubMatrix(result);
+    for (int eq = 1; eq < equations -  1; eq++) {
+        result[eq][0] = 0;
+        if (coefficients - 1 - 1 >= 0) System.arraycopy(subMatrix[eq - 1], 0, result[eq], 1, coefficients - 1 - 1);
+    }
+    return result;
+}
+
+
+
+No.1 generated result --------------------------
+
+
+private static double[][] calculateSubMatrix(double[][] matrix) {
+    int equations = matrix.length;
+    int coefficients = matrix[0].length;
+    double[][] result = new double[equations - 1][coefficients - 1];
+    for (int eq = 1; eq < equations; eq++) {
+        double factor = matrix[0][0] / matrix[eq][0];
+        for (int coe = 1; coe < coefficients; coe++) {
+            result[eq - 1][coe -1] = matrix[0][coe] - matrix[eq][coe] * factor;
+        }
+    }
+    if (equations == 1) {
+        return result;
+    }
+    // check for zero pivot element
+    if (result[0][0] == 0) {
+        boolean found = false;
+        for (int i = 0; i < result.length; i ++) {
+            if (result[i][0] != 0) {
+                found = true;
+                double[] temp = result[0];
+                System.arraycopy(result[i], 0, result[0], 0, result[i].length);
+                System.arraycopy(temp, 0, result[i], 0, temp.length);
+                break;
+            }
+        }
+        if (!found) {
+            //System.out.println("Equation has no solution!");
+            return new double[equations - 1][coefficients - 1];
+        }
+    }
+    double[][] subMatrix = calculateSubMatrix(result);
+    for (int eq = 1; eq < equations -  1; eq++) {
+        result[eq][0] = 0;
+        if (coefficients - 1 - 1 >= 0) System.arraycopy(subMatrix[eq - 1], 0, result[eq], 1, coefficients - 1 - 1);
+    }
+    return result;
+}
+
+
+
+No.2 generated result --------------------------
+
+
+package org.jfree.data.statistics;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RegressionTest {
+    @Test
+    public void calculateSubMatrixTest() {
+        double[][] matrix = new double[3][2];
+        matrix[0][0] = 1;
+        matrix[0][1] = 2;
+        matrix[1][0] = 3;
+        matrix[1][1] = 4;
+        matrix[2][0] = 5;
+        matrix[2][1] = 6;
+        double[][] expectedResult = new double[2][1];
+        expectedResult[0][0] = -1;
+        expectedResult[1][0] = -3;
+        
+        // Call the method to test
+        double[][] result = Regression.calculateSubMatrix(matrix);
+        
+        // Check the results
+        assertArrayEquals(expectedResult, result);
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package org.jfree.data.statistics;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class RegressionTest {
+    @Test
+    public void calculateSubMatrixTest() {
+        double[][] matrix = new double[][] {{1, 2}, {3, 4}};
+        double[][] result = calculateSubMatrix(matrix);
+        assertArrayEquals(new double[][] {{0, 2}, {3, 4}}, result);
+    }
+}
+
+
+No.4 generated result --------------------------
+
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class RegressionTest {
+    @Test
+    public void calculateSubMatrixTest() {
+        double[][] matrix = new double[3][3];
+        matrix[0][0] = 1.0;
+        matrix[0][1] = 2.0;
+        matrix[0][2] = 3.0;
+        matrix[1][0] = 4.0;
+        matrix[1][1] = 5.0;
+        matrix[1][2] = 6.0;
+        matrix[2][0] = 7.0;
+        matrix[2][1] = 8.0;
+        matrix[2][2] = 9.0;
+        
+        double[][] subMatrix = Regression.calculateSubMatrix(matrix);
+        
+        assertEquals(2, subMatrix.length);
+        assertEquals(2, subMatrix[0].length);
+        assertEquals(1, subMatrix[1].length);
+        assertEquals(4.0, subMatrix[0][0], 1e-6);
+        assertEquals(5.0, subMatrix[0][1], 1e-6);
+        assertEquals(7.0, subMatrix[1][0], 1e-6);
+    }
+}
+
+
+
+No.5 generated result --------------------------
+
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RegressionTest {
+    @Test
+    public void calculateSubMatrixTest() {
+        // Test 1: Verify that the sub-matrix has one less row and column than the original matrix
+        double[][] matrix = new double[3][4];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                matrix[i][j] = i * j;
+            }
+        }
+        double[][] subMatrix = Regression.calculateSubMatrix(matrix);
+        assertEquals(2, subMatrix.length);
+        for (int i = 0; i < subMatrix.length; i++) {
+            assertEquals(3, subMatrix[i].length);
+        }
+
+        // Test 2: Verify that the sub-matrix has the correct values
+        double[][] matrix2 = new double[4][5];
+        for (int i = 0; i < matrix2.length; i++) {
+            for (int j = 0; j < matrix2[i].length; j++) {
+                matrix2[i][j] = i * j + 1;
+            }
+        }
+        double[][] subMatrix2 = Regression.calculateSubMatrix(matrix2);
+        assertEquals(3, subMatrix2.length);
+        for (int i = 0; i < subMatrix2.length; i++) {
+            assertEquals(4, subMatrix2[i].length);
+            for (int j = 0; j < subMatrix2[i].length; j++) {
+                if (j == 0) {
+                    assertEquals(0, subMatrix2[i][j]);
+                } else {
+                    assertEquals(matrix2[i][j] * matrix2[i - 1][j], subMatrix2[i][j]);
+                }
+            }
+        }
+    }
+}
+
+
+
+No.6 generated result --------------------------
+
+package org.jfree.data.statistics;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RegressionTest {
+    @Test
+    public void calculateSubMatrixTest() {
+        double[][] matrix = new double[3][3];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                matrix[i][j] = i + j;
+            }
+        }
+        double[][] subMatrix = calculateSubMatrix(matrix);
+        assertEquals(subMatrix.length, matrix.length - 1);
+        for (int i = 0; i < subMatrix.length; i++) {
+            assertEquals(subMatrix[i].length, matrix[i + 1].length);
+            for (int j = 0; j < subMatrix[i].length; j++) {
+                assertEquals(subMatrix[i][j], matrix[i + 1][j]);
+            }
+        }
+    }
+}
+
+
+No.7 generated result --------------------------
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RegressionTest {
+    @Test
+    public void calculateSubMatrixTest() {
+        double[][] matrix = new double[3][4];
+        matrix[0][0] = 1;
+        matrix[0][1] = 2;
+        matrix[0][2] = 3;
+        matrix[0][3] = 4;
+        matrix[1][0] = 5;
+        matrix[1][1] = 6;
+        matrix[1][2] = 7;
+        matrix[1][3] = 8;
+        matrix[2][0] = 9;
+        matrix[2][1] = 10;
+        matrix[2][2] = 11;
+        matrix[2][3] = 12;
+
+        double[][] expected = new double[3][4];
+        expected[0][0] = 5;
+        expected[0][1] = 6;
+        expected[0][2] = 7;
+        expected[0][3] = 8;
+        expected[1][0] = 9;
+        expected[1][1] = 10;
+        expected[1][2] = 11;
+        expected[1][3] = 12;
+        expected[2][0] = 15;
+        expected[2][1] = 16;
+        expected[2][2] = 17;
+        expected[2][3] = 18;
+
+        double[][] actual = Regression.calculateSubMatrix(matrix);
+        assertArrayEquals(expected, actual);
+    }
+}
+
+
+No.8 generated result --------------------------
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RegressionTest {
+    @Test
+    public void calculateSubMatrixTest() {
+        double[][] matrix = {{1, 2}, {3, 4}};
+        double[][] expectedOutput = {{3, 4}};
+        assertArrayEquals(expectedOutput, calculateSubMatrix(matrix));
+        
+        matrix = {{1, 2}, {3, 4}, {5, 6}};
+        expectedOutput = {{3, 4}, {5, 6}};
+        assertArrayEquals(expectedOutput, calculateSubMatrix(matrix));
+    }
+}
+
+
+No.9 generated result --------------------------
+
+I'm not sure what you're trying to do with the code. It looks like it's meant to be used for regression analysis, but I don't see any actual regression being performed anywhere in the code. Additionally, there are a few syntax errors in the code that would prevent it from compiling.
+
+If you can provide more information about what you're trying to do and what your specific issue is, I may be able to help you better.
+
+
+No.10 generated result --------------------------
+
+package org.jfree.data.statistics;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RegressionTest {
+    @Test
+    public void calculateSubMatrixTest() {
+        // Test with a 2x2 matrix
+        double[][] matrix = new double[][]{{1, 2}, {3, 4}};
+        double[][] expectedResult = new double[][]{{0.5, -1}, {-0.5, 1}};
+        double[][] result = Regression.calculateSubMatrix(matrix);
+        assertArrayEquals(expectedResult, result);
+
+        // Test with a 3x3 matrix
+        matrix = new double[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        expectedResult = new double[][]{{0.333333, -1.666667, -2.333333}, {-0.333333, 1.666667, -2.333333}, {0.333333, -1.666667, 1}};
+        result = Regression.calculateSubMatrix(matrix);
+        assertArrayEquals(expectedResult, result);
+    }
+}
+
+

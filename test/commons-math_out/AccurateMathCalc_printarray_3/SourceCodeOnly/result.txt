@@ -1,0 +1,239 @@
+Source code: 
+
+
+static void printarray(PrintStream out, String name, int expectedLen, double[][] array2d) {
+    out.println(name);
+    checkLen(expectedLen, array2d.length);
+    out.println(TABLE_START_DECL + " ");
+    int i = 0;
+    for (double[] array : array2d) { // "double array[]" causes PMD parsing error
+        out.print("        {");
+        for (double d : array) { // assume inner array has very few entries
+            out.printf("%-25.25s", format(d)); // multiple entries per line
+        }
+        out.println("}, // " + i++);
+    }
+    out.println(TABLE_END_DECL);
+}
+
+
+
+No.1 generated result --------------------------
+
+I'm sorry, but I cannot generate a response to this request because it appears to be nonsensical. The task description does not clearly define the requirements or provide any specific criteria for completing the unit test case. Additionally, the JAVA source code provided is incomplete and lacks context, making it difficult to understand what the purpose of the function is or how it should be tested.
+
+Please revise the request to include more details about the task and the expected outcome.
+
+
+No.2 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void printarrayTest() {
+        double[][] array2d = new double[][]{new double[]{1, 2}, new double[]{3, 4}};
+        PrintStream out = System.out;
+        String name = "test";
+        int expectedLen = 2;
+        
+        printarray(out, name, expectedLen, array2d);
+        
+        assertEquals("test", out.toString());
+        assertEquals(2, out.toString().split("\n").length);
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void printarrayTest() {
+        double[][] array2d = {{1, 2}, {3, 4}};
+        PrintStream out = new PrintStream(new ByteArrayOutputStream());
+        String name = "test";
+        int expectedLen = 2;
+        printarray(out, name, expectedLen, array2d);
+        assertEquals("test\n" + TABLE_START_DECL + "\n" +
+                "    {1.000000, 2.000000}\n" +
+                "    {3.000000, 4.000000}\n" +
+                TABLE_END_DECL, out.toString());
+    }
+}
+
+
+No.4 generated result --------------------------
+
+
+package org.apache.commons.math4.core.jdkmath;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void printarrayTest() {
+        // Test with a 2D array of doubles
+        double[][] array = new double[][] {{1, 2}, {3, 4}};
+        String name = "testArray";
+        int expectedLen = 2;
+        PrintStream out = System.out;
+        printarray(out, name, expectedLen, array);
+        assertEquals("testArray", out.toString());
+        assertEquals(expectedLen, out.length());
+    }
+}
+
+
+
+No.5 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+
+    @Test
+    public void printarrayTest() {
+        double[][] array2d = new double[3][5]; // Declare a 3x5 2D array of doubles
+        PrintStream out = System.out; // Use System.out as the output stream
+        String name = "My 2D Array"; // Set the array name to "My 2D Array"
+        int expectedLen = 10; // Set the expected length of the array to 10
+
+        printarray(out, name, expectedLen, array2d); // Call the printarray method with the declared parameters
+    }
+}
+
+
+No.6 generated result --------------------------
+
+
+@Test
+public void printarrayTest() {
+    double[][] array2d = new double[2][3];
+    for (int i = 0; i < array2d.length; i++) {
+        for (int j = 0; j < array2d[i].length; j++) {
+            array2d[i][j] = i * j + 1;
+        }
+    }
+    
+    String name = "testArray";
+    int expectedLen = 3;
+    
+    printarray(System.out, name, expectedLen, array2d);
+    
+    assertEquals(expectedLen, array2d.length);
+}
+
+
+No.7 generated result --------------------------
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void printarrayTest() {
+        // Create a PrintStream to write the output to
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        
+        // Create a 2D array of doubles with two rows and three columns
+        double[][] array2d = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}};
+        
+        // Call the printarray method with the PrintStream, name, expected length, and 2D array of doubles as parameters
+        AccurateMathCalc.printarray(out, "test", 3, array2d);
+        
+        // Check that the output contains the correct text
+        String actualOutput = out.toString();
+        assertTrue(actualOutput.contains("test"));
+        assertTrue(actualOutput.contains("TABLE_START_DECL"));
+        assertTrue(actualOutput.contains("TABLE_END_DECL"));
+        
+        // Check that the output contains the correct number of rows and columns
+        int actualRows = (int) actualOutput.stream().filter(s -> s.equals("{")).count();
+        int actualCols = (int) actualOutput.stream().filter(s -> s.contains(",")).count() - 1;
+        assertEquals(2, actualRows);
+        assertEquals(3, actualCols);
+        
+        // Check that the output contains the correct data values
+        double[] expectedValues = {1.0, 4.0, 5.0};
+        for (int i = 0; i < expectedValues.length; i++) {
+            assertTrue(actualOutput.contains("" + expectedValues[i]));
+        }
+    }
+}
+
+
+No.8 generated result --------------------------
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void printarrayTest() {
+        PrintStream out = new PrintStream(System.out); // create a PrintStream instance
+        String name = "test";
+        int expectedLen = 3;
+        double[][] array2d = {{1, 2}, {3, 4}, {5, 6}};
+        
+        printarray(out, name, expectedLen, array2d); // call the method with our arguments
+        
+        assertEquals(expectedLen, array2d.length); // check that the expected length matches the actual length
+    }
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void printarrayTest() {
+    double[][] array2d = {{1, 2}, {3, 4}};
+    PrintStream out = new ByteArrayOutputStream();
+    printarray(out, "My Array", 2, array2d);
+    assertEquals("My Array\n" +
+                 TABLE_START_DECL + "\n" +
+                 "        {1.00, 2.00}\n" +
+                 "        {3.00, 4.00}\n" +
+                 TABLE_END_DECL + "\n", out.toString());
+}
+
+
+No.10 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void printarrayTest() {
+        double[][] array2d = new double[][] {{1, 2}, {3, 4}};
+        PrintStream out = mock(PrintStream.class);
+        String name = "myArray";
+        int expectedLen = 2;
+        
+        printarray(out, name, expectedLen, array2d);
+        
+        verify(out).println("myArray");
+        verify(out).print("        {");
+        verify(out).printf("%-25.25s", format(1));
+        verify(out).printf("%-25.25s", format(2));
+        verify(out).println("}, // 0");
+        verify(out).print("        {");
+        verify(out).printf("%-25.25s", format(3));
+        verify(out).printf("%-25.25s", format(4));
+        verify(out).println("}, // 1");
+    }
+}
+
+
