@@ -1,71 +1,89 @@
 jfreechart/src/main/java/org/jfree/data/json/JSONUtils.java
 56
 78
+jfreechart
 
 jfreechart/src/main/java/org/jfree/data/statistics/BoxAndWhiskerCalculator.java
 154
 186
+jfreechart
 
 jfreechart/src/main/java/org/jfree/data/statistics/Regression.java
 134
 175
+jfreechart
 
 jfreechart/src/main/java/org/jfree/data/statistics/Regression.java
 305
 353
+jfreechart
 
 jfreechart/src/main/java/org/jfree/data/general/DatasetUtils.java
 89
 117
+jfreechart
 
 jfreechart/src/main/java/org/jfree/data/general/Series.java
 248
 274
+jfreechart
 
 commons-lang/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java
 358
 396
+commons-lang
 
 commons-lang/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java
 414
 452
+commons-lang
 
 commons-lang/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java
 531
 569
+commons-lang
 
 commons-lang/src/main/java/org/apache/commons/lang3/builder/DiffResult.java
 178
 201
+commons-lang
 
 commons-math/commons-math-core/src/main/java/org/apache/commons/math4/core/jdkmath/AccurateMathCalc.java
 195
 239
+commons-math/commons-math-core
 
 commons-math/commons-math-core/src/main/java/org/apache/commons/math4/core/jdkmath/AccurateMathCalc.java
 287
 321
+commons-math/commons-math-core
 
 commons-math/commons-math-core/src/main/java/org/apache/commons/math4/core/jdkmath/AccurateMathCalc.java
 384
 430
+commons-math/commons-math-core
 
 commons-math/commons-math-core/src/main/java/org/apache/commons/math4/core/jdkmath/AccurateMathCalc.java
 594
 614
+commons-math/commons-math-core
 
 commons-math/commons-math-legacy-core/src/main/java/org/apache/commons/math4/legacy/core/Pair.java
 96
 119
+commons-math/commons-math-core
 
 commons-math/commons-math-legacy-core/src/main/java/org/apache/commons/math4/legacy/core/Pair.java
 121
 134
+commons-math/commons-math-core
 
 commons-math/commons-math-neuralnet/src/main/java/org/apache/commons/math4/neuralnet/Neuron.java
 108
 162
+commons-math/commons-math-core
 
 commons-math/commons-math-neuralnet/src/main/java/org/apache/commons/math4/neuralnet/Neuron.java
 194
 218
+commons-math/commons-math-core

@@ -141,8 +141,20 @@ def generate_test(json_data, path, number=10):
                     file.flush()
                     record.append(output)
             with open(third_path + "result.json", 'w') as file:
-                # TODO: 这里需要在json文件中加入project name，class name，method name等定位信息
-                json.dump(record, file, indent=4)
+                record_data = {
+                    "project_name": json_data[i]['project_name'],
+                    "file_name": json_data[i]['file_name'],
+                    "relative_path": json_data[i]['relative_path'],
+                    "execute_path": json_data[i]['execute_path'],
+                    "package": json_data[i]['package'],
+                    "docstring": json_data[i]['docstring'],
+                    "source_code": json_data[i]['source_code'],
+                    "class_name": json_data[i]['class_name'],
+                    "method_name": json_data[i]['method_name'],
+                    "arguments": json_data[i]['arguments'],
+                    "generate_test": record
+                }
+                json.dump(record_data, file, indent=4)
 
 
 if __name__ == "__main__":

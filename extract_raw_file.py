@@ -30,16 +30,17 @@ def extract_blocks(file_path):
         lines = file.readlines()
         num_lines = len(lines)
         i = 0
-        while i + 3 <= num_lines:
+        while i + 4 <= num_lines:
             path = lines[i].strip()  # get the relative path of the java file
             start_line = lines[i + 1].strip()  # get the start line number
             end_line = lines[i + 2].strip()  # get the end line number
+            execute_path = lines[i + 3].strip()  # get the execute path
             if path and start_line and end_line:
                 try:
                     start_line = int(start_line)
                     end_line = int(end_line)
                     if end_line > start_line:
-                        block = {'path': path, 'start_line': start_line, 'end_line': end_line}
+                        block = {'path': path, 'start_line': start_line, 'end_line': end_line, 'execute_path': execute_path}
                         blocks.append(block)
                     else:
                         print(f"Invalid block at line {i + 3}: end_line must be greater than start_line. Skipping block.")
@@ -47,9 +48,8 @@ def extract_blocks(file_path):
                     print(f"Invalid block at line {i + 3}: start_line and end_line must be integers. Skipping block.")
             else:
                 print(f"Invalid block at line {i + 3}: Missing information. Skipping block.")
-            i += 4
+            i += 5
     return blocks
-
 
 def extract_lines_from_file(file_path, start_line, end_line):
     """
@@ -266,6 +266,7 @@ if __name__ == "__main__":
     for each in blocks:
         os.chdir(relative_project_path)
         relative_path = each['path']
+        execute_path = each['execute_path']
         project_name, file_name = extract_path(relative_path)
         code = extract_lines_from_file(relative_path, each['start_line'], each['end_line'])
         file = read_file(relative_path)
@@ -276,6 +277,7 @@ if __name__ == "__main__":
             "project_name": project_name,
             "file_name": file_name,
             "relative_path": relative_path,
+            "execute_path": execute_path,
             "package": package_name,
             "docstring": docstring,
             "source_code": source_code,

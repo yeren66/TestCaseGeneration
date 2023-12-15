@@ -9,7 +9,6 @@ from tqdm import tqdm
 basic_path = "./test/"
 info_path = "./output/"
 relative_project_path = "/home/yeren/java-project/"
-# TODO: tmp, remove later
 java_execute_path = {"commons-lang": "/home/yeren/java-project/commons-lang/" ,"commons-math": "/home/yeren/java-project/commons-math/", "jfreechart": "/home/yeren/java-project/jfreechart/"}
 current_path = os.getcwd()
 logging.basicConfig(filename='log/java_project_execute.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
