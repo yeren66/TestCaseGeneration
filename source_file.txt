@@ -43,11 +43,6 @@ commons-lang/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.jav
 569
 commons-lang
 
-commons-lang/src/main/java/org/apache/commons/lang3/builder/DiffResult.java
-178
-201
-commons-lang
-
 commons-math/commons-math-core/src/main/java/org/apache/commons/math4/core/jdkmath/AccurateMathCalc.java
 195
 239
@@ -71,19 +66,19 @@ commons-math/commons-math-core
 commons-math/commons-math-legacy-core/src/main/java/org/apache/commons/math4/legacy/core/Pair.java
 96
 119
-commons-math/commons-math-core
+commons-math/commons-math-legacy-core
 
 commons-math/commons-math-legacy-core/src/main/java/org/apache/commons/math4/legacy/core/Pair.java
 121
 134
-commons-math/commons-math-core
+commons-math/commons-math-legacy-core
 
 commons-math/commons-math-neuralnet/src/main/java/org/apache/commons/math4/neuralnet/Neuron.java
 108
 162
-commons-math/commons-math-core
+commons-math/commons-math-neuralnet
 
 commons-math/commons-math-neuralnet/src/main/java/org/apache/commons/math4/neuralnet/Neuron.java
 194
 218
-commons-math/commons-math-core
+commons-math/commons-math-neuralnet

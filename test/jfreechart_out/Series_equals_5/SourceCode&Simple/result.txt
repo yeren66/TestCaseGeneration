@@ -26,20 +26,81 @@ public boolean equals(Object obj) {
 
 No.1 generated result --------------------------
 
-@Test
-public void equalsTest() {
-    // Create two series with the same key and description
-    Comparable key = "key";
-    String description = "description";
-    Series s1 = new Series(key, description);
-    Series s2 = new Series(key, description);
-    
-    // Check that the equals method returns true for both series
-    assertTrue(s1.equals(s2));
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class SeriesTest {
+    @Test
+    public void equalsTest() {
+        // Create two instances of the Series class
+        Series series1 = new Series(null);
+        Series series2 = new Series(null);
+        
+        // Verify that the equals method returns true when comparing the same instance
+        assertTrue(series1.equals(series1));
+        
+        // Verify that the equals method returns false when comparing a different instance with the same key and description
+        series2.setKey("key");
+        series2.setDescription("description");
+        assertFalse(series1.equals(series2));
+        
+        // Verify that the equals method returns true when comparing two instances with the same key and description
+        series1.setKey("key");
+        series1.setDescription("description");
+        assertTrue(series1.equals(series2));
+    }
 }
 
 
 No.2 generated result --------------------------
+
+package org.jfree.data.general;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class SeriesTest {
+    @Test
+    public void equalsTest() {
+        // Test 1: equal keys and descriptions
+        Series series1 = new Series("Key", "Description");
+        Series series2 = new Series("Key", "Description");
+        assertTrue(series1.equals(series2));
+
+        // Test 2: unequal keys
+        series1 = new Series("Key1", "Description");
+        series2 = new Series("Key2", "Description");
+        assertFalse(series1.equals(series2));
+
+        // Test 3: unequal descriptions
+        series1 = new Series("Key", "Description1");
+        series2 = new Series("Key", "Description2");
+        assertFalse(series1.equals(series2));
+    }
+}
+
+
+No.3 generated result --------------------------
+
+import org.jfree.data.general.Series;
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class SeriesTest {
+    @Test
+    public void equalsTest() {
+        // Create two Series objects with the same key and description
+        Series series1 = new Series("Series 1", "Description 1");
+        Series series2 = new Series("Series 1", "Description 1");
+        
+        // Test that the equals method returns true when comparing the two Series objects
+        assertTrue(series1.equals(series2));
+    }
+}
+
+
+No.4 generated result --------------------------
 
 
 package org.jfree.data.general;
@@ -50,41 +111,16 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SeriesTest {
     @Test
     public void equalsTest() {
-        Series series1 = new Series(null);
-        assertEquals(series1, series1);
-        
-        Series series2 = new Series("key");
+        // Create two instances of the Series class with different keys and descriptions
+        Series series1 = new Series("key", "description");
+        Series series2 = new Series("key2", "description2");
+
+        // Test that the instances are not equal if they have different keys
         assertNotEquals(series1, series2);
-        
-        Series series3 = new Series(null, "description");
-        assertEquals(series1, series3);
-        
-        Series series4 = new Series(null, null);
-        assertEquals(series1, series4);
-    }
-}
 
-
-No.3 generated result --------------------------
-
-I'm not sure I understand what you are saying. Could you explain?
-
-
-No.4 generated result --------------------------
-
-import org.jfree.data.general.Series;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class SeriesTest {
-    @Test
-    public void equalsTest() {
-        // Create two series with the same key and description
-        Series series1 = new Series("Key", "Description");
-        Series series2 = new Series("Key", "Description");
-        
-        // Check that both series are equal
-        assertTrue(series1.equals(series2));
+        // Test that the instances are not equal if they have different descriptions
+        series2.setKey("key");
+        assertNotEquals(series1, series2);
     }
 }
 
@@ -92,30 +128,20 @@ public class SeriesTest {
 No.5 generated result --------------------------
 
 
-package org.jfree.data.general;
-
+import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SeriesTest {
     @Test
     public void equalsTest() {
-        // Test that two Series objects are equal if they have the same key and description
-        Series series1 = new Series("key", "description");
-        Series series2 = new Series("key", "description");
-        assertEquals(series1, series2);
-
-        // Test that two Series objects are not equal if they have different keys
-        series1 = new Series("key1", "description");
-        series2 = new Series("key2", "description");
-        assertNotEquals(series1, series2);
-
-        // Test that two Series objects are not equal if they have different descriptions
-        series1 = new Series("key", "description1");
-        series2 = new Series("key", "description2");
-        assertNotEquals(series1, series2);
+        Series series1 = new Series(new Comparable("Key"), "Description");
+        assertEquals(series1, series1);
+        
+        Series series2 = new Series(new Comparable("Key"), "Description");
+        assertNotSame(series1, series2);
+        assertTrue(series1.equals(series2));
     }
 }
-
 
 
 No.6 generated result --------------------------
@@ -128,22 +154,17 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SeriesTest {
     @Test
     public void equalsTest() {
-        // Create two instances of Series with the same key and description, but different notify values
+        // Create two series objects with the same key and description
         Series series1 = new Series("key", "description");
-        series1.setNotify(true);
         Series series2 = new Series("key", "description");
-        series2.setNotify(false);
 
-        // Check that the instances are not equal
-        assertFalse(series1.equals(series2));
+        // Verify that they are equal
+        assertEquals(series1, series2);
     }
 }
 
 
 No.7 generated result --------------------------
-
-
-package org.jfree.data.general;
 
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -151,21 +172,23 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SeriesTest {
     @Test
     public void equalsTest() {
-        // Test that equals() method returns true when comparing the same object
-        Series series1 = new Series("Series 1");
-        assertEquals(series1, series1);
-        
-        // Test that equals() method returns false when comparing objects of different class
-        Object obj = new Object();
-        assertNotEquals(series1, obj);
-        
-        // Test that equals() method returns true when comparing two equal Series objects
-        Series series2 = new Series("Series 1");
-        assertEquals(series1, series2);
-        
-        // Test that equals() method returns false when comparing two unequal Series objects
-        series2.setKey("Series 2");
-        assertNotEquals(series1, series2);
+        Series series1 = new Series("Key 1", "Description 1");
+        Series series2 = new Series("Key 1", "Description 1");
+        assertTrue(series1.equals(series2));
+
+        series1.addChangeListener(new SeriesChangeListener() {
+            @Override
+            public void seriesChanged(SeriesChangeEvent event) {
+                // do nothing
+            }
+        });
+        series2.addChangeListener(new SeriesChangeListener() {
+            @Override
+            public void seriesChanged(SeriesChangeEvent event) {
+                // do nothing
+            }
+        });
+        assertFalse(series1.equals(series2));
     }
 }
 
@@ -180,43 +203,35 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SeriesTest {
     @Test
     public void equalsTest() {
-        // Create two instances of the Series class with the same key and description
-        Series series1 = new Series("Key", "Description");
-        Series series2 = new Series("Key", "Description");
+        // Create two instances of Series with the same key and description
+        Series series1 = new Series(new Comparable("key1"), "description1");
+        Series series2 = new Series(new Comparable("key1"), "description1");
         
-        // Test that both instances are equal to each other
-        assertEquals(series1, series2);
+        // Test that both instances are equal
+        assertTrue(series1.equals(series2));
     }
 }
 
 
 No.9 generated result --------------------------
 
-package org.jfree.data.general;
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class SeriesTest {
-    @Test
-    public void equalsTest() {
-        // Test that the method returns true when called on an object of the same class with different values for the fields
-        Series series1 = new Series(new Comparable("key1"), "description1");
-        Series series2 = new Series(new Comparable("key1"), "description2");
-        assertTrue(series1.equals(series2));
-
-        // Test that the method returns false when called on an object of a different class than the current object
-        OtherClass otherClass = new OtherClass();
-        assertFalse(series1.equals(otherClass));
-
-        // Test that the method returns true when called on a subclass of the current class with the same values for the fields
-        SubclassSeries series3 = new SubclassSeries(new Comparable("key1"), "description1");
-        assertTrue(series1.equals(series3));
-
-        // Test that the method returns false when called on an object with null or missing values for the fields
-        Series series4 = new Series(null, "description1");
-        assertFalse(series1.equals(series4));
-    }
+@Test
+public void equalsTest() {
+    Series series1 = new Series(null);
+    Series series2 = new Series(null);
+    
+    assertTrue(series1.equals(series2));
+    
+    series1 = new Series("key");
+    series2 = new Series("key");
+    
+    assertTrue(series1.equals(series2));
+    
+    series1 = new Series("key", "description");
+    series2 = new Series("key", "description");
+    
+    assertTrue(series1.equals(series2));
 }
 
 
@@ -231,14 +246,18 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SeriesTest {
     @Test
     public void equalsTest() {
-        // Create two series with the same key and description
-        Series series1 = new Series(1, "Series 1");
-        Series series2 = new Series(1, "Series 1");
-
-        // Check that they are equal
+        Series series1 = new Series(null);
+        Series series2 = new Series(null);
+        assertEquals(series1, series2);
+        
+        series1 = new Series("key");
+        series2 = new Series("key");
+        assertEquals(series1, series2);
+        
+        series1 = new Series("key", "description");
+        series2 = new Series("key", "description");
         assertEquals(series1, series2);
     }
 }
-
 
 

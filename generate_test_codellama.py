@@ -9,7 +9,7 @@ import signal
 import os
 
 url = 'http://localhost:11434/api/generate'
-logging.basicConfig(filename='log/log_file_1.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='log/log_file_generate.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 def process_json_stream(json_stream):

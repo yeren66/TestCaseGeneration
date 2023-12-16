@@ -16,51 +16,46 @@ public static String writeKeyedValues(KeyedValues data) {
 
 No.1 generated result --------------------------
 
-
-package org.jfree.data.json;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class JSONUtilsTest {
-    @Test
-    public void writeKeyedValuesTest() {
-        KeyedValues data = new KeyedValues();
-        StringWriter sw = new StringWriter();
-        
-        try {
-            writeKeyedValues(data, sw);
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        }
-        
-        assertEquals("", sw.toString());
-    }
+@Test
+public void writeKeyedValuesTest() {
+    // Create a KeyedValues object with some data
+    KeyedValues keyedValues = new KeyedValues();
+    keyedValues.put("key1", "value1");
+    keyedValues.put("key2", "value2");
+    
+    // Write the KeyedValues object to a StringWriter
+    StringWriter sw = new StringWriter();
+    JSONUtils.writeKeyedValues(keyedValues, sw);
+    
+    // Read the written data from the StringWriter and compare it to the expected result
+    String expectedResult = "{\"key1\":\"value1\",\"key2\":\"value2\"}";
+    assertEquals(expectedResult, sw.toString());
 }
 
 
 No.2 generated result --------------------------
 
 
-package org.jfree.data.json;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class JSONUtilsTest {
-    @Test
-    public void writeKeyedValuesTest() {
-        KeyedValues data = new KeyedValues();
-        data.addValue("key1", 1);
-        data.addValue("key2", "value2");
-        String result = JSONUtils.writeKeyedValues(data);
-        assertEquals("{\"key1\":1,\"key2\":\"value2\"}", result);
+@Test
+public void writeKeyedValuesTest() {
+    KeyedValues data = new KeyedValues();
+    StringWriter sw = new StringWriter();
+    
+    try {
+        JSONUtils.writeKeyedValues(data, sw);
+    } catch (IOException ex) {
+        fail("Unexpected IOException: " + ex.getMessage());
     }
+    
+    assertEquals("<FILL>", sw.toString());
 }
 
 
 No.3 generated result --------------------------
 
+
+The response to the request is as follows:
+
 package org.jfree.data.json;
 
 import org.junit.jupiter.api.*;
@@ -69,18 +64,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class JSONUtilsTest {
     @Test
     public void writeKeyedValuesTest() {
-        // Create a KeyedValues object with some test data
         KeyedValues data = new KeyedValues();
-        data.put("name", "John Doe");
-        data.put("age", 30);
+        data.put("key1", "value1");
+        data.put("key2", "value2");
         
-        // Write the key-value pairs to a StringWriter
-        StringWriter sw = new StringWriter();
-        JSONUtils.writeKeyedValues(data, sw);
+        String expectedOutput = "{\"key1\":\"value1\",\"key2\":\"value2\"}";
         
-        // Convert the StringWriter's contents to a String and check that it matches the expected JSON data
-        String jsonData = sw.toString();
-        assertEquals("{\"name\":\"John Doe\",\"age\":30}", jsonData);
+        assertEquals(expectedOutput, JSONUtils.writeKeyedValues(data));
     }
 }
 
@@ -88,8 +78,6 @@ public class JSONUtilsTest {
 No.4 generated result --------------------------
 
 
-package org.jfree.data.json;
-
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -97,12 +85,12 @@ public class JSONUtilsTest {
     @Test
     public void writeKeyedValuesTest() {
         KeyedValues data = new KeyedValues();
+        data.addValue("key1", "value1");
+        data.addValue("key2", "value2");
+        
         StringWriter sw = new StringWriter();
-        try {
-            writeKeyedValues(data, sw);
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        }
+        JSONUtils.writeKeyedValues(data, sw);
+        
         assertEquals("{\"key1\":\"value1\",\"key2\":\"value2\"}", sw.toString());
     }
 }
@@ -111,25 +99,6 @@ public class JSONUtilsTest {
 No.5 generated result --------------------------
 
 
-package org.jfree.data.json;
-
-import java.io.*;
-import junit.framework.TestCase;
-
-public class JSONUtilsTest extends TestCase {
-    @Test
-    public void writeKeyedValuesTest() throws Exception {
-        KeyedValues data = new KeyedValues();
-        StringWriter sw = new StringWriter();
-        JSONUtils.writeKeyedValues(data, sw);
-        assertEquals("{\"key\":\"value\"}", sw.toString());
-    }
-}
-
-
-No.6 generated result --------------------------
-
-
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -137,13 +106,36 @@ public class JSONUtilsTest {
     @Test
     public void writeKeyedValuesTest() {
         KeyedValues data = new KeyedValues();
-        data.add("key1", "value1");
-        data.add("key2", "value2");
-        String result = JSONUtils.writeKeyedValues(data);
-        assertEquals("{\"key1\":\"value1\",\"key2\":\"value2\"}", result);
+        StringWriter sw = new StringWriter();
+        
+        // Add some values to the keyed values object
+        data.put("key1", "value1");
+        data.put("key2", 2);
+        
+        // Write the keyed values to a string writer
+        JSONUtils.writeKeyedValues(data, sw);
+        
+        // Check that the result is as expected
+        String expected = "{\"key1\":\"value1\",\"key2\":2}";
+        assertEquals(expected, sw.toString());
     }
 }
 
+
+No.6 generated result --------------------------
+
+
+@Test
+public void writeKeyedValuesTest() {
+    KeyedValues data = new KeyedValues();
+    StringWriter sw = new StringWriter();
+    try {
+        JSONUtils.writeKeyedValues(data, sw);
+    } catch (IOException ex) {
+        throw new RuntimeException(ex);
+    }
+    assertEquals("", sw.toString());
+}
 
 
 No.7 generated result --------------------------
@@ -158,56 +150,20 @@ public class JSONUtilsTest {
     @Test
     public void writeKeyedValuesTest() {
         KeyedValues data = new KeyedValues();
-        data.put("key1", "value1");
-        data.put("key2", "value2");
-        data.put("key3", "value3");
-        
-        String expectedOutput = "{\"key1\":\"value1\",\"key2\":\"value2\",\"key3\":\"value3\"}";
-        assertEquals(expectedOutput, JSONUtils.writeKeyedValues(data));
-    }
-}
-
-
-
-No.8 generated result --------------------------
-
-
-I'm not sure what you mean by "complete the section contains <FILL> tag and output the whole test case." Could you please provide more information or clarify your question? I'd be happy to help if I can.
-
-
-No.9 generated result --------------------------
-
-
-package org.jfree.data.json;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class JSONUtilsTest {
-    @Test
-    public void writeKeyedValuesTest() {
-        // Create a KeyedValues object with some test data
-        KeyedValues data = new KeyedValues();
-        data.add("key1", "value1");
-        data.add("key2", 2);
-        data.add("key3", true);
-
-        // Write the key-value pairs to a StringWriter using the writeKeyedValues method
         StringWriter sw = new StringWriter();
+        
         try {
             JSONUtils.writeKeyedValues(data, sw);
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
-
-        // Check that the expected output was written to the StringWriter
-        assertEquals("{\"key1\":\"value1\",\"key2\":2,\"key3\":true}", sw.toString());
+        
+        assertEquals("{\"key\":\"value\"}", sw.toString());
     }
 }
 
 
-
-No.10 generated result --------------------------
+No.8 generated result --------------------------
 
 
 package org.jfree.data.json;
@@ -219,12 +175,60 @@ public class JSONUtilsTest {
     @Test
     public void writeKeyedValuesTest() {
         KeyedValues data = new KeyedValues();
-        data.add(new KeyValue("key1", "value1"));
-        data.add(new KeyValue("key2", 2));
+        StringWriter sw = new StringWriter();
+        try {
+            JSONUtils.writeKeyedValues(data, sw);
+            assertEquals("", sw.toString());
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+}
+
+
+No.9 generated result --------------------------
+
+package org.jfree.data.json;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class JSONUtilsTest {
+    @Test
+    public void writeKeyedValuesTest() {
+        KeyedValues data = new KeyedValues();
+        data.put("key1", "value1");
+        data.put("key2", 2);
+        StringWriter sw = new StringWriter();
         
-        String result = JSONUtils.writeKeyedValues(data);
+        JSONUtils.writeKeyedValues(data, sw);
         
-        assertEquals("{\"key1\":\"value1\",\"key2\":2}", result);
+        assertEquals("{\"key1\":\"value1\",\"key2\":2}", sw.toString());
+    }
+}
+
+
+No.10 generated result --------------------------
+
+package org.jfree.data.json;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class JSONUtilsTest {
+    @Test
+    public void writeKeyedValuesTest() {
+        // Create a KeyedValues object with some data
+        KeyedValues kv = new KeyedValues();
+        kv.put("key1", "value1");
+        kv.put("key2", 123);
+        
+        // Write the KeyedValues object to a StringWriter
+        StringWriter sw = new StringWriter();
+        JSONUtils.writeKeyedValues(kv, sw);
+        
+        // Check that the resulting string is correct
+        assertEquals("{\"key1\":\"value1\",\"key2\":123}", sw.toString());
     }
 }
 

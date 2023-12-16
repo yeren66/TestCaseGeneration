@@ -14,7 +14,7 @@ import os
 import json
 
 source_file_path = "source_file.txt"
-relative_project_path = "/home/yeren/java-project/"
+relative_project_path = "/home/joseph/java_project/"
 output_file_path = "output/"
 
 

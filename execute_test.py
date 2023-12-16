@@ -9,7 +9,8 @@ from extract_raw_file import update_json_file
 
 basic_path = "./test/"
 info_path = "./output/"
-relative_project_path = "/home/yeren/java-project/"
+append_path = "./result/"
+relative_project_path = "/home/joseph/java_project/"
 current_path = os.getcwd()
 logging.basicConfig(filename='log/java_project_execute.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -68,10 +69,12 @@ def result_evaluate(data, file_path, class_name, method_name):
             continue
         
         # 将代码写入文件，进行编译检查
+        # -Drat.skip=true 是遇到License检查才添加的参数
+        # 对于新项目，所需要的参数可能不尽相同，为此可能需要频繁修改此内容。
         write_file(file_path, syntax_ret, data[j])
         logging.info("####################  mvn clean test-compile  ####################")
         sp = subprocess.Popen(
-            "mvn clean test-compile",
+            "mvn clean test-compile -Drat.skip=true",
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE, shell=True)
         stdout, stderr = sp.communicate(timeout=60)
@@ -87,9 +90,11 @@ def result_evaluate(data, file_path, class_name, method_name):
                 continue
 
         # 进行测试检查
+        # -Drat.skip=true 是遇到License检查才添加的参数
+        # 对于新项目，所需要的参数可能不尽相同，为此可能需要频繁修改此内容。
         logging.info("####################  mvn test -Dtest=" + syntax_ret + "####################")
         sp = subprocess.Popen(
-            "mvn test -Dtest=" + syntax_ret,
+            "mvn test -Drat.skip=true -Dtest=" + syntax_ret,
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE, shell=True)
         stdout, stderr = sp.communicate(timeout=60)
@@ -117,9 +122,11 @@ if __name__ == "__main__":
     for second_path in tqdm(path_list):
         # os.chdir(current_path)
         each_result = {}
+        project_name = "unknown"
         for item in os.listdir(second_path):
             os.chdir(current_path)
             data = json_reader(os.path.join(second_path, item, "result.json"))
+            project_name = data['project_name']
             class_name = data['class_name']
             method_name = data['method_name']
             relative_path = os.path.join(relative_project_path, data['relative_path'])
@@ -136,7 +143,8 @@ if __name__ == "__main__":
             each_result[item] = execute_result
 
         os.chdir(current_path)
-        update_json_file('test_result.json', each_result)
+        update_json_file(os.path.join(append_path, project_name + '_result.json'), each_result)
+        update_json_file("total_result.json", each_result)
     
     print("Finish!")
 

@@ -27,85 +27,38 @@ public static double calculateQ1(List values) {
 
 No.1 generated result --------------------------
 
-    
-BoxAndWhiskerItem item = new BoxAndWhiskerItem(
-        Double.NaN, 20.5, 19.6, 24.3, 18.7, 27.8, 18.2, 27.8, null);
-    
-    @Test
-    public void calculateQ1Test() {
-        List<Number> numbers = new ArrayList<>();
-        numbers.add(Double.NaN);
-        numbers.add(19.6);
-        numbers.add(20.5);
-        numbers.add(24.3);
-        
-        BoxAndWhiskerItem result = 
-            BoxAndWhiskerCalculator.calculateBoxAndWhiskerStatistics(numbers, false);
-        assertEquals(result.getFirstQuartile(), item.getFirstQuartile());
-    }
-    
-
-### JUNIT Test case:
 package org.jfree.data.statistics;
 
 import java.util.*;
-import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BoxAndWhiskerCalculatorTest {
     @Test
     public void calculateQ1Test() {
-        <FILL>
+        List values = Arrays.asList(3.0, 4.0, 5.0);
+        double result = BoxAndWhiskerCalculator.calculateQ1(values);
+        assertEquals(4.0, result);
     }
 }
-    
 
-### Response:
 
 
 No.2 generated result --------------------------
 
-package org.jfree.data.statistics;
-
-import java.util.ArrayList;
-import java.util.List;
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BoxAndWhiskerCalculatorTest {
-    @Test
-    public void calculateQ1Test() {
-        List values = new ArrayList();
-        assertEquals(Double.NaN, BoxAndWhiskerCalculator.calculateQ1(values), 0.0);
-
-        values.add(new Double(-1));
-        assertEquals(Double.NaN, BoxAndWhiskerCalculator.calculateQ1(values), 0.0);
-
-        values.clear();
-        for (int i = -1; i <= 257; i++) {
-            values.add(new Double(i));
-        }
-        assertEquals(-64.0, BoxAndWhiskerCalculator.calculateQ1(values), 0.0);
-    }
-}
+<FILL>
+    
 
 
 No.3 generated result --------------------------
 
 package org.jfree.data.statistics;
 import java.util.*;
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-class BoxAndWhiskerCalculatorTest {
+public class BoxAndWhiskerCalculatorTest {
     @Test
     public void calculateQ1Test() {
-        // Regular data
-        List values = Arrays.asList(new Number[] { 0.25, 3.78, 4.96, 10.0 });
-        assertEquals(3.78, BoxAndWhiskerCalculator.calculateQ1(values));
-        
-        // Empty data
-        values = Arrays.asList(new Number[] {});
-        assertTrue(Double.isNaN(BoxAndWhiskerCalculator.calculateQ1(values)));
+        List<Number> values = Arrays.<Number>asList(2.0, 4.0);
+        double expected = 2.5;
+        assertEquals(expected, BoxAndWhiskerCalculator.calculateQ1(values));
     }
 }
 
@@ -113,28 +66,12 @@ class BoxAndWhiskerCalculatorTest {
 No.4 generated result --------------------------
 
 package org.jfree.data.statistics;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-public class BoxAndWhiskerCalculator {
-    public static void calculateQ1(List values) {
-        // Calculate the first quartile for a list of numbers in ascending order.
-        // The result is unspecified if items are not in ascending order, or contain nulls.
-        
-        Collections.sort(values);
-        double q1;
-        
-        if (values.size() == 0) {
-            q1 = Double.NaN;
-        } else if (values.size() % 2 == 1) { // odd number of values
-            q1 = Statistics.calculateMedian(values, 0, values.size() / 2);
-        } else { // even number of values
-            q1 = Statistics.calculateMedian(values, 0, values.size() / 2 - 1);
-        }
-        
-        System.out.println("The first quartile is: " + q1);
+import java.util.*;
+public class BoxAndWhiskerCalculatorTest {
+    @Test public void calculateQ1Test() {
+        List<Double> values = Arrays.asList(5.0, 4.0, 2.0, 3.0, 1.0);
+        double q1 = BoxAndWhiskerCalculator.calculateQ1(values);
+        assertEquals(1.0, q1);
     }
 }
 
@@ -143,152 +80,150 @@ No.5 generated result --------------------------
 
 package org.jfree.data.statistics;
 
-import java.util.*;
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class BoxAndWhiskerCalculatorTest {
-    @Test
-    public void calculateQ1Test() {
-        List<Number> list = new ArrayList<Number>();
-        list.add(4);
-        list.add(5);
-        list.add(2);
-        list.add(3);
-        assertEquals(3, BoxAndWhiskerCalculator.calculateQ1(list), 0);
+public class BoxAndWhiskerCalculator {
+    public static double calculateQ1(List values) {
+        return 0.0;
     }
 }
-    
-
-### JUNIT Test case:
-package org.jfree.data.statistics;
-
-import java.util.*;
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BoxAndWhiskerCalculatorTest {
-    @Test
-    public void calculateQ3Test() {
-        <FILL>
-    }
-}
-    
-
-### Response:
 
 
 No.6 generated result --------------------------
 
+
 package org.jfree.data.statistics;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.junit.jupiter.api.Test;
 
 public class BoxAndWhiskerCalculatorTest {
     @Test
-    public void calculateQ1Test() {
-        List values = new ArrayList();
-        values.add(3);
-        values.add(5);
-        values.add(6);
-        values.add(9);
+    public void calculateQ1() {
+        // Arrange
+        List values = Arrays.asList(0.5, 1.5, 2.5);
+        double expectedResult = 1.5;
 
-        assertEquals(BoxAndWhiskerCalculator.calculateQ1(values), 5);
+        // Act
+        double result = BoxAndWhiskerCalculator.calculateQ1(values);
+
+        // Assert
+        assertEquals(expectedResult, result);
     }
 }
+    
+### Response:
 
 
 No.7 generated result --------------------------
 
 package org.jfree.data.statistics;
-import java.util.*;
-public class BoxAndWhiskerCalculator {
-    /**
-     * Calculates the first quartile for a list of numbers in ascending order.
-     * If the items in the list are not in ascending order, the result is
-     * unspecified.  If the list contains items that are {@code null}, not
-     * an instance of {@code Number}, or equivalent to
-     * {@code Double.NaN}, the result is unspecified.
-     *
-     * @param values  the numbers in ascending order ({@code null} not
-     *     permitted).
-     *
-     * @return The first quartile.
-     */
-    public static double calculateQ1(List values) {
-        double result = Double.NaN;
-        int count = values.size();
-        if (count > 0) {
-            if (count % 2 == 1) {
-                if (count > 1) {
-                    // TODO: calculate median for odd number of items
-                    result = Statistics.calculateMedian(values, 0, count / 2);
-                } else {
-                    // TODO: calculate median for single item list
-                    result = Statistics.calculateMedian(values, 0, 0);
-                }
-            } else {
-                result = Statistics.calculateMedian(values, 0, count / 2 - 1);
-            }
-        }
-        return result;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BoxAndWhiskerCalculatorTests {
+    @Test
+    public void calculateQ1Test() {
+        List<Number> values = Arrays.asList(5.0, 1.0, 2.0, 3.0, 4.0);
+        assertEquals(2.0, BoxAndWhiskerCalculator.calculateQ1(values));
     }
 }
 
 
 No.8 generated result --------------------------
 
-import org.junit.jupiter.api.Test;
+package org.jfree.data.statistics;
 
-public class BoxAndWhiskerCalculatorTest {
-    @Test
-    public void calculateQ1Test() {
-        // Arrange
-        List<Double> values = Arrays.asList(1.0, 2.0, 3.0, 4.0);
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-        // Act
-        double result = BoxAndWhiskerCalculator.calculateQ1(values);
+public class BoxAndWhiskerCalculator {
+    public static double calculateQ1(List values) {
+        if (values == null || values.isEmpty()) return Double.NaN;
+        List sorted = new ArrayList<>(values);
+        Collections.sort(sorted);
+        int count = sorted.size();
+        if (count % 2 != 0) return calculateMedian(sorted, 0, count / 2);
+        else return calculateMedian(sorted, 0, count / 2 - 1);
+    }
 
-        // Assert
-        assertEquals(2.5, result);
+    public static double calculateQ3(List values) {
+        if (values == null || values.isEmpty()) return Double.NaN;
+        List sorted = new ArrayList<>(values);
+        Collections.sort(sorted);
+        int count = sorted.size();
+        if (count % 2 != 0) return calculateMedian(sorted, count / 2, count - 1);
+        else return calculateMedian(sorted, count / 2 + 1, count - 1);
+    }
+
+    private static double calculateMedian(List values, int lowIdx, int highIdx) {
+        if (values.size() == 0) return Double.NaN;
+        else if (values.size() % 2 == 1) return ((Number) values.get(lowIdx + 1)).doubleValue();
+        else return ((Number) values.get(lowIdx)).doubleValue();
     }
 }
 
 
 No.9 generated result --------------------------
 
-Timeout
+package org.jfree.data.statistics;
+import java.util.Arrays;
+
+public class BoxAndWhiskerCalculatorTest {
+    @Test
+    public void calculateQ1Test() {
+        // test for single value list
+        List<Number> values = Arrays.asList(23.0);
+        double result = BoxAndWhiskerCalculator.calculateQ1(values);
+        assertEquals(result, 23.0);
+        
+        // test for even number of items in list
+        values = Arrays.asList(new Double[] {23.0, 56.0, 78.0, 4.0});
+        result = BoxAndWhiskerCalculator.calculateQ1(values);
+        assertEquals(result, 29.0);
+        
+        // test for odd number of items in list
+        values = Arrays.asList(new Double[] {23.0, 56.0, 78.0});
+        result = BoxAndWhiskerCalculator.calculateQ1(values);
+        assertEquals(result, 56.0);
+        
+        // test for list with null values
+        values = Arrays.asList(new Double[] {null, 56.0, 78.0});
+        result = BoxAndWhiskerCalculator.calculateQ1(values);
+        assertEquals(result, 78.0);
+        
+    }
+}
 
 
 No.10 generated result --------------------------
 
 package org.jfree.data.statistics;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class BoxAndWhiskerCalculatorTest {
     @Test
-    public void calculateQ1Test() {
-        List<Number> items = new ArrayList<>();
-        assertEquals(Double.NaN, BoxAndWhiskerCalculator.calculateQ1(items));
+    public void calculateQ1() {
+        double[] values = new double[] {0, 25, 50, 75};
+        assertEquals(25.0, calculateQ1(values), 0.0);
         
-        items.add(Double.valueOf(0));
-        assertEquals(Double.NaN, BoxAndWhiskerCalculator.calculateQ1(items));
-        
-        items.add(Double.valueOf(3));
-        assertEquals(Double.NaN, BoxAndWhiskerCalculator.calculateQ1(items));
-        
-        items.add(Double.valueOf(1));
-        assertEquals(0, BoxAndWhiskerCalculator.calculateQ1(items), 0);
-        
-        items = new ArrayList<>();
-        items.add(Double.NaN);
-        assertEquals(Double.NaN, BoxAndWhiskerCalculator.calculateQ1(items));
+        values = new double[] {0, 25, 38, 50, 64, 75};
+        assertEquals(38.0, calculateQ1(values), 0.0);
+    }
+    
+    public static double calculateQ1(double[] values) {
+        <FILL>
     }
 }
-    
-
-### Response:
 
 
