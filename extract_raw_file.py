@@ -14,7 +14,9 @@ import os
 import json
 
 source_file_path = "source_file.txt"
+# ------------- need to modify based on env --------------------
 relative_project_path = "/home/joseph/java_project/"
+# --------------------------------------------------------------
 output_file_path = "output/"
 
 
