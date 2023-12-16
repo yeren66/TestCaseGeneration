@@ -5,11 +5,11 @@ import subprocess
 import re
 import logging
 from tqdm import tqdm
+from extract_raw_file import update_json_file
 
 basic_path = "./test/"
 info_path = "./output/"
 relative_project_path = "/home/yeren/java-project/"
-java_execute_path = {"commons-lang": "/home/yeren/java-project/commons-lang/" ,"commons-math": "/home/yeren/java-project/commons-math/", "jfreechart": "/home/yeren/java-project/jfreechart/"}
 current_path = os.getcwd()
 logging.basicConfig(filename='log/java_project_execute.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -50,16 +50,6 @@ def clean_path(path):
     for root, dirs, files in os.walk(path):
         for file in files:
             os.remove(os.path.join(root, file))
-
-def parse_project(path):
-    name = path.split('/')[2]
-    class_name = path.split('/')[3].split('_')[0]
-    method_name = path.split('/')[3].split('_')[1]
-    datas = json_reader(os.path.join(info_path, name + ".json"))
-    for data in datas:
-        if data['class_name'] == class_name and data['method_name'] == method_name:
-            return data['project_name'], data['package'], data['relative_path'], data['file_name'], data['class_name'], data['method_name'], data['source_code']
-    return None
 
 def result_evaluate(data, file_path, class_name, method_name):
     result_list = []
@@ -124,75 +114,33 @@ if __name__ == "__main__":
 
     path_list = path_handle(basic_path)
 
-    result_list = []
-
     for second_path in tqdm(path_list):
-        os.chdir(current_path)
-        project_name, package_name, relative_path, file_name, class_name, method_name, source_code = parse_project(second_path)
+        # os.chdir(current_path)
         each_result = {}
-        each_result['project_name'] = project_name
-        each_result['code'] = source_code
-        each_result['package'] = package_name
-        each_result['class_name'] = class_name
-        each_result['method_name'] = method_name
         for item in os.listdir(second_path):
             os.chdir(current_path)
             data = json_reader(os.path.join(second_path, item, "result.json"))
-            os.chdir(java_execute_path[project_name])
-            test_path = relative_path.replace("main", "test").rsplit("/", 1)[0].split("/", 1)[1]
+            class_name = data['class_name']
+            method_name = data['method_name']
+            relative_path = os.path.join(relative_project_path, data['relative_path'])
+            each_result['project_name'] = data['project_name']
+            each_result['code'] = data['source_code']
+            each_result['package'] = data['package']
+            each_result['class_name'] = data['class_name']
+            each_result['method_name'] = data['method_name']
+            os.chdir(os.path.join(relative_project_path, data['execute_path']))
+            test_path = relative_path.replace("main", "test").rsplit("/", 1)[0]
             if not os.path.exists(test_path):
                 os.makedirs(test_path)
-            execute_result = result_evaluate(data, test_path, class_name, method_name)
+            execute_result = result_evaluate(data['generate_test'], test_path, class_name, method_name)
             each_result[item] = execute_result
 
-        result_list.append(each_result)
+        os.chdir(current_path)
+        update_json_file('test_result.json', each_result)
+    
+    print("Finish!")
 
-    os.chdir(current_path)
-    with open('test_result.json', 'w') as file:
-        json.dump(result_list, file, indent=4)
-
-            
-
-
-    # with open('out.json', 'r') as file:
-    #     json_data = json.load(file)
-
-    # result = []
-    # # 对于每一个代码片段
-    # for i in tqdm(range(0, len(json_data))):
-    #     source_code = json_data[i]['code']
-    #     package = json_data[i]['package']
-    #     class_name = json_data[i]['class_name']
-    #     method_name = json_data[i]['method_name']
-
-    #     # 目前只处理com.alibaba.fastjson2.internal.asm包下的类
-    #     if package != "com.alibaba.fastjson2.internal.asm":
-    #         continue
-
-    #     # SourceCodeOnly
-    #     SCOResult = result_evaluate(SCOPath, source_code, class_name, method_name)
-
-    #     # SourceCode&Full
-    #     SCFResult = result_evaluate(SCFPath, source_code, class_name, method_name)
-
-    #     # SourceCode&Simple
-    #     SCSResult = result_evaluate(SCSPath, source_code, class_name, method_name)
-
-    #     # 新建文件，将结果写入json文件
-    #     ret = {}
-    #     ret['code'] = source_code
-    #     ret['package'] = package
-    #     ret['class_name'] = class_name
-    #     ret['method_name'] = method_name
-    #     ret['SourceCodeOnly'] = SCOResult
-    #     ret['SourceCode&Full'] = SCFResult
-    #     ret['SourceCode&Simple'] = SCSResult
-    #     result.append(ret)
-
-    # os.chdir(current_path)
-    # with open('result2.json', 'w') as file:
-    #     json.dump(result, file, indent=4)
-
+        
 
 
 

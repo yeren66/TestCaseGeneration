@@ -30,274 +30,129 @@ public CompareToBuilder append(final byte[] lhs, final byte[] rhs) {
 
 No.1 generated result --------------------------
 
-package org.apache.commons.lang3.builder;
-import java.util.Arrays;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
-
-public class CompareToBuilderTest {
-    @Test public void appendTest() {
-        TestClass1 tc1a = new TestClass1(4);
-        TestClass1 tc1b = new TestClass1(5);
-        assertEquals(-1, new CompareToBuilder().append(tc1a, tc1b).toComparison());
-        
-        TestClass2 tc2a = new TestClass2();
-        TestClass2 tc2b = new TestClass2();
-        assertEquals(0, new CompareToBuilder().append(tc2a, tc2b).toComparison());
-    }
-}
-class TestClass1 implements Comparable<TestClass1> {
-    private int i;
-    
-    public TestClass1(int i) { this.i = i; }
-    
-    @Override
-    public int compareTo(TestClass1 o) { return i - o.i; }
-}
-class TestClass2 implements Comparable<Object> {
-    @Override
-    public int compareTo(Object o) {
-        return 0;
-    }
-}
+     package CompareToBuilder;
+     
+     
+     import org.junit.jupiter.api.*;
+     import static org.junit.jupiter.api.Assertions.*;
+     
+     public class AppendTest {
+     
+         @Test
+         void append() {
+             CompareToBuilder builder = new CompareToBuilder();
+     
+             String string1 = "abc";
+             String string2 = "abc";
+             builder.append(string1, string2);
+             assertEquals(0, builder.toComparison());
+     
+             builder = new CompareToBuilder();
+             string1 = "abc";
+             string2 = "abcd";
+             builder.append(string1, string2);
+             assertTrue(builder.toComparison() < 0);
+     
+             builder = new CompareToBuilder();
+             string1 = "abcd";
+             string2 = "abc";
+             builder.append(string1, string2);
+             assertTrue(builder.toComparison() > 0);
+         }
+     }
 
 
 No.2 generated result --------------------------
 
-Timeout
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CompareToBuilderTest {
+    @Test
+    public void appendTest() {
+        // simple test, with equal parameters
+        assertEquals(0, new CompareToBuilder().append("abc", "abc").toComparison());
+
+        // simple test, with LHS less than RHS
+        assertTrue(new CompareToBuilder().append("abc", "def").toComparison() < 0);
+        
+        // simple test, with LHS greater than RHS
+        assertTrue(new CompareToBuilder().append("def", "abc").toComparison() > 0);
+        
+        // simple test, with same parameters and different types
+        assertEquals(0, new CompareToBuilder().append("abc", (Object)"abc").toComparison());
+        
+        // simple test, with LHS less than RHS and different types
+        assertTrue(new CompareToBuilder().append((Object) "abc", "def").toComparison() < 0);
+    }
+}
 
 
 No.3 generated result --------------------------
 
-Timeout
+@Override
+public int compareTo(MyClass other) {
+    return new CompareToBuilder()
+            .append(this.value1, other.value1)
+            .append(this.value2, other.value2)
+            .toComparison();
+}
 
 
 No.4 generated result --------------------------
 
-package org.apache.commons.lang3.builder;
-import static org.junit.jupiter.api.Assertions.*;
-public class CompareToBuilderTest {
-    @Test
-    public void appendTest() {
-        Object o1 = null, o2 = null;
-        assertEquals(0, new CompareToBuilder().append(o1, o2).toComparison());
-        o1 = "abc";
-        o2 = "def";
-        assertTrue(new CompareToBuilder().append(o1, o2).toComparison() < 0);
-    }
-}
+Timeout
 
 
 No.5 generated result --------------------------
 
-package org.apache.commons.lang3.builder;
-
-import java.util.*;
-
-public class CompareToBuilderTest {
-    @Test
-    public void appendTest() {
-        // test append(Object, Object)
-        CompareToBuilder builder = new CompareToBuilder();
-        assertEquals(0, builder.toComparison());
-        builder.append("foo", "bar");
-        assertTrue(builder.toComparison() < 0);
-        builder.append("baz", "bee");
-        assertTrue(builder.toComparison() > 0);
-    }
-}
+Timeout
 
 
 No.6 generated result --------------------------
 
-package org.apache.commons.lang3.builder;
-
-import java.util.*;
-
-public class CompareToBuilderTest {
-    @Test
-    public void appendTest() {
-        // test same types
-        CompareToBuilder builder = new CompareToBuilder();
-        Object o1 = null;
-        assertEquals(0, builder.append(o1, o1).toComparison());
-
-        // test different types
-        assertNotEquals(builder.append(o1, "a").toComparison(), 0);
-        assertNotEquals(builder.append("a", o1).toComparison(), 0);
-    }
-}
-
-    
-
+Timeout
 
 
 No.7 generated result --------------------------
 
-package org.apache.commons.lang3.builder;
-
-import org.junit.jupiter.api.Test;
-
-public class CompareToBuilderTest {
-    @Test
-    public void append_testAppendLongArrays() {
-        long[] lhs = new long[] {};
-        long[] rhs = new long[] {};
-
-        assertEquals(0, new CompareToBuilder().append(lhs, rhs).toComparison());
-
-        // No need to compare arrays of different length. EqualsToBuilder.reflectionAppend()
-        // does this for us and will throw an exception.
-    }
-}
+Timeout
 
 
 No.8 generated result --------------------------
 
-package com.mycompany;
-import java.util.ArrayList;
-import org.junit.*;
-import static org.junit.jupiter.api.Assertions.*;
- 
-public class CompareToBuilderTest {
-    @Test
-    public void appendTest() {
-        // empty to-do list
-        ArrayList<String> todo1 = new ArrayList<>();
-        // empty done list
-        ArrayList<String> done1 = new ArrayList<>();
-        
-        ToDoList todoList1 = new ToDoList(todo1, done1);
- 
-        // non-empty to-do list
-        ArrayList<String> todo2 = new ArrayList<>();
-        todo2.add("task1");
-        todo2.add("task2");
-        
-        // empty done list
-        ArrayList<String> done2 = new ArrayList<>();
-         
-        ToDoList todoList2 = new ToDoList(todo2, done2);
- 
-        // same to-do lists and different done lists
-        ArrayList<String> done3 = new ArrayList<>();
-        done3.add("task1");
-        
-        ToDoList todoList3 = new ToDoList(todo2, done3);
-         
-        CompareToBuilder ctb = new CompareToBuilder();
- 
-        // compare objects with different to-do lists and both done lists empty
-        assertEquals(-1, ctb.append(todoList1, todoList2).toComparison());
-        
-        // compare objects with same to-do lists but different done lists
-        assertEquals(1, ctb.append(todoList3, todoList2).toComparison());
-    }
-}
- 
-class ToDoList {
-    
-    private final ArrayList<String> toDo;
-    private final ArrayList<String> done;
-     
-    public ToDoList(ArrayList<String> toDo, ArrayList<String> done) {
-        this.toDo = toDo;
-        this.done = done;
-    }
- 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof ToDoList) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-}
-    
-
-### Previous:
-
-
-No.9 generated result --------------------------
-
-
 package org.apache.commons.lang3.builder;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-public class CompareToBuilderTest {
-    @Test
-    public void appendTest() {
-        // Tests that two null objects are equal
-        assertEquals(0, new CompareToBuilder().append((Object) null, (Object) null).toComparison());
-
-        // Tests that a null object is less than a non-null object
-        assertTrue(new CompareToBuilder().append((Object) null, "").toComparison() < 0);
-        assertTrue(new CompareToBuilder().append("", (Object) null).toComparison() > 0);
-
-        // Tests that two non-null objects can be compared
-        assertEquals(-1, new CompareToBuilder().append("", "A").toComparison());
-        assertEquals(1, new CompareToBuilder().append("B", "").toComparison());
-    }
-}
-    
-
-### JUNIT Test case:
-package org.apache.commons.lang3.builder;
-
+import java.util.Objects;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CompareToBuilderTest {
     @Test
     public void appendTest() {
-        // Tests that two null objects are equal
-        assertEquals(0, new CompareToBuilder().append((Object) null, (Object) null).toComparison());
-
-        // Tests that a null object is less than a non-null object
-        assertTrue(new CompareToBuilder().append((Object) null, "").toComparison() < 0);
-        assertTrue(new CompareToBuilder().append("", (Object) null).toComparison() > 0);
-
-        // Tests that two non-null objects can be compared
-        assertEquals(-1, new CompareToBuilder().append("", "A").toComparison());
-        assertEquals(1, new CompareToBuilder().append("B", "").toComparison());
+        // Tests Appendable interface using compareTo(Comparable)
+        Comparable<String> obj1 = "Hello";
+        Comparable<String> obj2 = "World";
+        assertTrue(CompareToBuilder.reflectionAppend(obj1, obj2).toComparison() < 0);
+        assertTrue(CompareToBuilder.reflectionAppend(obj2, obj1).toComparison() > 0);
+        assertEquals(0, CompareToBuilder.reflectionAppend(obj1, "Hello").toComparison());
     }
 }
-    
-### JAVA Response:
+
+
+
+No.9 generated result --------------------------
+
+String str1 = "string 1";
+String str2 = "string 2";
+int result = new CompareToBuilder()
+            .append(str1, str2)
+            .toComparison();
+assertEquals(-1, result);
 
 
 No.10 generated result --------------------------
 
-package org.apache.commons.lang3.builder;
-
-import java.util.*;
-
-public class CompareToBuilderTest {
-    @Test
-    public void appendTest() {
-        // test empty array
-        Object[] obj1 = {};
-        Object[] obj2 = null;
-        assertEquals(0, new CompareToBuilder().append(obj1, obj2).toComparison());
-        
-        // compare array to null, null is less than array
-        obj1 = new String[5];
-        obj2 = null;
-        assertTrue(new CompareToBuilder().append(obj1, obj2).toComparison() > 0);
-        
-        // test different types
-        obj1 = new Integer(1);
-        obj2 = "hi";
-        assertTrue(new CompareToBuilder().append(obj1, obj2).toComparison() < 0);
-        
-        // test object comparison
-        obj1 = new String("hi");
-        obj2 = new String("hi");
-        assertEquals(0, new CompareToBuilder().append(obj1, obj2).toComparison());
-    }
-}
-
+Timeout
 
 

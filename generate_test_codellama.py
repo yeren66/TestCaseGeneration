@@ -151,7 +151,7 @@ def generate_test(json_data, path, number=10):
                     "source_code": json_data[i]['source_code'],
                     "class_name": json_data[i]['class_name'],
                     "method_name": json_data[i]['method_name'],
-                    "arguments": json_data[i]['arguments'],
+                    "arguments": json_data[i]['argument_name'],
                     "generate_test": record
                 }
                 json.dump(record_data, file, indent=4)

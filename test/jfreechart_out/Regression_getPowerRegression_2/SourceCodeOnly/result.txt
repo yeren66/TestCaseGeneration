@@ -39,23 +39,19 @@ public static double[] getPowerRegression(double[][] data) {
 
 No.1 generated result --------------------------
 
+
+package org.jfree.data.statistics;
+
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RegressionTest {
     @Test
     public void getPowerRegressionTest() {
-        // Test data with a positive correlation
-        double[][] data1 = {{1, 2}, {3, 4}, {5, 6}};
-        double expected1 = 0.9876;
-        double actual1 = getPowerRegression(data1);
-        assertEquals(expected1, actual1, 0.0001);
-
-        // Test data with a negative correlation
-        double[][] data2 = {{1, 4}, {3, 5}, {6, 8}};
-        double expected2 = -0.9876;
-        double actual2 = getPowerRegression(data2);
-        assertEquals(expected2, actual2, 0.0001);
+        double[][] data = {{1, 2}, {2, 4}, {3, 6}};
+        double[] result = Regression.getPowerRegression(data);
+        assertEquals(result[0], Math.pow(Math.exp(1), 2));
+        assertEquals(result[1], Math.log(6) / Math.log(2));
     }
 }
 
@@ -65,67 +61,74 @@ No.2 generated result --------------------------
 
 package org.jfree.data.statistics;
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class RegressionTest {
     @Test
     public void getPowerRegressionTest() {
-        double[][] data = new double[4][2];
-        data[0] = new double[]{1, 1};
-        data[1] = new double[]{2, 4};
-        data[2] = new double[]{3, 9};
-        data[3] = new double[]{4, 16};
-
+        double[][] data = new double[10][2];
+        for (int i = 0; i < 10; i++) {
+            data[i][0] = i + 1;
+            data[i][1] = Math.pow(data[i][0], 3);
+        }
         double[] result = Regression.getPowerRegression(data);
-
-        assertEquals(result[0], 2.0, 1e-10);
-        assertEquals(result[1], 8.0, 1e-10);
+        assertEquals(2, result.length);
+        assertTrue(result[0] > 0 && result[1] > 0);
     }
 }
 
 
-
 No.3 generated result --------------------------
 
+package org.jfree.data.statistics;
 
-@Test
-public void getPowerRegressionTest() {
-    double[][] data = new double[][] {{1.0, 2.0}, {2.0, 4.0}, {3.0, 8.0}, {4.0, 16.0}};
-    double[] expectedResult = new double[] {Math.pow(Math.exp(1.0), 4.0), Math.pow(Math.exp(1.0), 2.0)};
+import static org.junit.Assert.*;
+import org.junit.Test;
 
-    assertArrayEquals(expectedResult, Regression.getPowerRegression(data));
+public class RegressionTest {
+    @Test
+    public void getPowerRegressionTest() {
+        double[][] data = new double[2][2];
+        data[0] = 1.0;
+        data[1] = 4.0;
+        data[2] = 9.0;
+        data[3] = 16.0;
+        
+        double[] result = RegressionTest.getPowerRegression(data);
+        
+        assertArrayEquals(result, new double[]{2.0, 1.0}, 1e-5);
+    }
 }
 
 
 No.4 generated result --------------------------
 
 
-package org.jfree.data.statistics;
-
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RegressionTest {
     @Test
     public void getPowerRegressionTest() {
-        double[][] data = new double[5][2];
-        data[0][0] = 1;
-        data[0][1] = 2;
-        data[1][0] = 2;
-        data[1][1] = 4;
-        data[2][0] = 3;
-        data[2][1] = 8;
-        data[3][0] = 5;
-        data[3][1] = 16;
-        data[4][0] = 7;
-        data[4][1] = 32;
+        // Test case 1: Verify that the method throws an exception when there is not enough data.
+        double[][] data = new double[1][2];
+        assertThrows(IllegalArgumentException.class, () -> Regression.getPowerRegression(data));
 
+        // Test case 2: Verify that the method returns the expected intercept and slope for a simple linear regression.
+        data = new double[][] {{1, 3}, {2, 4}};
         double[] result = Regression.getPowerRegression(data);
-        assertEquals(1, result[0], 0.000001); // Verify the expected value of the first element in the result array
-        assertEquals(-1, result[1], 0.000001); // Verify the expected value of the second element in the result array
+        assertEquals(result[0], 1.5); // Intercept
+        assertEquals(result[1], 2); // Slope
+
+        // Test case 3: Verify that the method returns the expected intercept and slope for a more complex regression.
+        data = new double[][] {{1, 3}, {4, 6}, {9, 12}};
+        result = Regression.getPowerRegression(data);
+        assertEquals(result[0], 5.5); // Intercept
+        assertEquals(result[1], 3); // Slope
     }
 }
+
 
 
 No.5 generated result --------------------------
@@ -139,10 +142,17 @@ import static org.junit.jupiter.api.Assertions.*;
 public class RegressionTest {
     @Test
     public void getPowerRegressionTest() {
-        double[][] data = {{0, 1}, {1, 4}, {2, 9}, {3, 16}};
-        double[] result = getPowerRegression(data);
-        assertEquals(result[0], 2.0, 0.0001);
-        assertEquals(result[1], 1.5, 0.0001);
+        double[][] data = new double[5][2];
+        data[0] = new double[]{1, 1};
+        data[1] = new double[]{3, 9};
+        data[2] = new double[]{4, 16};
+        data[3] = new double[]{5, 25};
+        data[4] = new double[]{7, 49};
+
+        double[] result = Regression.getPowerRegression(data);
+
+        assertEquals(0.5, result[0], 0.01); // Check if the expected slope is correct
+        assertEquals(6.25, result[1], 0.01); // Check if the expected intercept is correct
     }
 }
 
@@ -158,37 +168,24 @@ import static org.junit.jupiter.api.Assertions.*;
 public class RegressionTest {
     @Test
     public void getPowerRegressionTest() {
-        double[][] data = new double[5][2];
-        data[0] = new double[]{1, 3};
-        data[1] = new double[]{4, 6};
-        data[2] = new double[]{9, 8};
-        data[3] = new double[]{16, 7};
-        data[4] = new double[]{10, 5};
-        
+        double[][] data = new double[2][2];
+        data[0][0] = 1;
+        data[0][1] = 2;
+        data[1][0] = 3;
+        data[1][1] = 4;
         double[] result = Regression.getPowerRegression(data);
-        assertEquals(result[0], 2.0);
-        assertEquals(result[1], 3.0);
+        assertEquals(result[0], Math.pow(Math.exp(1.0), 2 - 2 * 3));
+        assertEquals(result[1], Math.pow(Math.exp(1.0), 4 - 2 * 5));
     }
 }
 
 
 No.7 generated result --------------------------
 
-
-package org.jfree.data.statistics;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class RegressionTest {
-    @Test
-    public void getPowerRegressionTest() {
-        double[][] data = new double[][] {{1, 2}, {2, 4}, {3, 8}, {4, 16}};
-        double[] result = Regression.getPowerRegression(data);
-        assertEquals(result[0], 2);
-        assertEquals(result[1], 1);
-    }
-}
+double[][] data = new double[3][2];
+data[0] = new double[]{1.0, 2.0};
+data[1] = new double[]{2.0, 4.0};
+data[2] = new double[]{3.0, 6.0};
 
 
 No.8 generated result --------------------------
@@ -202,42 +199,19 @@ public class RegressionTest {
     @Test
     public void getPowerRegressionTest() {
         double[][] data = new double[3][2];
-        data[0] = new double[] {1, 4};
-        data[1] = new double[] {2, 9};
-        data[2] = new double[] {3, 16};
+        data[0] = new double[] {1, 2};
+        data[1] = new double[] {2, 4};
+        data[2] = new double[] {3, 6};
 
         double[] result = Regression.getPowerRegression(data);
-        assertEquals(result[0], Math.exp(1), 0.0001);
-        assertEquals(result[1], 2.0, 0.0001);
+
+        assertEquals(result[0], Math.exp(-1));
+        assertEquals(result[1], Math.pow(Math.exp(1), -2));
     }
 }
 
 
 No.9 generated result --------------------------
-
-
-@Test
-public void getPowerRegressionTest() {
-    double[][] data = new double[5][2];
-    data[0][0] = 1;
-    data[0][1] = 1;
-    data[1][0] = 2;
-    data[1][1] = 4;
-    data[2][0] = 3;
-    data[2][1] = 9;
-    data[3][0] = 5;
-    data[3][1] = 25;
-    data[4][0] = 7;
-    data[4][1] = 49;
-
-    double[] result = getPowerRegression(data);
-
-    assertEquals(result[0], Math.pow(Math.exp(1.0), -1 / 2));
-    assertEquals(result[1], 3);
-}
-
-
-No.10 generated result --------------------------
 
 
 package org.jfree.data.statistics;
@@ -248,10 +222,26 @@ import static org.junit.jupiter.api.Assertions.*;
 public class RegressionTest {
     @Test
     public void getPowerRegressionTest() {
-        double[][] data = {{1, 1}, {2, 4}, {3, 9}};
-        double[] result = getPowerRegression(data);
-        assertEquals(result[0], Math.pow(Math.exp(1.0), (data[0][1] - data[1][1]) / (data[0][0] - data[1][0])));
+        double[][] data = new double[3][2];
+        data[0] = new double[]{1, 1};
+        data[1] = new double[]{2, 4};
+        data[2] = new double[]{3, 9};
+        
+        double[] expectedResult = new double[]{Math.pow(10, -2), Math.pow(10, 1)};
+        double[] actualResult = Regression.getPowerRegression(data);
+        
+        assertArrayEquals(expectedResult, actualResult, 0.0001);
     }
 }
+
+
+No.10 generated result --------------------------
+
+package org.jfree.data.statistics;
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+public class RegressionTest {
+@Test public void getPowerRegressionTest() {  double[] data = new double[2][2];   data[0][0] = 1;   data[0][1] = 2;   data[1][0] = 3;   data[1][1] = 4;
+double[] result = getPowerRegression(data); assertEquals(Math.pow(Math.exp(1), 1.5 - (result[1] * Math.log(1)) / n), result[0], 0.001); } }
 
 
