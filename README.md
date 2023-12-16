@@ -72,31 +72,31 @@ python parse_result.py
 结果保存在 `/img/` 文件夹中。
 
 <p align="center">
-    <img src="./img/bar_total.png" alt="总和统计">
+    <img src="./image/bar_total.png" alt="总和统计">
     <br>
     total result
 </p>
 
 <p align="center">
-    <img src="./img/pie_total.png" alt="总和统计">
+    <img src="./image/pie_total.png" alt="总和统计">
     <br>
     total result
 </p>
 
 <p align="center">
-    <img src="./img/pie_only.png" alt="SourceCodeOnly">
+    <img src="./image/pie_only.png" alt="SourceCodeOnly">
     <br>
     SourceCodeOnly
 </p>
 
 <p align="center">
-    <img src="./img/pie_full.png" alt="SourceCode&Full">
+    <img src="./image/pie_full.png" alt="SourceCode&Full">
     <br>
     SourceCode&Full
 </p>
 
 <p align="center">
-    <img src="./img/pie_simple.png" alt="SourceCode&Simple">
+    <img src="./image/pie_simple.png" alt="SourceCode&Simple">
     <br>
     SourceCode&Simple
 </p>
