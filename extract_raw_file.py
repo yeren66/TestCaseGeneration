@@ -15,7 +15,7 @@ import json
 
 source_file_path = "source_file.txt"
 relative_project_path = "/home/joseph/java_project/"
-output_file_path = "output/"
+output_file_path = "source_file_parser/"
 
 
 def extract_blocks(file_path):
@@ -87,7 +87,6 @@ def extract_path(file_path):
     """
     path = file_path.split('/')
     return path[0], path[-1]
-
     
 def remove_comments_and_fix_indentation(code, comment):
     """
@@ -101,7 +100,9 @@ def remove_comments_and_fix_indentation(code, comment):
         str: The code without comments and with fixed indentation.
     """
     # Remove comments
-    code_without_comments = code.replace(comment, '')
+    code_without_comments = code
+    if comment != None:
+        code_without_comments = code.replace(comment, '')
     # Fix indentation
     lines = code_without_comments.split('\n')
     if lines:
@@ -136,6 +137,8 @@ def parse_file(content, path):
     """
     parse a file and return the simple context and full context.
     """
+    if path == "javacv/src/main/java/org/bytedeco/javacv/FFmpegFrameGrabber.java:490-515":
+        a = 1
     simple_context = ""
     package_name = ""
     class_name = ""
@@ -180,6 +183,8 @@ def parse_node(node, indent=0):
         declaration += parse_reference_type(node.return_type) + " "
         declaration += node.name + "("
         declaration += ", ".join([parse_formal_parameter(i) for i in node.parameters]) + ")"
+        if node.throws:
+            declaration += "throws " + ", ".join(node.throws)
         return declaration + ";\n"
     
     if isinstance(node, javalang.tree.ConstructorDeclaration):
@@ -189,6 +194,14 @@ def parse_node(node, indent=0):
         declaration += node.name + "("
         declaration += ", ".join([parse_formal_parameter(i) for i in node.parameters]) + ")"
         return declaration + ";\n"
+    
+    if isinstance(node, javalang.tree.EnumDeclaration):
+        declaration = " " * indent
+        if node.modifiers:
+            declaration += " ".join(node.modifiers) + " "
+        declaration += "enum " + node.name + "{"
+        declaration += ", ".join(i.name for i in node.body.constants) + "}"
+        return declaration + "\n"
     
     if isinstance(node, javalang.tree.ClassDeclaration):
         declaration = " " * indent
@@ -205,6 +218,7 @@ def parse_node(node, indent=0):
                 declaration += parse_node(i, indent=indent+4)
         declaration += " " * indent + "}\n"
         return declaration
+    return ""
 
 def parse_reference_type(node):
     """

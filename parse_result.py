@@ -12,8 +12,8 @@ def traverse_directory(directory):
     return file_list
 
 
-input_path = "./result"
-output_path = "./image"
+input_path = "./test_result"
+output_path = "./imagee"
 
 file_list = traverse_directory(input_path)
 
@@ -73,6 +73,8 @@ for item in file_list:
 
         plt.close()
 
+bar_width = 0.35
+index = np.arange(3)
 # 创建整个项目的堆叠柱状图
 plt.clf()
 # 为每种错误类型创建一个堆叠柱状图

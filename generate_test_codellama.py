@@ -27,7 +27,6 @@ def process_json_stream(json_stream):
                 print(f"Ignoring invalid JSON: {e}")
     return concatenated_responses
 
-
 def parse_ret(ret: str):
     """
     Parse the response content and extract the code.
@@ -48,7 +47,6 @@ def parse_ret(ret: str):
     else:
         output = ret
     return output
-
 
 def test_case_info(package_name, class_name, method_name):
     """
@@ -76,7 +74,6 @@ def _timeout(signum, frame):
     """
     raise TimeoutException()
 
-
 def codallama_interface(data):
     """
     Call the codellama interface address to generate test cases with data.
@@ -86,19 +83,19 @@ def codallama_interface(data):
     signal.signal(signal.SIGALRM, _timeout)
     signal.alarm(180) 
     try:
-        response = requests.post(url, data=json.dumps(data), headers=headers)
+        response = requests.post(url, data=json.dumps(data), headers=headers, timeout=175)
     except Exception as e:
         output = "Timeout"
-        logging.error(e)
+        logging.error("Timeout")
         flag = 1
     finally:
         signal.alarm(0)
     if flag == 0:
-        output = process_json_stream(response.text)
+        # output = process_json_stream(response.text)
+        output = response.json()['response']
         logging.info("\n-------------generate result-------------\n " + output + "----------------------------------\n")
         output = parse_ret(output)
     return output
-
 
 # 调用codellama接口生成测试用例
 def generate_test(json_data, path, number=10):
@@ -128,13 +125,15 @@ def generate_test(json_data, path, number=10):
             record = []
             data = {
                 "model": "codellama:13b-instruct",
-                "prompt": prompts[j]
+                "prompt": prompts[j],
+                "stream": False
             }
             with open(third_path + "result.txt", 'w') as file:
                 file.write("Source code: \n\n")
                 file.write(source_code + "\n\n\n")
                 logging.info("\n-------------source code-------------\n " + source_code + "----------------------------------\n")
                 for k in range(number): 
+                    logging.info("No." + str(k + 1) + " generated result for " + third_path + " -- " + "\n")
                     output = codallama_interface(data)
                     file.write("No." + str(k + 1) + " generated result --------------------------\n\n")
                     file.write(output + "\n\n\n")
@@ -156,10 +155,9 @@ def generate_test(json_data, path, number=10):
                 }
                 json.dump(record_data, file, indent=4)
 
-
 if __name__ == "__main__":
     file_list = []
-    source_file_path = "output/"
+    source_file_path = "source_file_parser/"
 
     for file_name in os.listdir(source_file_path):
         if file_name.endswith(".json"):
@@ -169,4 +167,4 @@ if __name__ == "__main__":
         project_name = file_name.split('/')[-1].split('.')[0]
         with open(file_name, 'r') as file:
             json_data = json.load(file)
-        generate_test(json_data, 'test/' + project_name + '/', 10)
+        generate_test(json_data, 'generate_result/' + project_name + '/', 10)

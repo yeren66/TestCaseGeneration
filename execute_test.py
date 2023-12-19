@@ -7,9 +7,8 @@ import logging
 from tqdm import tqdm
 from extract_raw_file import update_json_file
 
-basic_path = "./test/"
-info_path = "./output/"
-append_path = "./result/"
+basic_path = "./generate_result/"
+append_path = "./test_result/"
 relative_project_path = "/home/joseph/java_project/"
 current_path = os.getcwd()
 logging.basicConfig(filename='log/java_project_execute.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -74,7 +73,7 @@ def result_evaluate(data, file_path, class_name, method_name):
         write_file(file_path, syntax_ret, data[j])
         logging.info("####################  mvn clean test-compile  ####################")
         sp = subprocess.Popen(
-            "mvn clean test-compile -Drat.skip=true",
+            "mvn clean test-compile -Drat.skip=true -Dsurefire.failIfNoSpecifiedTests=false",
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE, shell=True)
         stdout, stderr = sp.communicate(timeout=60)
@@ -94,7 +93,7 @@ def result_evaluate(data, file_path, class_name, method_name):
         # 对于新项目，所需要的参数可能不尽相同，为此可能需要频繁修改此内容。
         logging.info("####################  mvn test -Dtest=" + syntax_ret + "####################")
         sp = subprocess.Popen(
-            "mvn test -Drat.skip=true -Dtest=" + syntax_ret,
+            "mvn test -Drat.skip=true -Dsurefire.failIfNoSpecifiedTests=false -Dtest=" + syntax_ret,
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE, shell=True)
         stdout, stderr = sp.communicate(timeout=60)
