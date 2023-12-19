@@ -10,6 +10,7 @@ from extract_raw_file import update_json_file
 basic_path = "./generate_result/"
 append_path = "./test_result/"
 relative_project_path = "/home/joseph/java_project/"
+# --------------------------------------------------------------
 current_path = os.getcwd()
 logging.basicConfig(filename='log/java_project_execute.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
