@@ -2,6 +2,8 @@ import json
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+import shutil
+
 
 def traverse_directory(directory):
     file_list = []
@@ -13,10 +15,21 @@ def traverse_directory(directory):
 
 
 input_path = "./test_result"
-output_path = "./imagee"
+output_path = "./image"
 
 file_list = traverse_directory(input_path)
 
+def clear_output_dir(directory):
+    # 检查目录是否存在
+    if os.path.exists(directory):
+        # 删除目录及其内容
+        shutil.rmtree(directory)
+    # 重新创建目录
+    os.makedirs(directory)
+    # 在新的目录中创建一个名为"detail"的子目录
+    os.makedirs(os.path.join(directory, 'detail'))
+
+clear_output_dir(output_path)
 
 
 # 初始化整个项目的错误数量
@@ -29,11 +42,16 @@ color_dict = {"Compile Error": "RoyalBlue", "Syntax Error": "red", "Test Error":
 for item in file_list:
     with open(item, 'r') as file:
         json_data = json.load(file)
+    item_counts_simple = [0, 0, 0, 0]
+    item_counts_full = [0, 0, 0, 0]
+    item_counts_only = [0, 0, 0, 0]
+    project_name = "null"
     for i in range(len(json_data)):
         data = json_data[i]
 
         # 提取数据
         figure_name = data['project_name'] + '_' + data['class_name'] + '_' + data['method_name']
+        project_name = data['project_name']
         source_code_simple = data['SourceCode&Simple']
         source_code_full = data['SourceCode&Full']
         source_code_only = data['SourceCodeOnly']
@@ -53,6 +71,11 @@ for item in file_list:
         project_counts_full = [project_counts_full[j] + counts_full[j] for j in range(len(all_errors))]
         project_counts_only = [project_counts_only[j] + counts_only[j] for j in range(len(all_errors))]
 
+        # 更新这个项目的错误数量
+        item_counts_simple = [item_counts_simple[j] + counts_simple[j] for j in range(len(all_errors))]
+        item_counts_full = [item_counts_full[j] + counts_full[j] for j in range(len(all_errors))]
+        item_counts_only = [item_counts_only[j] + counts_only[j] for j in range(len(all_errors))]
+
         # 创建堆叠柱状图
         bar_width = 0.35
         index = np.arange(3)
@@ -69,9 +92,17 @@ for item in file_list:
         plt.xticks(index, ['SourceCode&Simple', 'SourceCode&Full', 'SourceCodeOnly'])
         plt.title(figure_name)
         plt.legend()
-        plt.savefig(output_path + "/bar_" + figure_name + '.png')
+        plt.savefig(output_path + "/detail/bar_" + figure_name + '.png')
 
         plt.close()
+
+    # 创建整个项目的饼图
+    item_counts_total = [item_counts_simple[j] + item_counts_full[j] + item_counts_only[j] for j in range(len(all_errors))]
+    plt.clf()
+    plt.pie(item_counts_total, labels=all_errors, colors=[color_dict[error] for error in all_errors], autopct='%1.1f%%')
+    plt.title('total count')
+    plt.savefig(output_path + "/pie_" + project_name + ".png")
+    plt.close()
 
 bar_width = 0.35
 index = np.arange(3)
@@ -107,3 +138,5 @@ for counts, name in zip([project_counts_only, project_counts_simple, project_cou
     plt.title(name + ' count')
     plt.savefig(output_path + "/pie_" + name + ".png")
     plt.close()
+
+print("Finish!")

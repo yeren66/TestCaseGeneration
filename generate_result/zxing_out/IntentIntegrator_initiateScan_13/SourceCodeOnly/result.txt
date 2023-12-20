@@ -1,0 +1,280 @@
+Source code: 
+
+
+public final AlertDialog initiateScan(Collection<String> desiredBarcodeFormats, int cameraId) {
+  Intent intentScan = new Intent(BS_PACKAGE + ".SCAN");
+  intentScan.addCategory(Intent.CATEGORY_DEFAULT);
+
+  // check which types of codes to scan for
+  if (desiredBarcodeFormats != null) {
+    // set the desired barcode types
+    StringBuilder joinedByComma = new StringBuilder();
+    for (String format : desiredBarcodeFormats) {
+      if (joinedByComma.length() > 0) {
+        joinedByComma.append(',');
+      }
+      joinedByComma.append(format);
+    }
+    intentScan.putExtra("SCAN_FORMATS", joinedByComma.toString());
+  }
+
+  // check requested camera ID
+  if (cameraId >= 0) {
+    intentScan.putExtra("SCAN_CAMERA_ID", cameraId);
+  }
+
+  String targetAppPackage = findTargetAppPackage(intentScan);
+  if (targetAppPackage == null) {
+    return showDownloadDialog();
+  }
+  intentScan.setPackage(targetAppPackage);
+  intentScan.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+  intentScan.addFlags(FLAG_NEW_DOC);
+  attachMoreExtras(intentScan);
+  startActivityForResult(intentScan, REQUEST_CODE);
+  return null;
+}
+
+
+
+No.1 generated result --------------------------
+
+
+package com.google.zxing.integration.android;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class IntentIntegratorTest {
+    @Test
+    public void initiateScanTest() {
+        // Arrange
+        String targetAppPackage = "com.google.zxing.integration.android";
+        Collection<String> desiredBarcodeFormats = Arrays.asList("CODE_128", "CODE_39");
+        int cameraId = 0;
+
+        // Act
+        Intent intentScan = initiateScan(desiredBarcodeFormats, cameraId);
+
+        // Assert
+        assertNotNull(intentScan);
+        assertEquals("SCAN", intentScan.getAction());
+        assertEquals(targetAppPackage, intentScan.getPackage());
+        assertEquals(Intent.CATEGORY_DEFAULT, intentScan.getCategory());
+        assertEquals(2, intentScan.getExtras().size());
+        assertTrue(intentScan.hasExtra("SCAN_FORMATS"));
+        assertEquals("CODE_128,CODE_39", intentScan.getStringExtra("SCAN_FORMATS"));
+        assertTrue(intentScan.hasExtra("SCAN_CAMERA_ID"));
+        assertEquals(cameraId, intentScan.getIntExtra("SCAN_CAMERA_ID", -1));
+    }
+}
+
+
+No.2 generated result --------------------------
+
+
+@Test
+public void initiateScanTest() {
+    // Arrange
+    Intent intent = new Intent(BS_PACKAGE + ".SCAN");
+    intent.addCategory(Intent.CATEGORY_DEFAULT);
+    Collection<String> desiredBarcodeFormats = Arrays.asList("QR_CODE", "PDF417");
+    int cameraId = 0;
+    
+    // Act
+    AlertDialog dialog = initiateScan(desiredBarcodeFormats, cameraId);
+    
+    // Assert
+    assertNotNull(dialog);
+    assertEquals("SCAN", intent.getAction());
+    assertEquals("QR_CODE,PDF417", intent.getStringExtra("SCAN_FORMATS"));
+    assertEquals(0, intent.getIntExtra("SCAN_CAMERA_ID", -1));
+}
+
+
+No.3 generated result --------------------------
+
+
+package com.google.zxing.integration.android;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class IntentIntegratorTest {
+    @Test
+    public void initiateScanTest() {
+        Collection<String> desiredBarcodeFormats = new ArrayList<>();
+        int cameraId = 0;
+        AlertDialog dialog = IntentIntegrator.initiateScan(desiredBarcodeFormats, cameraId);
+        assertNotNull(dialog);
+    }
+}
+
+
+No.4 generated result --------------------------
+
+
+@Test
+public void initiateScanTest() {
+    // Set up mock objects for the methods that will be called during scan
+    Intent mockIntent = Mockito.mock(Intent.class);
+    when(mockIntent.putExtra("SCAN_FORMATS", anyString())).thenReturn(mockIntent);
+    when(mockIntent.addCategory(anyString())).thenReturn(mockIntent);
+    
+    // Set up mock objects for the methods that will be called during download dialog display
+    AlertDialog mockDialog = Mockito.mock(AlertDialog.class);
+    when(mockDialog.setMessage(anyString())).thenReturn(mockDialog);
+    when(mockDialog.show()).thenReturn(true);
+    
+    // Set up the test data
+    Collection<String> desiredBarcodeFormats = Arrays.asList("EAN_13", "UPC_A");
+    int cameraId = 0;
+    
+    // Initiate scan and verify that the intent was set up correctly
+    IntentIntegrator integrator = new IntentIntegrator();
+    integrator.initiateScan(desiredBarcodeFormats, cameraId);
+    ArgumentCaptor<Intent> captor = ArgumentCaptor.forClass(Intent.class);
+    verify(mockIntent).putExtra("SCAN_FORMATS", anyString());
+    verify(mockIntent).addCategory(anyString());
+    
+    // Verify that the download dialog was displayed correctly
+    verify(mockDialog).setMessage(anyString());
+    verify(mockDialog).show();
+}
+
+
+
+No.5 generated result --------------------------
+
+
+package com.google.zxing.integration.android;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class IntentIntegratorTest {
+    @Test
+    public void initiateScanTest() {
+        // Arrange
+        Collection<String> desiredBarcodeFormats = Arrays.asList("QR_CODE", "AZTEC");
+        int cameraId = 1;
+        
+        // Act
+        AlertDialog alertDialog = IntentIntegrator.initiateScan(desiredBarcodeFormats, cameraId);
+        
+        // Assert
+        assertNotNull(alertDialog);
+    }
+}
+
+
+No.6 generated result --------------------------
+
+package com.google.zxing.integration.android;
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+public class IntentIntegratorTest {
+    @Test
+    public void initiateScanTest() {
+        // Test case 1: null desiredBarcodeFormats and negative cameraId
+        Collection<String> desiredBarcodeFormats = null;
+        int cameraId = -1;
+        AlertDialog result = IntentIntegrator.initiateScan(desiredBarcodeFormats, cameraId);
+        assertNull(result);
+    }
+    
+    @Test
+    public void initiateScanTest() {
+        // Test case 2: non-null desiredBarcodeFormats and positive cameraId
+        Collection<String> desiredBarcodeFormats = new ArrayList<>();
+        desiredBarcodeFormats.add("AZTEC");
+        int cameraId = 0;
+        AlertDialog result = IntentIntegrator.initiateScan(desiredBarcodeFormats, cameraId);
+        assertNotNull(result);
+    }
+    
+    @Test
+    public void initiateScanTest() {
+        // Test case 3: null desiredBarcodeFormats and positive cameraId
+        Collection<String> desiredBarcodeFormats = null;
+        int cameraId = 0;
+        AlertDialog result = IntentIntegrator.initiateScan(desiredBarcodeFormats, cameraId);
+        assertNull(result);
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void initiateScanTest() {
+    // Create a new instance of the IntentIntegrator class
+    IntentIntegrator integrator = new IntentIntegrator();
+    
+    // Call the initiateScan method with some dummy values for desiredBarcodeFormats and cameraId
+    Collection<String> desiredBarcodeFormats = Arrays.asList("QR_CODE", "UPC_A");
+    int cameraId = 0;
+    Intent intent = integrator.initiateScan(desiredBarcodeFormats, cameraId);
+    
+    // Assert that the intent object has the expected extras
+    assertEquals(intent.getStringExtra("SCAN_FORMATS"), "QR_CODE,UPC_A");
+    assertEquals(intent.getIntExtra("SCAN_CAMERA_ID", -1), 0);
+    
+    // Assert that the intent object has the expected action and category
+    assertEquals(intent.getAction(), Intent.ACTION_MAIN);
+    assertEquals(intent.getCategory(), Intent.CATEGORY_LAUNCHER);
+}
+
+
+No.8 generated result --------------------------
+
+
+@Test
+public void initiateScanTest() {
+    // Arrange
+    Collection<String> desiredBarcodeFormats = new ArrayList<>();
+    int cameraId = 0;
+
+    // Act
+    AlertDialog dialog = initiateScan(desiredBarcodeFormats, cameraId);
+
+    // Assert
+    assertNotNull(dialog);
+}
+
+
+No.9 generated result --------------------------
+
+
+@Test
+public void initiateScanTest() {
+    // Arrange
+    Collection<String> desiredBarcodeFormats = new ArrayList<>();
+    int cameraId = 1;
+
+    // Act
+    AlertDialog dialog = initiateScan(desiredBarcodeFormats, cameraId);
+
+    // Assert
+    assertNotNull(dialog);
+}
+
+
+No.10 generated result --------------------------
+
+
+@Test
+public void initiateScanTest() {
+  // Arrange
+  Collection<String> desiredBarcodeFormats = Arrays.asList("CODE_39", "QR_CODE");
+  int cameraId = 1;
+  IntentIntegrator integrator = new IntentIntegrator();
+  AlertDialog dialog = Mockito.mock(AlertDialog.class);
+  PowerMockito.whenNew(AlertDialog.Builder.class).withArguments(any(Context.class)).thenReturn(dialog);
+  // Act
+  integrator.initiateScan(desiredBarcodeFormats, cameraId);
+  // Assert
+  Mockito.verify(dialog, times(1)).show();
+}
+
+
