@@ -78,18 +78,20 @@ def codallama_interface(data):
     """
     Call the codellama interface address to generate test cases with data.
     """
+    session = requests.Session()
     headers = {'Content-Type': 'application/json'}
     flag = 0
     signal.signal(signal.SIGALRM, _timeout)
     signal.alarm(180) 
     try:
-        response = requests.post(url, data=json.dumps(data), headers=headers, timeout=175)
+        response = session.post(url, data=json.dumps(data), headers=headers, timeout=175)
     except Exception as e:
         output = "Timeout"
         logging.error("Timeout")
         flag = 1
     finally:
         signal.alarm(0)
+        session.close()
     if flag == 0:
         # output = process_json_stream(response.text)
         output = response.json()['response']
