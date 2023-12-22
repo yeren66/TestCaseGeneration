@@ -6,10 +6,12 @@ import re
 import logging
 from tqdm import tqdm
 from extract_raw_file import update_json_file
+from parse_clover import get_coverage
 
 basic_path = "./generate_result/"
 append_path = "./test_result/"
 relative_project_path = "/home/joseph/java_project/"
+coverage_path = "./coverage_result/"
 # --------------------------------------------------------------
 current_path = os.getcwd()
 logging.basicConfig(filename='log/java_project_execute.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -52,7 +54,13 @@ def clean_path(path):
         for file in files:
             os.remove(os.path.join(root, file))
 
-def result_evaluate(data, file_path, class_name, method_name):
+def write_coverage_result(path, data):
+    if not os.path.exists(path):
+        os.makedirs(path)
+    with open(os.path.join(path, "coverage.json"), 'a') as f:   
+        f.write(json.dumps(data), indent=4)
+
+def result_evaluate(data, file_path, class_name, method_name, package_name, project_name):
     result_list = []
     for j in range(len(data)):
         logging.info("\nclass_name: " + class_name + " method_name: " + method_name + " index: " + str(j + 1))
@@ -110,6 +118,40 @@ def result_evaluate(data, file_path, class_name, method_name):
                 continue
         result_list.append('Accept')
 
+        # 进行覆盖率计算
+        logging.info("####################  mvn clover=setup test -Dtest=" + syntax_ret + "####################")
+        sp = subprocess.Popen(
+            "mvn clean clover:setup test clover:aggregate clover:clover -Drat.skip=true -Dsurefire.failIfNoSpecifiedTests=false -Dtest=" + syntax_ret,
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE, shell=True)
+        stdout, stderr = sp.communicate(timeout=60)
+        output_str = stdout.decode('utf-8')
+        logging.info(output_str)
+        pattern = r'BUILD (SUCCESS|FAILURE)'  # 定义正则表达式模式
+        match = re.search(pattern, output_str)  # 在输出中搜索模式
+        if match:
+            build_status = match.group(1)  # 获取匹配的内容（SUCCESS 或 FAILURE）
+            if build_status != "SUCCESS":
+                print("clover error in " + syntax_ret)
+                delete_file(file_path, syntax_ret)
+                continue
+        # clover.xml文件路径，此时的执行路径为项目根目录
+        clover_path = "target/site/clover/clover.xml"
+        # 获取覆盖率
+        project_metric, package_metric, file_metric, method_metric = get_coverage(clover_path, package_name, syntax_ret, method_name)
+        # 写入覆盖率结果
+        coverage_data = {
+            "project_name": project_name,
+            "class_name": syntax_ret,
+            "method_name": method_name,
+            "test_code": data[j],
+            "project_metric": project_metric,
+            "package_metric": package_metric,
+            "file_metric": file_metric,
+            "method_metric": method_metric
+        }
+        write_coverage_result(coverage_path, coverage_data)
+
         # 删除文件
         delete_file(file_path, syntax_ret)
 
@@ -126,6 +168,7 @@ if __name__ == "__main__":
         for item in os.listdir(second_path):
             os.chdir(current_path)
             data = json_reader(os.path.join(second_path, item, "result.json"))
+            package = data['package']
             project_name = data['project_name']
             class_name = data['class_name']
             method_name = data['method_name']
@@ -139,12 +182,12 @@ if __name__ == "__main__":
             test_path = relative_path.replace("main", "test").rsplit("/", 1)[0]
             if not os.path.exists(test_path):
                 os.makedirs(test_path)
-            execute_result = result_evaluate(data['generate_test'], test_path, class_name, method_name)
+            execute_result = result_evaluate(data['generate_test'], test_path, class_name, method_name, package, project_name)
             each_result[item] = execute_result
 
         os.chdir(current_path)
         update_json_file(os.path.join(append_path, project_name + '_result.json'), each_result)
-        update_json_file("total_result.json", each_result)
+        # update_json_file("total_result.json", each_result)
     
     print("Finish!")
 
