@@ -256,5 +256,91 @@
             "Syntax Error",
             "Compile Error"
         ]
+    },
+    {
+        "project_name": "apollo",
+        "code": "@Transactional\npublic GrayReleaseRule updateRulesReleaseId(String appId, String clusterName,\n                                 String namespaceName, String branchName,\n                                 long latestReleaseId, String operator) {\n  GrayReleaseRule oldRules = grayReleaseRuleRepository.\n      findTopByAppIdAndClusterNameAndNamespaceNameAndBranchNameOrderByIdDesc(appId, clusterName, namespaceName, branchName);\n\n  if (oldRules == null) {\n    return null;\n  }\n\n  GrayReleaseRule newRules = new GrayReleaseRule();\n  newRules.setBranchStatus(NamespaceBranchStatus.ACTIVE);\n  newRules.setReleaseId(latestReleaseId);\n  newRules.setRules(oldRules.getRules());\n  newRules.setAppId(oldRules.getAppId());\n  newRules.setClusterName(oldRules.getClusterName());\n  newRules.setNamespaceName(oldRules.getNamespaceName());\n  newRules.setBranchName(oldRules.getBranchName());\n  newRules.setDataChangeCreatedBy(operator);\n  newRules.setDataChangeLastModifiedBy(operator);\n\n  grayReleaseRuleRepository.save(newRules);\n\n  grayReleaseRuleRepository.delete(oldRules);\n\n  return newRules;\n}\n",
+        "package": "com.ctrip.framework.apollo.biz.service",
+        "class_name": "NamespaceBranchService",
+        "method_name": "updateRulesReleaseId",
+        "SourceCode&Full": [
+            "Accept",
+            "Compile Error",
+            "Compile Error",
+            "Compile Error",
+            "Syntax Error",
+            "Compile Error",
+            "Syntax Error",
+            "Syntax Error",
+            "Compile Error",
+            "Compile Error"
+        ],
+        "SourceCode&Simple": [
+            "Syntax Error",
+            "Syntax Error",
+            "Compile Error",
+            "Compile Error",
+            "Compile Error",
+            "Compile Error",
+            "Compile Error",
+            "Syntax Error",
+            "Compile Error",
+            "Compile Error"
+        ],
+        "SourceCodeOnly": [
+            "Compile Error",
+            "Compile Error",
+            "Syntax Error",
+            "Syntax Error",
+            "Syntax Error",
+            "Compile Error",
+            "Compile Error",
+            "Compile Error",
+            "Syntax Error",
+            "Compile Error"
+        ]
+    },
+    {
+        "project_name": "apollo",
+        "code": "\n@Override\npublic List<ServiceInstance> getInstances(String serviceName) {\n  if (Objects.equals(serviceName, this.selfInstance.getServiceName())) {\n    List<ServiceInstance> serviceInstances = this.delegate.getInstances(serviceName);\n    if (containSelf(serviceInstances, this.selfInstance)) {\n      // contains self instance already\n      return serviceInstances;\n    }\n\n    // add self instance to result\n    List<ServiceInstance> result = new ArrayList<>(serviceInstances.size() + 1);\n    result.add(this.selfInstance);\n    result.addAll(serviceInstances);\n    return result;\n  } else {\n    return this.delegate.getInstances(serviceName);\n  }\n}\n",
+        "package": "com.ctrip.framework.apollo.biz.registry",
+        "class_name": "DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl",
+        "method_name": "getInstances",
+        "SourceCode&Full": [
+            "Compile Error",
+            "Compile Error",
+            "Syntax Error",
+            "Compile Error",
+            "Syntax Error",
+            "Syntax Error",
+            "Syntax Error",
+            "Syntax Error",
+            "Syntax Error",
+            "Compile Error"
+        ],
+        "SourceCode&Simple": [
+            "Syntax Error",
+            "Compile Error",
+            "Compile Error",
+            "Syntax Error",
+            "Syntax Error",
+            "Compile Error",
+            "Syntax Error",
+            "Syntax Error",
+            "Syntax Error",
+            "Compile Error"
+        ],
+        "SourceCodeOnly": [
+            "Compile Error",
+            "Syntax Error",
+            "Compile Error",
+            "Syntax Error",
+            "Syntax Error",
+            "Syntax Error",
+            "Compile Error",
+            "Syntax Error",
+            "Syntax Error",
+            "Syntax Error"
+        ]
     }
 ]
