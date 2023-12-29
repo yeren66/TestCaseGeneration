@@ -6,12 +6,13 @@ import re
 import logging
 from tqdm import tqdm
 from extract_raw_file import update_json_file
-from parse_clover import get_coverage
+# from parse_clover import get_coverage
+from parse_jacoco import get_coverage
 
 basic_path = "./generate_result/"
 append_path = "./test_result/"
 relative_project_path = "/home/joseph/java_project/"
-coverage_path = "./coverage_result/"
+coverage_path = "/home/joseph/TestCaseGeneration/coverage_result/"
 # --------------------------------------------------------------
 current_path = os.getcwd()
 logging.basicConfig(filename='log/java_project_execute.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -57,8 +58,16 @@ def clean_path(path):
 def write_coverage_result(path, data):
     if not os.path.exists(path):
         os.makedirs(path)
-    with open(os.path.join(path, "coverage.json"), 'a') as f:   
-        f.write(json.dumps(data), indent=4)
+    file_path = os.path.join(path, "coverage.json")
+    file_exists = os.path.exists(file_path)
+    if file_exists:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            existing_data = json.load(file)
+    else:
+        existing_data = []
+    existing_data.append(data)
+    with open(file_path, 'w', encoding='utf-8') as file:   
+        json.dump(existing_data, file, indent=4)
 
 def result_evaluate(data, file_path, class_name, method_name, package_name, project_name):
     result_list = []
@@ -116,41 +125,98 @@ def result_evaluate(data, file_path, class_name, method_name, package_name, proj
                 result_list.append('Test Error')
                 delete_file(file_path, syntax_ret)
                 continue
-        result_list.append('Accept')
-
-        # 进行覆盖率计算
-        logging.info("####################  mvn clover=setup test -Dtest=" + syntax_ret + "####################")
-        sp = subprocess.Popen(
-            "mvn clean clover:setup test clover:aggregate clover:clover -Drat.skip=true -Dsurefire.failIfNoSpecifiedTests=false -Dtest=" + syntax_ret,
-            stdin=subprocess.PIPE,
-            stdout=subprocess.PIPE, shell=True)
-        stdout, stderr = sp.communicate(timeout=60)
-        output_str = stdout.decode('utf-8')
-        logging.info(output_str)
         pattern = r'BUILD (SUCCESS|FAILURE)'  # 定义正则表达式模式
         match = re.search(pattern, output_str)  # 在输出中搜索模式
         if match:
             build_status = match.group(1)  # 获取匹配的内容（SUCCESS 或 FAILURE）
             if build_status != "SUCCESS":
-                print("clover error in " + syntax_ret)
+                result_list.append('Test Error')
                 delete_file(file_path, syntax_ret)
                 continue
-        # clover.xml文件路径，此时的执行路径为项目根目录
-        clover_path = "target/site/clover/clover.xml"
+        
+        result_list.append('Accept')
+
+        # 进行覆盖率计算
+        logging.info("####################  Coverage Calculate: " + syntax_ret + "####################")
         # 获取覆盖率
-        project_metric, package_metric, file_metric, method_metric = get_coverage(clover_path, package_name, syntax_ret, method_name)
-        # 写入覆盖率结果
+        this_path = os.getcwd()
+        package_metric, class_metric, method_metric = get_coverage(this_path, package_name, syntax_ret, method_name)
+        logging.info("project_name: " + project_name)
+        logging.info("file_path: " + file_path)
+        logging.info("package_name: " + package_name)
+        logging.info("class_name: " + class_name)
+        logging.info("method_name: " + method_name)
+        logging.info("project_metric: " + str(package_metric))
+        logging.info("package_metric: " + str(class_metric))
+        logging.info("method_metric: " + str(method_metric))
+
+        # 进行变异测试
+        logging.info("####################  Mutation Test: " + syntax_ret + "####################")
+        targetClasses = package_name + "." + class_name
+        targetTests = package_name + "." + syntax_ret
+        logging.info("targetClasses: " + targetClasses)
+        logging.info("targetTests: " + targetTests)
+        sp = subprocess.Popen(
+            'mvn clean test-compile org.pitest:pitest-maven:mutationCoverage -DtargetClasses="' + targetClasses + '" -DtargetTests="' + targetTests + '"',
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE, shell=True)
+        stdout, stderr = sp.communicate(timeout=60)
+        output_str = stdout.decode('utf-8')
+        pattern = r"Generated \d+ mutations Killed \d+ \((\d{1,3})%\)"
+        matches = re.findall(pattern, output_str)
+        if matches:
+            percentages = [int(m) for m in matches]
+            average_percentage = sum(percentages) / len(percentages)
+        else:
+            average_percentage = -1
+        # 写入覆盖率结果以及变异测试结果
         coverage_data = {
             "project_name": project_name,
-            "class_name": syntax_ret,
+            "file_path": file_path,
+            "package_name": package_name,
+            "class_name": class_name,
             "method_name": method_name,
             "test_code": data[j],
-            "project_metric": project_metric,
             "package_metric": package_metric,
-            "file_metric": file_metric,
-            "method_metric": method_metric
+            "class_metric": class_metric,
+            "method_metric": method_metric,
+            "pitest": average_percentage
         }
         write_coverage_result(coverage_path, coverage_data)
+
+        # Clover插件的使用(已弃用)
+        # logging.info("####################  mvn clover=setup test -Dtest=" + syntax_ret + "####################")
+        # sp = subprocess.Popen(
+        #     "mvn clean clover:setup test clover:aggregate clover:clover -Drat.skip=true -Dsurefire.failIfNoSpecifiedTests=false -Dtest=" + syntax_ret,
+        #     stdin=subprocess.PIPE,
+        #     stdout=subprocess.PIPE, shell=True)
+        # stdout, stderr = sp.communicate(timeout=60)
+        # output_str = stdout.decode('utf-8')
+        # logging.info(output_str)
+        # pattern = r'BUILD (SUCCESS|FAILURE)'  # 定义正则表达式模式
+        # match = re.search(pattern, output_str)  # 在输出中搜索模式
+        # if match:
+        #     build_status = match.group(1)  # 获取匹配的内容（SUCCESS 或 FAILURE）
+        #     if build_status != "SUCCESS":
+        #         print("clover error in " + syntax_ret)
+        #         delete_file(file_path, syntax_ret)
+        #         continue
+        # # clover.xml文件路径，此时的执行路径为项目根目录
+        # clover_path = "target/site/clover/clover.xml"
+        # # 获取覆盖率
+        # project_metric, package_metric, file_metric, method_metric = get_coverage(clover_path, package_name, syntax_ret, method_name)
+        # # 写入覆盖率结果
+        # coverage_data = {
+        #     "project_name": project_name,
+        #     "class_name": syntax_ret,
+        #     "method_name": method_name,
+        #     "test_code": data[j],
+        #     "project_metric": project_metric,
+        #     "package_metric": package_metric,
+        #     "file_metric": file_metric,
+        #     "method_metric": method_metric
+        # }
+        # write_coverage_result(coverage_path, coverage_data)
 
         # 删除文件
         delete_file(file_path, syntax_ret)

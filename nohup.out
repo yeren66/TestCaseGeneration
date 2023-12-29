@@ -1,75 +1,22 @@
-  0%|          | 0/110 [00:00<?, ?it/s]  1%|          | 1/110 [01:56<3:31:43, 116.55s/it]  2%|▏         | 2/110 [04:33<4:13:05, 140.60s/it]  3%|▎         | 3/110 [07:37<4:45:19, 159.99s/it]  4%|▎         | 4/110 [10:18<4:43:59, 160.75s/it]  5%|▍         | 5/110 [12:14<4:12:46, 144.44s/it]  5%|▌         | 6/110 [18:20<6:21:05, 219.86s/it]  6%|▋         | 7/110 [23:41<7:13:50, 252.73s/it]  7%|▋         | 8/110 [25:15<5:43:50, 202.26s/it]  8%|▊         | 9/110 [28:00<5:20:43, 190.53s/it]  9%|▉         | 10/110 [31:34<5:29:52, 197.93s/it] 10%|█         | 11/110 [33:17<4:38:28, 168.77s/it] 11%|█         | 12/110 [36:02<4:33:52, 167.68s/it] 12%|█▏        | 13/110 [38:46<4:29:19, 166.59s/it] 13%|█▎        | 14/110 [52:09<9:33:59, 358.75s/it] 14%|█▎        | 15/110 [1:02:01<11:19:22, 429.08s/it] 15%|█▍        | 16/110 [1:04:32<9:01:07, 345.40s/it]   0%|          | 0/110 [00:00<?, ?it/s]  1%|          | 1/110 [01:57<3:32:43, 117.10s/it]  2%|▏         | 2/110 [05:00<4:40:34, 155.88s/it]  3%|▎         | 3/110 [08:41<5:31:26, 185.86s/it]  4%|▎         | 4/110 [11:48<5:29:21, 186.43s/it]  5%|▍         | 5/110 [13:47<4:43:18, 161.89s/it]  5%|▌         | 6/110 [21:52<7:51:12, 271.85s/it]  6%|▋         | 7/110 [27:49<8:34:22, 299.64s/it]  7%|▋         | 8/110 [29:24<6:38:25, 234.37s/it]  8%|▊         | 9/110 [32:06<5:56:42, 211.91s/it]  9%|▉         | 10/110 [36:04<6:06:36, 219.96s/it] 10%|█         | 11/110 [37:50<5:05:16, 185.02s/it] 11%|█         | 12/110 [41:17<5:12:55, 191.59s/it] 12%|█▏        | 13/110 [44:21<5:06:28, 189.57s/it] 13%|█▎        | 14/110 [1:02:11<12:08:27, 455.29s/it] 14%|█▎        | 15/110 [1:12:40<13:23:48, 507.66s/it] 15%|█▍        | 16/110 [1:15:07<10:25:34, 399.31s/it] 15%|█▌        | 17/110 [1:16:32<7:52:12, 304.65s/it]  16%|█▋        | 18/110 [1:19:32<6:49:35, 267.13s/it] 17%|█▋        | 19/110 [1:22:27<6:03:30, 239.67s/it] 18%|█▊        | 20/110 [1:25:59<5:46:51, 231.23s/it] 19%|█▉        | 21/110 [1:28:29<5:06:58, 206.95s/it] 20%|██        | 22/110 [1:32:30<5:18:18, 217.03s/it] 21%|██        | 23/110 [1:35:51<5:07:48, 212.28s/it] 22%|██▏       | 24/110 [1:38:50<4:50:01, 202.34s/it] 23%|██▎       | 25/110 [1:40:22<3:59:38, 169.16s/it] 24%|██▎       | 26/110 [1:43:39<4:08:39, 177.61s/it] 25%|██▍       | 27/110 [1:45:37<3:40:52, 159.67s/it] 25%|██▌       | 28/110 [1:52:53<5:31:26, 242.52s/it] 26%|██▋       | 29/110 [1:56:07<5:07:53, 228.07s/it] 27%|██▋       | 30/110 [1:58:36<4:32:16, 204.21s/it] 28%|██▊       | 31/110 [2:01:05<4:07:09, 187.71s/it] 29%|██▉       | 32/110 [2:03:41<3:51:34, 178.13s/it] 30%|███       | 33/110 [2:05:25<3:20:11, 155.99s/it] 31%|███       | 34/110 [2:07:45<3:11:23, 151.10s/it] 32%|███▏      | 35/110 [2:09:11<2:44:33, 131.64s/it] 33%|███▎      | 36/110 [2:11:05<2:35:44, 126.27s/it] 34%|███▎      | 37/110 [2:14:01<2:51:50, 141.25s/it] 35%|███▍      | 38/110 [2:16:36<2:54:20, 145.29s/it] 35%|███▌      | 39/110 [2:18:24<2:38:36, 134.04s/it] 36%|███▋      | 40/110 [2:22:17<3:11:00, 163.72s/it] 37%|███▋      | 41/110 [2:23:46<2:42:35, 141.38s/it] 38%|███▊      | 42/110 [2:27:50<3:15:15, 172.28s/it] 38%|███▊      | 42/110 [2:29:05<4:01:22, 212.98s/it]
-clover error in JeecgController
-clover error in DepartmentVO
-clover error in AesEncryptUtilTest
-clover error in AesEncryptUtilTest
-clover error in AesEncryptUtilTest
-clover error in ValidationUtils
-clover error in QueryWrapper
-clover error in MySwaggerResourceProviderTest
-clover error in MySwaggerResourceProviderTest
-clover error in MySwaggerResourceProviderTest
-clover error in MySwaggerResourceProviderTest
-clover error in MySwaggerResourceProviderTest
-clover error in MySwaggerResourceProviderTest
-clover error in MySwaggerResourceProviderTest
-clover error in MySwaggerResourceProviderTest
-clover error in MySwaggerResourceProviderTest
-clover error in MySwaggerResourceProviderTest
-clover error in JdbcSecurityUtilTest
-clover error in JdbcSecurityUtilTest
-clover error in JdbcSecurityUtilTest
-clover error in SensitiveInfoUtil
-clover error in DesensitizeStrategy
-clover error in Controller
-clover error in DictModel
-clover error in Test
-clover error in User
-clover error in SensitiveInfoUtil
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in DynamicRouteServiceTest
-clover error in MyClassLoaderTest
-clover error in MyClassLoaderTest
-clover error in MyClassLoaderTest
-clover error in IntentIntegrator
-clover error in IntentIntegratorTest
-clover error in IntentIntegratorTest
-clover error in IntentIntegratorTest
-clover error in IntentIntegratorTest
-clover error in IntentIntegratorTest
-clover error in IntentIntegratorTest
-clover error in IntentIntegratorTest
-clover error in IntentIntegratorTest
-clover error in IntentIntegratorTest
-clover error in NonBlockingSetIntTest
-clover error in MyObject
-Traceback (most recent call last):
-  File "execute_test.py", line 185, in <module>
-    execute_result = result_evaluate(data['generate_test'], test_path, class_name, method_name, package, project_name)
-  File "execute_test.py", line 141, in result_evaluate
-    project_metric, package_metric, file_metric, method_metric = get_coverage(clover_path, package_name, syntax_ret, method_name)
-  File "/home/joseph/TestCaseGeneration/parse_clover.py", line 6, in get_coverage
-    project_metric, package_metric, file_metric, method_metric = locate_method(root, package_name, class_path, method_name)
-  File "/home/joseph/TestCaseGeneration/parse_clover.py", line 43, in locate_method
-    if total_count == 0:
-UnboundLocalError: local variable 'total_count' referenced before assignment
+  0%|          | 0/108 [00:00<?, ?it/s]  1%|          | 1/108 [02:19<4:08:28, 139.33s/it]12:27:35 AM PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
+12:27:37 AM PIT >> INFO : Incremental analysis reduced number of mutations by 0
+12:27:37 AM PIT >> INFO : Created  159 mutation test units in pre scan
+12:27:38 AM PIT >> INFO : Sending 7 test classes to minion
+12:27:38 AM PIT >> INFO : Sent tests to minion
+12:27:38 AM PIT >> SEVERE : Description [testClass=org.jeecg.test.sqlinjection.TestInjectWithSqlParser, name=test(org.jeecg.test.sqlinjection.TestInjectWithSqlParser)] did not pass without mutation.
+12:27:38 AM PIT >> SEVERE : Description [testClass=org.jeecg.test.sqlinjection.TestSqlInjectForOnlineReport, name=test(org.jeecg.test.sqlinjection.TestSqlInjectForOnlineReport)] did not pass without mutation.
+12:27:38 AM PIT >> INFO : Calculated coverage in 0 seconds.
+12:27:38 AM PIT >> SEVERE : Tests failing without mutation: 
+Description [testClass=org.jeecg.test.sqlinjection.TestInjectWithSqlParser, name=test(org.jeecg.test.sqlinjection.TestInjectWithSqlParser)]
+Description [testClass=org.jeecg.test.sqlinjection.TestSqlInjectForOnlineReport, name=test(org.jeecg.test.sqlinjection.TestSqlInjectForOnlineReport)]
+12:28:09 AM PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
+12:28:11 AM PIT >> INFO : Incremental analysis reduced number of mutations by 0
+12:28:11 AM PIT >> INFO : Created  160 mutation test units in pre scan
+12:28:12 AM PIT >> INFO : Sending 6 test classes to minion
+12:28:12 AM PIT >> INFO : Sent tests to minion
+12:28:12 AM PIT >> SEVERE : Description [testClass=org.jeecg.test.sqlinjection.TestInjectWithSqlParser, name=test(org.jeecg.test.sqlinjection.TestInjectWithSqlParser)] did not pass without mutation.
+12:28:12 AM PIT >> SEVERE : Description [testClass=org.jeecg.test.sqlinjection.TestSqlInjectForOnlineReport, name=test(org.jeecg.test.sqlinjection.TestSqlInjectForOnlineReport)] did not pass without mutation.
+12:28:12 AM PIT >> INFO : Calculated coverage in 0 seconds.
+12:28:12 AM PIT >> SEVERE : Tests failing without mutation: 
+Description [testClass=org.jeecg.test.sqlinjection.TestInjectWithSqlParser, name=test(org.jeecg.test.sqlinjection.TestInjectWithSqlParser)]
+Description [testClass=org.jeecg.test.sqlinjection.TestSqlInjectForOnlineReport, name=test(org.jeecg.test.sqlinjection.TestSqlInjectForOnlineReport)]

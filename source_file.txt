@@ -108,11 +108,6 @@ Java/src/main/java/com/thealgorithms/datastructures/graphs/KahnsAlgorithm.java
 127
 Java
 
-Java/src/main/java/com/thealgorithms/datastructures/graphs/MatrixGraphs.java
-173
-192
-Java
-
 Java/src/main/java/com/thealgorithms/datastructures/stacks/NodeStack.java
 59
 78
@@ -246,12 +241,12 @@ jeecg-boot
 jeecg-boot/jeecg-server-cloud/jeecg-cloud-gateway/src/main/java/org/jeecg/handler/swagger/MySwaggerResourceProvider.java
 125
 159
-jeecg-boot
+jeecg-boot/jeecg-server-cloud
 
 jeecg-boot/jeecg-server-cloud/jeecg-cloud-gateway/src/main/java/org/jeecg/loader/repository/DynamicRouteService.java
 53
 72
-jeecg-boot
+jeecg-boot/jeecg-server-cloud
 
 zxing/core/src/main/java/com/google/zxing/aztec/decoder/Decoder.java
 99
