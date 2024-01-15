@@ -81,8 +81,11 @@ def get_coverage(base_path, package_name, class_name, method_name):
     class_name = handle_class_name(class_name) # 新coverage.json文件可注释掉这句
     for xml_file in xml_path:
         package_cov, class_cov, method_cov = extract_coverage(xml_file, package_name, class_name, method_name)
-        if 1 == 1: # 保存对应xml文件用于debug
-            with open("/home/joseph/TestCaseGeneration/xmls/" + class_name + "_" + method_name + "_" + str(random.randint(1, 50)) + "_jacoco.xml", 'w') as f:
+        if 1 == 0: # 保存对应xml文件用于debug
+            xml_append_path = "/home/joseph/TestCaseGeneration/xmls/"
+            if not os.path.exists(xml_append_path):
+                os.makedirs(xml_append_path)
+            with open(xml_append_path + class_name + "_" + method_name + "_" + str(random.randint(1, 50)) + "_jacoco.xml", 'w') as f:
                 with open(xml_file, 'r') as file:
                     xmlFile = file.read()
                     f.write(xmlFile)

@@ -39,7 +39,7 @@ def syntax_judge(code):
         logging.error("Syntax Error")
         logging.error(e)
         return None
-    
+
 def write_file(path, class_name, code):
     delete_file(path, class_name)
     # print(path + "/" + class_name + ".java")
@@ -49,11 +49,26 @@ def write_file(path, class_name, code):
 def delete_file(path, class_name):  
     if os.path.exists(os.path.join(path, class_name + ".java")):
         os.remove(os.path.join(path, class_name + ".java"))
+        return True
+    return False
 
-def clean_path(path):
-    for root, dirs, files in os.walk(path):
-        for file in files:
-            os.remove(os.path.join(root, file))
+def clean_path(path_list):
+    # 清除java-project中可能存在的残留Test文件，防止影响测试结果
+    print("strat cleaning...")
+    count = 0
+    for second_path in tqdm(path_list):
+        for item in os.listdir(second_path):
+            data = json_reader(os.path.join(second_path, item, "result.json"))
+            relative_path = os.path.join(relative_project_path, data['relative_path'])
+            test_path = relative_path.replace("main", "test").rsplit("/", 1)[0]
+            for each_result in data['generate_test']:
+                class_name = syntax_judge(each_result)
+                if class_name is not None:
+                    ret = delete_file(test_path, class_name)
+                    if ret:
+                        count += 1
+    print("Finish! clean " + str(count) + " files")
+
 
 def write_coverage_result(path, data):
     if not os.path.exists(path):
@@ -87,13 +102,15 @@ def result_evaluate(data, file_path, class_name, method_name, package_name, proj
         
         # 将代码写入文件，进行编译检查
         # -Drat.skip=true 是遇到License检查才添加的参数
+        # -Dsurefire.failIfNoSpecifiedTests=false 是跳过没有测试的类
         # 对于新项目，所需要的参数可能不尽相同，为此可能需要频繁修改此内容。
         write_file(file_path, syntax_ret, data[j])
         logging.info("####################  mvn clean test-compile  ####################")
         sp = subprocess.Popen(
             "mvn clean test-compile -Drat.skip=true -Dsurefire.failIfNoSpecifiedTests=false",
             stdin=subprocess.PIPE,
-            stdout=subprocess.PIPE, shell=True)
+            stdout=subprocess.PIPE, 
+            stderr=subprocess.PIPE,shell=True)
         stdout, stderr = sp.communicate(timeout=60)
         output_str = stdout.decode('utf-8')
         logging.info(output_str)
@@ -107,13 +124,16 @@ def result_evaluate(data, file_path, class_name, method_name, package_name, proj
                 continue
 
         # 进行测试检查
+        # -DskipPitest=True 是跳过Pitest检查（本项目将pitest绑定在test阶段）
         # -Drat.skip=true 是遇到License检查才添加的参数
+        # -Dsurefire.failIfNoSpecifiedTests=false 是跳过没有测试的类
         # 对于新项目，所需要的参数可能不尽相同，为此可能需要频繁修改此内容。
         logging.info("####################  mvn test -Dtest=" + syntax_ret + "####################")
         sp = subprocess.Popen(
-            "mvn test -Drat.skip=true -Dsurefire.failIfNoSpecifiedTests=false -Dtest=" + syntax_ret,
+            "mvn test -DskipPitest=True -Drat.skip=true -Dsurefire.failIfNoSpecifiedTests=false -Dtest=" + syntax_ret,
             stdin=subprocess.PIPE,
-            stdout=subprocess.PIPE, shell=True)
+            stdout=subprocess.PIPE, 
+            stderr=subprocess.PIPE, shell=True)
         stdout, stderr = sp.communicate(timeout=60)
         output_str = stdout.decode('utf-8')
         logging.info(output_str)
@@ -137,7 +157,7 @@ def result_evaluate(data, file_path, class_name, method_name, package_name, proj
         result_list.append('Accept')
 
         # 进行覆盖率计算
-        logging.info("####################  Coverage Calculate: " + syntax_ret + "####################")
+        logging.info("####################  Coverage Calculate: " + syntax_ret + " ####################")
         # 获取覆盖率
         this_path = os.getcwd()
         package_metric, class_metric, method_metric = get_coverage(this_path, package_name, syntax_ret, method_name)
@@ -151,24 +171,30 @@ def result_evaluate(data, file_path, class_name, method_name, package_name, proj
         logging.info("method_metric: " + str(method_metric))
 
         # 进行变异测试
-        logging.info("####################  Mutation Test: " + syntax_ret + "####################")
+        logging.info("####################  Mutation Test: " + syntax_ret + " ####################")
         targetClasses = package_name + "." + class_name
         targetTests = package_name + "." + syntax_ret
+        logging.info("mvn command: mvn clean test-compile org.pitest:pitest-maven:mutationCoverage -Drat.skip=true -DtargetClasses=\"" + targetClasses + "\" -DtargetTests=\"" + targetTests + "\"")
         logging.info("targetClasses: " + targetClasses)
         logging.info("targetTests: " + targetTests)
         sp = subprocess.Popen(
-            'mvn clean test-compile org.pitest:pitest-maven:mutationCoverage -DtargetClasses="' + targetClasses + '" -DtargetTests="' + targetTests + '"',
+            'mvn clean test-compile org.pitest:pitest-maven:mutationCoverage -Drat.skip=true -DtargetClasses="' + targetClasses + '" -DtargetTests="' + targetTests + '"',
             stdin=subprocess.PIPE,
-            stdout=subprocess.PIPE, shell=True)
+            stdout=subprocess.PIPE, 
+            stderr=subprocess.PIPE, shell=True)
         stdout, stderr = sp.communicate(timeout=60)
         output_str = stdout.decode('utf-8')
+        logging.info(output_str)
         pattern = r"Generated \d+ mutations Killed \d+ \((\d{1,3})%\)"
         matches = re.findall(pattern, output_str)
         if matches:
+            # 对于可能的多次变异测试的结果，取平均值（理论上只会有一次）
             percentages = [int(m) for m in matches]
             average_percentage = sum(percentages) / len(percentages)
         else:
+            # 表明变异测试未执行
             average_percentage = -1
+            
         # 写入覆盖率结果以及变异测试结果
         coverage_data = {
             "project_name": project_name,
@@ -226,6 +252,8 @@ def result_evaluate(data, file_path, class_name, method_name, package_name, proj
 if __name__ == "__main__":
 
     path_list = path_handle(basic_path)
+
+    clean_path(path_list)
 
     for second_path in tqdm(path_list):
         # os.chdir(current_path)
