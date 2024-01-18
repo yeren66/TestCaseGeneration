@@ -1,0 +1,178 @@
+Source code: 
+
+
+public static double calculateQ1(List values) {
+    Args.nullNotPermitted(values, "values");
+
+    double result = Double.NaN;
+    int count = values.size();
+    if (count > 0) {
+        if (count % 2 == 1) {
+            if (count > 1) {
+                result = Statistics.calculateMedian(values, 0, count / 2);
+            }
+            else {
+                result = Statistics.calculateMedian(values, 0, 0);
+            }
+        }
+        else {
+            result = Statistics.calculateMedian(values, 0, count / 2 - 1);
+        }
+
+    }
+    return result;
+}
+
+
+
+No.1 generated result --------------------------
+
+public void calculateQ1Test() {
+        List<Double> values = new ArrayList<>();
+        values.add(5.0);
+        values.add(10.0);
+        values.add(15.0);
+        
+        double expected = 5.0;
+        double actual = BoxAndWhiskerCalculator.calculateQ1(values);
+        
+        assertEquals(expected, actual, 0.001);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void calculateQ1Test() {
+    List<Double> values = new ArrayList<>();
+    values.add(1.0);
+    values.add(2.0);
+    values.add(3.0);
+    values.add(4.0);
+    double result = BoxAndWhiskerCalculator.calculateQ1(values);
+    assertEquals(1.5, result, 0.001);
+}
+
+
+No.3 generated result --------------------------
+
+public void calculateQ1Test() {
+        List<Double> values = new ArrayList<>();
+        values.add(1.0);
+        values.add(2.0);
+        values.add(3.0);
+        double expected = 2.0;
+        
+        double result = BoxAndWhiskerCalculator.calculateQ1(values);
+        
+        assertEquals(expected, result, 0.001);
+    }
+
+
+No.4 generated result --------------------------
+
+@Test
+public void calculateQ1Test() {
+    List<Double> values = new ArrayList<>();
+    values.add(1.0);
+    values.add(2.0);
+    values.add(3.0);
+    values.add(4.0);
+    
+    // Call the calculateQ1 method and store the result
+    double result = BoxAndWhiskerCalculator.calculateQ1(values);
+    
+    // Assert the expected result
+    double expected = 1.5;
+    assertEquals(expected, result, 0.001);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void calculateQ1Test() {
+    List<Double> values = new ArrayList<>();
+    values.add(1.0);
+    values.add(2.0);
+    values.add(3.0);
+    double result = BoxAndWhiskerCalculator.calculateQ1(values);
+    assertEquals(1.5, result);
+}
+
+
+No.6 generated result --------------------------
+
+package org.jfree.data.statistics;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BoxAndWhiskerCalculatorTest {
+    @Test
+    public void calculateQ1Test() {
+        List values = new ArrayList();
+        values.add(1.0);
+        values.add(2.0);
+        values.add(3.0);
+        values.add(4.0);
+        values.add(5.0);
+        
+        double expected = 2.0; // Replace with expected value
+        
+        double actual = BoxAndWhiskerCalculator.calculateQ1(values);
+        
+        assertEquals(expected, actual, 0.0001); // Replace delta value with desired precision
+    }
+}
+
+
+No.7 generated result --------------------------
+
+public void calculateQ1Test() {
+    List<Double> values = Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0);
+    double expected = 2.0;
+    double result = BoxAndWhiskerCalculator.calculateQ1(values);
+    assertEquals(expected, result, 0.001);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void calculateQ1Test() {
+    List<Double> values = new ArrayList<>();
+    values.add(10.0);
+    values.add(20.0);
+    values.add(30.0);
+    double expected = 15.0;
+    double result = BoxAndWhiskerCalculator.calculateQ1(values);
+    assertEquals(expected, result);
+}
+
+
+No.9 generated result --------------------------
+
+List<Double> values = Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0);
+double expected = 2.0;
+double actual = BoxAndWhiskerCalculator.calculateQ1(values);
+assertEquals(expected, actual);
+
+
+No.10 generated result --------------------------
+
+@Test
+public void calculateQ1Test() {
+    List<Double> values = new ArrayList<>();
+    values.add(1.0);
+    values.add(2.0);
+    values.add(3.0);
+    
+    double expected = 1.5; // The expected result based on the values
+
+    double actual = BoxAndWhiskerCalculator.calculateQ1(values);
+    
+    assertEquals(expected, actual);
+}
+
+

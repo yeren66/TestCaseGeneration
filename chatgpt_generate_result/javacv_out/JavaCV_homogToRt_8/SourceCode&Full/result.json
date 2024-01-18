@@ -1,0 +1,32 @@
+{
+    "project_name": "javacv",
+    "file_name": "JavaCV.java",
+    "relative_path": "javacv/src/main/java/org/bytedeco/javacv/JavaCV.java",
+    "execute_path": "javacv",
+    "package": "org.bytedeco.javacv",
+    "docstring": "/**\n     * Ported to Java/OpenCV from\n     * Bill Triggs. Autocalibration from Planar Scenes. In 5th European Conference\n     * on Computer Vision (ECCV \u201998), volume I, pages 89\u2013105. Springer-Verlag, 1998.\n     */",
+    "source_code": "\npublic static double homogToRt(CvMat H,\n        CvMat R1, CvMat t1, CvMat n1,\n        CvMat R2, CvMat t2, CvMat n2) {\n    CvMat S = S3x3.get(), U = U3x3.get(), V = V3x3.get();\n    cvSVD(H, S, U, V, 0);\n    double zeta = homogToRt(S, U, V, R1, t1, n1, R2, t2, n2);\n    return zeta;\n}\n",
+    "class_name": "JavaCV",
+    "method_name": "homogToRt",
+    "arguments": [
+        "CvMat H",
+        "CvMat R1",
+        "CvMat t1",
+        "CvMat n1",
+        "CvMat R2",
+        "CvMat t2",
+        "CvMat n2"
+    ],
+    "generate_test": [
+        "Timeout",
+        "Timeout",
+        "Timeout",
+        "Timeout",
+        "Timeout",
+        "Timeout",
+        "Timeout",
+        "Timeout",
+        "Timeout",
+        "Timeout"
+    ]
+}

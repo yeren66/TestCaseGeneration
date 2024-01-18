@@ -1,0 +1,221 @@
+Source code: 
+
+
+public int getNextSet(int from) {
+  if (from >= size) {
+    return size;
+  }
+  int bitsOffset = from / 32;
+  int currentBits = bits[bitsOffset];
+  // mask off lesser bits first
+  currentBits &= -(1 << (from & 0x1F));
+  while (currentBits == 0) {
+    if (++bitsOffset == bits.length) {
+      return size;
+    }
+    currentBits = bits[bitsOffset];
+  }
+  int result = (bitsOffset * 32) + Integer.numberOfTrailingZeros(currentBits);
+  return Math.min(result, size);
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void getNextSetTest() {
+    BitArray bitArray = new BitArray();
+    bitArray.appendBits(5, 5);
+    int expectedResult = 5;
+    int actualResult = bitArray.getNextSet(0);
+    assertEquals(expectedResult, actualResult);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void getNextSetTest() {
+    BitArray bitArray = new BitArray(); // create an instance of BitArray
+    bitArray.set(0); // set the first bit
+    bitArray.set(3); // set the fourth bit
+    bitArray.set(6); // set the seventh bit
+
+    int result = bitArray.getNextSet(0); // call the getNextSet() method
+    assertEquals(0, result); // assert that the expected result is 0
+
+    result = bitArray.getNextSet(1); // call the getNextSet() method
+    assertEquals(3, result); // assert that the expected result is 3
+
+    result = bitArray.getNextSet(4); // call the getNextSet() method
+    assertEquals(6, result); // assert that the expected result is 6
+
+    result = bitArray.getNextSet(7); // call the getNextSet() method
+    assertEquals(7, result); // assert that the expected result is 7
+
+    result = bitArray.getNextSet(8); // call the getNextSet() method
+    assertEquals(8, result); // assert that the expected result is 8
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void getNextSetTest() {
+    BitArray bitArray = new BitArray(0);
+    int result = bitArray.getNextSet(0);
+    assertEquals(0, result);
+    
+    bitArray.set(2);
+    result = bitArray.getNextSet(0);
+    assertEquals(2, result);
+    
+    bitArray.set(5);
+    result = bitArray.getNextSet(3);
+    assertEquals(5, result);
+    
+    bitArray.clear();
+    bitArray.setRange(10, 15);
+    result = bitArray.getNextSet(5);
+    assertEquals(10, result);
+    
+    bitArray.clear();
+    result = bitArray.getNextSet(20);
+    assertEquals(0, result);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void getNextSetTest() {
+    // Create a new BitArray object
+    BitArray bitArray = new BitArray();
+
+    // Set the bits array with some values
+    int[] bits = {0x0F, 0x3F, 0x80};
+    bitArray.bits = bits;
+    bitArray.size = 32;
+
+    // Test the getNextSet method with different inputs
+
+    // Test case 1: from = 0, the first set bit is at index 3
+    int from1 = 0;
+    int expectedResult1 = 3;
+    assertEquals(expectedResult1, bitArray.getNextSet(from1));
+
+    // Test case 2: from = 4, the next set bit is at index 5
+    int from2 = 4;
+    int expectedResult2 = 5;
+    assertEquals(expectedResult2, bitArray.getNextSet(from2));
+
+    // Test case 3: from = 8, all the remaining bits are unset
+    int from3 = 8;
+    int expectedResult3 = 32;
+    assertEquals(expectedResult3, bitArray.getNextSet(from3));
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void getNextSetTest() {
+    BitArray bitArray = new BitArray(32);
+    assertEquals(32, bitArray.getNextSet(0));
+    assertEquals(0, bitArray.getNextSet(32));
+    assertEquals(2, bitArray.getNextSet(2));
+    assertEquals(5, bitArray.getNextSet(5));
+    // <FILL> complete the test case with more assertions
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void getNextSetTest() {
+    BitArray bitArray = new BitArray();
+    bitArray.set(5);
+    bitArray.set(9);
+    bitArray.set(12);
+    bitArray.set(15);
+    bitArray.set(20);
+    
+    int result1 = bitArray.getNextSet(0);
+    int result2 = bitArray.getNextSet(6);
+    int result3 = bitArray.getNextSet(13);
+    int result4 = bitArray.getNextSet(21);
+    
+    assertEquals(5, result1);
+    assertEquals(9, result2);
+    assertEquals(12, result3);
+    assertEquals(-1, result4);
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void getNextSetTest() {
+    BitArray bitArray = new BitArray();
+    bitArray.appendBit(true);
+    
+    int result = bitArray.getNextSet(0);
+    
+    assertEquals(0, result);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void getNextSetTest() {
+    BitArray bitArray = new BitArray();
+    bitArray.appendBits(123, 9);
+    bitArray.appendBit(true);
+    int result = bitArray.getNextSet(0);
+    assertEquals(0, result);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void getNextSetTest() {
+    BitArray bitArray = new BitArray(10);
+    
+    // Test when the from parameter is greater than or equal to the size
+    int result1 = bitArray.getNextSet(10);
+    assertEquals(10, result1);
+    
+    // Test when the from parameter is smaller than the size
+    int result2 = bitArray.getNextSet(2);
+    assertEquals(2, result2);
+    
+    // Additional test cases can be added here
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void getNextSetTest() {
+    BitArray bitArray = new BitArray();
+    bitArray.set(0);
+    bitArray.set(1);
+    bitArray.set(2);
+
+    int result = bitArray.getNextSet(0);
+    assertEquals(0, result);
+
+    result = bitArray.getNextSet(1);
+    assertEquals(1, result);
+
+    result = bitArray.getNextSet(2);
+    assertEquals(2, result);
+
+    result = bitArray.getNextSet(3);
+    assertEquals(3, result);
+}
+
+

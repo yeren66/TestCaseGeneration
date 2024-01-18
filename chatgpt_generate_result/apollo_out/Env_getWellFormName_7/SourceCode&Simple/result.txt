@@ -1,0 +1,262 @@
+Source code: 
+
+
+private static String getWellFormName(String envName) {
+  if (StringUtils.isBlank(envName)) {
+    return "";
+  }
+
+  String envWellFormName = envName.trim().toUpperCase();
+
+  // special case for production in case of typo
+  if ("PROD".equals(envWellFormName)) {
+    return Env.PRO.name;
+  }
+
+  // special case that FAT & FWS should map to FAT
+  if ("FWS".equals(envWellFormName)) {
+    return Env.FAT.name;
+  }
+
+  return envWellFormName;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void getWellFormNameTest() {
+    // Test when envName is blank
+    String result1 = Env.getWellFormName("");
+    assertEquals("", result1);
+    
+    // Test when envName is null
+    String result2 = Env.getWellFormName(null);
+    assertEquals("", result2);
+    
+    // Test when envName is "PROD"
+    String result3 = Env.getWellFormName("PROD");
+    assertEquals("PRO", result3);
+    
+    // Test when envName is "FWS"
+    String result4 = Env.getWellFormName("FWS");
+    assertEquals("FAT", result4);
+    
+    // Test when envName is any other value
+    String result5 = Env.getWellFormName("DEV");
+    assertEquals("DEV", result5);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void getWellFormNameTest() {
+    String result1 = Env.getWellFormName(""); // Test the case when envName is blank
+    assertEquals("", result1); // Verify that the expected result is an empty string
+
+    String result2 = Env.getWellFormName("prod"); // Test the case when envName is "prod"
+    assertEquals("PRO", result2); // Verify that the expected result is "PRO"
+
+    String result3 = Env.getWellFormName("FWS"); // Test the case when envName is "FWS"
+    assertEquals("FAT", result3); // Verify that the expected result is "FAT"
+
+    String result4 = Env.getWellFormName("uat"); // Test the case when envName is neither blank, "prod", nor "FWS"
+    assertEquals("UAT", result4); // Verify that the expected result is the uppercase of the input string
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void getWellFormNameTest() {
+  // Test for blank envName
+  String result1 = Env.getWellFormName("");
+  assertEquals("", result1);
+
+  // Test for PROD
+  String result2 = Env.getWellFormName("PROD");
+  assertEquals(Env.PRO.name, result2);
+
+  // Test for FWS
+  String result3 = Env.getWellFormName("FWS");
+  assertEquals(Env.FAT.name, result3);
+
+  // Test for other cases
+  String result4 = Env.getWellFormName("DEV");
+  assertEquals("DEV", result4);
+
+  String result5 = Env.getWellFormName("LPT");
+  assertEquals("LPT", result5);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void getWellFormNameTest() {
+    String result1 = Env.getWellFormName("");
+    assertEquals("", result1);
+    
+    String result2 = Env.getWellFormName("   ");
+    assertEquals("", result2);
+    
+    String result3 = Env.getWellFormName("prod");
+    assertEquals("PRO", result3);
+    
+    String result4 = Env.getWellFormName("FWS");
+    assertEquals("FAT", result4);
+    
+    String result5 = Env.getWellFormName("uat");
+    assertEquals("UAT", result5);
+    
+    String result6 = Env.getWellFormName("lpt");
+    assertEquals("LPT", result6);
+    
+    String result7 = Env.getWellFormName("tools");
+    assertEquals("TOOLS", result7);
+    
+    String result8 = Env.getWellFormName("unknown");
+    assertEquals("UNKNOWN", result8);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void getWellFormNameTest() {
+    // Test case 1: Blank input
+    String result1 = Env.getWellFormName("");
+    assertEquals("", result1);
+
+    // Test case 2: Null input
+    String result2 = Env.getWellFormName(null);
+    assertEquals("", result2);
+
+    // Test case 3: Input is already in uppercase
+    String result3 = Env.getWellFormName("DEV");
+    assertEquals("DEV", result3);
+
+    // Test case 4: Input has leading and trailing spaces
+    String result4 = Env.getWellFormName("  UAT  ");
+    assertEquals("UAT", result4);
+
+    // Test case 5: Special case for production
+    String result5 = Env.getWellFormName("PROD");
+    assertEquals(Env.PRO.name, result5);
+
+    // Test case 6: Special case for FWS
+    String result6 = Env.getWellFormName("FWS");
+    assertEquals(Env.FAT.name, result6);
+
+    // Test case 7: Normal case
+    String result7 = Env.getWellFormName("staging");
+    assertEquals("STAGING", result7);
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void getWellFormNameTest() {
+    assertEquals("", Env.getWellFormName(""));
+    assertEquals("PRO", Env.getWellFormName("Prod"));
+    assertEquals("FAT", Env.getWellFormName("FWS"));
+    assertEquals("DEV", Env.getWellFormName("DEV"));
+    assertEquals("UNKNOWN", Env.getWellFormName("unknown"));
+    assertEquals("TOOLS", Env.getWellFormName("Tools"));
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void getWellFormNameTest() {
+    // Test case for blank envName
+    String result1 = Env.getWellFormName("");
+    assertEquals("", result1);
+
+    // Test case for envName with typo "PROD"
+    String result2 = Env.getWellFormName("PROD");
+    assertEquals("PRO", result2);
+
+    // Test case for envName "FWS"
+    String result3 = Env.getWellFormName("FWS");
+    assertEquals("FAT", result3);
+
+    // Test case for envName "DEV"
+    String result4 = Env.getWellFormName("DEV");
+    assertEquals("DEV", result4);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void getWellFormNameTest() {
+    // Test case 1: when envName is blank
+    String result1 = Env.getWellFormName("");
+    assertEquals("", result1);
+
+    // Test case 2: when envName is "PROD"
+    String result2 = Env.getWellFormName("PROD");
+    assertEquals(Env.PRO.name, result2);
+
+    // Test case 3: when envName is "FWS"
+    String result3 = Env.getWellFormName("FWS");
+    assertEquals(Env.FAT.name, result3);
+
+    // Test case 4: when envName is any other value
+    String result4 = Env.getWellFormName("DEV");
+    assertEquals("DEV", result4);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void getWellFormNameTest() {
+   String envWellFormName = Env.getWellFormName("dev");
+   assertEquals("DEV", envWellFormName);
+
+   envWellFormName = Env.getWellFormName("prod");
+   assertEquals("PRO", envWellFormName);
+
+   envWellFormName = Env.getWellFormName("fws");
+   assertEquals("FAT", envWellFormName);
+
+   envWellFormName = Env.getWellFormName("");
+   assertEquals("", envWellFormName);
+
+   envWellFormName = Env.getWellFormName("unknown");
+   assertEquals("UNKNOWN", envWellFormName);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void getWellFormNameTest() {
+  // Test for null input
+  String result = Env.getWellFormName(null);
+  assertEquals("", result);
+
+  // Test for empty input
+  result = Env.getWellFormName("");
+  assertEquals("", result);
+
+  // Test for valid input with no special cases
+  result = Env.getWellFormName("DEV");
+  assertEquals("DEV", result);
+
+  // Test for special case: PROD
+  result = Env.getWellFormName("PROD");
+  assertEquals("PRO", result);
+
+  // Test for special case: FWS
+  result = Env.getWellFormName("FWS");
+  assertEquals("FAT", result);
+}
+
+

@@ -1,0 +1,191 @@
+Source code: 
+
+
+public static int getCodeword(int symbol) {
+  int i = Arrays.binarySearch(SYMBOL_TABLE, symbol & 0x3FFFF);
+  if (i < 0) {
+    return -1;
+  }
+  return (CODEWORD_TABLE[i] - 1) % NUMBER_OF_CODEWORDS;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void getCodewordTest() {
+    int symbol = 123;
+    int expectedResult = 5; // the expected result based on the given source code
+    
+    int actualResult = PDF417Common.getCodeword(symbol);
+    
+    assertEquals(expectedResult, actualResult);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void getCodewordTest() {
+    int[] SYMBOL_TABLE = {1, 2, 3, 4, 5};
+    int[] CODEWORD_TABLE = {1, 2, 3, 4, 5};
+    int NUMBER_OF_CODEWORDS = 5;
+    
+    assertEquals(0, getCodeword(1)); // First symbol in SYMBOL_TABLE
+    assertEquals(1, getCodeword(2)); // Second symbol in SYMBOL_TABLE
+    assertEquals(-1, getCodeword(6)); // Symbol not present in SYMBOL_TABLE
+}
+
+
+No.3 generated result --------------------------
+
+package com.google.zxing.pdf417;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+
+public class PDF417CommonTest {
+    @Test
+    public void getCodewordTest() {
+        int[] SYMBOL_TABLE = {10, 20, 30, 40, 50};
+        int[] CODEWORD_TABLE = {1, 2, 3, 4, 5};
+        int NUMBER_OF_CODEWORDS = 5;
+        
+        int symbol = 30;
+        int expected = 2;
+        int actual = getCodeword(symbol, SYMBOL_TABLE, CODEWORD_TABLE, NUMBER_OF_CODEWORDS);
+        assertEquals(expected, actual);
+    }
+    
+    public int getCodeword(int symbol, int[] SYMBOL_TABLE, int[] CODEWORD_TABLE, int NUMBER_OF_CODEWORDS) {
+        int i = Arrays.binarySearch(SYMBOL_TABLE, symbol & 0x3FFFF);
+        if (i < 0) {
+            return -1;
+        }
+        return (CODEWORD_TABLE[i] - 1) % NUMBER_OF_CODEWORDS;
+    }
+}
+
+
+No.4 generated result --------------------------
+
+package com.google.zxing.pdf417;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PDF417CommonTest {
+    @Test
+    public void getCodewordTest() {
+        int[] SYMBOL_TABLE = {};
+        int[] CODEWORD_TABLE = {};
+        int NUMBER_OF_CODEWORDS = 0;
+        
+        int symbol = <INSERT_SYMBOL_VALUE>;
+        int expected = <INSERT_EXPECTED_VALUE>;
+
+        int result = PDF417Common.getCodeword(symbol, SYMBOL_TABLE, CODEWORD_TABLE, NUMBER_OF_CODEWORDS);
+        
+        assertEquals(expected, result);
+    }
+}
+
+
+
+No.5 generated result --------------------------
+
+@Test
+public void getCodewordTest() {
+    assertEquals(-1, PDF417Common.getCodeword(100)); 
+    assertEquals(3, PDF417Common.getCodeword(300));
+    assertEquals(7, PDF417Common.getCodeword(500));
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void getCodewordTest() {
+    int result = PDF417Common.getCodeword(5);
+    assertEquals(3, result);
+}
+
+
+No.7 generated result --------------------------
+
+package com.google.zxing.pdf417;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PDF417CommonTest {
+    @Test
+    public void getCodewordTest() {
+        // Given
+        int symbol = 123; // Sample symbol input
+        
+        // When
+        int result = PDF417Common.getCodeword(symbol);
+        
+        // Then
+        int expectedResult = 100; // Sample expected result
+        assertEquals(expectedResult, result);
+    }
+}
+
+
+No.8 generated result --------------------------
+
+package com.google.zxing.pdf417;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+
+public class PDF417CommonTest {
+    @Test
+    public void getCodewordTest() {
+        int[] SYMBOL_TABLE = {4, 8, 15, 16, 23, 42};
+        int[] CODEWORD_TABLE = {2, 4, 6, 8, 10, 12};
+        int NUMBER_OF_CODEWORDS = 6;
+
+        assertEquals(4, getCodeword(23, SYMBOL_TABLE, CODEWORD_TABLE, NUMBER_OF_CODEWORDS));
+        assertEquals(-1, getCodeword(55, SYMBOL_TABLE, CODEWORD_TABLE, NUMBER_OF_CODEWORDS));
+    }
+
+    public static int getCodeword(int symbol, int[] SYMBOL_TABLE, int[] CODEWORD_TABLE, int NUMBER_OF_CODEWORDS) {
+        int i = Arrays.binarySearch(SYMBOL_TABLE, symbol & 0x3FFFF);
+        if (i < 0) {
+            return -1;
+        }
+        return (CODEWORD_TABLE[i] - 1) % NUMBER_OF_CODEWORDS;
+    }
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void getCodewordTest() {
+    int symbol = 123;
+    int expected = 5;
+    int actual = PDF417Common.getCodeword(symbol);
+    assertEquals(expected, actual);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+    public void getCodewordTest() {
+        int symbol = 12345;
+        int expectedCodeword = <expected value>;
+
+        int actualCodeword = PDF417Common.getCodeword(symbol);
+
+        assertEquals(expectedCodeword, actualCodeword);
+    }
+
+

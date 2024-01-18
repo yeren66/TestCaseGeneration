@@ -1,0 +1,195 @@
+Source code: 
+
+
+public int indexOf(T element) {
+    Objects.requireNonNull(element);
+    Node<T> iterator = cursorSpace[head];
+    for (int i = 0; i < count; i++) {
+        if (iterator.element.equals(element)) {
+            return i;
+        }
+        iterator = cursorSpace[iterator.next];
+    }
+
+    return -1;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void indexOfTest() {
+    CursorLinkedList<Integer> list = new CursorLinkedList<>();
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    
+    assertEquals(0, list.indexOf(1));
+    assertEquals(2, list.indexOf(3));
+    assertEquals(-1, list.indexOf(4));
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void indexOfTest() {
+    CursorLinkedList<Integer> list = new CursorLinkedList<>();
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    
+    int index1 = list.indexOf(2);
+    assertEquals(1, index1);
+    
+    int index2 = list.indexOf(5);
+    assertEquals(-1, index2);
+    
+    int index3 = list.indexOf(1);
+    assertEquals(0, index3);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void indexOfTest() {
+    CursorLinkedList<Integer> list = new CursorLinkedList<>();
+    // Append elements to the list
+    list.append(10);
+    list.append(20);
+    list.append(30);
+    list.append(40);
+    list.append(50);
+    
+    // Test for existing element
+    assertEquals(2, list.indexOf(30));
+    
+    // Test for non-existing element
+    assertEquals(-1, list.indexOf(100));
+    
+    // Test for empty list
+    CursorLinkedList<String> emptyList = new CursorLinkedList<>();
+    assertEquals(-1, emptyList.indexOf("test"));
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+    public void indexOfTest() {
+        CursorLinkedList<String> list = new CursorLinkedList<>();
+        list.append("apple");
+        list.append("banana");
+        list.append("orange");
+
+        int indexApple = list.indexOf("apple");
+        int indexBanana = list.indexOf("banana");
+        int indexOrange = list.indexOf("orange");
+
+        assertEquals(0, indexApple);
+        assertEquals(1, indexBanana);
+        assertEquals(2, indexOrange);
+
+        int indexNonexistent = list.indexOf("grape");
+        assertEquals(-1, indexNonexistent);
+    }
+
+
+No.5 generated result --------------------------
+
+CursorLinkedList<Integer> list = new CursorLinkedList<>();
+list.append(1);
+list.append(2);
+list.append(3);
+list.append(4);
+list.append(5);
+
+assertEquals(0, list.indexOf(1));
+assertEquals(2, list.indexOf(3));
+assertEquals(-1, list.indexOf(6));
+
+
+No.6 generated result --------------------------
+
+@Test
+public void indexOfTest() {
+    CursorLinkedList<Integer> list = new CursorLinkedList<>();
+    
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    
+    assertEquals(0, list.indexOf(1));
+    assertEquals(1, list.indexOf(2));
+    assertEquals(2, list.indexOf(3));
+    assertEquals(-1, list.indexOf(4));
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void indexOfTest() {
+    CursorLinkedList<String> list = new CursorLinkedList<>();
+    
+    list.append("A");
+    list.append("B");
+    list.append("C");
+    
+    assertEquals(0, list.indexOf("A"));
+    assertEquals(1, list.indexOf("B"));
+    assertEquals(2, list.indexOf("C"));
+    assertEquals(-1, list.indexOf("D"));
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void indexOfTest() {
+    CursorLinkedList<String> list = new CursorLinkedList<>();
+    
+    list.append("apple");
+    list.append("banana");
+    list.append("orange");
+    list.append("strawberry");
+    
+    int index = list.indexOf("banana");
+    
+    assertEquals(1, index);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void indexOfTest() {
+  CursorLinkedList<Integer> list = new CursorLinkedList<>();
+  list.append(1);
+  list.append(2);
+  list.append(3);
+  
+  int index = list.indexOf(2);
+  
+  assertEquals(1, index);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void indexOfTest() {
+    CursorLinkedList<String> list = new CursorLinkedList<>();
+    list.append("apple");
+    list.append("banana");
+    list.append("orange");
+
+    assertEquals(0, list.indexOf("apple"));
+    assertEquals(1, list.indexOf("banana"));
+    assertEquals(2, list.indexOf("orange"));
+    assertEquals(-1, list.indexOf("grape"));
+}
+
+

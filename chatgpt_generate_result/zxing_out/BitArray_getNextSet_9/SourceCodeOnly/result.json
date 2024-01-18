@@ -1,0 +1,26 @@
+{
+    "project_name": "zxing",
+    "file_name": "BitArray.java",
+    "relative_path": "zxing/core/src/main/java/com/google/zxing/common/BitArray.java",
+    "execute_path": "zxing",
+    "package": "com.google.zxing.common",
+    "docstring": "/**\n   * @param from first bit to check\n   * @return index of first bit that is set, starting from the given index, or size if none are set\n   *  at or beyond this given index\n   * @see #getNextUnset(int)\n   */",
+    "source_code": "\npublic int getNextSet(int from) {\n  if (from >= size) {\n    return size;\n  }\n  int bitsOffset = from / 32;\n  int currentBits = bits[bitsOffset];\n  // mask off lesser bits first\n  currentBits &= -(1 << (from & 0x1F));\n  while (currentBits == 0) {\n    if (++bitsOffset == bits.length) {\n      return size;\n    }\n    currentBits = bits[bitsOffset];\n  }\n  int result = (bitsOffset * 32) + Integer.numberOfTrailingZeros(currentBits);\n  return Math.min(result, size);\n}\n",
+    "class_name": "BitArray",
+    "method_name": "getNextSet",
+    "arguments": [
+        "int from"
+    ],
+    "generate_test": [
+        "@Test\npublic void getNextSetTest() {\n    BitArray bitArray = new BitArray();\n    bitArray.setBits(new int[]{1, 2, 3, 4, 5});\n    \n    int result = bitArray.getNextSet(0);\n    \n    assertEquals(0, result);\n}",
+        "package com.google.zxing.common;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class BitArrayTest {\n    @Test\n    public void getNextSetTest() {\n        BitArray bitArray = new BitArray();\n        int result = bitArray.getNextSet(0);\n        assertEquals(0, result);\n    }\n}",
+        "public void getNextSetTest() {\n  BitArray bitArray = new BitArray(64); // Assuming size is 64\n  int from = 0;\n  int expectedOutput = 0; // Assuming the expected output for the given input from is 0\n  int actualOutput = bitArray.getNextSet(from);\n  assertEquals(expectedOutput, actualOutput);\n}",
+        "@Test\npublic void getNextSetTest() {\n    BitArray bitArray = new BitArray();\n    int result = bitArray.getNextSet(<from>);\n    assertEquals(<expectedResult>, result);\n}",
+        "@Test\npublic void getNextSetTest() {\n    // Create a BitArray object with bits data\n    BitArray bitArray = new BitArray(new int[]{5});\n\n    // Test case 1: from < size\n    int result1 = bitArray.getNextSet(2);\n    assertEquals(2, result1);\n\n    // Test case 2: from = size\n    int result2 = bitArray.getNextSet(5);\n    assertEquals(5, result2);\n\n    // Test case 3: from > size\n    int result3 = bitArray.getNextSet(8);\n    assertEquals(5, result3);\n}\n",
+        "@Test\npublic void getNextSetTest() {\n    BitArrayTest bitArrayTest = new BitArrayTest();\n    int result = bitArrayTest.getNextSet(0);\n    assertEquals(32, result);\n}",
+        "@Test\npublic void getNextSetTest() {\n  BitArray bitArray = new BitArray();\n  int from = 0;\n  int expectedResult = 4;\n  \n  int result = bitArray.getNextSet(from);\n  \n  assertEquals(expectedResult, result);\n}",
+        "package com.google.zxing.common;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class BitArrayTest {\n    @Test\n    public void getNextSetTest() {\n        BitArray bitArray = new BitArray(); // Assuming BitArray is the class containing the source code\n        \n        // Test case 1: from = 0\n        int result1 = bitArray.getNextSet(0);\n        assertEquals(0, result1);\n        \n        // Test case 2: from = 5\n        int result2 = bitArray.getNextSet(5);\n        assertEquals(8, result2);\n        \n        // Test case 3: from = 32\n        int result3 = bitArray.getNextSet(32);\n        assertEquals(32, result3);\n        \n        // Test case 4: from = 50\n        int result4 = bitArray.getNextSet(50);\n        assertEquals(50, result4);\n        \n        // Test case 5: from = 1000\n        int result5 = bitArray.getNextSet(1000);\n        assertEquals(1000, result5);\n    }\n}",
+        "@Test\npublic void getNextSetTest() {\n    BitArray bitArray = new BitArray();\n    int from = 0;\n    int expected = 1;\n    int actual = bitArray.getNextSet(from);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void getNextSetTest() {\n    BitArrayTest bitArrayTest = new BitArrayTest();\n    \n    int result = bitArrayTest.getNextSet(0);\n    assertEquals(0, result);\n    \n    result = bitArrayTest.getNextSet(32);\n    assertEquals(32, result);\n    \n    result = bitArrayTest.getNextSet(64);\n    assertEquals(64, result);\n}"
+    ]
+}

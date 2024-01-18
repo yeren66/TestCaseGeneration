@@ -1,0 +1,368 @@
+Source code: 
+
+
+public int countGraphs() {
+    int count = 0;
+    Set<Node> markedNodes = new HashSet<Node>();
+
+    for (Node n : nodeList) {
+        if (!markedNodes.contains(n)) {
+            markedNodes.add(n);
+            markedNodes.addAll(depthFirstSearch(n, new ArrayList<Node>()));
+            count++;
+        }
+    }
+
+    return count;
+}
+
+
+
+No.1 generated result --------------------------
+
+package com.thealgorithms.datastructures.graphs;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class GraphTest {
+    @Test
+    public void countGraphsTest() {
+        Graph<Integer> graph = new Graph<>();
+        
+        // Graph 1
+        graph.addEdge(1, 2);
+        graph.addEdge(2, 3);
+        graph.addEdge(2, 4);
+        graph.addEdge(3, 5);
+        
+        assertEquals(2, graph.countGraphs());
+        
+        graph = new Graph<>();
+        
+        // Graph 2
+        graph.addEdge(7, 8);
+        graph.addEdge(8, 10);
+        graph.addEdge(10, 8);
+        
+        assertEquals(1, graph.countGraphs());
+    }
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void countGraphsTest() {
+    Graph<Character> graphChars = new Graph<>();
+    graphChars.addEdge('a', 'b');
+    graphChars.addEdge('a', 'e');
+    graphChars.addEdge('b', 'e');
+    graphChars.addEdge('b', 'c');
+    graphChars.addEdge('c', 'd');
+    graphChars.addEdge('d', 'a');
+
+    graphChars.addEdge('x', 'y');
+    graphChars.addEdge('x', 'z');
+
+    graphChars.addEdge('w', 'w');
+
+    int expectedCharGraphs = 2;
+    int actualCharGraphs = graphChars.countGraphs();
+
+    assertEquals(expectedCharGraphs, actualCharGraphs);
+
+    Graph<Integer> graphInts = new Graph<>();
+    graphInts.addEdge(1, 2);
+    graphInts.addEdge(2, 3);
+    graphInts.addEdge(2, 4);
+    graphInts.addEdge(3, 5);
+
+    graphInts.addEdge(7, 8);
+    graphInts.addEdge(8, 10);
+    graphInts.addEdge(10, 8);
+
+    int expectedIntGraphs = 2;
+    int actualIntGraphs = graphInts.countGraphs();
+
+    assertEquals(expectedIntGraphs, actualIntGraphs);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void countGraphsTest() {
+    Graph<Character> graphChars = new Graph<>();
+    
+    // Graph 1
+    graphChars.addEdge('a', 'b');
+    graphChars.addEdge('a', 'e');
+    graphChars.addEdge('b', 'e');
+    graphChars.addEdge('b', 'c');
+    graphChars.addEdge('c', 'd');
+    graphChars.addEdge('d', 'a');
+
+    graphChars.addEdge('x', 'y');
+    graphChars.addEdge('x', 'z');
+
+    graphChars.addEdge('w', 'w');
+
+    Graph<Integer> graphInts = new Graph<>();
+
+    // Graph 2
+    graphInts.addEdge(1, 2);
+    graphInts.addEdge(2, 3);
+    graphInts.addEdge(2, 4);
+    graphInts.addEdge(3, 5);
+
+    graphInts.addEdge(7, 8);
+    graphInts.addEdge(8, 10);
+    graphInts.addEdge(10, 8);
+    
+    int charGraphCount = graphChars.countGraphs();
+    int intGraphCount = graphInts.countGraphs();
+    
+    assertEquals(2, charGraphCount, "Incorrect count of char-graphs");
+    assertEquals(2, intGraphCount, "Incorrect count of int-graphs"); 
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void countGraphsTest() {
+    Graph<Character> graphChars = new Graph<>();
+
+    // Graph 1
+    graphChars.addEdge('a', 'b');
+    graphChars.addEdge('a', 'e');
+    graphChars.addEdge('b', 'e');
+    graphChars.addEdge('b', 'c');
+    graphChars.addEdge('c', 'd');
+    graphChars.addEdge('d', 'a');
+
+    graphChars.addEdge('x', 'y');
+    graphChars.addEdge('x', 'z');
+
+    graphChars.addEdge('w', 'w');
+
+    Graph<Integer> graphInts = new Graph<>();
+
+    // Graph 2
+    graphInts.addEdge(1, 2);
+    graphInts.addEdge(2, 3);
+    graphInts.addEdge(2, 4);
+    graphInts.addEdge(3, 5);
+
+    graphInts.addEdge(7, 8);
+    graphInts.addEdge(8, 10);
+    graphInts.addEdge(10, 8);
+
+    assertEquals(3, graphChars.countGraphs());
+    assertEquals(2, graphInts.countGraphs());
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void countGraphsTest() {
+    Graph<Character> graphChars = new Graph<>();
+    
+    // Graph 1
+    graphChars.addEdge('a', 'b');
+    graphChars.addEdge('a', 'e');
+    graphChars.addEdge('b', 'e');
+    graphChars.addEdge('b', 'c');
+    graphChars.addEdge('c', 'd');
+    graphChars.addEdge('d', 'a');
+
+    graphChars.addEdge('x', 'y');
+    graphChars.addEdge('x', 'z');
+
+    graphChars.addEdge('w', 'w');
+    
+    assertEquals(2, graphChars.countGraphs());
+    
+    Graph<Integer> graphInts = new Graph<>();
+    
+    // Graph 2
+    graphInts.addEdge(1, 2);
+    graphInts.addEdge(2, 3);
+    graphInts.addEdge(2, 4);
+    graphInts.addEdge(3, 5);
+
+    graphInts.addEdge(7, 8);
+    graphInts.addEdge(8, 10);
+    graphInts.addEdge(10, 8);
+    
+    assertEquals(2, graphInts.countGraphs());
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void countGraphsTest() {
+    Graph<Character> graphChars = new Graph<>();
+    graphChars.addEdge('a', 'b');
+    graphChars.addEdge('a', 'e');
+    graphChars.addEdge('b', 'e');
+    graphChars.addEdge('b', 'c');
+    graphChars.addEdge('c', 'd');
+    graphChars.addEdge('d', 'a');
+
+    graphChars.addEdge('x', 'y');
+    graphChars.addEdge('x', 'z');
+
+    graphChars.addEdge('w', 'w');
+
+    assertEquals(2, graphChars.countGraphs());
+
+    Graph<Integer> graphInts = new Graph<>();
+    graphInts.addEdge(1, 2);
+    graphInts.addEdge(2, 3);
+    graphInts.addEdge(2, 4);
+    graphInts.addEdge(3, 5);
+
+    graphInts.addEdge(7, 8);
+    graphInts.addEdge(8, 10);
+    graphInts.addEdge(10, 8);
+
+    assertEquals(2, graphInts.countGraphs());
+}
+
+
+No.7 generated result --------------------------
+
+package com.thealgorithms.datastructures.graphs;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class GraphTest {
+    @Test
+    public void countGraphsTest() {
+        Graph<Character> graphChars = new Graph<>();
+
+        graphChars.addEdge('a', 'b');
+        graphChars.addEdge('a', 'e');
+        graphChars.addEdge('b', 'e');
+        graphChars.addEdge('b', 'c');
+        graphChars.addEdge('c', 'd');
+        graphChars.addEdge('d', 'a');
+
+        graphChars.addEdge('x', 'y');
+        graphChars.addEdge('x', 'z');
+
+        graphChars.addEdge('w', 'w');
+
+        assertEquals(2, graphChars.countGraphs());
+    }
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void countGraphsTest() {
+    Graph<Character> graphChars = new Graph<>();
+    graphChars.addEdge('a', 'b');
+    graphChars.addEdge('a', 'e');
+    graphChars.addEdge('b', 'e');
+    graphChars.addEdge('b', 'c');
+    graphChars.addEdge('c', 'd');
+    graphChars.addEdge('d', 'a');
+    
+    graphChars.addEdge('x', 'y');
+    graphChars.addEdge('x', 'z');
+    
+    graphChars.addEdge('w', 'w');
+
+    assertEquals(2, graphChars.countGraphs());
+
+    Graph<Integer> graphInts = new Graph<>();
+    graphInts.addEdge(1, 2);
+    graphInts.addEdge(2, 3);
+    graphInts.addEdge(2, 4);
+    graphInts.addEdge(3, 5);
+    
+    graphInts.addEdge(7, 8);
+    graphInts.addEdge(8, 10);
+    graphInts.addEdge(10, 8);
+
+    assertEquals(2, graphInts.countGraphs());
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void countGraphsTest() {
+    Graph<Character> graphChars = new Graph<>();
+    graphChars.addEdge('a', 'b');
+    graphChars.addEdge('a', 'e');
+    graphChars.addEdge('b', 'e');
+    graphChars.addEdge('b', 'c');
+    graphChars.addEdge('c', 'd');
+    graphChars.addEdge('d', 'a');
+
+    graphChars.addEdge('x', 'y');
+    graphChars.addEdge('x', 'z');
+
+    graphChars.addEdge('w', 'w');
+
+    assertEquals(2, graphChars.countGraphs());
+
+    Graph<Integer> graphInts = new Graph<>();
+    graphInts.addEdge(1, 2);
+    graphInts.addEdge(2, 3);
+    graphInts.addEdge(2, 4);
+    graphInts.addEdge(3, 5);
+
+    graphInts.addEdge(7, 8);
+    graphInts.addEdge(8, 10);
+    graphInts.addEdge(10, 8);
+
+    assertEquals(2, graphInts.countGraphs());
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+    public void countGraphsTest() {
+        Graph<Character> graphChars = new Graph<>();
+
+        // Graph 1
+        graphChars.addEdge('a', 'b');
+        graphChars.addEdge('a', 'e');
+        graphChars.addEdge('b', 'e');
+        graphChars.addEdge('b', 'c');
+        graphChars.addEdge('c', 'd');
+        graphChars.addEdge('d', 'a');
+
+        graphChars.addEdge('x', 'y');
+        graphChars.addEdge('x', 'z');
+
+        graphChars.addEdge('w', 'w');
+        
+        assertEquals(<expected count>, graphChars.countGraphs());
+
+        Graph<Integer> graphInts = new Graph<>();
+
+        // Graph 2
+        graphInts.addEdge(1, 2);
+        graphInts.addEdge(2, 3);
+        graphInts.addEdge(2, 4);
+        graphInts.addEdge(3, 5);
+
+        graphInts.addEdge(7, 8);
+        graphInts.addEdge(8, 10);
+        graphInts.addEdge(10, 8);
+        
+        assertEquals(<expected count>, graphInts.countGraphs());
+    }
+
+

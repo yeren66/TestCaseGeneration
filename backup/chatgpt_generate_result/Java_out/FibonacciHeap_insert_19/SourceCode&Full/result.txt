@@ -1,0 +1,215 @@
+Source code: 
+
+
+public HeapNode insert(int key) {
+    HeapNode toInsert = new HeapNode(key); // creates the node
+    if (this.empty()) {
+        this.min = toInsert;
+    } else { // tree is not empty
+        min.setNext(toInsert);
+        this.updateMin(toInsert);
+    }
+    this.numOfHeapNodes++;
+    this.numOfTrees++;
+    return toInsert;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+    public void insertTest() {
+        FibonacciHeap heap = new FibonacciHeap();
+        HeapNode node = heap.insert(10);
+        assertFalse(heap.empty());
+        assertEquals(1, heap.size());
+        assertEquals(node, heap.findMin());
+    }
+
+
+No.2 generated result --------------------------
+
+@Test
+public void insertTest() {
+    FibonacciHeap heap = new FibonacciHeap();
+    HeapNode node = heap.insert(5);
+    
+    // Test if node's key is set correctly
+    assertEquals(5, node.getKey());
+    
+    // Test if min is updated correctly
+    assertEquals(node, heap.findMin());
+    
+    // Test if num of heap nodes is incremented correctly
+    assertEquals(1, heap.size());
+    
+    // Test if num of trees is incremented correctly
+    assertEquals(1, heap.numOfTrees);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+    public void insertTest() {
+        FibonacciHeap heap = new FibonacciHeap();
+        HeapNode node = heap.insert(5);
+        assertFalse(heap.empty());
+        assertEquals(1, heap.size());
+        assertEquals(5, node.getKey());
+    }
+
+
+No.4 generated result --------------------------
+
+@Test
+public void insertTest() {
+    FibonacciHeap fibonacciHeap = new FibonacciHeap();
+    HeapNode node = fibonacciHeap.insert(5);
+    assertFalse(fibonacciHeap.empty());
+    assertEquals(node, fibonacciHeap.findMin());
+    assertEquals(1, fibonacciHeap.size());
+}
+
+
+No.5 generated result --------------------------
+
+package com.thealgorithms.datastructures.heaps;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class FibonacciHeapTest {
+    @Test
+    public void insertTest() {
+        FibonacciHeap heap = new FibonacciHeap();
+        heap.insert(5);
+        heap.insert(3);
+        heap.insert(8);
+
+        assertEquals(3, heap.size());
+    }
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void insertTest() {
+    FibonacciHeap heap = new FibonacciHeap();
+    HeapNode node = heap.insert(5);
+    assertNotNull(node);
+    assertEquals(5, node.getKey());
+    assertFalse(heap.empty());
+    assertEquals(1, heap.size());
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void insertTest() {
+    FibonacciHeap heap = new FibonacciHeap();
+    HeapNode node1 = heap.insert(5);
+    HeapNode node2 = heap.insert(10);
+    HeapNode node3 = heap.insert(3);
+    
+    assertFalse(heap.empty());
+    assertEquals(3, heap.size());
+    assertEquals(node1, heap.findMin());
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void insertTest() {
+    FibonacciHeap heap = new FibonacciHeap();
+    
+    // Empty heap - insert one node
+    FibonacciHeap.HeapNode node1 = heap.insert(5);
+    assertFalse(heap.empty());
+    assertEquals(node1, heap.findMin());
+    assertEquals(1, heap.size());
+    
+    // Non-empty heap - insert more nodes
+    FibonacciHeap.HeapNode node2 = heap.insert(3);
+    assertEquals(node2, heap.findMin());
+    assertEquals(2, heap.size());
+    
+    FibonacciHeap.HeapNode node3 = heap.insert(7);
+    assertEquals(node2, heap.findMin());
+    assertEquals(3, heap.size());
+    
+    // Check that the nodes are correctly linked
+    assertEquals(node1.getNext(), node3);
+    assertEquals(node3.getNext(), node2);
+    assertEquals(node2.getNext(), node1);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+    public void insertTest() {
+        FibonacciHeap fibonacciHeap = new FibonacciHeap();
+        HeapNode node1 = fibonacciHeap.insert(5);
+        HeapNode node2 = fibonacciHeap.insert(10);
+        
+        // Check if the heap is not empty
+        assertFalse(fibonacciHeap.empty());
+        
+        // Check if the size of the heap is correct
+        assertEquals(2, fibonacciHeap.size());
+        
+        // Check if the min node is set correctly
+        assertEquals(node1, fibonacciHeap.findMin());
+        
+        // Check if the nodes are inserted correctly
+        assertEquals(node1, node2.prev);
+        assertEquals(node2, node1.next);
+        
+        // Check if the number of heap nodes is increased correctly
+        assertEquals(2, fibonacciHeap.numOfHeapNodes);
+        
+        // Check if the number of trees is increased correctly
+        assertEquals(2, fibonacciHeap.numOfTrees);
+        
+        // Insert another node
+        HeapNode node3 = fibonacciHeap.insert(3);
+        
+        // Check if the size of the heap is correct
+        assertEquals(3, fibonacciHeap.size());
+        
+        // Check if the min node is updated correctly
+        assertEquals(node3, fibonacciHeap.findMin());
+        
+        // Check if the nodes are inserted correctly
+        assertEquals(node3, node2.next);
+        assertEquals(node2, node3.prev);
+        assertEquals(node1, node3.next);
+        assertEquals(node3, node1.prev);
+        
+        // Check if the number of heap nodes is increased correctly
+        assertEquals(3, fibonacciHeap.numOfHeapNodes);
+        
+        // Check if the number of trees is increased correctly
+        assertEquals(3, fibonacciHeap.numOfTrees);
+    }
+
+
+No.10 generated result --------------------------
+
+@Test
+public void insertTest() {
+    FibonacciHeap heap = new FibonacciHeap(); // create a FibonacciHeap object
+    HeapNode node = heap.insert(5); // insert a node with key 5
+    assertNotNull(node); // check if the inserted node is not null
+    assertEquals(5, node.getKey()); // check if the key of the inserted node is 5
+    assertFalse(heap.empty()); // check if the heap is not empty after inserting the node
+    assertEquals(1, heap.size()); // check if the size of the heap is 1 after inserting the node
+    assertEquals(node, heap.findMin()); // check if the inserted node is the minimum node in the heap
+}
+
+

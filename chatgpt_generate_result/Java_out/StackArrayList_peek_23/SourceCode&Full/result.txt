@@ -1,0 +1,178 @@
+Source code: 
+
+
+public int peek() {
+    if (isEmpty()) {
+        throw new EmptyStackException();
+    }
+    return stack.get(stack.size() - 1);
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void peekTest() {
+    StackArrayList stack = new StackArrayList();
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    assertEquals(3, stack.peek());
+    stack.pop();
+    assertEquals(2, stack.peek());
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void peekTest() {
+    // Create a new instance of the StackArrayList class
+    StackArrayList stack = new StackArrayList();
+
+    // Push elements to the stack
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+
+    // Call the peek method and assert the correct value is returned
+    int result = stack.peek();
+    assertEquals(3, result);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void peekTest() {
+    StackArrayList stack = new StackArrayList();
+
+    // Verify exception is thrown when stack is empty
+    assertThrows(EmptyStackException.class, () -> {
+        stack.peek();
+    });
+
+    // Add elements to the stack
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+
+    // Verify the peek method returns the top element
+    assertEquals(3, stack.peek());
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void peekTest() {
+    StackArrayList stack = new StackArrayList();
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    int result = stack.peek();
+    assertEquals(3, result);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void peekTest() {
+    StackArrayList stack = new StackArrayList();
+
+    assertThrows(EmptyStackException.class, () -> stack.peek());
+    
+    stack.push(10);
+    assertEquals(10, stack.peek());
+
+    stack.push(20);
+    stack.push(30);
+    assertEquals(30, stack.peek());
+
+    stack.pop();
+    assertEquals(20, stack.peek());
+
+    stack.pop();
+    stack.pop();
+    assertThrows(EmptyStackException.class, () -> stack.peek());
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+    public void peekTest() {
+        StackArrayList stack = new StackArrayList();
+
+        // Test when stack is empty
+        assertThrows(EmptyStackException.class, () -> {
+            stack.peek();
+        });
+
+        // Test when stack has elements
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        int peeked = stack.peek();
+        assertEquals(3, peeked);
+        assertEquals(3, stack.size());
+    }
+
+
+No.7 generated result --------------------------
+
+@Test
+    public void peekTest() {
+        StackArrayList stack = new StackArrayList();
+        stack.push(1);
+        stack.push(2);
+        assertEquals(2, stack.peek());
+    }
+
+
+No.8 generated result --------------------------
+
+@Test
+public void peekTest() {
+    StackArrayList stack = new StackArrayList();
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+
+    int result = stack.peek();
+    assertEquals(3, result);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+    public void peekTest() {
+        StackArrayList stack = new StackArrayList();
+        int[] elements = {1, 2, 3, 4, 5};
+        
+        for (int element : elements) {
+            stack.push(element);
+        }
+        
+        int expected = 5;
+        int actual = stack.peek();
+        
+        assertEquals(expected, actual);
+    }
+
+
+No.10 generated result --------------------------
+
+@Test
+public void peekTest() {
+    StackArrayList stack = new StackArrayList();
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    assertEquals(3, stack.peek());
+}
+
+

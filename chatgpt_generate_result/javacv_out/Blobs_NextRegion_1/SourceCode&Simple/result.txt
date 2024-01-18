@@ -1,0 +1,229 @@
+Source code: 
+
+// Determine the next (higher number) region that meets the desired conditions
+public static int NextRegion(int Parent, int Color, double MinArea, double MaxArea, int Label)
+{
+    double DParent = (double) Parent; 
+    double DColor = (double) Color; if(DColor > 0) DColor = 1;
+    
+    int i;
+    for(i = Label; i <= MaxLabel; i++)
+    {
+        double [] Region = RegionData[i];
+        double ThisParent = Region[BLOBPARENT];
+        double ThisColor = Region[BLOBCOLOR];
+        if(DParent >= 0 && DParent != ThisParent) continue;
+        if(DColor >= 0 && DColor != ThisColor) continue;
+        if(Region[BLOBAREA] < MinArea || Region[BLOBAREA] > MaxArea) continue;  
+        break;      // We have a match!
+    }
+    if(i > MaxLabel) i = -1;    // Use -1 to flag that there was no match
+    return i;
+}
+
+
+
+No.1 generated result --------------------------
+
+
+package org.bytedeco.javacv;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BlobsTest {
+    @Test
+    public void NextRegionTest() {
+        int Parent = 0;
+        int Color = 0;
+        double MinArea = 0.0;
+        double MaxArea = 10.0;
+        int Label = 0;
+
+        int expected = 1;
+        int actual = Blobs.NextRegion(Parent, Color, MinArea, MaxArea, Label);
+
+        assertEquals(expected, actual);
+    }
+}
+
+
+
+No.2 generated result --------------------------
+
+@Test
+public void NextRegionTest() {
+    int Parent = 1;
+    int Color = 1;
+    double MinArea = 10.0;
+    double MaxArea = 100.0;
+    int Label = 0;
+
+    int expected = 1; // Expected output after completing the test
+    int actual = Blobs.NextRegion(Parent, Color, MinArea, MaxArea, Label);
+    
+    assertEquals(expected, actual);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void NextRegionTest() {
+    // Set up the necessary context variables
+    Blobs.MaxLabel = 5;
+    Blobs.RegionData = new double[][]{
+        {0, 0, 1, 10},  // Region 0
+        {0, 1, 2, 20},  // Region 1
+        {0, 0, 3, 30},  // Region 2
+        {1, 1, 4, 40},  // Region 3
+        {1, 0, 5, 50},  // Region 4
+        {1, 1, 6, 60}   // Region 5
+    };
+
+    // Create an instance of Blobs
+    Blobs blobs = new Blobs();
+
+    // Test case 1: DParent = 0, DColor = 0, MinArea = 0, MaxArea = 10, Label = 0
+    int result1 = blobs.NextRegion(0, 0, 0, 10, 0);
+    assertEquals(0, result1);
+
+    // Test case 2: DParent = 0, DColor = 1, MinArea = 20, MaxArea = 50, Label = 0
+    int result2 = blobs.NextRegion(0, 1, 20, 50, 0);
+    assertEquals(1, result2);
+
+    // Test case 3: DParent = 0, DColor = 0, MinArea = 60, MaxArea = 100, Label = 0
+    int result3 = blobs.NextRegion(0, 0, 60, 100, 0);
+    assertEquals(-1, result3);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void NextRegionTest() {
+    int Parent = 1;
+    int Color = 0;
+    double MinArea = 10.0;
+    double MaxArea = 50.0;
+    int Label = 1;
+    
+    int expected = 1; // Assuming there is a match with Label 1
+    int actual = Blobs.NextRegion(Parent, Color, MinArea, MaxArea, Label);
+    
+    assertEquals(expected, actual);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void NextRegionTest() {
+    int Parent = 0;
+    int Color = 1;
+    double MinArea = 100.0;
+    double MaxArea = 500.0;
+    int Label = 1;
+    
+    int expected = 2;
+    int actual = Blobs.NextRegion(Parent, Color, MinArea, MaxArea, Label);
+    assertEquals(expected, actual);
+}
+
+
+No.6 generated result --------------------------
+
+### JUNIT Test case:
+package org.bytedeco.javacv;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BlobsTest {
+    @Test
+    public void NextRegionTest() {
+        int Parent = 0;
+        int Color = 1;
+        double MinArea = 10.0;
+        double MaxArea = 100.0;
+        int Label = 0;
+        
+        int actualRegion = Blobs.NextRegion(Parent, Color, MinArea, MaxArea, Label);
+        int expectedRegion = -1;
+        
+        assertEquals(expectedRegion, actualRegion);
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void NextRegionTest() {
+    // Initialize the necessary variables
+    int Parent = 1;
+    int Color = 0;
+    double MinArea = 10.0;
+    double MaxArea = 100.0;
+    int Label = 0;
+    int expected = 1;
+
+    // Call the method under test
+    int actual = Blobs.NextRegion(Parent, Color, MinArea, MaxArea, Label);
+
+    // Assert the expected output
+    assertEquals(expected, actual);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void NextRegionTest() {
+    int Parent = 1;
+    int Color = 0;
+    double MinArea = 10.0;
+    double MaxArea = 100.0;
+    int Label = 0;
+    
+    int expected = 1;
+    int actual = Blobs.NextRegion(Parent, Color, MinArea, MaxArea, Label);
+    
+    assertEquals(expected, actual);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void NextRegionTest() {
+    int Parent = 5;
+    int Color = 0;
+    double MinArea = 10.0;
+    double MaxArea = 100.0;
+    int Label = 1;
+    
+    int expected = 2;
+    int actual = Blobs.NextRegion(Parent, Color, MinArea, MaxArea, Label);
+    
+    assertEquals(expected, actual);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void NextRegionTest() {
+    int Parent = 1;
+    int Color = 0;
+    double MinArea = 10.0;
+    double MaxArea = 100.0;
+    int Label = 2;
+
+    int expected = 3;
+    int actual = Blobs.NextRegion(Parent, Color, MinArea, MaxArea, Label);
+
+    assertEquals(expected, actual);
+}
+
+

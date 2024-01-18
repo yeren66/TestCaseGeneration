@@ -1,0 +1,251 @@
+Source code: 
+
+
+@Override
+public boolean equals(Object o) {
+    if (this == o) {
+        return true;
+    }
+    if (!(o instanceof Pair)) {
+        return false;
+    } else {
+        Pair<?, ?> oP = (Pair<?, ?>) o;
+        return (key == null ?
+                oP.key == null :
+                key.equals(oP.key)) &&
+            (value == null ?
+             oP.value == null :
+             value.equals(oP.value));
+    }
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    Pair<String, Integer> pair = new Pair<>("key", 123);
+    Pair<String, Integer> samePair = new Pair<>("key", 123);
+    Pair<String, Integer> differentPair = new Pair<>("key", 456);
+
+    assertEquals(pair, pair); // Self-reference
+    assertEquals(pair, samePair); // Same key-value pair
+    assertNotEquals(pair, differentPair); // Different value
+
+    // Additional test cases for null values
+    Pair<String, Integer> nullPair1 = new Pair<>(null, 123);
+    Pair<String, Integer> nullPair2 = new Pair<>(null, null);
+
+    assertNotEquals(pair, nullPair1); // Different key, same value
+    assertNotEquals(pair, nullPair2); // Different key and value
+    assertEquals(nullPair1, new Pair<>(null, 123)); // Same null key-value pair
+    assertEquals(nullPair2, new Pair<>(null, null)); // Same null key and value
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    Pair<String, Integer> pair1 = new Pair<>("key", 1);
+    Pair<String, Integer> pair2 = new Pair<>("key", 1);
+    Pair<String, Integer> pair3 = new Pair<>("anotherKey", 2);
+    
+    assertTrue(pair1.equals(pair2));
+    assertTrue(pair2.equals(pair1));
+    assertFalse(pair1.equals(pair3));
+    assertFalse(pair3.equals(pair1));
+    assertTrue(pair2.equals(pair2));
+    assertFalse(pair2.equals(null));
+    assertFalse(pair2.equals("not a pair"));
+    assertFalse(pair3.equals(pair2));
+    assertFalse(pair2.equals(pair3));
+}
+
+
+No.3 generated result --------------------------
+
+public void equalsTest() {
+    Pair<String, Integer> pair1 = new Pair<>("key", 123);
+    Pair<String, Integer> pair2 = new Pair<>("key", 123);
+    Pair<String, Integer> pair3 = new Pair<>("different", 123);
+
+    // Test equals() method
+    assertTrue(pair1.equals(pair2));
+    assertFalse(pair1.equals(pair3));
+
+    // Test hashCode() method
+    assertEquals(pair1.hashCode(), pair2.hashCode());
+    assertNotEquals(pair1.hashCode(), pair3.hashCode());
+}
+
+
+No.4 generated result --------------------------
+
+package org.apache.commons.math4.legacy.core;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PairTest {
+    @Test
+    public void equalsTest() {
+        Pair<String, String> pair1 = new Pair<>("A", "B");
+        Pair<String, String> pair2 = new Pair<>("A", "B");
+        
+        assertEquals(pair1, pair2);
+        
+        Pair<String, String> pair3 = new Pair<>("C", "D");
+        
+        assertNotEquals(pair1, pair3);
+    }
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    Integer key1 = 1;
+    Integer value1 = 2;
+    Integer key2 = 1;
+    Integer value2 = 2;
+    
+    Pair<Integer, Integer> pair1 = new Pair<>(key1, value1);
+    Pair<Integer, Integer> pair2 = new Pair<>(key2, value2);
+    
+    assertTrue(pair1.equals(pair2));
+    
+    key1 = 3;
+    value1 = 4;
+    key2 = 5;
+    value2 = 6;
+    
+    pair1 = new Pair<>(key1, value1);
+    pair2 = new Pair<>(key2, value2);
+    
+    assertFalse(pair1.equals(pair2));
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    Pair<String, Integer> pair1 = new Pair<>("a", 1);
+    Pair<String, Integer> pair2 = new Pair<>("a", 1);
+    Pair<String, Integer> pair3 = new Pair<>("b", 2);
+    
+    // Test equal pairs
+    assertTrue(pair1.equals(pair2));
+    
+    // Test pair with same key but different value
+    assertFalse(pair1.equals(pair3));
+    
+    // Test pair with different key but same value
+    assertFalse(pair2.equals(pair3));
+    
+    // Test pair with null key and value
+    Pair<String, Integer> pair4 = new Pair<>(null, null);
+    Pair<String, Integer> pair5 = new Pair<>(null, null);
+    assertTrue(pair4.equals(pair5));
+    
+    // Test pair with null key but non-null value
+    assertFalse(pair4.equals(pair1));
+    
+    // Test pair with non-null key but null value
+    assertFalse(pair1.equals(pair4));
+}
+
+
+No.7 generated result --------------------------
+
+package org.apache.commons.math4.legacy.core;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PairTest {
+    @Test
+    public void equalsTest() {
+        Pair<String, Integer> pair1 = new Pair<>("A", 1);
+        Pair<String, Integer> pair2 = new Pair<>("A", 1);
+        Pair<String, Integer> pair3 = new Pair<>("B", 2);
+
+        assertTrue(pair1.equals(pair2));
+        assertFalse(pair1.equals(pair3));
+        assertFalse(pair2.equals(pair3));
+        assertTrue(pair3.equals(pair3));
+    }
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    Pair<Integer, String> pair1 = new Pair<>(1, "one");
+    Pair<Integer, String> pair2 = new Pair<>(2, "two");
+    Pair<Integer, String> pair3 = new Pair<>(1, "one");
+    
+    // Test for equality between different pairs
+    assertFalse(pair1.equals(pair2));
+    
+    // Test for equality between pairs with the same key and value
+    assertTrue(pair1.equals(pair3));
+    
+    // Test for equality between a pair and another object
+    assertFalse(pair1.equals("not a Pair"));
+    
+    // Test for equality with null values
+    Pair<Integer, String> pair4 = new Pair<>(1, null);
+    Pair<Integer, String> pair5 = new Pair<>(null, "one");
+    Pair<Integer, String> pair6 = new Pair<>(null, null);
+    
+    assertTrue(pair4.equals(pair6));
+    assertTrue(pair5.equals(pair6));
+    assertFalse(pair4.equals(pair5));
+}
+
+
+
+No.9 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    Pair<Integer, String> pair1 = new Pair<>(1, "One");
+    Pair<Integer, String> pair2 = new Pair<>(1, "One");
+    Pair<Integer, String> pair3 = new Pair<>(2, "Two");
+
+    // Test equality of same pairs
+    assertTrue(pair1.equals(pair1));
+
+    // Test equality of different pairs with same values
+    assertTrue(pair1.equals(pair2));
+
+    // Test inequality of different pairs with different values
+    assertFalse(pair1.equals(pair3));
+}
+
+
+No.10 generated result --------------------------
+
+package org.apache.commons.math4.legacy.core;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PairTest {
+    @Test
+    public void equalsTest() {
+        Pair<Integer, String> pair1 = new Pair<>(1, "One");
+        Pair<Integer, String> pair2 = new Pair<>(1, "One");
+        Pair<Integer, String> pair3 = new Pair<>(2, "Two");
+
+        assertTrue(pair1.equals(pair2));
+        assertFalse(pair1.equals(pair3));
+    }
+}
+
+

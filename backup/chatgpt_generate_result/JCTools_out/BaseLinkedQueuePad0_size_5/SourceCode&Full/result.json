@@ -1,0 +1,24 @@
+{
+    "project_name": "JCTools",
+    "file_name": "BaseLinkedQueue.java",
+    "relative_path": "JCTools/jctools-core/src/main/java/org/jctools/queues/BaseLinkedQueue.java",
+    "execute_path": "JCTools",
+    "package": "org.jctools.queues",
+    "docstring": "/**\n     * {@inheritDoc} <br>\n     * <p>\n     * IMPLEMENTATION NOTES:<br>\n     * This is an O(n) operation as we run through all the nodes and count them.<br>\n     * The accuracy of the value returned by this method is subject to races with producer/consumer threads. In\n     * particular when racing with the consumer thread this method may under estimate the size.<br>\n     *\n     * @see java.util.Queue#size()\n     */",
+    "source_code": "\n@Override\npublic final int size()\n{\n    // Read consumer first, this is important because if the producer is node is 'older' than the consumer\n    // the consumer may overtake it (consume past it) invalidating the 'snapshot' notion of size.\n    LinkedQueueNode<E> chaserNode = lvConsumerNode();\n    LinkedQueueNode<E> producerNode = lvProducerNode();\n    int size = 0;\n    // must chase the nodes all the way to the producer node, but there's no need to count beyond expected head.\n    while (chaserNode != producerNode && // don't go passed producer node\n        chaserNode != null && // stop at last node\n        size < Integer.MAX_VALUE) // stop at max int\n    {\n        LinkedQueueNode<E> next;\n        next = chaserNode.lvNext();\n        // check if this node has been consumed, if so return what we have\n        if (next == chaserNode)\n        {\n            return size;\n        }\n        chaserNode = next;\n        size++;\n    }\n    return size;\n}\n",
+    "class_name": "BaseLinkedQueuePad0",
+    "method_name": "size",
+    "arguments": [],
+    "generate_test": [
+        "java\npackage org.jctools.queues;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class BaseLinkedQueuePad0Test {\n    @Test\n    public void sizeTest() {\n        BaseLinkedQueue",
+        "java\npackage org.jctools.queues;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class BaseLinkedQueuePad0Test {\n    @Test\n    public void sizeTest() {\n        BaseLinkedQueue",
+        "package org.jctools.queues;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class BaseLinkedQueuePad0Test {\n    @Test\n    public void sizeTest() {\n        BaseLinkedQueue<String> queue",
+        "@Test\npublic void sizeTest() {\n    BaseLinkedQueue<Integer> queue = new BaseLinkedQueue<Integer>() {\n        // Override any additional methods or fields needed for testing\n    };\n\n    // Perform test actions\n\n    // Assert the expected result",
+        "assertEquals(0, queue.size());",
+        "package org.jctools.queues;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class BaseLinkedQueuePad0Test {\n    @Test\n    public void sizeTest() {\n        BaseLinkedQueuePad0<String",
+        "\npackage org.jctools.queues;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class BaseLinkedQueuePad0Test {\n    @Test\n    public void sizeTest() {\n        BaseLinkedQueue<String",
+        "package org.jctools.queues;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class BaseLinkedQueuePad0Test {\n    @Test\n    public void sizeTest() {\n        BaseLinkedQueue<Integer> queue",
+        "@Test\npublic void sizeTest() {\n    BaseLinkedQueue<Integer> queue = new BaseLinkedQueue<Integer>() {};\n    queue.relaxedOffer(10);\n    queue.relaxedOffer(20);\n    queue.relaxedOffer(30);\n    int",
+        "@Test\npublic void sizeTest() {\n    BaseLinkedQueue<String> queue = new BaseLinkedQueue<String>() {\n        {\n            LinkedQueueNode<String> node1 = newNode();\n            LinkedQueueNode<String> node2 = newNode();\n            Linked"
+    ]
+}

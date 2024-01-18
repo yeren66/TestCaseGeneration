@@ -1,0 +1,26 @@
+{
+    "project_name": "Java",
+    "file_name": "Average.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/maths/Average.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.maths",
+    "docstring": "/**\n     * find average value of an int array\n     *\n     * @param numbers the array contains element and the sum does not excess long\n     *                value limit\n     * @return average value\n     */",
+    "source_code": "\npublic static int average(int[] numbers) {\n    if (numbers == null || numbers.length == 0) {\n        throw new IllegalArgumentException(\"Numbers array cannot be empty or null\");\n    }\n    long sum = 0;\n    for (int number : numbers) {\n        sum += number;\n    }\n    return (int) (sum / numbers.length);\n}\n",
+    "class_name": "Average",
+    "method_name": "average",
+    "arguments": [
+        "int[] numbers"
+    ],
+    "generate_test": [
+        "@Test\n    public void averageTest() {\n        int[] numbers = {1, 2, 3, 4, 5};\n        int expected = 3;\n        int actual = Average.average(numbers);\n        assertEquals(expected, actual, \"Average calculation is incorrect\");\n    }",
+        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expectedAverage = 3;\n    int actualAverage = Average.average(numbers);\n    assertEquals(expectedAverage, actualAverage);\n}",
+        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expected = 3;\n    int actual = Average.average(numbers);\n    assertEquals(expected, actual);\n}",
+        "public class AverageTest {\n    @Test\n    public void averageTest() {\n        int[] numbers = {1, 2, 3, 4, 5};\n        int expectedAverage = 3;\n        int actualAverage = Average.average(numbers);\n        assertEquals(expectedAverage, actualAverage);\n    }\n}",
+        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expected = Average.average(numbers);\n    assertEquals(3, expected);\n}",
+        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expected = 3; // Expected average of the numbers array\n    int actual = Average.average(numbers);\n    assertEquals(expected, actual, 0.01);\n}",
+        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expected = 3;\n    int result = Average.average(numbers);\n    assertEquals(expected, result);\n}",
+        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expected = 3;\n    int result = Average.average(numbers);\n    assertEquals(expected, result);\n}",
+        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expected = 3;\n    \n    int result = Average.average(numbers);\n    \n    assertEquals(expected, result);\n}",
+        "@Test\npublic void averageTest() {\n    // Test case 1: non-empty int array\n    int[] numbers1 = {1, 2, 3, 4, 5};\n    int expected1 = 3; // average of 1, 2, 3, 4, 5 is 3\n    int actual1 = Average.average(numbers1);\n    assertEquals(expected1, actual1);\n\n    // Test case 2: non-empty double array\n    double[] numbers2 = {1.5, 2.5, 3.5};\n    double expected2 = 2.5; // average of 1.5, 2.5, 3.5 is 2.5\n    double actual2 = Average.average(numbers2);\n    assertEquals(expected2, actual2);\n\n    // Test case 3: empty int array\n    int[] numbers3 = {};\n    try {\n        Average.average(numbers3);\n        fail(\"Expected IllegalArgumentException to be thrown\");\n    } catch (IllegalArgumentException e) {\n        assertEquals(\"Numbers array cannot be empty or null\", e.getMessage());\n    }\n\n    // Test case 4: null int array\n    int[] numbers4 = null;\n    try {\n        Average.average(numbers4);\n        fail(\"Expected IllegalArgumentException to be thrown\");\n    } catch (IllegalArgumentException e) {\n        assertEquals(\"Numbers array cannot be empty or null\", e.getMessage());\n    }\n\n    // Test case 5: empty double array\n    double[] numbers5 = {};\n    try {\n        Average.average(numbers5);\n        fail(\"Expected IllegalArgumentException to be thrown\");\n    } catch (IllegalArgumentException e) {\n        assertEquals(\"Numbers array cannot be empty or null\", e.getMessage());\n    }\n\n    // Test case 6: null double array\n    double[] numbers6 = null;\n    try {\n        Average.average(numbers6);\n        fail(\"Expected IllegalArgumentException to be thrown\");\n    } catch (IllegalArgumentException e) {\n        assertEquals(\"Numbers array cannot be empty or null\", e.getMessage());\n    }\n}\n"
+    ]
+}

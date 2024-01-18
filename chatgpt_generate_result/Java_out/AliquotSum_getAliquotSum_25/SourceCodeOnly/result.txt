@@ -1,0 +1,188 @@
+Source code: 
+
+
+public static int getAliquotSum(int n) {
+    if (n <= 0) return -1;
+    int sum = 1;
+    double root = Math.sqrt(n);
+    /*
+     * We can get the factors after the root by dividing number by its factors
+     * before the root.
+     * Ex- Factors of 100 are 1, 2, 4, 5, 10, 20, 25, 50 and 100.
+     * Root of 100 is 10. So factors before 10 are 1, 2, 4 and 5.
+     * Now by dividing 100 by each factor before 10 we get:
+     * 100/1 = 100, 100/2 = 50, 100/4 = 25 and 100/5 = 20
+     * So we get 100, 50, 25 and 20 which are factors of 100 after 10
+     */
+    for (int i = 2; i <= root; i++) {
+        if (n % i == 0) {
+            sum += i + n / i;
+        }
+    }
+    // if n is a perfect square then its root was added twice in above loop, so subtracting root
+    // from sum
+    if (root == (int) root) sum -= root;
+    return sum;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void getAliquotSumTest() {
+    int n = 100;
+    int expected = 217;
+    int actual = AliquotSum.getAliquotSum(n);
+    assertEquals(expected, actual);
+}
+
+
+No.2 generated result --------------------------
+
+assertEquals(1, AliquotSum.getAliquotSum(1));
+assertEquals(3, AliquotSum.getAliquotSum(4));
+assertEquals(12, AliquotSum.getAliquotSum(18));
+assertEquals(15, AliquotSum.getAliquotSum(16));
+assertEquals(2, AliquotSum.getAliquotSum(3));
+
+
+No.3 generated result --------------------------
+
+@Test
+public void getAliquotSumTest() {
+    int result = AliquotSum.getAliquotSum(100);
+    assertEquals(217, result);
+}
+
+
+No.4 generated result --------------------------
+
+public class AliquotSumTest {
+    @Test
+    public void getAliquotSumTest() {
+        int result = AliquotSum.getAliquotSum(100);
+        assertEquals(217, result);
+        
+        result = AliquotSum.getAliquotSum(36);
+        assertEquals(55, result);
+        
+        result = AliquotSum.getAliquotSum(12);
+        assertEquals(16, result);
+        
+        result = AliquotSum.getAliquotSum(1);
+        assertEquals(-1, result);
+        
+        result = AliquotSum.getAliquotSum(0);
+        assertEquals(-1, result);
+    }
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void getAliquotSumTest() {
+    int result1 = AliquotSum.getAliquotSum(100);
+    int expected1 = 217;
+    assertEquals(expected1, result1);
+
+    int result2 = AliquotSum.getAliquotSum(18);
+    int expected2 = 21;
+    assertEquals(expected2, result2);
+
+    int result3 = AliquotSum.getAliquotSum(7);
+    int expected3 = 1;
+    assertEquals(expected3, result3);
+}
+
+
+No.6 generated result --------------------------
+
+package com.thealgorithms.maths;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AliquotSumTest {
+    @Test
+    public void getAliquotSumTest() {
+        int expectedSum = 237;
+        int actualSum = AliquotSum.getAliquotSum(100);
+        assertEquals(expectedSum, actualSum);
+    }
+}
+
+
+No.7 generated result --------------------------
+
+    @Test
+    public void getAliquotSumTest() {
+        int result1 = AliquotSum.getAliquotSum(100);
+        assertEquals(217, result1);
+        
+        int result2 = AliquotSum.getAliquotSum(12);
+        assertEquals(16, result2);
+        
+        int result3 = AliquotSum.getAliquotSum(25);
+        assertEquals(31, result3);
+        
+        int result4 = AliquotSum.getAliquotSum(7);
+        assertEquals(1, result4);
+    }
+
+
+No.8 generated result --------------------------
+
+@Test
+public void getAliquotSumTest() {
+    assertEquals(1, AliquotSum.getAliquotSum(1));
+    assertEquals(3, AliquotSum.getAliquotSum(2));
+    assertEquals(4, AliquotSum.getAliquotSum(3));
+    assertEquals(7, AliquotSum.getAliquotSum(4));
+    assertEquals(6, AliquotSum.getAliquotSum(5));
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void getAliquotSumTest() {
+    // Test Case 1: n = 10
+    int result1 = AliquotSum.getAliquotSum(10);
+    assertEquals(8, result1);
+    
+    // Test Case 2: n = 28
+    int result2 = AliquotSum.getAliquotSum(28);
+    assertEquals(28, result2);
+    
+    // Test Case 3: n = 100
+    int result3 = AliquotSum.getAliquotSum(100);
+    assertEquals(117, result3);
+    
+    // Test Case 4: n = 0
+    int result4 = AliquotSum.getAliquotSum(0);
+    assertEquals(-1, result4);
+    
+    // Test Case 5: n = -5
+    int result5 = AliquotSum.getAliquotSum(-5);
+    assertEquals(-1, result5);
+}
+
+
+No.10 generated result --------------------------
+
+package com.thealgorithms.maths;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AliquotSumTest {
+    @Test
+    public void getAliquotSumTest() {
+        int sum = AliquotSum.getAliquotSum(100);
+        assertEquals(217, sum);
+    }
+}
+
+

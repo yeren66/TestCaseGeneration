@@ -1,0 +1,256 @@
+Source code: 
+
+
+public int countGraphs() {
+    int count = 0;
+    Set<Node> markedNodes = new HashSet<Node>();
+
+    for (Node n : nodeList) {
+        if (!markedNodes.contains(n)) {
+            markedNodes.add(n);
+            markedNodes.addAll(depthFirstSearch(n, new ArrayList<Node>()));
+            count++;
+        }
+    }
+
+    return count;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void countGraphsTest() {
+    Graph graph = new Graph();
+    
+    // Create nodes and add them to the graph
+    
+    Node node1 = new Node();
+    Node node2 = new Node();
+    Node node3 = new Node();
+    // Add more nodes if needed
+    
+    graph.addNode(node1);
+    graph.addNode(node2);
+    graph.addNode(node3);
+    // Add nodes to the graph
+    
+    int expectedCount = 3; // Set the expected count of graphs
+    
+    int result = graph.countGraphs(); // Call the method under test
+    
+    assertEquals(expectedCount, result); // Check if the result matches the expected count
+    
+}
+
+
+No.2 generated result --------------------------
+
+package com.thealgorithms.datastructures.graphs;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class GraphTest {
+    @Test
+    public void countGraphsTest() {
+        Graph graph = new Graph(); // create an instance of the Graph class
+        Node node1 = new Node(); // create a sample node
+        Node node2 = new Node();
+        Node node3 = new Node();
+        Node node4 = new Node();
+        
+        // add nodes to the nodeList in the Graph instance
+        graph.addNode(node1);
+        graph.addNode(node2);
+        graph.addNode(node3);
+        graph.addNode(node4);
+        
+        // call the countGraphs method and assert the expected output
+        assertEquals(1, graph.countGraphs()); // expected output is 1 since all nodes are connected
+        
+        Node node5 = new Node(); // create a disconnected node
+        graph.addNode(node5); // add the disconnected node to the nodeList
+        
+        // call the countGraphs method and assert the expected output
+        assertEquals(2, graph.countGraphs()); // expected output is now 2 since the disconnected node forms a separate graph
+    }
+}
+
+
+No.3 generated result --------------------------
+
+public void countGraphsTest() {
+    Graph graph = new Graph();
+    Node node1 = new Node(1);
+    Node node2 = new Node(2);
+    Node node3 = new Node(3);
+    
+    graph.addEdge(node1, node2);
+    graph.addEdge(node2, node3);
+    
+    int expected = 1;
+    int actual = graph.countGraphs();
+    
+    assertEquals(expected, actual);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void countGraphsTest() {
+    Graph graph = new Graph();
+    Node node1 = new Node("A");
+    Node node2 = new Node("B");
+    Node node3 = new Node("C");
+    
+    // create edges between nodes
+    node1.addEdge(node2);
+    node2.addEdge(node3);
+    
+    // add nodes to the graph
+    graph.addNode(node1);
+    graph.addNode(node2);
+    graph.addNode(node3);
+    
+    int expectedCount = 1;
+    int actualCount = graph.countGraphs();
+    
+    assertEquals(expectedCount, actualCount);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void countGraphsTest() {
+    Graph graph = new Graph();
+    
+    Node node1 = new Node(1);
+    Node node2 = new Node(2);
+    Node node3 = new Node(3);
+    
+    node1.addNeighbor(node2);
+    node2.addNeighbor(node1);
+    node2.addNeighbor(node3);
+    node3.addNeighbor(node2);
+    
+    graph.addNode(node1);
+    graph.addNode(node2);
+    graph.addNode(node3);
+    
+    int result = graph.countGraphs();
+    
+    assertEquals(1, result);
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void countGraphsTest() {
+    Graph graph = new Graph();
+    Node node1 = new Node(1);
+    Node node2 = new Node(2);
+    Node node3 = new Node(3);
+    
+    graph.addNode(node1);
+    graph.addNode(node2);
+    graph.addNode(node3);
+    
+    node1.addEdge(node2);
+    node2.addEdge(node3);
+    
+    int result = graph.countGraphs();
+    assertEquals(1, result);
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void countGraphsTest() {
+    Graph graph = new Graph();
+    Node node1 = new Node(1);
+    Node node2 = new Node(2);
+    Node node3 = new Node(3);
+    
+    graph.addNode(node1);
+    graph.addNode(node2);
+    graph.addNode(node3);
+    
+    graph.addEdge(node1, node2);
+    
+    assertEquals(2, graph.countGraphs());
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void countGraphsTest() {
+    Graph graph = new Graph();
+    
+    // create the nodes and add them to the graph
+    Node node1 = new Node();
+    Node node2 = new Node();
+    Node node3 = new Node();
+    
+    graph.addNode(node1);
+    graph.addNode(node2);
+    graph.addNode(node3);
+    
+    // create the edges between the nodes
+    graph.addEdge(node1, node2);
+    graph.addEdge(node2, node3);
+    graph.addEdge(node3, node1);
+    
+    // check that the countGraphs() method returns the correct value
+    assertEquals(1, graph.countGraphs());
+}
+
+
+No.9 generated result --------------------------
+
+public void countGraphsTest() {
+    Graph graph = new Graph();
+    graph.addNode(new Node("A"));
+    graph.addNode(new Node("B"));
+    graph.addNode(new Node("C"));
+    graph.addNode(new Node("D"));
+
+    graph.addEdge("A", "B");
+    graph.addEdge("B", "C");
+    graph.addEdge("C", "D");
+
+    int result = graph.countGraphs();
+    assertEquals(1, result);
+}
+
+
+No.10 generated result --------------------------
+
+public void countGraphsTest() {
+        Graph graph = new Graph();
+
+        // create nodes
+        Node n1 = new Node(1);
+        Node n2 = new Node(2);
+        Node n3 = new Node(3);
+        Node n4 = new Node(4);
+        Node n5 = new Node(5);
+
+        // create edges
+        graph.addEdge(n1, n2);
+        graph.addEdge(n2, n3);
+        graph.addEdge(n3, n4);
+        graph.addEdge(n4, n5);
+
+        int result = graph.countGraphs();
+
+        assertEquals(1, result);
+    }
+
+

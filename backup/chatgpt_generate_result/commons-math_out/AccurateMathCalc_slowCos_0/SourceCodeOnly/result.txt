@@ -1,0 +1,236 @@
+Source code: 
+
+
+static double slowCos(final double x, final double[] result) {
+
+    final double[] xs = new double[2];
+    final double[] ys = new double[2];
+    final double[] facts = new double[2];
+    final double[] as = new double[2];
+    split(x, xs);
+    ys[0] = ys[1] = 0.0;
+
+    for (int i = FACT.length - 1; i >= 0; i--) {
+        splitMult(xs, ys, as);
+        ys[0] = as[0];
+        ys[1] = as[1];
+
+        if ((i & 1) != 0) { // skip odd entries
+            continue;
+        }
+
+        split(FACT[i], as);
+        splitReciprocal(as, facts);
+
+        if ((i & 2) != 0) { // alternate terms are negative
+            facts[0] = -facts[0];
+            facts[1] = -facts[1];
+        }
+
+        splitAdd(ys, facts, as);
+        ys[0] = as[0]; ys[1] = as[1];
+    }
+
+    if (result != null) {
+        result[0] = ys[0];
+        result[1] = ys[1];
+    }
+
+    return ys[0] + ys[1];
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void slowCosTest() {
+    double x = 0.5;
+    double[] result = new double[2];
+    double expected = Math.cos(x);
+    
+    double actual = slowCos(x, result);
+
+    assertEquals(expected, actual, 0.0001);
+    assertEquals(result[0] + result[1], actual, 0.0001);
+}
+
+
+No.2 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void slowCosTest() {
+        double[] result = new double[2];
+        double x = 1.0;
+        double expected = Math.cos(x);
+        
+        double actual = AccurateMathCalc.slowCos(x, result);
+        
+        assertEquals(expected, actual, 0.0001);
+        assertEquals(expected, result[0], 0.0001);
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void slowCosTest() {
+        double x = 0.5; // sample input
+        double[] result = new double[2];
+        double expectedResult = slowCos(x, result);
+
+        // Verify the expected output
+        assertEquals(expectedResult, result[0] + result[1]);
+    }
+}
+
+
+No.4 generated result --------------------------
+
+public class AccurateMathCalcTest {
+    @Test
+    public void slowCosTest() {
+        double x = 0.5; // sample input value
+        double[] result = new double[2];
+        double expected = slowCos(x, result); // expected result
+
+        // Assert
+        assertEquals(expected, result[0] + result[1], 0.0001);
+    }
+}
+
+
+No.5 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void slowCosTest() {
+        // Given
+        double x = 0.5;
+        double[] result = new double[2];
+
+        // When
+        double actual = AccurateMathCalc.slowCos(x, result);
+
+        // Then
+        assertEquals(<EXPECTED VALUE>, actual, 0.001);
+        assertEquals(<EXPECTED VALUE>, result[0], 0.001);
+        assertEquals(<EXPECTED VALUE>, result[1], 0.001);
+    }
+}
+
+
+No.6 generated result --------------------------
+
+public class AccurateMathCalcTest {
+    @Test
+    public void slowCosTest() {
+        double x = 0.5;
+        double[] result = new double[2];
+        
+        double expectedResult = Math.cos(x);
+        double actualResult = slowCos(x, result);
+
+        double delta = 1e-15;
+        assertEquals(expectedResult, actualResult, delta);
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void slowCosTest() {
+    double x = Math.PI / 4;
+    double[] result = new double[2];
+    double expected = Math.cos(x);
+    
+    double actual = AccurateMathCalc.slowCos(x, result);
+    
+    assertEquals(expected, actual, 1e-10);
+    assertEquals(expected, result[0] + result[1], 1e-10);
+}
+
+
+No.8 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void slowCosTest() {
+        double x = 0.5; // Input value for the slowCos method
+        double[] result = new double[2]; // Array to store the result
+        double expectedResult = Math.cos(x); // Expected result from the Math.cos method
+
+        double actualResult = AccurateMathCalc.slowCos(x, result);
+
+        // Verify that the result array is correctly updated
+        assertEquals(expectedResult, result[0], 0.0001);
+        assertEquals(0.0, result[1], 0.0001);
+
+        // Verify that the return value is correct
+        assertEquals(expectedResult, actualResult, 0.0001);
+    }
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void slowCosTest() {
+    double x = 0.5;
+    double[] result = new double[2];
+    double expected = 0.8775825618903728; // expected value of slowCos(0.5, result)
+    
+    double actual = AccurateMathCalc.slowCos(x, result);
+    
+    // assert statements
+    assertEquals(expected, actual);
+    assertEquals(expected, result[0] + result[1]);
+}
+
+
+No.10 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void slowCosTest() {
+        double x = <VALUE>;
+        double[] result = new double[2];
+        double expected = <EXPECTED_VALUE>;
+
+        double actual = slowCos(x, result);
+
+        assertArrayEquals(expected, result, 1e-6);
+        assertEquals(expected, actual, 1e-6);
+    }
+}
+
+

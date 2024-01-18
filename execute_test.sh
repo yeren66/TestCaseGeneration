@@ -14,8 +14,8 @@ if [ -f "./coverage_result/coverage.json" ]; then
 fi
 
 # Check and remove files in test_result if the directory exists
-if [ -d "./test_result" ]; then
-    rm -rf ./test_result/*
+if [ -d "./chatgpt_test_result" ]; then
+    rm -rf ./chatgpt_test_result/*
 fi
 
 # change conda environment

@@ -1,0 +1,195 @@
+Source code: 
+
+
+public static String convertToAnyBase(int inp, int base) {
+    ArrayList<Character> charArr = new ArrayList<>();
+
+    while (inp > 0) {
+        charArr.add(reVal(inp % base));
+        inp /= base;
+    }
+
+    StringBuilder str = new StringBuilder(charArr.size());
+
+    for (Character ch : charArr) {
+        str.append(ch);
+    }
+
+    return str.reverse().toString();
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void convertToAnyBaseTest() {
+    assertEquals("1101", DecimalToAnyBase.convertToAnyBase(13, 2));
+    assertEquals("A", DecimalToAnyBase.convertToAnyBase(10, 16));
+    assertEquals("15", DecimalToAnyBase.convertToAnyBase(21, 8));
+}
+
+
+No.2 generated result --------------------------
+
+
+@Test
+public void convertToAnyBaseTest() {
+    // Test Case 1
+    int input1 = 10;
+    int base1 = 2;
+    String expected1 = "1010";
+    assertEquals(expected1, DecimalToAnyBase.convertToAnyBase(input1, base1));
+
+    // Test Case 2
+    int input2 = 15;
+    int base2 = 16;
+    String expected2 = "F";
+    assertEquals(expected2, DecimalToAnyBase.convertToAnyBase(input2, base2));
+
+    // Test Case 3
+    int input3 = 27;
+    int base3 = 3;
+    String expected3 = "1000";
+    assertEquals(expected3, DecimalToAnyBase.convertToAnyBase(input3, base3));
+}
+
+
+
+No.3 generated result --------------------------
+
+@Test
+public void convertToAnyBaseTest() {
+    int decimalInput = 15;
+    int base = 2;
+    String expectedOutput = "1111";
+    String actualOutput = DecimalToAnyBase.convertToAnyBase(decimalInput, base);
+    assertEquals(expectedOutput, actualOutput);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void convertToAnyBaseTest() {
+    // Test case 1: Convert decimal 10 to base 2
+    String result1 = DecimalToAnyBase.convertToAnyBase(10, 2);
+    assertEquals("1010", result1);
+    
+    // Test case 2: Convert decimal 16 to base 10
+    String result2 = DecimalToAnyBase.convertToAnyBase(16, 10);
+    assertEquals("16", result2);
+    
+    // Test case 3: Convert decimal 255 to base 16
+    String result3 = DecimalToAnyBase.convertToAnyBase(255, 16);
+    assertEquals("FF", result3);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void convertToAnyBaseTest() {
+    // Test case 1
+    int decInput1 = 10;
+    int base1 = 2;
+    String expected1 = "1010";
+    assertEquals(expected1, DecimalToAnyBase.convertToAnyBase(decInput1, base1));
+
+    // Test case 2
+    int decInput2 = 15;
+    int base2 = 16;
+    String expected2 = "F";
+    assertEquals(expected2, DecimalToAnyBase.convertToAnyBase(decInput2, base2));
+
+    // Test case 3
+    int decInput3 = 100;
+    int base3 = 8;
+    String expected3 = "144";
+    assertEquals(expected3, DecimalToAnyBase.convertToAnyBase(decInput3, base3));
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+    public void convertToAnyBaseTest() {
+        assertEquals("10", DecimalToAnyBase.convertToAnyBase(2, 2));
+        assertEquals("1010", DecimalToAnyBase.convertToAnyBase(10, 2));
+        assertEquals("A", DecimalToAnyBase.convertToAnyBase(10, 16));
+        assertEquals("19", DecimalToAnyBase.convertToAnyBase(25, 16));
+        assertEquals("1000", DecimalToAnyBase.convertToAnyBase(8, 10));
+    }
+
+
+No.7 generated result --------------------------
+
+@Test
+public void convertToAnyBaseTest() {
+    int inp = 10;
+    int base = 2;
+    String expected = "1010";
+    
+    String result = DecimalToAnyBase.convertToAnyBase(inp, base);
+    
+    assertEquals(expected, result);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+    public void convertToAnyBaseTest() {
+        int input = 123;
+        int base = 8;
+        String expected = "173";
+        String actual = DecimalToAnyBase.convertToAnyBase(input, base);
+        assertEquals(expected, actual);
+    }
+
+
+No.9 generated result --------------------------
+
+@Test
+public void convertToAnyBaseTest() {
+    int decInput = 123;
+    int base = 2;
+    
+    String expected = "1111011";
+    String actual = DecimalToAnyBase.convertToAnyBase(decInput, base);
+    
+    assertEquals(expected, actual);
+}
+
+
+No.10 generated result --------------------------
+
+package com.thealgorithms.conversions;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DecimalToAnyBaseTest {
+    @Test
+    public void convertToAnyBaseTest() {
+        // Test Case 1
+        int decInput1 = 10;
+        int base1 = 2;
+        String expected1 = "1010";
+        assertEquals(expected1, DecimalToAnyBase.convertToAnyBase(decInput1, base1));
+
+        // Test Case 2
+        int decInput2 = 16;
+        int base2 = 8;
+        String expected2 = "20";
+        assertEquals(expected2, DecimalToAnyBase.convertToAnyBase(decInput2, base2));
+
+        // Test Case 3
+        int decInput3 = 255;
+        int base3 = 16;
+        String expected3 = "FF";
+        assertEquals(expected3, DecimalToAnyBase.convertToAnyBase(decInput3, base3));
+    }
+}
+
+

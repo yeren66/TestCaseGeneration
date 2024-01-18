@@ -1,0 +1,145 @@
+Source code: 
+
+
+@Override
+public int hashCode() {
+    int result = key == null ? 0 : key.hashCode();
+
+    final int h = value == null ? 0 : value.hashCode();
+    result = 37 * result + h ^ (h >>> 16);
+
+    return result;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void hashCodeTest() {
+    Pair pair = new Pair("key", "value");
+    int expectedHashCode = pair.getKey().hashCode();
+    expectedHashCode = 37 * expectedHashCode + pair.getValue().hashCode() ^ (pair.getValue().hashCode() >>> 16);
+    int actualHashCode = pair.hashCode();
+    assertEquals(expectedHashCode, actualHashCode);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void hashCodeTest() {
+    Pair<String, Integer> pair = new Pair<>("key", 5);
+    int expectedHashCode = 37 * ("key".hashCode()) + (5 == null ? 0 : 5.hashCode());
+    
+    assertEquals(expectedHashCode, pair.hashCode());
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void hashCodeTest() {
+    Pair pair = new Pair("key", "value");
+    int expectedHashCode = pair.hashCode();
+    int actualHashCode = 37 * (pair.getKey() == null ? 0 : pair.getKey().hashCode()) + (pair.getValue() == null ? 0 : pair.getValue().hashCode());
+
+    assertEquals(expectedHashCode, actualHashCode);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void hashCodeTest() {
+    Pair<String, Integer> pair = new Pair<>("key", 10);
+    int expected = pair.hashCode();
+    int actual = pair.hashCode();
+    assertEquals(expected, actual);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void hashCodeTest() {
+    Pair pair = new Pair("key", "value");
+
+    assertEquals(pair.hashCode(), pair.hashCode());
+    
+    Pair pair2 = new Pair(null, "value");
+    assertEquals(pair2.hashCode(), pair2.hashCode());
+    
+    Pair pair3 = new Pair("key", null);
+    assertEquals(pair3.hashCode(), pair3.hashCode());
+    
+    Pair pair4 = new Pair(null, null);
+    assertEquals(pair4.hashCode(), pair4.hashCode());
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void hashCodeTest() {
+    Pair<String, Integer> pair = new Pair<>("A", 1);
+    int expectedHashCode = 37 * (pair.getKey() == null ? 0 : pair.getKey().hashCode());
+    expectedHashCode += (pair.getValue() == null ? 0 : pair.getValue().hashCode());
+    expectedHashCode ^= (expectedHashCode >>> 16);
+    
+    int actualHashCode = pair.hashCode();
+    
+    assertEquals(expectedHashCode, actualHashCode);
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void hashCodeTest() {
+    Pair pair1 = new Pair("key1", "value1");
+    Pair pair2 = new Pair("key2", "value2");
+
+    int hash1 = pair1.hashCode();
+    int hash2 = pair2.hashCode();
+    
+    assertNotEquals(hash1, hash2);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void hashCodeTest() {
+    Pair pair = new Pair("key", "value");
+    int expected = pair.hashCode();
+    int actual = pair.hashCode();
+    assertEquals(expected, actual);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void hashCodeTest() {
+    Pair pair = new Pair("key", "value");
+    int expectedHashCode = 37 * pair.getKey().hashCode() + pair.getValue().hashCode();
+    assertEquals(expectedHashCode, pair.hashCode());
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void hashCodeTest() {
+    Pair<String, Integer> pair = new Pair<>("key", 5);
+    int expectedHashCode = pair.getKey() == null ? 0 : pair.getKey().hashCode();
+    int h = pair.getValue() == null ? 0 : pair.getValue().hashCode();
+    expectedHashCode = 37 * expectedHashCode + h ^ (h >>> 16);
+
+    int actualHashCode = pair.hashCode();
+
+    assertEquals(expectedHashCode, actualHashCode);
+}
+
+

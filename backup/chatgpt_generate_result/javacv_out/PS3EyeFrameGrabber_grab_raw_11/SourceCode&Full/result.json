@@ -1,0 +1,24 @@
+{
+    "project_name": "javacv",
+    "file_name": "PS3EyeFrameGrabber.java",
+    "relative_path": "javacv/src/main/java/org/bytedeco/javacv/PS3EyeFrameGrabber.java",
+    "execute_path": "javacv",
+    "package": "org.bytedeco.javacv",
+    "docstring": "/** Grab one frame and return it as int[] (in the internal camera format RGBA).\n     *  Note: use makeImage() to create RGBA, 4-ch image\n     * @return frame as int[] without any processing or null if frame is not available \n     */",
+    "source_code": "\npublic int[] grab_raw() {\n    if (camera.getCameraFrame(ps3_frame, timeout)) {\n        return ps3_frame;\n    }\n    else return null;\n}\n",
+    "class_name": "PS3EyeFrameGrabber",
+    "method_name": "grab_raw",
+    "arguments": [],
+    "generate_test": [
+        "@Test\npublic void grab_rawTest() {\n    // Create a PS3EyeFrameGrabber instance\n    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber();\n\n    // Start the grabber\n    try {\n        grabber.start();\n    } catch (Exception e) {\n        fail(\"Failed to start grabber\");\n    }\n\n    // Call the grab_raw() method\n    int[] frame = grabber.grab_raw();\n\n    // Check if the frame is not null\n    assertNotNull(frame);\n\n    // Stop the grabber\n    try {\n        grabber.stop();\n    } catch (Exception e) {\n        fail(\"Failed to stop grabber\");\n    }\n}",
+        "@Test\npublic void grab_rawTest() {\n    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber();\n    int[] expected = null;\n    int[] actual = grabber.grab_raw();\n    assertArrayEquals(expected, actual);\n}",
+        "@RunWith(MockitoJUnitRunner.class)\npublic class PS3EyeFrameGrabberTest {\n    \n    @Mock\n    CLCamera camera;\n    \n    @InjectMocks\n    PS3EyeFrameGrabber grabber;\n    \n    @Test\n    public void grab_rawTest() {\n        int[] ps3_frame = new int[] { 0, 1, 2, 3, 4 };\n        when(camera.getCameraFrame(Mockito.any(int[].class), Mockito.anyInt())).thenReturn(true);\n        when(camera.getCameraFrame(Mockito.any(int[].class), Mockito.anyInt())).thenAnswer(new Answer<Boolean>() {\n            private int count = 0;\n            \n            public Boolean answer(InvocationOnMock invocation) throws Throwable {\n                count++;\n                if (count == 1) {\n                    System.arraycopy(ps3_frame, 0, (int[]) invocation.getArguments()[0], 0, ps3_frame.length);\n                    return true;\n                } else {\n                    return false;\n                }\n            }\n        });\n        \n        int[] result = grabber.grab_raw();\n        \n        assertNotNull(result);\n        assertArrayEquals(ps3_frame, result);\n    }\n}",
+        "@Test\npublic void grab_rawTest() {\n    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber();\n    int[] expected = grabber.grab_raw();\n    int[] actual = grabber.grab_raw();\n    assertArrayEquals(expected, actual);\n}",
+        "@Test\n    public void grab_rawTest() {\n        PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber();\n        int[] expected = new int[grabber.imageWidth * grabber.imageHeight];\n        int[] actual = grabber.grab_raw();\n        assertArrayEquals(expected, actual);\n    }",
+        "@Test\npublic void grab_rawTest() {\n    PS3EyeFrameGrabber frameGrabber = new PS3EyeFrameGrabber();\n    int[] result = frameGrabber.grab_raw();\n    assertNotNull(result);\n    // Add additional assertions based on expected behavior of the method\n}",
+        "@Test\npublic void grab_rawTest() {\n    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber(); // Create an instance of PS3EyeFrameGrabber\n    int[] expected = {1, 2, 3, 4, 5}; // Define the expected output for the grab_raw() method\n    grabber.ps3_frame = expected; // Set the ps3_frame variable in the grabber object to the expected output\n    int[] actual = grabber.grab_raw(); // Call the grab_raw() method and store the result in the actual variable\n    assertArrayEquals(expected, actual); // Compare the expected output with the actual output\n}",
+        "@Test\npublic void grab_rawTest() {\n    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber();\n    int[] result = grabber.grab_raw();\n    assertNotNull(result);\n}",
+        "@Test\npublic void grab_rawTest() {\n    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber();\n    assertNull(grabber.grab_raw());\n}",
+        "@Test\npublic void grab_rawTest() {\n    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber();\n    int[] expected = {1, 2, 3, 4, 5};\n    grabber.ps3_frame = expected;\n    int[] actual = grabber.grab_raw();\n    assertArrayEquals(expected, actual);\n}"
+    ]
+}

@@ -1,0 +1,272 @@
+Source code: 
+
+
+public double process(double sample) {
+    double result = 0.0;
+
+    // Process
+    for (int i = 1; i <= order; i++) {
+        result += (coeffsB[i] * historyX[i - 1] - coeffsA[i] * historyY[i - 1]);
+    }
+    result = (result + coeffsB[0] * sample) / coeffsA[0];
+
+    // Feedback
+    for (int i = order - 1; i > 0; i--) {
+        historyX[i] = historyX[i - 1];
+        historyY[i] = historyY[i - 1];
+    }
+
+    historyX[0] = sample;
+    historyY[0] = result;
+
+    return result;
+}
+
+
+
+No.1 generated result --------------------------
+
+public void processTest() {
+    IIRFilter iirFilter = new IIRFilter(3);
+    double[] coeffsA = {1.0, 0.5, 0.25, 0.125};
+    double[] coeffsB = {0.5, 0.25, 0.125, 1.0};
+    iirFilter.setCoeffs(coeffsA, coeffsB);
+    
+    double sample = 0.75;
+    double expected = 0.75;
+    double result = iirFilter.process(sample);
+    
+    assertEquals(expected, result, 0.001);
+}
+
+
+No.2 generated result --------------------------
+
+package com.thealgorithms.audiofilters;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class IIRFilterTest {
+    @Test
+    public void processTest() {
+        IIRFilter filter = new IIRFilter(3);
+        double[] aCoeffs = {1.0, 1.5, 0.5};
+        double[] bCoeffs = {0.7, 0.3, 0.9};
+        filter.setCoeffs(aCoeffs, bCoeffs);
+
+        // Test case 1
+        double sample1 = 0.5;
+        double expected1 = 0.175;
+        double result1 = filter.process(sample1);
+        assertEquals(expected1, result1);
+
+        // Test case 2
+        double sample2 = 1.25;
+        double expected2 = 0.6375;
+        double result2 = filter.process(sample2);
+        assertEquals(expected2, result2);
+
+        // Test case 3
+        double sample3 = -0.75;
+        double expected3 = 0.5125;
+        double result3 = filter.process(sample3);
+        assertEquals(expected3, result3);
+
+        // Test case 4
+        double sample4 = 0.2;
+        double expected4 = 0.275;
+        double result4 = filter.process(sample4);
+        assertEquals(expected4, result4);
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package com.thealgorithms.audiofilters;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class IIRFilterTest {
+    @Test
+    public void processTest() {
+        // Initialize the IIRFilter object
+        IIRFilter filter = new IIRFilter(3);
+        
+        // Set the coefficients
+        double[] aCoeffs = {0.5, -0.25, 0.1};
+        double[] bCoeffs = {0.2, 0.4, 0.6};
+        filter.setCoeffs(aCoeffs, bCoeffs);
+        
+        // Set the input sample
+        double sample = 0.8;
+        
+        // Call the process method
+        double result = filter.process(sample);
+        
+        // Check the expected output
+        double expected = 0.07692307692307693;
+        assertEquals(expected, result);
+        
+        // Check the historyX array after the process method call
+        double[] expectedHistoryX = {0.8, 0.0, 0.0};
+        assertArrayEquals(expectedHistoryX, filter.historyX);
+        
+        // Check the historyY array after the process method call
+        double[] expectedHistoryY = {0.09230769230769231, 0.0, 0.0};
+        assertArrayEquals(expectedHistoryY, filter.historyY);
+    }
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void processTest() {
+    IIRFilter filter = new IIRFilter(3);
+    double[] aCoeffs = {1.2, 2.3, 3.4};
+    double[] bCoeffs = {0.5, 0.6, 0.7};
+    filter.setCoeffs(aCoeffs, bCoeffs);
+    
+    double sample = 1.0;
+    double expectedResult = 0.0;
+    
+    // Get expected result manually
+    
+    double[] historyX = {0.0, 0.0, 0.0};
+    double[] historyY = {0.0, 0.0, 0.0};
+    for (int i = 1; i <= filter.getOrder(); i++) {
+        expectedResult += (bCoeffs[i] * historyX[i - 1] - aCoeffs[i] * historyY[i - 1]);
+    }
+    expectedResult = (expectedResult + bCoeffs[0] * sample) / aCoeffs[0];
+    
+    // Process
+    double actualResult = filter.process(sample);
+    
+    // Verify the expected result matches the actual result
+    assertEquals(expectedResult, actualResult);
+    
+    // Verify the historyX and historyY arrays have been updated correctly
+    assertArrayEquals(historyX, filter.getHistoryX());
+    assertArrayEquals(historyY, filter.getHistoryY());
+}
+
+
+No.5 generated result --------------------------
+
+public void processTest() {
+    IIRFilter filter = new IIRFilter(3);
+    double[] aCoeffs = {1.0, 2.0, 3.0};
+    double[] bCoeffs = {0.5, 0.5, 0.5};
+    filter.setCoeffs(aCoeffs, bCoeffs);
+
+    double sample = 1.5;
+    double expected = 2.0; // Expected result of the process method
+
+    double result = filter.process(sample);
+
+    assertEquals(expected, result, 0.0001);
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void processTest() {
+    // Set up
+    double[] coeffsA = {1.0, 2.0, 1.0};
+    double[] coeffsB = {0.5, 1.0, 0.5};
+    int order = 2;
+
+    IIRFilter filter = new IIRFilter(order);
+    filter.setCoeffs(coeffsA, coeffsB);
+
+    // Test
+    double sample = 2.0;
+    double expected = 3.0; // Fill in the expected result
+    double result = filter.process(sample);
+
+    // Assert
+    assertEquals(expected, result);
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void processTest() {
+    double sample = 1.0;
+    double[] aCoeffs = {1.0, 2.0, 3.0};
+    double[] bCoeffs = {4.0, 5.0, 6.0};
+    
+    IIRFilter filter = new IIRFilter(3);
+    filter.setCoeffs(aCoeffs, bCoeffs);
+    
+    double result = filter.process(sample);
+    
+    assertEquals(expectedValue, result);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void processTest() {
+    IIRFilter filter = new IIRFilter(3);
+    double[] aCoeffs = {0.1, 0.2, 0.3};
+    double[] bCoeffs = {0.4, 0.5, 0.6};
+    filter.setCoeffs(aCoeffs, bCoeffs);
+
+    double sample = 0.7;
+    double expected = 0.865;
+
+    double result = filter.process(sample);
+
+    assertEquals(expected, result, 0.001);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void processTest() {
+    IIRFilter filter = new IIRFilter(3);
+    double[] coeffsA = {1.0, 2.0, 1.0};
+    double[] coeffsB = {0.5, 1.0, 0.5};
+    filter.setCoeffs(coeffsA, coeffsB);
+
+    double[] historyX = {0.0, 0.0, 0.0};
+    double[] historyY = {0.0, 0.0, 0.0};
+
+    filter.historyX = historyX;
+    filter.historyY = historyY;
+
+    double sample = 2.0;
+    double expectedOutput = <output from process method>;
+
+    double result = filter.process(sample);
+    assertEquals(expectedOutput, result);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void processTest() {
+    double sample = 0.5;
+    int order = 3;
+    double[] coeffsA = {0.2, 0.3, 0.4, 0.5};
+    double[] coeffsB = {0.1, 0.2, 0.3, 0.4};
+    double[] historyX = {0.1, 0.2, 0.3, 0.4};
+    double[] historyY = {0.2, 0.3, 0.4, 0.5};
+    
+    IIRFilter filter = new IIRFilter(order);
+    filter.setCoeffs(coeffsA, coeffsB);
+    double result = filter.process(sample);
+    
+    assert(result == <expect_result>);
+}
+
+

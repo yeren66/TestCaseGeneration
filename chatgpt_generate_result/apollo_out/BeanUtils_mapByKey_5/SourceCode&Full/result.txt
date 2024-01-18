@@ -1,0 +1,266 @@
+Source code: 
+
+
+@SuppressWarnings("unchecked")
+public static <K, V> Map<K, V> mapByKey(String key, List<?> list) {
+  Map<K, V> map = new HashMap<>();
+  if (CollectionUtils.isEmpty(list)) {
+    return map;
+  }
+  try {
+    Class<?> clazz = list.get(0).getClass();
+    Field field = deepFindField(clazz, key);
+    if (field == null) {
+        throw new IllegalArgumentException("Could not find the key");
+    }
+    field.setAccessible(true);
+    for (Object o : list) {
+      map.put((K) field.get(o), (V) o);
+    }
+  } catch (Exception e) {
+    throw new BeanUtilsException(e);
+  }
+  return map;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void mapByKeyTest() {
+    // Test data
+    List<UserDTO> userList = new ArrayList<>();
+    UserDTO user1 = new UserDTO();
+    user1.setUserId(1);
+    user1.setUserName("John");
+    UserDTO user2 = new UserDTO();
+    user2.setUserId(2);
+    user2.setUserName("Jane");
+    userList.add(user1);
+    userList.add(user2);
+    
+    // Invoking the method to be tested
+    Map<Integer, UserDTO> resultMap = BeanUtils.mapByKey("userId", userList);
+    
+    // Assertions
+    assertEquals(user1, resultMap.get(1));
+    assertEquals(user2, resultMap.get(2));
+}
+
+
+
+No.2 generated result --------------------------
+
+package com.ctrip.framework.apollo.common.utils;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+
+public class BeanUtilsTest {
+    @Test
+    public void mapByKeyTest() {
+        List<UserDTO> users = new ArrayList<>();
+        users.add(new UserDTO(1, "John"));
+        users.add(new UserDTO(2, "Jane"));
+        
+        // Act
+        Map<Integer, UserDTO> map = BeanUtils.mapByKey("userId", users);
+        
+        // Assert
+        assertNotNull(map);
+        assertEquals(2, map.size());
+        assertTrue(map.containsKey(1));
+        assertTrue(map.containsKey(2));
+        assertEquals(users.get(0), map.get(1));
+        assertEquals(users.get(1), map.get(2));
+    }
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void mapByKeyTest() {
+    // Given
+    List<UserDTO> userList = new ArrayList<>();
+    UserDTO user1 = new UserDTO();
+    user1.setUserId(1);
+    user1.setUserName("John");
+    userList.add(user1);
+    UserDTO user2 = new UserDTO();
+    user2.setUserId(2);
+    user2.setUserName("Jane");
+    userList.add(user2);
+
+    // When
+    Map<Integer, UserDTO> resultMap = BeanUtils.mapByKey("userId", userList);
+
+    // Then
+    assertEquals(2, resultMap.size());
+    assertEquals(user1, resultMap.get(1));
+    assertEquals(user2, resultMap.get(2));
+}
+
+
+No.4 generated result --------------------------
+
+@SuppressWarnings("unchecked")
+@Test
+public void mapByKeyTest() {
+    // Given
+    String key = "userId";
+    List<UserDTO> userList = new ArrayList<>();
+    userList.add(new UserDTO(1, "John"));
+    userList.add(new UserDTO(2, "Jane"));
+
+    // When
+    Map<Integer, UserDTO> result = BeanUtils.mapByKey(key, userList);
+    
+    // Then
+    assertEquals(2, result.size());
+    assertEquals("John", result.get(1).getName());
+    assertEquals("Jane", result.get(2).getName());
+}
+
+
+No.5 generated result --------------------------
+
+package com.ctrip.framework.apollo.common.utils;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class BeanUtilsTest {
+    @Test
+    public void mapByKeyTest() {
+        List<UserDTO> userList = userService.queryUsers();
+        Map<Integer, UserDTO> userIdToUser = BeanUtil.mapByKey("userId", userList);
+
+        for (UserDTO user : userList) {
+            assertEquals(user, userIdToUser.get(user.getUserId()));
+        }
+    }
+}
+
+
+No.6 generated result --------------------------
+
+package com.ctrip.framework.apollo.common.utils;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
+
+public class BeanUtilsTest {
+    @Test
+    public void mapByKeyTest() {
+        // Prepare test data
+        List<UserDTO> userList = new ArrayList<>();
+        UserDTO user1 = new UserDTO();
+        user1.setUserId(1);
+        user1.setUsername("user1");
+        userList.add(user1);
+        UserDTO user2 = new UserDTO();
+        user2.setUserId(2);
+        user2.setUsername("user2");
+        userList.add(user2);
+        
+        // Invoke the method to be tested
+        Map<Integer, UserDTO> map = BeanUtils.mapByKey("userId", userList);
+        
+        // Assertions
+        assertNotNull(map);
+        assertEquals(2, map.size());
+        assertTrue(map.containsKey(1));
+        assertTrue(map.containsKey(2));
+        assertEquals(user1, map.get(1));
+        assertEquals(user2, map.get(2));
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void mapByKeyTest() {
+    List<UserDTO> userList = new ArrayList<>();
+    userList.add(new UserDTO(1, "John"));
+    userList.add(new UserDTO(2, "Jane"));
+    
+    Map<Integer, UserDTO> expectedMap = new HashMap<>();
+    expectedMap.put(1, new UserDTO(1, "John"));
+    expectedMap.put(2, new UserDTO(2, "Jane"));
+    
+    Map<Integer, UserDTO> actualMap = BeanUtils.mapByKey("userId", userList);
+    
+    assertEquals(expectedMap, actualMap);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void mapByKeyTest() {
+    List<UserDTO> userList = new ArrayList<>();
+    UserDTO user1 = new UserDTO();
+    user1.setUserId(1);
+    user1.setUsername("John");
+    userList.add(user1);
+
+    UserDTO user2 = new UserDTO();
+    user2.setUserId(2);
+    user2.setUsername("Jane");
+    userList.add(user2);
+
+    Map<Integer, UserDTO> map = BeanUtils.mapByKey("userId", userList);
+
+    assertEquals(user1, map.get(1));
+    assertEquals(user2, map.get(2));
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void mapByKeyTest() {
+    List<Foo> list = new ArrayList<>();
+    Foo foo1 = new Foo("key1");
+    Foo foo2 = new Foo("key2");
+    list.add(foo1);
+    list.add(foo2);
+    
+    Map<String, Foo> map = BeanUtils.mapByKey("key", list);
+    
+    assertEquals(map.get("key1"), foo1);
+    assertEquals(map.get("key2"), foo2);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void mapByKeyTest() {
+    // Given
+    String key = "userId";
+    List<UserDTO> userList = new ArrayList<>();
+    UserDTO user1 = new UserDTO(1, "John");
+    UserDTO user2 = new UserDTO(2, "Alice");
+    userList.add(user1);
+    userList.add(user2);
+    
+    // When
+    Map<Integer, UserDTO> result = BeanUtils.mapByKey(key, userList);
+    
+    // Then
+    assertEquals(2, result.size()); // Assert that the size of the map is correct
+    assertEquals(user1, result.get(1)); // Assert that the value for key 1 is user1
+    assertEquals(user2, result.get(2)); // Assert that the value for key 2 is user2
+}
+
+

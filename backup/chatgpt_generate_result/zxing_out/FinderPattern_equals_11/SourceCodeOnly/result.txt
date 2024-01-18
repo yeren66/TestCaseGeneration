@@ -1,0 +1,218 @@
+Source code: 
+
+@Override
+public boolean equals(Object o) {
+  if (!(o instanceof FinderPattern)) {
+    return false;
+  }
+  FinderPattern that = (FinderPattern) o;
+  return value == that.value;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    FinderPattern fp1 = new FinderPattern(1);
+    FinderPattern fp2 = new FinderPattern(1);
+    FinderPattern fp3 = new FinderPattern(2);
+  
+    assertTrue(fp1.equals(fp1));
+    assertFalse(fp1.equals(null));
+    assertFalse(fp1.equals("test"));
+    assertTrue(fp1.equals(fp2));
+    assertFalse(fp1.equals(fp3));
+}
+
+
+No.2 generated result --------------------------
+
+@Override
+public boolean equals(Object o) {
+  if (!(o instanceof FinderPattern)) {
+    return false;
+  }
+  FinderPattern that = (FinderPattern) o;
+  return value == that.value;
+}
+
+@Test
+public void equalsTest() {
+    FinderPattern pattern1 = new FinderPattern(5); // create a FinderPattern object with value 5
+    FinderPattern pattern2 = new FinderPattern(5); // create another FinderPattern object with value 5
+    FinderPattern pattern3 = new FinderPattern(10); // create a FinderPattern object with value 10
+
+    // Test case 1: pattern1 and pattern2 have the same value, so they should be equal
+    assertTrue(pattern1.equals(pattern2));
+
+    // Test case 2: pattern1 and pattern3 have different values, so they should not be equal
+    assertFalse(pattern1.equals(pattern3));
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    FinderPattern pattern1 = new FinderPattern();
+    pattern1.setValue(5);
+    FinderPattern pattern2 = new FinderPattern();
+    pattern2.setValue(5);
+    
+    // Test case 1: Two FinderPattern objects with the same value
+    assertTrue(pattern1.equals(pattern2));
+    
+    FinderPattern pattern3 = new FinderPattern();
+    pattern3.setValue(10);
+    
+    // Test case 2: Two FinderPattern objects with different values
+    assertFalse(pattern1.equals(pattern3));
+    
+    // Test case 3: Comparing with a non-FinderPattern object
+    Object obj = new Object();
+    assertFalse(pattern1.equals(obj));
+    
+    // Test case 4: Comparing with a null object
+    assertFalse(pattern1.equals(null));
+}
+
+
+No.4 generated result --------------------------
+
+package com.google.zxing.oned.rss;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class FinderPatternTest {
+    @Test
+    public void equalsTest() {
+        FinderPattern pattern1 = new FinderPattern(5); // create a FinderPattern object with value 5
+        FinderPattern pattern2 = new FinderPattern(5); // create another FinderPattern object with value 5
+        FinderPattern pattern3 = new FinderPattern(10); // create a FinderPattern object with value 10
+
+        // Object should be equal to itself
+        assertEquals(pattern1, pattern1);
+
+        // Object should be equal to another object with the same value
+        assertEquals(pattern1, pattern2);
+
+        // Object should not be equal to another object with a different value
+        assertNotEquals(pattern1, pattern3);
+    }
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    FinderPattern pattern1 = new FinderPattern(5);
+    FinderPattern pattern2 = new FinderPattern(5);
+    FinderPattern pattern3 = new FinderPattern(10);
+    
+    // Test case 1: pattern1 and pattern2 have the same value, should return true
+    assertTrue(pattern1.equals(pattern2));
+    
+    // Test case 2: pattern1 and pattern3 have different values, should return false
+    assertFalse(pattern1.equals(pattern3));
+    
+    // Test case 3: pattern1 and pattern2 are the same object, should return true
+    assertTrue(pattern1.equals(pattern1));
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    FinderPattern pattern1 = new FinderPattern(3);
+    FinderPattern pattern2 = new FinderPattern(3);
+    FinderPattern pattern3 = new FinderPattern(5);
+    
+    assertTrue(pattern1.equals(pattern2));
+    assertFalse(pattern1.equals(pattern3));
+    assertFalse(pattern1.equals(null));
+    assertFalse(pattern1.equals("string"));
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    FinderPattern finderPattern1 = new FinderPattern(5); // Create a FinderPattern object with value 5
+    FinderPattern finderPattern2 = new FinderPattern(5); // Create another FinderPattern object with value 5
+    FinderPattern finderPattern3 = new FinderPattern(7); // Create a FinderPattern object with value 7
+    
+    // Test case 1: Check if a FinderPattern object is equal to itself
+    assertTrue(finderPattern1.equals(finderPattern1), "FinderPattern object should be equal to itself");
+    
+    // Test case 2: Check if two FinderPattern objects with the same value are equal
+    assertTrue(finderPattern1.equals(finderPattern2), "FinderPattern objects with the same value should be equal");
+    
+    // Test case 3: Check if two FinderPattern objects with different values are not equal
+    assertFalse(finderPattern1.equals(finderPattern3), "FinderPattern objects with different values should not be equal");
+    
+    // Test case 4: Check if a FinderPattern object is not equal to a null object
+    assertFalse(finderPattern1.equals(null), "FinderPattern object should not be equal to a null object");
+    
+    // Test case 5: Check if a FinderPattern object is not equal to an object of a different class
+    assertFalse(finderPattern1.equals("FinderPattern"), "FinderPattern object should not be equal to an object of a different class");
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    FinderPattern pattern1 = new FinderPattern(5);
+    FinderPattern pattern2 = new FinderPattern(5);
+    FinderPattern pattern3 = new FinderPattern(6);
+
+    assertTrue(pattern1.equals(pattern2));
+    assertFalse(pattern1.equals(pattern3));
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    FinderPattern pattern1 = new FinderPattern(1);
+    FinderPattern pattern2 = new FinderPattern(1);
+    FinderPattern pattern3 = new FinderPattern(2);
+    
+    // Test 1: Comparing the pattern with itself
+    assertTrue(pattern1.equals(pattern1));
+    
+    // Test 2: Comparing pattern1 with pattern2
+    assertTrue(pattern1.equals(pattern2));
+    
+    // Test 3: Comparing pattern1 with pattern3
+    assertFalse(pattern1.equals(pattern3));
+    
+    // Test 4: Comparing pattern1 with null
+    assertFalse(pattern1.equals(null));
+    
+    // Test 5: Comparing pattern1 with an object of a different class
+    assertFalse(pattern1.equals("not a FinderPattern"));
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    FinderPattern pattern1 = new FinderPattern(1);
+    FinderPattern pattern2 = new FinderPattern(1);
+    FinderPattern pattern3 = new FinderPattern(2);
+    assertFalse(pattern1.equals(null));
+    assertTrue(pattern1.equals(pattern1));
+    assertTrue(pattern1.equals(pattern2));
+    assertFalse(pattern1.equals(pattern3));
+}
+
+

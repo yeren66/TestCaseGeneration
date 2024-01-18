@@ -1,0 +1,249 @@
+Source code: 
+
+
+public static void handleNestedObject(Object obj, Class entity, boolean isEncode) throws IllegalAccessException {
+    Field[] fields = obj.getClass().getDeclaredFields();
+    for (Field field : fields) {
+        if(field.getType().isPrimitive()){
+            continue;
+        }
+        if(field.getType().equals(entity)){
+            // 对象里面是实体
+            field.setAccessible(true);
+            Object nestedObject = field.get(obj);
+            handlerObject(nestedObject, isEncode);
+            break;
+        }else{
+            // 对象里面是List<实体>
+            if(field.getGenericType() instanceof ParameterizedType){
+                ParameterizedType pt = (ParameterizedType)field.getGenericType();
+                if(pt.getRawType().equals(List.class)){
+                    if(pt.getActualTypeArguments()[0].equals(entity)){
+                        field.setAccessible(true);
+                        Object nestedObject = field.get(obj);
+                        handleList(nestedObject, entity, isEncode);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void handleNestedObjectTest() {
+    Object obj = new Object(); // create a test object
+    Class entity = Entity.class; // specify the entity class
+    boolean isEncode = true; // specify whether encoding should be done
+    
+    try {
+        handleNestedObject(obj, entity, isEncode); // call the method being tested
+    } catch (IllegalAccessException e) {
+        fail("IllegalAccessException should not be thrown");
+    }
+    
+    // <ASSERTIONS>
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void handleNestedObjectTest() {
+    try {
+        // Create the object to test
+        Object obj = new Object();
+
+        // Set up the entity class
+        Class entity = EntityClass.class;
+
+        // Set up the isEncode flag
+        boolean isEncode = true;
+
+        // Call the method to be tested
+        SensitiveInfoUtil.handleNestedObject(obj, entity, isEncode);
+
+        // Add the assertions for the expected outcomes
+        // ...
+    } catch (IllegalAccessException e) {
+        // Handle the exception appropriately
+    }
+}
+
+
+No.3 generated result --------------------------
+
+
+@Test
+public void handleNestedObjectTest() {
+    try {
+        // Create an object for testing
+        Object obj = new Object(); 
+        
+        // Specify the entity class for testing
+        Class entity = SampleEntity.class; // Replace SampleEntity with the actual entity class
+        
+        // Specify whether encoding is required or not
+        boolean isEncode = true;
+        
+        // Invoke the method being tested
+        SensitiveInfoUtil.handleNestedObject(obj, entity, isEncode);
+        
+        // Make the necessary assertions based on the expected output
+        // ...
+        
+    } catch (IllegalAccessException e) {
+        // Handle the exception appropriately
+        // ...
+    }
+}
+
+
+
+No.4 generated result --------------------------
+
+@Test
+public void handleNestedObjectTest() {
+    Object obj = new Object(); // create an instance of the object to be tested
+    Class entity = Object.class; // set the entity class
+    boolean isEncode = true; // set the value for isEncode
+    
+    try {
+        SensitiveInfoUtil.handleNestedObject(obj, entity, isEncode); // call the method to be tested
+        // assert the expected outcomes
+        // add assertions here
+        
+    } catch (IllegalAccessException e) {
+        fail("IllegalAccessException occurred"); // handle the exception if it occurs
+    }
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void handleNestedObjectTest() {
+    // Create an instance of the object to be tested
+    MyClass myObject = new MyClass();
+    
+    // Call the method to be tested
+    try {
+        SensitiveInfoUtil.handleNestedObject(myObject, MyClass.class, false);
+    } catch (IllegalAccessException e) {
+        fail("IllegalAccessException occurred");
+    }
+    
+    // Assert the expected behavior or result
+    // ... <FILL>
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void handleNestedObjectTest() {
+    Object obj = new Object(); // Dummy object for testing
+    Class entity = Object.class; // Dummy entity class for testing
+    boolean isEncode = true; // Dummy isEncode value for testing
+    
+    try {
+        SensitiveInfoUtil.handleNestedObject(obj, entity, isEncode);
+        // Add assertions to validate the expected behavior of handleNestedObject method
+    } catch (IllegalAccessException e) {
+        fail("Exception occurred: " + e.getMessage());
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void handleNestedObjectTest() throws IllegalAccessException {
+    // Create a test object for obj parameter
+    Object obj = new SomeObject();
+    
+    // Create a test entity for entity parameter
+    Class entity = SomeEntity.class;
+    
+    // Create a test boolean value for isEncode parameter
+    boolean isEncode = true;
+    
+    // Call the handleNestedObject() method
+    SensitiveInfoUtil.handleNestedObject(obj, entity, isEncode);
+    
+    // Assertions go here
+}
+
+
+No.8 generated result --------------------------
+
+package org.jeecg.common.desensitization.util;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class SensitiveInfoUtilTest {
+    @Test
+    public void handleNestedObjectTest() {
+        try {
+            Object obj = new MyClass(); // Replace MyClass with the actual class name
+            Class entity = Entity.class; // Replace Entity with the actual entity class name
+            boolean isEncode = true; // Replace with the desired value
+
+            SensitiveInfoUtil.handleNestedObject(obj, entity, isEncode);
+
+            // Add assertions to validate the expected results
+            // For example:
+            // assertEquals(expectedValue, actualValue);
+            // assertTrue(condition);
+            // assertFalse(condition);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void handleNestedObjectTest() {
+    // Create an object for testing
+    Object obj = new Object();
+    Class entity = Object.class;
+    boolean isEncode = true;
+    
+    // Invoke the method being tested
+    try {
+        SensitiveInfoUtil.handleNestedObject(obj, entity, isEncode);
+    } catch (IllegalAccessException e) {
+        e.printStackTrace();
+        fail("IllegalAccessException occurred");
+    }
+    
+    // Add assertions here to verify the expected behavior of the method
+    // For example:
+    // assertEquals(expectedValue, actualValue);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void handleNestedObjectTest() throws IllegalAccessException {
+    Object obj = new Object(); // create an object to test
+    Class entity = Entity.class; // replace 'Entity' with the appropriate class name
+    boolean isEncode = true; // set the value for isEncode parameter
+    
+    // perform the action
+    SensitiveInfoUtil.handleNestedObject(obj, entity, isEncode);
+    
+    // add assertions to verify the expected outcome
+    // ...
+}
+
+

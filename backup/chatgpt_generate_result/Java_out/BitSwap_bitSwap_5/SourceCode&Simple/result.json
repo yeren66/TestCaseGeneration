@@ -1,0 +1,28 @@
+{
+    "project_name": "Java",
+    "file_name": "BitSwap.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/bitmanipulation/BitSwap.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.bitmanipulation",
+    "docstring": null,
+    "source_code": "/*\n * @brief Swaps the bits at the position posA and posB from data\n */\npublic static int bitSwap(int data, final int posA, final int posB) {\n    if (SingleBitOperations.getBit(data, posA) != SingleBitOperations.getBit(data, posB)) {\n        data ^= (1 << posA) ^ (1 << posB);\n    }\n    return data;\n}\n",
+    "class_name": "BitSwap",
+    "method_name": "bitSwap",
+    "arguments": [
+        "int data",
+        "int posA",
+        "int posB"
+    ],
+    "generate_test": [
+        "@Test\npublic void bitSwapTest() {\n    int data = 15; // Example data value\n    int posA = 2; // Example position A value\n    int posB = 4; // Example position B value\n    \n    int result = BitSwap.bitSwap(data, posA, posB);\n    \n    // Validate that the bits at positions A and B have been swapped\n    assertEquals(23, result);\n    \n    // Add more assertions if needed\n}",
+        "@Test\npublic void bitSwapTest() {\n    int data = 10; // sample data\n    int posA = 2; // position A\n    int posB = 4; // position B\n    int expected = 26; // expected result after swapping bits at positions A and B\n\n    int result = BitSwap.bitSwap(data, posA, posB);\n    assertEquals(expected, result);\n}",
+        "@Test\npublic void bitSwapTest() {\n    int data = 0b10101010; // example data\n    int posA = 2; // example posA value\n    int posB = 5; // example posB value\n    \n    int result = BitSwap.bitSwap(data, posA, posB);\n    \n    assertEquals(0b10001010, result); // expected result\n    \n    // add additional assertions if needed\n}",
+        "@Test\npublic void bitSwapTest() {\n    int data = 12;\n    int posA = 2;\n    int posB = 4;\n    \n    int result = BitSwap.bitSwap(data, posA, posB);\n    \n    assertEquals(24, result);\n}",
+        "public void bitSwapTest() {\n    int data = 5; // Specify the initial data here\n    int posA = 2; // Specify the position of the first bit to be swapped\n    int posB = 4; // Specify the position of the second bit to be swapped\n    \n    int expected = 21; // Specify the expected result after swapping the bits\n    \n    int result = BitSwap.bitSwap(data, posA, posB);\n    assertEquals(expected, result);\n}",
+        "@Test\npublic void bitSwapTest() {\n    int data = 10;\n    int posA = 1;\n    int posB = 3;\n    \n    int expectedResult = 14;\n    int actualResult = BitSwap.bitSwap(data, posA, posB);\n    \n    assertEquals(expectedResult, actualResult);\n}",
+        "@Test\npublic void bitSwapTest() {\n    int data = 10;\n    int posA = 0;\n    int posB = 1;\n    int expectedResult = 9;\n    \n    int result = BitSwap.bitSwap(data, posA, posB);\n    \n    assertEquals(expectedResult, result);\n}",
+        "@Test\npublic void bitSwapTest() {\n    int data = 7;\n    int posA = 1;\n    int posB = 2;\n\n    int result = BitSwap.bitSwap(data, posA, posB);\n\n    assertEquals(5, result);\n}",
+        "@Test\npublic void bitSwapTest() {\n    int data = 10;\n    int posA = 2;\n    int posB = 4;\n    \n    int expected = 26;\n    int actual = BitSwap.bitSwap(data, posA, posB);\n    \n    assertEquals(expected, actual);\n}",
+        "package com.thealgorithms.bitmanipulation;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class BitSwapTest {\n    @Test\n    public void bitSwapTest() {\n        int data = 0b101010; // or any other test value\n        int posA = 2; // or any other required position\n        int posB = 4; // or any other required position\n        \n        int expected = 0b100101; // or any other expected result\n        \n        int result = BitSwap.bitSwap(data, posA, posB);\n        \n        assertEquals(expected, result);\n    }\n}"
+    ]
+}

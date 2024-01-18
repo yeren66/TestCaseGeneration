@@ -1,0 +1,171 @@
+Source code: 
+
+/*
+ * @brief Swaps the bits at the position posA and posB from data
+ */
+public static int bitSwap(int data, final int posA, final int posB) {
+    if (SingleBitOperations.getBit(data, posA) != SingleBitOperations.getBit(data, posB)) {
+        data ^= (1 << posA) ^ (1 << posB);
+    }
+    return data;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void bitSwapTest() {
+    int data = 15; // Example data value
+    int posA = 2; // Example position A value
+    int posB = 4; // Example position B value
+    
+    int result = BitSwap.bitSwap(data, posA, posB);
+    
+    // Validate that the bits at positions A and B have been swapped
+    assertEquals(23, result);
+    
+    // Add more assertions if needed
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void bitSwapTest() {
+    int data = 10; // sample data
+    int posA = 2; // position A
+    int posB = 4; // position B
+    int expected = 26; // expected result after swapping bits at positions A and B
+
+    int result = BitSwap.bitSwap(data, posA, posB);
+    assertEquals(expected, result);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void bitSwapTest() {
+    int data = 0b10101010; // example data
+    int posA = 2; // example posA value
+    int posB = 5; // example posB value
+    
+    int result = BitSwap.bitSwap(data, posA, posB);
+    
+    assertEquals(0b10001010, result); // expected result
+    
+    // add additional assertions if needed
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void bitSwapTest() {
+    int data = 12;
+    int posA = 2;
+    int posB = 4;
+    
+    int result = BitSwap.bitSwap(data, posA, posB);
+    
+    assertEquals(24, result);
+}
+
+
+No.5 generated result --------------------------
+
+public void bitSwapTest() {
+    int data = 5; // Specify the initial data here
+    int posA = 2; // Specify the position of the first bit to be swapped
+    int posB = 4; // Specify the position of the second bit to be swapped
+    
+    int expected = 21; // Specify the expected result after swapping the bits
+    
+    int result = BitSwap.bitSwap(data, posA, posB);
+    assertEquals(expected, result);
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void bitSwapTest() {
+    int data = 10;
+    int posA = 1;
+    int posB = 3;
+    
+    int expectedResult = 14;
+    int actualResult = BitSwap.bitSwap(data, posA, posB);
+    
+    assertEquals(expectedResult, actualResult);
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void bitSwapTest() {
+    int data = 10;
+    int posA = 0;
+    int posB = 1;
+    int expectedResult = 9;
+    
+    int result = BitSwap.bitSwap(data, posA, posB);
+    
+    assertEquals(expectedResult, result);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void bitSwapTest() {
+    int data = 7;
+    int posA = 1;
+    int posB = 2;
+
+    int result = BitSwap.bitSwap(data, posA, posB);
+
+    assertEquals(5, result);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void bitSwapTest() {
+    int data = 10;
+    int posA = 2;
+    int posB = 4;
+    
+    int expected = 26;
+    int actual = BitSwap.bitSwap(data, posA, posB);
+    
+    assertEquals(expected, actual);
+}
+
+
+No.10 generated result --------------------------
+
+package com.thealgorithms.bitmanipulation;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BitSwapTest {
+    @Test
+    public void bitSwapTest() {
+        int data = 0b101010; // or any other test value
+        int posA = 2; // or any other required position
+        int posB = 4; // or any other required position
+        
+        int expected = 0b100101; // or any other expected result
+        
+        int result = BitSwap.bitSwap(data, posA, posB);
+        
+        assertEquals(expected, result);
+    }
+}
+
+

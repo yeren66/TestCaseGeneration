@@ -1,0 +1,487 @@
+Source code: 
+
+
+Node mergeKList(Node[] a, int N) {
+    // Min Heap
+    PriorityQueue<Node> min = new PriorityQueue<>(Comparator.comparingInt(x -> x.data));
+
+    // adding head of all linkedList in min heap
+    min.addAll(Arrays.asList(a).subList(0, N));
+
+    // Make new head among smallest heads in K linkedList
+    Node head = min.poll();
+    min.add(head.next);
+    Node curr = head;
+
+    // merging LinkedList
+    while (!min.isEmpty()) {
+        Node temp = min.poll();
+        curr.next = temp;
+        curr = temp;
+
+        // Add Node in min Heap only if temp.next is not null
+        if (temp.next != null) {
+            min.add(temp.next);
+        }
+    }
+
+    return head;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void mergeKListTest() {
+    Merge_K_SortedLinkedlist ml = new Merge_K_SortedLinkedlist();
+    Merge_K_SortedLinkedlist.Node[] lists = new Merge_K_SortedLinkedlist.Node[3];
+    
+    // Create LinkedList 1
+    Merge_K_SortedLinkedlist.Node head1 = ml.new Node();
+    head1.data = 1;
+    head1.next = ml.new Node();
+    head1.next.data = 4;
+    head1.next.next = ml.new Node();
+    head1.next.next.data = 5;
+    lists[0] = head1;
+    
+    // Create LinkedList 2
+    Merge_K_SortedLinkedlist.Node head2 = ml.new Node();
+    head2.data = 1;
+    head2.next = ml.new Node();
+    head2.next.data = 3;
+    head2.next.next = ml.new Node();
+    head2.next.next.data = 4;
+    lists[1] = head2;
+    
+    // Create LinkedList 3
+    Merge_K_SortedLinkedlist.Node head3 = ml.new Node();
+    head3.data = 2;
+    head3.next = ml.new Node();
+    head3.next.data = 6;
+    lists[2] = head3;
+    
+    Merge_K_SortedLinkedlist.Node merged = ml.mergeKList(lists, 3);
+    
+    // Ensure the merged linked list is sorted correctly
+    assertEquals(1, merged.data);
+    assertEquals(1, merged.next.data);
+    assertEquals(2, merged.next.next.data);
+    assertEquals(3, merged.next.next.next.data);
+    assertEquals(4, merged.next.next.next.next.data);
+    assertEquals(4, merged.next.next.next.next.next.data);
+    assertEquals(5, merged.next.next.next.next.next.next.data);
+    assertEquals(6, merged.next.next.next.next.next.next.next.data);
+    assertNull(merged.next.next.next.next.next.next.next.next);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void mergeKListTest() {
+    Merge_K_SortedLinkedlist mergeSort = new Merge_K_SortedLinkedlist();
+    Merge_K_SortedLinkedlist.Node[] arr = new Merge_K_SortedLinkedlist.Node[3];
+
+    Merge_K_SortedLinkedlist.Node node1 = mergeSort.new Node();
+    node1.data = 1;
+
+    Merge_K_SortedLinkedlist.Node node2 = mergeSort.new Node();
+    node2.data = 4;
+
+    Merge_K_SortedLinkedlist.Node node3 = mergeSort.new Node();
+    node3.data = 5;
+
+    Merge_K_SortedLinkedlist.Node node4 = mergeSort.new Node();
+    node4.data = 2;
+
+    Merge_K_SortedLinkedlist.Node node5 = mergeSort.new Node();
+    node5.data = 3;
+
+    Merge_K_SortedLinkedlist.Node node6 = mergeSort.new Node();
+    node6.data = 6;
+
+    Merge_K_SortedLinkedlist.Node node7 = mergeSort.new Node();
+    node7.data = 7;
+
+    node1.next = node2;
+    node2.next = node3;
+
+    node4.next = node5;
+    node5.next = node6;
+
+    node7.next = null;
+
+    arr[0] = node1;
+    arr[1] = node4;
+    arr[2] = node7;
+
+    Merge_K_SortedLinkedlist.Node mergedList = mergeSort.mergeKList(arr, 3);
+
+    String expectedOutput = "1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> null";
+    
+    // Assert that the merged list has the expected output
+    String actualOutput = getListAsString(mergedList);
+    assertEquals(expectedOutput, actualOutput);
+}
+
+private String getListAsString(Merge_K_SortedLinkedlist.Node node) {
+    StringBuilder sb = new StringBuilder();
+    while (node != null) {
+        sb.append(node.data).append(" -> ");
+        node = node.next;
+    }
+    sb.append("null");
+    return sb.toString();
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void mergeKListTest() {
+    Merge_K_SortedLinkedlist mergeSortedLinkedList = new Merge_K_SortedLinkedlist();
+    
+    // Create input data
+    Merge_K_SortedLinkedlist.Node[] a = new Merge_K_SortedLinkedlist.Node[3];
+    Merge_K_SortedLinkedlist.Node list1 = mergeSortedLinkedList.new Node();
+    list1.data = 1;
+    list1.next = mergeSortedLinkedList.new Node();
+    list1.next.data = 4;
+    list1.next.next = mergeSortedLinkedList.new Node();
+    list1.next.next.data = 5;
+    a[0] = list1;
+
+    Merge_K_SortedLinkedlist.Node list2 = mergeSortedLinkedList.new Node();
+    list2.data = 1;
+    list2.next = mergeSortedLinkedList.new Node();
+    list2.next.data = 3;
+    list2.next.next = mergeSortedLinkedList.new Node();
+    list2.next.next.data = 4;
+    a[1] = list2;
+
+    Merge_K_SortedLinkedlist.Node list3 = mergeSortedLinkedList.new Node();
+    list3.data = 2;
+    list3.next = mergeSortedLinkedList.new Node();
+    list3.next.data = 6;
+    a[2] = list3;
+
+    // Expected output
+    Merge_K_SortedLinkedlist.Node expected = mergeSortedLinkedList.new Node();
+    expected.data = 1;
+    expected.next = mergeSortedLinkedList.new Node();
+    expected.next.data = 1;
+    expected.next.next = mergeSortedLinkedList.new Node();
+    expected.next.next.data = 2;
+    expected.next.next.next = mergeSortedLinkedList.new Node();
+    expected.next.next.next.data = 3;
+    expected.next.next.next.next = mergeSortedLinkedList.new Node();
+    expected.next.next.next.next.data = 4;
+    expected.next.next.next.next.next = mergeSortedLinkedList.new Node();
+    expected.next.next.next.next.next.data = 4;
+    expected.next.next.next.next.next.next = mergeSortedLinkedList.new Node();
+    expected.next.next.next.next.next.next.data = 5;
+    expected.next.next.next.next.next.next.next = mergeSortedLinkedList.new Node();
+    expected.next.next.next.next.next.next.next.data = 6;
+
+    // Invoke the method to be tested
+    Merge_K_SortedLinkedlist.Node actual = mergeSortedLinkedList.mergeKList(a, 3);
+
+    // Compare the actual and expected output
+    while (actual != null && expected != null) {
+        assertEquals(actual.data, expected.data);
+        actual = actual.next;
+        expected = expected.next;
+    }
+    assertNull(actual);
+    assertNull(expected);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void mergeKListTest() {
+    // Create the input array of linked lists
+    Merge_K_SortedLinkedlist.Node list1 = new Merge_K_SortedLinkedlist.Node();
+    list1.data = 1;
+    list1.next = new Merge_K_SortedLinkedlist.Node();
+    list1.next.data = 4;
+    list1.next.next = new Merge_K_SortedLinkedlist.Node();
+    list1.next.next.data = 5;
+    list1.next.next.next = null;
+
+    Merge_K_SortedLinkedlist.Node list2 = new Merge_K_SortedLinkedlist.Node();
+    list2.data = 1;
+    list2.next = new Merge_K_SortedLinkedlist.Node();
+    list2.next.data = 3;
+    list2.next.next = new Merge_K_SortedLinkedlist.Node();
+    list2.next.next.data = 4;
+    list2.next.next.next = null;
+
+    Merge_K_SortedLinkedlist.Node list3 = new Merge_K_SortedLinkedlist.Node();
+    list3.data = 2;
+    list3.next = new Merge_K_SortedLinkedlist.Node();
+    list3.next.data = 6;
+    list3.next.next = null;
+
+    Merge_K_SortedLinkedlist.Node[] input = {list1, list2, list3};
+
+    // Call the mergeKList method
+    Merge_K_SortedLinkedlist merge = new Merge_K_SortedLinkedlist();
+    Merge_K_SortedLinkedlist.Node result = merge.mergeKList(input, 3);
+
+    // Define the expected output
+    Merge_K_SortedLinkedlist.Node expected = new Merge_K_SortedLinkedlist.Node();
+    expected.data = 1;
+    expected.next = new Merge_K_SortedLinkedlist.Node();
+    expected.next.data = 1;
+    expected.next.next = new Merge_K_SortedLinkedlist.Node();
+    expected.next.next.data = 2;
+    expected.next.next.next = new Merge_K_SortedLinkedlist.Node();
+    expected.next.next.next.data = 3;
+    expected.next.next.next.next = new Merge_K_SortedLinkedlist.Node();
+    expected.next.next.next.next.data = 4;
+    expected.next.next.next.next.next = new Merge_K_SortedLinkedlist.Node();
+    expected.next.next.next.next.next.data = 4;
+    expected.next.next.next.next.next.next = new Merge_K_SortedLinkedlist.Node();
+    expected.next.next.next.next.next.next.data = 5;
+    expected.next.next.next.next.next.next.next = new Merge_K_SortedLinkedlist.Node();
+    expected.next.next.next.next.next.next.next.data = 6;
+    expected.next.next.next.next.next.next.next.next = null;
+
+    // Compare the actual and expected outputs
+    assertEquals(expected.data, result.data);
+    assertEquals(expected.next.data, result.next.data);
+    assertEquals(expected.next.next.data, result.next.next.data);
+    assertEquals(expected.next.next.next.data, result.next.next.next.data);
+    assertEquals(expected.next.next.next.next.data, result.next.next.next.next.data);
+    assertEquals(expected.next.next.next.next.next.data, result.next.next.next.next.next.data);
+    assertEquals(expected.next.next.next.next.next.next.data, result.next.next.next.next.next.next.data);
+    assertEquals(expected.next.next.next.next.next.next.next.data, result.next.next.next.next.next.next
+
+
+No.5 generated result --------------------------
+
+@Test
+    public void mergeKListTest() {
+        Merge_K_SortedLinkedlist linkedListMerger = new Merge_K_SortedLinkedlist();
+
+        Merge_K_SortedLinkedlist.Node[] lists = {null};
+        int k = lists.length;
+
+        Merge_K_SortedLinkedlist.Node mergedList = linkedListMerger.mergeKList(lists, k);
+
+        // ASSERTION
+        assertNull(mergedList);
+    }
+
+
+No.6 generated result --------------------------
+
+
+// Create the input LinkedLists
+Merge_K_SortedLinkedlist.Node list1 = new Merge_K_SortedLinkedlist.Node();
+list1.data = 1;
+Merge_K_SortedLinkedlist.Node list1Node1 = new Merge_K_SortedLinkedlist.Node();
+list1Node1.data = 4;
+list1.next = list1Node1;
+
+Merge_K_SortedLinkedlist.Node list2 = new Merge_K_SortedLinkedlist.Node();
+list2.data = 2;
+Merge_K_SortedLinkedlist.Node list2Node1 = new Merge_K_SortedLinkedlist.Node();
+list2Node1.data = 5;
+list2.next = list2Node1;
+
+Merge_K_SortedLinkedlist.Node list3 = new Merge_K_SortedLinkedlist.Node();
+list3.data = 3;
+Merge_K_SortedLinkedlist.Node list3Node1 = new Merge_K_SortedLinkedlist.Node();
+list3Node1.data = 6;
+list3.next = list3Node1;
+
+Merge_K_SortedLinkedlist.Node[] lists = {list1, list2, list3};
+Merge_K_SortedLinkedlist obj = new Merge_K_SortedLinkedlist();
+Merge_K_SortedLinkedlist.Node result = obj.mergeKList(lists, lists.length);
+
+// Verify the merged LinkedList
+int[] expected = {1, 2, 3, 4, 5, 6};
+int i = 0;
+while (result != null) {
+    assertEquals(expected[i++], result.data);
+    result = result.next;
+}
+
+
+
+No.7 generated result --------------------------
+
+@Test
+public void mergeKListTest() {
+    Merge_K_SortedLinkedlist merge = new Merge_K_SortedLinkedlist();
+
+    // Create LinkedLists
+    Merge_K_SortedLinkedlist.Node[] lists = new Merge_K_SortedLinkedlist.Node[3];
+    for (int i = 0; i < 3; i++) {
+        lists[i] = merge.new Node();
+        lists[i].data = i;
+    }
+
+    // Set next pointers for LinkedLists
+    lists[0].next = merge.new Node();
+    lists[0].next.data = 1;
+    lists[0].next.next = merge.new Node();
+    lists[0].next.next.data = 3;
+
+    lists[1].next = merge.new Node();
+    lists[1].next.data = 2;
+
+    lists[2].next = merge.new Node();
+    lists[2].next.data = 4;
+
+    // Merge LinkedLists
+    Merge_K_SortedLinkedlist.Node result = merge.mergeKList(lists, 3);
+
+    // Check if the merged LinkedList is sorted
+    int[] expected = {0, 1, 2, 3, 4};
+    int index = 0;
+    while (result != null) {
+        assertEquals(expected[index], result.data);
+        result = result.next;
+        index++;
+    }
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+    public void mergeKListTest() {
+        Node[] a = new Node[3];
+        a[0] = new Node(1);
+        a[0].next = new Node(4);
+        a[0].next.next = new Node(5);
+
+        a[1] = new Node(1);
+        a[1].next = new Node(3);
+        a[1].next.next = new Node(4);
+
+        a[2] = new Node(2);
+        a[2].next = new Node(6);
+
+        Merge_K_SortedLinkedlist merge = new Merge_K_SortedLinkedlist();
+        Node result = merge.mergeKList(a, 3);
+
+        int[] expected = {1, 1, 2, 3, 4, 4, 5, 6};
+        int index = 0;
+        while (result != null) {
+            assertEquals(expected[index++], result.data);
+            result = result.next;
+        }
+    }
+
+
+No.9 generated result --------------------------
+
+@Test
+public void mergeKListTest() {
+    Merge_K_SortedLinkedlist testObject = new Merge_K_SortedLinkedlist();
+
+    // Create an array of Nodes for testing
+    Merge_K_SortedLinkedlist.Node[] nodes = new Merge_K_SortedLinkedlist.Node[3];
+    for (int i = 0; i < 3; i++) {
+        nodes[i] = new Merge_K_SortedLinkedlist.Node();
+        nodes[i].data = i;
+        nodes[i].next = i < 2 ? nodes[i + 1] : null;
+    }
+
+    // Call the mergeKList method and get the result
+    Merge_K_SortedLinkedlist.Node result = testObject.mergeKList(nodes, 3);
+
+    // Compare the expected output with the actual output
+    assertEquals(0, result.data);
+    assertEquals(1, result.next.data);
+    assertEquals(2, result.next.next.data);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void mergeKListTest() {
+    Merge_K_SortedLinkedlist mergeSortedLists = new Merge_K_SortedLinkedlist();
+    
+    // Create the input LinkedLists
+    LinkedList<Integer> list1 = new LinkedList<>();
+    list1.add(1);
+    list1.add(4);
+    list1.add(5);
+    
+    LinkedList<Integer> list2 = new LinkedList<>();
+    list2.add(1);
+    list2.add(3);
+    list2.add(4);
+    
+    LinkedList<Integer> list3 = new LinkedList<>();
+    list3.add(2);
+    list3.add(6);
+    
+    // Convert LinkedLists to Nodes
+    Merge_K_SortedLinkedlist.Node[] nodes = new Merge_K_SortedLinkedlist.Node[3];
+    nodes[0] = convertListToNodes(list1);
+    nodes[1] = convertListToNodes(list2);
+    nodes[2] = convertListToNodes(list3);
+    
+    // Merge the LinkedLists
+    Merge_K_SortedLinkedlist.Node merged = mergeSortedLists.mergeKList(nodes, 3);
+    
+    // Convert the merged Node to LinkedList
+    LinkedList<Integer> mergedList = convertNodeToList(merged);
+    
+    // Verify the merged LinkedList
+    LinkedList<Integer> expected = new LinkedList<>();
+    expected.add(1);
+    expected.add(1);
+    expected.add(2);
+    expected.add(3);
+    expected.add(4);
+    expected.add(4);
+    expected.add(5);
+    expected.add(6);
+    
+    assertEquals(expected, mergedList);
+}
+
+private Merge_K_SortedLinkedlist.Node convertListToNodes(LinkedList<Integer> list) {
+    Merge_K_SortedLinkedlist.Node head = null;
+    Merge_K_SortedLinkedlist.Node curr = null;
+    
+    for (int i : list) {
+        Merge_K_SortedLinkedlist.Node newNode = new Merge_K_SortedLinkedlist.Node();
+        newNode.data = i;
+        
+        if (head == null) {
+            head = newNode;
+            curr = newNode;
+        } else {
+            curr.next = newNode;
+            curr = newNode;
+        }
+    }
+    
+    return head;
+}
+
+private LinkedList<Integer> convertNodeToList(Merge_K_SortedLinkedlist.Node node) {
+    LinkedList<Integer> list = new LinkedList<>();
+    Merge_K_SortedLinkedlist.Node curr = node;
+    
+    while (curr != null) {
+        list.add(curr.data);
+        curr = curr.next;
+    }
+    
+    return list;
+}
+
+

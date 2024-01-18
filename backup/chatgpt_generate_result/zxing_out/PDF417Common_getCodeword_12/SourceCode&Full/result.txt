@@ -1,0 +1,63 @@
+Source code: 
+
+
+public static int getCodeword(int symbol) {
+  int i = Arrays.binarySearch(SYMBOL_TABLE, symbol & 0x3FFFF);
+  if (i < 0) {
+    return -1;
+  }
+  return (CODEWORD_TABLE[i] - 1) % NUMBER_OF_CODEWORDS;
+}
+
+
+
+No.1 generated result --------------------------
+
+Timeout
+
+
+No.2 generated result --------------------------
+
+Timeout
+
+
+No.3 generated result --------------------------
+
+Timeout
+
+
+No.4 generated result --------------------------
+
+Timeout
+
+
+No.5 generated result --------------------------
+
+Timeout
+
+
+No.6 generated result --------------------------
+
+Timeout
+
+
+No.7 generated result --------------------------
+
+Timeout
+
+
+No.8 generated result --------------------------
+
+Timeout
+
+
+No.9 generated result --------------------------
+
+Timeout
+
+
+No.10 generated result --------------------------
+
+Timeout
+
+

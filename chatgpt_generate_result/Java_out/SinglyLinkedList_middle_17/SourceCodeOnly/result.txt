@@ -1,0 +1,232 @@
+Source code: 
+
+
+public Node middle() {
+    if (head == null) {
+        return null;
+    }
+    Node firstCounter = head;
+    Node secondCounter = firstCounter.next;
+    while (secondCounter != null && secondCounter.next != null) {
+        firstCounter = firstCounter.next;
+        secondCounter = secondCounter.next.next;
+    }
+    return firstCounter;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void middleTest() {
+    SinglyLinkedList list = new SinglyLinkedList();
+    Node expected = new Node(3); // Assuming there are 5 elements in the list
+    list.add(1);
+    list.add(2);
+    list.add(3);
+    list.add(4);
+    list.add(5);
+    
+    Node actual = list.middle();
+    
+    assertEquals(expected, actual, "Incorrect middle node");
+}
+
+
+No.2 generated result --------------------------
+
+public Node expectedMiddle = middle();
+public void middleTest() {
+    SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+    // Add nodes to the linked list
+    singlyLinkedList.add(1);
+    singlyLinkedList.add(2);
+    singlyLinkedList.add(3);
+    singlyLinkedList.add(4);
+    singlyLinkedList.add(5);
+    
+    // Call the middle() method
+    Node actualMiddle = singlyLinkedList.middle();
+    
+    // Assert that the actual middle node is equal to the expected middle node
+    assertEquals(expectedMiddle, actualMiddle);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+    public void middleTest() {
+        SinglyLinkedList list = new SinglyLinkedList();
+        
+        // Case 1: Empty list
+        assertEquals(null, list.middle());
+        
+        // Case 2: List with one node
+        list.insert(5);
+        assertEquals(5, list.middle().data);
+        
+        // Case 3: List with odd number of nodes
+        list.insert(10);
+        list.insert(15);
+        list.insert(20);
+        list.insert(25);
+        assertEquals(15, list.middle().data);
+        
+        // Case 4: List with even number of nodes
+        list.insert(30);
+        assertEquals(20, list.middle().data);
+    }
+
+
+
+No.4 generated result --------------------------
+
+@Test
+public void middleTest() {
+    SinglyLinkedList list = new SinglyLinkedList();
+    Node node1 = new Node(1);
+    Node node2 = new Node(2);
+    Node node3 = new Node(3);
+    Node node4 = new Node(4);
+    list.add(node1);
+    list.add(node2);
+    list.add(node3);
+    list.add(node4);
+    Node middleNode = list.middle();
+    assertEquals(node2, middleNode);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+    public void middleTest() {
+        SinglyLinkedList list = new SinglyLinkedList();
+        assertNull(list.middle());
+        
+        list.add(1);
+        assertEquals(1, list.middle().getData());
+        
+        list.add(2);
+        list.add(3);
+        assertEquals(2, list.middle().getData());
+        
+        list.add(4);
+        list.add(5);
+        list.add(6);
+        assertEquals(3, list.middle().getData());
+        
+        list.add(7);
+        list.add(8);
+        list.add(9);
+        list.add(10);
+        assertEquals(5, list.middle().getData());
+    }
+
+
+No.6 generated result --------------------------
+
+public void middleTest() {
+    SinglyLinkedList list = new SinglyLinkedList();
+    // Add nodes to the linked list
+    list.add(1);
+    list.add(2);
+    list.add(3);
+    list.add(4);
+    
+    // Invoke the middle method
+    Node result = list.middle();
+    
+    // Verify the result
+    assertEquals(3, result.getData());
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void middleTest() {
+    SinglyLinkedList list = new SinglyLinkedList();
+    list.add(1);
+    list.add(2);
+    list.add(3);
+    list.add(4);
+    list.add(5);
+    Node expected = list.getNodeAt(2);
+    Node actual = list.middle();
+    assertEquals(expected, actual);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void middleTest() {
+    SinglyLinkedList list = new SinglyLinkedList();
+    assertNull(list.middle());
+    
+    list.add(1);
+    assertEquals(1, list.middle().getData());
+    
+    list.add(2);
+    assertEquals(1, list.middle().getData());
+    
+    list.add(3);
+    assertEquals(2, list.middle().getData());
+    
+    list.add(4);
+    assertEquals(2, list.middle().getData());
+}
+
+
+No.9 generated result --------------------------
+
+package com.thealgorithms.datastructures.lists;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class SinglyLinkedListTest {
+    @Test
+    public void middleTest() {
+        SinglyLinkedList list = new SinglyLinkedList();
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+        Node node5 = new Node(5);
+        
+        list.add(node1);
+        list.add(node2);
+        list.add(node3);
+        list.add(node4);
+        list.add(node5);
+        
+        Node middleNode = list.middle();
+        
+        assertEquals(node3, middleNode);
+    }
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void middleTest() {
+    SinglyLinkedList list = new SinglyLinkedList();
+    Node expected = new Node(3);
+    
+    list.add(1);
+    list.add(2);
+    list.add(3);
+    list.add(4);
+    list.add(5);
+    
+    Node actual = list.middle();
+    
+    assertEquals(expected, actual);
+}
+
+

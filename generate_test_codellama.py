@@ -99,7 +99,7 @@ def codallama_interface(data):
         output = parse_ret(output)
     return output
 
-# 调用codellama接口生成测试用例
+# Call the codellama interface to generate test cases
 def generate_test(json_data, path, number=10):
     """
     Generate test cases based on the given JSON data.
@@ -169,4 +169,4 @@ if __name__ == "__main__":
         project_name = file_name.split('/')[-1].split('.')[0]
         with open(file_name, 'r') as file:
             json_data = json.load(file)
-        generate_test(json_data, 'generate_result/' + project_name + '/', 10)
+        generate_test(json_data, 'codellama_generate_result/' + project_name + '/', 10)

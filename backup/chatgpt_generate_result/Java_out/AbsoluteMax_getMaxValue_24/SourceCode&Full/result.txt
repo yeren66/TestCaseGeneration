@@ -1,0 +1,229 @@
+Source code: 
+
+
+public static int getMaxValue(int... numbers) {
+    if (numbers == null || numbers.length == 0) {
+        throw new IllegalArgumentException("Numbers array cannot be empty or null");
+    }
+    int absMax = numbers[0];
+    for (int i = 1; i < numbers.length; i++) {
+        if (Math.abs(numbers[i]) > Math.abs(absMax)) {
+            absMax = numbers[i];
+        }
+    }
+    return absMax;
+}
+
+
+
+No.1 generated result --------------------------
+
+package com.thealgorithms.maths;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AbsoluteMaxTest {
+    @Test
+    public void getMaxValueTest() {
+        // Test case 1: Positive numbers
+        int result1 = AbsoluteMax.getMaxValue(5, 10, 3, 7);
+        assertEquals(10, result1);
+        
+        // Test case 2: Negative numbers
+        int result2 = AbsoluteMax.getMaxValue(-5, -10, -3, -7);
+        assertEquals(-10, result2);
+        
+        // Test case 3: Mixed positive and negative numbers
+        int result3 = AbsoluteMax.getMaxValue(-5, 10, -3, 7);
+        assertEquals(10, result3);
+    }
+}
+
+
+No.2 generated result --------------------------
+
+package com.thealgorithms.maths;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AbsoluteMaxTest {
+    @Test
+    public void getMaxValueTest() {
+        // Arrange
+        int[] numbers = {1, -2, 3, -4, 5};
+        int expected = 5;
+        
+        // Act
+        int result = AbsoluteMax.getMaxValue(numbers);
+        
+        // Assert
+        assertEquals(expected, result);
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package com.thealgorithms.maths;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AbsoluteMaxTest {
+    @Test
+    public void getMaxValueTest() {
+        int result = AbsoluteMax.getMaxValue(-10, 5, -8, 15);
+        assertEquals(15, result);
+    }
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void getMaxValueTest() {
+    // Test case 1: numbers array is [1, -2, 3, -4, 5]
+    int[] numbers1 = {1, -2, 3, -4, 5};
+    int expected1 = 5;
+    int actual1 = AbsoluteMax.getMaxValue(numbers1);
+    assertEquals(expected1, actual1);
+
+    // Test case 2: numbers array is [0, 0, 0, 0]
+    int[] numbers2 = {0, 0, 0, 0};
+    int expected2 = 0;
+    int actual2 = AbsoluteMax.getMaxValue(numbers2);
+    assertEquals(expected2, actual2);
+
+    // Test case 3: numbers array is [-10, 20, -30, 40, -50]
+    int[] numbers3 = {-10, 20, -30, 40, -50};
+    int expected3 = -50;
+    int actual3 = AbsoluteMax.getMaxValue(numbers3);
+    assertEquals(expected3, actual3);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void getMaxValueTest() {
+    assertEquals(5, AbsoluteMax.getMaxValue(1, -2, 5, -4));
+    assertEquals(10, AbsoluteMax.getMaxValue(-10, -5, 10, -7));
+    assertEquals(8, AbsoluteMax.getMaxValue(2, 4, 6, 8));
+    assertThrows(IllegalArgumentException.class, () -> {
+        AbsoluteMax.getMaxValue();
+    });
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void getMaxValueTest() {
+    int[] numbers = {1, -2, 3, -4, 5};
+    int expected = 5;
+    int actual = AbsoluteMax.getMaxValue(numbers);
+    assertEquals(expected, actual);
+}
+
+Explanation: 
+In the test case, we create an array of numbers {1, -2, 3, -4, 5}. The expected result is the maximum absolute value, which is 5. We call the getMaxValue method from the AbsoluteMax class with the numbers array as the argument. Finally, we use the assertEquals method to assert that the expected value is equal to the actual value returned by the method.
+
+
+No.7 generated result --------------------------
+
+package com.thealgorithms.maths;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AbsoluteMaxTest {
+    @Test
+    public void getMaxValueTest() {
+        // Test case 1: Numbers array not empty
+        int result1 = AbsoluteMax.getMaxValue(1, -2, 3, 4, -5);
+        assertEquals(5, result1);
+
+        // Test case 2: Numbers array is empty
+        assertThrows(IllegalArgumentException.class, () -> {
+            AbsoluteMax.getMaxValue();
+        });
+
+        // Test case 3: Numbers array is null
+        assertThrows(IllegalArgumentException.class, () -> {
+            AbsoluteMax.getMaxValue(null);
+        });
+    }
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void getMaxValueTest() {
+    int result = AbsoluteMax.getMaxValue(3, -5, 2, -7, 1);
+    assertEquals(7, result, "Expected result should be 7");
+
+    result = AbsoluteMax.getMaxValue(-4, -9, -2, -6, -1);
+    assertEquals(-9, result, "Expected result should be -9");
+
+    assertThrows(IllegalArgumentException.class, () -> {
+        AbsoluteMax.getMaxValue();
+    }, "Expected IllegalArgumentException");
+
+    assertThrows(IllegalArgumentException.class, () -> {
+        AbsoluteMax.getMaxValue(null);
+    }, "Expected IllegalArgumentException");
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void getMaxValueTest() {
+    int[] numbers = {1, -2, 3, -4, 5};
+    int result = AbsoluteMax.getMaxValue(numbers);
+    assertEquals(5, result);
+}
+
+
+No.10 generated result --------------------------
+
+package com.thealgorithms.maths;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AbsoluteMaxTest {
+    @Test
+    public void getMaxValueTest() {
+        // Test Case 1: Testing with positive numbers
+        int result1 = AbsoluteMax.getMaxValue(1, 4, 7, 2, 5);
+        assertEquals(7, result1);
+        
+        // Test Case 2: Testing with negative numbers
+        int result2 = AbsoluteMax.getMaxValue(-10, -5, -20, -2, -15);
+        assertEquals(-2, result2);
+        
+        // Test Case 3: Testing with mixed positive and negative numbers
+        int result3 = AbsoluteMax.getMaxValue(-5, 3, -2, 6, -10);
+        assertEquals(6, result3);
+        
+        // Test Case 4: Testing with a single number
+        int result4 = AbsoluteMax.getMaxValue(8);
+        assertEquals(8, result4);
+
+        // Test Case 5: Testing with an empty array
+        assertThrows(IllegalArgumentException.class, () -> {
+            AbsoluteMax.getMaxValue();
+        });
+
+        // Test Case 6: Testing with a null array
+        assertThrows(IllegalArgumentException.class, () -> {
+            AbsoluteMax.getMaxValue(null);
+        });
+    }
+}
+
+

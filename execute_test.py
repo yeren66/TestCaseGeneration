@@ -9,8 +9,8 @@ from extract_raw_file import update_json_file
 # from parse_clover import get_coverage
 from parse_jacoco import get_coverage
 
-basic_path = "./generate_result/"
-append_path = "./test_result/"
+basic_path = "./chatgpt_generate_result/"
+append_path = "./chatgpt_test_result/"
 relative_project_path = "/home/joseph/java_project/"
 coverage_path = "/home/joseph/TestCaseGeneration/coverage_result/"
 # --------------------------------------------------------------

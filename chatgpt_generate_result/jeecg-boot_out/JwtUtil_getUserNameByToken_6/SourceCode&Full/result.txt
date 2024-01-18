@@ -1,0 +1,208 @@
+Source code: 
+
+
+public static String getUserNameByToken(HttpServletRequest request) throws JeecgBootException {
+	String accessToken = request.getHeader("X-Access-Token");
+	String username = getUsername(accessToken);
+	if (oConvertUtils.isEmpty(username)) {
+		throw new JeecgBootException("未获取到用户");
+	}
+	return username;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+    public void getUserNameByTokenTest() {
+        HttpServletRequest request = mock(HttpServletRequest.class);
+        when(request.getHeader("X-Access-Token")).thenReturn("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjUzMzY1MTMsInVzZXJuYW1lIjoiYWRtaW4ifQ.xjhud_tWCNYBOg_aRlMgOdlZoWFFKB_givNElHNw3X0");
+        
+        String username = JwtUtil.getUserNameByToken(request);
+        
+        assertEquals("admin", username);
+    }
+
+
+No.2 generated result --------------------------
+
+
+@Test
+public void getUserNameByTokenTest() {
+    HttpServletRequest request = <Mocked HttpServletRequest object>;
+    String expectedUsername = <expected username>;
+    
+    try {
+        String actualUsername = JwtUtil.getUserNameByToken(request);
+        assertEquals(expectedUsername, actualUsername);
+    } catch (JeecgBootException e) {
+        fail("JeecgBootException should not be thrown");
+    }
+}
+
+
+
+No.3 generated result --------------------------
+
+@Test
+public void getUserNameByTokenTest() {
+    HttpServletRequest request = mock(HttpServletRequest.class);
+    when(request.getHeader("X-Access-Token")).thenReturn("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjUzMzY1MTMsInVzZXJuYW1lIjoiYWRtaW4ifQ.xjhud_tWCNYBOg_aRlMgOdlZoWFFKB_givNElHNw3X0");
+    assertThrows(JeecgBootException.class, () -> {
+        JwtUtil.getUserNameByToken(request);
+    });
+}
+
+
+No.4 generated result --------------------------
+
+package org.jeecg.common.system.util;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class JwtUtilTest {
+    @Test
+    public void getUserNameByTokenTest() {
+        HttpServletRequest request = new HttpServletRequest() {
+            @Override
+            public String getHeader(String name) {
+                if (name.equals("X-Access-Token")) {
+                    return "valid-access-token";
+                }
+                return null;
+            }
+
+            // Implement other required methods
+            // ...
+
+        };
+        
+        try {
+            String username = JwtUtil.getUserNameByToken(request);
+            assertEquals("expected-username", username); // Replace with the expected username value
+        } catch (JeecgBootException e) {
+            fail("An exception occurred: " + e.getMessage());
+        }
+    }
+}
+
+
+No.5 generated result --------------------------
+
+package org.jeecg.common.system.util;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class JwtUtilTest {
+    @Test
+    public void getUserNameByTokenTest() {
+        HttpServletRequest request = null; // Replace with actual HttpServletRequest object
+        String expectedUsername = "testUser"; // Replace with the expected username
+        
+        try {
+            String username = JwtUtil.getUserNameByToken(request);
+            assertEquals(expectedUsername, username);
+        } catch (JeecgBootException e) {
+            fail("Exception occurred: " + e.getMessage());
+        }
+    }
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void getUserNameByTokenTest() {
+    HttpServletRequest request = new MockHttpServletRequest();
+    request.addHeader("X-Access-Token", "your_token_here");
+    
+    try {
+        String username = JwtUtil.getUserNameByToken(request);
+        assertNotNull(username);
+        
+        // Additional assertions and tests...
+        
+    } catch (JeecgBootException e) {
+        fail("Exception thrown: " + e.getMessage());
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void getUserNameByTokenTest() {
+    HttpServletRequest request = mock(HttpServletRequest.class);
+    when(request.getHeader("X-Access-Token")).thenReturn("sampleToken");
+    
+    try {
+        String result = JwtUtil.getUserNameByToken(request);
+        assertEquals("sampleUsername", result);
+    } catch (JeecgBootException e) {
+        fail("JeecgBootException thrown.");
+    }
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void getUserNameByTokenTest() {
+    HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
+    Mockito.when(request.getHeader("X-Access-Token")).thenReturn("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjUzMzY1MTMsInVzZXJuYW1lIjoiYWRtaW4ifQ.xjhud_tWCNYBOg_aRlMgOdlZoWFFKB_givNElHNw3X0");
+    
+    try {
+        String result = JwtUtil.getUserNameByToken(request);
+        assertEquals("admin", result);
+    } catch (JeecgBootException ex) {
+        fail("Expected no JeecgBootException to be thrown");
+    }
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void getUserNameByTokenTest() {
+    HttpServletRequest request = mock(HttpServletRequest.class);
+    when(request.getHeader("X-Access-Token")).thenReturn("token");
+    String expectedUsername = "username";
+    when(JwtUtil.getUsername("token")).thenReturn(expectedUsername);
+    
+    try {
+        String actualUsername = JwtUtil.getUserNameByToken(request);
+        assertEquals(expectedUsername, actualUsername);
+    } catch (JeecgBootException e) {
+        fail("Unexpected JeecgBootException: " + e.getMessage());
+    }
+}
+
+
+No.10 generated result --------------------------
+
+package org.jeecg.common.system.util;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class JwtUtilTest {
+    @Test
+    public void getUserNameByTokenTest() {
+        HttpServletRequest request = new MockHttpServletRequest();
+        
+        // Set the X-Access-Token header value for testing
+        request.addHeader("X-Access-Token", "example_token");
+        
+        try {
+            String username = JwtUtil.getUserNameByToken(request);
+            assertEquals("expected_username", username);
+        } catch (JeecgBootException e) {
+            fail("An exception occurred: " + e.getMessage());
+        }
+    }
+}
+
+

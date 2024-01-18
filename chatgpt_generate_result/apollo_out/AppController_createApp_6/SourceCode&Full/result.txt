@@ -1,0 +1,463 @@
+Source code: 
+
+
+@Transactional
+@PreAuthorize(value = "@consumerPermissionValidator.hasCreateApplicationPermission(#request)")
+@PostMapping(value = "/apps")
+public void createApp(
+    @RequestBody OpenCreateAppDTO req,
+    HttpServletRequest request
+) {
+  if (null == req.getApp()) {
+    throw new BadRequestException("App is null");
+  }
+  final OpenAppDTO app = req.getApp();
+  if (null == app.getAppId()) {
+    throw new BadRequestException("AppId is null");
+  }
+  // create app
+  this.appOpenApiService.createApp(req);
+  if (req.isAssignAppRoleToSelf()) {
+    long consumerId = this.consumerAuthUtil.retrieveConsumerId(request);
+    consumerService.assignAppRoleToConsumer(consumerId, app.getAppId());
+  }
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void createAppTest() {
+  OpenCreateAppDTO req = new OpenCreateAppDTO();
+  OpenAppDTO app = new OpenAppDTO();
+  app.setAppId("testAppId");
+  req.setApp(app);
+  req.setAssignAppRoleToSelf(true);
+  
+  HttpServletRequest request = mock(HttpServletRequest.class);
+  when(consumerAuthUtil.retrieveConsumerId(request)).thenReturn(12345L);
+  
+  appController.createApp(req, request);
+  
+  verify(appOpenApiService, times(1)).createApp(req);
+  verify(consumerService, times(1)).assignAppRoleToConsumer(12345L, "testAppId");
+}
+
+
+No.2 generated result --------------------------
+
+package com.ctrip.framework.apollo.openapi.v1.controller;
+
+import com.ctrip.framework.apollo.common.exception.BadRequestException;
+import com.ctrip.framework.apollo.openapi.api.AppOpenApiService;
+import com.ctrip.framework.apollo.openapi.dto.OpenCreateAppDTO;
+import com.ctrip.framework.apollo.openapi.dto.OpenAppDTO;
+import com.ctrip.framework.apollo.openapi.service.ConsumerService;
+import com.ctrip.framework.apollo.openapi.util.ConsumerAuthUtil;
+import org.junit.jupiter.api.*;
+import org.mockito.*;
+import org.springframework.mock.web.MockHttpServletRequest;
+
+import javax.servlet.http.HttpServletRequest;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+public class AppControllerTest {
+    @InjectMocks
+    private AppController appController;
+
+    @Mock
+    private ConsumerAuthUtil consumerAuthUtil;
+
+    @Mock
+    private ConsumerService consumerService;
+
+    @Mock
+    private AppOpenApiService appOpenApiService;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    public void createAppTest() {
+        OpenCreateAppDTO openCreateAppDTO = new OpenCreateAppDTO();
+        OpenAppDTO openAppDTO = new OpenAppDTO();
+        openAppDTO.setAppId("testAppId");
+        openCreateAppDTO.setApp(openAppDTO);
+
+        MockHttpServletRequest mockHttpServletRequest = new MockHttpServletRequest();
+
+        doReturn(1L).when(consumerAuthUtil).retrieveConsumerId(any(HttpServletRequest.class));
+
+        assertThrows(BadRequestException.class, () -> appController.createApp(null, mockHttpServletRequest));
+
+        assertThrows(BadRequestException.class, () -> appController.createApp(openCreateAppDTO, mockHttpServletRequest));
+
+        openAppDTO.setAppId(null);
+        assertThrows(BadRequestException.class, () -> appController.createApp(openCreateAppDTO, mockHttpServletRequest));
+
+        when(appOpenApiService.createApp(openCreateAppDTO)).thenReturn(true);
+        appController.createApp(openCreateAppDTO, mockHttpServletRequest);
+        verify(consumerService, times(1)).assignAppRoleToConsumer(1L, "testAppId");
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package com.ctrip.framework.apollo.openapi.v1.controller;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
+    
+@ExtendWith(SpringExtension.class)
+@SpringBootTest
+@AutoConfigureMockMvc
+public class AppControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Autowired
+    private WebApplicationContext webApplicationContext;
+
+    @BeforeEach
+    public void setUp() {
+        mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+    }
+    
+    @Test
+    public void createAppTest() throws Exception {
+        // Prepare the request body
+        String requestBody = "{\"app\":{\"appId\":\"myApp\"},\"assignAppRoleToSelf\":true}";
+
+        // Create a mock request
+        MockHttpServletRequest request = new MockHttpServletRequest();
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/openapi/v1/apps")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(requestBody)
+                .requestAttr("request", request))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+
+        // Assert the response
+        assertEquals(200, result.getResponse().getStatus());
+    }
+}
+
+
+No.4 generated result --------------------------
+
+package com.ctrip.framework.apollo.openapi.v1.controller;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AppControllerTest {
+    @Test
+    public void createAppTest() {
+        OpenCreateAppDTO req = new OpenCreateAppDTO();
+        OpenAppDTO app = new OpenAppDTO();
+        app.setAppId("testAppId");
+        req.setApp(app);
+        HttpServletRequest request = new MockHttpServletRequest();
+        
+        AppController appController = new AppController();
+        
+        appController.createApp(req, request);
+        
+        //Verify the result here
+        <FILL>
+    }
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void createAppTest() {
+  // Create a mock request object
+  HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
+  
+  // Create a mock OpenCreateAppDTO object
+  OpenCreateAppDTO req = Mockito.mock(OpenCreateAppDTO.class);
+  
+  // Create a mock OpenAppDTO object
+  OpenAppDTO app = Mockito.mock(OpenAppDTO.class);
+  
+  // When req.getApp() is called, return the mock app object
+  Mockito.when(req.getApp()).thenReturn(app);
+  
+  // When app.getAppId() is called, return a non-null value
+  Mockito.when(app.getAppId()).thenReturn("123456");
+  
+  // Create a mock AppOpenApiService object
+  AppOpenApiService appOpenApiService = Mockito.mock(AppOpenApiService.class);
+  
+  // Create a mock ConsumerAuthUtil object
+  ConsumerAuthUtil consumerAuthUtil = Mockito.mock(ConsumerAuthUtil.class);
+  
+  // Create a mock ConsumerService object
+  ConsumerService consumerService = Mockito.mock(ConsumerService.class);
+  
+  // Create an instance of the AppController class with the mock dependencies
+  AppController appController = new AppController(consumerAuthUtil, consumerService, appOpenApiService);
+  
+  // Call the createApp method with the mock arguments
+  appController.createApp(req, request);
+  
+  // Verify that the createApp method of the appOpenApiService is called with the mock req argument
+  Mockito.verify(appOpenApiService).createApp(req);
+  
+  // Verify that the assignAppRoleToConsumer method of the consumerService is called with the mock consumerId and app.getAppId() arguments
+  Mockito.verify(consumerService).assignAppRoleToConsumer(Mockito.anyLong(), Mockito.eq(app.getAppId()));
+}
+
+
+No.6 generated result --------------------------
+
+
+package com.ctrip.framework.apollo.openapi.v1.controller;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.springframework.mock.web.MockHttpServletRequest;
+
+public class AppControllerTest {
+    
+    private AppController appController;
+    private MockHttpServletRequest request;
+    
+    @BeforeEach
+    public void setUp() {
+        appController = new AppController(/* dependencies */);
+        request = new MockHttpServletRequest();
+    }
+    
+    @Test
+    public void createAppTest() {
+        OpenCreateAppDTO requestDto = new OpenCreateAppDTO(/* createAppDTO properties */);
+        
+        // Assert that calling createApp method with valid request will not throw any exception
+        assertDoesNotThrow(() -> appController.createApp(requestDto, request));
+
+        // Assert that calling createApp method with null App throws BadRequestException with "App is null" message
+        requestDto.setApp(null);
+        assertThrows(BadRequestException.class, () -> appController.createApp(requestDto, request));
+
+        // Assert that calling createApp method with null AppId throws BadRequestException with "AppId is null" message
+        requestDto.setApp(new OpenAppDTO());
+        assertThrows(BadRequestException.class, () -> appController.createApp(requestDto, request));
+    }
+}
+
+
+
+No.7 generated result --------------------------
+
+package com.ctrip.framework.apollo.openapi.v1.controller;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AppControllerTest {
+  @Test
+  public void createAppTest() {
+    // Initialize required objects and dependencies
+    AppOpenApiService appOpenApiService = new AppOpenApiService();
+    ConsumerAuthUtil consumerAuthUtil = new ConsumerAuthUtil();
+    ConsumerService consumerService = new ConsumerService();
+    
+    // Create the test data
+    OpenCreateAppDTO req = new OpenCreateAppDTO();
+    OpenAppDTO app = new OpenAppDTO();
+    app.setAppId("testApp");
+    req.setApp(app);
+    req.setAssignAppRoleToSelf(true);
+    
+    HttpServletRequest request = new HttpServletRequest();
+    
+    // Call the method under test
+    AppController appController = new AppController(consumerAuthUtil, consumerService, appOpenApiService);
+    appController.createApp(req, request);
+    
+    // Assert the expected outcomes
+    <FILL>
+  }
+}
+
+
+No.8 generated result --------------------------
+
+package com.ctrip.framework.apollo.openapi.v1.controller;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AppControllerTest {
+    @Test
+    public void createAppTest() {
+        // Arrange
+        OpenCreateAppDTO req = new OpenCreateAppDTO();
+        OpenAppDTO app = new OpenAppDTO();
+        app.setAppId("testAppId");
+        req.setApp(app);
+        req.setAssignAppRoleToSelf(true);
+        HttpServletRequest request = new MockHttpServletRequest();
+        AppController appController = new AppController(consumerAuthUtil, consumerService, appOpenApiService);
+        
+        // Act
+        appController.createApp(req, request);
+        
+        // Assert
+        // Check if the app is created
+        // Assertion code here
+    }
+}
+
+
+No.9 generated result --------------------------
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.RequestBuilder;
+import org.springframework.test.web.servlet.ResultMatcher;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
+
+import static org.mockito.Mockito.when;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@SpringBootTest
+public class AppControllerTest {
+
+    @Autowired
+    private WebApplicationContext context;
+
+    private MockMvc mockMvc;
+
+    @MockBean
+    private AppOpenApiService appOpenApiService;
+
+    @MockBean
+    private ConsumerAuthUtil consumerAuthUtil;
+
+    @MockBean
+    private ConsumerService consumerService;
+
+    @BeforeEach
+    public void setUp() {
+        mockMvc = MockMvcBuilders
+                .webAppContextSetup(context)
+                .apply(springSecurity())
+                .build();
+    }
+
+    @Test
+    public void createAppTest() throws Exception {
+        // Setup
+        OpenCreateAppDTO requestDTO = new OpenCreateAppDTO();
+        OpenAppDTO appDTO = new OpenAppDTO();
+        appDTO.setAppId("testAppId");
+        requestDTO.setApp(appDTO);
+        when(consumerAuthUtil.retrieveConsumerId(new MockHttpServletRequest())).thenReturn(1L);
+
+        // Execute
+        RequestBuilder requestBuilder = post("/openapi/v1/apps")
+                .with(user("testUser"))
+                .content(asJsonString(requestDTO))
+                .contentType(MediaType.APPLICATION_JSON);
+
+        MvcResult result = mockMvc.perform(requestBuilder)
+                .andExpect(status().isOk())
+                .andReturn();
+
+        // Assert
+        // Add your assertions here
+
+    }
+
+    private static String asJsonString(final Object obj) {
+        try {
+            return new ObjectMapper().writeValueAsString(obj);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+
+
+No.10 generated result --------------------------
+
+
+package com.ctrip.framework.apollo.openapi.v1.controller;
+
+import org.junit.jupiter.api.*;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.web.bind.annotation.RequestBody;
+import javax.servlet.http.HttpServletRequest;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+public class AppControllerTest {
+    @MockBean
+    private AppOpenApiService appOpenApiService;
+    
+    @MockBean
+    private ConsumerAuthUtil consumerAuthUtil;
+    
+    @MockBean
+    private ConsumerService consumerService;
+    
+    @Test
+    public void createAppTest() {
+        // Create mock objects
+        OpenCreateAppDTO req = mock(OpenCreateAppDTO.class);
+        OpenAppDTO app = mock(OpenAppDTO.class);
+        HttpServletRequest request = mock(HttpServletRequest.class);
+        
+        // Configure the mock objects
+        when(req.getApp()).thenReturn(app);
+        when(app.getAppId()).thenReturn("testAppId");
+        when(req.isAssignAppRoleToSelf()).thenReturn(true);
+        when(consumerAuthUtil.retrieveConsumerId(request)).thenReturn(123L);
+        
+        // Call the method to be tested
+        AppController appController = new AppController(consumerAuthUtil, consumerService, appOpenApiService);
+        appController.createApp(req, request);
+        
+        // Verify that the methods were called with the correct parameters
+        verify(appOpenApiService).createApp(req);
+        verify(consumerService).assignAppRoleToConsumer(123L, "testAppId");
+    }
+}
+
+
+

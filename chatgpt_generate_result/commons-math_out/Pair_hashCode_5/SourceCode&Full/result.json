@@ -1,0 +1,24 @@
+{
+    "project_name": "commons-math",
+    "file_name": "Pair.java",
+    "relative_path": "commons-math/commons-math-legacy-core/src/main/java/org/apache/commons/math4/legacy/core/Pair.java",
+    "execute_path": "commons-math/commons-math-legacy-core",
+    "package": "org.apache.commons.math4.legacy.core",
+    "docstring": "/**\n     * Compute a hash code.\n     *\n     * @return the hash code value.\n     */",
+    "source_code": "\n@Override\npublic int hashCode() {\n    int result = key == null ? 0 : key.hashCode();\n\n    final int h = value == null ? 0 : value.hashCode();\n    result = 37 * result + h ^ (h >>> 16);\n\n    return result;\n}\n",
+    "class_name": "Pair",
+    "method_name": "hashCode",
+    "arguments": [],
+    "generate_test": [
+        "### JUNIT Test case:\npackage org.apache.commons.math4.legacy.core;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class PairTest {\n    @Test\n    public void hashCodeTest() {\n        Pair<String, Integer> pair = new Pair<>(\"key\", 1);\n        int expectedHashCode = 0;\n        \n        if (pair.getKey() == null) {\n            expectedHashCode = 0;\n        } else {\n            expectedHashCode = pair.getKey().hashCode();\n        }\n        \n        int h = 0;\n        if (pair.getValue() != null) {\n            h = pair.getValue().hashCode();\n        }\n        \n        expectedHashCode = 37 * expectedHashCode + h ^ (h >>> 16);\n        \n        assertEquals(expectedHashCode, pair.hashCode());\n    }\n}",
+        "@Test\npublic void hashCodeTest() {\n    Pair<String, Integer> pair1 = new Pair<>(\"A\", 1);\n    Pair<String, Integer> pair2 = new Pair<>(\"B\", 2);\n\n    int hashCode1 = pair1.hashCode();\n    int hashCode2 = pair2.hashCode();\n\n    assertNotEquals(hashCode1, hashCode2);\n}",
+        "\nassertEquals(0, new Pair<>(null, null).hashCode());\nassertEquals(31, new Pair<>(null, \"value\").hashCode());\nassertEquals(31, new Pair<>(\"key\", null).hashCode());\nassertEquals(961 + \"value\".hashCode(), new Pair<>(\"key\", \"value\").hashCode());\n",
+        "package org.apache.commons.math4.legacy.core;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class PairTest {\n    @Test\n    public void hashCodeTest() {\n        Pair<Integer, String> pair1 = new Pair<>(1, \"One\");\n        Pair<Integer, String> pair2 = new Pair<>(2, \"Two\");\n        \n        int hashCode1 = pair1.hashCode();\n        int hashCode2 = pair2.hashCode();\n        \n        assertNotEquals(hashCode1, hashCode2);\n    }\n}",
+        "@Test\npublic void hashCodeTest() {\n    Pair<Integer, String> pair1 = new Pair<>(1, \"One\");\n    Pair<Integer, String> pair2 = new Pair<>(2, \"Two\");\n\n    int hashCode1 = pair1.hashCode();\n    int hashCode2 = pair2.hashCode();\n\n    assertNotEquals(hashCode1, hashCode2);\n}",
+        "\n@Test\npublic void hashCodeTest() {\n    Pair<String, Integer> pair1 = new Pair<>(\"key\", 10);\n    Pair<String, Integer> pair2 = new Pair<>(\"key\", 10);\n\n    assertEquals(pair1.hashCode(), pair2.hashCode());\n}\n",
+        "@Test\npublic void hashCodeTest() {\n    Pair<String, Integer> pair = new Pair<>(\"key\", 123);\n    int expectedHashCode = pair.getFirst().hashCode();\n    expectedHashCode = 37 * expectedHashCode + pair.getSecond().hashCode();\n\n    assertEquals(expectedHashCode, pair.hashCode());\n}",
+        "@Test\npublic void hashCodeTest() {\n    Pair<String, Integer> pair = new Pair<>(\"key\", 10);\n    int expectedHashCode = pair.getKey().hashCode();\n    final int h = pair.getValue() == null ? 0 : pair.getValue().hashCode();\n    expectedHashCode = 37 * expectedHashCode + h ^ (h >>> 16);\n\n    assertEquals(expectedHashCode, pair.hashCode());\n}",
+        "package org.apache.commons.math4.legacy.core;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class PairTest {\n    @Test\n    public void hashCodeTest() {\n        // Create a Pair instance\n        Pair<String, Integer> pair = new Pair<>(\"key1\", 1);\n\n        // Calculate the expected hash code manually\n        int expectedHashCode = 37 * (\"key1\".hashCode()) + Integer.valueOf(1).hashCode();\n\n        // Compare the actual hash code with the expected hash code\n        assertEquals(expectedHashCode, pair.hashCode());\n    }\n}",
+        "package org.apache.commons.math4.legacy.core;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class PairTest {\n    @Test\n    public void hashCodeTest() {\n        Pair<Integer, String> pair = new Pair<>(5, \"test\");\n        int expected = pair.getKey().hashCode() * 37 + pair.getValue().hashCode();\n        int actual = pair.hashCode();\n        assertEquals(expected, actual);\n    }\n}"
+    ]
+}

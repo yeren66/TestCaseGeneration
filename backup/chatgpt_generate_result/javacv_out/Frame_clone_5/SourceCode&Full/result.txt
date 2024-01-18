@@ -1,0 +1,96 @@
+Source code: 
+
+
+@Override
+public Frame clone() {
+    Frame newFrame = new Frame();
+
+    // Video part
+    newFrame.imageWidth = imageWidth;
+    newFrame.imageHeight = imageHeight;
+    newFrame.imageDepth = imageDepth;
+    newFrame.imageChannels = imageChannels;
+    newFrame.imageStride = imageStride;
+    newFrame.keyFrame = keyFrame;
+    newFrame.pictType = pictType;
+    newFrame.streamIndex = streamIndex;
+    newFrame.type = type;
+    newFrame.opaque = new Pointer[3];
+    if (image != null) {
+        newFrame.image = new Buffer[image.length];
+        ((Pointer[])newFrame.opaque)[0] = cloneBufferArray(image, newFrame.image);
+    }
+
+    // Audio part
+    newFrame.audioChannels = audioChannels;
+    newFrame.sampleRate = sampleRate;
+    if (samples != null) {
+        newFrame.samples = new Buffer[samples.length];
+        ((Pointer[])newFrame.opaque)[1] = cloneBufferArray(samples, newFrame.samples);
+    }
+
+    // Other data streams
+    if (data != null) {
+        ByteBuffer[] dst = new ByteBuffer[1];
+        ((Pointer[])newFrame.opaque)[2] = cloneBufferArray(new ByteBuffer[]{data}, dst);
+        newFrame.data = dst[0];
+    }
+
+    // Add timestamp
+    newFrame.timestamp = timestamp;
+
+    return newFrame;
+}
+
+
+
+No.1 generated result --------------------------
+
+Timeout
+
+
+No.2 generated result --------------------------
+
+Timeout
+
+
+No.3 generated result --------------------------
+
+Timeout
+
+
+No.4 generated result --------------------------
+
+Timeout
+
+
+No.5 generated result --------------------------
+
+Timeout
+
+
+No.6 generated result --------------------------
+
+Timeout
+
+
+No.7 generated result --------------------------
+
+Timeout
+
+
+No.8 generated result --------------------------
+
+Timeout
+
+
+No.9 generated result --------------------------
+
+Timeout
+
+
+No.10 generated result --------------------------
+
+Timeout
+
+

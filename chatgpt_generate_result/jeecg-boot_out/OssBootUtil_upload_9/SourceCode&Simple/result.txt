@@ -1,0 +1,208 @@
+Source code: 
+
+
+public static String upload(FileItemStream file, String fileDir) {
+    String filePath = null;
+    initOss(endPoint, accessKeyId, accessKeySecret);
+    StringBuilder fileUrl = new StringBuilder();
+    try {
+        String suffix = file.getName().substring(file.getName().lastIndexOf('.'));
+        String fileName = UUID.randomUUID().toString().replace("-", "") + suffix;
+        if (!fileDir.endsWith(SymbolConstant.SINGLE_SLASH)) {
+            fileDir = fileDir.concat(SymbolConstant.SINGLE_SLASH);
+        }
+        fileDir = StrAttackFilter.filter(fileDir);
+        fileUrl = fileUrl.append(fileDir + fileName);
+        if (oConvertUtils.isNotEmpty(staticDomain) && staticDomain.toLowerCase().startsWith(CommonConstant.STR_HTTP)) {
+            filePath = staticDomain + SymbolConstant.SINGLE_SLASH + fileUrl;
+        } else {
+            filePath = "https://" + bucketName + "." + endPoint + SymbolConstant.SINGLE_SLASH + fileUrl;
+        }
+        PutObjectResult result = ossClient.putObject(bucketName, fileUrl.toString(), file.openStream());
+        // 设置权限(公开读)
+        ossClient.setBucketAcl(bucketName, CannedAccessControlList.PublicRead);
+        if (result != null) {
+            log.info("------OSS文件上传成功------" + fileUrl);
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+        return null;
+    }
+    return filePath;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void uploadTest() {
+    // Create a mock FileItemStream object
+    FileItemStream file = mock(FileItemStream.class);
+    // Set up the necessary properties for the file object
+    when(file.getName()).thenReturn("test.jpg");
+    when(file.openStream()).thenReturn(new ByteArrayInputStream("test".getBytes()));
+
+    // Set up the necessary properties for the OssBootUtil class
+    OssBootUtil.setEndPoint("test-endpoint");
+    OssBootUtil.setAccessKeyId("test-access-key-id");
+    OssBootUtil.setAccessKeySecret("test-access-key-secret");
+    OssBootUtil.setBucketName("test-bucket-name");
+    OssBootUtil.setStaticDomain("test-static-domain");
+
+    // Call the upload method and assert the returned file path
+    String filePath = OssBootUtil.upload(file, "test-dir");
+    assertEquals("https://test-bucket-name.test-endpoint/test-dir/test.jpg", filePath);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void uploadTest() {
+    FileItemStream file = null; // Insert the required FileItemStream object here
+    String fileDir = ""; // Insert the required file directory here
+    
+    String result = OssBootUtil.upload(file, fileDir);
+    
+    assertNotNull(result);
+    assertTrue(result.startsWith("https://"));
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void uploadTest() {
+    FileItemStream file = <mock file item stream>;
+    String fileDir = "path/to/directory";
+    OssBootUtil.upload(file, fileDir);
+    <assert statement>;
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void uploadTest() {
+    FileItemStream file = // Create a mock FileItemStream object
+    String fileDir = // Set the fileDir value
+    
+    String result = OssBootUtil.upload(file, fileDir);
+    
+    // Assert statements to verify the expected result
+    assertNotNull(result);
+    assertEquals(expectedFilePath, result);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void uploadTest() {
+    FileItemStream file = ...; // Create a mock FileItemStream object
+    String fileDir = ...; // Set the file directory
+    String filePath = OssBootUtil.upload(file, fileDir);
+    
+    assertNotNull(filePath);
+    assertTrue(filePath.startsWith("https://"));
+    // Assert other expectations based on the logic of the method
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void uploadTest() {
+    FileItemStream file = null; // create or initialize FileItemStream object
+    String fileDir = ""; // specify the file directory
+    
+    String filePath = OssBootUtil.upload(file, fileDir);
+    
+    assertNotNull(filePath);
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+    public void uploadTest() {
+        FileItemStream file = <FILL WITH FILE ITEM STREAM OBJECT>;
+        String fileDir = <FILL WITH FILE DIRECTORY>;
+        String expectedFilePath = <FILL WITH EXPECTED FILE PATH>;
+        
+        String actualFilePath = OssBootUtil.upload(file, fileDir);
+        
+        assertEquals(expectedFilePath, actualFilePath);
+    }
+
+
+No.8 generated result --------------------------
+
+@Test
+    public void uploadTest() {
+        // Create a mock FileItemStream object
+        FileItemStream mockFile = createMockFileItemStream();
+
+        // Set the file directory path
+        String fileDir = "/path/to/files/";
+
+        // Call the upload method
+        String filePath = OssBootUtil.upload(mockFile, fileDir);
+
+        // Assert that the returned file path is not null
+        assertNotNull(filePath);
+
+        // Assert that the file path matches the expected value
+        assertEquals("https://" + OssBootUtil.getBucketName() + "." + OssBootUtil.getEndPoint() + "/path/to/files/" + mockFile.getName(), filePath);
+    }
+
+    private FileItemStream createMockFileItemStream() {
+        // Implement this method to create a mock FileItemStream object for testing
+        // This could be done using a mocking framework like Mockito or by manually creating an object with dummy values
+        // For simplicity, let's assume that the mock file name is "mockfile.txt"
+        FileItemStream mockFile = new FileItemStream();
+        mockFile.setName("mockfile.txt");
+        return mockFile;
+    }
+
+
+No.9 generated result --------------------------
+
+@Test
+public void uploadTest() {
+    // Create a dummy FileItemStream object
+    FileItemStream file = createDummyFileItemStream();
+    
+    // Create a dummy file directory
+    String fileDir = "dummyDirectory";
+    
+    // Call the upload method and get the result
+    String result = OssBootUtil.upload(file, fileDir);
+    
+    // Verify the result is not null
+    assertNotNull(result);
+    
+    // Verify that the result is a valid file path
+    assertTrue(result.startsWith("https://"));
+    
+    // Verify that the file path contains the file directory and file name
+    assertTrue(result.contains(fileDir));
+    assertTrue(result.contains(file.getName()));
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void uploadTest() {
+    FileItemStream file = new FileItemStream();
+    String fileDir = "test-directory";
+    
+    String result = OssBootUtil.upload(file, fileDir);
+    
+    assertNotNull(result);
+    assertEquals("https://bucketName.endPoint/test-directory/fileName", result);
+}
+
+

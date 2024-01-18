@@ -1,0 +1,219 @@
+Source code: 
+
+
+public static void validate(String jdbcUrl){
+    if(oConvertUtils.isEmpty(jdbcUrl)){
+        return;
+    }
+    String urlConcatChar = "?";
+    if(jdbcUrl.indexOf(urlConcatChar)<0){
+        return;
+    }
+    String argString = jdbcUrl.substring(jdbcUrl.indexOf(urlConcatChar)+1);
+    String[] keyAndValues = argString.split("&");
+    for(String temp: keyAndValues){
+        String key = temp.split("=")[0];
+        for(String prop: notAllowedProps){
+            if(prop.equalsIgnoreCase(key)){
+                throw new JeecgBootException("连接地址有安全风险，【"+key+"】");
+            }
+        }
+    }
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void validateTest() {
+    // Test case 1: jdbcUrl is empty
+    String jdbcUrl1 = "";
+    JdbcSecurityUtil.validate(jdbcUrl1);
+
+    // Test case 2: jdbcUrl does not contain '?'
+    String jdbcUrl2 = "jdbc:mysql://localhost:3306/test";
+    JdbcSecurityUtil.validate(jdbcUrl2);
+
+    // Test case 3: jdbcUrl contains '?', but does not contain any key-value pairs
+    String jdbcUrl3 = "jdbc:mysql://localhost:3306/test?";
+    JdbcSecurityUtil.validate(jdbcUrl3);
+
+    // Test case 4: jdbcUrl contains '?', with key-value pairs
+    String jdbcUrl4 = "jdbc:mysql://localhost:3306/test?username=admin&password=123456";
+    // The key 'username' should trigger the exception
+    assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl4));
+
+    // Test case 5: jdbcUrl contains '?', with key-value pairs (testing case-insensitivity)
+    String jdbcUrl5 = "jdbc:mysql://localhost:3306/test?A=1&B=2&C=3";
+    // The keys 'A' and 'C' should trigger the exception
+    assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl5));
+}
+
+
+No.2 generated result --------------------------
+
+package org.jeecg.common.util.security;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class JdbcSecurityUtilTest {
+    @Test
+    public void validateTest() {
+        String jdbcUrl = "jdbc:mysql://localhost:3306/testDB?user=root&password=pass123&authenticationPluginClassName=com.mysql.cj.jdbc.MysqlKeycloakPlugin";
+        assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
+    }
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void validateTest() {
+    // Test case 1: Valid jdbcUrl with no forbidden properties
+    JdbcSecurityUtil.validate("jdbc:postgresql://localhost:5432/dbname");
+    
+    // Test case 2: Valid jdbcUrl with forbidden properties
+    JeecgBootException exception = assertThrows(JeecgBootException.class, () -> {
+        JdbcSecurityUtil.validate("jdbc:postgresql://localhost:5432/dbname?authenticationPluginClassName=admin");
+    });
+    assertEquals("连接地址有安全风险，【authenticationPluginClassName】", exception.getMessage());
+    
+    // Test case 3: Invalid jdbcUrl
+    JdbcSecurityUtil.validate("");
+    
+    // Test case 4: Valid jdbcUrl with no parameters
+    JdbcSecurityUtil.validate("jdbc:postgresql://localhost:5432/dbname");
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void validateTest() {
+    String jdbcUrl = "jdbc:mysql://localhost:3306/test?authenticationPluginClassName=com.example.MyPlugin";
+    assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
+    
+    jdbcUrl = "jdbc:postgresql://localhost:5432/test?sslhostnameverifier=org.example.MyVerifier";
+    assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
+    
+    jdbcUrl = "jdbc:oracle://localhost:1521/test?socketFactory=com.example.MySocketFactory";
+    assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
+    
+    jdbcUrl = "jdbc:db2://localhost:50000/test?sslfactory=com.example.MySSLFactory";
+    assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
+    
+    jdbcUrl = "jdbc:sqlserver://localhost:1433/test?sslpasswordcallback=com.example.MyCallback";
+    assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void validateTest() {
+    // Test case 1: Empty jdbcUrl
+    JdbcSecurityUtil.validate("");
+    
+    // Test case 2: jdbcUrl without urlConcatChar
+    JdbcSecurityUtil.validate("jdbc:mysql://localhost:3306/test");
+    
+    // Test case 3: jdbcUrl with urlConcatChar
+    JdbcSecurityUtil.validate("jdbc:mysql://localhost:3306/test?user=root&password=123456");
+    
+    // Test case 4: jdbcUrl with notAllowedProps
+    String jdbcUrl = "jdbc:mysql://localhost:3306/test?user=root&authenticationPluginClassName=xxx";
+    assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
+    
+    // Test case 5: jdbcUrl with multiple notAllowedProps
+    jdbcUrl = "jdbc:mysql://localhost:3306/test?user=root&authenticationPluginClassName=xxx&sslhostnameverifier=xxx";
+    assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
+}
+
+
+No.6 generated result --------------------------
+
+package org.jeecg.common.util.security;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class JdbcSecurityUtilTest {
+    @Test
+    public void validateTest() {
+        String jdbcUrl = "jdbc:mysql://localhost:3306/test?user=root&password=pass";
+        
+        assertDoesNotThrow(() -> JdbcSecurityUtil.validate(jdbcUrl));
+        
+        jdbcUrl = "jdbc:mysql://localhost:3306/test?user=root&authenticationPluginClassName=test";
+        
+        JeecgBootException exception = assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
+        assertTrue(exception.getMessage().contains("连接地址有安全风险，【authenticationPluginClassName】"));
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void validateTest() {
+    String jdbcUrl = "jdbc:mysql://localhost:3306/dbname?authenticationPluginClassName=myPlugin";
+    assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void validateTest() {
+    String jdbcUrl = "jdbc:mysql://localhost:3306/mydb?authenticationPluginClassName=xxxx";
+    assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void validateTest() {
+    // Test Case 1: empty jdbcUrl
+    JdbcSecurityUtil.validate("");
+    
+    // Test Case 2: jdbcUrl without urlConcatChar
+    JdbcSecurityUtil.validate("jdbc:mysql://localhost/dbname");
+    
+    // Test Case 3: jdbcUrl with allowed properties
+    JdbcSecurityUtil.validate("jdbc:mysql://localhost/dbname?user=user&password=pass");
+    
+    // Test Case 4: jdbcUrl with notAllowedProps property
+    try {
+        JdbcSecurityUtil.validate("jdbc:mysql://localhost/dbname?authenticationPluginClassName=plugin");
+        fail("Expected JeecgBootException");
+    } catch (JeecgBootException e) {
+        assertEquals("连接地址有安全风险，【authenticationPluginClassName】", e.getMessage());
+    }
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void validateTest() {
+    String jdbcUrl = "jdbc:mysql://localhost:3306/sampleDB?user=root&password=pass123";
+    assertDoesNotThrow(() -> JdbcSecurityUtil.validate(jdbcUrl));
+}
+
+@Test
+public void validateTest_InvalidUrl() {
+    String jdbcUrl = "";
+    assertDoesNotThrow(() -> JdbcSecurityUtil.validate(jdbcUrl));
+}
+
+@Test
+public void validateTest_SecurityRisk() {
+    String jdbcUrl = "jdbc:mysql://localhost:3306/sampleDB?socketFactory=com.example.SocketFactory";
+    JeecgBootException exception = assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
+    assertEquals("连接地址有安全风险，【socketFactory】", exception.getMessage());
+}
+
+

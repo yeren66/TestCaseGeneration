@@ -1,0 +1,27 @@
+{
+    "project_name": "Java",
+    "file_name": "Caesar.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/ciphers/Caesar.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.ciphers",
+    "docstring": "/**\n     * Decrypt message by shifting back every Latin char to previous the ASCII\n     * Example : B - 1 -> A\n     *\n     * @return message\n     */",
+    "source_code": "\npublic String decode(String encryptedMessage, int shift) {\n    StringBuilder decoded = new StringBuilder();\n\n    shift %= 26;\n\n    final int length = encryptedMessage.length();\n    for (int i = 0; i < length; i++) {\n        char current = encryptedMessage.charAt(i);\n        if (isCapitalLatinLetter(current)) {\n            current -= shift;\n            decoded.append((char) (current < 'A' ? current + 26 : current)); // 26 = number of latin letters\n        } else if (isSmallLatinLetter(current)) {\n            current -= shift;\n            decoded.append((char) (current < 'a' ? current + 26 : current)); // 26 = number of latin letters\n        } else {\n            decoded.append(current);\n        }\n    }\n    return decoded.toString();\n}\n",
+    "class_name": "Caesar",
+    "method_name": "decode",
+    "arguments": [
+        "String encryptedMessage",
+        "int shift"
+    ],
+    "generate_test": [
+        "@Test\npublic void decodeTest() {\n    Caesar caesar = new Caesar();\n    String encryptedMessage = \"J QDWH WR WKH ZRUOG!\";\n    int shift = 3;\n    String expectedDecodedMessage = \"G PAVDU TO THE WORLD!\";\n    String actualDecodedMessage = caesar.decode(encryptedMessage, shift);\n    assertEquals(expectedDecodedMessage, actualDecodedMessage);\n}",
+        "@Test\npublic void decodeTest() {\n    Caesar cipher = new Caesar();\n    assertEquals(\"HELLO\", cipher.decode(\"MJQQT\", 5));\n}",
+        "@Test\npublic void decodeTest() {\n    Caesar caesar = new Caesar();\n    String encryptedMessage = \"Qeboboa!\";\n    int shift = 4;\n    String expected = \"Mansion!\";\n    String actual = caesar.decode(encryptedMessage, shift);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void decodeTest() {\n    Caesar cipher = new Caesar(); // Create an instance of the Caesar class\n    String encryptedMessage = \"Uif!xjmmf!nz!bnfsjdbo.qspevdut!uftu!uibu!yjwf!nz!qbsujdvmft\";\n    int shift = 1;\n    String expectedDecodedMessage = \"The!will!my!alphabet.replaced!text!that!you!meet!is!prepared\";\n    \n    String decodedMessage = cipher.decode(encryptedMessage, shift);\n    \n    assertEquals(expectedDecodedMessage, decodedMessage);\n}",
+        "@Test\npublic void decodeTest() {\n    Caesar caesar = new Caesar();\n    String encryptedMessage = \"Cqogu ku zrfucvkqp vguvcigp\";\n    int shift = 2;\n    String expected = \"Aomcs is weekend tester\";\n    \n    String actual = caesar.decode(encryptedMessage, shift);\n    \n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void decodeTest() {\n    Caesar caesar = new Caesar();\n    String encryptedMessage = \"Khoor#Zruog\";\n    int shift = 3;\n    String expected = \"Hello World\";\n    \n    String actual = caesar.decode(encryptedMessage, shift);\n    \n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void decodeTest() {\n    Caesar caesar = new Caesar();\n    String encryptedMessage = \"Khoor\";\n    int shift = 3;\n    String expected = \"Hello\";\n    String actual = caesar.decode(encryptedMessage, shift);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void decodeTest() {\n    Caesar caesar = new Caesar();\n    String encryptedMessage = \"RovvyGqfuGrjYlbcJrPdevrCqguaAxdek\";\n    int shift = 10;\n    String expectedDecodedMessage = \"HelloWorldWithEncryptionWorks\";\n    \n    String actualDecodedMessage = caesar.decode(encryptedMessage, shift);\n    \n    assertEquals(expectedDecodedMessage, actualDecodedMessage);\n}",
+        "@Test\npublic void decodeTest() {\n    Caesar caesar = new Caesar();\n    String encryptedMessage = \"Lipps\";\n    int shift = 4;\n    \n    String expected = \"Hello\";\n    String actual = caesar.decode(encryptedMessage, shift);\n    \n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void decodeTest() {\n    Caesar caesar = new Caesar();\n    String encryptedMessage = \"DqGdb duh pDwwhuv\"; // encrypted message\n    int shift = 3; // shift value used for encryption\n\n    // Expected Decoded Message: All the worlds\n    String expected = \"All the worlds\";\n\n    // Actual Decoded Message using the decode() method\n    String actual = caesar.decode(encryptedMessage, shift);\n\n    // Compare the expected and actual decoded messages\n    assertEquals(expected, actual);\n}\n"
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "project_name": "Java",
+    "file_name": "FindMax.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/maths/FindMax.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.maths",
+    "docstring": "/**\n     * @brief finds the maximum value stored in the input array\n     *\n     * @param array the input array\n     * @exception IllegalArgumentException input array is empty\n     * @return the maximum value stored in the input array\n     */",
+    "source_code": "\npublic static int findMax(final int[] array) {\n    int n = array.length;\n    if (n == 0) {\n        throw new IllegalArgumentException(\"Array must be non-empty.\");\n    }\n    int max = array[0];\n    for (int i = 1; i < n; i++) {\n        if (array[i] > max) {\n            max = array[i];\n        }\n    }\n    return max;\n}\n",
+    "class_name": "FindMax",
+    "method_name": "findMax",
+    "arguments": [
+        "int[] array"
+    ],
+    "generate_test": [
+        "package com.thealgorithms.maths;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class FindMaxTest {\n    @Test\n    public void findMaxTest() {\n        int[] array = {1, 5, 3, 9, 2};\n        int expected = 9;\n        int actual = FindMax.findMax(array);\n        assertEquals(expected, actual);\n    }\n}",
+        "package com.thealgorithms.maths;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class FindMaxTest {\n    @Test\n    public void findMaxTest() {\n        int[] array = {1, 2, 3, 4, 5};\n        int expectedMax = 5;\n        int actualMax = FindMax.findMax(array);\n        assertEquals(expectedMax, actualMax);\n    }\n}",
+        "package com.thealgorithms.maths;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class FindMaxTest {\n    @Test\n    public void findMaxTest() {\n        int[] array = {1, 2, 3, 4, 5};\n        int expected = 5;\n        int actual = FindMax.findMax(array);\n        assertEquals(expected, actual);\n    }\n}",
+        "### JUNIT Test case:\npackage com.thealgorithms.maths;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class FindMaxTest {\n    @Test\n    public void findMaxTest() {\n        int[] array = {1, 5, 3, 10, 7};\n        int expectedMax = 10;\n        int actualMax = FindMax.findMax(array);\n        assertEquals(expectedMax, actualMax);\n    }\n}",
+        "@Test\npublic void findMaxTest() {\n    int[] array = {1, 2, 3, 4, 5};\n    int expected = 5;\n    int actual = FindMax.findMax(array);\n    assertEquals(expected, actual);\n}",
+        "package com.thealgorithms.maths;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class FindMaxTest {\n    @Test\n    public void findMaxTest() {\n        int[] array = {1, 2, 3, 4, 5};\n        int expectedMax = 5;\n        int actualMax = FindMax.findMax(array);\n        \n        assertEquals(expectedMax, actualMax);\n    }\n}",
+        "package com.thealgorithms.maths;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class FindMaxTest {\n    @Test\n    public void findMaxTest() {\n        int[] array = {1, 5, 3, 10, 2};\n        int expected = 10;\n        int actual = FindMax.findMax(array);\n        assertEquals(expected, actual);\n    }\n}",
+        "@Test\npublic void findMaxTest() {\n    int[] array = {5, 3, 8, 2, 9};\n    int expected = 9;\n    int actual = FindMax.findMax(array);\n    assertEquals(expected, actual);\n}",
+        "package com.thealgorithms.maths;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class FindMaxTest {\n    @Test\n    public void findMaxTest() {\n        int[] array = {1, 2, 3, 4, 5};\n        int expected = 5;\n        int actual = FindMax.findMax(array);\n        assertEquals(expected, actual);\n    }\n}",
+        "package com.thealgorithms.maths;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class FindMaxTest {\n    @Test\n    public void findMaxTest() {\n        int[] array = {1, 2, 3, 4, 5};\n        int expectedResult = 5;\n        int result = FindMax.findMax(array);\n        \n        assertEquals(expectedResult, result);\n    }\n}"
+    ]
+}

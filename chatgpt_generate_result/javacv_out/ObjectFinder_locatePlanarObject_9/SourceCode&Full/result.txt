@@ -1,0 +1,99 @@
+Source code: 
+
+
+double[] locatePlanarObject(KeyPointVector objectKeypoints, Mat objectDescriptors,
+        KeyPointVector imageKeypoints, Mat imageDescriptors, double[] srcCorners) {
+    ptpairs.clear();
+    if (settings.useFLANN) {
+        flannFindPairs(objectDescriptors, imageDescriptors);
+    } else {
+        findPairs(objectDescriptors, imageDescriptors);
+    }
+    int n = ptpairs.size()/2;
+    logger.info(n + " matching pairs found");
+    if (n < settings.matchesMin) {
+        return null;
+    }
+
+    pt1 .resize(n);
+    pt2 .resize(n);
+    mask.resize(n);
+    FloatBuffer pt1Idx = pt1.createBuffer();
+    FloatBuffer pt2Idx = pt2.createBuffer();
+    for (int i = 0; i < n; i++) {
+        Point2f p1 = objectKeypoints.get(ptpairs.get(2*i)).pt();
+        pt1Idx.put(2*i, p1.x()); pt1Idx.put(2*i+1, p1.y());
+        Point2f p2 = imageKeypoints.get(ptpairs.get(2*i+1)).pt();
+        pt2Idx.put(2*i, p2.x()); pt2Idx.put(2*i+1, p2.y());
+    }
+
+    H = findHomography(pt1, pt2, CV_RANSAC, settings.ransacReprojThreshold, mask, 2000, 0.995);
+    if (H.empty() || countNonZero(mask) < settings.matchesMin) {
+        return null;
+    }
+
+    double[] h = (double[])H.createIndexer(false).array();
+    double[] dstCorners = new double[srcCorners.length];
+    for(int i = 0; i < srcCorners.length/2; i++) {
+        double x = srcCorners[2*i], y = srcCorners[2*i + 1];
+        double Z = 1/(h[6]*x + h[7]*y + h[8]);
+        double X = (h[0]*x + h[1]*y + h[2])*Z;
+        double Y = (h[3]*x + h[4]*y + h[5])*Z;
+        dstCorners[2*i    ] = X;
+        dstCorners[2*i + 1] = Y;
+    }
+    return dstCorners;
+}
+
+
+
+No.1 generated result --------------------------
+
+Timeout
+
+
+No.2 generated result --------------------------
+
+Timeout
+
+
+No.3 generated result --------------------------
+
+Timeout
+
+
+No.4 generated result --------------------------
+
+Timeout
+
+
+No.5 generated result --------------------------
+
+Timeout
+
+
+No.6 generated result --------------------------
+
+Timeout
+
+
+No.7 generated result --------------------------
+
+Timeout
+
+
+No.8 generated result --------------------------
+
+Timeout
+
+
+No.9 generated result --------------------------
+
+Timeout
+
+
+No.10 generated result --------------------------
+
+Timeout
+
+

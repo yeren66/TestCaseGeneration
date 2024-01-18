@@ -1,0 +1,181 @@
+Source code: 
+
+
+private boolean containSameValues(double[] current,
+                                  double[] expect) {
+    if (expect.length != size) {
+        throw new NeuralNetException(NeuralNetException.SIZE_MISMATCH,
+                                     expect.length, size);
+    }
+
+    for (int i = 0; i < size; i++) {
+        if (!Precision.equals(current[i], expect[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+
+
+No.1 generated result --------------------------
+
+package org.apache.commons.math4.neuralnet;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NeuronTest {
+    @Test
+    public void containSameValuesTest() {
+        double[] current = {1.0, 2.0, 3.0};
+        double[] expect = {1.0, 2.0, 3.0};
+        assertTrue(containSameValues(current, expect));
+        
+        double[] current2 = {1.0, 2.0, 3.0};
+        double[] expect2 = {1.0, 2.0, 4.0};
+        assertFalse(containSameValues(current2, expect2));
+    }
+}
+
+
+No.2 generated result --------------------------
+
+Timeout
+
+
+No.3 generated result --------------------------
+
+@Test
+public void containSameValuesTest() {
+    double[] current = {1.0, 2.0, 3.0};
+    double[] expect = {1.0, 2.0, 3.0};
+    boolean result = containSameValues(current, expect);
+    assertTrue(result);
+    
+    double[] current2 = {1.0, 2.0, 4.0};
+    double[] expect2 = {1.0, 2.0, 3.0};
+    boolean result2 = containSameValues(current2, expect2);
+    assertFalse(result2);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void containSameValuesTest() {
+    Neuron neuron = new Neuron();
+    double[] current = {1.0, 2.0, 3.0};
+    double[] expect = {1.0, 2.0, 3.0};
+    boolean result = neuron.containSameValues(current, expect);
+    assertTrue(result);
+    
+    double[] current2 = {1.0, 2.0, 3.0};
+    double[] expect2 = {1.0, 2.0, 4.0};
+    boolean result2 = neuron.containSameValues(current2, expect2);
+    assertFalse(result2);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void containSameValuesTest() {
+    double[] current = {1.0, 2.0, 3.0};
+    double[] expect = {1.0, 2.0, 3.0};
+
+    Neuron neuron = new Neuron();
+    boolean result = neuron.containSameValues(current, expect);
+
+    assertTrue(result);
+}
+
+
+No.6 generated result --------------------------
+
+
+package org.apache.commons.math4.neuralnet;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NeuronTest {
+    @Test
+    public void containSameValuesTest() {
+        double[] current = {1.0, 2.0, 3.0};
+        double[] expect = {1.0, 2.0, 3.0};
+        
+        assertTrue(containSameValues(current, expect));
+    }
+}
+
+
+
+No.7 generated result --------------------------
+
+
+package org.apache.commons.math4.neuralnet;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NeuronTest {
+    @Test
+    public void containSameValuesTest() {
+        double[] current = {1.0, 2.0, 3.0};
+        double[] expect = {1.0, 2.0, 3.0};
+        
+        boolean result = containSameValues(current, expect);
+        
+        assertTrue(result);
+    }
+}
+
+
+
+No.8 generated result --------------------------
+
+@Test
+public void containSameValuesTest() {
+    double[] current = {1.0, 2.0, 3.0};
+    double[] expect = {1.0, 2.0, 3.0};
+    
+    boolean result = containSameValues(current, expect);
+    
+    assertTrue(result);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void containSameValuesTest() {
+    double[] current = {1.2, 2.5, 3.7};
+    double[] expect = {1.2, 2.5, 3.7};
+
+    boolean result = containSameValues(current, expect);
+
+    assertTrue(result);
+}
+
+
+No.10 generated result --------------------------
+
+package org.apache.commons.math4.neuralnet;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NeuronTest {
+    @Test
+    public void containSameValuesTest() {
+        double[] current = {1.1, 2.2, 3.3};
+        double[] expect = {1.1, 2.2, 3.3};
+        
+        boolean result = containSameValues(current, expect);
+        assertTrue(result);
+    }
+}
+
+

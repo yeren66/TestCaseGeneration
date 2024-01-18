@@ -1,0 +1,179 @@
+Source code: 
+
+@Override
+public boolean equals(Object o) {
+  if (!(o instanceof FinderPattern)) {
+    return false;
+  }
+  FinderPattern that = (FinderPattern) o;
+  return value == that.value;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    FinderPattern finderPattern1 = new FinderPattern(1, new int[]{0, 1}, 0, 0, 0);
+    FinderPattern finderPattern2 = new FinderPattern(1, new int[]{0, 1}, 0, 0, 0);
+    FinderPattern finderPattern3 = new FinderPattern(2, new int[]{0, 1}, 0, 0, 0);
+
+    assertTrue(finderPattern1.equals(finderPattern1)); // Same object should return true
+    assertTrue(finderPattern1.equals(finderPattern2)); // Two objects with same value should return true
+    assertFalse(finderPattern1.equals(null)); // Null object should return false
+    assertFalse(finderPattern1.equals(finderPattern3)); // Two objects with different values should return false
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    FinderPattern pattern1 = new FinderPattern(1, new int[]{1, 2}, 1, 2, 1);
+    FinderPattern pattern2 = new FinderPattern(1, new int[]{1, 2}, 1, 2, 1);
+    FinderPattern pattern3 = new FinderPattern(2, new int[]{1, 2}, 1, 2, 1);
+    
+    assertTrue(pattern1.equals(pattern2));
+    assertFalse(pattern1.equals(pattern3));
+}
+
+
+No.3 generated result --------------------------
+
+FinderPattern pattern1 = new FinderPattern(1, new int[]{0, 1}, 0, 1, 1);
+FinderPattern pattern2 = new FinderPattern(1, new int[]{0, 1}, 0, 1, 1);
+
+assertTrue(pattern1.equals(pattern2));
+
+
+No.4 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    FinderPattern pattern1 = new FinderPattern(1, new int[]{1, 2}, 1, 2, 1);
+    FinderPattern pattern2 = new FinderPattern(1, new int[]{1, 2}, 1, 2, 1);
+    FinderPattern pattern3 = new FinderPattern(2, new int[]{1, 2}, 1, 2, 1);
+    
+    assertEquals(pattern1, pattern1); // Reflexive property
+    assertEquals(pattern1, pattern2); // Symmetric property
+    assertEquals(pattern2, pattern1); // Symmetric property
+    assertEquals(pattern2, pattern3); // Transitive property
+    
+    assertFalse(pattern1.equals(null)); // Not equal to null
+    
+    FinderPattern differentType = new FinderPattern(1, new int[]{1, 2}, 1, 2, 1);
+    assertFalse(pattern1.equals(differentType)); // Not equal to object of different type
+    
+    FinderPattern differentValue = new FinderPattern(3, new int[]{1, 2}, 1, 2, 1);
+    assertFalse(pattern1.equals(differentValue)); // Not equal to object with different value
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    FinderPattern pattern1 = new FinderPattern(1, new int[]{0, 1}, 0, 1, 0);
+    FinderPattern pattern2 = new FinderPattern(1, new int[]{0, 1}, 0, 1, 0);
+    FinderPattern pattern3 = new FinderPattern(2, new int[]{0, 1}, 0, 1, 0);
+
+    assertTrue(pattern1.equals(pattern2));
+    assertFalse(pattern1.equals(pattern3));
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    FinderPattern pattern1 = new FinderPattern(1, new int[]{1, 2}, 3, 4, 5);
+    FinderPattern pattern2 = new FinderPattern(1, new int[]{1, 2}, 3, 4, 5);
+    FinderPattern pattern3 = new FinderPattern(2, new int[]{1, 2}, 3, 4, 5);
+    
+    assertTrue(pattern1.equals(pattern2));
+    assertFalse(pattern1.equals(pattern3));
+    assertFalse(pattern1.equals(null));
+    assertFalse(pattern1.equals(new Object()));
+}
+
+
+No.7 generated result --------------------------
+
+public void equalsTest() {
+    FinderPattern pattern1 = new FinderPattern(1, new int[]{1, 2}, 1, 2, 1);
+    FinderPattern pattern2 = new FinderPattern(1, new int[]{1, 2}, 1, 2, 1);
+    FinderPattern pattern3 = new FinderPattern(2, new int[]{1, 2}, 1, 2, 1);
+    
+    assertTrue(pattern1.equals(pattern2));
+    assertFalse(pattern1.equals(pattern3));
+    assertFalse(pattern1.equals(null));
+    assertFalse(pattern1.equals("String"));
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    FinderPattern fp1 = new FinderPattern(1, new int[]{1, 3}, 0, 2, 5);
+    FinderPattern fp2 = new FinderPattern(1, new int[]{1, 3}, 0, 2, 5);
+    FinderPattern fp3 = new FinderPattern(2, new int[]{1, 3}, 0, 2, 5);
+    
+    // Test for equality with the same object
+    assertTrue(fp1.equals(fp1));
+    
+    // Test for equality with another object of the same type and same value
+    assertTrue(fp1.equals(fp2));
+    
+    // Test for equality with another object of the same type but different value
+    assertFalse(fp1.equals(fp3));
+    
+    // Test for equality with an object of different type
+    String str = "finderPattern";
+    assertFalse(fp1.equals(str));
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    FinderPattern pattern1 = new FinderPattern(1, new int[]{1, 2}, 3, 4, 5);
+    FinderPattern pattern2 = new FinderPattern(1, new int[]{1, 2}, 3, 4, 5);
+    FinderPattern pattern3 = new FinderPattern(2, new int[]{1, 2}, 3, 4, 5);
+    
+    // Test equals with the same object
+    assertTrue(pattern1.equals(pattern1));
+    
+    // Test equals with an object of different class
+    assertFalse(pattern1.equals("test"));
+    
+    // Test equals with an object of the same class, but different values
+    assertFalse(pattern1.equals(pattern3));
+    
+    // Test equals with an object of the same class and same values
+    assertTrue(pattern1.equals(pattern2));
+}
+
+
+No.10 generated result --------------------------
+
+package com.google.zxing.oned.rss;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class FinderPatternTest {
+    @Test
+    public void equalsTest() {
+        FinderPattern pattern1 = new FinderPattern(1, new int[]{0, 1}, 0, 1, 2);
+        FinderPattern pattern2 = new FinderPattern(1, new int[]{0, 1}, 0, 1, 2);
+        FinderPattern pattern3 = new FinderPattern(2, new int[]{0, 1}, 0, 1, 2);
+        
+        assertEquals(pattern1.equals(pattern2), true);
+        assertEquals(pattern1.equals(pattern3), false);
+    }
+}
+
+

@@ -1,0 +1,84 @@
+Source code: 
+
+
+static double slowexp(final double x, final double[] result) {
+    final double[] xs = new double[2];
+    final double[] ys = new double[2];
+    final double[] facts = new double[2];
+    final double[] as = new double[2];
+    split(x, xs);
+    ys[0] = ys[1] = 0.0;
+
+    for (int i = FACT.length - 1; i >= 0; i--) {
+        splitMult(xs, ys, as);
+        ys[0] = as[0];
+        ys[1] = as[1];
+
+        split(FACT[i], as);
+        splitReciprocal(as, facts);
+
+        splitAdd(ys, facts, as);
+        ys[0] = as[0];
+        ys[1] = as[1];
+    }
+
+    if (result != null) {
+        result[0] = ys[0];
+        result[1] = ys[1];
+    }
+
+    return ys[0] + ys[1];
+}
+
+
+
+No.1 generated result --------------------------
+
+Timeout
+
+
+No.2 generated result --------------------------
+
+Timeout
+
+
+No.3 generated result --------------------------
+
+Timeout
+
+
+No.4 generated result --------------------------
+
+Timeout
+
+
+No.5 generated result --------------------------
+
+Timeout
+
+
+No.6 generated result --------------------------
+
+Timeout
+
+
+No.7 generated result --------------------------
+
+Timeout
+
+
+No.8 generated result --------------------------
+
+Timeout
+
+
+No.9 generated result --------------------------
+
+Timeout
+
+
+No.10 generated result --------------------------
+
+Timeout
+
+

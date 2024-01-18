@@ -1,0 +1,74 @@
+Source code: 
+
+
+public double getAudioFrameRate() {
+    if (audio_st == null) {
+        return 0.0;
+    } else {
+        if (samples_frame == null || samples_frame.nb_samples() == 0) {
+            try {
+                grabFrame(true, false, false, false, false);
+                frameGrabbed = true;
+            } catch (Exception e) {
+                return 0.0;
+            }
+        }
+        if (samples_frame != null && samples_frame.nb_samples() != 0)
+            return ((double) getSampleRate()) / samples_frame.nb_samples();
+        else return 0.0;
+
+    }
+}
+
+
+
+No.1 generated result --------------------------
+
+Timeout
+
+
+No.2 generated result --------------------------
+
+Timeout
+
+
+No.3 generated result --------------------------
+
+Timeout
+
+
+No.4 generated result --------------------------
+
+Timeout
+
+
+No.5 generated result --------------------------
+
+Timeout
+
+
+No.6 generated result --------------------------
+
+Timeout
+
+
+No.7 generated result --------------------------
+
+Timeout
+
+
+No.8 generated result --------------------------
+
+Timeout
+
+
+No.9 generated result --------------------------
+
+Timeout
+
+
+No.10 generated result --------------------------
+
+Timeout
+
+

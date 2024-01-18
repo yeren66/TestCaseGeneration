@@ -1,0 +1,221 @@
+Source code: 
+
+
+static int getTwinPrime(int inputNumber) {
+
+    // if inputNumber and (inputNumber + 2) are both prime
+    // then return (inputNumber + 2) as a result
+    if (PrimeCheck.isPrime(inputNumber) && PrimeCheck.isPrime(inputNumber + 2)) {
+        return inputNumber + 2;
+    }
+    // if any one from inputNumber and (inputNumber + 2) or if both of them are not prime
+    // then return -1 as a result
+    return -1;
+}
+
+
+
+No.1 generated result --------------------------
+
+public void getTwinPrimeTest() {
+        assertEquals(3, getTwinPrime(1));
+        assertEquals(5, getTwinPrime(3));
+        assertEquals(-1, getTwinPrime(4));
+        assertEquals(-1, getTwinPrime(6));
+        assertEquals(-1, getTwinPrime(7));
+        assertEquals(11, getTwinPrime(9));
+        assertEquals(-1, getTwinPrime(10));
+        assertEquals(-1, getTwinPrime(12));
+        assertEquals(-1, getTwinPrime(13));
+        assertEquals(17, getTwinPrime(15));
+        assertEquals(-1, getTwinPrime(16));
+    }
+
+
+No.2 generated result --------------------------
+
+package com.thealgorithms.maths;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TwinPrimeTest {
+    @Test
+    public void getTwinPrimeTest() {
+        // Test when both inputNumber and (inputNumber + 2) are prime
+        assertEquals(3, getTwinPrime(1));
+        
+        // Test when only inputNumber is prime
+        assertEquals(-1, getTwinPrime(2));
+        
+        // Test when only (inputNumber + 2) is prime
+        assertEquals(-1, getTwinPrime(3));
+        
+        // Test when both inputNumber and (inputNumber + 2) are not prime
+        assertEquals(-1, getTwinPrime(4));
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package com.thealgorithms.maths;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TwinPrimeTest {
+    @Test
+    public void getTwinPrimeTest() {
+        int result1 = TwinPrime.getTwinPrime(3);
+        assertEquals(5, result1);
+
+        int result2 = TwinPrime.getTwinPrime(17);
+        assertEquals(19, result2);
+
+        int result3 = TwinPrime.getTwinPrime(5);
+        assertEquals(-1, result3);
+
+        int result4 = TwinPrime.getTwinPrime(10);
+        assertEquals(-1, result4);
+    }
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void getTwinPrimeTest(){
+    // Test inputNumber = 3, expected output = 5
+    assertEquals(5, getTwinPrime(3));
+    
+    // Test inputNumber = 17, expected output = 19
+    assertEquals(19, getTwinPrime(17));
+    
+    // Test inputNumber = 11, expected output = -1
+    assertEquals(-1, getTwinPrime(11));
+    
+    // Test inputNumber = 19, expected output = -1
+    assertEquals(-1, getTwinPrime(19));
+    
+    // Test inputNumber = 31, expected output = 31
+    assertEquals(-1, getTwinPrime(31));
+}
+
+
+No.5 generated result --------------------------
+
+package com.thealgorithms.maths;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TwinPrimeTest {
+    @Test
+    public void getTwinPrimeTest() {
+        // Test case where inputNumber is prime and inputNumber + 2 is prime
+        assertEquals(5, getTwinPrime(3), "Input: 3, Expected Output: 5");
+        
+        // Test case where inputNumber is prime and inputNumber + 2 is not prime
+        assertEquals(-1, getTwinPrime(7), "Input: 7, Expected Output: -1");
+        
+        // Test case where inputNumber is not prime and inputNumber + 2 is prime
+        assertEquals(-1, getTwinPrime(6), "Input: 6, Expected Output: -1");
+        
+        // Test case where inputNumber is not prime and inputNumber + 2 is not prime
+        assertEquals(-1, getTwinPrime(10), "Input: 10, Expected Output: -1");
+    }
+}
+
+
+No.6 generated result --------------------------
+
+package com.thealgorithms.maths;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TwinPrimeTest {
+    @Test
+    public void getTwinPrimeTest() {
+        // Test case 1: inputNumber = 3
+        int result1 = TwinPrime.getTwinPrime(3);
+        assertEquals(5, result1);
+
+        // Test case 2: inputNumber = 5
+        int result2 = TwinPrime.getTwinPrime(5);
+        assertEquals(7, result2);
+
+        // Test case 3: inputNumber = 7
+        int result3 = TwinPrime.getTwinPrime(7);
+        assertEquals(11, result3);
+
+        // Test case 4: inputNumber = 11
+        int result4 = TwinPrime.getTwinPrime(11);
+        assertEquals(13, result4);
+
+        // Test case 5: inputNumber = 13
+        int result5 = TwinPrime.getTwinPrime(13);
+        assertEquals(17, result5);
+
+        // Test case 6: inputNumber = 17
+        int result6 = TwinPrime.getTwinPrime(17);
+        assertEquals(19, result6);
+
+        // Test case 7: inputNumber = 19
+        int result7 = TwinPrime.getTwinPrime(19);
+        assertEquals(-1, result7);
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void getTwinPrimeTest() {
+    assertEquals(3, getTwinPrime(1));
+    assertEquals(5, getTwinPrime(3));
+    assertEquals(-1, getTwinPrime(6));
+}
+
+
+No.8 generated result --------------------------
+
+public void getTwinPrimeTest() {
+    int result1 = TwinPrime.getTwinPrime(3);
+    assertEquals(5, result1);
+    
+    int result2 = TwinPrime.getTwinPrime(11);
+    assertEquals(13, result2);
+    
+    int result3 = TwinPrime.getTwinPrime(4);
+    assertEquals(-1, result3);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void getTwinPrimeTest() {
+    assertEquals(3, getTwinPrime(1));
+    assertEquals(5, getTwinPrime(3));
+    assertEquals(17, getTwinPrime(13));
+    assertEquals(-1, getTwinPrime(4));
+    assertEquals(-1, getTwinPrime(7));
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void getTwinPrimeTest() {
+    assertEquals(3, TwinPrime.getTwinPrime(1));
+    assertEquals(5, TwinPrime.getTwinPrime(3));
+    assertEquals(17, TwinPrime.getTwinPrime(13));
+    assertEquals(19, TwinPrime.getTwinPrime(17));
+    assertEquals(-1, TwinPrime.getTwinPrime(4));
+    assertEquals(-1, TwinPrime.getTwinPrime(9));
+    assertEquals(-1, TwinPrime.getTwinPrime(11));
+}
+
+

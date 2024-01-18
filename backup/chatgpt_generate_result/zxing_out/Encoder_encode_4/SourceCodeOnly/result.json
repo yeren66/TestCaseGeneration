@@ -1,0 +1,29 @@
+{
+    "project_name": "zxing",
+    "file_name": "Encoder.java",
+    "relative_path": "zxing/core/src/main/java/com/google/zxing/aztec/encoder/Encoder.java",
+    "execute_path": "zxing",
+    "package": "com.google.zxing.aztec.encoder",
+    "docstring": "/**\n   * Encodes the given string content as an Aztec symbol\n   *\n   * @param data input data string\n   * @param minECCPercent minimal percentage of error check words (According to ISO/IEC 24778:2008,\n   *                      a minimum of 23% + 3 words is recommended)\n   * @param userSpecifiedLayers if non-zero, a user-specified value for the number of layers\n   * @param charset character set in which to encode string using ECI; if null, no ECI code\n   *                will be inserted, and the string must be encodable as ISO/IEC 8859-1\n   *                (Latin-1), the default encoding of the symbol.\n   * @return Aztec symbol matrix with metadata\n   */",
+    "source_code": "\npublic static AztecCode encode(String data, int minECCPercent, int userSpecifiedLayers, Charset charset) {\n  byte[] bytes = data.getBytes(null != charset ? charset : StandardCharsets.ISO_8859_1);\n  return encode(bytes, minECCPercent, userSpecifiedLayers, charset);\n}\n",
+    "class_name": "Encoder",
+    "method_name": "encode",
+    "arguments": [
+        "String data",
+        "int minECCPercent",
+        "int userSpecifiedLayers",
+        "Charset charset"
+    ],
+    "generate_test": [
+        "package com.google.zxing.aztec.encoder;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class EncoderTest {\n    @Test\n    public void encodeTest() {\n        String data = \"Hello World\";\n        int minECCPercent = 25;\n        int userSpecifiedLayers = 5;\n        Charset charset = StandardCharsets.UTF_8;\n        AztecCode expectedResult = <FILL>; // Specify the expected result\n        \n        AztecCode result = Encoder.encode(data, minECCPercent, userSpecifiedLayers, charset);\n        \n        assertEquals(expectedResult, result); // Perform the assertion test\n    }\n}",
+        "@Test\npublic void encodeTest() {\n    String data = \"Hello World\";\n    int minECCPercent = 25;\n    int userSpecifiedLayers = 5;\n    Charset charset = StandardCharsets.UTF_8;\n\n    AztecCode result = AztecCode.encode(data, minECCPercent, userSpecifiedLayers, charset);\n\n    // Perform assertions on the result\n    assertNotNull(result);\n    // Add more assertions as needed\n}",
+        "public void encodeTest() {\n        AztecCode result = Encoder.encode(\"Hello World\", 25, 5, StandardCharsets.UTF_8);\n        assertNotNull(result);\n        // Add additional assertions as needed\n}",
+        "@Test\npublic void encodeTest() {\n  String data = \"Hello World\";\n  int minECCPercent = 25;\n  int userSpecifiedLayers = 4;\n  Charset charset = StandardCharsets.UTF_8;\n  \n  AztecCode result = Encoder.encode(data, minECCPercent, userSpecifiedLayers, charset);\n  \n  assertNotNull(result);\n  // Add additional assertions here\n}",
+        "@Test\npublic void encodeTest() {\n    String data = \"Hello World\";\n    int minECCPercent = 25;\n    int userSpecifiedLayers = 5;\n    Charset charset = StandardCharsets.UTF_8;\n\n    AztecCode result = AztecCode.encode(data, minECCPercent, userSpecifiedLayers, charset);\n\n    assertNotNull(result);\n    // Add more assertions as needed\n}",
+        "@Test\npublic void encodeTest() {\n    String data = \"test\";\n    int minECCPercent = 50;\n    int userSpecifiedLayers = 3;\n    Charset charset = StandardCharsets.UTF_8;\n  \n    AztecCode result = Encoder.encode(data, minECCPercent, userSpecifiedLayers, charset);\n  \n    assertNotNull(result);\n    // Add assertions for expected output and behavior\n}",
+        "import org.junit.jupiter.api.Test;\nimport static org.junit.jupiter.api.Assertions.*;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.charset.Charset;\nimport com.google.zxing.aztec.encoder.EncoderTest;\n\npublic class EncoderTest {\n\n    @Test\n    public void encodeTest() {\n        String data = \"hello\";\n        int minECCPercent = 25;\n        int userSpecifiedLayers = 3;\n        Charset charset = StandardCharsets.UTF_8;\n        \n        AztecCode expectedResult = <FILL>; // expected output\n        \n        AztecCode actualResult = EncoderTest.encode(data, minECCPercent, userSpecifiedLayers, charset); // actual output\n        \n        assertEquals(expectedResult, actualResult);\n    }\n}",
+        "public void encodeTest() {\n  String data = \"Hello World\";\n  int minECCPercent = 25;\n  int userSpecifiedLayers = 2;\n  Charset charset = StandardCharsets.UTF_8;\n  \n  AztecCode result = Encoder.encode(data, minECCPercent, userSpecifiedLayers, charset);\n  \n  // Assert statements\n  assertNotNull(result);\n  // Other assert statements\n}",
+        "@Test\npublic void encodeTest() {\n    byte[] testData = \"Hello World\".getBytes();\n    AztecCode result = Encoder.encode(testData, 25, 2, StandardCharsets.UTF_8);\n    assertEquals(\"Hello World\", new String(result.getFullData(), StandardCharsets.UTF_8));\n    // Add more assertions to test other aspects of the encoding result\n}",
+        "@RunWith(MockitoJUnitRunner.class)\npublic class EncoderTest {\n\n    @Test\n    public void encodeTest() {\n        String data = \"Hello World\";\n        int minECCPercent = 25;\n        int userSpecifiedLayers = 5;\n        Charset charset = Charset.forName(\"UTF-8\");\n\n        AztecCode result = Encoder.encode(data, minECCPercent, userSpecifiedLayers, charset);\n\n        assertNotNull(result);\n        // assert other conditions here\n    }\n}"
+    ]
+}

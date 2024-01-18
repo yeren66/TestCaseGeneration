@@ -1,0 +1,24 @@
+{
+    "project_name": "javacv",
+    "file_name": "PS3EyeFrameGrabber.java",
+    "relative_path": "javacv/src/main/java/org/bytedeco/javacv/PS3EyeFrameGrabber.java",
+    "execute_path": "javacv",
+    "package": "org.bytedeco.javacv",
+    "docstring": "/** Grab one frame and return it as int[] (in the internal camera format RGBA).\n     *  Note: use makeImage() to create RGBA, 4-ch image\n     * @return frame as int[] without any processing or null if frame is not available \n     */",
+    "source_code": "\npublic int[] grab_raw() {\n    if (camera.getCameraFrame(ps3_frame, timeout)) {\n        return ps3_frame;\n    }\n    else return null;\n}\n",
+    "class_name": "PS3EyeFrameGrabber",
+    "method_name": "grab_raw",
+    "arguments": [],
+    "generate_test": [
+        "@Test\npublic void grab_rawTest() {\n    int[] expected = {1, 2, 3, 4};\n    int[] actual = new PS3EyeFrameGrabber().grab_raw();\n    assertArrayEquals(expected, actual);\n}",
+        "package org.bytedeco.javacv;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class PS3EyeFrameGrabberTest {\n    @Test\n    public void grab_rawTest() {\n        PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber();\n        int[] expected = {1, 2, 3, 4};\n        \n        // Configure the camera object and set the ps3_frame to the expected values\n        \n        int[] actual = grabber.grab_raw();\n        \n        assertArrayEquals(expected, actual);\n    }\n}",
+        "@Test\npublic void grab_rawTest() {\n    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber();\n    int[] expected = {}; // fill in with expected values\n    \n    int[] actual = grabber.grab_raw();\n    \n    assertArrayEquals(expected, actual);\n}",
+        "@Test\npublic void grab_rawTest() {\n    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber(); // Create an instance of PS3EyeFrameGrabber\n    int[] expected = ps3_frame; // Set the expected result to the value of ps3_frame\n    \n    // Call the grab_raw() method and store the result in the actual variable\n    int[] actual = grabber.grab_raw();\n    \n    // Assert that the actual result is equal to the expected result\n    assertArrayEquals(expected, actual);\n}",
+        "@Test\npublic void grab_rawTest() {\n    int[] ps3_frame = {1, 2, 3, 4}; // Example camera frame\n    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber();\n    grabber.camera = new CLCamera(); // Example camera object\n    grabber.ps3_frame = ps3_frame;\n    \n    int[] result = grabber.grab_raw();\n    \n    assertNotNull(result);\n    assertArrayEquals(ps3_frame, result);\n}",
+        "@Test\npublic void grab_rawTest() {\n    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber();\n    int[] expected = null;\n    \n    assertArrayEquals(expected, grabber.grab_raw());\n}",
+        "package org.bytedeco.javacv;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class PS3EyeFrameGrabberTest {\n    @Test\n    public void grab_rawTest() {\n        int[] expected = {1, 2, 3}; // Specify the expected return value here\n        \n        // Create an instance of PS3EyeFrameGrabber\n        PS3EyeFrameGrabber frameGrabber = new PS3EyeFrameGrabber();\n        \n        // Call the \"grab_raw\" method\n        int[] actual = frameGrabber.grab_raw();\n        \n        // Assert the returned value against the expected value\n        assertArrayEquals(expected, actual);\n    }\n}",
+        "@Test\npublic void grab_rawTest() {\n    int[] expected = {1, 2, 3};\n    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber();\n    \n    int[] actual = grabber.grab_raw();\n    \n    assertArrayEquals(expected, actual);\n}",
+        "@Test\npublic void grab_rawTest() {\n    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber(); // Create an instance of the PS3EyeFrameGrabber\n    int[] expected = null; // Define the expected result\n    \n    int[] actual = grabber.grab_raw(); // Call the grab_raw() method\n    \n    assertArrayEquals(expected, actual); // Check if the actual result matches the expected result\n}",
+        "@Test\npublic void grab_rawTest() {\n    PS3EyeFrameGrabber frameGrabber = new PS3EyeFrameGrabber();\n    int[] ps3_frame = frameGrabber.grab_raw();\n    assertNotNull(ps3_frame);\n}"
+    ]
+}

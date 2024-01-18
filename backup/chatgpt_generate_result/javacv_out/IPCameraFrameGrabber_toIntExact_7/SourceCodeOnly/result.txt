@@ -1,0 +1,181 @@
+Source code: 
+
+
+private static int toIntExact(long value) {
+    if ((int) value != value) {
+        throw new ArithmeticException("integer overflow");
+    }
+    return (int) value;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+    public void toIntExactTest() {
+        assertThrows(ArithmeticException.class, () -> {
+            IPCameraFrameGrabber.toIntExact(2147483648L);
+        });
+    }
+
+
+No.2 generated result --------------------------
+
+@Test
+public void toIntExactTest() {
+    assertThrows(ArithmeticException.class, () -> {
+        IPCameraFrameGrabber.toIntExact(2147483648L);
+    });
+    
+    assertEquals(0, IPCameraFrameGrabber.toIntExact(0L));
+    
+    assertEquals(1, IPCameraFrameGrabber.toIntExact(1L));
+    
+    assertEquals(-1, IPCameraFrameGrabber.toIntExact(-1L));
+    
+    assertEquals(2147483647, IPCameraFrameGrabber.toIntExact(2147483647L));
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void toIntExactTest() {
+    assertThrows(ArithmeticException.class, () -> {
+        IPCameraFrameGrabber.toIntExact(Long.MAX_VALUE);
+    });
+    
+    assertEquals(Integer.MIN_VALUE, IPCameraFrameGrabber.toIntExact(Long.MIN_VALUE));
+    
+    assertEquals(0, IPCameraFrameGrabber.toIntExact(0));
+    
+    assertEquals(1234, IPCameraFrameGrabber.toIntExact(1234L));
+    
+    assertEquals(-5678, IPCameraFrameGrabber.toIntExact(-5678L));
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void toIntExactTest() {
+    assertThrows(ArithmeticException.class, () -> {
+        IPCameraFrameGrabber.toIntExact(<value>);
+    });
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void toIntExactTest() {
+    assertThrows(ArithmeticException.class, () -> {
+        IPCameraFrameGrabber.toIntExact(Long.MAX_VALUE);
+    });
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void toIntExactTest() {
+    // Test case 1: value is within the range of int type
+    long value1 = 100;
+    int expected1 = 100;
+    assertEquals(expected1, IPCameraFrameGrabber.toIntExact(value1));
+
+    // Test case 2: value is at the lower limit of int type
+    long value2 = Integer.MIN_VALUE;
+    int expected2 = Integer.MIN_VALUE;
+    assertEquals(expected2, IPCameraFrameGrabber.toIntExact(value2));
+
+    // Test case 3: value is at the upper limit of int type
+    long value3 = Integer.MAX_VALUE;
+    int expected3 = Integer.MAX_VALUE;
+    assertEquals(expected3, IPCameraFrameGrabber.toIntExact(value3));
+
+    // Test case 4: value is greater than the upper limit of int type
+    long value4 = Integer.MAX_VALUE + 1;
+    assertThrows(ArithmeticException.class, () -> IPCameraFrameGrabber.toIntExact(value4));
+
+    // Test case 5: value is less than the lower limit of int type
+    long value5 = Integer.MIN_VALUE - 1;
+    assertThrows(ArithmeticException.class, () -> IPCameraFrameGrabber.toIntExact(value5));
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void toIntExactTest() {
+    //Test case 1: value within int range
+    long value1 = 100;
+    int expected1 = 100;
+    int actual1 = toIntExact(value1);
+    assertEquals(expected1, actual1);
+
+    //Test case 2: value outside int range
+    long value2 = Long.MAX_VALUE;
+    assertThrows(ArithmeticException.class, () -> {
+        toIntExact(value2);
+    });
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void toIntExactTest() {
+    assertThrows(ArithmeticException.class, () -> IPCameraFrameGrabber.toIntExact(2147483648L));
+    assertEquals(0, IPCameraFrameGrabber.toIntExact(0L));
+    assertEquals(-2147483648, IPCameraFrameGrabber.toIntExact(-2147483648L));
+    assertEquals(2147483647, IPCameraFrameGrabber.toIntExact(2147483647L));
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void toIntExactTest() {
+    long value1 = 10;
+    long value2 = 2147483648L; // Maximum value for int
+    int expectedValue1 = 10;
+    
+    // Test case 1: when value is within the range of int
+    int result1 = IPCameraFrameGrabber.toIntExact(value1);
+    assertEquals(expectedValue1, result1);
+    
+    // Test case 2: when value exceeds the range of int
+    assertThrows(ArithmeticException.class, () -> IPCameraFrameGrabber.toIntExact(value2));
+}
+
+
+No.10 generated result --------------------------
+
+package org.bytedeco.javacv;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class IPCameraFrameGrabberTest {
+    @Test
+    public void toIntExactTest() {
+        int result;
+        try {
+            result = IPCameraFrameGrabber.toIntExact(10);
+            assertEquals(10, result);
+        } catch (ArithmeticException e) {
+            fail("Expected value does not cause an exception");
+        }
+        
+        try {
+            result = IPCameraFrameGrabber.toIntExact(1234567890123456789L);
+            fail("Expected exception not thrown");
+        } catch (ArithmeticException e) {
+            assertEquals("integer overflow", e.getMessage());
+        }
+    }
+}
+
+

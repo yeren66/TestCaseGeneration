@@ -1,0 +1,337 @@
+Source code: 
+
+
+public static String writeKeyedValues(KeyedValues data) {
+    Args.nullNotPermitted(data, "data");
+    StringWriter sw = new StringWriter();
+    try {
+        writeKeyedValues(data, sw);
+    } catch (IOException ex) {
+        throw new RuntimeException(ex);
+    }
+    return sw.toString();
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void writeKeyedValuesTest() {
+    // Create a sample KeyedValues object
+    DefaultKeyedValues data = new DefaultKeyedValues();
+    data.addValue("Key1", 10);
+    data.addValue("Key2", 20);
+    data.addValue("Key3", 30);
+    
+    // Call the writeKeyedValues method and get the result
+    String result = JSONUtils.writeKeyedValues(data);
+    
+    // Assert that the result is not null
+    assertNotNull(result);
+    
+    // Assert that the result matches the expected output
+    assertEquals("{\"Key1\":10.0,\"Key2\":20.0,\"Key3\":30.0}", result);
+}
+
+
+No.2 generated result --------------------------
+
+package org.jfree.data.json;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class JSONUtilsTest {
+    @Test
+    public void writeKeyedValuesTest() {
+        KeyedValues data = new DefaultKeyedValues();
+        data.setValue("key1", 1);
+        data.setValue("key2", 2);
+        String expectedOutput = "{\"key1\":1,\"key2\":2}";
+        assertEquals(expectedOutput, JSONUtils.writeKeyedValues(data));
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package org.jfree.data.json;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class JSONUtilsTest {
+    @Test
+    public void writeKeyedValuesTest() {
+        // Create a sample KeyedValues object
+        KeyedValues data = new DefaultKeyedValues();
+        data.addValue("A", 10);
+        data.addValue("B", 20);
+        data.addValue("C", 30);
+
+        // Call the method and capture the result
+        String result = JSONUtils.writeKeyedValues(data);
+
+        // Assert that the output is as expected
+        String expected = "\"A\": 10, \"B\": 20, \"C\": 30";
+        assertEquals(expected, result);
+    }
+}
+
+
+No.4 generated result --------------------------
+
+package org.jfree.data.json;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class JSONUtilsTest {
+    @Test
+    public void writeKeyedValuesTest() {
+        KeyedValues data = <initialize KeyedValues object>;
+        
+        String expected = <expected value>;
+        String actual = JSONUtils.writeKeyedValues(data);
+        
+        assertEquals(expected, actual);
+    }
+}
+
+
+No.5 generated result --------------------------
+
+public static String writeKeyedValues(KeyedValues data) {
+    Args.nullNotPermitted(data, "data");
+    StringWriter sw = new StringWriter();
+    try {
+        writeKeyedValues(data, sw);
+    } catch (IOException ex) {
+        throw new RuntimeException(ex);
+    }
+    return sw.toString();
+}
+
+package org.jfree.data.json;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.io.IOException;
+import java.io.StringWriter;
+
+import org.jfree.data.KeyedValues;
+
+public class JSONUtilsTest {
+    @Test
+    public void writeKeyedValuesTest() {
+        // Create dummy data for test
+        KeyedValues data = new KeyedValues() {
+            @Override
+            public int getItemCount() {
+                return 0;
+            }
+
+            @Override
+            public Number getValue(int index) {
+                return null;
+            }
+
+            @Override
+            public Comparable getKey(int index) {
+                return null;
+            }
+
+            @Override
+            public int getIndex(Comparable key) {
+                return 0;
+            }
+
+            @Override
+            public List getKeys() {
+                return null;
+            }
+
+            @Override
+            public Number getValue(Comparable key) {
+                return null;
+            }
+
+            @Override
+            public int getIndex(Comparable key) {
+                return 0;
+            }
+
+            @Override
+            public void addValue(Comparable key, Number value) {
+            }
+
+            @Override
+            public void addValue(int index, Comparable key, Number value) {
+            }
+
+            @Override
+            public void setValue(Comparable key, Number value) {
+            }
+
+            @Override
+            public void setValue(int index, Number value) {
+            }
+
+            @Override
+            public void insertValue(int index, Comparable key, Number value) {
+            }
+
+            @Override
+            public void removeValue(int index) {
+            }
+
+            @Override
+            public void removeValue(Comparable key) {
+            }
+
+            @Override
+            public void clear() {
+            }
+        };
+
+        // Write the KeyedValues data to a string
+        String result = JSONUtils.writeKeyedValues(data);
+
+        // Verify that the result is not null
+        assertNotNull(result);
+
+        // <FILL> - Add additional assertions to test the output of the method
+
+    }
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void writeKeyedValuesTest() {
+    KeyedValues data = new DefaultKeyedValues();
+    data.addValue("Apple", 2.0);
+    data.addValue("Orange", 3.0);
+    String expected = "Apple=2.0\nOrange=3.0\n";
+    String result = JSONUtils.writeKeyedValues(data);
+    assertEquals(expected, result);
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void writeKeyedValuesTest() {
+    KeyedValues data = new DefaultKeyedValues();
+    data.addValue("A", 1.0);
+    data.addValue("B", 2.0);
+    
+    String expected = "{\"values\":[{\"key\":\"A\",\"value\":1.0},{\"key\":\"B\",\"value\":2.0}]}";
+    String output = JSONUtils.writeKeyedValues(data);
+    
+    assertEquals(expected, output);
+}
+
+
+No.8 generated result --------------------------
+
+public static String writeKeyedValues(KeyedValues data) {
+    Args.nullNotPermitted(data, "data");
+    StringWriter sw = new StringWriter();
+    try {
+        writeKeyedValues(data, sw);
+    } catch (IOException ex) {
+        throw new RuntimeException(ex);
+    }
+    return sw.toString();
+}
+
+package org.jfree.data.json;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class JSONUtilsTest {
+    @Test
+    public void writeKeyedValuesTest() {
+        // Create the KeyedValues object for testing
+        DefaultKeyedValues data = new DefaultKeyedValues();
+        data.addValue("A", 1.0);
+        data.addValue("B", 2.0);
+        data.addValue("C", 3.0);
+        
+        // Call the writeKeyedValues method with the test data
+        String result = JSONUtils.writeKeyedValues(data);
+        
+        // Assert the expected result with the actual result
+        assertEquals("A=1.0,B=2.0,C=3.0", result);
+    }
+}
+
+
+No.9 generated result --------------------------
+
+
+package org.jfree.data.json;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class JSONUtilsTest {
+  
+    @Test
+    public void writeKeyedValuesTest() {
+        KeyedValues data = new KeyedValues();
+        // set up test data
+        
+        String expected = ""; // specify the expected output here
+        
+        // perform the test
+        String result = JSONUtils.writeKeyedValues(data);
+        
+        // assert the result
+        assertEquals(expected, result);
+    }
+}
+
+
+
+No.10 generated result --------------------------
+
+public static String writeKeyedValues(KeyedValues data) {
+    Args.nullNotPermitted(data, "data");
+    StringWriter sw = new StringWriter();
+    try {
+        writeKeyedValues(data, sw);
+    } catch (IOException ex) {
+        throw new RuntimeException(ex);
+    }
+    return sw.toString();
+}
+
+
+### JUNIT Test case:
+package org.jfree.data.json;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class JSONUtilsTest {
+    @Test
+    public void writeKeyedValuesTest() {
+        // Arrange
+        KeyedValues keyedValues = new DefaultKeyedValues();
+        
+        // Act
+        String result = JSONUtils.writeKeyedValues(keyedValues);
+        
+        // Assert
+        assertNotNull(result);
+        // additional assertions can be added here
+    }
+}
+
+

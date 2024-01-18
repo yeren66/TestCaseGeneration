@@ -1,0 +1,353 @@
+Source code: 
+
+
+@Override
+public boolean equals(Object obj) {
+    if (obj == this) {
+        return true;
+    }
+    if (!(obj instanceof Series)) {
+        return false;
+    }
+    Series that = (Series) obj;
+    if (!Objects.equals(this.key, that.key)) {
+        return false;
+    }
+    if (!Objects.equals(this.description, that.description)) {
+        return false;
+    }
+    if (!that.canEqual(this)) {
+        return false;
+    }
+    return true;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    Series series1 = new Series("Key1", "Description1");
+    Series series2 = new Series("Key1", "Description1");
+
+    // Test for equal objects
+    assertTrue(series1.equals(series2));
+
+    // Test for unequal keys
+    series2.setKey("Key2");
+    assertFalse(series1.equals(series2));
+
+    // Test for unequal descriptions
+    series2.setKey("Key1");
+    series2.setDescription("Description2");
+    assertFalse(series1.equals(series2));
+
+    // Test for unequal objects
+    assertFalse(series1.equals(new Object()));
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    Series series1 = new SeriesImpl("key1", "description1");
+    Series series2 = new SeriesImpl("key1", "description1");
+    Series series3 = new SeriesImpl("key2", "description2");
+    
+    // Test if the series is equal to itself
+    assertTrue(series1.equals(series1));
+    
+    // Test if the series is equal to another series with the same key and description
+    assertTrue(series1.equals(series2));
+    
+    // Test if the series is not equal to another series with a different key
+    assertFalse(series1.equals(series3));
+    
+    // Test if the series is not equal to null
+    assertFalse(series1.equals(null));
+    
+    // Test if the series is not equal to an object of a different class
+    assertFalse(series1.equals("string"));
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    Series series1 = new MockSeries("key1", "description1");
+    Series series2 = new MockSeries("key1", "description1");
+    Series series3 = new MockSeries("key2", "description2");
+
+    // Test when objects are the same
+    assertTrue(series1.equals(series1));
+
+    // Test when objects are equal
+    assertTrue(series1.equals(series2));
+
+    // Test when objects are not equal
+    assertFalse(series1.equals(series3));
+}
+
+class MockSeries extends Series {
+    public MockSeries(Comparable key, String description) {
+        super(key, description);
+    }
+
+    public int getItemCount() {
+        return 0;
+    }
+
+    public Object clone() {
+        return null;
+    }
+
+    public boolean canEqual(Object other) {
+        return (other instanceof MockSeries);
+    }
+
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    public void addChangeListener(SeriesChangeListener listener) {
+    }
+
+    public void removeChangeListener(SeriesChangeListener listener) {
+    }
+
+    public void fireSeriesChanged() {
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+    }
+
+    public void firePropertyChange(String property, Object oldValue, Object newValue) {
+    }
+
+    public void addVetoableChangeListener(VetoableChangeListener listener) {
+    }
+
+    public void removeVetoableChangeListener(VetoableChangeListener listener) {
+    }
+
+    public void fireVetoableChange(String property, Object oldValue, Object newValue) {
+    }
+}
+
+
+No.4 generated result --------------------------
+
+package org.jfree.data.general;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class SeriesTest {
+    @Test
+    public void equalsTest() {
+        // Create two Series objects with the same key and description
+        Series series1 = new ConcreteSeries("Key", "Description");
+        Series series2 = new ConcreteSeries("Key", "Description");
+        
+        // Test that the equals() method returns true when comparing two identical Series objects
+        assertTrue(series1.equals(series1));
+        assertTrue(series1.equals(series2));
+        
+        // Test that the equals() method returns false when comparing to null
+        assertFalse(series1.equals(null));
+        
+        // Test that the equals() method returns false when comparing to an object of a different class
+        assertFalse(series1.equals(new String("Key")));
+        
+        // Test that the equals() method returns false when comparing two Series objects with different keys
+        Series series3 = new ConcreteSeries("DifferentKey", "Description");
+        assertFalse(series1.equals(series3));
+        
+        // Test that the equals() method returns false when comparing two Series objects with different descriptions
+        Series series4 = new ConcreteSeries("Key", "DifferentDescription");
+        assertFalse(series1.equals(series4));
+    }
+    
+    private class ConcreteSeries extends Series {
+        protected ConcreteSeries(Comparable key) {
+            super(key);
+        }
+        
+        protected ConcreteSeries(Comparable key, String description) {
+            super(key, description);
+        }
+        
+        public int getItemCount() {
+            return 0;
+        }
+    }
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    Series series1 = new SeriesImpl(1, "Description 1");
+    Series series2 = new SeriesImpl(1, "Description 1");
+    Series series3 = new SeriesImpl(2, "Description 1");
+    Series series4 = new SeriesImpl(1, "Description 2");
+    
+    assertTrue(series1.equals(series2));
+    assertTrue(series2.equals(series1));
+    assertFalse(series1.equals(series3));
+    assertFalse(series3.equals(series1));
+    assertFalse(series1.equals(series4));
+    assertFalse(series4.equals(series1));
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    Series series1 = new ConcreteSeries("key1", "description1");
+    Series series2 = new ConcreteSeries("key1", "description1");
+    Series series3 = new ConcreteSeries("key2", "description2");
+    
+    // Test equal objects
+    assertTrue(series1.equals(series1), "Series is not equal to itself");
+    
+    // Test equal keys and descriptions
+    assertTrue(series1.equals(series2), "Series with equal keys and descriptions are not equal");
+    
+    // Test unequal keys
+    assertFalse(series1.equals(series3), "Series with unequal keys are equal");
+    
+    // Test unequal descriptions
+    series3.setDescription("description3");
+    assertFalse(series1.equals(series3), "Series with unequal descriptions are equal");
+    
+    // Test unequal objects
+    assertFalse(series1.equals(new Object()), "Series is equal to an object of a different class");
+}
+
+class ConcreteSeries extends Series {
+    public ConcreteSeries(Comparable key, String description) {
+        super(key, description);
+    }
+    
+    public boolean canEqual(Object other) {
+        return (other instanceof ConcreteSeries);
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+    public void equalsTest() {
+        Series series1 = new SeriesImpl("key", "description");
+        Series series2 = new SeriesImpl("key", "description");
+        
+        assertTrue(series1.equals(series2));
+    }
+
+
+No.8 generated result --------------------------
+
+@Test
+    public void equalsTest() {
+        Series series1 = new SeriesImpl("key", "description");
+        Series series2 = new SeriesImpl("key", "description");
+        Series series3 = new SeriesImpl("key2", "description");
+        Series series4 = new SeriesImpl("key", "description2");
+        
+        assertTrue(series1.equals(series1)); // testing for reflexivity
+        assertTrue(series1.equals(series2)); // testing for symmetry
+        assertTrue(series2.equals(series1)); // testing for symmetry
+        assertFalse(series1.equals(series3)); // testing for inequality
+        assertFalse(series1.equals(series4)); // testing for inequality
+        assertFalse(series1.equals(null)); // testing for null
+    }
+
+
+No.9 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    Series series1 = new SeriesImpl("Key", "Description");
+    Series series2 = new SeriesImpl("Key", "Description");
+    Series series3 = new SeriesImpl("Key2", "Description");
+    Series series4 = new SeriesImpl("Key", "Description2");
+    
+    // Test if two Series with the same key and description are considered equal
+    assertEquals(series1, series2);
+    
+    // Test if two Series with different keys are not considered equal
+    assertNotEquals(series1, series3);
+    
+    // Test if two Series with different descriptions are not considered equal
+    assertNotEquals(series1, series4);
+    
+    // Test if a Series is equal to itself
+    assertEquals(series1, series1);
+    
+    // Test if a Series is not equal to null
+    assertNotEquals(series1, null);
+    
+    // Test if a Series is not equal to an object of a different class
+    assertNotEquals(series1, new Object());
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    Series series1 = new ConcreteSeries("key1", "description1");
+    Series series2 = new ConcreteSeries("key1", "description1");
+    Series series3 = new ConcreteSeries("key2", "description2");
+
+    // Test for the objects being equal
+    assertTrue(series1.equals(series1));
+    assertTrue(series1.equals(series2));
+    assertTrue(series2.equals(series1));
+
+    // Test for the objects being not equal
+    assertFalse(series1.equals(null));
+    assertFalse(series1.equals(new Object()));
+    assertFalse(series1.equals(series3));
+    assertFalse(series3.equals(series1));
+}
+
+class ConcreteSeries extends Series {
+    public ConcreteSeries(Comparable key, String description) {
+        super(key, description);
+    }
+
+    // Implement necessary abstract methods
+
+    @Override
+    public int getItemCount() {
+        return 0;
+    }
+
+    @Override
+    public Object clone() {
+        return null;
+    }
+
+    @Override
+    public boolean canEqual(Object other) {
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+}
+
+

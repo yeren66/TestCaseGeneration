@@ -1,0 +1,168 @@
+Source code: 
+
+// Fast fuzzy version.  Used a cached value until it gets old, then re-up
+// the cache.
+public long estimate_sum( ) {
+  // For short tables, just do the work
+  if( _t.length <= 64 ) return sum();
+  // For bigger tables, periodically freshen a cached value
+  long millis = System.currentTimeMillis();
+  if( _fuzzy_time != millis ) { // Time marches on?
+    _fuzzy_sum_cache = sum(); // Get sum the hard way
+    _fuzzy_time = millis;   // Indicate freshness of cached value
+  }
+  return _fuzzy_sum_cache;  // Return cached sum
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void estimate_sumTest() {
+    ConcurrentAutoTable cat = new ConcurrentAutoTable();
+    long expected = cat.estimate_sum();
+    long actual = cat.estimate_sum();
+    assertEquals(expected, actual);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void estimate_sumTest() {
+    ConcurrentAutoTable table = new ConcurrentAutoTable();
+    long expectedSum = <FILL>; // expected sum value
+    long estimatedSum = table.estimate_sum();
+    assertEquals(expectedSum, estimatedSum);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void estimate_sumTest() {
+    ConcurrentAutoTable table = new ConcurrentAutoTable();
+    table.set(10); // Set initial value
+    long expectedSum = table.get();
+    long actualSum = table.estimate_sum();
+    assertEquals(expectedSum, actualSum);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void estimate_sumTest() {
+    ConcurrentAutoTable concurrentAutoTable = new ConcurrentAutoTable();
+    long expectedSum = concurrentAutoTable.estimate_sum();
+    long actualSum = concurrentAutoTable.estimate_sum();
+    assertEquals(expectedSum, actualSum);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void estimate_sumTest() {
+    ConcurrentAutoTable cat = new ConcurrentAutoTable();
+    long expectedSum = cat.get(); // Get the initial sum
+
+    // Call estimate_sum() multiple times to verify caching behavior
+    for (int i = 1; i <= 10; i++) {
+        long actualSum = cat.estimate_sum();
+
+        // Verify that the cached sum matches the expected sum
+        assertEquals(expectedSum, actualSum, "Cached sum does not match expected sum");
+
+        // Update the expected sum by calling sum() directly
+        expectedSum = cat.sum();
+    }
+}
+
+
+No.6 generated result --------------------------
+
+package org.jctools.maps;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ConcurrentAutoTableTest {
+    @Test
+    public void estimate_sumTest() {
+        ConcurrentAutoTable table = new ConcurrentAutoTable();
+        long expectedSum = table.sum(); // Calculate expected sum
+
+        // Call estimate_sum() multiple times and verify that the returned value matches the expected sum
+        for (int i = 0; i < 100; i++) {
+            long actualSum = table.estimate_sum();
+            assertEquals(expectedSum, actualSum);
+        }
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void estimate_sumTest() {
+    ConcurrentAutoTable cat = new ConcurrentAutoTable();
+    long expectedSum = cat.estimate_sum();
+    long actualSum = cat.estimate_sum();
+    assertEquals(expectedSum, actualSum);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void estimate_sumTest() {
+    // Create an instance of ConcurrentAutoTable
+    ConcurrentAutoTable autoTable = new ConcurrentAutoTable();
+
+    // Set up the internal state of the autoTable
+    autoTable._t = new long[65]; // Initialize the array with length 65
+    autoTable._fuzzy_sum_cache = 100; // Set the fuzzy sum cache to 100
+    autoTable._fuzzy_time = System.currentTimeMillis(); // Set the fuzzy time to the current time
+
+    // Call the estimate_sum() method
+    long result = autoTable.estimate_sum();
+
+    // Verify the result
+    assertEquals(100, result);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void estimate_sumTest() {
+    // Create an instance of ConcurrentAutoTable
+    ConcurrentAutoTable table = new ConcurrentAutoTable();
+    
+    // Call the estimate_sum() method
+    long result = table.estimate_sum();
+    
+    // Verify the expected output using assertions
+    // For example, we can assert that the result is not null
+    assertNotNull(result);
+    
+    // We can also assert specific values or conditions
+    // For example, assert that the result is greater than or equal to 0
+    assertTrue(result >= 0);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void estimate_sumTest() {
+    ConcurrentAutoTable cat = new ConcurrentAutoTable(); // Create an instance of ConcurrentAutoTable
+    long expected = cat.estimate_sum(); // Call the estimate_sum() method to get the expected result
+
+    // Assert the expected result against the actual result
+    assertEquals(expected, cat.estimate_sum());
+}
+
+

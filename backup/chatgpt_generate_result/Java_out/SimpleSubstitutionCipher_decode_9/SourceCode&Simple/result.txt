@@ -1,0 +1,170 @@
+Source code: 
+
+
+public static String decode(String encryptedMessage, String cipherSmall) {
+    StringBuilder decoded = new StringBuilder();
+
+    Map<Character, Character> cipherMap = new HashMap<>();
+
+    char beginSmallLetter = 'a';
+    char beginCapitalLetter = 'A';
+
+    cipherSmall = cipherSmall.toLowerCase();
+    String cipherCapital = cipherSmall.toUpperCase();
+
+    for (int i = 0; i < cipherSmall.length(); i++) {
+        cipherMap.put(cipherSmall.charAt(i), beginSmallLetter++);
+        cipherMap.put(cipherCapital.charAt(i), beginCapitalLetter++);
+    }
+
+    for (int i = 0; i < encryptedMessage.length(); i++) {
+        if (Character.isAlphabetic(encryptedMessage.charAt(i))) {
+            decoded.append(cipherMap.get(encryptedMessage.charAt(i)));
+        } else {
+            decoded.append(encryptedMessage.charAt(i));
+        }
+    }
+
+    return decoded.toString();
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    String encryptedMessage = "W Klhiux wbkwx!";
+    String cipherSmall = "xzmnbvcxytqecfghioklpsadurw";
+
+    String expected = "I Decode source!";
+    String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+
+    assertEquals(expected, actual);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    String encryptedMessage = "Ebiil, Xlggl!"; // Example encrypted message
+    String cipherSmall = "zyxwvutsrqponmlkjihgfedcba"; // Example cipher
+    String expectedDecodedMessage = "Hello, World!"; // Expected decoded message
+    
+    String decodedMessage = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+    
+    assertEquals(expectedDecodedMessage, decodedMessage);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    String encryptedMessage = "Xlmrk Gsv Hszoo.";
+    String cipherSmall = "zyxwvutsrqponmlkjihgfedcba";
+
+    String expectedOutput = "World The Best.";
+    String actualOutput = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+
+    assertEquals(expectedOutput, actualOutput);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    String encryptedMessage = "Rovvy,!"
+    String cipherSmall = "zyxwvutsrqponmlkjihgfedcba";
+    String expected = "Hello,!";
+    String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+    assertEquals(expected, actual);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    String encryptedMessage = "Hnlyleprla";
+    String cipherSmall = "qwertyuiopasdfghjklzxcvbnm";
+    String expectedDecodedMessage = "Encryption";
+    
+    String actualDecodedMessage = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+    
+    assertEquals(expectedDecodedMessage, actualDecodedMessage);
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+    public void decodeTest() {
+        String encryptedMessage = "Zpv bsf xjmm boe xbmmz";
+        String cipherSmall = "zyxwvutsrqponmlkjihgfedcba";
+        String expected = "You are too zoomy";
+
+        String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+
+        assertEquals(expected, actual);
+    }
+
+
+No.7 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    String encryptedMessage = "qvvr";
+    String cipherSmall = "zyxw";
+    String expectedResult = "good";
+
+    String actualResult = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+
+    assertEquals(expectedResult, actualResult);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+    public void decodeTest() {
+        String encryptedMessage = "Obnf";
+        String cipherSmall = "bcdefghijklmnopqrstuvwxyza";
+        
+        String expected = "Once";
+        String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+        
+        assertEquals(expected, actual);
+    }
+
+
+No.9 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    String encryptedMessage = "Djqjq, qru pb fuud d euhdn!";
+    String cipherSmall = "qweasdzxc";
+    String expectedDecodedMessage = "Hello, you are doing a great!";
+    
+    String actualDecodedMessage = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+    
+    assertEquals(expectedDecodedMessage, actualDecodedMessage);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    String encryptedMessage = "Tqxxa Tqxxa";
+    String cipherSmall = "bcdefghijklmnopqrstuvwxyza";
+    String expectedDecodedMessage = "Spwwz Spwwz";
+
+    String actualDecodedMessage = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+
+    assertEquals(expectedDecodedMessage, actualDecodedMessage);
+}
+
+

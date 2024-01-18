@@ -1,0 +1,27 @@
+{
+    "project_name": "Java",
+    "file_name": "SimpleSubstitutionCipher.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/ciphers/SimpleSubstitutionCipher.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.ciphers",
+    "docstring": "/**\n     * Encrypt text by replacing each element with its opposite character.\n     *\n     * @return Encrypted message\n     */",
+    "source_code": "\npublic static String encode(String message, String cipherSmall) {\n    StringBuilder encoded = new StringBuilder();\n\n    // This map is used to encode\n    Map<Character, Character> cipherMap = new HashMap<>();\n\n    char beginSmallLetter = 'a';\n    char beginCapitalLetter = 'A';\n\n    cipherSmall = cipherSmall.toLowerCase();\n    String cipherCapital = cipherSmall.toUpperCase();\n\n    // To handle Small and Capital letters\n    for (int i = 0; i < cipherSmall.length(); i++) {\n        cipherMap.put(beginSmallLetter++, cipherSmall.charAt(i));\n        cipherMap.put(beginCapitalLetter++, cipherCapital.charAt(i));\n    }\n\n    for (int i = 0; i < message.length(); i++) {\n        if (Character.isAlphabetic(message.charAt(i))) {\n            encoded.append(cipherMap.get(message.charAt(i)));\n        } else {\n            encoded.append(message.charAt(i));\n        }\n    }\n\n    return encoded.toString();\n}\n",
+    "class_name": "SimpleSubstitutionCipher",
+    "method_name": "encode",
+    "arguments": [
+        "String message",
+        "String cipherSmall"
+    ],
+    "generate_test": [
+        "@Test\npublic void encodeTest() {\n    // Input\n    String message = \"Hello World!\";\n    String cipherSmall = \"zyxwvutsrqponmlkjihgfedcba\";\n    \n    // Expected output\n    String expected = \"Svool Dliow!\";\n    \n    // Actual output\n    String actual = SimpleSubstitutionCipher.encode(message, cipherSmall);\n    \n    // Assertion\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void encodeTest() {\n    String message = \"Hello World!\";\n    String cipherSmall = \"bcdefghijklmnopqrstuvwxyza\";\n    String expected = \"Ifmmp Xpsme!\";\n    \n    String actual = SimpleSubstitutionCipher.encode(message, cipherSmall);\n    \n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void encodeTest() {\n    String message = \"Hello World\";\n    String cipherSmall = \"zyxwvutsrqponmlkjihgfedcba\";\n    String expected = \"Svool Dliow\";\n\n    String result = SimpleSubstitutionCipher.encode(message, cipherSmall);\n\n    assertEquals(expected, result);\n}",
+        "@Test\npublic void encodeTest() {\n    String message = \"Hello, World!\";\n    String cipherSmall = \"qwertyuiopasdfghjklzxcvbnm\";\n\n    String expected = \"itxxs, qjxxv!\";\n    String actual = SimpleSubstitutionCipher.encode(message, cipherSmall);\n\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void encodeTest() {\n    String message = \"Hello World\";\n    String cipherSmall = \"qwertyuiopasdfghjklzxcvbnm\";\n\n    String expected = \"Itssg Pguks\";\n    String actual = SimpleSubstitutionCipher.encode(message, cipherSmall);\n\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void encodeTest() {\n    String message = \"Hello, World!\";\n    String cipherSmall = \"xyzabcdefghijklmnopqrstuvw\";\n    String expectedOutput = \"Yeqqo, Baqpd!\";\n    \n    String actualOutput = SimpleSubstitutionCipher.encode(message, cipherSmall);\n    \n    assertEquals(expectedOutput, actualOutput);\n}",
+        "@Test\npublic void encodeTest() {\n    String message = \"Hello, World!\";\n    String cipherSmall = \"xyzabcdefghijklmnopqrstuvw\";\n\n    String expected = \"Sgdde, Urtqw!\";\n    String actual = SimpleSubstitutionCipher.encode(message, cipherSmall);\n\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void encodeTest() {\n    // Test case 1\n    String message1 = \"Hello World\";\n    String cipherSmall1 = \"defghijklmnopqrstuvwxyzabc\";\n    String expected1 = \"Itssg Ptqsd\";\n    String actual1 = SimpleSubstitutionCipher.encode(message1, cipherSmall1);\n    assertEquals(expected1, actual1);\n\n    // Test case 2\n    String message2 = \"This is a test\";\n    String cipherSmall2 = \"xyzabcdefghijklmnopqrstuvw\";\n    String expected2 = \"Hqrs rs v xltm\";\n    String actual2 = SimpleSubstitutionCipher.encode(message2, cipherSmall2);\n    assertEquals(expected2, actual2);\n}",
+        "@Test\npublic void encodeTest() {\n    String message = \"Hello World!\";\n    String cipherSmall = \"xyzabc\";\n    String expected = \"Smith Patgd!\";\n    String actual = SimpleSubstitutionCipher.encode(message, cipherSmall);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void encodeTest() {\n    String message = \"Hello World\";\n    String cipherSmall = \"zyxwvutsrqponmlkjihgfedcba\";\n\n    String expected = \"Svool Dliow\";\n    String actual = SimpleSubstitutionCipher.encode(message, cipherSmall);\n\n    assertEquals(expected, actual);\n}"
+    ]
+}

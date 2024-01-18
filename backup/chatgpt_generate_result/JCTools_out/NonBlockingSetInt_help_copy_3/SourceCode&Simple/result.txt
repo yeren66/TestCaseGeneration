@@ -1,0 +1,204 @@
+Source code: 
+
+// Help any top-level NBSI to copy until completed.
+// Always return the _new version of *this* NBSI, in case we're nested.
+private NBSI help_copy() {
+  // Pick some words to help with - but only help copy the top-level NBSI.
+  // Nested NBSI waits until the top is done before we start helping.
+  NBSI top_nbsi = _non_blocking_set_int._nbsi;
+  final int HELP = 8;       // Tuning number: how much copy pain are we willing to inflict?
+  // We "help" by forcing individual bit indices to copy.  However, bits
+  // come in lumps of 64 per word, so we just advance the bit counter by 64's.
+  int idx = top_nbsi._copyIdx.getAndAdd(64*HELP);
+  for( int i=0; i<HELP; i++ ) {
+    int j = idx+i*64;
+    j %= (top_nbsi._bits.length<<6); // Limit, wrap to array size; means we retry indices
+    top_nbsi.help_copy_impl(j   );
+    top_nbsi.help_copy_impl(j+63); // Also force the nested-by-64 bit
+  }
+
+  // Top level guy ready to promote?
+  // Note: WE may not be the top-level guy!
+  if( top_nbsi._copyDone.get() == top_nbsi._sum_bits_length )
+    // One shot CAS to promote - it may fail since we are racing; others
+    // may promote as well
+    if( _non_blocking_set_int.CAS_nbsi( top_nbsi, top_nbsi._new ) ) {
+      //System.out.println("Promote at top level to size "+(_non_blocking_set_int._nbsi._bits.length<<6));
+    }
+
+  // Return the new bitvector for 'fluid' programming style
+  return _new;
+}
+
+
+
+No.1 generated result --------------------------
+
+
+@Test
+public void help_copyTest() {
+    NonBlockingSetInt nonBlockingSetInt = new NonBlockingSetInt();
+    NonBlockingSetInt.NBSI nbsi = new NonBlockingSetInt.NBSI(10, null, nonBlockingSetInt);
+    NonBlockingSetInt.NBSI mockedNbsi = Mockito.mock(NonBlockingSetInt.NBSI.class);
+
+    nbsi._non_blocking_set_int = nonBlockingSetInt;
+    nbsi._copyIdx = new AtomicInteger(0);
+    nbsi._bits = new long[1];
+    nbsi._copyDone = new AtomicInteger(64);
+
+    Mockito.when(mockedNbsi._copyIdx.getAndAdd(64 * 8)).thenReturn(0);
+    Mockito.when(mockedNbsi.help_copy_impl(0)).thenReturn(new NonBlockingSetInt.NBSI());
+    Mockito.when(mockedNbsi.help_copy_impl(63)).thenReturn(new NonBlockingSetInt.NBSI());
+
+    Mockito.when(mockedNbsi._copyDone.get()).thenReturn(64);
+
+    Mockito.when(nonBlockingSetInt.CAS_nbsi(Mockito.any(NonBlockingSetInt.NBSI.class), Mockito.any(NonBlockingSetInt.NBSI.class)))
+            .thenReturn(true);
+
+    nbsi.help_copy();
+
+    // Assert statements
+
+    Mockito.verify(mockedNbsi, Mockito.times(8)).help_copy_impl(Mockito.anyInt());
+    Mockito.verify(mockedNbsi, Mockito.times(1))._copyIdx.getAndAdd(64 * 8);
+    Mockito.verify(mockedNbsi._non_blocking_set_int, Mockito.times(1)).CAS_nbsi(nbsi, nbsi._new);
+}
+
+
+
+No.2 generated result --------------------------
+
+@Test
+public void help_copyTest() {
+    NonBlockingSetInt nonBlockingSetInt = new NonBlockingSetInt();
+    NonBlockingSetInt.NBSI nbsi = nonBlockingSetInt.new NBSI(10, null, nonBlockingSetInt);
+
+    // Set up the initial state for the test
+    nbsi._copyIdx.set(0);
+    nbsi._copyDone.set(0);
+    nbsi._sum_bits_length = 64;
+
+    // Call the method being tested
+    nbsi.help_copy();
+
+    // Assert the expected results
+    assertEquals(64*8, nbsi._copyIdx.get());
+    assertEquals(0, nbsi._copyDone.get());
+    assertEquals(64, nbsi._bits.length);
+    assertEquals(nbsi._bits.length * 64, nonBlockingSetInt.length() * 64);
+}
+
+
+No.3 generated result --------------------------
+
+package org.jctools.maps;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NonBlockingSetIntTest {
+    @Test
+    public void help_copyTest() {
+        NonBlockingSetInt setInt = new NonBlockingSetInt();
+        NonBlockingSetInt.NBSI nbsi = setInt.new NBSI(100, new ConcurrentAutoTable(), setInt);
+        
+        NonBlockingSetInt.NBSI result = nbsi.help_copy();
+        
+        // Assert the expected behavior of the help_copy method
+        assertNotNull(result); // Ensure the result is not null
+        // Add more assertions as needed
+    }
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void help_copyTest() {
+    NonBlockingSetInt setInt = new NonBlockingSetInt();
+    NonBlockingSetInt.NBSI nbsi = setInt.new NBSI(10, null, setInt);
+    NonBlockingSetInt.NBSI newNbsi = nbsi.help_copy();
+    assertNotNull(newNbsi);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void help_copyTest() {
+    NonBlockingSetInt nbsi = new NonBlockingSetInt();
+    NonBlockingSetInt.NBSI nbsiObj = nbsi.new NBSI(16, null, nbsi);
+    NonBlockingSetInt.NBSI newNbsi = nbsiObj.help_copy();
+    assertNotNull(newNbsi);
+    // Add assertions for the expected behavior of the help_copy method
+    // and any other relevant assertions
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+    public void help_copyTest() {
+        NonBlockingSetInt nonBlockingSetInt = new NonBlockingSetInt();
+        NBSI nbsi = new NBSI(100, new ConcurrentAutoTable(), nonBlockingSetInt);
+        NBSI newNbsi = nbsi.help_copy();
+        assertNotNull(newNbsi);
+        // Validate the new bitvector length
+        assertEquals(nbsi._bits.length << 6, newNbsi._bits.length << 6);
+        // Validate that the copy index is incremented by 64 * HELP
+        assertEquals(nbsi._copyIdx.get() + (64 * 8), newNbsi._copyIdx.get());
+        // Validate that the copyDone indicator is not updated until the copy is complete
+        assertEquals(nbsi._copyDone.get(), newNbsi._copyDone.get());
+        // Validate that the new bitvector is returned
+        assertEquals(newNbsi._new, nbsi._new);
+    }
+
+
+No.7 generated result --------------------------
+
+@Test
+public void help_copyTest() {
+    NonBlockingSetInt nonBlockingSet = new NonBlockingSetInt();
+    NBSI nbsi = nonBlockingSet.new NBSI(10, null, nonBlockingSet);
+    NBSI newNbsi = nbsi.help_copy();
+    assertEquals(newNbsi._new, nonBlockingSet._new);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void help_copyTest() {
+    NonBlockingSetInt nonBlockingSetInt = new NonBlockingSetInt();
+    NonBlockingSetInt.NBSI nbsi = nonBlockingSetInt.new NBSI(100, new ConcurrentAutoTable(), nonBlockingSetInt);
+    NBSI newNbsi = nbsi.help_copy();
+    assertEquals(newNbsi, nbsi._new);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void help_copyTest() {
+    NonBlockingSetInt nonBlockingSetInt = new NonBlockingSetInt();
+    NonBlockingSetInt.NBSI nbsi = new NonBlockingSetInt.NBSI(10, null, nonBlockingSetInt);
+    
+    // Run help_copy() method
+    NonBlockingSetInt.NBSI newNbsi = nbsi.help_copy();
+    
+    // Assert that the returned newNbsi is not null
+    assertNotNull(newNbsi);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void help_copyTest() {
+    NonBlockingSetInt set = new NonBlockingSetInt();
+    NonBlockingSetInt.NBSI nbsi = set.new NBSI(10, null, set);
+    NonBlockingSetInt.NBSI newNbsi = nbsi.help_copy();
+    assertNotNull(newNbsi);
+}
+
+

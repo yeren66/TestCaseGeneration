@@ -1,0 +1,222 @@
+Source code: 
+
+
+public static int getAliquotSum(int n) {
+    if (n <= 0) return -1;
+    int sum = 1;
+    double root = Math.sqrt(n);
+    /*
+     * We can get the factors after the root by dividing number by its factors
+     * before the root.
+     * Ex- Factors of 100 are 1, 2, 4, 5, 10, 20, 25, 50 and 100.
+     * Root of 100 is 10. So factors before 10 are 1, 2, 4 and 5.
+     * Now by dividing 100 by each factor before 10 we get:
+     * 100/1 = 100, 100/2 = 50, 100/4 = 25 and 100/5 = 20
+     * So we get 100, 50, 25 and 20 which are factors of 100 after 10
+     */
+    for (int i = 2; i <= root; i++) {
+        if (n % i == 0) {
+            sum += i + n / i;
+        }
+    }
+    // if n is a perfect square then its root was added twice in above loop, so subtracting root
+    // from sum
+    if (root == (int) root) sum -= root;
+    return sum;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void getAliquotSumTest() {
+    int aliquotSum = AliquotSum.getAliquotSum(100);
+    assertEquals(217, aliquotSum);
+    
+    aliquotSum = AliquotSum.getAliquotSum(15);
+    assertEquals(9, aliquotSum);
+    
+    aliquotSum = AliquotSum.getAliquotSum(10);
+    assertEquals(8, aliquotSum);
+    
+    aliquotSum = AliquotSum.getAliquotSum(7);
+    assertEquals(1, aliquotSum);
+    
+    aliquotSum = AliquotSum.getAliquotSum(1);
+    assertEquals(1, aliquotSum);
+    
+    aliquotSum = AliquotSum.getAliquotSum(0);
+    assertEquals(-1, aliquotSum);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void getAliquotSumTest() {
+    int result = AliquotSum.getAliquotSum(15);
+    assertEquals(9, result);
+    
+    result = AliquotSum.getAliquotSum(100);
+    assertEquals(217, result);
+    
+    result = AliquotSum.getAliquotSum(1);
+    assertEquals(1, result);
+    
+    result = AliquotSum.getAliquotSum(0);
+    assertEquals(-1, result);
+    
+    result = AliquotSum.getAliquotSum(-5);
+    assertEquals(-1, result);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void getAliquotSumTest() {
+    // Test case 1: n = 15
+    int result1 = AliquotSum.getAliquotSum(15);
+    assertEquals(9, result1);
+    
+    // Test case 2: n = 100
+    int result2 = AliquotSum.getAliquotSum(100);
+    assertEquals(217, result2);
+    
+    // Test case 3: n = 0
+    int result3 = AliquotSum.getAliquotSum(0);
+    assertEquals(-1, result3);
+    
+    // Test case 4: n = 1
+    int result4 = AliquotSum.getAliquotSum(1);
+    assertEquals(1, result4);
+}
+
+
+No.4 generated result --------------------------
+
+
+@Test
+public void getAliquotSumTest() {
+    // Test case 1 - valid input
+    int result1 = AliquotSum.getAliquotSum(15);
+    assertEquals(9, result1, "Incorrect aliquot sum for input 15");
+    
+    // Test case 2 - valid input
+    int result2 = AliquotSum.getAliquotSum(100);
+    assertEquals(217, result2, "Incorrect aliquot sum for input 100");
+    
+    // Test case 3 - edge case: n = 1
+    int result3 = AliquotSum.getAliquotSum(1);
+    assertEquals(1, result3, "Incorrect aliquot sum for input 1");
+    
+    // Test case 4 - negative input
+    int result4 = AliquotSum.getAliquotSum(-10);
+    assertEquals(-1, result4, "Incorrect aliquot sum for negative input");
+    
+    // Test case 5 - edge case: n = 0
+    int result5 = AliquotSum.getAliquotSum(0);
+    assertEquals(-1, result5, "Incorrect aliquot sum for input 0");
+}
+
+
+
+No.5 generated result --------------------------
+
+@Test
+public void getAliquotSumTest() {
+    // Test case 1
+    int result1 = AliquotSum.getAliquotSum(-1);
+    assertEquals(-1, result1, "Expected -1 for negative input");
+
+    // Test case 2
+    int result2 = AliquotSum.getAliquotSum(0);
+    assertEquals(-1, result2, "Expected -1 for zero input");
+
+    // Test case 3
+    int result3 = AliquotSum.getAliquotSum(15);
+    assertEquals(9, result3, "Expected 9 for input 15");
+
+    // Test case 4
+    int result4 = AliquotSum.getAliquotSum(100);
+    assertEquals(217, result4, "Expected 217 for input 100");
+
+    // Test case 5
+    int result5 = AliquotSum.getAliquotSum(2);
+    assertEquals(1, result5, "Expected 1 for input 2");
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void getAliquotSumTest() {
+    int result = AliquotSum.getAliquotSum(10);
+    assertEquals(8, result);
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void getAliquotSumTest() {
+    // Test case 1: Positive number
+    int result1 = AliquotSum.getAliquotSum(15);
+    assertEquals(9, result1);
+
+    // Test case 2: Negative number
+    int result2 = AliquotSum.getAliquotSum(-10);
+    assertEquals(-1, result2);
+
+    // Test case 3: Perfect square number
+    int result3 = AliquotSum.getAliquotSum(100);
+    assertEquals(117, result3);
+}
+
+
+No.8 generated result --------------------------
+
+    @Test
+    public void getAliquotSumTest() {
+        assertEquals(9, AliquotSum.getAliquotSum(15));
+        assertEquals(4, AliquotSum.getAliquotSum(6));
+        assertEquals(-1, AliquotSum.getAliquotSum(0));
+    }
+
+
+No.9 generated result --------------------------
+
+@Test
+public void getAliquotSumTest() {
+    // Test case 1: n = 15, expected sum = 9
+    int sum1 = AliquotSum.getAliquotSum(15);
+    assertEquals(9, sum1);
+
+    // Test case 2: n = 100, expected sum = 217
+    int sum2 = AliquotSum.getAliquotSum(100);
+    assertEquals(217, sum2);
+
+    // Test case 3: n = 1, expected sum = 1
+    int sum3 = AliquotSum.getAliquotSum(1);
+    assertEquals(1, sum3);
+
+    // Test case 4: n = 0, expected sum = -1
+    int sum4 = AliquotSum.getAliquotSum(0);
+    assertEquals(-1, sum4);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void getAliquotSumTest() {
+    assertEquals(0, AliquotSum.getAliquotSum(0));
+    assertEquals(-1, AliquotSum.getAliquotSum(-10));
+    assertEquals(9, AliquotSum.getAliquotSum(15));
+    assertEquals(28, AliquotSum.getAliquotSum(28));
+    assertEquals(1, AliquotSum.getAliquotSum(1));
+    assertEquals(4, AliquotSum.getAliquotSum(6));
+}
+
+

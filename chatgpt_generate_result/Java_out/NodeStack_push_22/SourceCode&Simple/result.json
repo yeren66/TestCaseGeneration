@@ -1,0 +1,26 @@
+{
+    "project_name": "Java",
+    "file_name": "NodeStack.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/datastructures/stacks/NodeStack.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.datastructures.stacks",
+    "docstring": "/**\n     * Put a value onto the stack.\n     *\n     * @param item : value to be put on the stack.\n     */",
+    "source_code": "\npublic void push(Item item) {\n    NodeStack<Item> newNs = new NodeStack<Item>(item);\n\n    if (this.isEmpty()) {\n        NodeStack.setHead(new NodeStack<>(item));\n        newNs.setNext(null);\n        newNs.setPrevious(null);\n    } else {\n        newNs.setPrevious(NodeStack.head);\n        NodeStack.head.setNext(newNs);\n        NodeStack.setHead(newNs);\n    }\n\n    NodeStack.setSize(NodeStack.getSize() + 1);\n}\n",
+    "class_name": "NodeStack",
+    "method_name": "push",
+    "arguments": [
+        "Item item"
+    ],
+    "generate_test": [
+        "@Test\npublic void pushTest() {\n    NodeStack<Integer> ns = new NodeStack<>();\n    ns.push(10);\n    ns.push(20);\n    ns.push(30);\n    \n    // Assert the size of the stack\n    assertEquals(3, ns.size());\n    \n    // Assert the top element of the stack\n    assertEquals(30, ns.peek());\n    \n    // Assert the stack is not empty\n    assertFalse(ns.isEmpty());\n}",
+        "package com.thealgorithms.datastructures.stacks;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class NodeStackTest {\n    @Test\n    public void pushTest() {\n        NodeStack<Integer> stack = new NodeStack<>();\n\n        stack.push(1);\n        assertEquals(1, stack.peek());\n        assertEquals(1, stack.size());\n\n        stack.push(2);\n        assertEquals(2, stack.peek());\n        assertEquals(2, stack.size());\n\n        stack.push(3);\n        assertEquals(3, stack.peek());\n        assertEquals(3, stack.size());\n    }\n}",
+        "@Test\npublic void pushTest() {\n    NodeStack<Integer> stack = new NodeStack<>();\n    stack.push(1);\n    stack.push(2);\n    \n    assertEquals(2, stack.size());\n    assertFalse(stack.isEmpty());\n    assertEquals(2, (int)stack.pop());\n    assertEquals(1, (int)stack.peek());\n}",
+        "@Test\npublic void pushTest() {\n    NodeStack<Integer> stack = new NodeStack<>();\n    stack.push(1);\n    \n    assertEquals(1, stack.peek());\n    assertEquals(1, stack.size());\n}",
+        "@Test\npublic void pushTest() {\n    NodeStack<Integer> stack = new NodeStack<Integer>();\n\n    // Test when stack is empty\n    stack.push(5);\n    assertEquals(1, stack.size());\n    assertEquals(5, stack.peek());\n\n    // Test when stack is not empty\n    stack.push(10);\n    assertEquals(2, stack.size());\n    assertEquals(10, stack.peek());\n}",
+        "@Test\npublic void pushTest() {\n    NodeStack<Integer> stack = new NodeStack<>();\n    stack.push(1);\n    assertEquals(1, stack.size());\n    stack.push(2);\n    assertEquals(2, stack.size());\n    stack.push(3);\n    assertEquals(3, stack.size());\n}",
+        "@Test\npublic void pushTest() {\n    NodeStack<Integer> stack = new NodeStack<>();\n    assertNull(NodeStack.getHead());\n    assertEquals(0, NodeStack.getSize());\n  \n    stack.push(1);\n    assertNotNull(NodeStack.getHead());\n    assertEquals(1, NodeStack.getHead().getData());\n    assertEquals(1, NodeStack.getSize());\n  \n    stack.push(2);\n    assertNotNull(NodeStack.getHead());\n    assertEquals(2, NodeStack.getHead().getData());\n    assertEquals(2, NodeStack.getSize());\n  \n    stack.push(3);\n    assertNotNull(NodeStack.getHead());\n    assertEquals(3, NodeStack.getHead().getData());\n    assertEquals(3, NodeStack.getSize());\n}",
+        "@Test\npublic void pushTest() {\n    NodeStack<Integer> stack = new NodeStack<>();\n    stack.push(5);\n    stack.push(10);\n    stack.push(15);\n\n    assertEquals(3, stack.size());\n    assertFalse(stack.isEmpty());\n}",
+        "@Test\npublic void pushTest() {\n    NodeStack<Integer> stack = new NodeStack<Integer>();\n    assertEquals(true, stack.isEmpty());\n\n    stack.push(1);\n    assertEquals(false, stack.isEmpty());\n    assertEquals(1, stack.size());\n\n    stack.push(2);\n    assertEquals(false, stack.isEmpty());\n    assertEquals(2, stack.size());\n\n    stack.push(3);\n    assertEquals(false, stack.isEmpty());\n    assertEquals(3, stack.size());\n}",
+        "@Test\n    public void pushTest() {\n        NodeStack<Integer> stack = new NodeStack<Integer>();\n        stack.push(5);\n        stack.push(10);\n        \n        assertTrue(stack.size() == 2);\n        assertEquals(10, stack.pop());\n        assertFalse(stack.isEmpty());\n        assertEquals(5, stack.peek());\n        \n        stack.pop();\n        assertTrue(stack.isEmpty());\n        assertNull(stack.peek());\n    }"
+    ]
+}

@@ -1,0 +1,159 @@
+Source code: 
+
+
+public int[] grab_raw() {
+    if (camera.getCameraFrame(ps3_frame, timeout)) {
+        return ps3_frame;
+    }
+    else return null;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void grab_rawTest() {
+    int[] expected = {1, 2, 3, 4};
+    int[] actual = new PS3EyeFrameGrabber().grab_raw();
+    assertArrayEquals(expected, actual);
+}
+
+
+No.2 generated result --------------------------
+
+package org.bytedeco.javacv;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PS3EyeFrameGrabberTest {
+    @Test
+    public void grab_rawTest() {
+        PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber();
+        int[] expected = {1, 2, 3, 4};
+        
+        // Configure the camera object and set the ps3_frame to the expected values
+        
+        int[] actual = grabber.grab_raw();
+        
+        assertArrayEquals(expected, actual);
+    }
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void grab_rawTest() {
+    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber();
+    int[] expected = {}; // fill in with expected values
+    
+    int[] actual = grabber.grab_raw();
+    
+    assertArrayEquals(expected, actual);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void grab_rawTest() {
+    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber(); // Create an instance of PS3EyeFrameGrabber
+    int[] expected = ps3_frame; // Set the expected result to the value of ps3_frame
+    
+    // Call the grab_raw() method and store the result in the actual variable
+    int[] actual = grabber.grab_raw();
+    
+    // Assert that the actual result is equal to the expected result
+    assertArrayEquals(expected, actual);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void grab_rawTest() {
+    int[] ps3_frame = {1, 2, 3, 4}; // Example camera frame
+    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber();
+    grabber.camera = new CLCamera(); // Example camera object
+    grabber.ps3_frame = ps3_frame;
+    
+    int[] result = grabber.grab_raw();
+    
+    assertNotNull(result);
+    assertArrayEquals(ps3_frame, result);
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void grab_rawTest() {
+    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber();
+    int[] expected = null;
+    
+    assertArrayEquals(expected, grabber.grab_raw());
+}
+
+
+No.7 generated result --------------------------
+
+package org.bytedeco.javacv;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PS3EyeFrameGrabberTest {
+    @Test
+    public void grab_rawTest() {
+        int[] expected = {1, 2, 3}; // Specify the expected return value here
+        
+        // Create an instance of PS3EyeFrameGrabber
+        PS3EyeFrameGrabber frameGrabber = new PS3EyeFrameGrabber();
+        
+        // Call the "grab_raw" method
+        int[] actual = frameGrabber.grab_raw();
+        
+        // Assert the returned value against the expected value
+        assertArrayEquals(expected, actual);
+    }
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void grab_rawTest() {
+    int[] expected = {1, 2, 3};
+    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber();
+    
+    int[] actual = grabber.grab_raw();
+    
+    assertArrayEquals(expected, actual);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void grab_rawTest() {
+    PS3EyeFrameGrabber grabber = new PS3EyeFrameGrabber(); // Create an instance of the PS3EyeFrameGrabber
+    int[] expected = null; // Define the expected result
+    
+    int[] actual = grabber.grab_raw(); // Call the grab_raw() method
+    
+    assertArrayEquals(expected, actual); // Check if the actual result matches the expected result
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void grab_rawTest() {
+    PS3EyeFrameGrabber frameGrabber = new PS3EyeFrameGrabber();
+    int[] ps3_frame = frameGrabber.grab_raw();
+    assertNotNull(ps3_frame);
+}
+
+

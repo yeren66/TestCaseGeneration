@@ -1,0 +1,73 @@
+Source code: 
+
+
+private static String getCharacter(Table table, int code) {
+  switch (table) {
+    case UPPER:
+      return UPPER_TABLE[code];
+    case LOWER:
+      return LOWER_TABLE[code];
+    case MIXED:
+      return MIXED_TABLE[code];
+    case PUNCT:
+      return PUNCT_TABLE[code];
+    case DIGIT:
+      return DIGIT_TABLE[code];
+    default:
+      // Should not reach here.
+      throw new IllegalStateException("Bad table");
+  }
+}
+
+
+
+No.1 generated result --------------------------
+
+Timeout
+
+
+No.2 generated result --------------------------
+
+Timeout
+
+
+No.3 generated result --------------------------
+
+Timeout
+
+
+No.4 generated result --------------------------
+
+Timeout
+
+
+No.5 generated result --------------------------
+
+Timeout
+
+
+No.6 generated result --------------------------
+
+Timeout
+
+
+No.7 generated result --------------------------
+
+Timeout
+
+
+No.8 generated result --------------------------
+
+Timeout
+
+
+No.9 generated result --------------------------
+
+Timeout
+
+
+No.10 generated result --------------------------
+
+Timeout
+
+

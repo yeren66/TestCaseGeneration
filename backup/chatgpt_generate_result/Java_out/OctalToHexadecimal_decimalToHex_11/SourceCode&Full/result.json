@@ -1,0 +1,26 @@
+{
+    "project_name": "Java",
+    "file_name": "OctalToHexadecimal.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/conversions/OctalToHexadecimal.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.conversions",
+    "docstring": "/**\n     * This method converts a Decimal number to a Hexadecimal number\n     *\n     * @param d The Decimal Number\n     * @return The Hexadecimal number\n     */",
+    "source_code": "\npublic static String decimalToHex(int d) {\n    String digits = \"0123456789ABCDEF\";\n    if (d <= 0) {\n        return \"0\";\n    }\n    String hex = \"\";\n    while (d > 0) {\n        int digit = d % 16;\n        hex = digits.charAt(digit) + hex;\n        d = d / 16;\n    }\n    return hex;\n}\n",
+    "class_name": "OctalToHexadecimal",
+    "method_name": "decimalToHex",
+    "arguments": [
+        "int d"
+    ],
+    "generate_test": [
+        "@Test\npublic void decimalToHexTest() {\n    int decimal = 65;\n    String expectedHex = \"41\";\n    \n    String actualHex = OctalToHexadecimal.decimalToHex(decimal);\n    \n    assertEquals(expectedHex, actualHex);\n}",
+        "@Test\npublic void decimalToHexTest() {\n    assertEquals(\"0\", OctalToHexadecimal.decimalToHex(0));\n    assertEquals(\"1\", OctalToHexadecimal.decimalToHex(1));\n    assertEquals(\"A\", OctalToHexadecimal.decimalToHex(10));\n    assertEquals(\"F\", OctalToHexadecimal.decimalToHex(15));\n    assertEquals(\"10\", OctalToHexadecimal.decimalToHex(16));\n    assertEquals(\"1F\", OctalToHexadecimal.decimalToHex(31));\n}",
+        "@Test\npublic void decimalToHexTest() {\n    // Test when the decimal number is 0\n    assertEquals(\"0\", OctalToHexadecimal.decimalToHex(0));\n\n    // Test when the decimal number is positive\n    assertEquals(\"A\", OctalToHexadecimal.decimalToHex(10));\n    assertEquals(\"64\", OctalToHexadecimal.decimalToHex(100));\n\n    // Test when the decimal number is negative\n    assertEquals(\"0\", OctalToHexadecimal.decimalToHex(-10));\n    assertEquals(\"0\", OctalToHexadecimal.decimalToHex(-100));\n}",
+        "@Test\npublic void decimalToHexTest() {\n    String hex = OctalToHexadecimal.decimalToHex(100);\n    assertEquals(\"64\", hex);\n}",
+        "@Test\npublic void decimalToHexTest() {\n    int decimal = 24;\n    String expectedHex = \"18\";\n    \n    String actualHex = OctalToHexadecimal.decimalToHex(decimal);\n    \n    assertEquals(expectedHex, actualHex);\n}",
+        "@Test\n    public void decimalToHexTest() {\n        assertEquals(\"0\", OctalToHexadecimal.decimalToHex(0));\n        assertEquals(\"1\", OctalToHexadecimal.decimalToHex(1));\n        assertEquals(\"A\", OctalToHexadecimal.decimalToHex(10));\n        assertEquals(\"F\", OctalToHexadecimal.decimalToHex(15));\n        assertEquals(\"10\", OctalToHexadecimal.decimalToHex(16));\n        assertEquals(\"19\", OctalToHexadecimal.decimalToHex(25));\n        assertEquals(\"3E8\", OctalToHexadecimal.decimalToHex(1000));\n        assertEquals(\"7FFF\", OctalToHexadecimal.decimalToHex(32767));\n        assertEquals(\"FFFF\", OctalToHexadecimal.decimalToHex(65535));\n    }",
+        "@Test\n    public void decimalToHexTest() {\n        int decimal = OctalToHexadecimal.octToDec(\"27\");\n        String hex = OctalToHexadecimal.decimalToHex(decimal);\n        assertEquals(\"1B\", hex);\n    }",
+        "@Test\npublic void decimalToHexTest() {\n    // Test case 1: Decimal number is positive\n    int decimal1 = 10;\n    String expectedHex1 = \"A\";\n    String actualHex1 = OctalToHexadecimal.decimalToHex(decimal1);\n    assertEquals(expectedHex1, actualHex1);\n\n    // Test case 2: Decimal number is negative\n    int decimal2 = -10;\n    String expectedHex2 = \"0\";\n    String actualHex2 = OctalToHexadecimal.decimalToHex(decimal2);\n    assertEquals(expectedHex2, actualHex2);\n\n    // Test case 3: Decimal number is zero\n    int decimal3 = 0;\n    String expectedHex3 = \"0\";\n    String actualHex3 = OctalToHexadecimal.decimalToHex(decimal3);\n    assertEquals(expectedHex3, actualHex3);\n}",
+        "package com.thealgorithms.conversions;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class OctalToHexadecimalTest {\n    @Test\n    public void decimalToHexTest() {\n        String result = OctalToHexadecimal.decimalToHex(10);\n        assertEquals(\"A\", result);\n        \n        result = OctalToHexadecimal.decimalToHex(25);\n        assertEquals(\"19\", result);\n        \n        result = OctalToHexadecimal.decimalToHex(100);\n        assertEquals(\"64\", result);\n        \n        result = OctalToHexadecimal.decimalToHex(255);\n        assertEquals(\"FF\", result);\n    }\n}",
+        "@Test\npublic void decimalToHexTest() {\n    // Test case 1: Input d = 0, expected output = \"0\"\n    assertEquals(\"0\", OctalToHexadecimal.decimalToHex(0));\n    \n    // Test case 2: Input d = 15, expected output = \"F\"\n    assertEquals(\"F\", OctalToHexadecimal.decimalToHex(15));\n    \n    // Test case 3: Input d = 255, expected output = \"FF\"\n    assertEquals(\"FF\", OctalToHexadecimal.decimalToHex(255));\n    \n    // Test case 4: Input d = 16, expected output = \"10\"\n    assertEquals(\"10\", OctalToHexadecimal.decimalToHex(16));\n}"
+    ]
+}

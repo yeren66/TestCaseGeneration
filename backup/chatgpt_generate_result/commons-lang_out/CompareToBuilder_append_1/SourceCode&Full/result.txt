@@ -1,0 +1,80 @@
+Source code: 
+
+
+public CompareToBuilder append(final byte[] lhs, final byte[] rhs) {
+    if (comparison != 0) {
+        return this;
+    }
+    if (lhs == rhs) {
+        return this;
+    }
+    if (lhs == null) {
+        comparison = -1;
+        return this;
+    }
+    if (rhs == null) {
+        comparison = 1;
+        return this;
+    }
+    if (lhs.length != rhs.length) {
+        comparison = lhs.length < rhs.length ? -1 : 1;
+        return this;
+    }
+    for (int i = 0; i < lhs.length && comparison == 0; i++) {
+        append(lhs[i], rhs[i]);
+    }
+    return this;
+}
+
+
+
+No.1 generated result --------------------------
+
+Timeout
+
+
+No.2 generated result --------------------------
+
+Timeout
+
+
+No.3 generated result --------------------------
+
+Timeout
+
+
+No.4 generated result --------------------------
+
+Timeout
+
+
+No.5 generated result --------------------------
+
+Timeout
+
+
+No.6 generated result --------------------------
+
+Timeout
+
+
+No.7 generated result --------------------------
+
+Timeout
+
+
+No.8 generated result --------------------------
+
+Timeout
+
+
+No.9 generated result --------------------------
+
+Timeout
+
+
+No.10 generated result --------------------------
+
+Timeout
+
+

@@ -1,0 +1,200 @@
+Source code: 
+
+
+public String decode(String encryptedMessage, int shift) {
+    StringBuilder decoded = new StringBuilder();
+
+    shift %= 26;
+
+    final int length = encryptedMessage.length();
+    for (int i = 0; i < length; i++) {
+        char current = encryptedMessage.charAt(i);
+        if (isCapitalLatinLetter(current)) {
+            current -= shift;
+            decoded.append((char) (current < 'A' ? current + 26 : current)); // 26 = number of latin letters
+        } else if (isSmallLatinLetter(current)) {
+            current -= shift;
+            decoded.append((char) (current < 'a' ? current + 26 : current)); // 26 = number of latin letters
+        } else {
+            decoded.append(current);
+        }
+    }
+    return decoded.toString();
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    Caesar caesar = new Caesar();
+    String encryptedMessage = "Dro Orjv Lqir";
+    int shift = 3;
+    String decodedMessage = caesar.decode(encryptedMessage, shift);
+    assertEquals("Any Life Hack", decodedMessage);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    Caesar caesar = new Caesar();
+    String encryptedMessage = "Ymj xywnslx tk ijhwbyd";
+    int shift = 5;
+    String expected = "The universe is expanding";
+
+    String decoded = caesar.decode(encryptedMessage, shift);
+
+    assertEquals(expected, decoded);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void decodeTest() {
+   Caesar caesar = new Caesar();
+   
+   String encryptedMessage = "Bpmzo";
+   int shift = 2;
+   
+   String expectedDecodedMessage = "Znlxm";
+   String actualDecodedMessage = caesar.decode(encryptedMessage, shift);
+   
+   assertEquals(expectedDecodedMessage, actualDecodedMessage);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    Caesar caesar = new Caesar();
+    
+    // Test case 1: alphanumeric encrypted message, shift = 2
+    String encryptedMessage1 = "Abc1";
+    int shift1 = 2;
+    String expected1 = "YZa1";
+    String actual1 = caesar.decode(encryptedMessage1, shift1);
+    assertEquals(expected1, actual1);
+    
+    // Test case 2: encrypted message with capital letters only, shift = 5
+    String encryptedMessage2 = "HELLO";
+    int shift2 = 5;
+    String expected2 = "CZGGJ";
+    String actual2 = caesar.decode(encryptedMessage2, shift2);
+    assertEquals(expected2, actual2);
+    
+    // Test case 3: encrypted message with small letters only, shift = 3
+    String encryptedMessage3 = "world";
+    int shift3 = 3;
+    String expected3 = "tlwka";
+    String actual3 = caesar.decode(encryptedMessage3, shift3);
+    assertEquals(expected3, actual3);
+    
+    // Test case 4: empty encrypted message, shift = 1
+    String encryptedMessage4 = "";
+    int shift4 = 1;
+    String expected4 = "";
+    String actual4 = caesar.decode(encryptedMessage4, shift4);
+    assertEquals(expected4, actual4);
+}
+
+
+No.5 generated result --------------------------
+
+package com.thealgorithms.ciphers;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CaesarTest {
+    @Test
+    public void decodeTest() {
+        Caesar caesar = new Caesar();
+        String encodedMessage = "F xli xlmw xs tloyd";
+        int shift = 4;
+        String expectedDecodedMessage = "B the text is pink";
+        
+        String actualDecodedMessage = caesar.decode(encodedMessage, shift);
+        assertEquals(expectedDecodedMessage, actualDecodedMessage);
+    }
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    Caesar caesar = new Caesar();
+    String encryptedMessage = "Xlm gsrh rh ziv nlilw";
+    int shift = 4;
+    String expected = "The doctor is not real";
+    String actual = caesar.decode(encryptedMessage, shift);
+    assertEquals(expected, actual);
+}
+
+
+No.7 generated result --------------------------
+
+
+@Test
+public void decodeTest() {
+    Caesar caesar = new Caesar();
+    
+    // Test case 1: with shift = 3
+    String encryptedMessage1 = "LwkHuhwPhvvdjh";
+    String expected1 = "ItsConsoleOutput";
+    String actual1 = caesar.decode(encryptedMessage1, 3);
+    assertEquals(expected1, actual1);
+    
+    // Test case 2: with shift = 5
+    String encryptedMessage2 = "XmtBtwi";
+    String expected2 = "SpeUsing";
+    String actual2 = caesar.decode(encryptedMessage2, 5);
+    assertEquals(expected2, actual2);
+    
+    // Test case 3: with shift = 10
+    String encryptedMessage3 = "ByjWywMbecom?eb!D!"
+    String expected3 = "RoxRedLobster?is!A!";
+    String actual3 = caesar.decode(encryptedMessage3, 10);
+    assertEquals(expected3, actual3);
+}
+
+
+
+No.8 generated result --------------------------
+
+assertEquals("Hello, World!", new Caesar().decode("Ebiil, Tloia!", 4));
+
+
+No.9 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    Caesar caesar = new Caesar();
+    String encryptedMessage = "Khoor Zruog";
+    int shift = 3;
+    String expected = "Hello World";
+    
+    String actual = caesar.decode(encryptedMessage, shift);
+    
+    assertEquals(expected, actual);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    Caesar caesar = new Caesar();
+    String encryptedMessage = "Zaynxm!";
+    int shift = 5;
+    String expected = "Uvtisr!";
+    String actual = caesar.decode(encryptedMessage, shift);
+    assertEquals(expected, actual);
+}
+
+

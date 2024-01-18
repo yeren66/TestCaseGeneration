@@ -1,0 +1,221 @@
+Source code: 
+
+
+public static double calculatePieDatasetTotal(PieDataset dataset) {
+    Args.nullNotPermitted(dataset, "dataset");
+    List keys = dataset.getKeys();
+    double totalValue = 0;
+    Iterator iterator = keys.iterator();
+    while (iterator.hasNext()) {
+        Comparable current = (Comparable) iterator.next();
+        if (current != null) {
+            Number value = dataset.getValue(current);
+            double v = 0.0;
+            if (value != null) {
+                v = value.doubleValue();
+            }
+            if (v > 0) {
+                totalValue = totalValue + v;
+            }
+        }
+    }
+    return totalValue;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void calculatePieDatasetTotalTest() {
+    // Create a PieDataset for testing
+    DefaultPieDataset dataset = new DefaultPieDataset();
+    dataset.setValue("Category 1", 10);
+    dataset.setValue("Category 2", 20);
+    dataset.setValue("Category 3", 30);
+    
+    // Call the method to calculate the total value
+    double totalValue = DatasetUtils.calculatePieDatasetTotal(dataset);
+    
+    // Assert the expected result
+    assertEquals(60.0, totalValue);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void calculatePieDatasetTotalTest() {
+    // Create a sample PieDataset
+    DefaultPieDataset dataset = new DefaultPieDataset();
+    dataset.setValue("Item 1", 10);
+    dataset.setValue("Item 2", 20);
+    dataset.setValue("Item 3", 30);
+    
+    // Call the method to calculate the total value
+    double totalValue = DatasetUtils.calculatePieDatasetTotal(dataset);
+    
+    // Check if the calculated total value is correct
+    assertEquals(60.0, totalValue);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void calculatePieDatasetTotalTest() {
+    // Create a test PieDataset
+    DefaultPieDataset dataset = new DefaultPieDataset();
+    dataset.setValue("A", 10);
+    dataset.setValue("B", 20);
+    dataset.setValue("C", 30);
+
+    // Call the calculatePieDatasetTotal method
+    double result = DatasetUtils.calculatePieDatasetTotal(dataset);
+
+    // Check the result against the expected value
+    assertEquals(60.0, result, 0.001);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void calculatePieDatasetTotalTest() {
+    // Create a sample PieDataset
+    PieDataset dataset = new DefaultPieDataset();
+    dataset.setValue("Apple", 10);
+    dataset.setValue("Banana", 15);
+    dataset.setValue("Orange", 20);
+
+    // Calculate the total value using the calculatePieDatasetTotal method
+    double totalValue = DatasetUtils.calculatePieDatasetTotal(dataset);
+
+    // Verify that the total value is computed correctly
+    assertEquals(45, totalValue);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void calculatePieDatasetTotalTest() {
+    // Create a mock PieDataset
+    PieDataset dataset = mock(PieDataset.class);
+    
+    // Create a list of keys to iterate over
+    List keys = new ArrayList<>();
+    keys.add("Key1");
+    keys.add("Key2");
+    keys.add("Key3");
+    
+    // Set up mock behavior for dataset methods
+    when(dataset.getKeys()).thenReturn(keys);
+    when(dataset.getValue("Key1")).thenReturn(10);
+    when(dataset.getValue("Key2")).thenReturn(15);
+    when(dataset.getValue("Key3")).thenReturn(20);
+    
+    // Call the method under test
+    double result = DatasetUtils.calculatePieDatasetTotal(dataset);
+    
+    // Assert the expected result
+    assertEquals(45, result);
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void calculatePieDatasetTotalTest() {
+    PieDataset dataset = new DefaultPieDataset();
+    dataset.setValue("A", 10);
+    dataset.setValue("B", 20);
+    dataset.setValue("C", 30);
+    
+    double expectedTotal = 60;
+    double actualTotal = DatasetUtils.calculatePieDatasetTotal(dataset);
+    assertEquals(expectedTotal, actualTotal, 0.001);
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void calculatePieDatasetTotalTest() {
+    PieDataset dataset = new DefaultPieDataset();
+    dataset.setValue("Category 1", 10);
+    dataset.setValue("Category 2", 20);
+    dataset.setValue("Category 3", 30);
+
+    double expectedTotal = 60;
+    double actualTotal = DatasetUtils.calculatePieDatasetTotal(dataset);
+
+    assertEquals(expectedTotal, actualTotal, 0.001);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void calculatePieDatasetTotalTest() {
+    // Create a PieDataset object
+    DefaultPieDataset dataset = new DefaultPieDataset();
+    
+    // Add data to the dataset
+    dataset.setValue("Category 1", 10);
+    dataset.setValue("Category 2", 20);
+    dataset.setValue("Category 3", 30);
+    
+    // Call the calculatePieDatasetTotal() method
+    double result = DatasetUtils.calculatePieDatasetTotal(dataset);
+    
+    // Assert that the result is equal to the sum of the values in the dataset
+    assertEquals(60, result);
+}
+
+
+No.9 generated result --------------------------
+
+package org.jfree.data.general;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DatasetUtilsTest {
+    @Test
+    public void calculatePieDatasetTotalTest() {
+        // Create a mock PieDataset
+        PieDataset dataset = new DefaultPieDataset();
+        dataset.setValue("A", 10);
+        dataset.setValue("B", 20);
+        dataset.setValue("C", 30);
+
+        // Calculate the total value
+        double total = DatasetUtils.calculatePieDatasetTotal(dataset);
+
+        // Verify that the total is correct
+        assertEquals(60, total);
+    }
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void calculatePieDatasetTotalTest() {
+    // Create a mock PieDataset
+    PieDataset dataset = new MockPieDataset();
+    
+    // Add values to the mock dataset
+    ((MockPieDataset) dataset).setValue("A", 10);
+    ((MockPieDataset) dataset).setValue("B", 5);
+    ((MockPieDataset) dataset).setValue("C", 15);
+    
+    // Calculate the total value using the calculatePieDatasetTotal() method
+    double totalValue = DatasetUtils.calculatePieDatasetTotal(dataset);
+    
+    // Assert that the total value is correct
+    assertEquals(30.0, totalValue, 0.0001);
+}
+
+

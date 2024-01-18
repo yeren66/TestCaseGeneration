@@ -1,0 +1,272 @@
+Source code: 
+
+
+static void printarray(PrintStream out, String name, int expectedLen, double[][] array2d) {
+    out.println(name);
+    checkLen(expectedLen, array2d.length);
+    out.println(TABLE_START_DECL + " ");
+    int i = 0;
+    for (double[] array : array2d) { // "double array[]" causes PMD parsing error
+        out.print("        {");
+        for (double d : array) { // assume inner array has very few entries
+            out.printf("%-25.25s", format(d)); // multiple entries per line
+        }
+        out.println("}, // " + i++);
+    }
+    out.println(TABLE_END_DECL);
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void printarrayTest() {
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    PrintStream printStream = new PrintStream(outputStream);
+    String expectedOutput = "name" + System.lineSeparator() +
+            "     " + System.lineSeparator() +
+            "        { } // 0";
+    
+    double[][] array2d = new double[][]{{}};
+    printarray(printStream, "name", 1, array2d);
+    
+    assertEquals(expectedOutput, outputStream.toString());
+}
+
+
+No.2 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void printarrayTest() {
+        // Arrange
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        
+        // Create test data
+        int expectedLen = 2;
+        double[][] array2d = {{1.1, 2.2, 3.3}, {4.4, 5.5, 6.6}};
+        
+        // Act
+        AccurateMathCalc.printarray(System.out, "testArray", expectedLen, array2d);
+        
+        // Assert
+        String expectedOutput = "testArray\n" +
+                                "      [\n" +
+                                "        1.1                    2.2                    3.3                    , // 0\n" +
+                                "        4.4                    5.5                    6.6                    , // 1\n" +
+                                "      ]\n";
+        assertEquals(expectedOutput, outContent.toString());
+    }
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void printarrayTest() {
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    PrintStream printStream = new PrintStream(outputStream);
+
+    String name = "array";
+    int expectedLen = 3;
+    double[][] array2d = { {1.1, 2.2, 3.3}, {4.4, 5.5, 6.6}, {7.7, 8.8, 9.9} };
+
+    AccurateMathCalc.printarray(printStream, name, expectedLen, array2d);
+
+    String expectedOutput = "array\n" +
+                           "[                  1.1][                  2.2][                  3.3], // 0\n" +
+                           "[                  4.4][                  5.5][                  6.6], // 1\n" +
+                           "[                  7.7][                  8.8][                  9.9], // 2\n" +
+                           "}\n";
+
+    assertEquals(expectedOutput, outputStream.toString());
+}
+
+
+No.4 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+public class AccurateMathCalcTest {
+    @Test
+    public void printarrayTest() {
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        
+        // Test data
+        int expectedLen = 3;
+        double[][] array2d = {{1.1, 2.2, 3.3}, {4.4, 5.5, 6.6}, {7.7, 8.8, 9.9}};
+        
+        printarray(System.out, "Test Array", expectedLen, array2d);
+        String expectedOutput = "Test Array\n" +
+                                "    {1.1                  , 2.2                  , 3.3                  }, // 0\n" +
+                                "    {4.4                  , 5.5                  , 6.6                  }, // 1\n" +
+                                "    {7.7                  , 8.8                  , 9.9                  }, // 2\n";
+        String actualOutput = outContent.toString();
+        
+        assertEquals(expectedOutput, actualOutput);
+    }
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void printarrayTest() {
+    PrintStream out = System.out;
+    String name = "testArray";
+    int expectedLen = 3;
+    double[][] array2d = { {1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0} };
+
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    PrintStream ps = new PrintStream(baos);
+    System.setOut(ps);
+    
+    AccurateMathCalc.printarray(out, name, expectedLen, array2d);
+    
+    String expectedOutput = "testArray\r\n" +
+                            " |\r\n" +
+                            "        {1.0                     , 2.0                     , 3.0                     }, // 0\r\n" +
+                            "        {4.0                     , 5.0                     , 6.0                     }, // 1\r\n" +
+                            "        {7.0                     , 8.0                     , 9.0                     }, // 2\r\n" +
+                            "|";
+    
+    assertEquals(expectedOutput, baos.toString());
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void printarrayTest() {
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    PrintStream printStream = new PrintStream(outputStream);
+
+    String name = "array2d";
+    int expectedLen = 3;
+    double[][] array2d = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+
+    AccurateMathCalc.printarray(printStream, name, expectedLen, array2d);
+
+    String expectedOutput = "array2d\n" +
+            "        {1.0                  2.0                  3.0                  }, // 0\n" +
+            "        {4.0                  5.0                  6.0                  }, // 1\n" +
+            "        {7.0                  8.0                  9.0                  }, // 2\n" +
+            "    ";
+            
+    assertEquals(expectedOutput, outputStream.toString());
+}
+
+
+No.7 generated result --------------------------
+
+package org.apache.commons.math4.core.jdkmath;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+public class AccurateMathCalcTest {
+    
+    @Test
+    public void printarrayTest() {
+        // Create a ByteArrayOutputStream to capture the output
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(output);
+        
+        // Call the printarray method and pass the ByteArrayOutputStream as the output stream
+        printarray(printStream, "Array", 3, new double[][]{{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}});
+        
+        // Convert the output to a string
+        String expectedOutput = output.toString();
+        
+        // Assert that the expected output matches the actual output
+        assertEquals("Array\n" +
+                "Declare start\n" +
+                "        {1.0                     2.0                     3.0                     }, // 0\n" +
+                "        {4.0                     5.0                     6.0                     }, // 1\n" +
+                "Declare end\n", expectedOutput);
+    }
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void printarrayTest() {
+    double[][] array2d = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}};
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    PrintStream printStream = new PrintStream(outputStream);
+    printarray(printStream, "Test Array", 2, array2d);
+    String expectedOutput = "Test Array\n" +
+                            "2\n" +
+                            "{1.0, 2.0, 3.0}, // 0\n" +
+                            "{4.0, 5.0, 6.0}, // 1\n" +
+                            "\n";
+    assertEquals(expectedOutput, outputStream.toString());
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void printarrayTest() {
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    PrintStream printStream = new PrintStream(outputStream);
+    
+    String name = "testArray";
+    int expectedLen = 3;
+    double[][] array2d = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+
+    printarray(printStream, name, expectedLen, array2d);
+
+    String expectedOutput = "testArray\n" +
+                            "        {1.0000000000000000000000 2.0000000000000000000000 3.0000000000000000000000}, // 0\n" +
+                            "        {4.0000000000000000000000 5.0000000000000000000000 6.0000000000000000000000}, // 1\n" +
+                            "        {7.0000000000000000000000 8.0000000000000000000000 9.0000000000000000000000}, // 2\n";
+    
+    assertEquals(expectedOutput, outputStream.toString());
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+    public void printarrayTest() {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(output);
+        double[][] array2d = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+        String name = "array2d";
+        int expectedLen = array2d.length;
+
+        AccurateMathCalc.printarray(printStream, name, expectedLen, array2d);
+        printStream.close();
+        
+        String expectedOutput = "array2d\n" +
+                "    {\n" +
+                "        1.0                  2.0                  3.0                  \n" +
+                "        4.0                  5.0                  6.0                  \n" +
+                "        7.0                  8.0                  9.0                  \n" +
+                "    }, // 0\n" +
+                "}\n";
+
+        assertEquals(expectedOutput, output.toString());
+    }
+
+

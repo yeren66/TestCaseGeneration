@@ -1,0 +1,27 @@
+{
+    "project_name": "commons-math",
+    "file_name": "Neuron.java",
+    "relative_path": "commons-math/commons-math-neuralnet/src/main/java/org/apache/commons/math4/neuralnet/Neuron.java",
+    "execute_path": "commons-math/commons-math-neuralnet",
+    "package": "org.apache.commons.math4.neuralnet",
+    "docstring": "/**\n     * Checks whether the contents of both arrays is the same.\n     *\n     * @param current Current values.\n     * @param expect Expected values.\n     * @throws IllegalArgumentException if the length of {@code expect}\n     * is not the same as specified in the {@link #Neuron(long,double[])\n     * constructor}.\n     * @return {@code true} if the arrays contain the same values.\n     */",
+    "source_code": "\nprivate boolean containSameValues(double[] current,\n                                  double[] expect) {\n    if (expect.length != size) {\n        throw new NeuralNetException(NeuralNetException.SIZE_MISMATCH,\n                                     expect.length, size);\n    }\n\n    for (int i = 0; i < size; i++) {\n        if (!Precision.equals(current[i], expect[i])) {\n            return false;\n        }\n    }\n    return true;\n}\n\n",
+    "class_name": "Neuron",
+    "method_name": "containSameValues",
+    "arguments": [
+        "double[] current",
+        "double[] expect"
+    ],
+    "generate_test": [
+        "Java\n@Test\npublic void containSameValuesTest() {\n    Neuron neuron = new Neuron(1, new double[]{1.0, 2.0, 3.0});\n    double[] expect = new double[]{1.0, 2.0, 3.0};\n    assertTrue(neuron.containSameValues(neuron.getFeatures(), expect));\n\n    double[] current = new double[]{1.0, 2.0, 4.0};\n    assertFalse(neuron.containSameValues(current, expect));\n}\n",
+        "@Test\npublic void containSameValuesTest() {\n    double[] current = {1.0, 2.0, 3.0};\n    double[] expect = {1.0, 2.0, 3.0};\n    \n    boolean result = containSameValues(current, expect);\n    \n    assertTrue(result);\n}",
+        "package org.apache.commons.math4.neuralnet;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class NeuronTest {\n    @Test\n    public void containSameValuesTest() {\n        Neuron neuron = new Neuron(1, new double[]{1.0, 2.0, 3.0});\n        double[] current = neuron.getFeatures();\n        double[] expected = new double[]{1.0, 2.0, 3.0};\n\n        assertTrue(neuron.containSameValues(current, expected));\n    }\n}",
+        "package org.apache.commons.math4.neuralnet;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class NeuronTest {\n    @Test\n    public void containSameValuesTest() {\n        Neuron neuron = new Neuron(1, new double[]{1.0, 2.0, 3.0});\n        double[] current = {1.0, 2.0, 3.0};\n        double[] expect = {1.0, 2.0, 3.0};\n        \n        boolean result = neuron.containSameValues(current, expect);\n        \n        assertTrue(result);\n    }\n}",
+        "@Test\npublic void containSameValuesTest() {\n    Neuron neuron = new Neuron(1, new double[]{1.0, 2.0, 3.0});\n    double[] current = neuron.getFeatures();\n    double[] expect = new double[]{1.0, 2.0, 3.0};\n\n    boolean result = neuron.containSameValues(current, expect);\n\n    assertTrue(result);\n}",
+        "@Test\npublic void containSameValuesTest() {\n    Neuron neuron = new Neuron(1, new double[]{1.0, 2.0, 3.0});\n    double[] current = neuron.getFeatures();\n    double[] expect = new double[]{1.0, 2.0, 3.0};\n\n    boolean result = neuron.containSameValues(current, expect);\n\n    assertTrue(result);\n}",
+        "package org.apache.commons.math4.neuralnet;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class NeuronTest {\n    @Test\n    public void containSameValuesTest() {\n        Neuron neuron = new Neuron(1, new double[]{1.0, 2.0, 3.0});\n        double[] current = neuron.getFeatures();\n        double[] expect = new double[]{1.0, 2.0, 3.0};\n\n        boolean result = neuron.containSameValues(current, expect);\n\n        assertTrue(result);\n    }\n}",
+        "@Test\npublic void containSameValuesTest() {\n    double[] current = {1.0, 2.0, 3.0};\n    double[] expect = {1.0, 2.0, 3.0};\n\n    Neuron neuron = new Neuron(1, current);\n\n    assertTrue(neuron.containSameValues(current, expect));\n}",
+        "double[] current = {1.0, 2.0, 3.0};\ndouble[] expect = {1.0, 2.0, 3.0};\n\nboolean result = containSameValues(current, expect);\n\nassertTrue(result);",
+        "\npackage org.apache.commons.math4.neuralnet;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class NeuronTest {\n    @Test\n    public void containSameValuesTest() {\n        double[] current = {1.0, 2.0, 3.0};\n        double[] expect = {1.0, 2.0, 3.0};\n        \n        Neuron neuron = new Neuron(1, current);\n        boolean result = neuron.containSameValues(current, expect);\n        \n        assertTrue(result);\n    }\n}\n"
+    ]
+}

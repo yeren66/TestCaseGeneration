@@ -1,0 +1,265 @@
+Source code: 
+
+
+@Override
+public boolean offer(final E e)
+{
+    // Objects.requireNonNull(e);
+    if (null == e)
+    {
+        throw new NullPointerException();
+    }
+    // local load of field to avoid repeated loads after volatile reads
+    final E[] buffer = producerBuffer;
+    final long index = lpProducerIndex();
+    final long mask = producerMask;
+    final long offset = calcCircularRefElementOffset(index, mask);
+    // expected hot path
+    if (index < producerBufferLimit)
+    {
+        writeToQueue(buffer, e, index, offset);
+        return true;
+    }
+    return offerColdPath(buffer, mask, index, offset, e, null);
+}
+
+
+
+No.1 generated result --------------------------
+
+package org.jctools.queues;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BaseSpscLinkedArrayQueuePrePadTest {
+    @Test
+    public void offerTest() {
+        BaseSpscLinkedArrayQueue queue = new BaseSpscLinkedArrayQueue() {
+            @Override
+            boolean offerColdPath(E buffer, long mask, long pIndex, long offset, E v, Supplier<E> s) {
+                return false;
+            }
+        };
+
+        Exception exception = assertThrows(NullPointerException.class, () -> {
+            queue.offer(null);
+        });
+
+        String expectedMessage = null;
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.equals(expectedMessage));
+    }
+}
+
+
+No.2 generated result --------------------------
+
+package org.jctools.queues;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BaseSpscLinkedArrayQueuePrePadTest {
+    @Test
+    public void offerTest() {
+        BaseSpscLinkedArrayQueue<Integer> queue = new BaseSpscLinkedArrayQueue<Integer>() {
+            @Override
+            boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E e, Supplier<E> s) {
+                // Implementation for the offerColdPath method
+                return false;
+            }
+            
+            @Override
+            void writeToQueue(E[] buffer, E e, long index, long offset) {
+                // Implementation for the writeToQueue method
+            }
+        };
+        
+        // Test case for offer method
+        boolean result = queue.offer(10);
+        
+        // Assert the result
+        assertTrue(result);
+    }
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void offerTest() {
+    BaseSpscLinkedArrayQueuePrePad queue = new BaseSpscLinkedArrayQueuePrePad() {};
+    Integer element = 10;
+    assertTrue(queue.offer(element));
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void offerTest() {
+    BaseSpscLinkedArrayQueue queue = new BaseSpscLinkedArrayQueue() {
+        @Override
+        boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E e, Supplier<E> s) {
+            // implementation of offerColdPath
+            return false;
+        }
+    };
+    boolean result = queue.offer("element");
+    assertFalse(result);
+}
+
+
+No.5 generated result --------------------------
+
+package org.jctools.queues;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BaseSpscLinkedArrayQueuePrePadTest {
+    @Test
+    public void offerTest() {
+        BaseSpscLinkedArrayQueuePrePad queue = new BaseSpscLinkedArrayQueuePrePad() {
+            @Override
+            public boolean offer(final Object e) {
+                // Objects.requireNonNull(e);
+                if (null == e) {
+                    throw new NullPointerException();
+                }
+                // local load of field to avoid repeated loads after volatile reads
+                final Object[] buffer = producerBuffer;
+                final long index = lpProducerIndex();
+                final long mask = producerMask;
+                final long offset = calcCircularRefElementOffset(index, mask);
+                // expected hot path
+                if (index < producerBufferLimit) {
+                    writeToQueue(buffer, e, index, offset);
+                    return true;
+                }
+                return offerColdPath(buffer, mask, index, offset, e, null);
+            }
+        };
+        Object element = new Object();
+        assertTrue(queue.offer(element));
+        assertThrows(NullPointerException.class, () -> queue.offer(null));
+    }
+}
+
+
+No.6 generated result --------------------------
+
+package org.jctools.queues;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BaseSpscLinkedArrayQueuePrePadTest {
+    @Test
+    public void offerTest() {
+        BaseSpscLinkedArrayQueue queue = new BaseSpscLinkedArrayQueue() {
+            @Override 
+            boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E e, Supplier<E> s) {
+                // implementation of offerColdPath
+                // ...
+            }
+        };
+        
+        // Write your test case here
+        
+        assertTrue(queue.offer(element));
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void offerTest() {
+    BaseSpscLinkedArrayQueuePrePad queue = new BaseSpscLinkedArrayQueuePrePad() {
+        @Override
+        public boolean offer(final E e) {
+            // Objects.requireNonNull(e);
+            if (null == e) {
+                throw new NullPointerException();
+            }
+            // local load of field to avoid repeated loads after volatile reads
+            final E[] buffer = producerBuffer;
+            final long index = lpProducerIndex();
+            final long mask = producerMask;
+            final long offset = calcCircularRefElementOffset(index, mask);
+            // expected hot path
+            if (index < producerBufferLimit) {
+                writeToQueue(buffer, e, index, offset);
+                return true;
+            }
+            return offerColdPath(buffer, mask, index, offset, e, null);
+        }
+    };
+    
+    assertTrue(queue.offer(new Object()));
+}
+
+
+No.8 generated result --------------------------
+
+package org.jctools.queues;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BaseSpscLinkedArrayQueuePrePadTest {
+    private BaseSpscLinkedArrayQueuePrePad queue;
+
+    @BeforeEach
+    public void setup() {
+        queue = new BaseSpscLinkedArrayQueuePrePad() {
+            @Override
+            public boolean offer(final Object e) {
+                return false;
+            }
+        };
+    }
+
+    @Test
+    public void offerTest() {
+        Object element = new Object();
+        boolean result = queue.offer(element);
+        assertTrue(result);
+    }
+}
+
+
+No.9 generated result --------------------------
+
+package org.jctools.queues;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BaseSpscLinkedArrayQueuePrePadTest {
+    @Test
+    public void offerTest() {
+        BaseSpscLinkedArrayQueuePrePad queue = new BaseSpscLinkedArrayQueuePrePadImpl();
+        boolean result = queue.offer("element");
+        assertTrue(result);
+    }
+    
+    // Implement a class that extends BaseSpscLinkedArrayQueuePrePad
+    class BaseSpscLinkedArrayQueuePrePadImpl extends BaseSpscLinkedArrayQueuePrePad {
+    }
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void offerTest() {
+    BaseSpscLinkedArrayQueue<Integer> queue = new BaseSpscLinkedArrayQueue<>();
+    assertTrue(queue.offer(1));
+    assertFalse(queue.offer(null));
+}
+
+

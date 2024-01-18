@@ -1,0 +1,227 @@
+Source code: 
+
+
+public Frame grab() throws Exception {
+    device.wait_for_frames();
+
+      frameNumber++; 
+    // For Framegrabber
+    if (colorEnabled && behaveAsColorFrameGrabber) {
+        IplImage image = grabVideo();
+
+        if (returnImage == null) {
+            int deviceWidth = device.get_stream_width(RealSense.color);
+            int deviceHeight = device.get_stream_height(RealSense.color);
+              returnImage = IplImage.create(deviceWidth, deviceHeight, IPL_DEPTH_8U, 3);
+            returnImage = IplImage.create(deviceWidth, deviceHeight, IPL_DEPTH_8U, 1);
+        }
+        cvCvtColor(image, returnImage, CV_BGR2GRAY);
+        return converter.convert(returnImage);
+    } else {
+        if (IREnabled) {
+            return converter.convert(grabIR());
+        } else {
+            if (depthEnabled) {
+                
+                // Fake colors
+                IplImage image = grabDepth();
+                if (returnImage == null) {
+                    int deviceWidth = device.get_stream_width(RealSense.depth);
+                    int deviceHeight = device.get_stream_height(RealSense.depth);
+              returnImage = IplImage.create(deviceWidth, deviceHeight, IPL_DEPTH_8U, 3);
+                    returnImage = IplImage.create(deviceWidth, deviceHeight, IPL_DEPTH_8U, 1);
+                } 
+                return converter.convert(returnImage);
+            }
+        }
+    }
+
+    return null;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void grabTest() throws Exception {
+    RealSenseFrameGrabber grabber = new RealSenseFrameGrabber(0);
+    Frame frame = grabber.grab();
+    
+    assertNotNull(frame);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void grabTest() throws Exception {
+    // Create an instance of RealSenseFrameGrabber
+    RealSenseFrameGrabber frameGrabber = new RealSenseFrameGrabber(0);
+    
+    // Enable color stream
+    frameGrabber.enableColorStream();
+    
+    // Enable depth stream
+    frameGrabber.enableDepthStream();
+    
+    // Enable IR stream
+    frameGrabber.enableIRStream();
+    
+    // Start grabbing frames
+    frameGrabber.start();
+    
+    // Grab a frame
+    Frame frame = frameGrabber.grab();
+    
+    // Assert that the grabbed frame is not null
+    assertNotNull(frame);
+    
+    // Stop grabbing frames
+    frameGrabber.stop();
+    
+    // Release the frame grabber resources
+    frameGrabber.release();
+}
+
+
+
+No.3 generated result --------------------------
+
+@Test
+public void grabTest() throws Exception {
+    RealSenseFrameGrabber grabber = new RealSenseFrameGrabber(0);
+    Frame frame = grabber.grab();
+    assertNotNull(frame);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void grabTest() throws Exception {
+    FrameGrabber frameGrabber = new RealSenseFrameGrabber(0);
+    frameGrabber.start();
+    
+    Frame frame = frameGrabber.grab();
+    
+    frameGrabber.stop();
+    frameGrabber.release();
+    
+    assertNotNull(frame);
+}
+
+
+
+No.5 generated result --------------------------
+
+@Test
+public void grabTest() {
+    RealSenseFrameGrabber grabber = new RealSenseFrameGrabber(0);
+    try {
+        grabber.start();
+        Frame frame = grabber.grab();
+        assertNotNull(frame);
+    } catch (Exception e) {
+        e.printStackTrace();
+        fail("Exception should not be thrown");
+    } finally {
+        try {
+            grabber.stop();
+            grabber.release();
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail("Exception should not be thrown");
+        }
+    }
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void grabTest() {
+    try {
+        RealSenseFrameGrabber grabber = new RealSenseFrameGrabber(0);
+        Frame frame = grabber.grab();
+
+        assertNotNull(frame);
+        // Add additional assertions as needed
+    } catch (Exception e) {
+        fail("Exception occurred: " + e.getMessage());
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void grabTest() {
+    try {
+        RealSenseFrameGrabber grabber = new RealSenseFrameGrabber(0);
+        grabber.enableColorStream();
+        grabber.start();
+
+        Frame frame = grabber.grab();
+
+        assertNotNull(frame);
+
+        grabber.stop();
+        grabber.release();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void grabTest() throws Exception {
+    RealSenseFrameGrabber grabber = new RealSenseFrameGrabber(0);
+    grabber.enableColorStream();
+    grabber.enableDepthStream();
+    grabber.start();
+  
+    Frame frame = grabber.grab();
+  
+    assertNotNull(frame);
+  
+    grabber.stop();
+    grabber.release();
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+    public void grabTest() throws Exception {
+        RealSenseFrameGrabber grabber = new RealSenseFrameGrabber(0);
+        grabber.enableColorStream();
+        grabber.enableDepthStream();
+        grabber.enableIRStream();
+
+        Frame frame = grabber.grab();
+
+        assertNotNull(frame);
+        assertTrue(frame instanceof Frame);
+    }
+
+
+No.10 generated result --------------------------
+
+@Test
+public void grabTest() throws Exception {
+    RealSenseFrameGrabber grabber = new RealSenseFrameGrabber(0);
+    grabber.enableColorStream();
+    grabber.start();
+    
+    Frame frame = grabber.grab();
+    
+    assertNotNull(frame);
+    
+    grabber.stop();
+    grabber.release();
+}
+
+

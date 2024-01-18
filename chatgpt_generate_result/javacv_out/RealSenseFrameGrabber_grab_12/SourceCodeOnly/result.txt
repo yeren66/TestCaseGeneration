@@ -1,0 +1,211 @@
+Source code: 
+
+
+public Frame grab() throws Exception {
+    device.wait_for_frames();
+
+      frameNumber++; 
+    // For Framegrabber
+    if (colorEnabled && behaveAsColorFrameGrabber) {
+        IplImage image = grabVideo();
+
+        if (returnImage == null) {
+            int deviceWidth = device.get_stream_width(RealSense.color);
+            int deviceHeight = device.get_stream_height(RealSense.color);
+              returnImage = IplImage.create(deviceWidth, deviceHeight, IPL_DEPTH_8U, 3);
+            returnImage = IplImage.create(deviceWidth, deviceHeight, IPL_DEPTH_8U, 1);
+        }
+        cvCvtColor(image, returnImage, CV_BGR2GRAY);
+        return converter.convert(returnImage);
+    } else {
+        if (IREnabled) {
+            return converter.convert(grabIR());
+        } else {
+            if (depthEnabled) {
+                
+                // Fake colors
+                IplImage image = grabDepth();
+                if (returnImage == null) {
+                    int deviceWidth = device.get_stream_width(RealSense.depth);
+                    int deviceHeight = device.get_stream_height(RealSense.depth);
+              returnImage = IplImage.create(deviceWidth, deviceHeight, IPL_DEPTH_8U, 3);
+                    returnImage = IplImage.create(deviceWidth, deviceHeight, IPL_DEPTH_8U, 1);
+                } 
+                return converter.convert(returnImage);
+            }
+        }
+    }
+
+    return null;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void grabTest() {
+    FrameGrabber frameGrabber = new FrameGrabber();
+    Frame frame = frameGrabber.grab();
+    assertNotNull(frame);
+}
+
+
+No.2 generated result --------------------------
+
+package org.bytedeco.javacv;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RealSenseFrameGrabberTest {
+    @Test
+    public void grabTest() throws Exception {
+        // Create an instance of RealSenseFrameGrabber
+        RealSenseFrameGrabber frameGrabber = new RealSenseFrameGrabber();
+
+        // Call the grab() method
+        Frame result = frameGrabber.grab();
+
+        // Assert the result to the expected value
+        assertNotNull(result); // Assuming the expected result is a non-null value
+    }
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void grabTest() {
+    try {
+        RealSenseFrameGrabber grabber = new RealSenseFrameGrabber();
+        Frame result = grabber.grab();
+        assertNotNull(result);
+    } catch (Exception e) {
+        fail("Exception thrown: " + e.getMessage());
+    }
+}
+
+
+No.4 generated result --------------------------
+
+public void grabTest() {
+    try {
+        RealSenseFrameGrabber frameGrabber = new RealSenseFrameGrabber();
+        Frame grabbedFrame = frameGrabber.grab();
+        assertNotNull(grabbedFrame);
+    } catch (Exception e) {
+        fail("An exception occurred: " + e.getMessage());
+    }
+}
+
+
+No.5 generated result --------------------------
+
+package org.bytedeco.javacv;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RealSenseFrameGrabberTest {
+    @Test
+    public void grabTest() {
+        RealSenseFrameGrabber grabber = new RealSenseFrameGrabber();
+        
+        try {
+            Frame result = grabber.grab();
+            // Add assertions here to verify the expected results
+            
+        } catch (Exception e) {
+            fail("An exception occurred: " + e.getMessage());
+        }
+    }
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void grabTest() {
+    RealSenseFrameGrabber grabber = new RealSenseFrameGrabber();
+
+    try {
+        Frame result = grabber.grab();
+
+        // Add assertions to verify the result
+        assertNotNull(result);
+        // Additional assertions...
+    } catch (Exception e) {
+        fail("Exception occurred during test: " + e.getMessage());
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void grabTest() {
+    try {
+        RealSenseFrameGrabber grabber = new RealSenseFrameGrabber();
+        Frame frame = grabber.grab();
+
+        assertNotNull(frame);
+        // Additional assertions or verifications can be added here
+
+    } catch (Exception e) {
+        fail("Exception occurred: " + e.getMessage());
+    }
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void grabTest() throws Exception {
+    FrameGrabber frameGrabber = new FrameGrabber();
+    Frame frame = frameGrabber.grab();
+
+    assertNotNull(frame);
+}
+
+
+
+No.9 generated result --------------------------
+
+package org.bytedeco.javacv;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RealSenseFrameGrabberTest {
+    @Test
+    public void grabTest() {
+        // Create an instance of the RealSenseFrameGrabber class
+        RealSenseFrameGrabber grabber = new RealSenseFrameGrabber();
+
+        try {
+            // Call the grab method of the RealSenseFrameGrabber class
+            Frame frame = grabber.grab();
+
+            // Assert that the returned frame is not null
+            assertNotNull(frame);
+        } catch (Exception e) {
+            // Handle any exceptions thrown by the grab method
+            e.printStackTrace();
+        }
+    }
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void grabTest() throws Exception {
+    FrameGrabber frameGrabber = new RealSenseFrameGrabber();
+
+    Frame result = frameGrabber.grab();
+
+    assertEquals(null, result);
+}
+
+

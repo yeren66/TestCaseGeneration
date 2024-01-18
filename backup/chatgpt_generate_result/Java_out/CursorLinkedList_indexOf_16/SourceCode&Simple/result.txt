@@ -1,0 +1,195 @@
+Source code: 
+
+
+public int indexOf(T element) {
+    Objects.requireNonNull(element);
+    Node<T> iterator = cursorSpace[head];
+    for (int i = 0; i < count; i++) {
+        if (iterator.element.equals(element)) {
+            return i;
+        }
+        iterator = cursorSpace[iterator.next];
+    }
+
+    return -1;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void indexOfTest() {
+    CursorLinkedList<Integer> list = new CursorLinkedList<>();
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    
+    int index = list.indexOf(2);
+    assertEquals(1, index);
+    
+    index = list.indexOf(4);
+    assertEquals(-1, index);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void indexOfTest() {
+    CursorLinkedList<Integer> linkedList = new CursorLinkedList<>();
+    linkedList.append(1);
+    linkedList.append(2);
+    linkedList.append(3);
+    linkedList.append(4);
+
+    int index1 = linkedList.indexOf(2);
+    assertEquals(1, index1);
+
+    int index2 = linkedList.indexOf(5);
+    assertEquals(-1, index2);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void indexOfTest() {
+    CursorLinkedList<Integer> list = new CursorLinkedList<>();
+    list.append(10);
+    list.append(20);
+    list.append(30);
+    
+    int index = list.indexOf(20);
+    
+    assertEquals(1, index);
+}
+
+
+No.4 generated result --------------------------
+
+
+@Test
+public void indexOfTest() {
+    CursorLinkedList<Integer> list = new CursorLinkedList<>();
+    list.append(10);
+    list.append(20);
+    list.append(30);
+    
+    int index1 = list.indexOf(20);
+    assertEquals(1, index1);
+    
+    int index2 = list.indexOf(40);
+    assertEquals(-1, index2);
+}
+
+
+
+No.5 generated result --------------------------
+
+@Test
+public void indexOfTest() {
+    CursorLinkedList list = new CursorLinkedList();
+    list.append("apple");
+    list.append("banana");
+    list.append("orange");
+    
+    int index = list.indexOf("banana");
+    
+    assertEquals(1, index);
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void indexOfTest() {
+    CursorLinkedList<Integer> list = new CursorLinkedList<Integer>();
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    
+    assertEquals(0, list.indexOf(1));
+    assertEquals(1, list.indexOf(2));
+    assertEquals(2, list.indexOf(3));
+    assertEquals(-1, list.indexOf(4));
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void indexOfTest() {
+    CursorLinkedList<String> list = new CursorLinkedList<>();
+    list.append("A");
+    list.append("B");
+    list.append("C");
+    
+    int indexA = list.indexOf("A");
+    int indexB = list.indexOf("B");
+    int indexC = list.indexOf("C");
+    int indexD = list.indexOf("D");
+    
+    assertEquals(0, indexA);
+    assertEquals(1, indexB);
+    assertEquals(2, indexC);
+    assertEquals(-1, indexD);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void indexOfTest() {
+    CursorLinkedList list = new CursorLinkedList();
+    list.append(10);
+    list.append(20);
+    list.append(30);
+    
+    int index = list.indexOf(20);
+    
+    // Verify that the index of 20 is 1
+    assertEquals(1, index);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void indexOfTest() {
+    CursorLinkedList<Integer> cursorList = new CursorLinkedList<>();
+    cursorList.append(10); // add elements to the list
+    cursorList.append(20);
+    cursorList.append(30);
+    
+    assertEquals(0, cursorList.indexOf(10)); // test if the index of 10 is 0
+    assertEquals(1, cursorList.indexOf(20)); // test if the index of 20 is 1
+    assertEquals(2, cursorList.indexOf(30)); // test if the index of 30 is 2
+    assertEquals(-1, cursorList.indexOf(40)); // test if the index of 40 is -1
+}
+
+
+No.10 generated result --------------------------
+
+package com.thealgorithms.datastructures.lists;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CursorLinkedListTest {
+
+    @Test
+    public void indexOfTest() {
+        CursorLinkedList<Integer> list = new CursorLinkedList<>();
+        list.append(1);
+        list.append(2);
+        list.append(3);
+
+        assertEquals(1, list.indexOf(2));
+        assertEquals(2, list.indexOf(3));
+
+        assertEquals(-1, list.indexOf(4));
+    }
+}
+
+

@@ -1,0 +1,60 @@
+Source code: 
+
+
+public static AztecCode encode(String data, int minECCPercent, int userSpecifiedLayers, Charset charset) {
+  byte[] bytes = data.getBytes(null != charset ? charset : StandardCharsets.ISO_8859_1);
+  return encode(bytes, minECCPercent, userSpecifiedLayers, charset);
+}
+
+
+
+No.1 generated result --------------------------
+
+Timeout
+
+
+No.2 generated result --------------------------
+
+Timeout
+
+
+No.3 generated result --------------------------
+
+Timeout
+
+
+No.4 generated result --------------------------
+
+Timeout
+
+
+No.5 generated result --------------------------
+
+Timeout
+
+
+No.6 generated result --------------------------
+
+Timeout
+
+
+No.7 generated result --------------------------
+
+Timeout
+
+
+No.8 generated result --------------------------
+
+Timeout
+
+
+No.9 generated result --------------------------
+
+Timeout
+
+
+No.10 generated result --------------------------
+
+Timeout
+
+

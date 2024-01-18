@@ -1,0 +1,30 @@
+{
+    "project_name": "Java",
+    "file_name": "SegmentTree.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/datastructures/trees/SegmentTree.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.datastructures.trees",
+    "docstring": null,
+    "source_code": "/* A function to get the sum of the elements from index l to index r. This will be called\n * internally*/\nprivate int getSumTree(int start, int end, int q_start, int q_end, int seg_index) {\n    if (q_start <= start && q_end >= end) {\n        return this.seg_t[seg_index];\n    }\n\n    if (q_start > end || q_end < start) {\n        return 0;\n    }\n\n    int mid = start + (end - start) / 2;\n    return (getSumTree(start, mid, q_start, q_end, seg_index * 2 + 1) + getSumTree(mid + 1, end, q_start, q_end, seg_index * 2 + 2));\n}\n",
+    "class_name": "SegmentTree",
+    "method_name": "getSumTree",
+    "arguments": [
+        "int start",
+        "int end",
+        "int q_start",
+        "int q_end",
+        "int seg_index"
+    ],
+    "generate_test": [
+        "@Test\npublic void getSumTreeTest() {\n    SegmentTree tree = new SegmentTree(5, new int[]{1, 2, 3, 4, 5});\n    int sum = tree.getSumTree(0, 4, 1, 3, 0);\n    assertEquals(9, sum);\n}",
+        "@Test\npublic void getSumTreeTest() {\n    int[] arr = {1, 2, 3, 4, 5, 6, 7, 8};\n    int n = arr.length;\n    SegmentTree segmentTree = new SegmentTree(n, arr);\n    int start = 0;\n    int end = n - 1;\n    int q_start = 2;\n    int q_end = 5;\n    int seg_index = 0;\n    int expectedSum = 18; // the expected sum of elements from index 2 to index 5\n\n    int actualSum = segmentTree.getSumTree(start, end, q_start, q_end, seg_index);\n\n    assertEquals(expectedSum, actualSum);\n}",
+        "@Test\npublic void getSumTreeTest() {\n    SegmentTree segmentTree = new SegmentTree(6, new int[]{1, 2, 3, 4, 5, 6});\n    int sum = segmentTree.getSumTree(0, 5, 2, 4, 0);\n    assertEquals(12, sum);\n}",
+        "@Test\npublic void getSumTreeTest() {\n    int[] arr = {1, 2, 3, 4, 5};\n    SegmentTree segmentTree = new SegmentTree(arr.length, arr);\n    int q_start = 1;\n    int q_end = 3;\n    int expectedSum = 2 + 3 + 4;\n\n    int actualSum = segmentTree.getSum(q_start, q_end);\n\n    assertEquals(expectedSum, actualSum);\n}",
+        "@Test\npublic void getSumTreeTest() {\n    SegmentTree segmentTree = new SegmentTree(6, new int[]{1, 3, 5, 7, 9, 11});\n    int sum = segmentTree.getSumTree(0, 5, 1, 4, 0);\n    assertEquals(15, sum);\n}",
+        "package com.thealgorithms.datastructures.trees;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class SegmentTreeTest {\n    @Test\n    public void getSumTreeTest() {\n        // Create a new instance of SegmentTree\n        int[] arr = {1, 2, 3, 4, 5};\n        SegmentTree segmentTree = new SegmentTree(arr.length, arr);\n        \n        // Call the getSum method and assert the result\n        int result = segmentTree.getSum(1, 3);\n        assertEquals(9, result);\n    }\n}",
+        "package com.thealgorithms.datastructures.trees;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class SegmentTreeTest {\n    @Test\n    public void getSumTreeTest() {\n        // Create a SegmentTree object\n        SegmentTree segmentTree = new SegmentTree(6, new int[]{1, 3, 5, 7, 9, 11});\n        \n        // Test case 1: Query range is within the range of the segment\n        int result1 = segmentTree.getSumTree(0, 5, 0, 5, 0);\n        assertEquals(36, result1);\n        \n        // Test case 2: Query range is partially within the range of the segment\n        int result2 = segmentTree.getSumTree(0, 5, 1, 3, 0);\n        assertEquals(15, result2);\n        \n        // Test case 3: Query range is outside the range of the segment\n        int result3 = segmentTree.getSumTree(0, 5, 6, 9, 0);\n        assertEquals(0, result3);\n    }\n}",
+        "@Test\npublic void getSumTreeTest() {\n    SegmentTree st = new SegmentTree(7, new int[]{3, 2, 7, 4, 5, 1, 6});\n    int start = 0;\n    int end = 6;\n    int q_start = 2;\n    int q_end = 5;\n    int seg_index = 0;\n    int expectedSum = 16;\n    \n    int actualSum = st.getSumTree(start, end, q_start, q_end, seg_index);\n    \n    assertEquals(expectedSum, actualSum);\n}",
+        "\n@Test\npublic void getSumTreeTest() {\n    SegmentTree tree = new SegmentTree(5, new int[]{1, 3, 5, 7, 9});\n    int result = tree.getSumTree(0, 4, 1, 3, 0);\n    assertEquals(15, result);\n}\n",
+        "@Test\npublic void getSumTreeTest() {\n    SegmentTree segmentTree = new SegmentTree(5, new int[]{1, 2, 3, 4, 5});\n    int sum = segmentTree.getSumTree(0, 4, 2, 3, 0);\n    assertEquals(7, sum);\n}"
+    ]
+}

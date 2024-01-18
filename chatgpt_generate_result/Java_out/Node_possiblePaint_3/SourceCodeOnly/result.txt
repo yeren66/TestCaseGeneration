@@ -1,0 +1,353 @@
+Source code: 
+
+static int possiblePaint(ArrayList<Node> nodes, int n, int m) {
+
+    // Create a visited array of n nodes
+    ArrayList<Integer> visited = new ArrayList<Integer>();
+    for (int i = 0; i < n + 1; i++) {
+        visited.add(0);
+    }
+
+    // maxColors used till now are 1 as
+    // all nodes are painted color 1
+    int maxColors = 1;
+
+    for (int sv = 1; sv <= n; sv++) {
+        if (visited.get(sv) > 0) {
+            continue;
+        }
+
+        // If the starting point is unvisited,
+        // mark it visited and push it in queue
+        visited.set(sv, 1);
+        Queue<Integer> q = new LinkedList<>();
+        q.add(sv);
+
+        // BFS
+        while (q.size() != 0) {
+            int top = q.peek();
+            q.remove();
+
+            // Checking all adjacent nodes
+            // to "top" edge in our queue
+            for (int it : nodes.get(top).edges) {
+
+                // If the color of the
+                // adjacent node is same, increase it by
+                // 1
+                if (nodes.get(top).color == nodes.get(it).color) {
+                    nodes.get(it).color += 1;
+                }
+
+                // If number of colors used exceeds m,
+                // return 0
+                maxColors = Math.max(maxColors, Math.max(nodes.get(top).color, nodes.get(it).color));
+                if (maxColors > m) return 0;
+
+                // If the adjacent node is not visited,
+                // mark it visited and push it in queue
+                if (visited.get(it) == 0) {
+                    visited.set(it, 1);
+                    q.add(it);
+                }
+            }
+        }
+    }
+    return 1;
+}
+
+
+
+No.1 generated result --------------------------
+
+package com.thealgorithms.backtracking;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NodeTest {
+    @Test
+    public void possiblePaintTest() {
+        // Create nodes for testing
+        ArrayList<Node> nodes = new ArrayList<>();
+        Node node1 = new Node(1, 1); // Node 1 with color 1
+        Node node2 = new Node(2); // Node 2 with no color
+        Node node3 = new Node(3, 3); // Node 3 with color 3
+        
+        // Add edges for the nodes
+        node1.edges.add(2);
+        node2.edges.add(1);
+        node3.edges.add(1);
+        
+        nodes.add(null); // Index 0 is not used
+        nodes.add(node1);
+        nodes.add(node2);
+        nodes.add(node3);
+
+        // Call the method being tested
+        int result = possiblePaint(nodes, 3, 3);
+
+        // Assert the expected result
+        assertEquals(1, result);
+    }
+}
+
+
+No.2 generated result --------------------------
+
+Assert.assertEquals(1, possiblePaint(nodes, n, m));
+
+
+No.3 generated result --------------------------
+
+package com.thealgorithms.backtracking;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NodeTest {
+    @Test
+    public void possiblePaintTest() {
+        ArrayList<Node> nodes = new ArrayList<>();
+        nodes.add(new Node(0, new ArrayList<>()));
+        nodes.add(new Node(1, new ArrayList<>()));
+        nodes.add(new Node(2, new ArrayList<>()));
+        nodes.add(new Node(3, new ArrayList<>()));
+        nodes.add(new Node(4, new ArrayList<>()));
+        nodes.get(0).edges.add(2);
+        nodes.get(0).edges.add(4);
+        nodes.get(1).edges.add(2);
+        nodes.get(1).edges.add(3);
+        nodes.get(2).edges.add(1);
+        nodes.get(2).edges.add(4);
+        nodes.get(3).edges.add(2);
+        nodes.get(3).edges.add(4);
+        nodes.get(4).edges.add(1);
+        nodes.get(4).edges.add(3);
+        
+        int n = 4;
+        int m = 3;
+
+        int expectedResult = 1;
+        int actualResult = possiblePaint(nodes, n, m);
+
+        assertEquals(expectedResult, actualResult);
+    }
+}
+
+
+No.4 generated result --------------------------
+
+package com.thealgorithms.backtracking;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NodeTest {
+    @Test
+    public void possiblePaintTest() {
+        ArrayList<Node> nodes = new ArrayList<Node>();
+        
+        // Create nodes
+        Node node1 = new Node(1, 1, new ArrayList<Integer>());
+        Node node2 = new Node(2, 1, new ArrayList<Integer>());
+        Node node3 = new Node(3, 1, new ArrayList<Integer>());
+        
+        // Add edges to nodes
+        node1.addEdge(2);
+        node1.addEdge(3);
+        node2.addEdge(1);
+        node3.addEdge(1);
+        
+        // Add nodes to ArrayList
+        nodes.add(node1);
+        nodes.add(node2);
+        nodes.add(node3);
+        
+        int n = nodes.size();
+        int m = 2;
+        
+        int result = possiblePaint(nodes, n, m);
+        
+        assertEquals(1, result);
+    }
+}
+
+
+No.5 generated result --------------------------
+
+package com.thealgorithms.backtracking;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NodeTest {
+    @Test
+    public void possiblePaintTest() {
+        // Create nodes and edges for testing
+        ArrayList<Node> nodes = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            nodes.add(new Node(i + 1));
+        }
+        nodes.get(0).addEdge(1);
+        nodes.get(0).addEdge(3);
+        nodes.get(1).addEdge(0);
+        nodes.get(1).addEdge(2);
+        nodes.get(2).addEdge(1);
+        nodes.get(2).addEdge(4);
+        nodes.get(3).addEdge(0);
+        nodes.get(4).addEdge(2);
+        
+        // Call the method being tested and get the result
+        int result = possiblePaint(nodes, 4, 2);
+        
+        // Assert the expected result
+        assertEquals(1, result, "The possiblePaint method should return 1");
+    }
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void possiblePaintTest() {
+    // Create a sample list of nodes
+    ArrayList<Node> nodes = new ArrayList<>();
+    Node node1 = new Node(1);
+    Node node2 = new Node(2);
+    Node node3 = new Node(3);
+    nodes.add(node1);
+    nodes.add(node2);
+    nodes.add(node3);
+  
+    // Add edges between nodes
+    node1.edges.add(2);
+    node1.edges.add(3);
+    node2.edges.add(1);
+    node3.edges.add(1);
+  
+    // Define the expected output
+    int expected = 1;
+  
+    // Test the possiblePaint method with the given input
+    int actual = possiblePaint(nodes, 3, 2);
+  
+    // Assert that the actual output matches the expected output
+    assertEquals(expected, actual);
+}
+
+
+No.7 generated result --------------------------
+
+package com.thealgorithms.backtracking;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NodeTest {
+    @Test
+    public void possiblePaintTest() {
+        ArrayList<Node> nodes = new ArrayList<>();
+        // Add nodes to the ArrayList
+        
+        // Call the possiblePaint method with the necessary arguments
+        int result = possiblePaint(nodes, 5, 3);
+        
+        // Assert the expected output with the actual output
+        assertEquals(1, result);
+    }
+}
+
+
+No.8 generated result --------------------------
+
+package com.thealgorithms.backtracking;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NodeTest {
+    @Test
+    public void possiblePaintTest() {
+        ArrayList<Node> nodes = new ArrayList<>();
+        
+        // Create nodes with edges and colors
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(1);
+        Node node5 = new Node(2);
+        
+        node1.addEdge(2);
+        node2.addEdge(1);
+        node2.addEdge(3);
+        node3.addEdge(2);
+        node4.addEdge(5);
+        node5.addEdge(4);
+        
+        nodes.add(node1);
+        nodes.add(node2);
+        nodes.add(node3);
+        nodes.add(node4);
+        nodes.add(node5);
+        
+        int n = nodes.size();
+        int m = 3;
+
+        int result = possiblePaint(nodes, n, m);
+        
+        assertEquals(1, result);
+    }
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void possiblePaintTest() {
+    // Create test nodes
+    ArrayList<Node> nodes = new ArrayList<Node>();
+    nodes.add(new Node(1, new ArrayList<Integer>()));
+    nodes.add(new Node(2, new ArrayList<Integer>()));
+    nodes.add(new Node(3, new ArrayList<Integer>()));
+    
+    // Add edges to nodes
+    nodes.get(0).addEdge(1);
+    nodes.get(0).addEdge(2);
+    nodes.get(1).addEdge(0);
+    nodes.get(2).addEdge(0);
+    
+    // Call the method to be tested
+    int result = possiblePaint(nodes, 3, 3);
+    
+    // Assert the expected output
+    assertEquals(1, result);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void possiblePaintTest() {
+    ArrayList<Node> nodes = new ArrayList<>();
+    Node node1 = new Node(1);
+    Node node2 = new Node(2);
+    Node node3 = new Node(3);
+
+    node1.edges = new ArrayList<>(Arrays.asList(2, 3));
+    node2.edges = new ArrayList<>(Arrays.asList(1));
+    node3.edges = new ArrayList<>(Arrays.asList(1));
+
+    nodes.add(node1);
+    nodes.add(node2);
+    nodes.add(node3);
+
+    int n = 3;
+    int m = 3;
+
+    int result = possiblePaint(nodes, n, m);
+
+    assertEquals(1, result);
+}
+
+

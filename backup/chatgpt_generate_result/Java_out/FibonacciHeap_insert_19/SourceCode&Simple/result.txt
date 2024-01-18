@@ -1,0 +1,203 @@
+Source code: 
+
+
+public HeapNode insert(int key) {
+    HeapNode toInsert = new HeapNode(key); // creates the node
+    if (this.empty()) {
+        this.min = toInsert;
+    } else { // tree is not empty
+        min.setNext(toInsert);
+        this.updateMin(toInsert);
+    }
+    this.numOfHeapNodes++;
+    this.numOfTrees++;
+    return toInsert;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void insertTest() {
+    FibonacciHeap heap = new FibonacciHeap();
+    HeapNode node = heap.insert(5);
+    assertNotNull(node);
+    assertEquals(5, node.getKey());
+    assertFalse(heap.empty());
+    assertEquals(1, heap.size());
+    assertEquals(1, heap.numOfHeapNodes);
+    assertEquals(1, heap.numOfTrees);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void insertTest() {
+    FibonacciHeap fibonacciHeap = new FibonacciHeap();
+    HeapNode result = fibonacciHeap.insert(5);
+    assertNotNull(result);
+    assertEquals(5, result.getKey());
+    assertNull(result.getNext());
+    assertNull(result.getChild());
+    assertNull(result.getParent());
+    assertNull(result.getPrev());
+    assertFalse(result.isMarked());
+    assertEquals(0, result.getRank());
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void insertTest() {
+    FibonacciHeap heap = new FibonacciHeap();
+    HeapNode node = heap.insert(5);
+    assertFalse(heap.empty());
+    assertEquals(1, heap.size());
+    assertEquals(5, node.getKey());
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void insertTest() {
+    FibonacciHeap heap = new FibonacciHeap();
+    HeapNode node = heap.insert(5);
+    
+    assertNotNull(node);
+    assertEquals(5, node.getKey());
+    assertTrue(heap.findMin() == node);
+    assertEquals(1, heap.size());
+    assertEquals(1, heap.countersRep()[0]);
+}
+
+
+No.5 generated result --------------------------
+
+package com.thealgorithms.datastructures.heaps;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class FibonacciHeapTest {
+    @Test
+    public void insertTest() {
+        FibonacciHeap heap = new FibonacciHeap();
+        HeapNode node = heap.insert(5);
+        assertNotNull(node);
+        assertEquals(5, node.getKey());
+        assertNull(node.getNext());
+        assertNull(node.getParent());
+        assertNull(node.getChild());
+        assertNull(node.getPrev());
+        assertFalse(node.isMarked());
+        assertFalse(node.isRoot());
+        
+        assertEquals(1, heap.size());
+        assertEquals(1, heap.numOfHeapNodes);
+        assertEquals(1, heap.numOfTrees);
+        assertEquals(0, heap.markedHeapNoodesCounter);
+        assertNull(heap.min.getNext());
+        assertEquals(node, heap.min);
+    
+        HeapNode min = heap.findMin();
+        assertEquals(node, min);
+    }
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void insertTest() {
+    FibonacciHeap heap = new FibonacciHeap();
+    HeapNode node = heap.insert(5);
+    
+    assertTrue(heap.findMin() == node);
+    assertTrue(heap.size() == 1);
+    assertTrue(heap.totalLinks() == 0);
+    assertTrue(heap.totalCuts() == 0);
+    assertTrue(node.getKey() == 5);
+    assertTrue(node.isMarked() == false);
+    assertTrue(node.isRoot() == true);
+}
+
+
+No.7 generated result --------------------------
+
+public class FibonacciHeapTest {
+    @Test
+    public void insertTest() {
+        FibonacciHeap heap = new FibonacciHeap();
+        heap.insert(5);
+        
+        // Assert that the min node of the heap is correctly set to the newly inserted node
+        assertEquals(5, heap.findMin().getKey());
+        
+        // Assert that the number of heap nodes is correctly incremented
+        assertEquals(1, heap.numOfHeapNodes);
+        
+        // Assert that the number of trees is correctly incremented
+        assertEquals(1, heap.numOfTrees);
+    }
+}
+
+
+No.8 generated result --------------------------
+
+package com.thealgorithms.datastructures.heaps;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class FibonacciHeapTest {
+    @Test
+    public void insertTest() {
+        FibonacciHeap heap = new FibonacciHeap();
+        HeapNode node = heap.insert(5);
+      
+        // Verify that the node is inserted correctly
+        assertNotNull(node);
+        assertEquals(5, node.getKey());
+        assertNull(node.getChild());
+        assertNull(node.getNext());
+        assertNull(node.getPrev());
+        assertNull(node.getParent());
+        assertFalse(node.isMarked());
+        assertEquals(0, node.getRank());
+        
+        // Verify that the heap is updated correctly
+        assertEquals(node, heap.getMin());
+        assertEquals(1, heap.getNumOfHeapNodes());
+        assertEquals(1, heap.getNumOfTrees());
+    }
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void insertTest() {
+    FibonacciHeap heap = new FibonacciHeap();
+    HeapNode node = heap.insert(5);
+    assertFalse(heap.empty());
+    assertEquals(node, heap.findMin());
+    assertEquals(1, heap.size());
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void insertTest() {
+    FibonacciHeap heap = new FibonacciHeap();
+    heap.insert(5);
+    assertNotNull(heap.min);
+    assertEquals(1, heap.numOfHeapNodes);
+    assertEquals(1, heap.numOfTrees);
+}
+
+

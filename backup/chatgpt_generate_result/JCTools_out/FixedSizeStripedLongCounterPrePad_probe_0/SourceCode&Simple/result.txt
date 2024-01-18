@@ -1,0 +1,191 @@
+Source code: 
+
+
+private int probe() {
+    // Fast path for reliable well-distributed probe, available from JDK 7+.
+    // As long as PROBE is final static this branch will be constant folded
+    // (i.e removed).
+    if (PROBE != -1) {
+        int probe;
+        if ((probe = UNSAFE.getInt(Thread.currentThread(), PROBE)) == 0) {
+            ThreadLocalRandom.current(); // force initialization
+            probe = UNSAFE.getInt(Thread.currentThread(), PROBE);
+        }
+        return probe;
+    }
+
+    /*
+     * Else use much worse (for values distribution) method:
+     * Mix thread id with golden ratio and then xorshift it
+     * to spread consecutive ids (see Knuth multiplicative method as reference).
+     */
+    int probe = (int) ((Thread.currentThread().getId() * 0x9e3779b9) & Integer.MAX_VALUE);
+    // xorshift
+    probe ^= probe << 13;
+    probe ^= probe >>> 17;
+    probe ^= probe << 5;
+    return probe;
+}
+
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void probeTest() {
+    FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(4);
+    int result = counter.probe();
+    assertEquals(result, <expected value>);
+}
+
+
+No.2 generated result --------------------------
+
+package org.jctools.counters;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class FixedSizeStripedLongCounterPrePadTest {
+    @Test
+    public void probeTest() {
+        FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();
+        int probe = counter.probe();
+
+        // Assert the expected output with the actual output
+        // Replace <EXPECTED_OUTPUT> with the expected output of the probe method
+        assertEquals(<EXPECTED_OUTPUT>, probe);
+    }
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void probeTest() {
+    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad() {
+        @Override
+        protected int probe() {
+            return super.probe();
+        }
+    };
+    int result = counter.probe();
+    assertEquals(<EXPECTED VALUE>, result);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void probeTest() {
+    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad() {
+        // Implementing abstract methods
+    };
+    int result = counter.probe();
+    // Add assertion to verify the result
+    assertEquals(0, result);
+}
+
+
+No.5 generated result --------------------------
+
+package org.jctools.counters;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class FixedSizeStripedLongCounterPrePadTest {
+    @Test
+    public void probeTest() {
+        FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad() {
+            @Override
+            public long counterOffset(long i) {
+                return 0; // dummy implementation for test
+            }
+            @Override
+            public int probe() {
+                return 123; // dummy implementation for test
+            }
+        };
+        
+        assertEquals(123, counter.probe());
+    }
+}
+
+
+No.6 generated result --------------------------
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class FixedSizeStripedLongCounterPrePadTest {
+
+    @Test
+    public void probeTest() {
+        FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad() {};
+        int result = counter.probe();
+        assertNotNull(result);
+        // Add more assertions if necessary
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void probeTest() {
+    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad() {};
+    int result = counter.probe();
+    assertEquals(expected, result);
+}
+
+
+No.8 generated result --------------------------
+
+    @Test
+    public void probeTest() {
+        FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad() {};
+        int probe = counter.probe();
+        assertNotEquals(0, probe);
+    }
+
+
+No.9 generated result --------------------------
+
+@Test
+public void probeTest() {
+    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad() {
+        // Override the probe method to return a specific value for testing
+        @Override
+        private int probe() {
+            return 123;
+        }
+    };
+    
+    int expected = 123;
+    int actual = counter.probe();
+    
+    assertEquals(expected, actual);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void probeTest() {
+    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad() {
+        @Override
+        protected long counterOffset(long i) {
+            return 0;
+        }
+    };
+    
+    int expectedProbe = 123; // Replace with expected probe value
+    
+    int actualProbe = counter.probe();
+    
+    assertEquals(expectedProbe, actualProbe);
+}
+
+

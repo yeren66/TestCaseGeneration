@@ -1,0 +1,237 @@
+Source code: 
+
+// Determine the next (higher number) region that meets the desired conditions
+public static int NextRegion(int Parent, int Color, double MinArea, double MaxArea, int Label)
+{
+    double DParent = (double) Parent; 
+    double DColor = (double) Color; if(DColor > 0) DColor = 1;
+    
+    int i;
+    for(i = Label; i <= MaxLabel; i++)
+    {
+        double [] Region = RegionData[i];
+        double ThisParent = Region[BLOBPARENT];
+        double ThisColor = Region[BLOBCOLOR];
+        if(DParent >= 0 && DParent != ThisParent) continue;
+        if(DColor >= 0 && DColor != ThisColor) continue;
+        if(Region[BLOBAREA] < MinArea || Region[BLOBAREA] > MaxArea) continue;  
+        break;      // We have a match!
+    }
+    if(i > MaxLabel) i = -1;    // Use -1 to flag that there was no match
+    return i;
+}
+
+
+
+No.1 generated result --------------------------
+
+package org.bytedeco.javacv;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BlobsTest {
+    @Test
+    public void NextRegionTest() {
+        int result = Blobs.NextRegion(5, 1, 10.0, 20.0, 0);
+        assertEquals(2, result);
+    }
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void NextRegionTest() {
+    int parent = 10;
+    int color = 0;
+    double minArea = 100;
+    double maxArea = 1000;
+    int label = 0;
+
+    int expectedResult = 1;
+    int actualResult = Blobs.NextRegion(parent, color, minArea, maxArea, label);
+
+    assertEquals(expectedResult, actualResult);
+}
+
+
+No.3 generated result --------------------------
+
+package org.bytedeco.javacv;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BlobsTest {
+    @Test
+    public void NextRegionTest() {
+        int Parent = 1;
+        int Color = 0;
+        double MinArea = 10.0;
+        double MaxArea = 100.0;
+        int Label = 0;
+
+        int expected = <FILL> // expected value
+        int result = Blobs.NextRegion(Parent, Color, MinArea, MaxArea, Label);
+        
+        assertEquals(expected, result);
+    }
+}
+
+
+No.4 generated result --------------------------
+
+package org.bytedeco.javacv;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BlobsTest {
+    @Test
+    public void NextRegionTest() {
+        int Parent = 0;
+        int Color = 1;
+        double MinArea = 100;
+        double MaxArea = 200;
+        int Label = 1;
+        
+        int actualResult = Blobs.NextRegion(Parent, Color, MinArea, MaxArea, Label);
+        int expectedResult = <FILL>; // Fill this with the expected result
+        
+        assertEquals(expectedResult, actualResult);
+    }
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void NextRegionTest() {
+    int Parent = 1;
+    int Color = 0;
+    double MinArea = 10.0;
+    double MaxArea = 100.0;
+    int Label = 0;
+    
+    int expectedOutput = 1;
+    int actualOutput = Blobs.NextRegion(Parent, Color, MinArea, MaxArea, Label);
+    
+    assertEquals(expectedOutput, actualOutput);
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void NextRegionTest() {
+    int Parent = 10;
+    int Color = 0;
+    double MinArea = 100.0;
+    double MaxArea = 500.0;
+    int Label = 0;
+    
+    int expectedOutput = 0;
+    int actualOutput = Blobs.NextRegion(Parent, Color, MinArea, MaxArea, Label);
+    
+    assertEquals(expectedOutput, actualOutput);
+}
+
+
+No.7 generated result --------------------------
+
+// Determine the next (higher number) region that meets the desired conditions
+public static int NextRegion(int Parent, int Color, double MinArea, double MaxArea, int Label)
+{
+    double DParent = (double) Parent; 
+    double DColor = (double) Color; if(DColor > 0) DColor = 1;
+    
+    int i;
+    for(i = Label; i <= MaxLabel; i++)
+    {
+        double [] Region = RegionData[i];
+        double ThisParent = Region[BLOBPARENT];
+        double ThisColor = Region[BLOBCOLOR];
+        if(DParent >= 0 && DParent != ThisParent) continue;
+        if(DColor >= 0 && DColor != ThisColor) continue;
+        if(Region[BLOBAREA] < MinArea || Region[BLOBAREA] > MaxArea) continue;  
+        break;      // We have a match!
+    }
+    if(i > MaxLabel) i = -1;    // Use -1 to flag that there was no match
+    return i;
+}
+
+package org.bytedeco.javacv;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BlobsTest {
+    @Test
+    public void NextRegionTest() {
+        int Parent = 5;
+        int Color = 1;
+        double MinArea = 10.0;
+        double MaxArea = 100.0;
+        int Label = 0;
+        
+        int result = Blobs.NextRegion(Parent, Color, MinArea, MaxArea, Label);
+        
+        // Expected output
+        int expectedResult = 2; 
+      
+        assertEquals(expectedResult, result);
+    }
+}
+
+
+No.8 generated result --------------------------
+
+package org.bytedeco.javacv;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BlobsTest {
+    @Test
+    public void NextRegionTest() {
+        int result = Blobs.NextRegion(0, 1, 10.0, 20.0, 1);
+        assertEquals(1, result);
+    }
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void NextRegionTest() {
+    int Parent = 1;
+    int Color = 0;
+    double MinArea = 10.0;
+    double MaxArea = 100.0;
+    int Label = 0;
+    
+    int expected = 1;
+    int actual = NextRegion(Parent, Color, MinArea, MaxArea, Label);
+    
+    assertEquals(expected, actual);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void NextRegionTest() {
+    int parent = 1;
+    int color = 0;
+    double minArea = 10.0;
+    double maxArea = 100.0;
+    int label = 0;
+    
+    int expectedOutput = 2;
+    int actualOutput = Blobs.NextRegion(parent, color, minArea, maxArea, label);
+    
+    assertEquals(expectedOutput, actualOutput);
+}
+
+

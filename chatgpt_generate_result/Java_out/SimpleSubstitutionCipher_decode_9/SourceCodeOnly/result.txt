@@ -1,0 +1,208 @@
+Source code: 
+
+
+public static String decode(String encryptedMessage, String cipherSmall) {
+    StringBuilder decoded = new StringBuilder();
+
+    Map<Character, Character> cipherMap = new HashMap<>();
+
+    char beginSmallLetter = 'a';
+    char beginCapitalLetter = 'A';
+
+    cipherSmall = cipherSmall.toLowerCase();
+    String cipherCapital = cipherSmall.toUpperCase();
+
+    for (int i = 0; i < cipherSmall.length(); i++) {
+        cipherMap.put(cipherSmall.charAt(i), beginSmallLetter++);
+        cipherMap.put(cipherCapital.charAt(i), beginCapitalLetter++);
+    }
+
+    for (int i = 0; i < encryptedMessage.length(); i++) {
+        if (Character.isAlphabetic(encryptedMessage.charAt(i))) {
+            decoded.append(cipherMap.get(encryptedMessage.charAt(i)));
+        } else {
+            decoded.append(encryptedMessage.charAt(i));
+        }
+    }
+
+    return decoded.toString();
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    String encryptedMessage = "KZPP GSRG Y ZW UJJKT!";
+    String cipherSmall = "pbdwfihjuoecqtymklsrnaxzvg";
+    
+    String expectedOutput = "THIS IS A TEST CASE!";
+    String actualOutput = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+    
+    assertEquals(expectedOutput, actualOutput);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    String encryptedMessage = "xifq q eiqm";
+    String cipherSmall = "zyxwvutsrqponmlkjihgfedcba";
+    String expected = "send a mail";
+    
+    String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+    
+    assertEquals(expected, actual);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    String encryptedMessage = "v zhlz";
+    String cipherSmall = "pqrstuvwxyabcdefghijklmno";
+
+    String expected = "i love";
+    String actual = decode(encryptedMessage, cipherSmall);
+
+    assertEquals(expected, actual);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    String encryptedMessage = "jxyoc";
+    String cipherSmall = "xyzab";
+    String expected = "help";
+
+    String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+
+    assertEquals(expected, actual);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    String encryptedMessage = "Grj qe gkiye";
+    String cipherSmall = "zyxwvutsrqponmlkjihgfedcba";
+
+    String expectedResult = "The is thing";
+    String actualResult = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+
+    assertEquals(expectedResult, actualResult);
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    String encryptedMessage = "Ifmmp Xpsme";
+    String cipherSmall = "bcdefghijklmnopqrstuvwxyza";
+
+    String expected = "Hello World";
+    String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+
+    assertEquals(expected, actual);
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    String encryptedMessage = "Fyyf fp fjxy";
+    String cipherSmall = "defghijklmnopqrstuvwxyzabc";
+    String expected = "Test is done";
+    
+    String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+    
+    assertEquals(expected, actual);
+}
+
+
+No.8 generated result --------------------------
+
+public void decodeTest() {
+    String encryptedMessage = "Lipps, asvph!";
+    String cipherSmall = "zyxwvutsrqponmlkjihgfedcba";
+
+    String expected = "Hello, world!";
+    String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+
+    assertEquals(expected, actual);
+}
+
+
+No.9 generated result --------------------------
+
+package com.thealgorithms.ciphers;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Map;
+import java.util.HashMap;
+
+public class SimpleSubstitutionCipherTest {
+    @Test
+    public void decodeTest() {
+        String encryptedMessage = "mjqqt";
+        String cipherSmall = "bcdef";
+        
+        String expected = "hello";
+        String actual = decode(encryptedMessage, cipherSmall);
+        
+        assertEquals(expected, actual);
+    }
+    
+    public static String decode(String encryptedMessage, String cipherSmall) {
+        StringBuilder decoded = new StringBuilder();
+
+        Map<Character, Character> cipherMap = new HashMap<>();
+
+        char beginSmallLetter = 'a';
+        char beginCapitalLetter = 'A';
+
+        cipherSmall = cipherSmall.toLowerCase();
+        String cipherCapital = cipherSmall.toUpperCase();
+
+        for (int i = 0; i < cipherSmall.length(); i++) {
+            cipherMap.put(cipherSmall.charAt(i), beginSmallLetter++);
+            cipherMap.put(cipherCapital.charAt(i), beginCapitalLetter++);
+        }
+
+        for (int i = 0; i < encryptedMessage.length(); i++) {
+            if (Character.isAlphabetic(encryptedMessage.charAt(i))) {
+                decoded.append(cipherMap.get(encryptedMessage.charAt(i)));
+            } else {
+                decoded.append(encryptedMessage.charAt(i));
+            }
+        }
+
+        return decoded.toString();
+    }
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void decodeTest() {
+    String encryptedMessage = "Vo uij!";
+    String cipherSmall = "zyxwvutsrqponmlkjihgfedcba";
+    String expected = "Hi mom!";
+    
+    String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+    
+    assertEquals(expected, actual);
+}
+
+

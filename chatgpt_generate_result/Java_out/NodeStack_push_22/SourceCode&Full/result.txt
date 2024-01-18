@@ -1,0 +1,191 @@
+Source code: 
+
+
+public void push(Item item) {
+    NodeStack<Item> newNs = new NodeStack<Item>(item);
+
+    if (this.isEmpty()) {
+        NodeStack.setHead(new NodeStack<>(item));
+        newNs.setNext(null);
+        newNs.setPrevious(null);
+    } else {
+        newNs.setPrevious(NodeStack.head);
+        NodeStack.head.setNext(newNs);
+        NodeStack.setHead(newNs);
+    }
+
+    NodeStack.setSize(NodeStack.getSize() + 1);
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+    public void pushTest() {
+        NodeStack<Integer> stack = new NodeStack<>();
+        
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        
+        assertEquals(3, stack.size());
+    }
+
+
+No.2 generated result --------------------------
+
+@Test
+public void pushTest() {
+    NodeStack<Integer> stack = new NodeStack<>();
+    stack.push(3);
+    stack.push(4);
+    stack.push(5);
+
+    assertEquals(5, stack.peek());
+    assertEquals(3, stack.size());
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void pushTest() {
+    NodeStack<Integer> stack = new NodeStack<>();
+    stack.push(3);
+    stack.push(4);
+    stack.push(5);
+    assertEquals(3, stack.size());
+    assertEquals(5, stack.pop());
+    stack.push(1);
+    stack.push(8);
+    assertEquals(4, stack.size());
+    assertEquals(8, stack.peek());
+    assertEquals(8, stack.pop());
+    assertEquals(1, stack.pop());
+    assertEquals(4, stack.pop());
+    assertEquals(3, stack.pop());
+    assertTrue(stack.isEmpty());
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+    public void pushTest() {
+        NodeStack<Integer> stack = new NodeStack<Integer>();
+
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+
+        assertFalse(stack.isEmpty());
+        assertEquals(3, stack.size());
+        assertEquals(3, stack.peek());
+    }
+
+
+No.5 generated result --------------------------
+
+@Test
+public void pushTest() {
+    NodeStack<Integer> stack = new NodeStack<Integer>();
+    
+    stack.push(3);
+    stack.push(4);
+    stack.push(5);
+    
+    assertEquals(3, stack.size());
+    assertEquals(5, stack.peek());
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void pushTest() {
+    NodeStack<Integer> stack = new NodeStack<>();
+    stack.push(3);
+    stack.push(4);
+    stack.push(5);
+    stack.push(1);
+    stack.push(8);
+    assertEquals(5, stack.size());
+    assertFalse(stack.isEmpty());
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+    public void pushTest() {
+        NodeStack<Integer> stack = new NodeStack<Integer>();
+
+        // Test push with empty stack
+        stack.push(1);
+        assertTrue(!stack.isEmpty());
+        assertEquals(1, stack.size());
+
+        // Test push with non-empty stack
+        stack.push(2);
+        assertEquals(2, stack.peek());
+        assertEquals(2, stack.size());
+        assertFalse(stack.isEmpty());
+    }
+
+
+No.8 generated result --------------------------
+
+@Test
+public void pushTest() {
+    NodeStack<Integer> stack = new NodeStack<Integer>();
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    assertEquals(3, stack.size());
+    assertFalse(stack.isEmpty());
+    // additional assertions for stack content
+    //...
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void pushTest() {
+    NodeStack<Integer> stack = new NodeStack<Integer>();
+
+    stack.push(3);
+    stack.push(4);
+    stack.push(5);
+
+    String expectedOutput = "5\n4\n3\n";
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(outputStream));
+    stack.print();
+    String actualOutput = outputStream.toString().trim();
+    assertEquals(expectedOutput, actualOutput);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void pushTest() {
+    NodeStack<Integer> stack = new NodeStack<Integer>();
+    
+    // Pushing values onto the stack
+    stack.push(3);
+    stack.push(4);
+    stack.push(5);
+    
+    // Check if the stack contains the correct elements
+    assertEquals(3, stack.size());
+    assertEquals(5, stack.peek());
+    
+    // Print the contents of the stack
+    System.out.println("Testing :");
+    stack.print(); // prints : 5 4 3
+}
+
+

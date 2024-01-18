@@ -1,0 +1,237 @@
+Source code: 
+
+
+public synchronized String update(RouteDefinition definition) {
+    try {
+        log.info("gateway update route {}", definition);
+    } catch (Exception e) {
+        return "update fail,not find route  routeId: " + definition.getId();
+    }
+    try {
+        repository.save(Mono.just(definition)).subscribe();
+        this.publisher.publishEvent(new RefreshRoutesEvent(this));
+        return "success";
+    } catch (Exception e) {
+        return "update route fail";
+    }
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void updateTest() {
+    // Create a RouteDefinition object
+    RouteDefinition definition = new RouteDefinition();
+    definition.setId("routeId");
+    // Call the update() method of DynamicRouteService
+    DynamicRouteService dynamicRouteService = new DynamicRouteService();
+    String result = dynamicRouteService.update(definition);
+    // Assert the result is "success"
+    assertEquals("success", result);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void updateTest() {
+    // Create a mock RouteDefinition object
+    RouteDefinition routeDefinition = new RouteDefinition();
+    routeDefinition.setId("exampleRoute");
+    routeDefinition.setUri(URI.create("http://example.com"));
+
+    // Create a mock MyInMemoryRouteDefinitionRepository object
+    MyInMemoryRouteDefinitionRepository repository = Mockito.mock(MyInMemoryRouteDefinitionRepository.class);
+    Mockito.when(repository.save(Mono.just(routeDefinition))).thenReturn(Mono.just(routeDefinition));
+    
+    // Create a mock ApplicationEventPublisher object
+    ApplicationEventPublisher publisher = Mockito.mock(ApplicationEventPublisher.class);
+
+    // Create a DynamicRouteService object and set the mock repository and publisher
+    DynamicRouteService dynamicRouteService = new DynamicRouteService();
+    dynamicRouteService.setRepository(repository);
+    dynamicRouteService.setApplicationEventPublisher(publisher);
+
+    // Call the update method and assert the returned value is "success"
+    String result = dynamicRouteService.update(routeDefinition);
+    assertEquals("success", result);
+}
+
+
+
+No.3 generated result --------------------------
+
+@Test
+public void updateTest() {
+    // Arrange
+    RouteDefinition definition = new RouteDefinition();
+    definition.setId("1");
+    
+    DynamicRouteService service = new DynamicRouteService();
+    
+    // Act
+    String result = service.update(definition);
+    
+    // Assert
+    assertEquals("success", result);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void updateTest() {
+    RouteDefinition definition = new RouteDefinition();
+    definition.setId("routeId");
+    DynamicRouteService service = new DynamicRouteService();
+    String result = service.update(definition);
+    assertEquals("success", result);
+}
+
+
+No.5 generated result --------------------------
+
+package org.jeecg.loader.repository;
+
+import org.junit.jupiter.api.*;
+import org.springframework.cloud.gateway.event.RefreshRoutesEvent;
+import org.springframework.cloud.gateway.route.RouteDefinition;
+import org.springframework.context.ApplicationEventPublisher;
+
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DynamicRouteServiceTest {
+    private DynamicRouteService dynamicRouteService;
+
+    @BeforeEach
+    public void setup() {
+        dynamicRouteService = new DynamicRouteService();
+        dynamicRouteService.setRepository(new MyInMemoryRouteDefinitionRepository());
+        dynamicRouteService.setApplicationEventPublisher(new ApplicationEventPublisher() {
+            @Override
+            public void publishEvent(Object event) {
+
+            }
+        });
+    }
+
+    @Test
+    public void updateTest() {
+        RouteDefinition definition = new RouteDefinition();
+        definition.setId("test-route");
+        definition.setUri("http://localhost:8080");
+
+        String result = dynamicRouteService.update(definition);
+
+        assertEquals("success", result);
+    }
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void updateTest() {
+    // Create a new DynamicRouteService instance
+    DynamicRouteService dynamicRouteService = new DynamicRouteService();
+
+    // Create a new RouteDefinition instance for testing
+    RouteDefinition routeDefinition = new RouteDefinition();
+    routeDefinition.setId("testRoute");
+    routeDefinition.setUri("http://localhost:8080");
+
+    // Call the update method and capture the returned value
+    String result = dynamicRouteService.update(routeDefinition);
+
+    // Assert that the result is equal to "success"
+    assertEquals("success", result);
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void updateTest() {
+    // Create a new instance of RouteDefinition
+    RouteDefinition routeDefinition = new RouteDefinition();
+    // Set the necessary properties of the routeDefinition
+    // ...
+    // Create an instance of DynamicRouteService
+    DynamicRouteService dynamicRouteService = new DynamicRouteService();
+    // Call the update method and pass the routeDefinition
+    String result = dynamicRouteService.update(routeDefinition);
+    // Assert the result
+    assertEquals("success", result);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void updateTest() {
+    // Test input
+    RouteDefinition definition = new RouteDefinition();
+    definition.setId("123");
+    
+    // Create an instance of DynamicRouteService
+    DynamicRouteService dynamicRouteService = new DynamicRouteService();
+    
+    // Set repository and application event publisher
+    MyInMemoryRouteDefinitionRepository repository = new MyInMemoryRouteDefinitionRepository();
+    dynamicRouteService.setRepository(repository);
+    dynamicRouteService.setApplicationEventPublisher(repository);
+
+    // Perform the update
+    String result = dynamicRouteService.update(definition);
+    
+    // Assert the result
+    assertEquals("success", result);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void updateTest() {
+    RouteDefinition definition = new RouteDefinition();
+    definition.setId("route1");
+    definition.setUri(URI.create("http://example.com"));
+    
+    DynamicRouteService service = new DynamicRouteService();
+    String result = service.update(definition);
+    
+    assertEquals("success", result);
+}
+
+
+No.10 generated result --------------------------
+
+package org.jeecg.loader.repository;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DynamicRouteServiceTest {
+    @Test
+    public void updateTest() {
+        // Create an instance of DynamicRouteService
+        DynamicRouteService dynamicRouteService = new DynamicRouteService();
+        
+        // Create a RouteDefinition object
+        RouteDefinition routeDefinition = new RouteDefinition();
+        // Set the properties of the routeDefinition object
+        
+        // Call the update method of DynamicRouteService and store the result in a String variable
+        String result = dynamicRouteService.update(routeDefinition);
+        
+        // Assert the expected output with the result
+        assertEquals("success", result);
+    }
+}
+
+

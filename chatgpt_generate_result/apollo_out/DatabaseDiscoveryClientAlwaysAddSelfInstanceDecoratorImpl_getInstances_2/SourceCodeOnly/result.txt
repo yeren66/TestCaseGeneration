@@ -1,0 +1,380 @@
+Source code: 
+
+
+@Override
+public List<ServiceInstance> getInstances(String serviceName) {
+  if (Objects.equals(serviceName, this.selfInstance.getServiceName())) {
+    List<ServiceInstance> serviceInstances = this.delegate.getInstances(serviceName);
+    if (containSelf(serviceInstances, this.selfInstance)) {
+      // contains self instance already
+      return serviceInstances;
+    }
+
+    // add self instance to result
+    List<ServiceInstance> result = new ArrayList<>(serviceInstances.size() + 1);
+    result.add(this.selfInstance);
+    result.addAll(serviceInstances);
+    return result;
+  } else {
+    return this.delegate.getInstances(serviceName);
+  }
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+    public void getInstancesTest() {
+        // Create an instance of DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl
+        DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl decorator = new DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl();
+        
+        // Set the selfInstance property of the decorator
+        
+        // Call the getInstances method with a serviceName that is equal to the selfInstance's serviceName
+        List<ServiceInstance> result = decorator.getInstances(decorator.getSelfInstance().getServiceName());
+        
+        // Assert that the result is not null
+        
+        // Assert that the result contains the selfInstance
+        
+        // Assert that the result contains all the serviceInstances from the delegate
+        
+        // Call the getInstances method with a serviceName that is not equal to the selfInstance's serviceName
+        List<ServiceInstance> result2 = decorator.getInstances("someServiceName");
+        
+        // Assert that the result2 is not null
+        
+        // Assert that the result2 is equal to the result from the delegate
+    }
+
+
+No.2 generated result --------------------------
+
+package com.ctrip.framework.apollo.biz.registry;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImplTest {
+    @Test
+    public void getInstancesTest() {
+        // Create an instance of the class under test
+        DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl decorator = new DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl();
+
+        // Set up test data
+        String serviceName = "exampleService";
+        ServiceInstance selfInstance = new ServiceInstance(); // Create a mock instance of ServiceInstance
+        List<ServiceInstance> serviceInstances = new ArrayList<>(); // Create a mock list of ServiceInstances
+        serviceInstances.add(new ServiceInstance()); // Add some mock ServiceInstances to the list
+
+        // Set the selfInstance and delegate field values in the decorator to the mock values
+        decorator.setSelfInstance(selfInstance);
+        decorator.setDelegate(new DelegateClassMock(serviceInstances));
+
+        // Call the method under test
+        List<ServiceInstance> result = decorator.getInstances(serviceName);
+
+        // Assert the result
+        assertNotNull(result);
+        assertEquals(serviceInstances.size() + 1, result.size());
+        assertEquals(selfInstance, result.get(0));
+        assertEquals(serviceInstances, result.subList(1, result.size()));
+    }
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void getInstancesTest() {
+  // Step1: Create a DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl object
+  DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl decorator = new DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl();
+
+  // Step2: Set up necessary variables, such as serviceName and selfInstance
+  String serviceName = "exampleService";
+  ServiceInstance selfInstance = new ServiceInstance();
+
+  // Step3: Set up the delegate and mock its behavior
+  DiscoveryClient delegate = Mockito.mock(DiscoveryClient.class);
+  when(delegate.getInstances(serviceName)).thenReturn(new ArrayList<>());
+
+  // Step4: Set up the decorator with the delegate and self instance
+  decorator.setDelegate(delegate);
+  decorator.setSelfInstance(selfInstance);
+
+  // Step5: Call the method under test
+  List<ServiceInstance> result = decorator.getInstances(serviceName);
+  
+  // Step6: Assert the expected result
+  // Create the expected result
+  List<ServiceInstance> expected = new ArrayList<>();
+  expected.add(selfInstance);
+
+  // Verify the result
+  assertEquals(expected, result);
+}
+
+
+No.4 generated result --------------------------
+
+package com.ctrip.framework.apollo.biz.registry;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImplTest {
+    @Test
+    public void getInstancesTest() {
+        DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl decorator = new DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl();
+        ServiceInstance selfInstance = new ServiceInstance("selfInstance", "localhost", 8080);
+        decorator.setSelfInstance(selfInstance);
+
+        // Test case for serviceName equal to selfInstance.getServiceName()
+        List<ServiceInstance> expected = new ArrayList<>();
+        expected.add(selfInstance);
+        expected.add(new ServiceInstance("instance1", "localhost", 8081));
+        expected.add(new ServiceInstance("instance2", "localhost", 8082));
+        List<ServiceInstance> actual = decorator.getInstances("selfInstance");
+        assertEquals(expected, actual, "Test case failed for serviceName equal to selfInstance.getServiceName()");
+
+        // Test case for serviceName not equal to selfInstance.getServiceName()
+        expected = new ArrayList<>();
+        expected.add(new ServiceInstance("instance3", "localhost", 8083));
+        expected.add(new ServiceInstance("instance4", "localhost", 8084));
+        actual = decorator.getInstances("serviceName");
+        assertEquals(expected, actual, "Test case failed for serviceName not equal to selfInstance.getServiceName()");
+    }
+}
+
+
+No.5 generated result --------------------------
+
+package com.ctrip.framework.apollo.biz.registry;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImplTest {
+    
+    @Test
+    public void getInstancesTest() {
+        DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl instance = new DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl();
+        
+        // Test case 1: Service name equals self instance's service name
+        String serviceName1 = "exampleService";
+        List<ServiceInstance> expectedResult1 = new ArrayList<>();
+        // Add self instance to the expected result
+        expectedResult1.add(instance.selfInstance);
+        // Add all service instances to the expected result
+        expectedResult1.addAll(instance.delegate.getInstances(serviceName1));
+        
+        List<ServiceInstance> actualResult1 = instance.getInstances(serviceName1);
+        
+        assertEquals(expectedResult1, actualResult1);
+        
+        // Test case 2: Service name does not equal self instance's service name
+        String serviceName2 = "anotherService";
+        List<ServiceInstance> expectedResult2 = instance.delegate.getInstances(serviceName2);
+        
+        List<ServiceInstance> actualResult2 = instance.getInstances(serviceName2);
+        
+        assertEquals(expectedResult2, actualResult2);
+    }
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void getInstancesTest() {
+  String serviceName = "testService";
+  DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl client = new DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl();
+
+  client.selfInstance = new ServiceInstance("localhost", 8080, "testService");
+  client.delegate = new DatabaseDiscoveryClient();
+
+  // Test case 1: When serviceName is equal to selfInstance's serviceName
+  List<ServiceInstance> serviceInstances1 = client.getInstances(serviceName);
+  assertTrue(serviceInstances1.contains(client.selfInstance));
+
+  // Test case 2: When serviceName is not equal to selfInstance's serviceName
+  serviceName = "otherService";
+  List<ServiceInstance> serviceInstances2 = client.getInstances(serviceName);
+  assertFalse(serviceInstances2.contains(client.selfInstance));
+}
+
+
+No.7 generated result --------------------------
+
+package com.ctrip.framework.apollo.biz.registry;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImplTest {
+    @Test
+    public void getInstancesTest() {
+        DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl decorator = new DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl();
+        // Call the getInstances method and pass a test service name
+        // Verify that the returned list contains the selfInstance added to the result
+        List<ServiceInstance> instances = decorator.getInstances("testService");
+        assertTrue(instances.contains(decorator.selfInstance));
+    }
+}
+
+
+No.8 generated result --------------------------
+
+@Override
+public List<ServiceInstance> getInstances(String serviceName) {
+  if (Objects.equals(serviceName, this.selfInstance.getServiceName())) {
+    List<ServiceInstance> serviceInstances = this.delegate.getInstances(serviceName);
+    if (containSelf(serviceInstances, this.selfInstance)) {
+      // contains self instance already
+      return serviceInstances;
+    }
+
+    // add self instance to result
+    List<ServiceInstance> result = new ArrayList<>(serviceInstances.size() + 1);
+    result.add(this.selfInstance);
+    result.addAll(serviceInstances);
+    return result;
+  } else {
+    return this.delegate.getInstances(serviceName);
+  }
+}
+
+    
+
+### JUNIT Test case:
+package com.ctrip.framework.apollo.biz.registry;
+
+import org.junit.jupiter.api.*;
+import org.mockito.Mockito;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+public class DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImplTest {
+    @Test
+    public void getInstancesTest() {
+        // Create a mock instance of DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl
+        DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl decorator = mock(DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl.class);
+
+        // Create the self instance
+        ServiceInstance selfInstance = new ServiceInstance();
+        selfInstance.setServiceName("testService"); // Replace with actual service name
+
+        // Create the delegate instance
+        DatabaseDiscoveryClientImpl delegate = mock(DatabaseDiscoveryClientImpl.class);
+        when(decorator.getDelegate()).thenReturn(delegate);
+        
+        // Create the list of service instances
+        List<ServiceInstance> serviceInstances = new ArrayList<>();
+        serviceInstances.add(selfInstance);
+        when(delegate.getInstances(anyString())).thenReturn(serviceInstances); // replace anyString() with actual service name
+
+        // Call the getInstances method on the decorator
+        List<ServiceInstance> result = decorator.getInstances("testService"); // Replace with actual service name
+
+        // Verify that the delegate's getInstances method was called with the correct argument
+        verify(delegate, times(1)).getInstances("testService");
+
+        // Verify that the result contains the self instance in the first position
+        assertEquals(selfInstance, result.get(0));
+
+        // Verify that the result contains all the service instances from the delegate
+        assertEquals(serviceInstances.size(), result.size() - 1); // Subtract 1 to exclude the self instance
+        assertTrue(result.containsAll(serviceInstances.subList(1, serviceInstances.size()))); // Exclude the self instance
+    }
+}
+
+
+No.9 generated result --------------------------
+
+
+package com.ctrip.framework.apollo.biz.registry;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImplTest {
+    @Test
+    public void getInstancesTest() {
+        // create an instance of the class under test
+        DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl decorator = new DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl();
+        
+        // set up the self instance
+        ServiceInstance selfInstance = new ServiceInstance();
+        decorator.setSelfInstance(selfInstance);
+        
+        // set up the service name
+        String serviceName = "testService";
+        
+        // set up the mock delegate
+        DatabaseDiscoveryClient mockDelegate = Mockito.mock(DatabaseDiscoveryClient.class);
+        decorator.setDelegate(mockDelegate);
+        
+        // set up the mock service instances
+        List<ServiceInstance> serviceInstances = new ArrayList<>();
+        ServiceInstance instance1 = new ServiceInstance();
+        ServiceInstance instance2 = new ServiceInstance();
+        ServiceInstance instance3 = new ServiceInstance();
+        serviceInstances.add(instance1);
+        serviceInstances.add(instance2);
+        serviceInstances.add(instance3);
+        
+        // specify behavior of delegate.getInstances()
+        Mockito.when(mockDelegate.getInstances(serviceName)).thenReturn(serviceInstances);
+        
+        // invoke the method under test
+        List<ServiceInstance> result = decorator.getInstances(serviceName);
+        
+        // verify the result
+        assertEquals(serviceInstances.size() + 1, result.size());
+        assertEquals(selfInstance, result.get(0));
+        assertTrue(result.contains(instance1));
+        assertTrue(result.contains(instance2));
+        assertTrue(result.contains(instance3));
+    }
+}
+
+
+
+No.10 generated result --------------------------
+
+package com.ctrip.framework.apollo.biz.registry;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.mockito.Mockito;
+import java.util.List;
+import org.springframework.cloud.client.ServiceInstance;
+
+public class DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImplTest {
+  
+    @Test
+    public void getInstancesTest() {
+        DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl decorator = new DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl();
+        List<ServiceInstance> serviceInstances = // create a mock list of ServiceInstance objects
+        Mockito.when(decorator.getInstances("serviceName")).thenReturn(serviceInstances);
+        
+        // Test when serviceName is equal to selfInstance.getServiceName()
+        List<ServiceInstance> result1 = decorator.getInstances("serviceName");
+        
+        // Check that the self instance is added to the result list
+        assertEquals(serviceInstances.size() + 1, result1.size());
+        assertTrue(result1.contains(decorator.selfInstance));
+        assertTrue(result1.containsAll(serviceInstances));
+        
+        // Test when serviceName is not equal to selfInstance.getServiceName()
+        List<ServiceInstance> result2 = decorator.getInstances("otherServiceName");
+        
+        // Check that the delegate's getInstances method is called
+        Mockito.verify(decorator.delegate).getInstances("otherServiceName");
+        assertEquals(serviceInstances, result2);
+    }
+}
+
+

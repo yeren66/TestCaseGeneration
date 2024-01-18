@@ -1,0 +1,245 @@
+Source code: 
+
+
+public static double homogToRt(CvMat H,
+        CvMat R1, CvMat t1, CvMat n1,
+        CvMat R2, CvMat t2, CvMat n2) {
+    CvMat S = S3x3.get(), U = U3x3.get(), V = V3x3.get();
+    cvSVD(H, S, U, V, 0);
+    double zeta = homogToRt(S, U, V, R1, t1, n1, R2, t2, n2);
+    return zeta;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void homogToRtTest() {
+    // Create the required CvMat objects for testing
+    CvMat H = CvMat.create(3, 3);
+    CvMat R1 = CvMat.create(3, 3);
+    CvMat t1 = CvMat.create(3, 1);
+    CvMat n1 = CvMat.create(3, 1);
+    CvMat R2 = CvMat.create(3, 3);
+    CvMat t2 = CvMat.create(3, 1);
+    CvMat n2 = CvMat.create(3, 1);
+
+    // Perform the operation
+    double result = homogToRt(H, R1, t1, n1, R2, t2, n2);
+
+    // Add the necessary assertions to verify the output
+    // For example:
+    assertEquals(expectedResult, result, 0.001); // Use the expected result and the appropriate delta value
+
+    // You can also add more assertions to verify the values of each individual CvMat object if needed
+    // For example:
+    assertTrue(R1.isContinuous());
+    assertEquals(expectedValue, R1.get(0, 0), 0.001); // Use the expected value and the appropriate delta value
+}
+
+
+No.2 generated result --------------------------
+
+public class JavaCVTest {
+    @Test
+    public void homogToRtTest() {
+        // Arrange
+        CvMat H = new CvMat();
+        CvMat R1 = new CvMat();
+        CvMat t1 = new CvMat();
+        CvMat n1 = new CvMat();
+        CvMat R2 = new CvMat();
+        CvMat t2 = new CvMat();
+        CvMat n2 = new CvMat();
+        
+        // Act
+        double result = homogToRt(H, R1, t1, n1, R2, t2, n2);
+        
+        // Assert
+        assertEquals(expectedResult, result);
+    }
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void homogToRtTest() {
+    CvMat H = new CvMat();
+    CvMat R1 = new CvMat();
+    CvMat t1 = new CvMat();
+    CvMat n1 = new CvMat();
+    CvMat R2 = new CvMat();
+    CvMat t2 = new CvMat();
+    CvMat n2 = new CvMat();
+
+    // <FILL> - Call the function to be tested
+    double result = JavaCV.homogToRt(H, R1, t1, n1, R2, t2, n2);
+
+    // <FILL> - Assert the expected output using assertions
+    assertEquals(expectedValue, result);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+    public void homogToRtTest() {
+        // Arrange
+        CvMat H = new CvMat();
+        CvMat R1 = new CvMat();
+        CvMat t1 = new CvMat();
+        CvMat n1 = new CvMat();
+        CvMat R2 = new CvMat();
+        CvMat t2 = new CvMat();
+        CvMat n2 = new CvMat();
+        
+        // Act
+        double result = JavaCV.homogToRt(H, R1, t1, n1, R2, t2, n2);
+        
+        // Assert
+        // Add appropriate assertions to validate the output
+        
+    }
+
+
+No.5 generated result --------------------------
+
+@Test
+public void homogToRtTest() {
+    CvMat H = CvMat.create(3, 3);
+    CvMat R1 = CvMat.create(3, 3);
+    CvMat t1 = CvMat.create(3, 1);
+    CvMat n1 = CvMat.create(3, 1);
+    CvMat R2 = CvMat.create(3, 3);
+    CvMat t2 = CvMat.create(3, 1);
+    CvMat n2 = CvMat.create(3, 1);
+    
+    double result = JavaCV.homogToRt(H, R1, t1, n1, R2, t2, n2);
+    
+    // Assert statements
+    assertNotNull(H);
+    assertNotNull(R1);
+    assertNotNull(t1);
+    assertNotNull(n1);
+    assertNotNull(R2);
+    assertNotNull(t2);
+    assertNotNull(n2);
+    assertEquals(result, <EXPECTED_RESULT>);
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void homogToRtTest() {
+    // Create CvMat objects R1, t1, n1, R2, t2, n2
+    CvMat R1 = new CvMat();
+    CvMat t1 = new CvMat();
+    CvMat n1 = new CvMat();
+    CvMat R2 = new CvMat();
+    CvMat t2 = new CvMat();
+    CvMat n2 = new CvMat();
+
+    // Create CvMat object H and assign values
+
+    // Call the homogToRt method
+    double result = homogToRt(H, R1, t1, n1, R2, t2, n2);
+
+    // Assert the expected result
+    assertEquals(expectedResult, result);
+}
+
+
+No.7 generated result --------------------------
+
+public void homogToRtTest() {
+    CvMat H = new CvMat();
+    CvMat R1 = new CvMat();
+    CvMat t1 = new CvMat();
+    CvMat n1 = new CvMat();
+    CvMat R2 = new CvMat();
+    CvMat t2 = new CvMat();
+    CvMat n2 = new CvMat();
+    
+    // <FILL> - Add code to populate the CvMat objects H, R1, t1, n1, R2, t2, n2
+    
+    double result = JavaCV.homogToRt(H, R1, t1, n1, R2, t2, n2);
+    
+    // <FILL> - Add code to assert the expected result
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void homogToRtTest() {
+    CvMat H = new CvMat();
+    CvMat R1 = new CvMat();
+    CvMat t1 = new CvMat();
+    CvMat n1 = new CvMat();
+    CvMat R2 = new CvMat();
+    CvMat t2 = new CvMat();
+    CvMat n2 = new CvMat();
+    
+    // Call the method under test
+    double result = homogToRt(H, R1, t1, n1, R2, t2, n2);
+    
+    // Add your assertions here
+    // Use assertEquals(expected, actual) to verify the expected result of the method
+    // Compare the values of R1, t1, n1, R2, t2, and n2 with their expected values
+    
+    // Example assertions:
+    assertEquals(expectedResult, result);
+    assertEquals(expectedR1, R1);
+    assertEquals(expectedT1, t1);
+    assertEquals(expectedN1, n1);
+    assertEquals(expectedR2, R2);
+    assertEquals(expectedT2, t2);
+    assertEquals(expectedN2, n2);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+
+
+No.10 generated result --------------------------
+
+package org.bytedeco.javacv;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class JavaCVTest {
+    @Test
+    public void homogToRtTest() {
+        CvMat H = new CvMat();
+        CvMat R1 = new CvMat();
+        CvMat t1 = new CvMat();
+        CvMat n1 = new CvMat();
+        CvMat R2 = new CvMat();
+        CvMat t2 = new CvMat();
+        CvMat n2 = new CvMat();
+
+        // Perform the necessary initializations for H, R1, t1, n1, R2, t2, and n2
+
+        double result = homogToRt(H, R1, t1, n1, R2, t2, n2);
+
+        // Add assertions to test the expected values of R1, t1, n1, R2, t2, and n2
+
+        // Assert statements
+        assertNotNull(H);
+        assertNotNull(R1);
+        assertNotNull(t1);
+        assertNotNull(n1);
+        assertNotNull(R2);
+        assertNotNull(t2);
+        assertNotNull(n2);
+        assertEquals(zeta, result);
+    }
+}
+
+

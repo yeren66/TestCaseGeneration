@@ -1,0 +1,151 @@
+Source code: 
+
+
+private static String bytesToHexString(byte[] src) {
+    StringBuilder stringBuilder = new StringBuilder();
+    if (src == null || src.length <= 0) {
+        return null;
+    }
+    for (int i = 0; i < src.length; i++) {
+        int v = src[i] & 0xFF;
+        String hv = Integer.toHexString(v);
+        if (hv.length() < 2) {
+            stringBuilder.append(0);
+        }
+        stringBuilder.append(hv);
+    }
+    return stringBuilder.toString();
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void bytesToHexStringTest() {
+    // Test case 1: Null input
+    byte[] nullBytes = null;
+    String nullResult = SsrfFileTypeFilter.bytesToHexString(nullBytes);
+    assertNull(nullResult);
+
+    // Test case 2: Empty input
+    byte[] emptyBytes = new byte[0];
+    String emptyResult = SsrfFileTypeFilter.bytesToHexString(emptyBytes);
+    assertEquals("", emptyResult);
+
+    // Test case 3: Valid input
+    byte[] validBytes = { 0x41, 0x42, 0x43, 0x44 };
+    String validResult = SsrfFileTypeFilter.bytesToHexString(validBytes);
+    assertEquals("41424344", validResult);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void bytesToHexStringTest() {
+    byte[] src = {10, 20, 30, 40};
+    String expected = "0a141e28";
+    String result = SsrfFileTypeFilter.bytesToHexString(src);
+    assertEquals(expected, result);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void bytesToHexStringTest() {
+    byte[] input = {12, 34, 56};
+    String expected = "0c2238";
+    String result = SsrfFileTypeFilter.bytesToHexString(input);
+    assertEquals(expected, result);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void bytesToHexStringTest() {
+    // Test case 1: When the input byte array is null
+    byte[] src1 = null;
+    String result1 = SsrfFileTypeFilter.bytesToHexString(src1);
+    assertNull(result1); // Assert that the result is null
+
+    // Test case 2: When the input byte array is empty
+    byte[] src2 = new byte[0];
+    String result2 = SsrfFileTypeFilter.bytesToHexString(src2);
+    assertEquals("", result2); // Assert that the result is an empty string
+
+    // Test case 3: When the input byte array contains one byte with a value of 255
+    byte[] src3 = new byte[]{(byte) 255};
+    String result3 = SsrfFileTypeFilter.bytesToHexString(src3);
+    assertEquals("ff", result3); // Assert that the result is "ff"
+
+    // Additional test cases...
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void bytesToHexStringTest() {
+    byte[] src = new byte[]{0x48, 0x65, 0x6C, 0x6C, 0x6F};
+    String expected = "48656C6C6F";
+    String actual = SsrfFileTypeFilter.bytesToHexString(src);
+    assertEquals(expected, actual);
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void bytesToHexStringTest() {
+    byte[] src = {0x48, 0x65, 0x6c, 0x6c, 0x6f};
+    String expected = "48656c6c6f";
+    assertEquals(expected, SsrfFileTypeFilter.bytesToHexString(src));
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void bytesToHexStringTest() {
+    byte[] src = { 0x4D, 0x5A, 0x90, 0x00 };
+    String expected = "4d5a900000";
+    assertEquals(expected, SsrfFileTypeFilter.bytesToHexString(src));
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void bytesToHexStringTest() {
+    byte[] src = {65, 66, 67};
+    String expected = "414243";
+    String actual = SsrfFileTypeFilter.bytesToHexString(src);
+    assertEquals(expected, actual);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void bytesToHexStringTest() {
+    byte[] src = {0x41, 0x42, 0x43};
+    String expected = "414243";
+    String result = SsrfFileTypeFilter.bytesToHexString(src);
+    assertEquals(expected, result);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void bytesToHexStringTest() {
+    byte[] src = new byte[]{0x41, 0x42, 0x43};
+    String expected = "414243";
+    String result = SsrfFileTypeFilter.bytesToHexString(src);
+    assertEquals(expected, result);
+}
+
+

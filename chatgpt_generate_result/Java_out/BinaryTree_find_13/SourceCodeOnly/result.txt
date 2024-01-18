@@ -1,0 +1,320 @@
+Source code: 
+
+
+public Node find(int key) {
+    Node current = root;
+    while (current != null) {
+        if (key < current.data) {
+            if (current.left == null) {
+                return current; // The key isn't exist, returns the parent
+            }
+            current = current.left;
+        } else if (key > current.data) {
+            if (current.right == null) {
+                return current;
+            }
+            current = current.right;
+        } else { // If you find the value return it
+            return current;
+        }
+    }
+    return null;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void findTest() {
+    BinaryTree binaryTree = new BinaryTree();
+    
+    // Test case: Key exists in the tree
+    Node existingNode = binaryTree.find(7);
+    assertNotNull(existingNode);
+    assertEquals(7, existingNode.data);
+    
+    // Test case: Key doesn't exist in the tree
+    Node nonExistingNode = binaryTree.find(10);
+    assertNull(nonExistingNode);
+    
+    // Test case: Key is smaller than all values in the tree
+    Node smallerNode = binaryTree.find(1);
+    assertNotNull(smallerNode);
+    assertEquals(3, smallerNode.data);
+    
+    // Test case: Key is larger than all values in the tree
+    Node largerNode = binaryTree.find(20);
+    assertNotNull(largerNode);
+    assertEquals(18, largerNode.data);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void findTest() {
+    BinaryTree tree = new BinaryTree();
+    Node root = new Node(5);
+    Node node1 = new Node(3);
+    Node node2 = new Node(7);
+    Node node3 = new Node(2);
+    Node node4 = new Node(4);
+    Node node5 = new Node(6);
+    Node node6 = new Node(8);
+    root.left = node1;
+    root.right = node2;
+    node1.left = node3;
+    node1.right = node4;
+    node2.left = node5;
+    node2.right = node6;
+    
+    // Test case 1: key = 5 (root value)
+    assertEquals(root, tree.find(5));
+    
+    // Test case 2: key = 3 (existing value in the left subtree)
+    assertEquals(node1, tree.find(3));
+    
+    // Test case 3: key = 7 (existing value in the right subtree)
+    assertEquals(node2, tree.find(7));
+    
+    // Test case 4: key = 2 (existing value in the left subtree of left subtree)
+    assertEquals(node3, tree.find(2));
+    
+    // Test case 5: key = 4 (existing value in the right subtree of left subtree)
+    assertEquals(node4, tree.find(4));
+    
+    // Test case 6: key = 6 (existing value in the left subtree of right subtree)
+    assertEquals(node5, tree.find(6));
+    
+    // Test case 7: key = 8 (existing value in the right subtree of right subtree)
+    assertEquals(node6, tree.find(8));
+    
+    // Test case 8: key = 10 (non-existing value, returns the parent node with the appropriate position in the tree)
+    assertEquals(node6, tree.find(10));
+}
+
+
+No.3 generated result --------------------------
+
+package com.thealgorithms.datastructures.trees;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BinaryTreeTest {
+    @Test
+    public void findTest() {
+        // Create a binary tree
+        BinaryTree tree = new BinaryTree();
+        
+        // Add nodes to the binary tree
+        
+        // Test case 1: Finding an existing value in the binary tree
+        Node existingNode = new Node(5); // Assuming there is a node with value 5 in the binary tree
+        tree.addChild(existingNode);
+        Node result = tree.find(5);
+        assertEquals(existingNode, result);
+        
+        // Test case 2: Finding a non-existing value in the binary tree
+        int nonExistingValue = 10; // Assuming there is no node with value 10 in the binary tree
+        Node parentNode = new Node(7); // Assuming the parent for nonExistingValue is 7
+        tree.addChild(parentNode);
+        Node result2 = tree.find(nonExistingValue);
+        assertEquals(parentNode, result2);
+    }
+}
+
+
+No.4 generated result --------------------------
+
+package com.thealgorithms.datastructures.trees;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BinaryTreeTest {
+    @Test
+    public void findTest() {
+        BinaryTree binaryTree = new BinaryTree();
+        // Test when key is present in the tree
+        Node node1 = new Node(10);
+        Node node2 = new Node(20);
+        node1.right = node2;
+        binaryTree.root = node1;
+        assertEquals(node2, binaryTree.find(20));
+        
+        // Test when key is not present in the tree
+        Node node3 = new Node(30);
+        node2.right = node3;
+        assertEquals(node3, binaryTree.find(40));
+        
+        // Test when tree is empty
+        binaryTree.root = null;
+        assertNull(binaryTree.find(50));
+    }
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void findTest() {
+    BinaryTree binaryTree = new BinaryTree();
+    binaryTree.insert(10);
+    binaryTree.insert(5);
+    binaryTree.insert(15);
+    binaryTree.insert(12);
+    binaryTree.insert(20);
+    
+    Node result = binaryTree.find(12);
+    
+    assertEquals(12, result.data);
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void findTest() {
+    // Create a binary tree and populate it with nodes
+    BinaryTree tree = new BinaryTree();
+    tree.insert(5);
+    tree.insert(3);
+    tree.insert(7);
+    tree.insert(2);
+    tree.insert(4);
+    tree.insert(6);
+    tree.insert(8);
+
+    // Test the find method
+    Node result = tree.find(4);
+    assertEquals(4, result.data);
+}
+
+
+No.7 generated result --------------------------
+
+### JUNIT Test case:
+package com.thealgorithms.datastructures.trees;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BinaryTreeTest {
+    @Test
+    public void findTest() {
+        BinaryTree tree = new BinaryTree();
+        
+        // Test case 1: Key is found in the tree
+        Node result1 = tree.find(5);
+        assertEquals(5, result1.data);
+        
+        // Test case 2: Key is not found in the tree, returns parent
+        Node result2 = tree.find(8);
+        assertNull(result2);
+    }
+}
+
+
+No.8 generated result --------------------------
+
+package com.thealgorithms.datastructures.trees;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BinaryTreeTest {
+    @Test
+    public void findTest() {
+        BinaryTree binaryTree = new BinaryTree();
+        
+        // Test case 1: Key is less than the root data
+        Node result1 = binaryTree.find(4);
+        assertNull(result1); // The key doesn't exist, so result should be null
+        
+        // Test case 2: Key is greater than the root data
+        Node result2 = binaryTree.find(8);
+        assertNull(result2); // The key doesn't exist, so result should be null
+        
+        // Test case 3: Key is equal to the root data
+        Node result3 = binaryTree.find(6);
+        assertNotNull(result3); // The key exists, so result should not be null
+        
+        // Test case 4: Key exists as a left child of some node
+        Node result4 = binaryTree.find(2);
+        assertNotNull(result4); // The key exists, so result should not be null
+        
+        // Test case 5: Key exists as a right child of some node
+        Node result5 = binaryTree.find(10);
+        assertNotNull(result5); // The key exists, so result should not be null
+    }
+}
+
+
+No.9 generated result --------------------------
+
+package com.thealgorithms.datastructures.trees;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BinaryTreeTest {
+    @Test
+    public void findTest() {
+        BinaryTree binaryTree = new BinaryTree();
+        
+        // Test case 1: key exists in the tree
+        Node result1 = binaryTree.find(5);
+        assertNotNull(result1);
+        assertEquals(5, result1.data);
+        
+        // Test case 2: key doesn't exist in the tree
+        Node result2 = binaryTree.find(10);
+        assertNotNull(result2);
+        assertEquals(9, result2.data); // Assuming you want to return the parent node when key is not found
+        
+        // Test case 3: empty tree
+        BinaryTree emptyTree = new BinaryTree();
+        Node result3 = emptyTree.find(3);
+        assertNull(result3);
+    }
+}
+
+
+No.10 generated result --------------------------
+
+package com.thealgorithms.datastructures.trees;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BinaryTreeTest {
+    @Test
+    public void findTest() {
+        BinaryTree binaryTree = new BinaryTree();
+        
+        // Create nodes and populate the binary tree
+        Node root = new Node(5);
+        root.left = new Node(3);
+        root.right = new Node(7);
+        root.left.left = new Node(2);
+        root.left.right = new Node(4);
+        root.right.left = new Node(6);
+        root.right.right = new Node(8);
+        
+        binaryTree.root = root;
+        
+        // Test case 1: Key exists in the binary tree
+        Node node1 = binaryTree.find(4);
+        assertNotNull(node1);
+        assertEquals(4, node1.data);
+        
+        // Test case 2: Key does not exist in the binary tree
+        Node node2 = binaryTree.find(9);
+        assertNotNull(node2);
+        assertEquals(8, node2.data);
+    }
+}
+
+

@@ -14,7 +14,7 @@ def traverse_directory(directory):
     return file_list
 
 
-input_path = "./test_result"
+input_path = "./chatgpt_test_result"
 output_path = "./image"
 
 file_list = traverse_directory(input_path)

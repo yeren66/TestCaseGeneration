@@ -1,0 +1,26 @@
+{
+    "project_name": "Java",
+    "file_name": "Average.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/maths/Average.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.maths",
+    "docstring": "/**\n     * find average value of an int array\n     *\n     * @param numbers the array contains element and the sum does not excess long\n     *                value limit\n     * @return average value\n     */",
+    "source_code": "\npublic static int average(int[] numbers) {\n    if (numbers == null || numbers.length == 0) {\n        throw new IllegalArgumentException(\"Numbers array cannot be empty or null\");\n    }\n    long sum = 0;\n    for (int number : numbers) {\n        sum += number;\n    }\n    return (int) (sum / numbers.length);\n}\n",
+    "class_name": "Average",
+    "method_name": "average",
+    "arguments": [
+        "int[] numbers"
+    ],
+    "generate_test": [
+        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expectedAverage = 3;\n  \n    int actualAverage = Average.average(numbers);\n  \n    assertEquals(expectedAverage, actualAverage);\n}",
+        "package com.thealgorithms.maths;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class AverageTest {\n    @Test\n    public void averageTest() {\n        int[] numbers = {1, 2, 3, 4, 5};\n        int expectedAverage = 3;\n        int actualAverage = Average.average(numbers);\n        assertEquals(expectedAverage, actualAverage);\n    }\n}",
+        "public void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expectedAverage = 3;\n    \n    int actualAverage = Average.average(numbers);\n    \n    assertEquals(expectedAverage, actualAverage);\n    \n    // Additional Test Cases\n    int[] emptyArray = {};\n    assertThrows(IllegalArgumentException.class, () -> Average.average(emptyArray));\n    \n    int[] nullArray = null;\n    assertThrows(IllegalArgumentException.class, () -> Average.average(nullArray));\n    \n    int[] negativeNumbers = {-1, -2, -3, -4, -5};\n    int expectedNegativeAverage = -3;\n    int actualNegativeAverage = Average.average(negativeNumbers);\n    \n    assertEquals(expectedNegativeAverage, actualNegativeAverage);\n}",
+        "@Test\n    public void averageTest() {\n        int[] array1 = {1, 2, 3, 4, 5};\n        int expectedOutput1 = 3;\n\n        int[] array2 = {-1, 1, -1, 1};\n        int expectedOutput2 = 0;\n\n        int[] array3 = {10, 20, 30, 40, 50};\n        int expectedOutput3 = 30;\n\n        assertEquals(expectedOutput1, Average.average(array1));\n        assertEquals(expectedOutput2, Average.average(array2));\n        assertEquals(expectedOutput3, Average.average(array3));\n    }",
+        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expectedAverage = 3;\n    int actualAverage = Average.average(numbers);\n    assertEquals(expectedAverage, actualAverage);\n}",
+        "public class AverageTest {\n    @Test\n    public void averageTest() {\n        // Arrange\n        int[] numbers = {1, 2, 3, 4, 5};\n        int expectedAverage = 3;\n        \n        // Act\n        int actualAverage = Average.average(numbers);\n        \n        // Assert\n        assertEquals(expectedAverage, actualAverage, \"The average calculation is incorrect.\");\n    }\n}",
+        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expectedAverage = 3;\n    \n    int actualAverage = Average.average(numbers);\n    \n    assertEquals(expectedAverage, actualAverage);\n}",
+        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expected = 3;\n    int actual = Average.average(numbers);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expected = 3;\n    \n    int result = Average.average(numbers);\n    \n    assertEquals(expected, result);\n}",
+        "package com.thealgorithms.maths;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class AverageTest {\n    @Test\n    public void averageTest() {\n        // Given\n        int[] numbers = {1, 2, 3, 4, 5};\n        \n        // When\n        int result = Average.average(numbers);\n        \n        // Then\n        assertEquals(3, result);\n    }\n}"
+    ]
+}

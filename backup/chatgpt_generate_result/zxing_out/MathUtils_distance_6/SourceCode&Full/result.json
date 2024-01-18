@@ -1,0 +1,29 @@
+{
+    "project_name": "zxing",
+    "file_name": "MathUtils.java",
+    "relative_path": "zxing/core/src/main/java/com/google/zxing/common/detector/MathUtils.java",
+    "execute_path": "zxing",
+    "package": "com.google.zxing.common.detector",
+    "docstring": "/**\n   * @param aX point A x coordinate\n   * @param aY point A y coordinate\n   * @param bX point B x coordinate\n   * @param bY point B y coordinate\n   * @return Euclidean distance between points A and B\n   */",
+    "source_code": "\npublic static float distance(int aX, int aY, int bX, int bY) {\n  double xDiff = aX - bX;\n  double yDiff = aY - bY;\n  return (float) Math.sqrt(xDiff * xDiff + yDiff * yDiff);\n}\n",
+    "class_name": "MathUtils",
+    "method_name": "distance",
+    "arguments": [
+        "int aX",
+        "int aY",
+        "int bX",
+        "int bY"
+    ],
+    "generate_test": [
+        "@Test\npublic void distanceTest() {\n    float result = MathUtils.distance(1, 2, 3, 4);\n    assertEquals(2.828427f, result, 0.001f);\n}",
+        "@Test\npublic void distanceTest() {\n    int aX = 3;\n    int aY = 4;\n    int bX = 0;\n    int bY = 0;\n    float result = MathUtils.distance(aX, aY, bX, bY);\n    assertEquals(5.0f, result);\n}",
+        "package com.google.zxing.common.detector;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class MathUtilsTest {\n    @Test\n    public void distanceTest() {\n        // Test case 1\n        float result1 = MathUtils.distance(0, 0, 3, 4);\n        assertEquals(5.0f, result1);\n\n        // Test case 2\n        float result2 = MathUtils.distance(5, 5, 10, 10);\n        assertEquals(7.0710678f, result2, 0.0001);\n    }\n}",
+        "@Test\npublic void distanceTest() {\n    float distance = MathUtils.distance(2, 3, 5, 6);\n    assertEquals(4.2426405f, distance, 0.00001f);\n}",
+        "package com.google.zxing.common.detector;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class MathUtilsTest {\n    @Test\n    public void distanceTest() {\n        float distance = MathUtils.distance(3, 4, 6, 8);\n        assertEquals(5.0f, distance);\n    }\n}",
+        "package com.google.zxing.common.detector;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class MathUtilsTest {\n\n    @Test\n    public void distanceTest() {\n        float expectedDistance = 5.0f;\n        float actualDistance = MathUtils.distance(0, 0, 3, 4);\n        assertEquals(expectedDistance, actualDistance);\n    }\n}",
+        "@Test\npublic void distanceTest() {\n    float result = MathUtils.distance(0, 0, 3, 4);\n    assertEquals(5.0f, result);\n}",
+        "package com.google.zxing.common.detector;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class MathUtilsTest {\n    @Test\n    public void distanceTest() {\n        float result = MathUtils.distance(1, 2, 3, 4);\n        assertEquals(2.8284271f, result, 0.000001f);\n    }\n}",
+        "@Test\npublic void distanceTest() {\n    // Test case 1\n    assertEquals(5, MathUtils.distance(3, 4, 7, 1));\n\n    // Test case 2\n    assertEquals(10, MathUtils.distance(-2, -2, 0, 8));\n\n    // Test case 3\n    assertEquals(0, MathUtils.distance(0, 0, 0, 0));\n}",
+        "@Test\npublic void distanceTest() {\n    float actualDistance = MathUtils.distance(1, 2, 3, 4);\n    float expectedDistance = (float) Math.sqrt(8);\n    assertEquals(expectedDistance, actualDistance);\n}"
+    ]
+}

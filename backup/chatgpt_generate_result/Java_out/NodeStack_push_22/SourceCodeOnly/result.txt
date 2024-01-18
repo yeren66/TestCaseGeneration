@@ -1,0 +1,225 @@
+Source code: 
+
+
+public void push(Item item) {
+    NodeStack<Item> newNs = new NodeStack<Item>(item);
+
+    if (this.isEmpty()) {
+        NodeStack.setHead(new NodeStack<>(item));
+        newNs.setNext(null);
+        newNs.setPrevious(null);
+    } else {
+        newNs.setPrevious(NodeStack.head);
+        NodeStack.head.setNext(newNs);
+        NodeStack.setHead(newNs);
+    }
+
+    NodeStack.setSize(NodeStack.getSize() + 1);
+}
+
+
+
+No.1 generated result --------------------------
+
+package com.thealgorithms.datastructures.stacks;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NodeStackTest {
+    @Test
+    public void pushTest() {
+        NodeStack<Integer> stack = new NodeStack<>();
+
+        stack.push(5);
+        assertEquals(1, NodeStack.getSize());
+        assertEquals(5, NodeStack.getHead().getItem());
+
+        stack.push(10);
+        assertEquals(2, NodeStack.getSize());
+        assertEquals(10, NodeStack.getHead().getItem());
+
+        stack.push(15);
+        assertEquals(3, NodeStack.getSize());
+        assertEquals(15, NodeStack.getHead().getItem());
+    }
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void pushTest() {
+    NodeStack<Integer> stack = new NodeStack<>();
+    assertEquals(true, stack.isEmpty());
+    
+    stack.push(1);
+    assertEquals(false, stack.isEmpty());
+    assertEquals(1, stack.getSize());
+    assertEquals(1, stack.peek());
+    
+    stack.push(2);
+    assertEquals(2, stack.peek());
+    assertEquals(2, stack.getSize());
+    
+    stack.push(3);
+    assertEquals(3, stack.peek());
+    assertEquals(3, stack.getSize());
+}
+
+
+No.3 generated result --------------------------
+
+package com.thealgorithms.datastructures.stacks;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NodeStackTest {
+    @Test
+    public void pushTest() {
+        NodeStack<Integer> stack = new NodeStack<>();
+        stack.push(5);
+        
+        // Assert statements
+        assertEquals(1, NodeStack.getSize());
+        assertFalse(NodeStack.isEmpty());
+        assertEquals(5, NodeStack.top());
+    }
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void pushTest() {
+    NodeStack<Integer> stack = new NodeStack<>();
+    stack.push(5);
+    assertEquals(1, NodeStack.getSize());
+    assertEquals(5, NodeStack.head.getItem());
+    assertEquals(null, NodeStack.head.getPrevious());
+
+    NodeStack<Integer> stack2 = new NodeStack<>();
+    stack2.push(10);
+    stack2.push(20);
+    assertEquals(2, NodeStack.getSize());
+    assertEquals(20, NodeStack.head.getItem());
+    assertEquals(10, NodeStack.head.getPrevious().getItem());
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void pushTest() {
+    NodeStack<Integer> stack = new NodeStack<>();
+    stack.push(1); // Push an item to the stack
+    assertTrue(!stack.isEmpty()); // Check if the stack is not empty
+    assertEquals(1, stack.size()); // Check if the size of the stack is 1
+    // Add more assertions as needed to test the functionality of the push() method
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void pushTest() {
+    NodeStack<Integer> ns = new NodeStack<>();
+    ns.push(1);
+    ns.push(2);
+    ns.push(3);
+    
+    assertEquals(3, ns.getSize());
+    assertEquals(3, ns.peek());
+    assertEquals(3, ns.pop());
+    assertEquals(2, ns.getSize());
+    assertEquals(2, ns.peek());
+    assertEquals(2, ns.pop());
+    assertEquals(1, ns.getSize());
+    assertEquals(1, ns.peek());
+    assertEquals(1, ns.pop());
+    assertTrue(ns.isEmpty());
+}
+
+
+No.7 generated result --------------------------
+
+package com.thealgorithms.datastructures.stacks;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NodeStackTest {
+    @Test
+    public void pushTest() {
+        // Create a new instance of NodeStack
+        NodeStack<String> stack = new NodeStack<>();
+
+        // Push an item onto the stack
+        stack.push("item1");
+
+        // Add assertions to verify the push operation
+        assertEquals(1, NodeStack.getSize());
+        assertFalse(stack.isEmpty());
+    }
+}
+
+
+No.8 generated result --------------------------
+
+package com.thealgorithms.datastructures.stacks;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NodeStackTest {
+    @Test
+    public void pushTest() {
+        NodeStack<Integer> stack = new NodeStack<>();
+
+        // Test when the stack is empty
+        stack.push(1);
+        assertEquals(1, stack.getSize());
+
+        // Test when the stack is not empty
+        stack.push(2);
+        stack.push(3);
+        assertEquals(3, stack.getSize());
+    }
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void pushTest() {
+    NodeStack<String> stack = new NodeStack<String>();
+    stack.push("A");
+    assertEquals(1, NodeStack.getSize());
+    stack.push("B");
+    assertEquals(2, NodeStack.getSize());
+    stack.push("C");
+    assertEquals(3, NodeStack.getSize());
+    // Additional assertions for the specific functionality of the push() method
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void pushTest() {
+    NodeStack<Integer> stack = new NodeStack<>();
+    stack.push(5);
+    assertEquals(1, NodeStack.getSize());
+    assertEquals(5, NodeStack.peek());
+
+    stack.push(10);
+    assertEquals(2, NodeStack.getSize());
+    assertEquals(10, NodeStack.peek());
+
+    stack.push(15);
+    assertEquals(3, NodeStack.getSize());
+    assertEquals(15, NodeStack.peek());
+}
+
+

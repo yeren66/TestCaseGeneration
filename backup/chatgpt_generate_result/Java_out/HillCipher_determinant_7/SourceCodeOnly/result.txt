@@ -1,0 +1,229 @@
+Source code: 
+
+// Determinant calculator
+public static int determinant(int[][] a, int n) {
+    int det = 0, sign = 1, p = 0, q = 0;
+
+    if (n == 1) {
+        det = a[0][0];
+    } else {
+        int[][] b = new int[n - 1][n - 1];
+        for (int x = 0; x < n; x++) {
+            p = 0;
+            q = 0;
+            for (int i = 1; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (j != x) {
+                        b[p][q++] = a[i][j];
+                        if (q % (n - 1) == 0) {
+                            p++;
+                            q = 0;
+                        }
+                    }
+                }
+            }
+            det = det + a[0][x] * determinant(b, n - 1) * sign;
+            sign = -sign;
+        }
+    }
+    return det;
+}
+
+
+
+No.1 generated result --------------------------
+
+package com.thealgorithms.ciphers;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class HillCipherTest {
+    @Test
+    public void determinantTest() {
+        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int expectedDeterminant = -3;
+        
+        int actualDeterminant = HillCipher.determinant(matrix, 3);
+        
+        assertEquals(expectedDeterminant, actualDeterminant);
+    }
+}
+
+
+No.2 generated result --------------------------
+
+@BeforeEach
+public void init() {
+    // Create a test matrix
+    int[][] matrix = {
+        {1, 2},
+        {3, 4}
+    }
+    
+    // Calculate the determinant using the given method
+    int determinant = determinant(matrix, 2);
+    
+    // Expected determinant value
+    int expected = -2;
+    
+    // Assert that the calculated determinant matches the expected value
+    assertEquals(expected, determinant);
+}
+
+@Test
+public void determinantTest() {
+    init();
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void determinantTest() {
+    int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    assertEquals(-3, determinant(matrix, 3));
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void determinantTest() {
+    int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int result = HillCipher.determinant(matrix, 3);
+    assertEquals(0, result, "The determinant of the matrix is not calculated correctly");
+}
+
+
+No.5 generated result --------------------------
+
+package com.thealgorithms.ciphers;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class HillCipherTest {
+    @Test
+    public void determinantTest() {
+        int[][] matrix = {{2, 3}, {1, 4}};
+        int result = HillCipher.determinant(matrix, 2);
+        assertEquals(5, result);
+    }
+}
+
+
+No.6 generated result --------------------------
+
+package com.thealgorithms.ciphers;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class HillCipherTest {
+    @Test
+    public void determinantTest() {
+        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int expectedDeterminant = -3;
+        int actualDeterminant = determinant(matrix, 3);
+        assertEquals(expectedDeterminant, actualDeterminant);
+    }
+
+    public int determinant(int[][] a, int n) {
+        int det = 0, sign = 1, p = 0, q = 0;
+
+        if (n == 1) {
+            det = a[0][0];
+        } else {
+            int[][] b = new int[n - 1][n - 1];
+            for (int x = 0; x < n; x++) {
+                p = 0;
+                q = 0;
+                for (int i = 1; i < n; i++) {
+                    for (int j = 0; j < n; j++) {
+                        if (j != x) {
+                            b[p][q++] = a[i][j];
+                            if (q % (n - 1) == 0) {
+                                p++;
+                                q = 0;
+                            }
+                        }
+                    }
+                }
+                det = det + a[0][x] * determinant(b, n - 1) * sign;
+                sign = -sign;
+            }
+        }
+        return det;
+    }
+}
+
+
+No.7 generated result --------------------------
+
+package com.thealgorithms.ciphers;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class HillCipherTest {
+    @Test
+    public void determinantTest() {
+        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int n = 3;
+        int expected = 0;
+        int actual = HillCipher.determinant(matrix, n);
+        assertEquals(expected, actual);
+    }
+}
+
+
+No.8 generated result --------------------------
+
+package com.thealgorithms.ciphers;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class HillCipherTest {
+    @Test
+    public void determinantTest() {
+        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int expectedDeterminant = 0;
+        
+        // Calculate the expected determinant using another method or by manual calculation
+        
+        int actualDeterminant = DeterminantUtil.determinant(matrix, 3); // Assuming DeterminantUtil is a separate class that contains the 'determinant' method
+        
+        assertEquals(expectedDeterminant, actualDeterminant);
+    }
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void determinantTest() {
+    int[][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int expectedDet = 0;
+    int actualDet = determinant(a, 3);
+    assertEquals(expectedDet, actualDet);
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void determinantTest() {
+    int[][] matrix1 = {{1, 2}, {3, 4}};
+    int expected1 = -2;
+    int result1 = HillCipher.determinant(matrix1, 2);
+    assertEquals(expected1, result1);
+
+    int[][] matrix2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int expected2 = 0;
+    int result2 = HillCipher.determinant(matrix2, 3);
+    assertEquals(expected2, result2);
+}
+
+

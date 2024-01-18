@@ -1,0 +1,213 @@
+Source code: 
+
+//打印日志, 其中logLevel为日志级别: ERROR/WARN/DEBUG/INFO/TRACE
+private void printLog(String message, Throwable ex, Level logLevel) {
+  switch (logLevel) {
+    case ERROR:
+      logger.error(message, ex);
+      break;
+    case WARN:
+      logger.warn(message, ex);
+      break;
+    case DEBUG:
+      logger.debug(message, ex);
+      break;
+    case INFO:
+      logger.info(message, ex);
+      break;
+    case TRACE:
+      logger.trace(message, ex);
+      break;
+  }
+
+  Tracer.logError(ex);
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void printLogTest() {
+    GlobalDefaultExceptionHandler exceptionHandler = new GlobalDefaultExceptionHandler();
+    String message = "Test message";
+    Throwable ex = new Throwable("Test exception");
+    Level logLevel = Level.ERROR;
+
+    assertDoesNotThrow(() -> {
+        exceptionHandler.printLog(message, ex, logLevel);
+    });
+}
+
+
+No.2 generated result --------------------------
+
+package com.ctrip.framework.apollo.common.controller;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class GlobalDefaultExceptionHandlerTest {
+    @Test
+    public void printLogTest() {
+        GlobalDefaultExceptionHandler instance = new GlobalDefaultExceptionHandler();
+        String message = "This is a test message";
+        Throwable ex = new Throwable();
+        Level logLevel = Level.INFO;
+        
+        // Call the printLog method
+        instance.printLog(message, ex, logLevel);
+        
+        // Assert that the log is printed successfully
+        // You can add more assertions based on your specific requirements
+        // For example, you can check if the logger.error() or logger.warn() methods are called depending on the logLevel
+    }
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void printLogTest() {
+    GlobalDefaultExceptionHandler handler = new GlobalDefaultExceptionHandler();
+    Level logLevel = Level.ERROR;
+    String message = "Test message";
+    Throwable ex = new Exception();
+      
+    assertDoesNotThrow(() -> handler.printLog(message, ex, logLevel));
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void printLogTest() {
+    // Arrange
+    GlobalDefaultExceptionHandler handler = new GlobalDefaultExceptionHandler();
+    String message = "Test message";
+    Throwable ex = new Exception("Test exception");
+    Level logLevel = Level.INFO;
+
+    // Act
+    handler.printLog(message, ex, logLevel);
+
+    // Assert
+    // Add assertions as needed to verify the behavior of printLog method
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void printLogTest() {
+    GlobalDefaultExceptionHandler handler = new GlobalDefaultExceptionHandler();
+    String message = "Test message";
+    Throwable ex = new Throwable("Test exception");
+    Level logLevel = Level.INFO;
+    
+    <FILL>  // call the printLog() method with the appropriate arguments
+    
+    // Add assertions to verify the expected behavior or output
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void printLogTest() {
+    GlobalDefaultExceptionHandler handler = new GlobalDefaultExceptionHandler();
+    String message = "Test log message";
+    Throwable ex = new Throwable("Test exception");
+    Level logLevel = Level.INFO;
+    
+    assertDoesNotThrow(() -> handler.printLog(message, ex, logLevel));
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void printLogTest() {
+    GlobalDefaultExceptionHandler handler = new GlobalDefaultExceptionHandler();
+    String message = "Test Message";
+    Throwable ex = new Exception("Test Exception");
+    Level logLevel = Level.ERROR;
+    
+    // Call the method to be tested
+    handler.printLog(message, ex, logLevel);
+    
+    // Assertion code (if any) to verify the expected behavior
+    // ...
+}
+
+
+No.8 generated result --------------------------
+
+package com.ctrip.framework.apollo.common.controller;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class GlobalDefaultExceptionHandlerTest {
+    @Test
+    public void printLogTest() {
+        GlobalDefaultExceptionHandler handler = new GlobalDefaultExceptionHandler();
+        String message = "test message";
+        Throwable ex = new RuntimeException("test exception");
+        Level logLevel = Level.ERROR;
+        
+        handler.printLog(message, ex, logLevel);
+        // Add assertions for checking if the log was printed correctly
+        
+        // Additional assertions for other log levels can be added here
+    }
+}
+
+
+No.9 generated result --------------------------
+
+package com.ctrip.framework.apollo.common.controller;
+
+import org.junit.jupiter.api.*;
+import org.slf4j.event.Level;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class GlobalDefaultExceptionHandlerTest {
+
+    @Test
+    public void printLogTest() {
+        GlobalDefaultExceptionHandler handler = new GlobalDefaultExceptionHandler();
+        String message = "Test message";
+        Throwable ex = new RuntimeException("Test exception");
+        Level logLevel = Level.ERROR;
+        
+        assertDoesNotThrow(() -> handler.printLog(message, ex, logLevel));
+        // Add assertions for verifying the log output as required
+    }
+}
+
+
+No.10 generated result --------------------------
+
+import org.junit.jupiter.api.Test;
+import org.slf4j.event.Level;
+
+import static org.mockito.Mockito.*;
+
+public class GlobalDefaultExceptionHandlerTest {
+    @Test
+    public void printLogTest() {
+        GlobalDefaultExceptionHandler exceptionHandler = new GlobalDefaultExceptionHandler();
+        Throwable ex = mock(Throwable.class);
+        Level logLevel = Level.ERROR;
+        exceptionHandler.printLog("Test", ex, logLevel);
+        verify(Tracer).logError(ex);
+
+        // Add assertions if needed
+        // ...
+    }
+}
+
+

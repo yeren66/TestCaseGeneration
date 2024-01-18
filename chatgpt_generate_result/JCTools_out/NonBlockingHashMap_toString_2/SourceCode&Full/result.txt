@@ -1,0 +1,76 @@
+Source code: 
+
+
+@Override
+public String toString() {
+  Iterator<Entry<TypeK,TypeV>> i = entrySet().iterator();
+  if( !i.hasNext())
+    return "{}";
+
+  StringBuilder sb = new StringBuilder();
+  sb.append('{');
+  for (;;) {
+    Entry<TypeK,TypeV> e = i.next();
+    TypeK key = e.getKey();
+    TypeV value = e.getValue();
+    sb.append(key   == this ? "(this Map)" : key);
+    sb.append('=');
+    sb.append(value == this ? "(this Map)" : value);
+    if( !i.hasNext())
+      return sb.append('}').toString();
+    sb.append(", ");
+  }
+}
+
+
+
+No.1 generated result --------------------------
+
+Timeout
+
+
+No.2 generated result --------------------------
+
+Timeout
+
+
+No.3 generated result --------------------------
+
+Timeout
+
+
+No.4 generated result --------------------------
+
+Timeout
+
+
+No.5 generated result --------------------------
+
+Timeout
+
+
+No.6 generated result --------------------------
+
+Timeout
+
+
+No.7 generated result --------------------------
+
+Timeout
+
+
+No.8 generated result --------------------------
+
+Timeout
+
+
+No.9 generated result --------------------------
+
+Timeout
+
+
+No.10 generated result --------------------------
+
+Timeout
+
+

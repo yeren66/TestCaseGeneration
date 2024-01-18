@@ -1,0 +1,152 @@
+Source code: 
+
+
+@Override
+public final int size()
+{
+    // Read consumer first, this is important because if the producer is node is 'older' than the consumer
+    // the consumer may overtake it (consume past it) invalidating the 'snapshot' notion of size.
+    LinkedQueueNode<E> chaserNode = lvConsumerNode();
+    LinkedQueueNode<E> producerNode = lvProducerNode();
+    int size = 0;
+    // must chase the nodes all the way to the producer node, but there's no need to count beyond expected head.
+    while (chaserNode != producerNode && // don't go passed producer node
+        chaserNode != null && // stop at last node
+        size < Integer.MAX_VALUE) // stop at max int
+    {
+        LinkedQueueNode<E> next;
+        next = chaserNode.lvNext();
+        // check if this node has been consumed, if so return what we have
+        if (next == chaserNode)
+        {
+            return size;
+        }
+        chaserNode = next;
+        size++;
+    }
+    return size;
+}
+
+
+
+No.1 generated result --------------------------
+
+java
+package org.jctools.queues;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BaseLinkedQueuePad0Test {
+    @Test
+    public void sizeTest() {
+        BaseLinkedQueue
+
+
+No.2 generated result --------------------------
+
+java
+package org.jctools.queues;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BaseLinkedQueuePad0Test {
+    @Test
+    public void sizeTest() {
+        BaseLinkedQueue
+
+
+No.3 generated result --------------------------
+
+package org.jctools.queues;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BaseLinkedQueuePad0Test {
+    @Test
+    public void sizeTest() {
+        BaseLinkedQueue<String> queue
+
+
+No.4 generated result --------------------------
+
+@Test
+public void sizeTest() {
+    BaseLinkedQueue<Integer> queue = new BaseLinkedQueue<Integer>() {
+        // Override any additional methods or fields needed for testing
+    };
+
+    // Perform test actions
+
+    // Assert the expected result
+
+
+No.5 generated result --------------------------
+
+assertEquals(0, queue.size());
+
+
+No.6 generated result --------------------------
+
+package org.jctools.queues;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BaseLinkedQueuePad0Test {
+    @Test
+    public void sizeTest() {
+        BaseLinkedQueuePad0<String
+
+
+No.7 generated result --------------------------
+
+
+package org.jctools.queues;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BaseLinkedQueuePad0Test {
+    @Test
+    public void sizeTest() {
+        BaseLinkedQueue<String
+
+
+No.8 generated result --------------------------
+
+package org.jctools.queues;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BaseLinkedQueuePad0Test {
+    @Test
+    public void sizeTest() {
+        BaseLinkedQueue<Integer> queue
+
+
+No.9 generated result --------------------------
+
+@Test
+public void sizeTest() {
+    BaseLinkedQueue<Integer> queue = new BaseLinkedQueue<Integer>() {};
+    queue.relaxedOffer(10);
+    queue.relaxedOffer(20);
+    queue.relaxedOffer(30);
+    int
+
+
+No.10 generated result --------------------------
+
+@Test
+public void sizeTest() {
+    BaseLinkedQueue<String> queue = new BaseLinkedQueue<String>() {
+        {
+            LinkedQueueNode<String> node1 = newNode();
+            LinkedQueueNode<String> node2 = newNode();
+            Linked
+
+

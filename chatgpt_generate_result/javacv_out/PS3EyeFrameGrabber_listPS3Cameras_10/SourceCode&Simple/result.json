@@ -1,0 +1,24 @@
+{
+    "project_name": "javacv",
+    "file_name": "PS3EyeFrameGrabber.java",
+    "relative_path": "javacv/src/main/java/org/bytedeco/javacv/PS3EyeFrameGrabber.java",
+    "execute_path": "javacv",
+    "package": "org.bytedeco.javacv",
+    "docstring": "/** Ask the driver for all installed PS3 cameras. Resulting array is sorted in order of camera index.\n     *  Its size is defined by CLCamera.cameraCount().\n     * \n     * @return array of camera unique uuids or null if there is no PS3 camera\n     */",
+    "source_code": "\npublic static String[] listPS3Cameras() {\n    int no = getCameraCount();\n    String[] uuids;\n    if (no > 0) {\n        uuids = new String[no];\n        for (--no; no >=0; no--) { uuids[no] = CLCamera.cameraUUID(no); }\n        return uuids;\n    }\n    return null;\n}\n",
+    "class_name": "PS3EyeFrameGrabber",
+    "method_name": "listPS3Cameras",
+    "arguments": [],
+    "generate_test": [
+        "@Test\npublic void listPS3CamerasTest() {\n    String[] expected = {\"uuid1\", \"uuid2\", \"uuid3\"};\n    String[] actual = PS3EyeFrameGrabber.listPS3Cameras();\n    assertArrayEquals(expected, actual);\n}",
+        "@Test\npublic void listPS3CamerasTest() {\n    // Arrange\n    String[] expected = new String[0];\n    \n    // Act\n    String[] actual = PS3EyeFrameGrabber.listPS3Cameras();\n    \n    // Assert\n    assertArrayEquals(expected, actual);\n}",
+        "@Test\npublic void listPS3CamerasTest() {\n    String[] result = PS3EyeFrameGrabber.listPS3Cameras();\n    assertNotNull(result);\n    assertEquals(3, result.length);\n    assertEquals(\"uuid1\", result[0]);\n    assertEquals(\"uuid2\", result[1]);\n    assertEquals(\"uuid3\", result[2]);\n}",
+        "\nString[] result = PS3EyeFrameGrabber.listPS3Cameras();\nassertEquals(0, result.length);\n",
+        "@Test\npublic void listPS3CamerasTest() {\n    String[] expected = {\"uuid1\", \"uuid2\", \"uuid3\"};\n    String[] actual = PS3EyeFrameGrabber.listPS3Cameras();\n    assertArrayEquals(expected, actual);\n}",
+        "@Test\npublic void listPS3CamerasTest() {\n    String[] expected = {\"UUID1\", \"UUID2\", \"UUID3\"}; // TODO: Replace \"UUID1\", \"UUID2\", \"UUID3\" with actual UUIDs\n    \n    String[] actual = PS3EyeFrameGrabber.listPS3Cameras();\n    \n    assertArrayEquals(expected, actual);\n}",
+        "@Test\npublic void listPS3CamerasTest() {\n    String[] expected = { \"uuid1\", \"uuid2\", \"uuid3\" }; // replace with the expected UUIDs\n    String[] actual = PS3EyeFrameGrabber.listPS3Cameras();\n    assertArrayEquals(expected, actual);\n}",
+        "@Test\npublic void listPS3CamerasTest() {\n    String[] expectedResult = {\"uuid1\", \"uuid2\"};\n    \n    // Mocking the getCameraCount() method\n    Mockito.when(PS3EyeFrameGrabber.getCameraCount()).thenReturn(2);\n    \n    // Mocking the cameraUUID() method\n    Mockito.when(CLCamera.cameraUUID(Mockito.anyInt())).thenReturn(\"uuid1\", \"uuid2\");\n    \n    // Calling the method to be tested\n    String[] actualResult = PS3EyeFrameGrabber.listPS3Cameras();\n    \n    // Asserting the expected result with the actual result\n    assertArrayEquals(expectedResult, actualResult);\n}",
+        "public void listPS3CamerasTest() {\n        String[] expected = {\"uuid1\", \"uuid2\", \"uuid3\"};\n        assertArrayEquals(expected, PS3EyeFrameGrabber.listPS3Cameras());\n}",
+        "@Test\npublic void listPS3CamerasTest() {\n    String[] expected = new String[]{\"uuid1\", \"uuid2\", \"uuid3\"}; // replace with expected uuids\n    assertArrayEquals(expected, PS3EyeFrameGrabber.listPS3Cameras());\n}"
+    ]
+}

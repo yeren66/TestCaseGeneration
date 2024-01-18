@@ -1,0 +1,211 @@
+Source code: 
+
+
+public static double calculateQ1(List values) {
+    Args.nullNotPermitted(values, "values");
+
+    double result = Double.NaN;
+    int count = values.size();
+    if (count > 0) {
+        if (count % 2 == 1) {
+            if (count > 1) {
+                result = Statistics.calculateMedian(values, 0, count / 2);
+            }
+            else {
+                result = Statistics.calculateMedian(values, 0, 0);
+            }
+        }
+        else {
+            result = Statistics.calculateMedian(values, 0, count / 2 - 1);
+        }
+
+    }
+    return result;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void calculateQ1Test() {
+    List<Double> values = new ArrayList<>();
+    values.add(1.0);
+    values.add(2.0);
+    values.add(3.0);
+    double q1 = BoxAndWhiskerCalculator.calculateQ1(values);
+    assertEquals(1.5, q1, 0.0001);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void calculateQ1Test() {
+    List<Double> values = new ArrayList<>();
+    values.add(2.5);
+    values.add(4.0);
+    values.add(6.0);
+    values.add(7.5);
+    double expectedQ1 = 3.25;
+    double actualQ1 = BoxAndWhiskerCalculator.calculateQ1(values);
+    assertEquals(expectedQ1, actualQ1);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void calculateQ1Test() {
+    List<Double> values = new ArrayList<>();
+    values.add(10.0);
+    values.add(15.0);
+    values.add(20.0);
+    double result = BoxAndWhiskerCalculator.calculateQ1(values);
+    assertEquals(10.0, result);
+}
+
+
+No.4 generated result --------------------------
+
+package org.jfree.data.statistics;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BoxAndWhiskerCalculatorTest {
+    @Test
+    public void calculateQ1Test() {
+        List<Double> values = new ArrayList<>();
+        values.add(1.0);
+        values.add(2.0);
+        values.add(3.0);
+        values.add(4.0);
+        values.add(5.0);
+        
+        double expectedResult = 2.0;
+        double actualResult = BoxAndWhiskerCalculator.calculateQ1(values);
+        
+        assertEquals(expectedResult, actualResult);
+    }
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+    public void calculateQ1Test() {
+        List<Integer> values = Arrays.asList(1, 2, 3, 4, 5);
+        double expected = 2.5;
+
+        double result = BoxAndWhiskerCalculator.calculateQ1(values);
+        assertEquals(expected, result);
+    }
+
+
+No.6 generated result --------------------------
+
+package org.jfree.data.statistics;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BoxAndWhiskerCalculatorTest {
+    @Test
+    public void calculateQ1Test() {
+        List<Double> values = new ArrayList<>();
+        values.add(2.0);
+        values.add(4.0);
+        values.add(6.0);
+        values.add(8.0);
+        values.add(10.0);
+        
+        double q1 = BoxAndWhiskerCalculator.calculateQ1(values);
+        assertEquals(4.0, q1);
+    }
+}
+
+
+No.7 generated result --------------------------
+
+package org.jfree.data.statistics;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class BoxAndWhiskerCalculatorTest {
+    @Test
+    public void calculateQ1Test() {
+        // Create a sample list of values
+        List<Double> values = new ArrayList<>();
+        values.add(1.0);
+        values.add(2.0);
+        values.add(3.0);
+        values.add(4.0);
+
+        // Calculate the expected result
+        double expectedResult = 1.5;
+
+        // Call the method for calculating Q1
+        double result = BoxAndWhiskerCalculator.calculateQ1(values);
+
+        // Verify the result
+        assertEquals(expectedResult, result);
+    }
+}
+
+
+No.8 generated result --------------------------
+
+public void calculateQ1Test() {
+    List<Double> testData = new ArrayList<>();
+    testData.add(1.0);
+    testData.add(2.0);
+    testData.add(3.0);
+    testData.add(4.0);
+    testData.add(5.0);
+    double q1 = BoxAndWhiskerCalculator.calculateQ1(testData);
+    assertEquals(2.0, q1, 0.001);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+    public void calculateQ1Test() {
+        List<Double> values = new ArrayList<>();
+        values.add(1.0);
+        values.add(2.0);
+        values.add(3.0);
+        double result = BoxAndWhiskerCalculator.calculateQ1(values);
+        assertEquals(1.5, result, 0.0001);
+    }
+
+
+No.10 generated result --------------------------
+
+
+package org.jfree.data.statistics;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BoxAndWhiskerCalculatorTest {
+    @Test
+    public void calculateQ1Test() {
+        List<Double> values = new ArrayList<>();
+        values.add(1.0);
+        values.add(2.0);
+        values.add(3.0);
+        values.add(4.0);
+        
+        double q1 = BoxAndWhiskerCalculator.calculateQ1(values);
+        assertEquals(1.5, q1, 0.0001);
+    }
+}
+
+
+

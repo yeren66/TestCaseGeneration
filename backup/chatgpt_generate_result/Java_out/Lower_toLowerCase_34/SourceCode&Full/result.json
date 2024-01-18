@@ -1,0 +1,26 @@
+{
+    "project_name": "Java",
+    "file_name": "Lower.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/strings/Lower.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.strings",
+    "docstring": "/**\n     * Converts all of the characters in this {@code String} to lower case\n     *\n     * @param s the string to convert\n     * @return the {@code String}, converted to lowercase.\n     */",
+    "source_code": "\npublic static String toLowerCase(String s) {\n    char[] values = s.toCharArray();\n    for (int i = 0; i < values.length; ++i) {\n        if (Character.isLetter(values[i]) && Character.isUpperCase(values[i])) {\n            values[i] = Character.toLowerCase(values[i]);\n        }\n    }\n    return new String(values);\n}\n",
+    "class_name": "Lower",
+    "method_name": "toLowerCase",
+    "arguments": [
+        "String s"
+    ],
+    "generate_test": [
+        "package com.thealgorithms.strings;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class LowerTest {\n    @Test\n    public void toLowerCaseTest() {\n        String[] strings = {\"ABC\", \"ABC123\", \"abcABC\", \"abc123ABC\"};\n        String[] expected = {\"abc\", \"abc123\", \"abcabc\", \"abc123abc\"};\n        for (int i = 0; i < strings.length; i++) {\n            String result = Lower.toLowerCase(strings[i]);\n            assertEquals(expected[i], result);\n        }\n    }\n}",
+        "@Test\npublic void toLowerCaseTest() {\n    String[] strings = {\"ABC\", \"ABC123\", \"abcABC\", \"abc123ABC\"};\n    String[] expected = {\"abc\", \"abc123\", \"abcabc\", \"abc123abc\"};\n    for (int i = 0; i < strings.length; i++) {\n        String result = Lower.toLowerCase(strings[i]);\n        assertEquals(expected[i], result);\n    }\n}",
+        "### JUNIT Test case:\npackage com.thealgorithms.strings;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class LowerTest {\n    @Test\n    public void toLowerCaseTest() {\n        assertEquals(\"abc\", Lower.toLowerCase(\"ABC\"));\n        assertEquals(\"abc123\", Lower.toLowerCase(\"ABC123\"));\n        assertEquals(\"abcabc\", Lower.toLowerCase(\"abcABC\"));\n        assertEquals(\"abc123abc\", Lower.toLowerCase(\"abc123ABC\"));\n    }\n}",
+        "package com.thealgorithms.strings;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class LowerTest {\n    @Test\n    public void toLowerCaseTest() {\n        String[] strings = {\"ABC\", \"ABC123\", \"abcABC\", \"abc123ABC\"};\n        String[] expectedResults = {\"abc\", \"abc123\", \"abcabc\", \"abc123abc\"};\n\n        for (int i = 0; i < strings.length; i++) {\n            String result = Lower.toLowerCase(strings[i]);\n            assertEquals(expectedResults[i], result, \"Test failed for input: \" + strings[i]);\n        }\n    }\n}",
+        "@Test\npublic void toLowerCaseTest() {\n    String[] strings = {\"ABC\", \"ABC123\", \"abcABC\", \"abc123ABC\"};\n    String[] expectedResults = {\"abc\", \"abc123\", \"abcabc\", \"abc123abc\"};\n    for (int i = 0; i < strings.length; i++) {\n        String result = Lower.toLowerCase(strings[i]);\n        assertEquals(expectedResults[i], result);\n    }\n}",
+        "@Test\npublic void toLowerCaseTest() {\n    String[] strings = {\"ABC\", \"ABC123\", \"abcABC\", \"abc123ABC\"};\n    String[] expected = {\"abc\", \"abc123\", \"abcabc\", \"abc123abc\"};\n\n    for (int i = 0; i < strings.length; i++) {\n        assertEquals(expected[i], Lower.toLowerCase(strings[i]));\n    }\n}",
+        "package com.thealgorithms.strings;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class LowerTest {\n    @Test\n    public void toLowerCaseTest() {\n        String[] strings = {\"ABC\", \"ABC123\", \"abcABC\", \"abc123ABC\"};\n        String[] expectedResults = {\"abc\", \"abc123\", \"abcabc\", \"abc123abc\"};\n        \n        for (int i = 0; i < strings.length; i++) {\n            String result = Lower.toLowerCase(strings[i]);\n            assertEquals(expectedResults[i], result);\n        }\n    }\n}",
+        "@Test\npublic void toLowerCaseTest() {\n    String[] strings = {\"ABC\", \"ABC123\", \"abcABC\", \"abc123ABC\"};\n    String[] expected = {\"abc\", \"abc123\", \"abcabc\", \"abc123abc\"};\n    \n    for (int i = 0; i < strings.length; i++) {\n        String result = Lower.toLowerCase(strings[i]);\n        assertEquals(expected[i], result);\n    }\n}",
+        "@Test\npublic void toLowerCaseTest() {\n    String[] strings = {\"ABC\", \"ABC123\", \"abcABC\", \"abc123ABC\"};\n    String[] expectedResults = {\"abc\", \"abc123\", \"abcabc\", \"abc123abc\"};\n    \n    for (int i = 0; i < strings.length; i++) {\n        String actualResult = Lower.toLowerCase(strings[i]);\n        assertEquals(expectedResults[i], actualResult);\n    }\n}",
+        "@Test\npublic void toLowerCaseTest() {\n    String[] strings = {\"ABC\", \"ABC123\", \"abcABC\", \"abc123ABC\"};\n    String[] expected = {\"abc\", \"abc123\", \"abcabc\", \"abc123abc\"};\n    \n    for (int i = 0; i < strings.length; i++) {\n        String actual = Lower.toLowerCase(strings[i]);\n        assertEquals(expected[i], actual);\n    }\n}"
+    ]
+}

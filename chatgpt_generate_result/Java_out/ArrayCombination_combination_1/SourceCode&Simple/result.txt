@@ -1,0 +1,375 @@
+Source code: 
+
+
+public static List<TreeSet<Integer>> combination(int n, int k) {
+    if (n <= 0) {
+        return null;
+    }
+    length = k;
+    Integer[] arr = new Integer[n];
+    for (int i = 1; i <= n; i++) {
+        arr[i - 1] = i;
+    }
+    return Combination.combination(arr, length);
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void combinationTest() {
+    List<TreeSet<Integer>> expected = new ArrayList<>();
+    TreeSet<Integer> combination1 = new TreeSet<>();
+    combination1.add(1);
+    combination1.add(2);
+    expected.add(combination1);
+    TreeSet<Integer> combination2 = new TreeSet<>();
+    combination2.add(1);
+    combination2.add(3);
+    expected.add(combination2);
+    TreeSet<Integer> combination3 = new TreeSet<>();
+    combination3.add(2);
+    combination3.add(3);
+    expected.add(combination3);
+
+    List<TreeSet<Integer>> result = ArrayCombination.combination(3, 2);
+    assertEquals(expected, result);
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void combinationTest() {
+    List<TreeSet<Integer>> expected = new ArrayList<>();
+    TreeSet<Integer> set1 = new TreeSet<>();
+    set1.add(1);
+    set1.add(2);
+    set1.add(3);
+    expected.add(set1);
+    TreeSet<Integer> set2 = new TreeSet<>();
+    set2.add(1);
+    set2.add(2);
+    set2.add(4);
+    expected.add(set2);
+    TreeSet<Integer> set3 = new TreeSet<>();
+    set3.add(1);
+    set3.add(2);
+    set3.add(5);
+    expected.add(set3);
+    
+    List<TreeSet<Integer>> result = ArrayCombination.combination(5, 3);
+    assertEquals(expected, result);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void combinationTest() {
+    List<TreeSet<Integer>> expected = new ArrayList<>();
+    TreeSet<Integer> set1 = new TreeSet<>();
+    set1.add(1);
+    expected.add(set1);
+    
+    TreeSet<Integer> set2 = new TreeSet<>();
+    set2.add(2);
+    expected.add(set2);
+    
+    TreeSet<Integer> set3 = new TreeSet<>();
+    set3.add(3);
+    expected.add(set3);
+    
+    List<TreeSet<Integer>> result = ArrayCombination.combination(3, 1);
+    assertEquals(expected, result);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void combinationTest() {
+    List<TreeSet<Integer>> expected = new ArrayList<>();
+    
+    TreeSet<Integer> combination1 = new TreeSet<>();
+    combination1.add(1);
+    combination1.add(2);
+    combination1.add(3);
+    expected.add(combination1);
+    
+    TreeSet<Integer> combination2 = new TreeSet<>();
+    combination2.add(1);
+    combination2.add(2);
+    combination2.add(4);
+    expected.add(combination2);
+    
+    TreeSet<Integer> combination3 = new TreeSet<>();
+    combination3.add(1);
+    combination3.add(2);
+    combination3.add(5);
+    expected.add(combination3);
+    
+    // Add more combination sets as needed
+    
+    List<TreeSet<Integer>> result = ArrayCombination.combination(5, 3);
+    assertEquals(expected, result);
+}
+
+
+No.5 generated result --------------------------
+
+public void combinationTest() {
+    int n = 5;
+    int k = 3;
+    List<TreeSet<Integer>> expected = new ArrayList<>();
+    TreeSet<Integer> set1 = new TreeSet<>();
+    set1.add(1);
+    set1.add(2);
+    set1.add(3);
+    expected.add(set1);
+    TreeSet<Integer> set2 = new TreeSet<>();
+    set2.add(1);
+    set2.add(2);
+    set2.add(4);
+    expected.add(set2);
+    TreeSet<Integer> set3 = new TreeSet<>();
+    set3.add(1);
+    set3.add(2);
+    set3.add(5);
+    expected.add(set3);
+    TreeSet<Integer> set4 = new TreeSet<>();
+    set4.add(1);
+    set4.add(3);
+    set4.add(4);
+    expected.add(set4);
+    TreeSet<Integer> set5 = new TreeSet<>();
+    set5.add(1);
+    set5.add(3);
+    set5.add(5);
+    expected.add(set5);
+    TreeSet<Integer> set6 = new TreeSet<>();
+    set6.add(1);
+    set6.add(4);
+    set6.add(5);
+    expected.add(set6);
+    TreeSet<Integer> set7 = new TreeSet<>();
+    set7.add(2);
+    set7.add(3);
+    set7.add(4);
+    expected.add(set7);
+    TreeSet<Integer> set8 = new TreeSet<>();
+    set8.add(2);
+    set8.add(3);
+    set8.add(5);
+    expected.add(set8);
+    TreeSet<Integer> set9 = new TreeSet<>();
+    set9.add(2);
+    set9.add(4);
+    set9.add(5);
+    expected.add(set9);
+    TreeSet<Integer> set10 = new TreeSet<>();
+    set10.add(3);
+    set10.add(4);
+    set10.add(5);
+    expected.add(set10);
+
+    List<TreeSet<Integer>> actual = ArrayCombination.combination(n, k);
+
+    assertEquals(expected, actual);
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void combinationTest() {
+    List<TreeSet<Integer>> result = ArrayCombination.combination(4, 2);
+    assertNotNull(result);
+    assertEquals(6, result.size());
+    assertTrue(result.contains(new TreeSet<>(Arrays.asList(1, 2))));
+    assertTrue(result.contains(new TreeSet<>(Arrays.asList(1, 3))));
+    assertTrue(result.contains(new TreeSet<>(Arrays.asList(1, 4))));
+    assertTrue(result.contains(new TreeSet<>(Arrays.asList(2, 3))));
+    assertTrue(result.contains(new TreeSet<>(Arrays.asList(2, 4))));
+    assertTrue(result.contains(new TreeSet<>(Arrays.asList(3, 4))));
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void combinationTest() {
+    List<TreeSet<Integer>> expected = new ArrayList<>();
+    TreeSet<Integer> expectedSet1 = new TreeSet<>();
+    expectedSet1.add(1);
+    expectedSet1.add(2);
+    expectedSet1.add(3);
+    expected.add(expectedSet1);
+
+    List<TreeSet<Integer>> actual = ArrayCombination.combination(3, 3);
+
+    assertEquals(expected, actual);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void combinationTest() {
+    List<TreeSet<Integer>> result = ArrayCombination.combination(5, 3);
+    assertEquals(10, result.size());
+    TreeSet<Integer> expectedComb1 = new TreeSet<>(Arrays.asList(1, 2, 3));
+    TreeSet<Integer> expectedComb2 = new TreeSet<>(Arrays.asList(1, 2, 4));
+    TreeSet<Integer> expectedComb3 = new TreeSet<>(Arrays.asList(1, 2, 5));
+    TreeSet<Integer> expectedComb4 = new TreeSet<>(Arrays.asList(1, 3, 4));
+    TreeSet<Integer> expectedComb5 = new TreeSet<>(Arrays.asList(1, 3, 5));
+    TreeSet<Integer> expectedComb6 = new TreeSet<>(Arrays.asList(1, 4, 5));
+    TreeSet<Integer> expectedComb7 = new TreeSet<>(Arrays.asList(2, 3, 4));
+    TreeSet<Integer> expectedComb8 = new TreeSet<>(Arrays.asList(2, 3, 5));
+    TreeSet<Integer> expectedComb9 = new TreeSet<>(Arrays.asList(2, 4, 5));
+    TreeSet<Integer> expectedComb10 = new TreeSet<>(Arrays.asList(3, 4, 5));
+    assertTrue(result.contains(expectedComb1));
+    assertTrue(result.contains(expectedComb2));
+    assertTrue(result.contains(expectedComb3));
+    assertTrue(result.contains(expectedComb4));
+    assertTrue(result.contains(expectedComb5));
+    assertTrue(result.contains(expectedComb6));
+    assertTrue(result.contains(expectedComb7));
+    assertTrue(result.contains(expectedComb8));
+    assertTrue(result.contains(expectedComb9));
+    assertTrue(result.contains(expectedComb10));
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void combinationTest() {
+    List<TreeSet<Integer>> expected = new ArrayList<>();
+    List<TreeSet<Integer>> actual = ArrayCombination.combination(5, 3);
+    
+    TreeSet<Integer> set1 = new TreeSet<>();
+    set1.add(1);
+    set1.add(2);
+    set1.add(3);
+    expected.add(set1);
+    
+    TreeSet<Integer> set2 = new TreeSet<>();
+    set2.add(1);
+    set2.add(2);
+    set2.add(4);
+    expected.add(set2);
+    
+    TreeSet<Integer> set3 = new TreeSet<>();
+    set3.add(1);
+    set3.add(2);
+    set3.add(5);
+    expected.add(set3);
+    
+    TreeSet<Integer> set4 = new TreeSet<>();
+    set4.add(1);
+    set4.add(3);
+    set4.add(4);
+    expected.add(set4);
+    
+    TreeSet<Integer> set5 = new TreeSet<>();
+    set5.add(1);
+    set5.add(3);
+    set5.add(5);
+    expected.add(set5);
+    
+    TreeSet<Integer> set6 = new TreeSet<>();
+    set6.add(1);
+    set6.add(4);
+    set6.add(5);
+    expected.add(set6);
+    
+    TreeSet<Integer> set7 = new TreeSet<>();
+    set7.add(2);
+    set7.add(3);
+    set7.add(4);
+    expected.add(set7);
+    
+    TreeSet<Integer> set8 = new TreeSet<>();
+    set8.add(2);
+    set8.add(3);
+    set8.add(5);
+    expected.add(set8);
+    
+    TreeSet<Integer> set9 = new TreeSet<>();
+    set9.add(2);
+    set9.add(4);
+    set9.add(5);
+    expected.add(set9);
+    
+    TreeSet<Integer> set10 = new TreeSet<>();
+    set10.add(3);
+    set10.add(4);
+    set10.add(5);
+    expected.add(set10);
+    
+    assertTrue(expected.equals(actual));
+}
+
+
+No.10 generated result --------------------------
+
+public void combinationTest() {
+    List<TreeSet<Integer>> result = ArrayCombination.combination(5, 3);
+    List<TreeSet<Integer>> expected = new ArrayList<>();
+    TreeSet<Integer> set1 = new TreeSet<>();
+    set1.add(1);
+    set1.add(2);
+    set1.add(3);
+    expected.add(set1);
+    TreeSet<Integer> set2 = new TreeSet<>();
+    set2.add(1);
+    set2.add(2);
+    set2.add(4);
+    expected.add(set2);
+    TreeSet<Integer> set3 = new TreeSet<>();
+    set3.add(1);
+    set3.add(2);
+    set3.add(5);
+    expected.add(set3);
+    TreeSet<Integer> set4 = new TreeSet<>();
+    set4.add(1);
+    set4.add(3);
+    set4.add(4);
+    expected.add(set4);
+    TreeSet<Integer> set5 = new TreeSet<>();
+    set5.add(1);
+    set5.add(3);
+    set5.add(5);
+    expected.add(set5);
+    TreeSet<Integer> set6 = new TreeSet<>();
+    set6.add(1);
+    set6.add(4);
+    set6.add(5);
+    expected.add(set6);
+    TreeSet<Integer> set7 = new TreeSet<>();
+    set7.add(2);
+    set7.add(3);
+    set7.add(4);
+    expected.add(set7);
+    TreeSet<Integer> set8 = new TreeSet<>();
+    set8.add(2);
+    set8.add(3);
+    set8.add(5);
+    expected.add(set8);
+    TreeSet<Integer> set9 = new TreeSet<>();
+    set9.add(2);
+    set9.add(4);
+    set9.add(5);
+    expected.add(set9);
+    TreeSet<Integer> set10 = new TreeSet<>();
+    set10.add(3);
+    set10.add(4);
+    set10.add(5);
+    expected.add(set10);
+    
+    assertEquals(expected, result);
+}
+
+

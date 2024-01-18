@@ -1,0 +1,26 @@
+{
+    "project_name": "Java",
+    "file_name": "QuickSort.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/sorts/QuickSort.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.sorts",
+    "docstring": "/**\n     * This method implements the Generic Quick Sort\n     *\n     * @param array The array to be sorted Sorts the array in increasing order\n     */",
+    "source_code": "\n@Override\npublic <T extends Comparable<T>> T[] sort(T[] array) {\n    doSort(array, 0, array.length - 1);\n    return array;\n}\n",
+    "class_name": "QuickSort",
+    "method_name": "sort",
+    "arguments": [
+        "T array"
+    ],
+    "generate_test": [
+        "\npackage com.thealgorithms.sorts;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class QuickSortTest {\n    @Test\n    public void sortTest() {\n        QuickSort quickSort = new QuickSort();\n        Integer[] input = {5, 3, 1, 2, 4};\n        Integer[] expectedOutput = {1, 2, 3, 4, 5};\n        Integer[] result = quickSort.sort(input);\n        assertArrayEquals(expectedOutput, result);\n    }\n}\n",
+        "@Test\npublic void sortTest() {\n    QuickSort quickSort = new QuickSort();\n    Integer[] array = {5, 3, 8, 2, 1, 9, 4};\n    Integer[] expected = {1, 2, 3, 4, 5, 8, 9};\n    assertArrayEquals(expected, quickSort.sort(array));\n}",
+        "@Test\npublic void sortTest() {\n    Integer[] array = {5, 3, 1, 4, 2};\n    QuickSort quickSort = new QuickSort();\n    Integer[] sortedArray = quickSort.sort(array);\n    Integer[] expected = {1, 2, 3, 4, 5};\n    assertArrayEquals(expected, sortedArray);\n}",
+        "@Test\npublic void sortTest() {\n    Integer[] array = {5, 3, 9, 1, 7};\n    QuickSort quickSort = new QuickSort();\n    Integer[] expected = {1, 3, 5, 7, 9};\n    assertArrayEquals(expected, quickSort.sort(array));\n}",
+        "@Test\npublic void sortTest() {\n    QuickSort quickSort = new QuickSort();\n    \n    // Test case 1\n    Integer[] array1 = {5, 2, 7, 1, 9};\n    Integer[] expected1 = {1, 2, 5, 7, 9};\n    assertArrayEquals(expected1, quickSort.sort(array1));\n    \n    // Test case 2\n    String[] array2 = {\"c\", \"a\", \"d\", \"e\", \"b\"};\n    String[] expected2 = {\"a\", \"b\", \"c\", \"d\", \"e\"};\n    assertArrayEquals(expected2, quickSort.sort(array2));\n    \n    // Test case 3\n    Double[] array3 = {2.5, 1.2, 3.7, 2.0, 4.9};\n    Double[] expected3 = {1.2, 2.0, 2.5, 3.7, 4.9};\n    assertArrayEquals(expected3, quickSort.sort(array3));\n}",
+        "@Test\npublic void sortTest() {\n    QuickSort quickSort = new QuickSort();\n    \n    // Test case 1 - Sorting an array of integers\n    Integer[] arr1 = {5, 2, 9, 1, 7};\n    Integer[] expected1 = {1, 2, 5, 7, 9};\n    assertArrayEquals(expected1, quickSort.sort(arr1));\n    \n    // Test case 2 - Sorting an array of strings\n    String[] arr2 = {\"banana\", \"apple\", \"orange\", \"grape\"};\n    String[] expected2 = {\"apple\", \"banana\", \"grape\", \"orange\"};\n    assertArrayEquals(expected2, quickSort.sort(arr2));\n    \n    // Test case 3 - Sorting an empty array\n    Integer[] arr3 = {};\n    Integer[] expected3 = {};\n    assertArrayEquals(expected3, quickSort.sort(arr3));\n}",
+        "@Test\npublic void sortTest() {\n    QuickSort quickSort = new QuickSort();\n    Integer[] array = {9, 5, 8, 1, 3};\n    Integer[] expected = {1, 3, 5, 8, 9};\n    Integer[] result = quickSort.sort(array);\n    assertArrayEquals(expected, result);\n}",
+        "@Test\npublic void sortTest() {\n    QuickSort quickSort = new QuickSort();\n    Integer[] array = {5, 1, 4, 2, 8};\n    Integer[] expected = {1, 2, 4, 5, 8};\n    Integer[] sortedArray = quickSort.sort(array);\n    assertArrayEquals(expected, sortedArray);\n}",
+        "@Test\npublic void sortTest() {\n    Integer[] array = {5, 2, 1, 9, 6};\n    QuickSort quickSort = new QuickSort();\n    quickSort.sort(array);\n    Integer[] expected = {1, 2, 5, 6, 9};\n    assertArrayEquals(expected, array);\n}",
+        "package com.thealgorithms.sorts;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class QuickSortTest {\n    @Test\n    public void sortTest() {\n        QuickSort quickSort = new QuickSort();\n        Integer[] array = {4, 2, 9, 1, 7};\n        Integer[] expected = {1, 2, 4, 7, 9};\n        Integer[] result = quickSort.sort(array);\n        assertArrayEquals(expected, result);\n    }\n}"
+    ]
+}

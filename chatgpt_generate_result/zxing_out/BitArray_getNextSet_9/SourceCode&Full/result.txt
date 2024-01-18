@@ -1,0 +1,241 @@
+Source code: 
+
+
+public int getNextSet(int from) {
+  if (from >= size) {
+    return size;
+  }
+  int bitsOffset = from / 32;
+  int currentBits = bits[bitsOffset];
+  // mask off lesser bits first
+  currentBits &= -(1 << (from & 0x1F));
+  while (currentBits == 0) {
+    if (++bitsOffset == bits.length) {
+      return size;
+    }
+    currentBits = bits[bitsOffset];
+  }
+  int result = (bitsOffset * 32) + Integer.numberOfTrailingZeros(currentBits);
+  return Math.min(result, size);
+}
+
+
+
+No.1 generated result --------------------------
+
+package com.google.zxing.common;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BitArrayTest {
+    @Test
+    public void getNextSetTest() {
+        BitArray bitArray = new BitArray(8);
+        bitArray.set(0);
+        bitArray.set(2);
+        bitArray.set(4);
+        
+        assertEquals(0, bitArray.getNextSet(0));
+        assertEquals(2, bitArray.getNextSet(1));
+        assertEquals(2, bitArray.getNextSet(2));
+        assertEquals(4, bitArray.getNextSet(3));
+        assertEquals(4, bitArray.getNextSet(4));
+        assertEquals(8, bitArray.getNextSet(5));
+    }
+}
+
+
+No.2 generated result --------------------------
+
+package com.google.zxing.common;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BitArrayTest {
+    @Test
+    public void getNextSetTest() {
+        BitArray bitArray = new BitArray(64);
+        bitArray.set(10);
+        int result = bitArray.getNextSet(0);
+        assertEquals(10, result);
+    }
+}
+
+
+No.3 generated result --------------------------
+
+    @Test
+    public void getNextSetTest() {
+        BitArray bitArray = new BitArray();
+        bitArray.set(0);
+        bitArray.set(3);
+        bitArray.set(7);
+        int result = bitArray.getNextSet(0);
+        assertEquals(0, result);
+        result = bitArray.getNextSet(1);
+        assertEquals(3, result);
+        result = bitArray.getNextSet(4);
+        assertEquals(7, result);
+        result = bitArray.getNextSet(8);
+        assertEquals(8, result);
+    }
+
+
+No.4 generated result --------------------------
+
+package com.google.zxing.common;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BitArrayTest {
+    @Test
+    public void getNextSetTest() {
+        BitArray bitArray = new BitArray(10);
+        bitArray.set(3);
+        bitArray.set(7);
+        int result = bitArray.getNextSet(0);
+        assertEquals(3, result);
+    }
+}
+
+
+No.5 generated result --------------------------
+
+
+package com.google.zxing.common;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BitArrayTest {
+    @Test
+    public void getNextSetTest() {
+        BitArray bitArray = new BitArray(10);
+        bitArray.set(0);
+        bitArray.set(2);
+        bitArray.set(4);
+        bitArray.set(7);
+        
+        int nextSetIndex = bitArray.getNextSet(0);
+        assertEquals(0, nextSetIndex);
+        
+        nextSetIndex = bitArray.getNextSet(1);
+        assertEquals(2, nextSetIndex);
+        
+        nextSetIndex = bitArray.getNextSet(5);
+        assertEquals(7, nextSetIndex);
+        
+        nextSetIndex = bitArray.getNextSet(8);
+        assertEquals(10, nextSetIndex);
+    }
+}
+
+
+
+No.6 generated result --------------------------
+
+@Test
+public void getNextSetTest() {
+    // Create a BitArray with some bits set
+    BitArray bitArray = new BitArray(64);
+    bitArray.set(2);
+    bitArray.set(5);
+    bitArray.set(9);
+
+    // Test getNextSet() starting from different indices
+    assertEquals(2, bitArray.getNextSet(0));  // Expecting 2 as the next set bit after index 0
+    assertEquals(5, bitArray.getNextSet(3));  // Expecting 5 as the next set bit after index 3
+    assertEquals(9, bitArray.getNextSet(6));  // Expecting 9 as the next set bit after index 6
+    assertEquals(64, bitArray.getNextSet(10));  // Expecting 64 as there are no set bits after index 10
+}
+
+
+No.7 generated result --------------------------
+
+'''
+package com.google.zxing.common;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BitArrayTest {
+    @Test
+    public void getNextSetTest() {
+        BitArray bitArray = new BitArray(32);
+        bitArray.set(10);
+        bitArray.set(20);
+        bitArray.set(30);
+
+        assertEquals(10, bitArray.getNextSet(0));
+        assertEquals(20, bitArray.getNextSet(11));
+        assertEquals(30, bitArray.getNextSet(21));
+        assertEquals(32, bitArray.getNextSet(31));
+        assertEquals(32, bitArray.getNextSet(32));
+    }
+}
+'''
+
+
+No.8 generated result --------------------------
+
+@Test
+public void getNextSetTest() {
+    BitArray bitArray = new BitArray(10);
+    bitArray.set(3);
+    bitArray.set(7);
+    int expectedResult = 7;
+    int actualResult = bitArray.getNextSet(2);
+    assertEquals(expectedResult, actualResult);
+}
+
+
+No.9 generated result --------------------------
+
+package com.google.zxing.common;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BitArrayTest {
+    private BitArray bitArray;
+    
+    @BeforeEach
+    public void setUp() {
+        bitArray = new BitArray(10);
+        bitArray.set(3);
+        bitArray.set(6);
+    }
+    
+    @Test
+    public void getNextSetTest() {
+        assertEquals(3, bitArray.getNextSet(0));
+        assertEquals(3, bitArray.getNextSet(3));
+        assertEquals(6, bitArray.getNextSet(4));
+        assertEquals(6, bitArray.getNextSet(6));
+        assertEquals(10, bitArray.getNextSet(7));
+    }
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void getNextSetTest() {
+    BitArray bitArray = new BitArray(10);
+    bitArray.set(2);
+    bitArray.set(5);
+    bitArray.set(9);
+    
+    int result1 = bitArray.getNextSet(0);
+    int result2 = bitArray.getNextSet(3);
+    int result3 = bitArray.getNextSet(6);
+    
+    assertEquals(2, result1);
+    assertEquals(5, result2);
+    assertEquals(9, result3);
+}
+
+

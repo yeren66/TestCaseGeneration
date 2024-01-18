@@ -1,0 +1,386 @@
+Source code: 
+
+@Transactional
+public GrayReleaseRule updateRulesReleaseId(String appId, String clusterName,
+                                 String namespaceName, String branchName,
+                                 long latestReleaseId, String operator) {
+  GrayReleaseRule oldRules = grayReleaseRuleRepository.
+      findTopByAppIdAndClusterNameAndNamespaceNameAndBranchNameOrderByIdDesc(appId, clusterName, namespaceName, branchName);
+
+  if (oldRules == null) {
+    return null;
+  }
+
+  GrayReleaseRule newRules = new GrayReleaseRule();
+  newRules.setBranchStatus(NamespaceBranchStatus.ACTIVE);
+  newRules.setReleaseId(latestReleaseId);
+  newRules.setRules(oldRules.getRules());
+  newRules.setAppId(oldRules.getAppId());
+  newRules.setClusterName(oldRules.getClusterName());
+  newRules.setNamespaceName(oldRules.getNamespaceName());
+  newRules.setBranchName(oldRules.getBranchName());
+  newRules.setDataChangeCreatedBy(operator);
+  newRules.setDataChangeLastModifiedBy(operator);
+
+  grayReleaseRuleRepository.save(newRules);
+
+  grayReleaseRuleRepository.delete(oldRules);
+
+  return newRules;
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void updateRulesReleaseIdTest() {
+    // Test data
+    String appId = "testApp";
+    String clusterName = "testCluster";
+    String namespaceName = "testNamespace";
+    String branchName = "testBranch";
+    long latestReleaseId = 123;
+    String operator = "testOperator";
+    
+    // Create instance of GrayReleaseRuleRepository (Mock or real object)
+    GrayReleaseRuleRepository grayReleaseRuleRepository = Mockito.mock(GrayReleaseRuleRepository.class);
+    
+    // Create instance of NamespaceBranchService (Class under test)
+    NamespaceBranchService namespaceBranchService = new NamespaceBranchService(grayReleaseRuleRepository);
+    
+    // Mock expected behavior of grayReleaseRuleRepository.findTopByAppIdAndClusterNameAndNamespaceNameAndBranchNameOrderByIdDesc()
+    GrayReleaseRule oldRules = new GrayReleaseRule();
+    Mockito.when(grayReleaseRuleRepository.findTopByAppIdAndClusterNameAndNamespaceNameAndBranchNameOrderByIdDesc(
+        appId, clusterName, namespaceName, branchName)).thenReturn(oldRules);
+    
+    // Call the method under test
+    GrayReleaseRule result = namespaceBranchService.updateRulesReleaseId(appId, clusterName, namespaceName, 
+                                                                        branchName, latestReleaseId, operator);
+    
+    // Assert the result
+    assertNotNull(result);
+    assertEquals(NamespaceBranchStatus.ACTIVE, result.getBranchStatus());
+    assertEquals(latestReleaseId, result.getReleaseId());
+    assertEquals(oldRules.getRules(), result.getRules());
+    assertEquals(oldRules.getAppId(), result.getAppId());
+    assertEquals(oldRules.getClusterName(), result.getClusterName());
+    assertEquals(oldRules.getNamespaceName(), result.getNamespaceName());
+    assertEquals(oldRules.getBranchName(), result.getBranchName());
+    assertEquals(operator, result.getDataChangeCreatedBy());
+    assertEquals(operator, result.getDataChangeLastModifiedBy());
+    
+    // Verify that grayReleaseRuleRepository.save() and grayReleaseRuleRepository.delete() were called
+    Mockito.verify(grayReleaseRuleRepository).save(result);
+    Mockito.verify(grayReleaseRuleRepository).delete(oldRules);
+}
+
+
+No.2 generated result --------------------------
+
+package com.ctrip.framework.apollo.biz.service;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NamespaceBranchServiceTest {
+    @Test
+    public void updateRulesReleaseIdTest() {
+        // Create test data
+        String appId = "testApp";
+        String clusterName = "testCluster";
+        String namespaceName = "testNamespace";
+        String branchName = "testBranch";
+        long latestReleaseId = 12345;
+        String operator = "testOperator";
+        
+        // Invoke the method to be tested
+        GrayReleaseRule result = updateRulesReleaseId(appId, clusterName, namespaceName, branchName, latestReleaseId, operator);
+        
+        // Perform assertions
+        assertNotNull(result);
+        assertEquals(NamespaceBranchStatus.ACTIVE, result.getBranchStatus());
+        assertEquals(latestReleaseId, result.getReleaseId());
+        assertEquals(oldRules.getRules(), result.getRules());
+        assertEquals(appId, result.getAppId());
+        assertEquals(clusterName, result.getClusterName());
+        assertEquals(namespaceName, result.getNamespaceName());
+        assertEquals(branchName, result.getBranchName());
+        assertEquals(operator, result.getDataChangeCreatedBy());
+        assertEquals(operator, result.getDataChangeLastModifiedBy());
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package com.ctrip.framework.apollo.biz.service;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NamespaceBranchServiceTest {
+    @Test
+    public void updateRulesReleaseIdTest() {
+        // Create an instance of NamespaceBranchService
+        NamespaceBranchService namespaceBranchService = new NamespaceBranchService();
+
+        // Mock the necessary objects and dependencies
+
+        // Invoke the method being tested
+        GrayReleaseRule result = namespaceBranchService.updateRulesReleaseId("appId", "clusterName", "namespaceName",
+                                                                              "branchName", 12345, "operator");
+
+        // Assertions
+        assertNotNull(result);
+    }
+}
+
+
+No.4 generated result --------------------------
+
+package com.ctrip.framework.apollo.biz.service;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NamespaceBranchServiceTest {
+    @Test
+    public void updateRulesReleaseIdTest() {
+        // arrange
+        String appId = "testAppId";
+        String clusterName = "testCluster";
+        String namespaceName = "testNamespace";
+        String branchName = "testBranch";
+        long latestReleaseId = 12345L;
+        String operator = "testOperator";
+        GrayReleaseRule oldRules = new GrayReleaseRule();
+        GrayReleaseRule newRules;
+
+        // act
+        newRules = updateRulesReleaseId(appId, clusterName, namespaceName, branchName, latestReleaseId, operator);
+
+        // assert
+        assertNotNull(newRules);
+        assertEquals(NamespaceBranchStatus.ACTIVE, newRules.getBranchStatus());
+        assertEquals(latestReleaseId, newRules.getReleaseId());
+        assertEquals(oldRules.getRules(), newRules.getRules());
+        assertEquals(oldRules.getAppId(), newRules.getAppId());
+        assertEquals(oldRules.getClusterName(), newRules.getClusterName());
+        assertEquals(oldRules.getNamespaceName(), newRules.getNamespaceName());
+        assertEquals(oldRules.getBranchName(), newRules.getBranchName());
+        assertEquals(operator, newRules.getDataChangeCreatedBy());
+        assertEquals(operator, newRules.getDataChangeLastModifiedBy());
+    }
+}
+
+
+No.5 generated result --------------------------
+
+package com.ctrip.framework.apollo.biz.service;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NamespaceBranchServiceTest {
+    @Test
+    public void updateRulesReleaseIdTest() {
+        // Given
+        String appId = "test";
+        String clusterName = "testCluster";
+        String namespaceName = "testNamespace";
+        String branchName = "testBranch";
+        long latestReleaseId = 12345;
+        String operator = "testOperator";
+
+        GrayReleaseRule oldRules = new GrayReleaseRule();
+        oldRules.setAppId(appId);
+        oldRules.setClusterName(clusterName);
+        oldRules.setNamespaceName(namespaceName);
+        oldRules.setBranchName(branchName);
+  
+        GrayReleaseRule newRules = new GrayReleaseRule();
+        newRules.setBranchStatus(NamespaceBranchStatus.ACTIVE);
+        newRules.setReleaseId(latestReleaseId);
+        newRules.setRules(oldRules.getRules());
+        newRules.setAppId(oldRules.getAppId());
+        newRules.setClusterName(oldRules.getClusterName());
+        newRules.setNamespaceName(oldRules.getNamespaceName());
+        newRules.setBranchName(oldRules.getBranchName());
+        newRules.setDataChangeCreatedBy(operator);
+        newRules.setDataChangeLastModifiedBy(operator);
+
+        // When
+        when(grayReleaseRuleRepository.findTopByAppIdAndClusterNameAndNamespaceNameAndBranchNameOrderByIdDesc(appId, clusterName, namespaceName, branchName))
+            .thenReturn(oldRules);
+        when(grayReleaseRuleRepository.save(newRules)).thenReturn(newRules);
+
+        GrayReleaseRule result = namespaceBranchService.updateRulesReleaseId(appId, clusterName, namespaceName, branchName, latestReleaseId, operator);
+
+        // Then
+        assertNotNull(result);
+        assertSame(newRules, result);
+        Mockito.verify(grayReleaseRuleRepository, times(1)).save(newRules);
+        Mockito.verify(grayReleaseRuleRepository, times(1)).delete(oldRules);
+    }
+}
+
+
+No.6 generated result --------------------------
+
+package com.ctrip.framework.apollo.biz.service;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NamespaceBranchServiceTest {
+    @Test
+    public void updateRulesReleaseIdTest() {
+        String appId = "123";
+        String clusterName = "test_cluster";
+        String namespaceName = "test_namespace";
+        String branchName = "test_branch";
+        long latestReleaseId = 123456789;
+        String operator = "test_operator";
+
+        // Perform the updateRulesReleaseId method
+        GrayReleaseRule result = updateRulesReleaseId(appId, clusterName, namespaceName, branchName, latestReleaseId, operator);
+
+        // Verify the result
+        assertNotNull(result);
+        assertEquals(NamespaceBranchStatus.ACTIVE, result.getBranchStatus());
+        assertEquals(latestReleaseId, result.getReleaseId());
+        assertEquals(oldRules.getRules(), result.getRules());
+        assertEquals(appId, result.getAppId());
+        assertEquals(clusterName, result.getClusterName());
+        assertEquals(namespaceName, result.getNamespaceName());
+        assertEquals(branchName, result.getBranchName());
+        assertEquals(operator, result.getDataChangeCreatedBy());
+        assertEquals(operator, result.getDataChangeLastModifiedBy());
+
+        // Verify that oldRules has been deleted
+        GrayReleaseRule deletedRules = grayReleaseRuleRepository.findTopByAppIdAndClusterNameAndNamespaceNameAndBranchNameOrderByIdDesc(appId, clusterName, namespaceName, branchName);
+        assertNull(deletedRules);
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void updateRulesReleaseIdTest() {
+    // Arrange
+    String appId = "testApp";
+    String clusterName = "testCluster";
+    String namespaceName = "testNamespace";
+    String branchName = "testBranch";
+    long latestReleaseId = 123;
+    String operator = "testOperator";
+    
+    GrayReleaseRule oldRules = new GrayReleaseRule();
+    
+    // create and save oldRules object
+    
+    // Act
+    GrayReleaseRule result = namespaceBranchService.updateRulesReleaseId(appId, clusterName,
+                                 namespaceName, branchName, latestReleaseId, operator);
+    
+    // Assert
+    assertNotNull(result);
+    assertEquals(latestReleaseId, result.getReleaseId());
+    assertEquals(oldRules.getRules(), result.getRules());
+    assertEquals(oldRules.getAppId(), result.getAppId());
+    assertEquals(oldRules.getClusterName(), result.getClusterName());
+    assertEquals(oldRules.getNamespaceName(), result.getNamespaceName());
+    assertEquals(oldRules.getBranchName(), result.getBranchName());
+    assertEquals(operator, result.getDataChangeCreatedBy());
+    assertEquals(operator, result.getDataChangeLastModifiedBy());
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void updateRulesReleaseIdTest() {
+    String appId = "testApp";
+    String clusterName = "testCluster";
+    String namespaceName = "testNamespace";
+    String branchName = "testBranch";
+    long latestReleaseId = 12345;
+    String operator = "testOperator";
+
+    // create an instance of the service class
+    NamespaceBranchService namespaceBranchService = new NamespaceBranchService();
+
+    // call the updateRulesReleaseId method
+    GrayReleaseRule result = namespaceBranchService.updateRulesReleaseId(appId, clusterName, namespaceName,
+            branchName, latestReleaseId, operator);
+
+    // assert that the result is not null
+    assertNotNull(result);
+
+    // assert that the result has the expected properties
+    assertEquals(NamespaceBranchStatus.ACTIVE, result.getBranchStatus());
+    assertEquals(latestReleaseId, result.getReleaseId());
+    assertEquals(oldRules.getRules(), result.getRules());
+    assertEquals(oldRules.getAppId(), result.getAppId());
+    assertEquals(oldRules.getClusterName(), result.getClusterName());
+    assertEquals(oldRules.getNamespaceName(), result.getNamespaceName());
+    assertEquals(oldRules.getBranchName(), result.getBranchName());
+    assertEquals(operator, result.getDataChangeCreatedBy());
+    assertEquals(operator, result.getDataChangeLastModifiedBy());
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void updateRulesReleaseIdTest() {
+    String appId = "testApp";
+    String clusterName = "testCluster";
+    String namespaceName = "testNamespace";
+    String branchName = "testBranch";
+    long latestReleaseId = 12345;
+    String operator = "testOperator";
+
+    GrayReleaseRule oldRules = new GrayReleaseRule();
+    // Set values for oldRules
+
+    when(grayReleaseRuleRepository.findTopByAppIdAndClusterNameAndNamespaceNameAndBranchNameOrderByIdDesc(appId, clusterName, namespaceName, branchName)).thenReturn(oldRules);
+
+    GrayReleaseRule newRules = new GrayReleaseRule();
+    // Set values for newRules
+
+    when(grayReleaseRuleRepository.save(newRules)).thenReturn(newRules);
+
+    NamespaceBranchService namespaceBranchService = new NamespaceBranchService();
+    GrayReleaseRule updatedRules = namespaceBranchService.updateRulesReleaseId(appId, clusterName, namespaceName, branchName, latestReleaseId, operator);
+
+    // Add assertions to test the updatedRules
+
+    verify(grayReleaseRuleRepository).save(newRules);
+    verify(grayReleaseRuleRepository).delete(oldRules);
+
+    assertEquals(newRules, updatedRules);
+}
+
+
+
+No.10 generated result --------------------------
+
+@Test
+public void updateRulesReleaseIdTest() {
+    // Create test data
+    GrayReleaseRule oldRules = new GrayReleaseRule();
+    // Set values for oldRules object
+    // ...
+    
+    // Call the method being tested
+    GrayReleaseRule result = updateRulesReleaseId(appId, clusterName, namespaceName, branchName, latestReleaseId, operator);
+    
+    // Assertion
+    assertNotNull(result);
+    // Add additional assertions as needed
+}
+
+

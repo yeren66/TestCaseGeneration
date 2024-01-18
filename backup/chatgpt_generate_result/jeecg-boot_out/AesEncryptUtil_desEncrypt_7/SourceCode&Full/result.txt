@@ -1,0 +1,211 @@
+Source code: 
+
+
+public static String desEncrypt(String data, String key, String iv) throws Exception {
+    //update-begin-author:taoyan date:2022-5-23 for:VUEN-1084 【vue3】online表单测试发现的新问题 6、解密报错 ---解码失败应该把异常抛出去，在外面处理
+    byte[] encrypted1 = Base64.decode(data);
+
+    Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
+    SecretKeySpec keyspec = new SecretKeySpec(key.getBytes(), "AES");
+    IvParameterSpec ivspec = new IvParameterSpec(iv.getBytes());
+
+    cipher.init(Cipher.DECRYPT_MODE, keyspec, ivspec);
+
+    byte[] original = cipher.doFinal(encrypted1);
+    String originalString = new String(original);
+    //加密解码后的字符串会出现\u0000
+    return originalString.replaceAll("\\u0000", "");
+    //update-end-author:taoyan date:2022-5-23 for:VUEN-1084 【vue3】online表单测试发现的新问题 6、解密报错 ---解码失败应该把异常抛出去，在外面处理
+}
+
+
+
+No.1 generated result --------------------------
+
+@Test
+public void desEncryptTest() {
+    try {
+        String data = "YWJjZGVm";  // Base64 encoded string
+        String key = "0123456789abcdef";
+        String iv = "abcdef0123456789";
+
+        String expectedResult = "plaintext";
+        String actualResult = AesEncryptUtil.desEncrypt(data, key, iv);
+        
+        assertEquals(expectedResult, actualResult);
+    } catch (Exception e) {
+        fail("An exception occurred: " + e.getMessage());
+    }
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void desEncryptTest() {
+    String data = "U2FsdGVkX1+nTyZipklAJg==";
+    String key = "0123456789abcdef";
+    String iv = "fedcba9876543210";
+    
+    try {
+        String result = AesEncryptUtil.desEncrypt(data, key, iv);
+        assertEquals("TestString", result);
+    } catch (Exception e) {
+        fail("An exception occurred: " + e.getMessage());
+    }
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void desEncryptTest() throws Exception {
+    String data = "/g2wzfqvMOeazgtsUVbq1kmJawROa6mcRAzwG1/GeJ4=";
+    String key = "your_key";
+    String iv = "your_iv";
+    String expectedResult = "your_expected_result";
+    
+    String decryptedData = AesEncryptUtil.desEncrypt(data, key, iv);
+    
+    assertEquals(expectedResult, decryptedData);
+}
+
+
+No.4 generated result --------------------------
+
+package org.jeecg.common.util.encryption;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AesEncryptUtilTest {
+    @Test
+    public void desEncryptTest() {
+        String data = "U2VjcmV0IGRhdGE="; // Base64 encoded "Secret data"
+        String key = "0123456789abcdef";
+        String iv = "1234567890abcdef";
+
+        try {
+            String decrypted = AesEncryptUtil.desEncrypt(data, key, iv);
+            assertEquals("Secret data", decrypted);
+        } catch (Exception e) {
+            fail("Exception occurred: " + e.getMessage());
+        }
+    }
+}
+
+
+No.5 generated result --------------------------
+
+package org.jeecg.common.util.encryption;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AesEncryptUtilTest {
+    @Test
+    public void desEncryptTest() throws Exception {
+        // Test data
+        String encryptedData = "encrypted data";
+        String key = "encryption key";
+        String iv = "encryption iv";
+        String expectedDecryptedData = "decrypted data";
+
+        // Call the desEncrypt() method
+        String decryptedData = AesEncryptUtil.desEncrypt(encryptedData, key, iv);
+
+        // Assert the decrypted result
+        assertEquals(expectedDecryptedData, decryptedData);
+    }
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void desEncryptTest() {
+    try {
+        String data = "test";
+        String key = "testKey";
+        String iv = "testIV";
+        String encryptedData = AesEncryptUtil.encrypt(data, key, iv);
+        String decryptedData = AesEncryptUtil.desEncrypt(encryptedData, key, iv);
+        assertEquals(data, decryptedData);
+    } catch (Exception e) {
+        fail("An exception occurred: " + e.getMessage());
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void desEncryptTest() throws Exception {
+    String data = "dGhpcyBpcyBhIG5lZWRzIHN0cmluZw==";
+    String key = "exampleKey";
+    String iv = "exampleIV";
+    String expected = "this is a needs string";
+    String actual = AesEncryptUtil.desEncrypt(data, key, iv);
+    assertEquals(expected, actual);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void desEncryptTest() {
+    try {
+        String data = "encrypted data";
+        String key = "encryption key";
+        String iv = "encryption iv";
+
+        // Encrypt the data using the desEncrypt() method
+        String encryptedData = AesEncryptUtil.encrypt(data, key, iv);
+        
+        // Decrypt the encryptedData using the desEncrypt() method
+        String decryptedData = AesEncryptUtil.desEncrypt(encryptedData, key, iv);
+
+        // Assert that the decryptedData is equal to the original data
+        assertEquals(data, decryptedData);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void desEncryptTest() {
+    String data = "encryptedData";
+    String key = "encryptionKey";
+    String iv = "encryptionIV";
+
+    try {
+        String encryptedData = AesEncryptUtil.encrypt(data, key, iv);
+        String decryptedData = AesEncryptUtil.desEncrypt(encryptedData, key, iv);
+
+        assertEquals(data, decryptedData);
+    } catch (Exception e) {
+        fail("An exception occurred: " + e.getMessage());
+    }
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void desEncryptTest() {
+    String data = "encrypted string";
+    String key = "encryption key";
+    String iv = "initialization vector";
+    
+    try {
+        String result = AesEncryptUtil.desEncrypt(data, key, iv);
+        assertEquals("expected decrypted string", result);
+    } catch (Exception e) {
+        fail("An exception occurred during encryption: " + e.getMessage());
+    }
+}
+
+

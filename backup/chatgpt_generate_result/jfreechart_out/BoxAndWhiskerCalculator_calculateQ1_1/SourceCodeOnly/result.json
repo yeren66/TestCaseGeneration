@@ -1,0 +1,26 @@
+{
+    "project_name": "jfreechart",
+    "file_name": "BoxAndWhiskerCalculator.java",
+    "relative_path": "jfreechart/src/main/java/org/jfree/data/statistics/BoxAndWhiskerCalculator.java",
+    "execute_path": "jfreechart",
+    "package": "org.jfree.data.statistics",
+    "docstring": "/**\n     * Calculates the first quartile for a list of numbers in ascending order.\n     * If the items in the list are not in ascending order, the result is\n     * unspecified.  If the list contains items that are {@code null}, not\n     * an instance of {@code Number}, or equivalent to\n     * {@code Double.NaN}, the result is unspecified.\n     *\n     * @param values  the numbers in ascending order ({@code null} not\n     *     permitted).\n     *\n     * @return The first quartile.\n     */",
+    "source_code": "\npublic static double calculateQ1(List values) {\n    Args.nullNotPermitted(values, \"values\");\n\n    double result = Double.NaN;\n    int count = values.size();\n    if (count > 0) {\n        if (count % 2 == 1) {\n            if (count > 1) {\n                result = Statistics.calculateMedian(values, 0, count / 2);\n            }\n            else {\n                result = Statistics.calculateMedian(values, 0, 0);\n            }\n        }\n        else {\n            result = Statistics.calculateMedian(values, 0, count / 2 - 1);\n        }\n\n    }\n    return result;\n}\n",
+    "class_name": "BoxAndWhiskerCalculator",
+    "method_name": "calculateQ1",
+    "arguments": [
+        "List values"
+    ],
+    "generate_test": [
+        "public void calculateQ1Test() {\n        List<Double> values = new ArrayList<>();\n        values.add(5.0);\n        values.add(10.0);\n        values.add(15.0);\n        \n        double expected = 5.0;\n        double actual = BoxAndWhiskerCalculator.calculateQ1(values);\n        \n        assertEquals(expected, actual, 0.001);\n}",
+        "@Test\npublic void calculateQ1Test() {\n    List<Double> values = new ArrayList<>();\n    values.add(1.0);\n    values.add(2.0);\n    values.add(3.0);\n    values.add(4.0);\n    double result = BoxAndWhiskerCalculator.calculateQ1(values);\n    assertEquals(1.5, result, 0.001);\n}",
+        "public void calculateQ1Test() {\n        List<Double> values = new ArrayList<>();\n        values.add(1.0);\n        values.add(2.0);\n        values.add(3.0);\n        double expected = 2.0;\n        \n        double result = BoxAndWhiskerCalculator.calculateQ1(values);\n        \n        assertEquals(expected, result, 0.001);\n    }",
+        "@Test\npublic void calculateQ1Test() {\n    List<Double> values = new ArrayList<>();\n    values.add(1.0);\n    values.add(2.0);\n    values.add(3.0);\n    values.add(4.0);\n    \n    // Call the calculateQ1 method and store the result\n    double result = BoxAndWhiskerCalculator.calculateQ1(values);\n    \n    // Assert the expected result\n    double expected = 1.5;\n    assertEquals(expected, result, 0.001);\n}",
+        "@Test\npublic void calculateQ1Test() {\n    List<Double> values = new ArrayList<>();\n    values.add(1.0);\n    values.add(2.0);\n    values.add(3.0);\n    double result = BoxAndWhiskerCalculator.calculateQ1(values);\n    assertEquals(1.5, result);\n}",
+        "package org.jfree.data.statistics;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class BoxAndWhiskerCalculatorTest {\n    @Test\n    public void calculateQ1Test() {\n        List values = new ArrayList();\n        values.add(1.0);\n        values.add(2.0);\n        values.add(3.0);\n        values.add(4.0);\n        values.add(5.0);\n        \n        double expected = 2.0; // Replace with expected value\n        \n        double actual = BoxAndWhiskerCalculator.calculateQ1(values);\n        \n        assertEquals(expected, actual, 0.0001); // Replace delta value with desired precision\n    }\n}",
+        "public void calculateQ1Test() {\n    List<Double> values = Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0);\n    double expected = 2.0;\n    double result = BoxAndWhiskerCalculator.calculateQ1(values);\n    assertEquals(expected, result, 0.001);\n}",
+        "@Test\npublic void calculateQ1Test() {\n    List<Double> values = new ArrayList<>();\n    values.add(10.0);\n    values.add(20.0);\n    values.add(30.0);\n    double expected = 15.0;\n    double result = BoxAndWhiskerCalculator.calculateQ1(values);\n    assertEquals(expected, result);\n}",
+        "List<Double> values = Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0);\ndouble expected = 2.0;\ndouble actual = BoxAndWhiskerCalculator.calculateQ1(values);\nassertEquals(expected, actual);",
+        "@Test\npublic void calculateQ1Test() {\n    List<Double> values = new ArrayList<>();\n    values.add(1.0);\n    values.add(2.0);\n    values.add(3.0);\n    \n    double expected = 1.5; // The expected result based on the values\n\n    double actual = BoxAndWhiskerCalculator.calculateQ1(values);\n    \n    assertEquals(expected, actual);\n}"
+    ]
+}
