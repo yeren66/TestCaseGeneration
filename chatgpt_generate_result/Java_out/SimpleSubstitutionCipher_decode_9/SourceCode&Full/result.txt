@@ -34,11 +34,11 @@ No.1 generated result --------------------------
 
 @Test
 public void decodeTest() {
-    String encryptedMessage = "J mfjy ytnslj";
-    String cipherSmall = "zyxwvutsrqponmlkjihgfedcba";
-    String expected = "I love testing";
-    String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
-    assertEquals(expected, actual);
+    String encryptedMessage = "khoor";
+    String cipherSmall = "defghijklmnopqrstuvwxyzabc";
+    String expectedResult = "hello";
+    String actualResult = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+    assertEquals(expectedResult, actualResult);
 }
 
 
@@ -46,13 +46,8 @@ No.2 generated result --------------------------
 
 @Test
 public void decodeTest() {
-    String encryptedMessage = "Lstuuxw wxta pbbu!";
-    String cipherSmall = "zyxwvutsrqponmlkjihgfedcba";
-    String expected = "Goodbye java team!";
-    
-    String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
-    
-    assertEquals(expected, actual);
+    String decryptedMessage = SimpleSubstitutionCipher.decode("uv", "wxyzabcdefghijklmnopqrstuv");
+    assertEquals("st", decryptedMessage);
 }
 
 
@@ -60,13 +55,13 @@ No.3 generated result --------------------------
 
 @Test
 public void decodeTest() {
-    String encryptedMessage = "Kbdsj kbds";
-    String cipherSmall = "bda"; // example cipher key
-
-    String expected = "Hello hello";
-    String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
-
-    assertEquals(expected, actual);
+    String encryptedMessage = "Vmxf fmx Tmj'z Tmw Hmzf Omezmzo";
+    String cipherSmall = "hijklmnopqrstuvwxyzabcdefg";
+    
+    String expectedResult = "This is One's Own Alphabet";
+    String actualResult = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+    
+    assertEquals(expectedResult, actualResult);
 }
 
 
@@ -74,45 +69,30 @@ No.4 generated result --------------------------
 
 @Test
 public void decodeTest() {
-    String encryptedMessage = "ybuui jt tffl yfjxfj";
-    String cipherSmall = "zyxwvutsrqponmlkjihgfedcba";
-    String expectedDecodedMessage = "please be kind rewind";
+    String encryptedMessage = "lsoz";
+    String cipherSmall = "kqbpedgjcnrysvthxuzfaimow";
+    String expectedResult = "input";
 
-    String actualDecodedMessage = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+    String actualResult = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
 
-    assertEquals(expectedDecodedMessage, actualDecodedMessage);
+    assertEquals(expectedResult, actualResult);
 }
 
 
 No.5 generated result --------------------------
 
-@Test
-public void decodeTest() {
-    String encryptedMessage = "Qudlbv Zrug";
-    String cipherSmall = "zyxwvutsrqponmlkjihgfedcba";
 
-    // Expected output
-    String expected = "Twister Code";
-
-    // Actual output
-    String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
-
-    // Assertion
-    assertEquals(expected, actual);
-}
+        String result = SimpleSubstitutionCipher.decode("ytyty", "asgbu");
+        assertEquals("audi", result);
+        String result2 = SimpleSubstitutionCipher.decode("haha", "roeul");
+        assertEquals("toto", result2);
 
 
 No.6 generated result --------------------------
 
 @Test
 public void decodeTest() {
-    String encryptedMessage = "gGedcba";
-    String cipherSmall = "gfedcba";
-
-    String expected = "hisgfed";
-    String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
-
-    assertEquals(expected, actual);
+    assertEquals("Hello, World!", SimpleSubstitutionCipher.decode("Urjjv, sljrl!", "bcduflmpvxezokniwqysgjhtr"));
 }
 
 
@@ -120,53 +100,48 @@ No.7 generated result --------------------------
 
 @Test
 public void decodeTest() {
-    String encryptedMessage = "thkkucenersrctmr";
+    String encryptedMessage = "pb uhdo qmysqom!"";
     String cipherSmall = "zyxwvutsrqponmlkjihgfedcba";
-
-    String expected = "thealgorithmsciphers";
-    String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
-
-    assertEquals(expected, actual);
+    String expectedOutput = "cy what ordered!";
+    
+    String actualOutput = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+    
+    assertEquals(expectedOutput, actualOutput);
 }
 
 
 No.8 generated result --------------------------
 
 @Test
-    public void decodeTest() {
-        String encryptedMessage = "fv";
-        String cipherSmall = "bc";
-        String expected = "ab";
-
-        String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
-
-        assertEquals(expected, actual);
-    }
+public void decodeTest() {
+    String input = "xqdp";
+    String cipher = "zab";
+    String expected = "wind";
+    String actual = SimpleSubstitutionCipher.decode(input, cipher);
+    assertEquals(expected, actual);
+}
 
 
 No.9 generated result --------------------------
 
 @Test
 public void decodeTest() {
-    String encryptedMessage = "Kfksrybk sw zl ibjvvinzf";
-    String cipherSmall = "plmoknijuhbygvtfcrdxeszawq";
-    String expected = "Semester is in full swing";
-    String actual = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
-    assertEquals(expected, actual);
+    String encryptedMessage = "zkdsd";
+    String cipherSmall = "abcde";
+    String expectedResult = "world";
+    assertEquals(expectedResult, SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall));
 }
 
 
 No.10 generated result --------------------------
 
-@Test
+
 public void decodeTest() {
-    String encryptedMessage = "s xtpkx";
-    String cipherSmall = "qwerty";
-
-    String expected = "a quick";
-    String decodedMessage = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
-
-    assertEquals(expected, decodedMessage);
+    String encryptedMessage = "kAkLM";
+    String cipherSmall = "xmpzgtsrlnoqkievbfcujwdyha";
+    String expectedResult = "wIngo";
+    String actualResult = SimpleSubstitutionCipher.decode(encryptedMessage, cipherSmall);
+    assertEquals(expectedResult, actualResult);
 }
 
 

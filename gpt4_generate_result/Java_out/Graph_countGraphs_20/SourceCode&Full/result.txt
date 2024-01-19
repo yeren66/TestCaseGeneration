@@ -1,0 +1,70 @@
+Source code: 
+
+
+public int countGraphs() {
+    int count = 0;
+    Set<Node> markedNodes = new HashSet<Node>();
+
+    for (Node n : nodeList) {
+        if (!markedNodes.contains(n)) {
+            markedNodes.add(n);
+            markedNodes.addAll(depthFirstSearch(n, new ArrayList<Node>()));
+            count++;
+        }
+    }
+
+    return count;
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

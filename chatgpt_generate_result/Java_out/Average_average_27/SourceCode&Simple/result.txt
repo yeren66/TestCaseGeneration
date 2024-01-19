@@ -18,10 +18,8 @@ No.1 generated result --------------------------
 
 @Test
 public void averageTest() {
-    int[] numbers = {1, 2, 3, 4, 5};
-    int expected = 3;
-    int result = Average.average(numbers);
-    assertEquals(expected, result);
+    int[] testNumbers = {5, 10, 15, 20};
+    assertEquals(12, Average.average(testNumbers));
 }
 
 
@@ -29,17 +27,10 @@ No.2 generated result --------------------------
 
 @Test
 public void averageTest() {
-    // Input
-    int[] numbers = {1, 2, 3, 4, 5};
-    
-    // Expected output
-    int expected = 3;
-    
-    // Actual output
-    int actual = Average.average(numbers);
-    
-    // Assertion
-    assertEquals(expected, actual);
+   int[] numbers = {5, 10, 15, 20, 25};
+   int expected = 15;
+   int actual = Average.average(numbers);
+   assertEquals(expected, actual);
 }
 
 
@@ -47,20 +38,10 @@ No.3 generated result --------------------------
 
 @Test
 public void averageTest() {
-    int[] numbers = {1, 2, 3, 4, 5};
-    int expected = 3;
+    int[] numbers = {10, 20, 30, 40, 50};
+    int expected = 30;
     int actual = Average.average(numbers);
     assertEquals(expected, actual);
-    
-    int[] emptyNumbers = {};
-    assertThrows(IllegalArgumentException.class, () -> {
-        Average.average(emptyNumbers);
-    });
-    
-    int[] nullNumbers = null;
-    assertThrows(IllegalArgumentException.class, () -> {
-        Average.average(nullNumbers);
-    });
 }
 
 
@@ -68,10 +49,8 @@ No.4 generated result --------------------------
 
 @Test
 public void averageTest() {
-    int[] numbers = {1, 2, 3, 4, 5};
-    int expectedAverage = 3;
-    int actualAverage = Average.average(numbers);
-    assertEquals(expectedAverage, actualAverage);
+    int[] testArray = {2, 4, 6, 8};
+    assertEquals(5, Average.average(testArray));
 }
 
 
@@ -80,9 +59,7 @@ No.5 generated result --------------------------
 @Test
 public void averageTest() {
     int[] numbers = {1, 2, 3, 4, 5};
-    int expectedAverage = 3;
-    int actualAverage = Average.average(numbers);
-    assertEquals(expectedAverage, actualAverage);
+    assertEquals(3, Average.average(numbers));
 }
 
 
@@ -90,14 +67,8 @@ No.6 generated result --------------------------
 
 @Test
 public void averageTest() {
-    // Arrange
-    int[] numbers = {1, 2, 3, 4, 5};
-    
-    // Act
-    int result = Average.average(numbers);
-    
-    // Assert
-    assertEquals(3, result);
+    int[] numbers = {3, 5, 10, 6, 8};
+    assertEquals(6, Average.average(numbers));
 }
 
 
@@ -105,14 +76,10 @@ No.7 generated result --------------------------
 
 @Test
 public void averageTest() {
-    // Arrange
-    int[] numbers = {1, 2, 3, 4, 5};
-    
-    // Act
-    int result = Average.average(numbers);
-    
-    // Assert
-    assertEquals(3, result);
+    int[] numbers = {10, 20, 30, 40, 50};
+    int expected = 30;
+    int actual = Average.average(numbers);
+    assertEquals(expected, actual);
 }
 
 
@@ -122,44 +89,28 @@ No.8 generated result --------------------------
 public void averageTest() {
     int[] numbers = {1, 2, 3, 4, 5};
     int expected = 3;
-    int actual = Average.average(numbers);
-    assertEquals(expected, actual);
+    int result = Average.average(numbers);
+    assertEquals(expected, result);
 }
 
 
 No.9 generated result --------------------------
 
-package com.thealgorithms.maths;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AverageTest {
-    @Test
-    public void averageTest() {
-        int[] testNumbers = {1, 2, 3, 4, 5};
-        int expectedAverage = 3;
-        int actualAverage = Average.average(testNumbers);
-        assertEquals(expectedAverage, actualAverage, "Incorrect average calculation");
-    }
+@Test
+public void averageTest() {
+    int[] testNumbers = {3, 5, 10, 15, 20};
+    int expectedAverage = 10;
+    int actualAverage = Average.average(testNumbers);
+    assertEquals(expectedAverage, actualAverage);
 }
 
 
 No.10 generated result --------------------------
 
-package com.thealgorithms.maths;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AverageTest {
-    @Test
-    public void averageTest() {
-        int[] numbers = {1, 2, 3, 4, 5};
-        int expectedAverage = 3;
-        int actualAverage = Average.average(numbers);
-        assertEquals(expectedAverage, actualAverage);
-    }
+@Test
+public void averageTest() {
+    int[] numbers = {1, 2, 3, 4, 5};
+    assertEquals(3, Average.average(numbers));
 }
 
 

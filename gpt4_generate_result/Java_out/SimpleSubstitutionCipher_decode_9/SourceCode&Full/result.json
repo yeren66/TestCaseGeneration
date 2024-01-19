@@ -1,0 +1,27 @@
+{
+    "project_name": "Java",
+    "file_name": "SimpleSubstitutionCipher.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/ciphers/SimpleSubstitutionCipher.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.ciphers",
+    "docstring": "/**\n     * Decrypt message by replacing each element with its opposite character in\n     * cipher.\n     *\n     * @return message\n     */",
+    "source_code": "\npublic static String decode(String encryptedMessage, String cipherSmall) {\n    StringBuilder decoded = new StringBuilder();\n\n    Map<Character, Character> cipherMap = new HashMap<>();\n\n    char beginSmallLetter = 'a';\n    char beginCapitalLetter = 'A';\n\n    cipherSmall = cipherSmall.toLowerCase();\n    String cipherCapital = cipherSmall.toUpperCase();\n\n    for (int i = 0; i < cipherSmall.length(); i++) {\n        cipherMap.put(cipherSmall.charAt(i), beginSmallLetter++);\n        cipherMap.put(cipherCapital.charAt(i), beginCapitalLetter++);\n    }\n\n    for (int i = 0; i < encryptedMessage.length(); i++) {\n        if (Character.isAlphabetic(encryptedMessage.charAt(i))) {\n            decoded.append(cipherMap.get(encryptedMessage.charAt(i)));\n        } else {\n            decoded.append(encryptedMessage.charAt(i));\n        }\n    }\n\n    return decoded.toString();\n}\n",
+    "class_name": "SimpleSubstitutionCipher",
+    "method_name": "decode",
+    "arguments": [
+        "String encryptedMessage",
+        "String cipherSmall"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

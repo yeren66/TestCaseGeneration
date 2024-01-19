@@ -21,11 +21,12 @@ private static String bytesToHexString(byte[] src) {
 
 No.1 generated result --------------------------
 
+
 @Test
 public void bytesToHexStringTest() {
-    byte[] src = {65, 66, 67};
-    String expected = "414243";
-    String result = SsrfFileTypeFilter.bytesToHexString(src);
+    byte[] testBytes = {(byte) 0xDE, (byte) 0xAD, (byte) 0xBE, (byte) 0xEF};
+    String expected = "deadbeef";
+    String result = SsrfFileTypeFilter.bytesToHexString(testBytes);
     assertEquals(expected, result);
 }
 
@@ -34,10 +35,10 @@ No.2 generated result --------------------------
 
 @Test
 public void bytesToHexStringTest() {
-    byte[] src = { 0x12, 0x34, 0x56, 0x78 };
-    String expected = "12345678";
-    String result = SsrfFileTypeFilter.bytesToHexString(src);
-    assertEquals(expected, result);
+    byte[] inputBytes = {0x48, 0x65, 0x6C, 0x6C, 0x6F}; 
+    String expectedOutput = "48656C6C6F";
+    String actualOutput = SsrfFileTypeFilter.bytesToHexString(inputBytes);
+    assertEquals(expectedOutput, actualOutput);
 }
 
 
@@ -45,11 +46,9 @@ No.3 generated result --------------------------
 
 @Test
 public void bytesToHexStringTest() {
-    byte[] bytes = {10, 20, 30, 40};
-    String expected = "0a141e28";
-    
-    String result = SsrfFileTypeFilter.bytesToHexString(bytes);
-
+    byte[] testBytes = {72, 101, 108, 108, 111}; // ASCII values for "Hello"
+    String expected = "48656c6c6f";
+    String result = bytesToHexString(testBytes);
     assertEquals(expected, result);
 }
 
@@ -57,13 +56,12 @@ public void bytesToHexStringTest() {
 No.4 generated result --------------------------
 
 @Test
+
 public void bytesToHexStringTest() {
-    byte[] src = new byte[]{10, 20, 30, 40, 50};
-    String expected = "0a141e2832";
-    
-    String result = SsrfFileTypeFilter.bytesToHexString(src);
-    
-    assertEquals(expected, result);
+    byte[] testBytes = {0x48, 0x65, 0x6C, 0x6C, 0x6F};
+    String expectedResult = "48656C6C6F";
+    String actualResult = SsrfFileTypeFilter.bytesToHexString(testBytes);
+    assertEquals(expectedResult, actualResult);
 }
 
 
@@ -71,30 +69,21 @@ No.5 generated result --------------------------
 
 @Test
 public void bytesToHexStringTest() {
-    byte[] input = {65, 66, 67};
-    String expected = "414243";
-    String actual = SsrfFileTypeFilter.bytesToHexString(input);
-    assertEquals(expected, actual);
+    byte[] testBytes = {0x48, 0x65, 0x6C, 0x6C, 0x6F};  // Hello in bytes
+    String expectedResult = "48656c6c6f";
+    String result = SsrfFileTypeFilter.bytesToHexString(testBytes);
+    assertEquals(expectedResult, result);
 }
 
 
 No.6 generated result --------------------------
 
-package org.jeecg.common.util.filter;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
-public class SsrfFileTypeFilterTest {
-    @Test
-    public void bytesToHexStringTest() {
-        byte[] src = {10, 20, 30, 40};
-        String expected = "0a141e28";
-    
-        String result = SsrfFileTypeFilter.bytesToHexString(src);
-    
-        Assertions.assertEquals(expected, result);
-    }
+@Test
+public void bytesToHexStringTest() {
+    byte[] testArray = {72, 101, 108, 108, 111}; // Replace with appropriate test data
+    String expected = "48656c6c6f"; // Replace with the expected output
+    String actual = SsrfFileTypeFilter.bytesToHexString(testArray);
+    assertEquals(expected, actual);
 }
 
 
@@ -102,9 +91,9 @@ No.7 generated result --------------------------
 
 @Test
 public void bytesToHexStringTest() {
-    byte[] src = new byte[]{10, 20, 30, 40, 50};
-    String expected = "0a141e2832";
-    String result = SsrfFileTypeFilter.bytesToHexString(src);
+    byte[] input = {0x48, 0x65, 0x6c, 0x6c, 0x6f};
+    String expected = "48656c6c6f";
+    String result = SsrfFileTypeFilter.bytesToHexString(input);
     assertEquals(expected, result);
 }
 
@@ -112,22 +101,22 @@ public void bytesToHexStringTest() {
 No.8 generated result --------------------------
 
 @Test
-    public void bytesToHexStringTest() {
-        byte[] src = {3, 10, 15, 50, 128};
-        String expected = "030a0f3280";
-        String result = SsrfFileTypeFilter.bytesToHexString(src);
-        assertEquals(expected, result);
-    }
+public void bytesToHexStringTest() {
+    byte[] input = {10, 20, 30, 40, 50};
+    String expectedOutput = "0a141e2832";
+    String actualOutput = SsrfFileTypeFilter.bytesToHexString(input);
+    assertEquals(expectedOutput, actualOutput);
+}
 
 
 No.9 generated result --------------------------
 
 @Test
 public void bytesToHexStringTest() {
-    byte[] src = {12, 34, 56, 78};
-    String expected = "0c22384e";
-    String result = SsrfFileTypeFilter.bytesToHexString(src);
-    assertEquals(expected, result);
+    byte[] testBytes = {10, 20, 30, 40, 50};
+    String expectedResult = "0a141e2832";
+    String actualResult = SsrfFileTypeFilter.bytesToHexString(testBytes);
+    assertEquals(expectedResult, actualResult);
 }
 
 
@@ -135,14 +124,10 @@ No.10 generated result --------------------------
 
 @Test
 public void bytesToHexStringTest() {
-    // Initialize the input byte array
-    byte[] input = {1, 2, 3};
-    
-    // Call the method under test
-    String result = SsrfFileTypeFilter.bytesToHexString(input);
-    
-    // Verify the result
-    assertEquals("010203", result);
+    byte[] testBytes = {10, 20, 30, 40, 50};
+    String expectedHex = "0a141e2832";
+    String resultHex = SsrfFileTypeFilter.bytesToHexString(testBytes);
+    assertEquals(expectedHex, resultHex);
 }
 
 

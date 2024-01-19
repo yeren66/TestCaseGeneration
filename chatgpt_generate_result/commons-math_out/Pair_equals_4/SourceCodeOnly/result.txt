@@ -24,51 +24,39 @@ public boolean equals(Object o) {
 No.1 generated result --------------------------
 
 @Test
-    public void equalsTest() {
-        Pair<String, Integer> pair1 = new Pair<>("foo", 1);
-        Pair<String, Integer> pair2 = new Pair<>("foo", 1);
-        Pair<String, Integer> pair3 = new Pair<>("bar", 2);
-        
-        assertTrue(pair1.equals(pair2));
-        assertTrue(pair2.equals(pair1));
-        
-        assertFalse(pair1.equals(pair3));
-        assertFalse(pair3.equals(pair1));
-        
-        assertFalse(pair2.equals(pair3));
-        assertFalse(pair3.equals(pair2));
-    }
+public void equalsTest() {
+    Pair<Integer, String> p1 = new Pair<>(1, "one");
+    Pair<Integer, String> p2 = new Pair<>(1, "one");
+    Pair<Integer, String> p3 = new Pair<>(2, "two");
+    
+    assertTrue(p1.equals(p2));
+    assertFalse(p1.equals(p3));
+}
 
 
 No.2 generated result --------------------------
 
-java
-assertEquals(pair1.equals(pair2), pair2.equals(pair1));
-assertEquals(pair1.equals(pair2), pair1.equals(pair1));
-assertEquals(pair1.equals(pair2), pair2.equals(pair2));
-assertEquals(pair1.equals(pair2), pair1.equals(pair3));
+@Test
+public void equalsTest() {
+    Pair<String, Integer> pair1 = new Pair<>("A", 1);
+    Pair<String, Integer> pair2 = new Pair<>("A", 1);
+    Pair<String, Integer> pair3 = new Pair<>("B", 2);
+    
+    assertTrue(pair1.equals(pair2));
+    assertFalse(pair1.equals(pair3));
+}
 
 
 No.3 generated result --------------------------
 
-@Test
+ @Test
 public void equalsTest() {
-    Pair<String, Integer> pair1 = new Pair<>("key", 1);
-    Pair<String, Integer> pair2 = new Pair<>("key", 1);
-    Pair<String, Integer> pair3 = new Pair<>("key", 2);
-    Pair<String, Integer> pair4 = new Pair<>(null, null);
-    
-    // Check if pair1 is equal to itself
-    assertTrue(pair1.equals(pair1));
-    
-    // Check if pair1 is equal to pair2
+    Pair<String, Integer> pair1 = new Pair<>("A", 1);
+    Pair<String, Integer> pair2 = new Pair<>("A", 1);
+    Pair<String, Integer> pair3 = new Pair<>("B", 2);
+
     assertTrue(pair1.equals(pair2));
-    
-    // Check if pair1 is equal to pair3
     assertFalse(pair1.equals(pair3));
-    
-    // Check if pair1 is equal to pair4
-    assertFalse(pair1.equals(pair4));
 }
 
 
@@ -76,74 +64,32 @@ No.4 generated result --------------------------
 
 @Test
 public void equalsTest() {
-    Pair<String, Integer> pair1 = new Pair<>("a", 1);
-    Pair<String, Integer> pair2 = new Pair<>("a", 1);
-    Pair<String, Integer> pair3 = new Pair<>("b", 2);
-
-    // Assert that pair1 is equal to pair2
-    assertTrue(pair1.equals(pair2));
-
-    // Assert that pair2 is equal to pair1
-    assertTrue(pair2.equals(pair1));
-
-    // Assert that pair1 is not equal to pair3
-    assertFalse(pair1.equals(pair3));
-
-    // Assert that pair3 is not equal to pair1
-    assertFalse(pair3.equals(pair1));
+    Pair<String, String> pair1 = new Pair<>("key", "value");
+    Pair<String, String> pair2 = new Pair<>("key", "value");
+    assertEquals(pair1, pair2);
 }
 
 
 No.5 generated result --------------------------
 
 @Test
-public void equalsTest() {
-    Pair<String, Integer> pair1 = new Pair<>("A", 1);
-    Pair<String, Integer> pair2 = new Pair<>("A", 1);
-    Pair<String, Integer> pair3 = new Pair<>("A", 2);
-    
-    assertTrue(pair1.equals(pair2)); // Asserting that pair1 is equal to pair2
-    assertFalse(pair1.equals(pair3)); // Asserting that pair1 is not equal to pair3
-    
-    Pair<String, Integer> nullPair1 = new Pair<>(null, 1);
-    Pair<String, Integer> nullPair2 = new Pair<>(null, 1);
-    
-    assertTrue(nullPair1.equals(nullPair2)); // Asserting that nullPair1 is equal to nullPair2
-    
-    Pair<String, Integer> nullPair3 = new Pair<>("A", null);
-    
-    assertFalse(nullPair1.equals(nullPair3)); // Asserting that nullPair1 is not equal to nullPair3
-    
-    Pair<String, Integer> nullPair4 = new Pair<>(null, null);
-    
-    assertTrue(nullPair4.equals(null)); // Asserting that nullPair4 is equal to null
-    
-    Pair<Integer, Integer> integerPair1 = new Pair<>(1, 1);
-    Pair<Integer, Integer> integerPair2 = new Pair<>(1, 1);
-    
-    assertTrue(integerPair1.equals(integerPair2)); // Asserting that integerPair1 is equal to integerPair2
-}
+    public void equalsTest() {
+        Pair<Integer, String> pair1 = new Pair<>(1, "apple");
+        Pair<Integer, String> pair2 = new Pair<>(1, "apple");
+        Pair<Integer, String> pair3 = new Pair<>(2, "orange");
+        
+        assertEquals(pair1, pair2);
+        assertNotEquals(pair1, pair3);
+    }
 
 
 No.6 generated result --------------------------
 
 @Test
 public void equalsTest() {
-    Pair<Object, Object> pair1 = new Pair<>("key1", "value1");
-    Pair<Object, Object> pair2 = new Pair<>("key1", "value1");
-    Pair<Object, Object> pair3 = new Pair<>("key2", "value2");
-
-    // Test when both pairs have the same key and value
-    assertTrue(pair1.equals(pair2));
-    
-    // Test when both pairs have different keys and values
-    assertFalse(pair1.equals(pair3));
-    
-    // Test when comparing with null
-    assertFalse(pair1.equals(null));
-    
-    // Test when comparing with invalid object type
-    assertFalse(pair1.equals("key1"));
+    Pair<String, Integer> pair1 = new Pair<>("A", 1);
+    Pair<String, Integer> pair2 = new Pair<>("A", 1);
+    assertEquals(pair1, pair2);
 }
 
 
@@ -151,28 +97,9 @@ No.7 generated result --------------------------
 
 @Test
 public void equalsTest() {
-    Pair<String, Integer> pair1 = new Pair<>("key", 1);
-    Pair<String, Integer> pair2 = new Pair<>("key", 1);
-    Pair<String, Integer> pair3 = new Pair<>("key", 2);
-    
-    // Test equal pairs
+    Pair<String, Integer> pair1 = new Pair<>("A", 1);
+    Pair<String, Integer> pair2 = new Pair<>("A", 1);
     assertTrue(pair1.equals(pair2));
-    assertTrue(pair2.equals(pair1));
-    
-    // Test not equal pairs
-    assertFalse(pair1.equals(pair3));
-    assertFalse(pair3.equals(pair1));
-    
-    // Test null cases
-    Pair<String, Integer> pair4 = new Pair<>(null, null);
-    Pair<String, Integer> pair5 = new Pair<>(null, 1);
-    Pair<String, Integer> pair6 = new Pair<>("key", null);
-    
-    assertTrue(pair4.equals(pair4)); // Should be true for same object
-    assertTrue(pair4.equals(pair5));
-    assertTrue(pair5.equals(pair4));
-    assertFalse(pair4.equals(pair6));
-    assertFalse(pair6.equals(pair4));
 }
 
 
@@ -180,28 +107,12 @@ No.8 generated result --------------------------
 
 @Test
 public void equalsTest() {
-    Pair<Integer, String> p1 = new Pair<>(1, "hello");
-    Pair<Integer, String> p2 = new Pair<>(1, "hello");
-    Pair<Integer, String> p3 = new Pair<>(2, "world");
+    Pair<String, Integer> pair1 = new Pair<>("A", 1);
+    Pair<String, Integer> pair2 = new Pair<>("A", 1);
+    Pair<String, Integer> pair3 = new Pair<>("B", 2);
     
-    // Test equal pairs
-    assertTrue(p1.equals(p2));
-    
-    // Test unequal pairs
-    assertFalse(p1.equals(p3));
-    
-    // Test with different types
-    assertFalse(p1.equals("hello"));
-    
-    // Test with null values
-    Pair<Integer, String> p4 = new Pair<>(null, null);
-    Pair<Integer, String> p5 = new Pair<>(null, "test");
-    Pair<Integer, String> p6 = new Pair<>(1, null);
-    
-    assertTrue(p4.equals(new Pair<>(null, null)));
-    assertFalse(p4.equals(p1));
-    assertFalse(p5.equals(p1));
-    assertFalse(p6.equals(p1));
+    assertTrue(pair1.equals(pair2));
+    assertFalse(pair1.equals(pair3));
 }
 
 
@@ -209,26 +120,12 @@ No.9 generated result --------------------------
 
 @Test
 public void equalsTest() {
-    Object obj1 = new Object();
-    Object obj2 = new Object();
-    Pair<Object, Object> pair1 = new Pair<>(obj1, obj2);
-    Pair<Object, Object> pair2 = new Pair<>(obj1, obj2);
-    Pair<Object, Object> pair3 = new Pair<>(obj1, null);
+    Pair<Integer, String> pair1 = new Pair<>(1, "A");
+    Pair<Integer, String> pair2 = new Pair<>(1, "A");
+    Pair<Integer, String> pair3 = new Pair<>(2, "B");
     
-    // Test equality between pair1 and pair2
     assertTrue(pair1.equals(pair2));
-    
-    // Test equality between pair1 and pair3
     assertFalse(pair1.equals(pair3));
-    
-    // Test equality between pair1 and null
-    assertFalse(pair1.equals(null));
-    
-    // Test equality between pair1 and a different type of object
-    assertFalse(pair1.equals(obj1));
-    
-    // Test equality between pair1 and pair1
-    assertTrue(pair1.equals(pair1));
 }
 
 
@@ -236,30 +133,12 @@ No.10 generated result --------------------------
 
 @Test
 public void equalsTest() {
-    Pair<Integer, String> pair1 = new Pair<>(1, "One");
-    Pair<Integer, String> pair2 = new Pair<>(1, "One");
-    Pair<Integer, String> pair3 = new Pair<>(2, "Two");
+    Pair<Integer, String> pair1 = new Pair<>(1, "Hello");
+    Pair<Integer, String> pair2 = new Pair<>(1, "Hello");
+    Pair<Integer, String> pair3 = new Pair<>(2, "World");
 
-    // Test when both pairs have equal keys and equal values
-    assertTrue(pair1.equals(pair2));
-    assertTrue(pair2.equals(pair1));
-    
-    // Test when both pairs have null keys and null values
-    Pair<String, Integer> pair4 = new Pair<>(null, null);
-    Pair<String, Integer> pair5 = new Pair<>(null, null);
-    assertTrue(pair4.equals(pair5));
-    assertTrue(pair5.equals(pair4));
-    
-    // Test when both pairs have different keys or different values
-    assertFalse(pair1.equals(pair3));
-    assertFalse(pair2.equals(pair3));
-    assertFalse(pair3.equals(pair1));
-    
-    // Test when comparing with a non-Pair object
-    assertFalse(pair1.equals("One"));
-
-    // Test when comparing with null
-    assertFalse(pair1.equals(null));
+    assertTrue(pair1.equals(pair2)); // Testing equality of pair1 and pair2
+    assertFalse(pair1.equals(pair3)); // Testing inequality of pair1 and pair3
 }
 
 

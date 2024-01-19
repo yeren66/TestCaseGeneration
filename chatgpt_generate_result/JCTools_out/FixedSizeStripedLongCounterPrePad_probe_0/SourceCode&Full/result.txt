@@ -32,77 +32,48 @@ private int probe() {
 
 No.1 generated result --------------------------
 
-package org.jctools.counters;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import java.lang.reflect.Field;
+// Expected value for the probe (replace with the appropriate value)
+int expected = 123;
 
-public class FixedSizeStripedLongCounterPrePadTest {
-    @Test
-    public void probeTest() {
-        FixedSizeStripedLongCounter fixedSizeStripedLongCounter = new FixedSizeStripedLongCounter(16) {
-            @Override
-            protected void inc(long[] cells, long offset, long value) {
-                // implementation for test    
-            }
+// Create an instance of FixedSizeStripedLongCounter
+FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(16);
 
-            @Override
-            protected long getAndReset(long[] cells, long offset) {
-                // implementation for test
-                return 0L;
-            }
-        };
-        
-        try {
-            Field probeField = fixedSizeStripedLongCounter.getClass().getDeclaredField("PROBE");
-            probeField.setAccessible(true);
-            probeField.set(fixedSizeStripedLongCounter, -1L); // set PROBE to -1 to test the else branch of the probe() method
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-            Assertions.fail("Failed to set PROBE field");
-        }
+// Call the probe method
+int actual = counter.probe();
 
-        int probeResult = fixedSizeStripedLongCounter.probe(); // call the probe() method
-        Assertions.assertEquals(10, probeResult);
-    }
-}
+// Validate the output
+assertEquals(expected, actual);
+
 
 
 No.2 generated result --------------------------
 
 @Test
 public void probeTest() {
-    FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(8);
-    int probe = counter.probe();
-    assertNotNull(probe); // Check if probe is not null
-    assertEquals(probe, counter.probe()); // Check if probe is consistent
+    // Initialize a FixedSizeStripedLongCounter instance
+    FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(16);
+    
+    // Call the probe method
+    int result = counter.probe();
+    
+    // Assert that the result is not null
+    assertNotNull(result);
 }
 
 
 No.3 generated result --------------------------
 
-package org.jctools.counters;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class FixedSizeStripedLongCounterPrePadTest {
-    @Test
-    public void probeTest() {
-        FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(10);
-        assertEquals(10, counter.probe());
-    }
-}
+assertEquals(1, new FixedSizeStripedLongCounter(1).probe());
 
 
 No.4 generated result --------------------------
 
 @Test
 public void probeTest() {
-    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();
-    int probe = counter.probe();
-    assertEquals(<EXPECTED VALUE>, probe);
+    FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(10);
+    int result = counter.probe();
+    assertThat(result).isNotEqualTo(0);
 }
 
 
@@ -110,13 +81,23 @@ No.5 generated result --------------------------
 
 @Test
 public void probeTest() {
-    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad() {};
+    FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(10) {
+        protected void inc(long[] cells, long offset, long value) {
+            cells[Long.hashCode(offset) & mask] += value;
+        }
+        protected long getAndReset(long[] cells, long offset) {
+            int index = Long.hashCode(offset) & mask;
+            long result = cells[index];
+            cells[index] = 0L;
+            return result;
+        }
+    };
 
-    int probe = counter.probe();
-    
-    assertNotNull(probe);
-    assertTrue(probe >= 0);
+    int expectedProbe = counter.probe();
+    int actualProbe = counter.probe();
+    assertEquals(expectedProbe, actualProbe);
 }
+
 
 
 No.6 generated result --------------------------
@@ -124,52 +105,53 @@ No.6 generated result --------------------------
 @Test
 public void probeTest() {
     FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(4);
-    int probe = counter.probe();
-    assertTrue(probe >= 0);
+    assertEquals(0, counter.probe());
 }
 
 
 No.7 generated result --------------------------
 
-package org.jctools.counters;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class FixedSizeStripedLongCounterPrePadTest {
-    @Test
-    public void probeTest() {
-        FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(16) {
-            @Override
-            protected void inc(long[] cells, long offset, long value) {
-                // do nothing
-            }
-
-            @Override
-            protected long getAndReset(long[] cells, long offset) {
-                return 0L;
-            }
-        };
-        
-        int probe = counter.probe();
-        assertNotNull(probe);
-    }
+@Test
+public void probeTest() {
+    FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(10);
+    int result = counter.probe();
+    assertEquals(expectedResult, result);
 }
 
 
 No.8 generated result --------------------------
 
-assertEquals(1, new FixedSizeStripedLongCounter(1).probe());
+@Test
+public void probeTest() {
+    FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(10) {
+        protected void inc(long[] cells, long offset, long value) {
+            cells[(int) (offset >> ELEMENT_SHIFT)] += value;
+        }
+
+        protected long getAndReset(long[] cells, long offset) {
+            return UNSAFE.getAndSetLong(cells, offset, 0L);
+        }
+    };
+
+    int expectedProbe = <FILL>;
+    int actualProbe = counter.probe();
+
+    assertEquals(expectedProbe, actualProbe);
+}
 
 
 No.9 generated result --------------------------
 
 @Test
 public void probeTest() {
-    FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(16);
-    int probe = counter.probe();
-    assertNotNull(probe);
-    assertEquals(probe, counter.probe());
+    // Given
+    FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(4);
+    
+    // When
+    int result = counter.probe();
+    
+    // Then
+    assertTrue(result >= 0);  
 }
 
 
@@ -177,9 +159,10 @@ No.10 generated result --------------------------
 
 @Test
 public void probeTest() {
-    FixedSizeStripedLongCounter stripedCounter = new FixedSizeStripedLongCounter(16); // Create an instance of FixedSizeStripedLongCounter with stripesCount 16
-    int result = stripedCounter.probe(); // Call the probe() method
-    assertEquals(expectedResult, result); // Assert the expected result
+    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounter(4);
+    int expectedProbe = counter.probe();
+    int actualProbe = counter.probe();
+    assertEquals(expectedProbe, actualProbe);
 }
 
 

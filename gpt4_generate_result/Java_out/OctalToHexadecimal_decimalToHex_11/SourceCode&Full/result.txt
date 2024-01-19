@@ -1,0 +1,69 @@
+Source code: 
+
+
+public static String decimalToHex(int d) {
+    String digits = "0123456789ABCDEF";
+    if (d <= 0) {
+        return "0";
+    }
+    String hex = "";
+    while (d > 0) {
+        int digit = d % 16;
+        hex = digits.charAt(digit) + hex;
+        d = d / 16;
+    }
+    return hex;
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

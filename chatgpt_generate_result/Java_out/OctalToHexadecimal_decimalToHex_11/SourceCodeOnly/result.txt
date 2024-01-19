@@ -21,67 +21,35 @@ No.1 generated result --------------------------
 
 @Test
 public void decimalToHexTest() {
-    assertEquals("0", decimalToHex(0));
-    assertEquals("1", decimalToHex(1));
-    assertEquals("A", decimalToHex(10));
-    assertEquals("10", decimalToHex(16));
-    assertEquals("64", decimalToHex(100));
+    assertEquals("1A", decimalToHex(26));
 }
 
 
 No.2 generated result --------------------------
 
-
 @Test
 public void decimalToHexTest() {
-    assertEquals("0", decimalToHex(0));
-    assertEquals("1", decimalToHex(1));
-    assertEquals("A", decimalToHex(10));
-    assertEquals("B", decimalToHex(11));
-    assertEquals("10", decimalToHex(16));
-    assertEquals("FF", decimalToHex(255));
-    assertEquals("3E8", decimalToHex(1000));
+    assertEquals("2A", decimalToHex(42));
+    assertEquals("A5", decimalToHex(165));
+    assertEquals("64", decimalToHex(100));
 }
-
 
 
 No.3 generated result --------------------------
 
 @Test
 public void decimalToHexTest() {
-    // Test Case 1: Positive decimal number
-    int number1 = 255;
-    String expectedHex1 = "FF";
-    String actualHex1 = decimalToHex(number1);
-    assertEquals(expectedHex1, actualHex1);
-    
-    // Test Case 2: Zero
-    int number2 = 0;
-    String expectedHex2 = "0";
-    String actualHex2 = decimalToHex(number2);
-    assertEquals(expectedHex2, actualHex2);
-    
-    // Test Case 3: Negative decimal number
-    int number3 = -10;
-    String expectedHex3 = "0";
-    String actualHex3 = decimalToHex(number3);
-    assertEquals(expectedHex3, actualHex3);
+    assertEquals("A", decimalToHex(10));
+    assertEquals("64", decimalToHex(100));
+    assertEquals("1A8", decimalToHex(424));
 }
 
 
 No.4 generated result --------------------------
 
-package com.thealgorithms.conversions;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class OctalToHexadecimalTest {
-    @Test
-    public void decimalToHexTest() {
-        String result = decimalToHex(64);
-        assertEquals("40", result);
-    }
+@Test
+public void decimalToHexTest() {
+    assertEquals("1A", decimalToHex(26));
 }
 
 
@@ -89,44 +57,17 @@ No.5 generated result --------------------------
 
 @Test
 public void decimalToHexTest() {
-    assertEquals("0", decimalToHex(0));
-    assertEquals("1", decimalToHex(1));
-    assertEquals("A", decimalToHex(10));
-    assertEquals("FF", decimalToHex(255));
-    assertEquals("7B", decimalToHex(123));
+    assertEquals("64", decimalToHex(100));
 }
 
 
 No.6 generated result --------------------------
 
-package com.thealgorithms.conversions;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class OctalToHexadecimalTest {
-    @Test
-    public void decimalToHexTest() {
-        // Test case 1: d = 0
-        int d1 = 0;
-        String actual1 = decimalToHex(d1);
-        String expected1 = "0";
-        assertEquals(expected1, actual1);
-
-        // Test case 2: d = 10
-        int d2 = 10;
-        String actual2 = decimalToHex(d2);
-        String expected2 = "A";
-        assertEquals(expected2, actual2);
-
-        // Test case 3: d = 255
-        int d3 = 255;
-        String actual3 = decimalToHex(d3);
-        String expected3 = "FF";
-        assertEquals(expected3, actual3);
-
-        // Add more test cases here...
-    }
+@Test
+public void testDecimalToHex() {
+    assertEquals("1C2", decimalToHex(450));
+    assertEquals("2A", decimalToHex(42));
+    assertEquals("5A", decimalToHex(90));
 }
 
 
@@ -134,59 +75,40 @@ No.7 generated result --------------------------
 
 @Test
 public void decimalToHexTest() {
-    // Test cases for positive integers
-    assertEquals("0", decimalToHex(0));
-    assertEquals("1", decimalToHex(1));
-    assertEquals("A", decimalToHex(10));
-    assertEquals("64", decimalToHex(100));
-    
-    // Test case for negative integer
-    assertEquals("0", decimalToHex(-100));
+    assertEquals("10", decimalToHex(16));
+    assertEquals("1A", decimalToHex(26));
+    assertEquals("3E8", decimalToHex(1000));
 }
 
 
 No.8 generated result --------------------------
 
-assertEquals("0", decimalToHex(0));
-assertEquals("1", decimalToHex(1));
-assertEquals("A", decimalToHex(10));
-assertEquals("10", decimalToHex(16));
-assertEquals("FF", decimalToHex(255));
+@Test
+public void decimalToHexTest() {
+    assertEquals("2A", decimalToHex(42));
+}
 
 
 No.9 generated result --------------------------
 
-package com.thealgorithms.conversions;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class OctalToHexadecimalTest {
-    @Test
-    public void decimalToHexTest() {
-        // Arrange
-        int decimalNumber = 12345;
-        String expectedHex = "3039";
-        
-        // Act
-        String actualHex = decimalToHex(decimalNumber);
-        
-        // Assert
-        assertEquals(expectedHex, actualHex);
-    }
+public void decimalToHexTest() {
+    assertEquals("1A", Conversion.decimalToHex(26));
+    assertEquals("64", Conversion.decimalToHex(100));
 }
 
 
 No.10 generated result --------------------------
 
-@Test
 public void decimalToHexTest() {
-    assertEquals("0", decimalToHex(0));
-    assertEquals("1", decimalToHex(1));
-    assertEquals("A", decimalToHex(10));
-    assertEquals("FF", decimalToHex(255));
-    assertEquals("1F4", decimalToHex(500));
-    assertEquals("3E8", decimalToHex(1000));
+    // Arrange
+    int decimalNumber = 305419896;
+    String expected = "1234ABCD";
+    
+    // Act
+    String actual = Conversions.decimalToHex(decimalNumber);
+    
+    // Assert
+    assertEquals(expected, actual);
 }
 
 

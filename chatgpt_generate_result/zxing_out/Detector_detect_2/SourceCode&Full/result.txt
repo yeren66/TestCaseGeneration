@@ -36,51 +36,144 @@ public AztecDetectorResult detect(boolean isMirror) throws NotFoundException {
 
 No.1 generated result --------------------------
 
-Timeout
+@Test
+public void detectTest() throws NotFoundException {
+    BitMatrix mockImage = new BitMatrix(50, 50);
+    Detector detector = new Detector(mockImage);
+    AztecDetectorResult result = detector.detect(false);
+    assertNotNull(result.getBits());
+    assertNotNull(result.getPoints());
+    assertEquals(0, result.getNbDataBlocks());
+    assertEquals(0, result.getNbLayers());
+    assertEquals(0, result.getErrorsCorrected());
+    assertFalse(result.isCompact());
+}
 
 
 No.2 generated result --------------------------
 
-Timeout
+@Test
+public void detectTest() throws NotFoundException {
+    BitMatrix bitMatrix = new BitMatrix(10); // replace with actual BitMatrix input
+    Detector detector = new Detector(bitMatrix);
+    AztecDetectorResult result = detector.detect(false);
+    assertNotNull(result);
+}
 
 
 No.3 generated result --------------------------
 
-Timeout
+@Test
+public void detectTest() {
+    BitMatrix image = new BitMatrix(10);
+    Detector detector = new Detector(image);
+    try {
+        AztecDetectorResult result = detector.detect(false);
+        assertNotNull(result);
+    } catch (NotFoundException e) {
+        fail("Not found exception thrown");
+    }
+}
 
 
 No.4 generated result --------------------------
 
-Timeout
+@Test
+public void detectTest() {
+    BitMatrix image = new BitMatrix(100, 100);
+    Detector detector = new Detector(image);
+    boolean isMirror = false;
+
+    try {
+        AztecDetectorResult result = detector.detect(isMirror);
+        assertNotNull(result);
+    } catch (NotFoundException e) {
+        fail("Failed to detect Aztec code");
+    }
+}
 
 
 No.5 generated result --------------------------
 
-Timeout
+@Test
+public void detectTest() {
+    BitMatrix image = new BitMatrix(10);
+    Detector detector = new Detector(image);
+    try {
+        AztecDetectorResult result = detector.detect(false);
+        assertNotNull(result);
+    } catch (NotFoundException e) {
+        fail("NotFoundException thrown when it shouldn't be");
+    }
+}
 
 
 No.6 generated result --------------------------
 
-Timeout
+@Test
+public void detectTest() {
+    BitMatrix image = new BitMatrix(10, 10);
+    boolean isMirror = false;
+    Detector detector = new Detector(image);
+    try {
+        AztecDetectorResult result = detector.detect(isMirror);
+        assertNotNull(result);
+    } catch (NotFoundException e) {
+        fail("NotFoundException thrown");
+    }
+}
 
 
 No.7 generated result --------------------------
 
-Timeout
+AztecDetectorResult result = null;
+try {
+    result = new Detector(new BitMatrix()).detect(false);
+} catch (NotFoundException e) {
+    e.printStackTrace();
+}
+assertNotNull(result);
 
 
 No.8 generated result --------------------------
 
-Timeout
+@Test
+public void detectTest() throws NotFoundException {
+    BitMatrix image = new BitMatrix(10, 10); // create a sample image
+    Detector detector = new Detector(image);
+    AztecDetectorResult result = detector.detect(false);
+    assertNotNull(result);
+    // add more assertions as needed
+}
 
 
 No.9 generated result --------------------------
 
-Timeout
+AztecDetectorResult result;
+try {
+    Detector detector = new Detector(<image>);
+    result = detector.detect(false);
+} catch (NotFoundException e) {
+    e.printStackTrace();
+    fail("Exception should not be thrown");
+}
+
+assertNotNull(result);
 
 
 No.10 generated result --------------------------
 
-Timeout
+@Test
+public void detectTest() {
+    BitMatrix image = new BitMatrix(10, 10);
+    Detector detector = new Detector(image);
+    AztecDetectorResult result = null;
+    try {
+        result = detector.detect(false);
+    } catch (NotFoundException e) {
+        e.printStackTrace();
+    }
+    assertNotNull(result);
+}
 
 

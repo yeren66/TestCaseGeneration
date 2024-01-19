@@ -12,15 +12,15 @@
         "int[] array"
     ],
     "generate_test": [
-        "@Test\npublic void findMaxTest() {\n    int[] array = { 10, 20, 30, 40, 50 };\n    int expected = 50;\n    int result = FindMax.findMax(array);\n    assertEquals(expected, result);\n}",
-        "@Test\npublic void findMaxTest() {\n    int[] array = {1, 5, 3, 9, 2};\n    int expected = 9;\n    int actual = FindMax.findMax(array);\n    assertEquals(expected, actual);\n}",
-        "package com.thealgorithms.maths;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class FindMaxTest {\n    @Test\n    public void findMaxTest() {\n        int[] array = {1, 5, 3, 9, 2};\n        int expected = 9;\n        int actual = FindMax.findMax(array);\n        assertEquals(expected, actual);\n    }\n}",
-        "@Test\npublic void findMaxTest() {\n    int[] array = {1, 2, 3, 4, 5};\n    int expected = 5;\n    int actual = FindMax.findMax(array);\n    assertEquals(expected, actual);\n\n    int[] emptyArray = {};\n    assertThrows(IllegalArgumentException.class, () -> FindMax.findMax(emptyArray));\n}",
-        "@Test\npublic void findMaxTest() {\n    int[] array = {1, 5, 3, 9, 2};\n    int expected = 9;\n    int actual = FindMax.findMax(array);\n    assertEquals(expected, actual);\n}",
-        "@Test\npublic void findMaxTest() {\n    int[] array = {1, 4, 2, 7, 5};\n    int expected = 7;\n    int actual = FindMax.findMax(array);\n    assertEquals(expected, actual);\n}",
-        "@Test\npublic void findMaxTest() {\n    int[] array = {1, 5, 3, 9, 2};\n    int expected = 9;\n    int actual = FindMax.findMax(array);\n    assertEquals(expected, actual);\n}",
-        "package com.thealgorithms.maths;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class FindMaxTest {\n    @Test\n    public void findMaxTest() {\n        int[] array = {1, 2, 3, 4, 5};\n        int expectedResult = 5;\n        int actualResult = FindMax.findMax(array);\n        assertEquals(expectedResult, actualResult);\n    }\n}",
-        "@Test\npublic void findMaxTest() {\n    int[] array = {3, 5, 1, 2, 4};\n    int expected = 5;\n    int actual = FindMax.findMax(array);\n    assertEquals(expected, actual);\n}",
-        "@Test\npublic void findMaxTest() {\n    int[] testArray = {1, 2, 3, 4, 5};\n    int expectedResult = 5;\n    int actualResult = FindMax.findMax(testArray);\n    assertEquals(expectedResult, actualResult);\n}"
+        "@Test\n    public void findMaxTest() {\n        int[] testArray = {4, 8, 2, 10, 5};\n        int expectedResult = 10;\n        int actualResult = FindMax.findMax(testArray);\n        assertEquals(expectedResult, actualResult);\n    }",
+        "@Test\npublic void findMaxTest() {\n    int[] array = {3, 5, 2, 8, 10};\n    assertEquals(10, FindMax.findMax(array));\n}",
+        "@Test\npublic void findMaxTest() {\n    int[] testArray = {5, 2, 9, 6, 3};\n    int expected = 9;\n    int actual = FindMax.findMax(testArray);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void findMaxTest() {\n    int[] testArray = {1, 5, 3, 9, 2};\n    int expected = 9;\n    int actual = FindMax.findMax(testArray);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void findMaxTest() {\n    int[] array = {3, 7, 2, 10, 5};\n    int expected = 10;\n    int actual = FindMax.findMax(array);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void findMaxTest() {\n    int[] array = {3, 7, 1, 9, 5};\n    int expected = 9;\n    int actual = FindMax.findMax(array);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void findMaxTest() {\n    int[] testArray = {3, 7, 2, 8, 5};\n    int expectedResult = 8;\n    int actualResult = FindMax.findMax(testArray);\n    assertEquals(expectedResult, actualResult);\n}",
+        "@Test\npublic void findMaxTest() {\n    int[] array = {3, 7, 2, 8, 4, 5};\n    int result = FindMax.findMax(array);\n    assertEquals(8, result);\n}",
+        "@Test\npublic void findMaxTest() {\n    int[] arr = {3, 7, 2, 8, 4};\n    int result = FindMax.findMax(arr);\n    assertEquals(8, result);\n}",
+        "@Test\n    public void findMaxTest() {\n        int[] testArray = {5, 10, 8, 3, 6};\n        int expected = 10;\n        int actual = FindMax.findMax(testArray);\n        assertEquals(expected, actual);\n    }"
     ]
 }

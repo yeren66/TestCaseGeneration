@@ -34,44 +34,24 @@ No.1 generated result --------------------------
 
 @Test
 public void probeTest() {
-    FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(4);
-    int result = counter.probe();
-    assertEquals(result, <expected value>);
+    int probe = new FixedSizeStripedLongCounter(10).probe();
+    assertTrue(probe > -1, "Probe value should be greater than -1");
 }
 
 
 No.2 generated result --------------------------
 
-package org.jctools.counters;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class FixedSizeStripedLongCounterPrePadTest {
-    @Test
-    public void probeTest() {
-        FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();
-        int probe = counter.probe();
-
-        // Assert the expected output with the actual output
-        // Replace <EXPECTED_OUTPUT> with the expected output of the probe method
-        assertEquals(<EXPECTED_OUTPUT>, probe);
-    }
-}
+int correctProbeValue = 12345; // Replace with the correct value for the probe
+assertEquals(correctProbeValue, probe());
 
 
 No.3 generated result --------------------------
 
 @Test
 public void probeTest() {
-    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad() {
-        @Override
-        protected int probe() {
-            return super.probe();
-        }
-    };
-    int result = counter.probe();
-    assertEquals(<EXPECTED VALUE>, result);
+  //create a new instance of FixedSizeStripedLongCounter and call the probe() method
+  FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter();
+  counter.probe();
 }
 
 
@@ -79,55 +59,29 @@ No.4 generated result --------------------------
 
 @Test
 public void probeTest() {
-    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad() {
-        // Implementing abstract methods
-    };
-    int result = counter.probe();
-    // Add assertion to verify the result
-    assertEquals(0, result);
+    FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(16);
+    long expected = counter.probe();
+
+    assertEquals(expected, counter.probe());
 }
 
 
 No.5 generated result --------------------------
 
-package org.jctools.counters;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class FixedSizeStripedLongCounterPrePadTest {
-    @Test
+@Test
     public void probeTest() {
-        FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad() {
-            @Override
-            public long counterOffset(long i) {
-                return 0; // dummy implementation for test
-            }
-            @Override
-            public int probe() {
-                return 123; // dummy implementation for test
-            }
-        };
-        
-        assertEquals(123, counter.probe());
+        FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(4);
+        long result = counter.probe();
+        assertEquals(expectedResult, result);
     }
-}
 
 
 No.6 generated result --------------------------
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class FixedSizeStripedLongCounterPrePadTest {
-
-    @Test
-    public void probeTest() {
-        FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad() {};
-        int result = counter.probe();
-        assertNotNull(result);
-        // Add more assertions if necessary
-    }
+@Test
+public void probeTest() {
+    int result = probe();
+    assertEquals(expectedResult, result);
 }
 
 
@@ -135,38 +89,34 @@ No.7 generated result --------------------------
 
 @Test
 public void probeTest() {
-    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad() {};
-    int result = counter.probe();
-    assertEquals(expected, result);
+    int expectedProbe = 12345;
+    int actualProbe = FixedSizeStripedLongCounter.prePad.probe();
+    assertEquals(expectedProbe, actualProbe, "Probe test failed: incorrect probe value returned");
 }
 
 
 No.8 generated result --------------------------
 
-    @Test
-    public void probeTest() {
-        FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad() {};
-        int probe = counter.probe();
-        assertNotEquals(0, probe);
-    }
+@Test
+public void probeTest() {
+    // Create an instance of FixedSizeStripedLongCounter
+    FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(10);
+    
+    // Call the probe() method on the counter
+    int result = counter.probe();
+    
+    // Verify that the result is not 0
+    assertNotEquals(0, result);
+}
 
 
 No.9 generated result --------------------------
 
 @Test
 public void probeTest() {
-    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad() {
-        // Override the probe method to return a specific value for testing
-        @Override
-        private int probe() {
-            return 123;
-        }
-    };
-    
-    int expected = 123;
-    int actual = counter.probe();
-    
-    assertEquals(expected, actual);
+    FixedSizeStripedLongCounter stripedLongCounter = new FixedSizeStripedLongCounter(16);
+    int probeResult = stripedLongCounter.probe();
+    assertEquals(expectedResult, probeResult);
 }
 
 
@@ -174,18 +124,10 @@ No.10 generated result --------------------------
 
 @Test
 public void probeTest() {
-    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad() {
-        @Override
-        protected long counterOffset(long i) {
-            return 0;
-        }
-    };
-    
-    int expectedProbe = 123; // Replace with expected probe value
-    
-    int actualProbe = counter.probe();
-    
-    assertEquals(expectedProbe, actualProbe);
+    FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter(16);
+    long expectedResult = 123456789L; // Replace with expected result
+    long actualResult = counter.probe();
+    assertEquals(expectedResult, actualResult);
 }
 
 

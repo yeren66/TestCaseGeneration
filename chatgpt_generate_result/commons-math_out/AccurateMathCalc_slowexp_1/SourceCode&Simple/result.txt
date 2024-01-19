@@ -34,15 +34,13 @@ static double slowexp(final double x, final double[] result) {
 
 No.1 generated result --------------------------
 
+@Test
 public void slowexpTest() {
-    double x = 2.5;
+    double x = 2.0;
     double[] result = new double[2];
-    double expectedResult = 0.0; // update this line with the expected result
-
-    double actualResult = AccurateMathCalc.slowexp(x, result);
-
-    assertEquals(expectedResult, actualResult);
-    assertEquals(result[0], result[1]); // additional assertions for the result array
+    double expected = Math.exp(x);
+    double actual = AccurateMathCalc.slowexp(x, result);
+    assertEquals(expected, actual, 0.0001);
 }
 
 
@@ -50,58 +48,50 @@ No.2 generated result --------------------------
 
 @Test
 public void slowexpTest() {
-    double x = 2.0;
     double[] result = new double[2];
-    double expected = Math.exp(x);
-
+    double x = 2.0;
+    double expected = Math.exp(2.0);
     double actual = AccurateMathCalc.slowexp(x, result);
-  
     assertEquals(expected, actual);
-    assertEquals(expected, result[0] + result[1]);
 }
 
 
 No.3 generated result --------------------------
 
 @Test
-    public void slowexpTest() {
-        double x = 2.0;
-        double[] result = new double[2];
-        double expected = Math.exp(x);
-
-        double actual = AccurateMathCalc.slowexp(x, result);
-
-        assertEquals(expected, actual, 1e-10);
-        assertEquals(expected, result[0] + result[1], 1e-10);
-    }
+public void slowexpTest() {
+    double x = 2.0;
+    double[] result = new double[2];
+    double expected = Math.exp(x);
+    double actual = AccurateMathCalc.slowexp(x, result);
+    assertEquals(expected, actual);
+}
 
 
 No.4 generated result --------------------------
 
 @Test
-public void slowexpTest() {
-    double x = 2.0;
-    double[] result = new double[2];
-    double expectedResult = Math.exp(x);
-    
-    // Call the slowexp method
-    double actualResult = AccurateMathCalc.slowexp(x, result);
-    
-    // Verify the result
-    assertEquals(expectedResult, actualResult, 1e-10);
-    assertEquals(expectedResult, result[0], 1e-10);
-    assertEquals(0.0, result[1], 1e-10);
-}
+    public void slowexpTest() {
+        double x = 2.0;
+        double[] result = new double[2];
+        double expectedResult = Math.exp(x);
+
+        // Call the method to be tested
+        double actualResult = AccurateMathCalc.slowexp(x, result);
+
+        assertEquals(expectedResult, actualResult, 0.0001);
+    }
 
 
 No.5 generated result --------------------------
 
 @Test
 public void slowexpTest() {
+    double x = 2.5;
     double[] result = new double[2];
-    double expected = AccurateMathCalc.slowexp(2.5, result);
-    double actual = result[0] + result[1];
-    assertEquals(expected, actual, 0.0001);
+    double expectedResult = Math.exp(x);
+    double actualResult = AccurateMathCalc.slowexp(x, result);
+    assertEquals(expectedResult, actualResult);
 }
 
 
@@ -111,11 +101,9 @@ No.6 generated result --------------------------
 public void slowexpTest() {
     double x = 2.0;
     double[] result = new double[2];
-    double expected = Math.exp(x);
-    double actual = AccurateMathCalc.slowexp(x, result);
-    
-    assertEquals(expected, actual);
-    assertEquals(expected, result[0] + result[1]);
+    double expectedResult = 7.3890560989306495;
+    double actualResult = AccurateMathCalc.slowexp(x, result);
+    assertEquals(expectedResult, actualResult);
 }
 
 
@@ -123,14 +111,12 @@ No.7 generated result --------------------------
 
 @Test
 public void slowexpTest() {
+    double x = 5.0;
     double[] result = new double[2];
-    double x = 2.0;
-    double expected = Math.exp(x);
-
-    double actual = AccurateMathCalc.slowexp(x, result);
-
-    assertEquals(expected, actual, 0.0001);
-    assertEquals(expected, result[0] + result[1], 0.0001);
+    double actualResult = AccurateMathCalc.slowexp(x, result);
+    // add assertions here to check against expected values
+    // for example:
+    // assertEquals(expectedValue, actualResult);
 }
 
 
@@ -140,12 +126,10 @@ No.8 generated result --------------------------
 public void slowexpTest() {
     double x = 2.0;
     double[] result = new double[2];
-    double expected = Math.exp(x);
-    
-    double actual = AccurateMathCalc.slowexp(x, result);
-    
-    assertEquals(expected, actual);
-    assertEquals(expected, result[0] + result[1]);
+    double expectedResult = 7.3890560989306495;
+    double actualResult = AccurateMathCalc.slowexp(x, result);
+    assertEquals(expectedResult, actualResult);
+    assertArrayEquals(new double[]{7.3890560989306495, 0.0}, result);
 }
 
 
@@ -153,37 +137,24 @@ No.9 generated result --------------------------
 
 @Test
 public void slowexpTest() {
+    double x = 5.0;
     double[] result = new double[2];
-    double x = 2.0;
-    
-    // Call the slowexp method
     double output = AccurateMathCalc.slowexp(x, result);
-    
-    // Verify the result
-    assertEquals(7.3890560989306495, output, 1e-15);
-    assertEquals(7.389056098930649, result[0], 1e-15);
-    assertEquals(0.0, result[1], 1e-15);
+    // Add assertions here to test the output
+    assertEquals(expectedValue, output);
+    assertArrayEquals(expectedArray, result);
 }
 
 
 No.10 generated result --------------------------
 
-package org.apache.commons.math4.core.jdkmath;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AccurateMathCalcTest {
-    @Test
-    public void slowexpTest() {
-        double x = 2.0;
-        double[] result = new double[2];
-        double expectedResult = Math.exp(x);
-        
-        double actualResult = AccurateMathCalc.slowexp(x, result);
-        
-        assertEquals(expectedResult, actualResult);
-    }
+@Test
+public void slowexpTest() {
+    double x = 2.0;
+    double[] result = new double[2];
+    double expected = Math.exp(x);
+    double actual = AccurateMathCalc.slowexp(x, result);
+    assertEquals(expected, actual);
 }
 
 

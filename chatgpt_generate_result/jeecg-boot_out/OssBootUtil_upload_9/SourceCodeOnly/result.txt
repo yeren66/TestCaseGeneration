@@ -38,67 +38,31 @@ No.1 generated result --------------------------
 @Test
 public void uploadTest() {
     FileItemStream file = mock(FileItemStream.class);
-    String fileDir = "testDir/";
-    String expectedFilePath = "https://bucketName.endPoint/testDir/fileName";
-    
-    // Mocking the file.getName() method to return a test file name
-    when(file.getName()).thenReturn("testFile.jpg");
-    
-    // Mocking the file.openStream() method to return a test input stream
-    InputStream inputStream = new ByteArrayInputStream("test data".getBytes());
-    when(file.openStream()).thenReturn(inputStream);
-    
-    // Call the upload method and validate the returned file path
-    String actualFilePath = OssBootUtil.upload(file, fileDir);
-    assertEquals(expectedFilePath, actualFilePath);
+    String fileDir = "testDirectory/";
+    String result = OssBootUtil.upload(file, fileDir);
+    assertNotNull(result);
 }
 
 
 No.2 generated result --------------------------
 
-package org.jeecg.common.util.oss;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class OssBootUtilTest {
-    @Test
-    public void uploadTest() {
-        // Arrange
-        FileItemStream file = <fill with a file>;
-        String fileDir = <fill with a file directory>;
-        
-        // Act
-        String result = OssBootUtil.upload(file, fileDir);
-        
-        // Assert
-        assertNotNull(result);
-        assertEquals(expectedFilePath, result);
-    }
+@Test
+public void uploadTest() {
+    String fileDir = "test/";
+    FileItemStream file = new FileItemStream();
+    String result = OssBootUtil.upload(file, fileDir);
+    assertNotNull(result);
 }
 
 
 No.3 generated result --------------------------
 
-package org.jeecg.common.util.oss;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class OssBootUtilTest {
-    @Test
-    public void uploadTest() {
-        // Arrange
-        FileItemStream file = null; // mock the file item stream
-        String fileDir = "example/fileDir";
-
-        // Act
-        String result = OssBootUtil.upload(file, fileDir);
-
-        // Assert
-        assertNotNull(result);
-        // additional assertions based on the expected behavior of the upload method
-    }
+public void uploadTest() {
+    // Create a FileItemStream using Mockito
+    FileItemStream file = Mockito.mock(FileItemStream.class);
+    String fileDir = "testDirectory/";
+    String result = OssBootUtil.upload(file, fileDir);
+    assertNotNull(result);
 }
 
 
@@ -106,59 +70,42 @@ No.4 generated result --------------------------
 
 @Test
 public void uploadTest() {
-    FileItemStream file = // create a mock FileItemStream object with desired parameters
-    String fileDir = "test/file/dir";
-    String expectedFilePath = "https://bucketName.endPoint/test/file/dir/fileName";
-    
-    String actualFilePath = OssBootUtil.upload(file, fileDir);
-    
-    assertEquals(expectedFilePath, actualFilePath);
+    FileItemStream file = <mock file>;
+    String fileDir = <mock directory>;
+    String result = OssBootUtil.upload(file, fileDir);
+    assertNotNull(result);
 }
 
 
 No.5 generated result --------------------------
 
-package org.jeecg.common.util.oss;
+@Test
+public void uploadTest() {
+    // Given
+    FileItemStream file = mock(FileItemStream.class);
+    when(file.getName()).thenReturn("test.jpg");
+    File fileDir = new File("path/to/directory");
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+    // When
+    String result = OssBootUtil.upload(file, fileDir);
 
-public class OssBootUtilTest {
-    @Test
-    public void uploadTest() {
-        // Prepare test data
-        FileItemStream file = ... ; // Provide actual FileItemStream object
-        String fileDir = ... ; // Provide actual fileDir value
-
-        // Call the upload() method
-        String filePath = OssBootUtil.upload(file, fileDir);
-
-        // Assert the expected result
-        assertNotNull(filePath);
-        // Add more assertions if necessary
-    }
+    // Then
+    assertNotNull(result);
 }
 
 
 No.6 generated result --------------------------
 
-package org.jeecg.common.util.oss;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class OssBootUtilTest {
-    @Test
-    public void uploadTest() {
-        FileItemStream file = // create a FileItemStream object
-        String fileDir = // specify the file directory
-
-        String expectedFilePath = // specify the expected file path
-
-        String actualFilePath = OssBootUtil.upload(file, fileDir);
-
-        assertEquals(expectedFilePath, actualFilePath);
-    }
+public void uploadTest() {
+    // Arrange
+    FileItemStream file = <mock file item stream>;
+    String fileDir = "test-directory/";
+    
+    // Act
+    String result = OssBootUtil.upload(file, fileDir);
+    
+    // Assert
+    assertNotNull(result);
 }
 
 
@@ -166,85 +113,46 @@ No.7 generated result --------------------------
 
 @Test
 public void uploadTest() {
-    FileItemStream file = new FileItemStream();
-    String fileDir = "uploads/";
-    String expectedFilePath = "https://bucketName.endPoint/uploads/fileName";
+    // Given
+    FileItemStream file = new FileItemStream("testFile.txt", new ByteArrayInputStream("Test file content".getBytes()));
+    String fileDir = "testDirectory/";
+
+    // When
+    String result = OssBootUtil.upload(file, fileDir);
     
-    String actualFilePath = OssBootUtil.upload(file, fileDir);
-    
-    assertEquals(expectedFilePath, actualFilePath);
+    // Then
+    assertNotNull(result);
+    assertTrue(result.startsWith("https://") || result.startsWith("http://"));
 }
 
 
 No.8 generated result --------------------------
 
-public class OssBootUtilTest {
-    @Test
-    public void uploadTest() {
-        // Create a mock FileItemStream object
-        FileItemStream file = mock(FileItemStream.class);
-        when(file.getName()).thenReturn("test.pdf");
-        when(file.getName().lastIndexOf('.')).thenReturn(4);
-        
-        // Create a mock InputStream object
-        InputStream inputStream = mock(InputStream.class);
-        
-        // Create a mock PutObjectResult object
-        PutObjectResult result = mock(PutObjectResult.class);
-        
-        // Create a mock OSSClient object
-        OSSClient ossClient = mock(OSSClient.class);
-        when(ossClient.putObject(bucketName, fileUrl.toString(), inputStream)).thenReturn(result);
-        
-        // Create a mock OssBootUtil object and set the ossClient
-        OssBootUtil ossBootUtil = mock(OssBootUtil.class);
-        ossBootUtil.setOssClient(ossClient);
-        
-        // Call the method under test
-        String filePath = ossBootUtil.upload(file, "testDir/");
-        
-        // Verify the expected URL
-        assertEquals("https://<bucketName>.<endPoint>/testDir/<randomUUID>.pdf", filePath);
-    }
+@Test
+public void uploadTest() {
+    FileItemStream file = new FileItemStream();
+    String fileDir = "test/dir";
+    String result = OssBootUtil.upload(file, fileDir);
+    assertEquals("expectedFilePath", result);
 }
 
 
 No.9 generated result --------------------------
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class OssBootUtilTest {
-    @Test
-    public void uploadTest() {
-        // Create a temporary file for testing
-        FileItemStream file = createTempFile();
-        String fileDir = "testDir";
-
-        // Call the upload method
-        String result = OssBootUtil.upload(file, fileDir);
-
-        // Assert the result is not null
-        assertNotNull(result);
-
-        // Add additional assertions if needed
-        // ...
-
-        // Cleanup (delete the temporary file if needed)
-        deleteTempFile(file);
-    }
-
-    private FileItemStream createTempFile() {
-        // Implement logic to create a temporary file for testing
-        // ...
-
-        return null;
-    }
-
-    private void deleteTempFile(FileItemStream file) {
-        // Implement logic to delete the temporary file
-        // ...
-    }
+@Test
+public void uploadTest() {
+    // Create a mock FileItemStream object
+    FileItemStream file = mock(FileItemStream.class);
+    
+    // Create a mock fileDir String
+    String fileDir = "testDirectory/";
+    
+    // Call the upload method and store the result
+    String result = OssBootUtil.upload(file, fileDir);
+    
+    // Assert that the result is not null
+    assertNotNull(result);
+    // Add additional assertions as needed
 }
 
 
@@ -252,15 +160,17 @@ No.10 generated result --------------------------
 
 @Test
 public void uploadTest() {
-    String fileDir = "/uploads/";
-    FileItemStream file = new FileItemStream("file.txt");
+    // Given
+    // create a FileItemStream
+    // create a fileDir
+    FileItemStream file = createFileItemStream();
+    String fileDir = "testFileDir/";
     
+    // When
     String result = OssBootUtil.upload(file, fileDir);
     
+    // Then
     assertNotNull(result);
-    assertTrue(result.startsWith("https://"));
-    assertTrue(result.contains(fileDir));
-    assertTrue(result.contains(".txt"));
 }
 
 

@@ -118,51 +118,176 @@ private Object parseDictText(Object result) {
 
 No.1 generated result --------------------------
 
-Timeout
+@Test
+public void parseDictTextTest() {
+    // Create a new instance of the DictAspect
+    DictAspect dictAspect = new DictAspect();
+  
+    // Create a mock Result object
+    Result result = new Result();
+    IPage<Object> iPage = new IPage();
+    List<Object> records = new ArrayList<>();
+    iPage.setRecords(records);
+    result.setResult(iPage);
+
+    // Call the parseDictText method and assert that the returned value is not null
+    Object parsedResult = dictAspect.parseDictText(result);
+    assertNotNull(parsedResult);
+}
 
 
 No.2 generated result --------------------------
 
-Timeout
+private Object parseDictText(Object result) {
+    // Test implementation here
+}
 
 
 No.3 generated result --------------------------
 
-Timeout
+@Test
+public void parseDictTextTest() {
+    // Create a mock Result object
+    Result mockResult = new Result();
+    
+    // Create a mock IPage object
+    IPage mockIPage = new IPage();
+    mockIPage.setRecords(records);  // Assume that 'records' is a list of mock record objects
+    
+    // Set the mock IPage object as the result of the mock Result object
+    mockResult.setResult(mockIPage);
+    
+    // Create a DictAspect object
+    DictAspect dictAspect = new DictAspect();
+    
+    // Call the parseDictText method on the mock Result object
+    Object result = dictAspect.parseDictText(mockResult);
+    
+    // Assert the expected output
+    assertNotNull(result);
+    // Add more assertions as needed
+}
 
 
 No.4 generated result --------------------------
 
-Timeout
+@Test
+public void parseDictTextTest() {
+    //create test data
+    Result result = new Result();
+    IPage page = new IPage();
+    List<Object> records = new ArrayList<>();
+    //add test records to the list
+    //create and set up test objects as needed
+    //...
+
+    page.setRecords(records);
+    result.setResult(page);
+
+    //call the method being tested
+    DictAspect dictAspect = new DictAspect();
+    Result output = (Result) dictAspect.parseDictText(result);
+    //assertions
+    //add assertions as needed
+    //...
+}
 
 
 No.5 generated result --------------------------
 
-Timeout
+// Given
+Object result = new Object(); 
+DictAspect dictAspect = new DictAspect();
+
+// When
+Object actualResult = dictAspect.parseDictText(result);
+
+// Then
+// Add assertions to verify the actual result
 
 
 No.6 generated result --------------------------
 
-Timeout
+// Given
+DictAspect dictAspect = new DictAspect();
+Object result = new Object(); // Provide a valid result object for testing
+
+// When
+Object parsedResult = dictAspect.parseDictText(result);
+
+// Then
+// Add assertions to verify the correctness of the parsedResult
+// Example assertion:
+// assertNotNull(parsedResult);
 
 
 No.7 generated result --------------------------
 
-Timeout
+@Test
+public void parseDictTextTest() {
+    // Create a mock Result object
+    Result mockResult = new Result();
+    IPage mockIPage = new IPage();
+    mockResult.setResult(mockIPage);
+    
+    // Create mock records
+    List<Object> mockRecords = new ArrayList<>();
+    // Populate mockRecords
+    <FILL>
+    
+    // Set mockRecords in mockIPage
+    mockIPage.setRecords(mockRecords);
+    
+    // Call the parseDictText method and assert the output
+    Object result = parseDictText(mockResult);
+    assertNotNull(result);
+}
 
 
 No.8 generated result --------------------------
 
-Timeout
+private Object mockResult = new Result();
+private Object result = new DictAspect().parseDictText(mockResult);
+assertEquals(mockResult, result);
 
 
 No.9 generated result --------------------------
 
-Timeout
+@Test
+public void parseDictTextTest() {
+    // Arrange
+    DictAspect dictAspect = new DictAspect();
+    
+    // Create a mock result
+    Result result = new Result();
+    IPage iPage = new IPage();
+    iPage.setRecords(new ArrayList<>());
+    result.setResult(iPage);
+
+    // Act
+    Object parsedResult = dictAspect.parseDictText(result);
+
+    // Assert
+    assertNotNull(parsedResult);
+    assertTrue(parsedResult instanceof Result);
+    assertNotNull(((Result) parsedResult).getResult());
+    assertTrue(((Result) parsedResult).getResult() instanceof IPage);
+    assertNotNull(((IPage) ((Result) parsedResult).getResult()).getRecords());
+}
+
 
 
 No.10 generated result --------------------------
 
-Timeout
+@Test
+public void parseDictTextTest() {
+    // Create a test input object
+    Result testResult = new Result();
+    IPage testIPage = new IPage();
+	// Perform the unit test
+    Object result = new DictAspect().parseDictText(testResult);
+    // Assert the expected result
+    assertNotNull(result);
+}
 
 

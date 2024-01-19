@@ -1,0 +1,76 @@
+Source code: 
+
+
+@Override
+public boolean equals(Object obj) {
+    if (obj == this) {
+        return true;
+    }
+    if (!(obj instanceof Series)) {
+        return false;
+    }
+    Series that = (Series) obj;
+    if (!Objects.equals(this.key, that.key)) {
+        return false;
+    }
+    if (!Objects.equals(this.description, that.description)) {
+        return false;
+    }
+    if (!that.canEqual(this)) {
+        return false;
+    }
+    return true;
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

@@ -1,0 +1,80 @@
+Source code: 
+
+private Node rotateLeft(Node a) {
+    Node b = a.right;
+    b.parent = a.parent;
+
+    a.right = b.left;
+
+    if (a.right != null) {
+        a.right.parent = a;
+    }
+
+    b.left = a;
+    a.parent = b;
+
+    if (b.parent != null) {
+        if (b.parent.right == a) {
+            b.parent.right = b;
+        } else {
+            b.parent.left = b;
+        }
+    }
+
+    setBalance(a, b);
+
+    return b;
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

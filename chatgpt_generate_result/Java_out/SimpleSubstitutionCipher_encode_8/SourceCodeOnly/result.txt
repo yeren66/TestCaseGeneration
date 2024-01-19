@@ -36,31 +36,23 @@ No.1 generated result --------------------------
 
 @Test
 public void encodeTest() {
-    // Input
-    String message = "Hello World!";
-    String cipherSmall = "zyxwvutsrqponmlkjihgfedcba";
-    
-    // Expected output
-    String expected = "Svool Dliow!";
-    
-    // Actual output
-    String actual = SimpleSubstitutionCipher.encode(message, cipherSmall);
-    
-    // Assertion
+    String message = "Hello World";
+    String cipher = "zyxwvutsrqponmlkjihgfedcba";
+    String expected = "Svool Dliow";
+    String actual = SimpleSubstitutionCipher.encode(message, cipher);
     assertEquals(expected, actual);
 }
 
 
 No.2 generated result --------------------------
 
+
 @Test
 public void encodeTest() {
-    String message = "Hello World!";
+    String message = "hello";
     String cipherSmall = "bcdefghijklmnopqrstuvwxyza";
-    String expected = "Ifmmp Xpsme!";
-    
+    String expected = "ifmmp";
     String actual = SimpleSubstitutionCipher.encode(message, cipherSmall);
-    
     assertEquals(expected, actual);
 }
 
@@ -68,56 +60,38 @@ public void encodeTest() {
 No.3 generated result --------------------------
 
 @Test
-public void encodeTest() {
-    String message = "Hello World";
-    String cipherSmall = "zyxwvutsrqponmlkjihgfedcba";
-    String expected = "Svool Dliow";
-
-    String result = SimpleSubstitutionCipher.encode(message, cipherSmall);
-
-    assertEquals(expected, result);
-}
+    public void encodeTest() {
+        String message = "Hello, World!";
+        String cipherSmall = "xycwzvutsrqponmlkjihgfedba";
+        String expected = "Qkrrs, Posql!";
+        String actual = SimpleSubstitutionCipher.encode(message, cipherSmall);
+        assertEquals(expected, actual);
+    }
 
 
 No.4 generated result --------------------------
 
 @Test
 public void encodeTest() {
-    String message = "Hello, World!";
-    String cipherSmall = "qwertyuiopasdfghjklzxcvbnm";
-
-    String expected = "itxxs, qjxxv!";
-    String actual = SimpleSubstitutionCipher.encode(message, cipherSmall);
-
-    assertEquals(expected, actual);
+    assertEquals("Gstd ex ejdx ot efd jgex jnkx", SimpleSubstitutionCipher.encode("This is this to the test", "zyxwvutsrqponmkjihgfedcba"));
 }
 
 
 No.5 generated result --------------------------
 
-@Test
 public void encodeTest() {
-    String message = "Hello World";
-    String cipherSmall = "qwertyuiopasdfghjklzxcvbnm";
-
-    String expected = "Itssg Pguks";
-    String actual = SimpleSubstitutionCipher.encode(message, cipherSmall);
-
-    assertEquals(expected, actual);
-}
+      String actual = SimpleSubstitutionCipher.encode("Hello", "defghijklmnopqrstuvwxyzabc");
+      String expected = "khoor";
+      assertEquals(expected, actual);
+  }
 
 
 No.6 generated result --------------------------
 
 @Test
 public void encodeTest() {
-    String message = "Hello, World!";
-    String cipherSmall = "xyzabcdefghijklmnopqrstuvw";
-    String expectedOutput = "Yeqqo, Baqpd!";
-    
-    String actualOutput = SimpleSubstitutionCipher.encode(message, cipherSmall);
-    
-    assertEquals(expectedOutput, actualOutput);
+    String result = SimpleSubstitutionCipher.encode("Hello World!", "bcdefghijklmnopqrstuvwxyza");
+    assertEquals("Ifmmp Xpsme!", result);
 }
 
 
@@ -125,12 +99,11 @@ No.7 generated result --------------------------
 
 @Test
 public void encodeTest() {
-    String message = "Hello, World!";
-    String cipherSmall = "xyzabcdefghijklmnopqrstuvw";
-
-    String expected = "Sgdde, Urtqw!";
-    String actual = SimpleSubstitutionCipher.encode(message, cipherSmall);
-
+    SimpleSubstitutionCipher cipher = new SimpleSubstitutionCipher();
+    String message = "Hello World";
+    String cipherSmall = "qwertyuiopasdfghjklzxcvbnm";
+    String expected = "Ittq Ptwqi";
+    String actual = cipher.encode(message, cipherSmall);
     assertEquals(expected, actual);
 }
 
@@ -139,31 +112,18 @@ No.8 generated result --------------------------
 
 @Test
 public void encodeTest() {
-    // Test case 1
-    String message1 = "Hello World";
-    String cipherSmall1 = "defghijklmnopqrstuvwxyzabc";
-    String expected1 = "Itssg Ptqsd";
-    String actual1 = SimpleSubstitutionCipher.encode(message1, cipherSmall1);
-    assertEquals(expected1, actual1);
-
-    // Test case 2
-    String message2 = "This is a test";
-    String cipherSmall2 = "xyzabcdefghijklmnopqrstuvw";
-    String expected2 = "Hqrs rs v xltm";
-    String actual2 = SimpleSubstitutionCipher.encode(message2, cipherSmall2);
-    assertEquals(expected2, actual2);
+    assertEquals("Ub fgnsl rfgqmeir", SimpleSubstitutionCipher.encode("To sleep perchance", "zyxwvutsrqponmlkjihgfedcba"));
 }
 
 
 No.9 generated result --------------------------
 
+
 @Test
 public void encodeTest() {
-    String message = "Hello World!";
-    String cipherSmall = "xyzabc";
-    String expected = "Smith Patgd!";
-    String actual = SimpleSubstitutionCipher.encode(message, cipherSmall);
-    assertEquals(expected, actual);
+    String message = "Hello";
+    String cipherSmall = "jklmnopqrstuvwxyzabcdefghi";
+    assertEquals("Hryyq", SimpleSubstitutionCipher.encode(message, cipherSmall));
 }
 
 
@@ -172,11 +132,9 @@ No.10 generated result --------------------------
 @Test
 public void encodeTest() {
     String message = "Hello World";
-    String cipherSmall = "zyxwvutsrqponmlkjihgfedcba";
-
-    String expected = "Svool Dliow";
-    String actual = SimpleSubstitutionCipher.encode(message, cipherSmall);
-
+    String cipher = "qwertyuiopasdfghjklzxcvbnm";
+    String expected = "Ittgi Gqbqt";
+    String actual = SimpleSubstitutionCipher.encode(message, cipher);
     assertEquals(expected, actual);
 }
 

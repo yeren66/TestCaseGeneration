@@ -28,41 +28,21 @@ No.1 generated result --------------------------
 @Test
 public void findTest() {
     BinaryTree tree = new BinaryTree();
-    tree.put(5);
-    tree.put(3);
-    tree.put(7);
-    tree.put(2);
-    tree.put(4);
-    tree.put(6);
-    Node result = tree.find(4);
-    assertEquals(4, result.data);
+    tree.put(50);
+    tree.put(30);
+    tree.put(70);
+    tree.put(20);
+    tree.put(40);
+    
+    // Test when the key is found
+    assertEquals(30, tree.find(30).data);
+    
+    // Test when the key is not found
+    assertNull(tree.find(60));
 }
 
 
 No.2 generated result --------------------------
-
-public void findTest() {
-    BinaryTree tree = new BinaryTree();
-    tree.put(10);
-    tree.put(5);
-    tree.put(15);
-    tree.put(7);
-    tree.put(12);
-    
-    Node result = tree.find(7);
-    assertNotNull(result);
-    assertEquals(7, result.data);
-    
-    result = tree.find(20);
-    assertNotNull(result);
-    assertEquals(15, result.data);
-    
-    result = tree.find(3);
-    assertNull(result);
-}
-
-
-No.3 generated result --------------------------
 
 @Test
 public void findTest() {
@@ -70,81 +50,66 @@ public void findTest() {
     tree.put(5);
     tree.put(3);
     tree.put(7);
-    tree.put(2);
-    tree.put(4);
-    tree.put(6);
-    tree.put(8);
     
-    Node node = tree.find(4);
-    assertNotNull(node);
-    assertEquals(4, node.data);
-    assertEquals(3, node.parent.data);
+    Node result = tree.find(3);
+    
+    assertEquals(result.data, 3);
+}
+
+
+No.3 generated result --------------------------
+
+public void findTest() {
+    BinaryTree tree = new BinaryTree();
+    tree.put(5);
+    tree.put(3);
+    tree.put(7);
+    tree.put(2);
+    
+    BinaryTree.Node result = tree.find(3);
+    assertNotNull(result);
+    assertEquals(3, result.value);
 }
 
 
 No.4 generated result --------------------------
 
 @Test
-    public void findTest() {
-        BinaryTree.Node root = new BinaryTree.Node(10);
-        BinaryTree.Node leftChild = new BinaryTree.Node(5);
-        BinaryTree.Node rightChild = new BinaryTree.Node(15);
-        root.left = leftChild;
-        root.right = rightChild;
-        
-        BinaryTree binaryTree = new BinaryTree(root);
-        BinaryTree.Node result = binaryTree.find(10);
-        
-        assertEquals(root, result); // add assertions to verify the correctness of the method
-    }
+public void findTest() {
+    BinaryTree tree = new BinaryTree();
+    Node node = new Node(5);
+    tree.put(5);
+    tree.put(4);
+    tree.put(6);
+    tree.put(3);
+    assertEquals(node, tree.find(5));
+}
 
 
 No.5 generated result --------------------------
 
-package com.thealgorithms.datastructures.trees;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BinaryTreeTest {
-    @Test
-    public void findTest() {
-        BinaryTree.Node root = new BinaryTree.Node(5);
-        root.left = new BinaryTree.Node(3);
-        root.right = new BinaryTree.Node(7);
-        root.left.left = new BinaryTree.Node(2);
-        root.left.right = new BinaryTree.Node(4);
-        root.right.left = new BinaryTree.Node(6);
-        root.right.right = new BinaryTree.Node(8);
-        
-        BinaryTree bt = new BinaryTree(root);
-        
-        assertEquals(root, bt.find(5)); // Test the key exists and returning the correct node
-        assertEquals(root.left, bt.find(3)); // Test the key exists and returning the correct node
-        assertEquals(root.right, bt.find(7)); // Test the key exists and returning the correct node
-        assertNull(bt.find(1)); // Test the key doesn't exist and returning null
-        assertNull(bt.find(9)); // Test the key doesn't exist and returning null
-    }
+@Test
+public void findTest() {
+    BinaryTree bt = new BinaryTree();
+    bt.put(5);
+    bt.put(3);
+    bt.put(7);
+    Node result = bt.find(3);
+    assertEquals(result.data, 3);
 }
 
 
 No.6 generated result --------------------------
 
 public void findTest() {
-    BinaryTree tree = new BinaryTree();
-    tree.put(5);
-    tree.put(3);
-    tree.put(8);
-    tree.put(2);
-    tree.put(4);
-
-    Node result = tree.find(4);
-    assertNotNull(result);
+    BinaryTree bt = new BinaryTree();
+    bt.put(5);
+    bt.put(3);
+    bt.put(7);
+    bt.put(2);
+    bt.put(4);
+    Node result = bt.find(4);
     assertEquals(4, result.data);
-
-    result = tree.find(10);
-    assertNotNull(result);
-    assertEquals(8, result.data);
 }
 
 
@@ -152,110 +117,56 @@ No.7 generated result --------------------------
 
 @Test
 public void findTest() {
-    BinaryTree binaryTree = new BinaryTree();
-    binaryTree.put(5);
-    binaryTree.put(3);
-    binaryTree.put(7);
-    binaryTree.put(2);
-    binaryTree.put(4);
-    
-    // Test for existing key
-    Node result1 = binaryTree.find(2);
-    assertEquals(2, result1.data);
-    
-    // Test for non-existing key
-    Node result2 = binaryTree.find(6);
-    assertEquals(7, result2.data);
+    BinaryTree.Node root = new BinaryTree.Node(10);
+    BinaryTree tree = new BinaryTree(root);
+    tree.put(5);
+    tree.put(15);
+    tree.put(3);
+    tree.put(7);
+    assertEquals(5, tree.find(5).data);
+    assertEquals(7, tree.find(7).data);
 }
 
 
 No.8 generated result --------------------------
 
-@Test
-public void findTest() {
-    BinaryTree binaryTree = new BinaryTree();
-    binaryTree.put(5);
-    binaryTree.put(3);
-    binaryTree.put(7);
-    
-    Node expectedResult = binaryTree.find(3);
-    assertEquals(3, expectedResult.data);
-}
 
-
-No.9 generated result --------------------------
-
-// Create a new BinaryTree object
-BinaryTree binaryTree = new BinaryTree();
-
-// Add some nodes to the binary tree
-
-// Create nodes
-BinaryTree.Node node1 = new BinaryTree.Node(1);
-BinaryTree.Node node2 = new BinaryTree.Node(2);
-BinaryTree.Node node3 = new BinaryTree.Node(3);
-
-// Set their respective data values
-node1.data = 1;
-node2.data = 2;
-node3.data = 3;
-
-// Set their respective left and right children
-node1.left = node2;
-node1.right = node3;
-node2.parent = node1;
-node3.parent = node1;
-
-// Set the root of the binary tree
-binaryTree.root = node1;
-
-// Call the find method and assert the result
-BinaryTree.Node result = binaryTree.find(2);
-assertEquals(node2, result, "Incorrect node found");
-
-
-No.10 generated result --------------------------
-
-package com.thealgorithms.datastructures.trees;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BinaryTreeTest {
-    
-    // Creating a binary tree for testing purposes
-    private BinaryTree testTree() {
+    @Test
+    public void findTest() {
         BinaryTree tree = new BinaryTree();
         tree.put(5);
         tree.put(3);
         tree.put(8);
-        tree.put(2);
-        tree.put(4);
-        tree.put(7);
-        tree.put(9);
-        return tree;
-    }
-    
-    @Test
-    public void findTest() {
-        BinaryTree tree = testTree();
-        Node result;
-        
-        // Testing the find method on an existing key
-        result = tree.find(3);
-        assertNotNull(result);
+        Node result = tree.find(3);
         assertEquals(3, result.data);
-        
-        // Testing the find method on a key that doesn't exist
-        result = tree.find(6);
-        assertNotNull(result);
-        assertEquals(5, result.data); // The key doesn't exist, so it should return the parent
-        
-        // Testing the find method on the root key
-        result = tree.find(5);
-        assertNotNull(result);
-        assertEquals(5, result.data);
     }
+
+
+No.9 generated result --------------------------
+
+public void findTest() {
+    BinaryTree tree = new BinaryTree();
+    tree.put(10);
+    tree.put(5);
+    tree.put(15);
+    tree.put(3);
+    tree.put(7);
+
+    assertEquals("Write your expected output here", tree.find(3), "Finding node with key 3 should return the node with key 3");
+}
+
+
+No.10 generated result --------------------------
+
+@Test
+public void findTest() {
+    BinaryTree tree = new BinaryTree();
+    tree.put(5);
+    tree.put(3);
+    tree.put(8);
+    Node result = tree.find(3);
+    assertNotNull(result);
+    assertEquals(3, result.data);
 }
 
 

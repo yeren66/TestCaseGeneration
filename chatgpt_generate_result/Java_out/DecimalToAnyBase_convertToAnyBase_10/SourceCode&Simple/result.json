@@ -13,15 +13,15 @@
         "int base"
     ],
     "generate_test": [
-        "@Test\npublic void convertToAnyBaseTest() {\n    assertEquals(\"10\", DecimalToAnyBase.convertToAnyBase(2, 2));\n    assertEquals(\"101\", DecimalToAnyBase.convertToAnyBase(5, 2));\n    assertEquals(\"A\", DecimalToAnyBase.convertToAnyBase(10, 16));\n}",
-        "@Test\npublic void convertToAnyBaseTest() {\n    String expected1 = \"110\";\n    String actual1 = DecimalToAnyBase.convertToAnyBase(6, 2);\n    assertEquals(expected1, actual1);\n    \n    String expected2 = \"14\";\n    String actual2 = DecimalToAnyBase.convertToAnyBase(20, 16);\n    assertEquals(expected2, actual2);\n    \n    // Add more test cases as needed\n}",
-        "@Test\npublic void convertToAnyBaseTest() {\n    int inp = 10;\n    int base = 2;\n    String expectedOutput = \"1010\";\n    \n    String convertedValue = DecimalToAnyBase.convertToAnyBase(inp, base);\n    \n    assertEquals(expectedOutput, convertedValue);\n}",
-        "@Test\npublic void convertToAnyBaseTest() {\n    int inp = 14;\n    int base = 2;\n    String expected = \"1110\";\n    \n    String result = DecimalToAnyBase.convertToAnyBase(inp, base);\n    \n    assertEquals(expected, result);\n}",
-        "@Test\npublic void convertToAnyBaseTest() {\n    int inp = 15;\n    int base = 2;\n    String expected = \"1111\";\n    String result = DecimalToAnyBase.convertToAnyBase(inp, base);\n    assertEquals(expected, result);\n}",
-        "@Test\npublic void convertToAnyBaseTest() {\n    int inp = 625;\n    int base = 5;\n    String expectedOutput = \"2300\";\n    \n    String actualOutput = DecimalToAnyBase.convertToAnyBase(inp, base);\n    \n    assertEquals(expectedOutput, actualOutput);\n}",
-        "@Test\npublic void convertToAnyBaseTest() {\n    String result = DecimalToAnyBase.convertToAnyBase(19, 2);\n    assertEquals(\"10011\", result);\n}",
-        "@Test\npublic void convertToAnyBaseTest() {\n    int input = 15;\n    int base = 2;\n    String expected = \"1111\";\n    String result = DecimalToAnyBase.convertToAnyBase(input, base);\n    assertEquals(expected, result);\n}",
-        "@Test\npublic void convertToAnyBaseTest() {\n    int inp = 15;\n    int base = 2;\n    String expected = \"1111\";\n    \n    String result = DecimalToAnyBase.convertToAnyBase(inp, base);\n    \n    assertEquals(expected, result);\n}",
-        "@Test\npublic void convertToAnyBaseTest() {\n    int inp = 10;\n    int base = 2;\n    \n    String expectedOutput = \"1010\";\n    String actualOutput = DecimalToAnyBase.convertToAnyBase(inp, base);\n    \n    assertEquals(expectedOutput, actualOutput);\n}"
+        "@Test\npublic void convertToAnyBaseTest() {\n    // Given\n    int inp = 10;\n    int base = 2;\n\n    // When\n    String result = DecimalToAnyBase.convertToAnyBase(inp, base);\n\n    // Then\n    assertEquals(\"1010\", result);\n}",
+        "@Test\npublic void convertToAnyBaseTest() {\n    int input = 15;\n    int base = 2;\n    String expected = \"1111\";\n    String actual = DecimalToAnyBase.convertToAnyBase(input, base);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void convertToAnyBaseTest() {\n    int input = 10;\n    int base = 2;\n    String expected = \"1010\";\n    String actual = DecimalToAnyBase.convertToAnyBase(input, base);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void convertToAnyBaseTest() {\n    int num = 15;\n    int base = 2;\n    String actual = DecimalToAnyBase.convertToAnyBase(num, base);\n    String expected = \"1111\";\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void convertToAnyBaseTest() {\n    int inp = 16;\n    int base = 2;\n    String expected = \"10000\";\n    String actual = convertToAnyBase(inp, base);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void convertToAnyBaseTest() {\n    String result = DecimalToAnyBase.convertToAnyBase(17, 2);\n    assertEquals(\"10001\", result);\n}",
+        "@Test\npublic void convertToAnyBaseTest() {\n    assertEquals(\"1100\", DecimalToAnyBase.convertToAnyBase(12, 2));\n    assertEquals(\"34\", DecimalToAnyBase.convertToAnyBase(16, 4));\n}",
+        "@Test\npublic void convertToAnyBaseTest() {\n    int input = 15;\n    int base = 2;\n    String expected = \"1111\";\n    String actual = DecimalToAnyBase.convertToAnyBase(input, base);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void convertToAnyBaseTest() {\n    assertEquals(\"11001\", DecimalToAnyBase.convertToAnyBase(25, 2));\n}",
+        "@Test\npublic void convertToAnyBaseTest() {\n    assertEquals(\"1100100\", DecimalToAnyBase.convertToAnyBase(100, 2));\n    assertEquals(\"64\", DecimalToAnyBase.convertToAnyBase(100, 8));\n    assertEquals(\"100\", DecimalToAnyBase.convertToAnyBase(100, 10));\n    assertEquals(\"64\", DecimalToAnyBase.convertToAnyBase(100, 16));\n}"
     ]
 }

@@ -1,0 +1,26 @@
+{
+    "project_name": "Java",
+    "file_name": "QuickSort.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/sorts/QuickSort.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.sorts",
+    "docstring": "/**\n     * This method implements the Generic Quick Sort\n     *\n     * @param array The array to be sorted Sorts the array in increasing order\n     */",
+    "source_code": "\n@Override\npublic <T extends Comparable<T>> T[] sort(T[] array) {\n    doSort(array, 0, array.length - 1);\n    return array;\n}\n",
+    "class_name": "QuickSort",
+    "method_name": "sort",
+    "arguments": [
+        "T array"
+    ],
+    "generate_test": [
+        "Timeout",
+        "Timeout",
+        "Timeout",
+        "Timeout",
+        "Timeout",
+        "Timeout",
+        "Timeout",
+        "Timeout",
+        "Timeout",
+        "package com.thealgorithms.sorts;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\nimport java.util.Arrays;\n\npublic class QuickSortTest {\n\n    private QuickSort quickSort;\n\n    @BeforeEach\n    public void setUp() {\n        quickSort = new QuickSort();\n    }\n\n    @Test\n    public void sortTest() {\n        Integer[] actual = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};\n        Integer[] expected = {1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9};\n\n        // You might want to replace the 'sort' method call depending on the actual method signature\n        actual = quickSort.sort(actual);\n\n        assertArrayEquals(expected, actual, \"The sorted arrays do not match.\");\n\n        String[] actualStrs = {\"banana\", \"apple\", \"lime\", \"cherry\", \"apricot\"};\n        String[] expectedStrs = {\"apple\", \"apricot\", \"banana\", \"cherry\", \"lime\"};\n        \n        // For String arrays\n        actualStrs = quickSort.sort(actualStrs);\n\n        assertArrayEquals(expectedStrs, actualStrs, \"The sorted string arrays do not match.\");\n    }\n}"
+    ]
+}

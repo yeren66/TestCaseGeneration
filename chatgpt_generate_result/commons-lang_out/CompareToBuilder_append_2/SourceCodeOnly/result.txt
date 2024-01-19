@@ -33,242 +33,110 @@ No.1 generated result --------------------------
 @Test
 public void appendTest() {
     CompareToBuilder builder = new CompareToBuilder();
-
-    double[] lhs = {1.0, 2.0, 3.0};
-    double[] rhs = {1.0, 2.0, 3.0};
-
-    CompareToBuilder result = builder.append(lhs, rhs);
-    
-    assertEquals(0, result.toComparison());
+    double[] arr1 = {1.2, 3.4, 5.6};
+    double[] arr2 = {1.2, 3.4, 5.6};
+    builder.append(arr1, arr2);
+    assertEquals(0, builder.toComparison());
 }
 
 
 No.2 generated result --------------------------
 
-package org.apache.commons.lang3.builder;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class CompareToBuilderTest {
-    @Test
-    public void appendTest() {
-        CompareToBuilder builder = new CompareToBuilder();
-        double[] lhs = {1.0, 2.0, 3.0};
-        double[] rhs = {1.0, 2.0, 3.0};
-        builder.append(lhs, rhs);
-        assertEquals(0, builder.build());
-    }
+@Test
+public void appendTest() {
+    CompareToBuilder builder = new CompareToBuilder();
+    double[] lhs = {1.0, 2.0, 3.0};
+    double[] rhs = {1.0, 2.0, 4.0};
+    CompareToBuilder result = builder.append(lhs, rhs);
+    assertEquals(-1, result.toComparison());
 }
 
 
 No.3 generated result --------------------------
 
+@Test
 public void appendTest() {
-    CompareToBuilder builder = new CompareToBuilder();
-    double[] lhs = {1.2, 3.4, 5.6};
-    double[] rhs = {1.2, 3.4, 5.6};
-    builder.append(lhs, rhs);
-    int result = builder.toComparison();
-    assertEquals(0, result);
+    CompareToBuilder compareToBuilder = new CompareToBuilder();
+    double[] array1 = {2.3, 4.5, 6.7};
+    double[] array2 = {2.3, 4.5, 6.7};
+    compareToBuilder.append(array1, array2);
+    assertEquals(0, compareToBuilder.toComparison());
 }
 
 
 No.4 generated result --------------------------
 
-@Test
-public void appendTest() {
-    CompareToBuilder builder = new CompareToBuilder();
-    
-    double[] lhs = {1.0, 2.0, 3.0};
-    double[] rhs = {1.0, 2.0, 3.0};
-    CompareToBuilder result = builder.append(lhs, rhs);
-    assertEquals(builder, result);
-    
-    double[] lhs2 = null;
-    double[] rhs2 = {1.0, 2.0, 3.0};
-    CompareToBuilder result2 = builder.append(lhs2, rhs2);
-    assertEquals(builder, result2);
-    assertEquals(-1, builder.getComparison());
-    
-    double[] lhs3 = {1.0, 2.0, 3.0};
-    double[] rhs3 = null;
-    CompareToBuilder result3 = builder.append(lhs3, rhs3);
-    assertEquals(builder, result3);
-    assertEquals(1, builder.getComparison());
-    
-    double[] lhs4 = {1.0, 2.0};
-    double[] rhs4 = {1.0, 2.0, 3.0};
-    CompareToBuilder result4 = builder.append(lhs4, rhs4);
-    assertEquals(builder, result4);
-    assertEquals(-1, builder.getComparison());
-    
-    double[] lhs5 = {1.0, 2.0, 3.0};
-    double[] rhs5 = {1.0, 2.0};
-    CompareToBuilder result5 = builder.append(lhs5, rhs5);
-    assertEquals(builder, result5);
-    assertEquals(1, builder.getComparison());
-    
-    double[] lhs6 = {1.0, 2.0, 3.0};
-    double[] rhs6 = {1.0, 2.0, 3.0};
-    CompareToBuilder result6 = builder.append(lhs6, rhs6);
-    assertEquals(builder, result6);
-    assertEquals(0, builder.getComparison());
-}
+assertEquals(0, new CompareToBuilder().append(new double[]{1, 2, 3}, new double[]{1, 2, 3}).toComparison());
 
 
 No.5 generated result --------------------------
 
-package org.apache.commons.lang3.builder;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class CompareToBuilderTest {
-    @Test
+@Test
     public void appendTest() {
-        CompareToBuilder builder = new CompareToBuilder();
+        CompareToBuilder compareToBuilder = new CompareToBuilder();
         double[] lhs = {1.0, 2.0, 3.0};
         double[] rhs = {1.0, 2.0, 3.0};
-        CompareToBuilder result = builder.append(lhs, rhs);
-        assertEquals(builder, result);
+        compareToBuilder.append(lhs, rhs);
+        assertEquals(0, compareToBuilder.toComparison());
     }
-}
 
 
 No.6 generated result --------------------------
 
-@Test
 public void appendTest() {
     CompareToBuilder builder = new CompareToBuilder();
-    double[] lhs = {1.0, 2.0, 3.0};
-    double[] rhs = {1.0, 2.0, 3.0};
-    
-    builder.append(lhs, rhs);
-    
-    int expectedComparison = builder.toComparison();
-    int actualComparison = 0;
-    
-    assertEquals(expectedComparison, actualComparison, "Comparison should be 0");
+    double[] arr1 = {1.1, 2.2, 3.3};
+    double[] arr2 = {1.1, 2.2, 3.3};
+    CompareToBuilder result = builder.append(arr1, arr2);
+    assertEquals(builder, result);
 }
 
 
 No.7 generated result --------------------------
 
-package org.apache.commons.lang3.builder;
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class CompareToBuilderTest {
-    @Test
-    public void appendTest() {
-        CompareToBuilder builder = new CompareToBuilder();
-        double[] lhs = {1.0, 2.0, 3.0};
-        double[] rhs = {1.0, 2.0, 3.0};
-        CompareToBuilder result = builder.append(lhs, rhs);
-        assertEquals(builder, result, "Comparison should be the same object");
-        
-        lhs = null;
-        result = builder.append(lhs, rhs);
-        assertEquals(builder, result, "Comparison should be the same object");
-        assertEquals(-1, builder.toComparison(), "Comparison should be -1");
-        
-        lhs = new double[]{1.0};
-        rhs = new double[]{1.0, 2.0, 3.0};
-        result = builder.append(lhs, rhs);
-        assertEquals(builder, result, "Comparison should be the same object");
-        assertEquals(-1, builder.toComparison(), "Comparison should be -1");
-        
-        lhs = new double[]{1.0, 2.0, 3.0};
-        rhs = new double[]{1.0};
-        result = builder.append(lhs, rhs);
-        assertEquals(builder, result, "Comparison should be the same object");
-        assertEquals(1, builder.toComparison(), "Comparison should be 1");
-        
-        lhs = new double[]{1.0, 2.0, 3.0};
-        rhs = new double[]{1.0, 2.0, 3.0};
-        result = builder.append(lhs, rhs);
-        assertEquals(builder, result, "Comparison should be the same object");
-        assertEquals(0, builder.toComparison(), "Comparison should be 0");
-        
-        lhs = new double[]{1.0, 2.0, 3.0};
-        rhs = new double[]{4.0, 5.0, 6.0};
-        result = builder.append(lhs, rhs);
-        assertEquals(builder, result, "Comparison should be the same object");
-        assertEquals(-1, builder.toComparison(), "Comparison should be -1");
-    }
-}
+ public void appendTest() {
+     CompareToBuilder result = new CompareToBuilder();
+     double[] arr1 = {1.5, 2.0, 3.7};
+     double[] arr2 = {1.5, 2.0, 3.7};
+     result.append(arr1, arr2);
+     assertEquals(0, result.toComparison());
+ }
 
 
 No.8 generated result --------------------------
 
-double[] lhs = {1.0, 2.0, 3.0};
-double[] rhs = {1.0, 2.0, 3.0};
-
-CompareToBuilder builder = new CompareToBuilder();
-builder.append(lhs, rhs);
-
-int result = builder.build();
-
-assertEquals(0, result);
+@Test
+public void appendTest() {
+    CompareToBuilder compareToBuilder = new CompareToBuilder();
+    double[] lhs = {1.0, 2.0, 3.0};
+    double[] rhs = {1.0, 2.0, 4.0};
+    compareToBuilder.append(lhs, rhs);
+    int result = compareToBuilder.toComparison();
+    assertEquals(-1, result);
+}
 
 
 No.9 generated result --------------------------
 
-package org.apache.commons.lang3.builder;
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+CompareToBuilder ctb = new CompareToBuilder();
+double[] arr1 = {1.0, 2.0, 3.0};
+double[] arr2 = {1.0, 2.0, 3.0};
+CTBResult result = ctb.append(arr1, arr2);
+assertEquals(0, result.comparison);
 
-public class CompareToBuilderTest {
-    @Test
-    public void appendTest() {
-        CompareToBuilder builder = new CompareToBuilder();
-        double[] lhs = {1.0, 2.0, 3.0};
-        double[] rhs = {1.0, 2.0, 3.0};
-        
-        builder.append(lhs, rhs);
-        
-        int result = builder.toComparison();
-        assertEquals(0, result);
-    }
-}
 
 
 No.10 generated result --------------------------
 
+@Test
 public void appendTest() {
-        CompareToBuilder ctb = new CompareToBuilder();
-        double[] lhs = {1.0, 2.0, 3.0};
-        double[] rhs = {1.0, 2.0, 3.0};
-        ctb.append(lhs, rhs);
-        assertEquals(0, ctb.toComparison());
-        
-        double[] lhs2 = {1.0, 2.0, 3.0};
-        double[] rhs2 = {1.0, 2.0, 4.0};
-        ctb.append(lhs2, rhs2);
-        assertNotEquals(0, ctb.toComparison());
-        
-        double[] lhs3 = null;
-        double[] rhs3 = {1.0, 2.0, 3.0};
-        ctb.append(lhs3, rhs3);
-        assertEquals(-1, ctb.toComparison());
-        
-        double[] lhs4 = {1.0, 2.0, 3.0};
-        double[] rhs4 = null;
-        ctb.append(lhs4, rhs4);
-        assertEquals(1, ctb.toComparison());
-        
-        double[] lhs5 = {1.0, 2.0, 3.0};
-        double[] rhs5 = {1.0, 2.0, 3.0, 4.0};
-        ctb.append(lhs5, rhs5);
-        assertNotEquals(0, ctb.toComparison());
-
-        double[] lhs6 = {1.0, 2.0, 3.0};
-        double[] rhs6 = {1.0, 2.0, 3.0};
-        ctb.append(lhs6, rhs6);
-        assertEquals(0, ctb.toComparison());
-    }
+    CompareToBuilder builder = new CompareToBuilder();
+    double[] lhs = {1.0, 2.0, 3.0};
+    double[] rhs = {1.0, 2.0, 3.0};
+    CompareToBuilder result = builder.append(lhs, rhs);
+    assertEquals(builder, result);
+}
 
 

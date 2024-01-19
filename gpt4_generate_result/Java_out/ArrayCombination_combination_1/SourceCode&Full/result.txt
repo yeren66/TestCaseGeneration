@@ -1,0 +1,67 @@
+Source code: 
+
+
+public static List<TreeSet<Integer>> combination(int n, int k) {
+    if (n <= 0) {
+        return null;
+    }
+    length = k;
+    Integer[] arr = new Integer[n];
+    for (int i = 1; i <= n; i++) {
+        arr[i - 1] = i;
+    }
+    return Combination.combination(arr, length);
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

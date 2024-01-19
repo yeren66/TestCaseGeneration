@@ -60,172 +60,119 @@ private NBSI help_copy_impl( int i ) {
 
 No.1 generated result --------------------------
 
-package org.jctools.maps;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class NonBlockingSetIntTest {
-    @Test
-    public void help_copy_implTest() {
-        NBSI nbsi = new NBSI();
-        NBSI old = new NBSI();
-        NBSI nnn = new NBSI();
-        nbsi._bits[0] = 1L;
-        old._bits[0] = 1L;
-        nnn._bits[0] = 0L;
-
-        NBSI result = nbsi.help_copy_impl(0);
-
-        assertEquals(nbsi, result);
-    }
+@Test
+public void help_copy_implTest() {
+    // Setup
+    NonBlockingSetIntTest testObj = new NonBlockingSetIntTest();
+    // Write other setup and assertions
+    // ...
+    // Execution
+    NBSI result = testObj.help_copy_impl(3);
+    // Assertions
+    // ...
+    // Completion
+    // Output the whole test case
+    assert(result != null);
 }
 
 
 No.2 generated result --------------------------
 
-// JUNIT Test case:
-package org.jctools.maps;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class NonBlockingSetIntTest {
-    @Test
-    public void help_copy_implTest() {
-        NonBlockingSetInt nbsi = new NonBlockingSetInt();
-      
-        // Create test data
-        nbsi._bits = new long[10];
-        nbsi._bits[0] = 123456;
-        nbsi._bits[1] = 987654;
-      
-        NBSI old = new NBSI();
-        old._bits = new long[10];
-        old._bits[0] = 111111;
-        old._bits[1] = 222222;
-      
-        NBSI nnn = new NBSI();
-        nnn._bits = new long[10];
-        nnn._bits[0] = 0;
-        nnn._bits[1] = 555555;
-      
-        // Call the method under test
-        NBSI result = nbsi.help_copy_impl(0);
-      
-        // Verify the result
-        assertNotNull(result);
-    }
+@Test
+public void help_copy_implTest() {
+    // Create the NBSI objects old and nnn
+    NBSI old = new NBSI();
+    NBSI nnn = new NBSI();
+    
+    // Perform the help_copy_impl method
+    NBSI result = help_copy_impl(5);
+    
+    // Assert that the result is not null
+    assertNotNull(result);
 }
 
 
 No.3 generated result --------------------------
 
-package org.jctools.maps;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class NonBlockingSetIntTest {
-    @Test
-    public void help_copy_implTest() {
-        NBSI nbsi = new NBSI(); // Create an instance of NBSI
-        NBSI result = nbsi.help_copy_impl(0); // Call the help_copy_impl method with an index of 0
-        assertNotNull(result); // Assert that the result is not null
-        // Additional assertions can be added to test specific behavior or conditions
-    }
+@Test
+public void help_copy_implTest() {
+    NonBlockingSetIntTest nbsi = new NonBlockingSetIntTest();
+    // Add test cases for help_copy_impl method
+    // assert statements for different scenarios
+    // test for state 1
+    // test for state 2
+    // test for state 3
+    // test for state 4
 }
 
 
 No.4 generated result --------------------------
 
-package org.jctools.maps;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class NonBlockingSetIntTest {
-    @Test
-    public void help_copy_implTest() {
-        NBSI nbsi = new NBSI();
-        NBSI result = nbsi.help_copy_impl(5);
-        
-        // Assert statements
-        assertNotNull(result);
-        assertEquals(nbsi, result);
-    }
+@Test
+public void help_copy_implTest() {
+    // Create and initialize the object 
+    NBSI nbsi = new NBSI();
+    // Perform the help_copy_impl method
+    NBSI result = nbsi.help_copy_impl(0);
+    // Assert the result
+    assertNotNull(result);
 }
 
 
 No.5 generated result --------------------------
 
-package org.jctools.maps;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class NonBlockingSetIntTest {
-    @Test
-    public void help_copy_implTest() {
-        NBSI nbsi = new NBSI();
-        NBSI old = new NBSI();
-        NBSI nnn = new NBSI();
-        
-        // Partial Unit test
-        nbsi.help_copy_impl(1);
-        
-        // Assertion
-        <FILL>
-    }
+@Test
+public void help_copy_implTest() {
+  // Add test cases here
+  // Make assertions using assertEquals or assertTrue
+  // Example:
+  // assertEquals(expectedValue, actualValue);
 }
 
 
 No.6 generated result --------------------------
 
-package org.jctools.maps;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class NonBlockingSetIntTest {
-    @Test
-    public void help_copy_implTest() {
-        NBSI nbsi = new NBSI(); // Create an instance of NBSI to test
-        NBSI result = nbsi.help_copy_impl(3); // Call the method being tested
-        // Add assertions to verify the expected behavior of the method
-        
-        // Assert that the result of the method call is not null
-        assertNotNull(result);
-        
-        // Add more assertions to verify the desired behavior of the method
-        // For example, verifying specific properties of the result object
-        
-    }
-}
+    NonBlockingSetIntTest test = new NonBlockingSetIntTest();
+    // Write your individual test cases for help_copy_impl method
+    test.help_copy_implTest();
 
 
 No.7 generated result --------------------------
 
 @Test
 public void help_copy_implTest() {
-    // Create instances of NBSI for testing
+    // Initialize NBSI objects
     NBSI old = new NBSI();
     NBSI nnn = new NBSI();
     
-    // Set values for testing
-    old._bits = new long[]{122, 243, 13, 0}; // set values for old bits
-    nnn._bits = new long[]{0, 0, 0, 0}; // set values for new bits
-    old._nbsi64 = new NBSI();
-    nnn._nbsi64 = new NBSI();
-
-    int i = 0; // set value for i
+    // Set up the test case
     
-    // Perform help_copy_impl() method
-    NBSI result = help_copy_impl(i);
-
-    // Verify the result
-    assertEquals(this, result);
-    assertEquals(1, _copyDone.get());
+    // Test state 1: word is not immutable yet
+    long bits = old._bits[0];
+    while( bits >= 0 ) {
+        long oldbits = bits;
+        bits |= mask(63);
+        if( old.CAS( 0, oldbits, bits ) ) {
+            if( oldbits == 0 ) _copyDone.addAndGet(1);
+            break;
+        }
+        bits = old._bits[0];
+    }
+    
+    // Test state 2: non-zero in old and zero in new
+    if( bits != mask(63) ) {
+        long new_bits = nnn._bits[0];
+        if( new_bits == 0 ) {
+            new_bits = bits & ~mask(63);
+            if( !nnn.CAS( 0, 0, new_bits ) )
+                new_bits = nnn._bits[0];
+            assert new_bits != 0;
+        }
+        
+        // Transit from state 3: non-zero in old and non-zero in new
+        if( old.CAS( 0, bits, mask(63) ) )
+            _copyDone.addAndGet(1);
+    }
 }
 
 
@@ -233,59 +180,10 @@ No.8 generated result --------------------------
 
 @Test
 public void help_copy_implTest() {
-  NonBlockingSetIntTest testObj = new NonBlockingSetIntTest();
-  NBSI nbsiObj = new NBSI();
-  nbsiObj._bits = new long[10]; // Assuming the array size is 10
-  
-  // Test case 1: Transition from state 1
-  
-  // Set the non-immutable state in old array
-  nbsiObj._bits[1] = 5;
-  
-  // Call the help_copy_impl() method
-  NBSI result = testObj.help_copy_impl(nbsiObj, 1);
-  
-  // Verify the transition from state 1 to state 2
-  assertEquals(0, result._bits[1]);
-  assertEquals(5, result._new._bits[1]);
-  
-  // Test case 2: Transition from state 2
-  
-  // Set the non-zero value in old and new arrays
-  nbsiObj._bits[2] = 10;
-  nbsiObj._new._bits[2] = 0;
-  
-  // Call the help_copy_impl() method
-  result = testObj.help_copy_impl(nbsiObj, 2);
-  
-  // Verify the transition from state 2 to state 3
-  assertEquals(0, result._new._bits[2]);
-  assertEquals(0, result._bits[2]);
-  
-  // Test case 3: Transition from state 3
-  
-  // Set the non-zero value in old and new arrays
-  nbsiObj._bits[3] = 15;
-  nbsiObj._new._bits[3] = 20;
-  
-  // Call the help_copy_impl() method
-  result = testObj.help_copy_impl(nbsiObj, 3);
-  
-  // Verify the transition from state 3 to state 4
-  assertEquals(0, result._bits[3]);
-  assertEquals(20, result._new._bits[3]);
-  
-  // Test case 4: Transition from state 4
-  
-  // Set the zero value in old array
-  nbsiObj._bits[4] = 0;
-  
-  // Call the help_copy_impl() method
-  result = testObj.help_copy_impl(nbsiObj, 4);
-  
-  // Verify the state 4
-  assertEquals(0, result._bits[4]);
-  
+    // Creating a new instance of NBSI
+    NBSI nbsi = new NBSI();
+    // Running the help_copy_impl method and asserting the returned value is not null
+    assertNotNull(nbsi.help_copy_impl(3));
 }
 
 
@@ -293,10 +191,10 @@ No.9 generated result --------------------------
 
 @Test
 public void help_copy_implTest() {
-    NonBlockingSetIntTest obj = new NonBlockingSetIntTest();
-    NBSI nbsi = obj.new NBSI();
-    NBSI result = nbsi.help_copy_impl(0);
-    assertNotNull(result);
+    NBSI old = new NBSI();
+    NBSI nnn = new NBSI();
+    assertEquals(old, old.help_copy_impl(0));
+    assertEquals(old, nnn.help_copy_impl(1));
 }
 
 
@@ -304,24 +202,9 @@ No.10 generated result --------------------------
 
 @Test
 public void help_copy_implTest() {
-    NBSI old = new NBSI();
-    NBSI nnn = new NBSI();
-    
-    // Setting up the initial state of the old and new arrays
-    long[] old_bits = new long[10];
-    old_bits[3] = 1234L; // Non-zero value in old array
-    old._bits = old_bits;
-    
-    long[] new_bits = new long[10];
-    nnn._bits = new_bits;
-    
-    // Call the help_copy_impl() method
-    NBSI result = help_copy_impl(3, old, nnn);
-    
-    // Assert the expected results after the method is called
-    assertEquals(old, result);
-    assertEquals(1, result._copyDone.get());
-    assertEquals(1234L & ~mask(63), nnn._bits[3]);
+    // Write the test case for help_copy_impl method here
+    // Use assertions to verify the expected behavior of the method
+    // Ensure to cover different scenarios and edge cases
 }
 
 

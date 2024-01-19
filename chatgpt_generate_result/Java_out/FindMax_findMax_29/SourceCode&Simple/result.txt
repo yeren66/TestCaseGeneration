@@ -20,40 +20,31 @@ public static int findMax(final int[] array) {
 No.1 generated result --------------------------
 
 @Test
-public void findMaxTest() {
-    int[] array = { 10, 20, 30, 40, 50 };
-    int expected = 50;
-    int result = FindMax.findMax(array);
-    assertEquals(expected, result);
-}
+    public void findMaxTest() {
+        int[] testArray = {4, 8, 2, 10, 5};
+        int expectedResult = 10;
+        int actualResult = FindMax.findMax(testArray);
+        assertEquals(expectedResult, actualResult);
+    }
 
 
 No.2 generated result --------------------------
 
 @Test
 public void findMaxTest() {
-    int[] array = {1, 5, 3, 9, 2};
-    int expected = 9;
-    int actual = FindMax.findMax(array);
-    assertEquals(expected, actual);
+    int[] array = {3, 5, 2, 8, 10};
+    assertEquals(10, FindMax.findMax(array));
 }
 
 
 No.3 generated result --------------------------
 
-package com.thealgorithms.maths;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class FindMaxTest {
-    @Test
-    public void findMaxTest() {
-        int[] array = {1, 5, 3, 9, 2};
-        int expected = 9;
-        int actual = FindMax.findMax(array);
-        assertEquals(expected, actual);
-    }
+@Test
+public void findMaxTest() {
+    int[] testArray = {5, 2, 9, 6, 3};
+    int expected = 9;
+    int actual = FindMax.findMax(testArray);
+    assertEquals(expected, actual);
 }
 
 
@@ -61,13 +52,10 @@ No.4 generated result --------------------------
 
 @Test
 public void findMaxTest() {
-    int[] array = {1, 2, 3, 4, 5};
-    int expected = 5;
-    int actual = FindMax.findMax(array);
+    int[] testArray = {1, 5, 3, 9, 2};
+    int expected = 9;
+    int actual = FindMax.findMax(testArray);
     assertEquals(expected, actual);
-
-    int[] emptyArray = {};
-    assertThrows(IllegalArgumentException.class, () -> FindMax.findMax(emptyArray));
 }
 
 
@@ -75,8 +63,8 @@ No.5 generated result --------------------------
 
 @Test
 public void findMaxTest() {
-    int[] array = {1, 5, 3, 9, 2};
-    int expected = 9;
+    int[] array = {3, 7, 2, 10, 5};
+    int expected = 10;
     int actual = FindMax.findMax(array);
     assertEquals(expected, actual);
 }
@@ -86,8 +74,8 @@ No.6 generated result --------------------------
 
 @Test
 public void findMaxTest() {
-    int[] array = {1, 4, 2, 7, 5};
-    int expected = 7;
+    int[] array = {3, 7, 1, 9, 5};
+    int expected = 9;
     int actual = FindMax.findMax(array);
     assertEquals(expected, actual);
 }
@@ -97,28 +85,20 @@ No.7 generated result --------------------------
 
 @Test
 public void findMaxTest() {
-    int[] array = {1, 5, 3, 9, 2};
-    int expected = 9;
-    int actual = FindMax.findMax(array);
-    assertEquals(expected, actual);
+    int[] testArray = {3, 7, 2, 8, 5};
+    int expectedResult = 8;
+    int actualResult = FindMax.findMax(testArray);
+    assertEquals(expectedResult, actualResult);
 }
 
 
 No.8 generated result --------------------------
 
-package com.thealgorithms.maths;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class FindMaxTest {
-    @Test
-    public void findMaxTest() {
-        int[] array = {1, 2, 3, 4, 5};
-        int expectedResult = 5;
-        int actualResult = FindMax.findMax(array);
-        assertEquals(expectedResult, actualResult);
-    }
+@Test
+public void findMaxTest() {
+    int[] array = {3, 7, 2, 8, 4, 5};
+    int result = FindMax.findMax(array);
+    assertEquals(8, result);
 }
 
 
@@ -126,21 +106,20 @@ No.9 generated result --------------------------
 
 @Test
 public void findMaxTest() {
-    int[] array = {3, 5, 1, 2, 4};
-    int expected = 5;
-    int actual = FindMax.findMax(array);
-    assertEquals(expected, actual);
+    int[] arr = {3, 7, 2, 8, 4};
+    int result = FindMax.findMax(arr);
+    assertEquals(8, result);
 }
 
 
 No.10 generated result --------------------------
 
 @Test
-public void findMaxTest() {
-    int[] testArray = {1, 2, 3, 4, 5};
-    int expectedResult = 5;
-    int actualResult = FindMax.findMax(testArray);
-    assertEquals(expectedResult, actualResult);
-}
+    public void findMaxTest() {
+        int[] testArray = {5, 10, 8, 3, 6};
+        int expected = 10;
+        int actual = FindMax.findMax(testArray);
+        assertEquals(expected, actual);
+    }
 
 

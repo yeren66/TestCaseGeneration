@@ -27,70 +27,47 @@ public boolean offer(final E e)
 
 No.1 generated result --------------------------
 
-package org.jctools.queues;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BaseSpscLinkedArrayQueuePrePadTest {
-    @Test
-    public void offerTest() {
-        BaseSpscLinkedArrayQueue<Integer> queue = new BaseSpscLinkedArrayQueue<Integer>() {
-            @Override
-            boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E v, Supplier<? extends E> s) {
-                // Add your implementation here
-                return false; // Return the appropriate value
-            }
-        };
-
-        // Add your test case here
-
-    }
-}
-
-
-No.2 generated result --------------------------
 
 @Test
 public void offerTest() {
-    BaseSpscLinkedArrayQueue<String> queue = new BaseSpscLinkedArrayQueue<String>() {
+    BaseSpscLinkedArrayQueue<Integer> queue = new BaseSpscLinkedArrayQueue<Integer>() {
         @Override
         boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E v, Supplier<? extends E> s) {
-            // Implementation of offerColdPath method
             return false;
         }
     };
 
-    String element = "Test";
-    boolean result = queue.offer(element);
-
-    assertTrue(result);
+    assertFalse(queue.offer(null));
 }
+
+
+
+No.2 generated result --------------------------
+
+BaseSpscLinkedArrayQueue<Integer> queue = new BaseSpscLinkedArrayQueue<Integer>() {
+    @Override
+    boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E v, Supplier<? extends E> s) {
+        // Implement the offerColdPath logic here
+        return false;
+    }
+};
+
+boolean result = queue.offer(5);
+assertTrue(result);
 
 
 No.3 generated result --------------------------
 
-package org.jctools.queues;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BaseSpscLinkedArrayQueuePrePadTest {
-    @Test
-    public void offerTest() {
-        BaseSpscLinkedArrayQueue<Integer> queue = new BaseSpscLinkedArrayQueue<Integer>() {
-            @Override
-            boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E v, Supplier<? extends E> s) {
-                // Custom implementation for offerColdPath
-                return false;
-            }
-        };
-        
-        Integer e = 10;
-        boolean result = queue.offer(e);
-        
-        assertFalse(result);
-    }
+@Test
+public void offerTest() {
+    BaseSpscLinkedArrayQueue<Integer> queue = new BaseSpscLinkedArrayQueue<Integer>() {
+        @Override
+        boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E v, Supplier<? extends E> s) {
+            // Add your offer cold path implementation here
+            return true;
+        }
+    };
+    assertTrue(queue.offer(5));
 }
 
 
@@ -104,159 +81,102 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BaseSpscLinkedArrayQueuePrePadTest {
     @Test
     public void offerTest() {
-        BaseSpscLinkedArrayQueuePrePad<String> queue = new BaseSpscLinkedArrayQueuePrePad<String>() {
-            // Mock implementation for testing
+        BaseSpscLinkedArrayQueue<Integer> queue = new BaseSpscLinkedArrayQueue<Integer>() {
             @Override
-            boolean offerColdPath(
-                    Object[] buffer,
-                    long mask,
-                    long pIndex,
-                    long offset,
-                    Object v,
-                    Supplier<? extends Object> s) {
-                return false;
+            boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E v, Supplier<? extends E> s) {
+                // Implement offerColdPath logic here
+                // For example:
+                // writeToQueue(buffer, v, pIndex, offset);
+                return true;
             }
         };
-
-        // Test case for successful offer
-        assertTrue(queue.offer("Test"));
-
-        // Test case for failed offer
-        assertFalse(queue.offer(null));
+        // Test logic goes here
     }
 }
 
 
 No.5 generated result --------------------------
 
-package org.jctools.queues;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BaseSpscLinkedArrayQueuePrePadTest {
-    @Test
-    public void offerTest() {
-        BaseSpscLinkedArrayQueue<String> queue = new BaseSpscLinkedArrayQueue<String>() {
-            @Override
-            boolean offerColdPath(
-                E[] buffer,
-                long mask,
-                long pIndex,
-                long offset,
-                E v,
-                Supplier<? extends E> s) {
-                // Implementation of the offerColdPath method
-                return false;
-            }
-        };
-        
-        // Test case code
-        boolean result = queue.offer("test");
-        assert(result);
-    }
+@Test
+public void offerTest() {
+    BaseSpscLinkedArrayQueue<Integer> queue = new BaseSpscLinkedArrayQueue<Integer>() {
+        @Override
+        boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E v, Supplier<? extends E> s) {
+            return true; // Replace with actual implementation of offerColdPath
+        }
+    };
+    assertTrue(queue.offer(10));
 }
 
 
 No.6 generated result --------------------------
 
-package org.jctools.queues;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BaseSpscLinkedArrayQueuePrePadTest {
-    @Test
-    public void offerTest() {
-        BaseSpscLinkedArrayQueue<String> queue = new BaseSpscLinkedArrayQueue<String>() {
-            boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E v, Supplier<? extends E> s) {
-                return false;
-            }
-        };
-        
-        String element = "Test";
-        assertTrue(queue.offer(element));
-    }
+public void offerTest() {
+    BaseSpscLinkedArrayQueue<Integer> queue = new BaseSpscLinkedArrayQueue<Integer>() {
+        @Override
+        boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E v, Supplier<? extends E> s) {
+            return false; // Replace with custom implementation for offerColdPath
+        }
+    };
+    assertTrue(queue.offer(5)); // Replace with appropriate value
 }
 
 
 No.7 generated result --------------------------
 
-package org.jctools.queues;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BaseSpscLinkedArrayQueuePrePadTest {
-    @Test
-    public void offerTest() {
-        BaseSpscLinkedArrayQueue<Integer> queue = new BaseSpscLinkedArrayQueue<Integer>() {
-            @Override
-            boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E v, Supplier<? extends E> s) {
-                return false; // Fill in the implementation for this method
-            }
-        };
-
-        boolean result = queue.offer(5);
-        assertTrue(result);
+BaseSpscLinkedArrayQueue<Integer> queue = new BaseSpscLinkedArrayQueue<Integer>() {
+    @Override
+    boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E v, Supplier<? extends E> s) {
+        return <FILL IN WITH THE DESIRED BEHAVIOR>;
     }
-}
+};
+
+// Test the offer method with a valid and an invalid element
+assertFalse(queue.offer(null));
+assertTrue(queue.offer(1));
 
 
 No.8 generated result --------------------------
 
-
-@Override
+@Test
 public void offerTest() {
-    BaseSpscLinkedArrayQueue<Integer> queue = new BaseSpscLinkedArrayQueue<>();
-    assertTrue(queue.offer(1));
-    assertTrue(queue.offer(2));
-    assertTrue(queue.offer(3));
-    assertFalse(queue.offer(null));
-    assertEquals(3, queue.size());
+    BaseSpscLinkedArrayQueue<String> queue = new BaseSpscLinkedArrayQueue<String>() {
+        @Override
+        boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E v, Supplier<? extends E> s) {
+            // Implement offerColdPath logic here
+            return true;
+        }
+    };
+    assertTrue(queue.offer("Test")); 
 }
-
 
 
 No.9 generated result --------------------------
 
-package org.jctools.queues;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BaseSpscLinkedArrayQueuePrePadTest {
-    @Test
-    public void offerTest() {
-        // Create an instance of BaseSpscLinkedArrayQueuePrePad
-        BaseSpscLinkedArrayQueuePrePad<Integer> queue = new BaseSpscLinkedArrayQueuePrePad<Integer>(){};
-
-        // Call the offer method and store the result
-        boolean result = queue.offer(10);
-
-        // Assert that the offer method returns true
-        assertTrue(result);
-    }
+@Test
+public void offerTest() {
+    BaseSpscLinkedArrayQueue<String> queue = new BaseSpscLinkedArrayQueue<String>() {
+        @Override
+        boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E v, Supplier<? extends E> s) {
+            // Implementation of the offerColdPath method
+            return false; // Fill in with your desired logic
+        }
+    };
+    queue.producerBuffer = new String[16];
+    queue.producerMask = 15; // Fill in with appropriate values
+    queue.producerBufferLimit = 15; // Fill in with appropriate value
+    queue.offer("TestString"); // Example input
 }
 
 
 No.10 generated result --------------------------
 
-@Test
-    public void offerTest() {
-        BaseSpscLinkedArrayQueue<Integer> queue = new BaseSpscLinkedArrayQueue<>() {
-            @Override
-            boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E v, Supplier<? extends E> s) {
-                // Implementation code here
-                return false;
-            }
-        };
-        
-        Integer element = 10;
-        boolean result = queue.offer(element);
-        
-        // Assertion code here for the expected result
-        
-    }
+    BaseSpscLinkedArrayQueue<Integer> queue = new BaseSpscLinkedArrayQueue<Integer>() {
+        @Override
+        boolean offerColdPath(E[] buffer, long mask, long pIndex, long offset, E v, Supplier<? extends E> s) {
+            return false;
+        }
+    };
+    assertTrue(queue.offer(5));
 
 

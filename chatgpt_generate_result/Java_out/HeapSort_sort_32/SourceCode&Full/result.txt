@@ -16,21 +16,14 @@ public <T extends Comparable<T>> T[] sort(T[] unsorted) {
 
 No.1 generated result --------------------------
 
-package com.thealgorithms.sorts;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class HeapSortTest {
-    @Test
+@Test
     public void sortTest() {
-        Integer[] unsorted = {5, 3, 8, 2, 1, 4};
+        Integer[] unsorted = {12, 11, 13, 5, 6, 7};
         HeapSort heapSort = new HeapSort();
-        Integer[] sorted = heapSort.sort(unsorted);
-        Integer[] expected = {1, 2, 3, 4, 5, 8};
-        assertArrayEquals(expected, sorted);
+        heapSort.sort(unsorted);
+        Integer[] expected = {5, 6, 7, 11, 12, 13};
+        assertArrayEquals(expected, unsorted);
     }
-}
 
 
 No.2 generated result --------------------------
@@ -38,10 +31,10 @@ No.2 generated result --------------------------
 @Test
 public void sortTest() {
     HeapSort heapSort = new HeapSort();
-    Integer[] unsorted = {6, 2, 9, 1, 5};
-    Integer[] expected = {1, 2, 5, 6, 9};
-    Integer[] result = heapSort.sort(unsorted);
-    assertArrayEquals(expected, result);
+    Integer[] unsorted = {12, 11, 13, 5, 6, 7};
+    Integer[] sorted = heapSort.sort(unsorted);
+    Integer[] expected = {5, 6, 7, 11, 12, 13};
+    assertArrayEquals(expected, sorted);
 }
 
 
@@ -49,13 +42,10 @@ No.3 generated result --------------------------
 
 @Test
 public void sortTest() {
-    Integer[] unsorted = {5, 2, 8, 9, 1, 3};
+    Integer[] input = {4, 2, 9, 6, 23, 12, 34, 0, 1};
     HeapSort heapSort = new HeapSort();
-    Integer[] sorted = heapSort.sort(unsorted);
-    
-    Integer[] expected = {1, 2, 3, 5, 8, 9};
-    
-    assertArrayEquals(expected, sorted);
+    Integer[] expected = {0, 1, 2, 4, 6, 9, 12, 23, 34};
+    assertArrayEquals(expected, heapSort.sort(input));
 }
 
 
@@ -63,61 +53,33 @@ No.4 generated result --------------------------
 
 @Test
 public void sortTest() {
-    Integer[] unsorted = {7, 3, 9, 2, 5};
-    Integer[] expected = {2, 3, 5, 7, 9};
-    
+    Integer[] input = {4, 2, 9, 10, 1, 5};
     HeapSort heapSort = new HeapSort();
-    Integer[] sorted = heapSort.sort(unsorted);
-    
-    assertArrayEquals(expected, sorted);
+    Integer[] expected = {1, 2, 4, 5, 9, 10};
+    assertArrayEquals(expected, heapSort.sort(input));
 }
 
 
 No.5 generated result --------------------------
 
-### JUNIT Test case:
-
-package com.thealgorithms.sorts;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class HeapSortTest {
-    private HeapSort heapSort;
-    
-    @BeforeEach
-    public void setUp() {
-        heapSort = new HeapSort();
-    }
-    
-    @Test
-    public void sortTest() {
-        Integer[] unsorted = {5, 2, 7, 1, 3};
-        Integer[] expected = {1, 2, 3, 5, 7};
-        
-        Integer[] sorted = heapSort.sort(unsorted);
-        
-        assertArrayEquals(expected, sorted);
-    }
+@Test
+public void sortTest() {
+    Integer[] unsorted = {4, 7, 1, 9, 3, 5};
+    Integer[] expected = {1, 3, 4, 5, 7, 9};
+    HeapSort heapSort = new HeapSort();
+    Integer[] actual = heapSort.sort(unsorted);
+    assertArrayEquals(expected, actual);
 }
 
 
 No.6 generated result --------------------------
 
-package com.thealgorithms.sorts;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class HeapSortTest {
-    @Test
-    public void sortTest() {
-        Integer[] unsorted = {5, 9, 3, 1, 8};
-        HeapSort heapSort = new HeapSort();
-        Integer[] sorted = heapSort.sort(unsorted);
-        Integer[] expected = {1, 3, 5, 8, 9};
-        assertArrayEquals(expected, sorted);
-    }
+@Test
+public void sortTest() {
+    Integer[] arr = {12, 4, 5, 7, 3, 1, 6};
+    HeapSort heapSort = new HeapSort();
+    heapSort.sort(arr);
+    assertArrayEquals(new Integer[]{1, 3, 4, 5, 6, 7, 12}, arr);
 }
 
 
@@ -125,46 +87,21 @@ No.7 generated result --------------------------
 
 @Test
 public void sortTest() {
-    Integer[] unsorted = {4, 2, 6, 8, 3, 1, 9, 5, 7};
-    Integer[] expected = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    HeapSort heapSort = new HeapSort();
-    Integer[] sorted = heapSort.sort(unsorted);
-    assertArrayEquals(expected, sorted);
+    Integer[] unsorted = {12, 11, 13, 5, 6, 7};
+    Integer[] sorted = {5, 6, 7, 11, 12, 13};
+    assertArrayEquals(sorted, new HeapSort().sort(unsorted));
 }
 
 
 No.8 generated result --------------------------
 
-package com.thealgorithms.sorts;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class HeapSortTest {
-    @Test
-    public void sortTest() {
-        HeapSort heapSort = new HeapSort();
-        
-        // Test case 1 - array with unique values
-        Integer[] unsorted1 = {5, 2, 7, 1, 9};
-        Integer[] sorted1 = {1, 2, 5, 7, 9};
-        assertArrayEquals(sorted1, heapSort.sort(unsorted1));
-        
-        // Test case 2 - array with duplicate values
-        Integer[] unsorted2 = {3, 6, 2, 3, 6};
-        Integer[] sorted2 = {2, 3, 3, 6, 6};
-        assertArrayEquals(sorted2, heapSort.sort(unsorted2));
-        
-        // Test case 3 - empty array
-        Integer[] unsorted3 = {};
-        Integer[] sorted3 = {};
-        assertArrayEquals(sorted3, heapSort.sort(unsorted3));
-        
-        // Test case 4 - array with single element
-        Integer[] unsorted4 = {8};
-        Integer[] sorted4 = {8};
-        assertArrayEquals(sorted4, heapSort.sort(unsorted4));
-    }
+@Test
+public void sortTest() {
+    HeapSort heapSort = new HeapSort();
+    Integer[] unsortedArray = {4, 2, 7, 1, 9, 5};
+    Integer[] sortedArray = heapSort.sort(unsortedArray);
+    Integer[] expectedArray = {1, 2, 4, 5, 7, 9};
+    assertArrayEquals(expectedArray, sortedArray);
 }
 
 
@@ -172,10 +109,16 @@ No.9 generated result --------------------------
 
 @Test
 public void sortTest() {
+    // Given
+    Integer[] unsorted = new Integer[]{4, 2, 0, 5, 3, 1};
+    
+    // When
     HeapSort heapSort = new HeapSort();
-    Integer[] unsorted = {5, 2, 8, 3, 1};
-    Integer[] sorted = {1, 2, 3, 5, 8};
-    assertArrayEquals(sorted, heapSort.sort(unsorted));
+    Integer[] sorted = heapSort.sort(unsorted);
+    
+    // Then
+    Integer[] expected = new Integer[]{0, 1, 2, 3, 4, 5};
+    assertArrayEquals(expected, sorted);
 }
 
 
@@ -183,13 +126,10 @@ No.10 generated result --------------------------
 
 @Test
 public void sortTest() {
+    Integer[] inputArray = {4, 3, 1, 5, 2};
+    Integer[] expectedOutput = {1, 2, 3, 4, 5};
     HeapSort heapSort = new HeapSort();
-    Integer[] unsorted = {5, 2, 9, 1, 3};
-    Integer[] sorted = {1, 2, 3, 5, 9};
-    
-    Integer[] result = heapSort.sort(unsorted);
-    
-    assertArrayEquals(sorted, result);
+    assertArrayEquals(expectedOutput, heapSort.sort(inputArray));
 }
 
 

@@ -30,51 +30,111 @@ public CompareToBuilder append(final byte[] lhs, final byte[] rhs) {
 
 No.1 generated result --------------------------
 
-Timeout
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CompareToBuilderTest {
+    @Test
+    public void appendTest() {
+        CompareToBuilder builder = new CompareToBuilder();
+        int result = builder.append(new byte[]{1, 2, 3}, new byte[]{1, 2, 3}).toComparison();
+        assertEquals(0, result);
+    }
+}
 
 
 No.2 generated result --------------------------
 
-Timeout
+@Test
+public void appendTest() {
+    CompareToBuilder builder = new CompareToBuilder();
+    byte[] arr1 = {1, 2, 3};
+    byte[] arr2 = {1, 2, 4};
+    CompareToBuilder result = builder.append(arr1, arr2);
+    assertEquals(0, result.toComparison());
+}
 
 
 No.3 generated result --------------------------
 
-Timeout
+CompareToBuilder builder;
+
+@BeforeEach
+public void setup() {
+    builder = new CompareToBuilder();
+}
+
+@Test
+public void appendTest() {
+    builder.append(new byte[] { 1, 2, 3 }, new byte[] { 4, 5, 6 });
+    int comparison = builder.toComparison();
+    assertEquals(-1, comparison);
+}
 
 
 No.4 generated result --------------------------
 
-Timeout
+CompareToBuilder compareToBuilder = new CompareToBuilder();
+compareToBuilder.append(new byte[] { 1, 2, 3 }, new byte[] { 1, 2, 3 });
+assertEquals(0, compareToBuilder.toComparison());
 
 
 No.5 generated result --------------------------
 
-Timeout
+@Test
+public void appendTest() {
+    CompareToBuilder builder = new CompareToBuilder();
+    builder.append((byte) 1, (byte) 2);
+    int result = builder.toComparison();
+    assertEquals(-1, result);
+}
 
 
 No.6 generated result --------------------------
 
-Timeout
+CompareToBuilder cb = new CompareToBuilder();
+cb.append(new byte[]{1, 2, 3}, new byte[]{1, 2, 3});
+assertEquals(0, cb.toComparison());
 
 
 No.7 generated result --------------------------
 
-Timeout
+@Test
+public void appendTest() {
+    CompareToBuilder builder = new CompareToBuilder();
+    assertEquals(0, builder.append((byte) 1, (byte) 1).toComparison());
+}
 
 
 No.8 generated result --------------------------
 
-Timeout
+@Test
+public void appendTest() {
+    CompareToBuilder builder = new CompareToBuilder();
+    builder.append(new byte[]{1, 2, 3}, new byte[]{1, 2, 3});
+    int result = builder.toComparison();
+    assertEquals(0, result);
+}
 
 
 No.9 generated result --------------------------
 
-Timeout
+CompareToBuilder builder = new CompareToBuilder();
+int result = builder.append(new byte[]{1, 2, 3, 4}, new byte[]{1, 2, 3, 4}).toComparison();
+assertTrue(result == 0, "Comparison result should be 0");
 
 
 No.10 generated result --------------------------
 
-Timeout
+@Test
+public void appendTest() {
+    CompareToBuilder builder = new CompareToBuilder();
+    byte[] lhs = new byte[] {1, 2, 3};
+    byte[] rhs = new byte[] {1, 2, 3};
+    int result = builder.append(lhs, rhs).toComparison();
+    assertEquals(0, result);
+}
 
 

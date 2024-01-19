@@ -1,0 +1,68 @@
+Source code: 
+
+
+public HeapNode insert(int key) {
+    HeapNode toInsert = new HeapNode(key); // creates the node
+    if (this.empty()) {
+        this.min = toInsert;
+    } else { // tree is not empty
+        min.setNext(toInsert);
+        this.updateMin(toInsert);
+    }
+    this.numOfHeapNodes++;
+    this.numOfTrees++;
+    return toInsert;
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

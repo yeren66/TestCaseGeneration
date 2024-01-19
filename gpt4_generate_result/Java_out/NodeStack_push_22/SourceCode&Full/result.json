@@ -1,0 +1,26 @@
+{
+    "project_name": "Java",
+    "file_name": "NodeStack.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/datastructures/stacks/NodeStack.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.datastructures.stacks",
+    "docstring": "/**\n     * Put a value onto the stack.\n     *\n     * @param item : value to be put on the stack.\n     */",
+    "source_code": "\npublic void push(Item item) {\n    NodeStack<Item> newNs = new NodeStack<Item>(item);\n\n    if (this.isEmpty()) {\n        NodeStack.setHead(new NodeStack<>(item));\n        newNs.setNext(null);\n        newNs.setPrevious(null);\n    } else {\n        newNs.setPrevious(NodeStack.head);\n        NodeStack.head.setNext(newNs);\n        NodeStack.setHead(newNs);\n    }\n\n    NodeStack.setSize(NodeStack.getSize() + 1);\n}\n",
+    "class_name": "NodeStack",
+    "method_name": "push",
+    "arguments": [
+        "Item item"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

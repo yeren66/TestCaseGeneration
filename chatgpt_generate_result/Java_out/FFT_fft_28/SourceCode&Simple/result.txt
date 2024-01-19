@@ -38,20 +38,12 @@ public void fftTest() {
     input.add(new Complex(1, 0));
     input.add(new Complex(2, 0));
     input.add(new Complex(3, 0));
-    input.add(new Complex(4, 0));
-
-    ArrayList<Complex> actualOutput = FFT.fft(input, false);
-
-    ArrayList<Complex> expectedOutput = new ArrayList<>();
-    expectedOutput.add(new Complex(10, 0));
-    expectedOutput.add(new Complex(-2, 2));
-    expectedOutput.add(new Complex(-2, 0));
-    expectedOutput.add(new Complex(-2, -2));
-
-    for (int i = 0; i < actualOutput.size(); i++) {
-        assertEquals(expectedOutput.get(i).getReal(), actualOutput.get(i).getReal(), 0.000001);
-        assertEquals(expectedOutput.get(i).getImaginary(), actualOutput.get(i).getImaginary(), 0.000001);
-    }
+    
+    ArrayList<Complex> result = FFT.fft(input, false);
+    
+    // Add assertions to check the result
+    assertNotNull(result);
+    assertEquals(3, result.size());
 }
 
 
@@ -59,17 +51,21 @@ No.2 generated result --------------------------
 
 @Test
 public void fftTest() {
-    // Create input ArrayList
+    // Create an input ArrayList<Complex>
     ArrayList<Complex> input = new ArrayList<>();
+    input.add(new Complex(1, 2));
+    input.add(new Complex(3, 4));
+    input.add(new Complex(5, 6));
     
-    // Populate input ArrayList with Complex numbers
-    // (code to populate the ArrayList with numbers)
-    
-    // Call FFT.fft() method
+    // Perform the FFT calculation
     ArrayList<Complex> result = FFT.fft(input, false);
     
-    // Perform assertions to verify the correctness of the output
-    // (code to perform assertions)
+    // Verify the expected output with the actual output
+    ArrayList<Complex> expected = new ArrayList<>();
+    expected.add(new Complex(9, 12));
+    expected.add(new Complex(-3, 0));
+    expected.add(new Complex(-3, -12));
+    assertEquals(expected, result);
 }
 
 
@@ -77,99 +73,73 @@ No.3 generated result --------------------------
 
 @Test
 public void fftTest() {
+    // Given
     ArrayList<Complex> input = new ArrayList<>();
-    input.add(new Complex(2, 0));
-    input.add(new Complex(5, 0));
-    input.add(new Complex(1, 0));
-    input.add(new Complex(4, 0));
+    input.add(new Complex(3, 4));
+    input.add(new Complex(5, 8));
+    boolean inverse = false;
 
-    ArrayList<Complex> expectedOutput = new ArrayList<>();
-    expectedOutput.add(new Complex(12, 0));
-    expectedOutput.add(new Complex(-3, -5));
-    expectedOutput.add(new Complex(-6, 0));
-    expectedOutput.add(new Complex(-3, 5));
+    // When
+    ArrayList<Complex> result = FFT.fft(input, inverse);
 
-    ArrayList<Complex> result = FFT.fft(input, false);
-    assertEquals(expectedOutput, result);
+    // Then
+    assertNotNull(result);
+    assertEquals(2, result.size());
+    assertEquals(15, result.get(0).getReal());
+    assertEquals(26, result.get(0).getImaginary());
+    assertEquals(-2, result.get(1).getReal());
+    assertEquals(-4, result.get(1).getImaginary());
 }
 
 
 No.4 generated result --------------------------
 
-    @Test
-    public void fftTest() {
-        ArrayList<Complex> input = new ArrayList<>();
-        input.add(new Complex(1, 0));
-        input.add(new Complex(2, 0));
-        input.add(new Complex(3, 0));
-        input.add(new Complex(4, 0));
-        
-        ArrayList<Complex> expectedOutput = new ArrayList<>();
-        expectedOutput.add(new Complex(10, 0));
-        expectedOutput.add(new Complex(-2, 2));
-        expectedOutput.add(new Complex(-2, 0));
-        expectedOutput.add(new Complex(-2, -2));
-        
-        ArrayList<Complex> result = FFT.fft(input, false);
-        
-        for (int i = 0; i < result.size(); i++) {
-            assertEquals(expectedOutput.get(i).getReal(), result.get(i).getReal(), 0.001);
-            assertEquals(expectedOutput.get(i).getImaginary(), result.get(i).getImaginary(), 0.001);
-        }
-    }
+@Test
+public void fftTest() {
+    ArrayList<Complex> input = new ArrayList<>();
+    input.add(new Complex(1, 2));
+    input.add(new Complex(3, 4));
+    input.add(new Complex(5, 6));
+    
+    ArrayList<Complex> expectedResult = new ArrayList<>();
+    expectedResult.add(new Complex(-1.5, 3));
+    expectedResult.add(new Complex(-1.5, -0.5));
+    expectedResult.add(new Complex(9, -3));
+    
+    ArrayList<Complex> result = FFT.fft(input, false);
+    
+    assertEquals(expectedResult, result);
+}
 
 
 No.5 generated result --------------------------
 
-    @Test
-    public void fftTest() {
-        ArrayList<Complex> x = new ArrayList<>();
-        x.add(new Complex(1, 0));
-        x.add(new Complex(2, 0));
-        x.add(new Complex(3, 0));
-        x.add(new Complex(4, 0));
-        ArrayList<Complex> expectedOutput = new ArrayList<>();
-        expectedOutput.add(new Complex(10, 0));
-        expectedOutput.add(new Complex(-2, 2));
-        expectedOutput.add(new Complex(-2, 0));
-        expectedOutput.add(new Complex(-2, -2));
-        
-        ArrayList<Complex> actualOutput = FFT.fft(x, false);
-        
-        assertEquals(expectedOutput, actualOutput);
-    }
+@Test
+public void fftTest() {
+    ArrayList<FFT.Complex> input = new ArrayList<>();
+    input.add(new FFT.Complex(1, 2));
+    input.add(new FFT.Complex(3, 4));
+    ArrayList<FFT.Complex> result = FFT.fft(input, false);
+    assertNotNull(result);
+    assertEquals(2, result.size());
+    assertEquals(Complex{real=4.0, img=6.0}, result.get(0));
+    assertEquals(Complex{real=-2.0, img=-2.0}, result.get(1));
+}
 
 
 No.6 generated result --------------------------
 
-package com.thealgorithms.maths;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class FFTTest {
-    @Test
-    public void fftTest() {
-        // Create input ArrayList
-        ArrayList<Complex> input = new ArrayList<>();
-        input.add(new Complex(1, 0));
-        input.add(new Complex(2, 0));
-        input.add(new Complex(3, 0));
-        input.add(new Complex(4, 0));
-
-        // Perform FFT
-        ArrayList<Complex> result = FFT.fft(input, false);
-
-        // Verify the output
-        assertEquals(result.get(0).getReal(), 10.0, 0.0001);
-        assertEquals(result.get(1).getReal(), -2.0, 0.0001);
-        assertEquals(result.get(2).getReal(), -2.0, 0.0001);
-        assertEquals(result.get(3).getReal(), -2.0, 0.0001);
-        assertEquals(result.get(0).getImaginary(), 0.0, 0.0001);
-        assertEquals(result.get(1).getImaginary(), 2.0, 0.0001);
-        assertEquals(result.get(2).getImaginary(), 0.0, 0.0001);
-        assertEquals(result.get(3).getImaginary(), -2.0, 0.0001);
-    }
+@Test
+public void fftTest() {
+    ArrayList<Complex> input = new ArrayList<>();
+    input.add(new Complex(1, 0));
+    input.add(new Complex(2, 0));
+    input.add(new Complex(3, 0));
+    ArrayList<Complex> result = FFT.fft(input, false);
+    assertEquals(3, result.size());
+    assertEquals(new Complex(6, 0), result.get(0));
+    assertEquals(new Complex(-1.5, 0.866), result.get(1));
+    assertEquals(new Complex(-1.5, -0.866), result.get(2));
 }
 
 
@@ -177,25 +147,22 @@ No.7 generated result --------------------------
 
 @Test
 public void fftTest() {
-    // Initialize input data
-    ArrayList<FFT.Complex> input = new ArrayList<>();
-    input.add(new FFT.Complex(1, 0));
-    input.add(new FFT.Complex(2, 0));
-    input.add(new FFT.Complex(3, 0));
-    input.add(new FFT.Complex(4, 0));
+    ArrayList<Complex> testInput = new ArrayList<>();
+    testInput.add(new Complex(1.0, 0.0));
+    testInput.add(new Complex(2.0, 0.0));
+    testInput.add(new Complex(3.0, 0.0));
     
-    // Expected output
-    ArrayList<FFT.Complex> expectedOutput = new ArrayList<>();
-    expectedOutput.add(new FFT.Complex(10, 0));
-    expectedOutput.add(new FFT.Complex(-2, 2));
-    expectedOutput.add(new FFT.Complex(-2, 0));
-    expectedOutput.add(new FFT.Complex(-2, -2));
+    ArrayList<Complex> expectedOutput = new ArrayList<>();
+    expectedOutput.add(new Complex(6.0, 0.0));
+    expectedOutput.add(new Complex(-1.5, 0.86602540378));
+    expectedOutput.add(new Complex(-1.5, -0.86602540378));
     
-    // Perform the FFT
-    ArrayList<FFT.Complex> result = FFT.fft(input, false);
+    ArrayList<Complex> result = FFT.fft(testInput, false);
     
-    // Assert the result matches the expected output
-    assertEquals(expectedOutput, result);
+    for (int i = 0; i < result.size(); i++) {
+        assertEquals(expectedOutput.get(i).getReal(), result.get(i).getReal(), 0.0001);
+        assertEquals(expectedOuptut.get(i).getImaginary(), result.get(i).getImaginary(), 0.0001);
+    }
 }
 
 
@@ -204,22 +171,18 @@ No.8 generated result --------------------------
 @Test
 public void fftTest() {
     ArrayList<Complex> input = new ArrayList<>();
-    input.add(new Complex(1, 0));
-    input.add(new Complex(2, 0));
-    input.add(new Complex(3, 0));
-    input.add(new Complex(4, 0));
+    input.add(new Complex(1, 2));
+    input.add(new Complex(3, 4));
     
-    ArrayList<Complex> expectedResult = new ArrayList<>();
-    expectedResult.add(new Complex(10, 0));
-    expectedResult.add(new Complex(-2, 2));
-    expectedResult.add(new Complex(-2, 0));
-    expectedResult.add(new Complex(-2, -2));
+    ArrayList<Complex> expected = new ArrayList<>();
+    expected.add(new Complex(4, 6));
+    expected.add(new Complex(-2, 0));
+
+    ArrayList<Complex> result = FFT.fft(input, false);
     
-    ArrayList<Complex> actualResult = FFT.fft(input, false);
-    
-    for (int i = 0; i < actualResult.size(); i++) {
-        assertEquals(expectedResult.get(i).getReal(), actualResult.get(i).getReal(), 0.001);
-        assertEquals(expectedResult.get(i).getImaginary(), actualResult.get(i).getImaginary(), 0.001);
+    for (int i = 0; i < result.size(); i++) {
+        assertEquals(expected.get(i).getReal(), result.get(i).getReal(), 0.0001);
+        assertEquals(expected.get(i).getImaginary(), result.get(i).getImaginary(), 0.0001);
     }
 }
 
@@ -227,46 +190,28 @@ public void fftTest() {
 No.9 generated result --------------------------
 
 @Test
-    public void fftTest() {
-        ArrayList<Complex> input = new ArrayList<>();
-        input.add(new Complex(1, 0));
-        input.add(new Complex(2, 0));
-        input.add(new Complex(3, 0));
-        input.add(new Complex(4, 0));
-
-        ArrayList<Complex> expected = new ArrayList<>();
-        expected.add(new Complex(10, 0));
-        expected.add(new Complex(-2, 2));
-        expected.add(new Complex(-2, 0));
-        expected.add(new Complex(-2, -2));
-
-        ArrayList<Complex> result = FFT.fft(input, false);
-        for (int i = 0; i < result.size(); i++) {
-            assertEquals(expected.get(i).getReal(), result.get(i).getReal(), 0.001);
-            assertEquals(expected.get(i).getImaginary(), result.get(i).getImaginary(), 0.001);
-        }
-    }
+public void fftTest() {
+    ArrayList<Complex> inputSignal = new ArrayList<>();
+    inputSignal.add(new Complex(1, 0));
+    inputSignal.add(new Complex(2, 0));
+    inputSignal.add(new Complex(3, 0));
+    
+    ArrayList<Complex> expectedResult = new ArrayList<>();
+    expectedResult.add(new Complex(6, 0));
+    expectedResult.add(new Complex(-1.5, 0.86602540378));
+}
 
 
 No.10 generated result --------------------------
 
-@Test
-public void fftTest() {
-    ArrayList<Complex> input = new ArrayList<>();
-    input.add(new Complex(1, 0));
-    input.add(new Complex(2, 0));
-    input.add(new Complex(3, 0));
-    input.add(new Complex(4, 0));
+// Given
+ArrayList<Complex> input = new ArrayList<>();
+boolean inverse = false;
 
-    ArrayList<Complex> expectedOutput = new ArrayList<>();
-    expectedOutput.add(new Complex(10, 0));
-    expectedOutput.add(new Complex(-2, 2));
-    expectedOutput.add(new Complex(-2, 0));
-    expectedOutput.add(new Complex(-2, -2));
+// When
+ArrayList<Complex> result = FFT.fft(input, inverse);
 
-    ArrayList<Complex> actualOutput = FFT.fft(input, false);
-
-    assertEquals(expectedOutput, actualOutput);
-}
+// Then
+// Add assertions here for the expected output
 
 

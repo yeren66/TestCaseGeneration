@@ -123,128 +123,143 @@ private static String getEncodedData(boolean[] correctedBits) throws FormatExcep
 No.1 generated result --------------------------
 
 @Test
-public void getEncodedDataTest() throws FormatException {
-  boolean[] correctedBits = {true, false, true, false, true, true, false, true};
-  String expectedOutput = "Hello";
-  String actualOutput = Decoder.getEncodedData(correctedBits);
-  assertEquals(expectedOutput, actualOutput);
+public void getEncodedDataTest() {
+    boolean[] correctedBits = new boolean[]{true, false, true, false, true};
+    try {
+        String encodedData = Decoder.getEncodedData(correctedBits);
+        assertEquals("output string here", encodedData);
+    } catch (FormatException e) {
+        e.printStackTrace();
+        fail("Format Exception thrown");
+    }
 }
 
 
 No.2 generated result --------------------------
 
 @Test
-public void getEncodedDataTest() throws FormatException {
-  // Create a sample boolean array for corrected bits
-  boolean[] correctedBits = new boolean[]{true, true, false, true, false, true, true, true, true, false};
-
-  // Call the getEncodedData() method with the sample corrected bits array
-  String encodedData = Decoder.getEncodedData(correctedBits);
-
-  // Verify the output of the method
-  assertEquals("ABH", encodedData);
+public void getEncodedDataTest() {
+    boolean[] correctedBits = new boolean[]{true, false, true, true, false, false, true, false, true, false};
+    try {
+        String encodedData = Decoder.getEncodedData(correctedBits);
+        assertEquals("", encodedData);
+    } catch (FormatException e) {
+        fail("Format Exception occurred");
+    }
 }
 
 
 No.3 generated result --------------------------
 
 @Test
-public void getEncodedDataTest() throws FormatException {
-    boolean[] correctedBits = {true, false, true, false, true, false, true};
-    String expected = "ABC";
-    
-    String result = Decoder.getEncodedData(correctedBits);
-    
-    assertEquals(expected, result);
+public void getEncodedDataTest() {
+    boolean[] correctedBits = {true, false, true, true, false, false, true, true, true, false, false, true, false, true, true, false};
+    try {
+        String result = Decoder.getEncodedData(correctedBits);
+        assertEquals(expectedResult, result);
+    } catch (FormatException e) {
+        e.printStackTrace();
+    }
 }
 
 
 No.4 generated result --------------------------
 
 @Test
-public void getEncodedDataTest() throws FormatException {
-    boolean[] correctedBits = new boolean[]{true, false, true, true, false, true, false, true, true};
-    String expected = "HELLO";
-    
-    String result = Decoder.getEncodedData(correctedBits);
-    
-    assertEquals(expected, result);
+public void getEncodedDataTest() {
+    boolean[] correctedBits = new boolean[]{true, false, true, true, false, true, true, false};
+    try {
+        String result = Decoder.getEncodedData(correctedBits);
+        assertEquals("EncodedData", result);
+    } catch (FormatException e) {
+        fail("Exception thrown: " + e.getMessage());
+    }
 }
 
 
 No.5 generated result --------------------------
 
 @Test
-public void getEncodedDataTest() throws FormatException {
-    boolean[] correctedBits = new boolean[10]; // example correctedBits array
-    String expected = ""; // expected encoded data
-
-    // <FILL> - call the getEncodedData() method with correctedBits and store the result in a variable
-    String encodedData = Decoder.getEncodedData(correctedBits);
-
-    assertEquals(expected, encodedData);
+public void getEncodedDataTest() {
+    boolean[] correctedBits = {true, false, true, false, true};
+    try {
+        String result = Decoder.getEncodedData(correctedBits);
+        assertEquals("expectedResult", result);
+    } catch (FormatException e) {
+        fail("FormatException should not be thrown");
+    }
 }
 
 
 No.6 generated result --------------------------
 
 @Test
-public void getEncodedDataTest() throws FormatException {
-    boolean[] correctedBits = {true, true, false, true, false, false, true, true, false, true};
-    String expected = "ABCD";
-    
-    String result = Decoder.getEncodedData(correctedBits);
-    
-    assertEquals(expected, result);
+public void getEncodedDataTest() {
+  boolean[] testCorrectedBits = new boolean[]{true, false, true, true, false, true, false, false, true, true};
+  try {
+    String result = Decoder.getEncodedData(testCorrectedBits);
+    assertEquals("SomeExpectedValue", result);
+  } catch (FormatException e) {
+    // Handle FormatException
+  }
 }
 
 
 No.7 generated result --------------------------
 
 @Test
-public void getEncodedDataTest() throws FormatException {
-    boolean[] correctedBits = new boolean[]{true, true, false, false, true};
-    
-    String result = Decoder.getEncodedData(correctedBits);
-    
-    assertEquals("", result); // Add the expected value for the encoded data
+public void getEncodedDataTest() {
+    boolean[] correctedBits = {false, true, false, true, true, false, true, true};
+    try {
+        String encodedData = Decoder.getEncodedData(correctedBits);
+        assertEquals("EXPECTED_ENCODED_DATA", encodedData);
+    } catch (FormatException e) {
+        fail("Format Exception thrown");
+    }
 }
 
 
 No.8 generated result --------------------------
 
 @Test
-public void getEncodedDataTest() throws FormatException {
-  boolean[] correctedBits = new boolean[]{true, true, true, true, true, false, false, true};
-  String expected = "ABCD";
-  
-  String result = Decoder.getEncodedData(correctedBits);
-  
-  assertEquals(expected, result);
+public void getEncodedDataTest() {
+    boolean[] correctedBits = {true, false, true, false, false, true, true, false};
+    try {
+        String result = Decoder.getEncodedData(correctedBits);
+        assertEquals("testResult", result);
+    } catch (FormatException e) {
+        fail("Exception thrown");
+    }
 }
 
 
 No.9 generated result --------------------------
 
 @Test
-public void getEncodedDataTest() throws FormatException {
-    boolean[] correctedBits = new boolean[10];
-    String expectedOutput = "test";
-    
-    String result = Decoder.getEncodedData(correctedBits);
-    
-    assertEquals(expectedOutput, result);
-}
+    public void getEncodedDataTest() {
+        boolean[] correctedBits = {true, false, true, true, false, true, true, false, false};
+        String expected = "ABCD";
+        String actual = "";
+        try {
+            actual = Decoder.getEncodedData(correctedBits);
+        } catch (FormatException e) {
+            e.printStackTrace();
+        }
+        assertEquals(expected, actual);
+    }
 
 
 No.10 generated result --------------------------
 
 @Test
 public void getEncodedDataTest() {
-  boolean[] correctedBits = {true, false, true, true, false, false};
-  String expected = "AB";
-  String result = Decoder.getEncodedData(correctedBits);
-  assertEquals(expected, result);
+    boolean[] correctedBits = {true, false, false, true, true, false, true, true, true, false};
+    try {
+        String result = Decoder.getEncodedData(correctedBits);
+        assertEquals("ABCTEF", result);
+    } catch (FormatException e) {
+        fail("Unexpected FormatException");
+    }
 }
 
 

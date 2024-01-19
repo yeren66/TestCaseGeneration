@@ -2,29 +2,27 @@ import re
 import json
 from prompts import instruct_prompt_large_2, instruct_prompt_large_1
 from tqdm import tqdm
+import time
 import logging
 import signal
 import os
 from openai import OpenAI
 
 # 设置 API key 和 API base URL
-api_key = "sk-tjdLt6Pu69aLn4BL238d43EeE0884547993cA43b1cEcFa76"
-base_url = "https://api.132999.xyz/v1"
+# api_key = "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"
+api_key = "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"
+# base_url = "https://api.132999.xyz/v1"
 
 client = OpenAI(
-    api_key=api_key,
-    base_url=base_url
+    api_key=api_key
 )
 
-logging.basicConfig(filename='log/log_file_generate.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='log/log_file_generate_gpt4.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
-def gpt_interface(content, model='gpt-3.5-turbo') -> str:
+def gpt_interface(content, model='gpt-4-1106-preview', flag=0) -> str:
     """
     Call the chatgpt-3.5 interface to generate test cases with data.
     """
-    flag = 0
-    signal.signal(signal.SIGALRM, _timeout)
-    signal.alarm(180) 
     try:
         chat_completion = client.chat.completions.create(
             messages=[
@@ -36,12 +34,15 @@ def gpt_interface(content, model='gpt-3.5-turbo') -> str:
             model=model,
         )
     except Exception as e:
-        output = "Timeout"
-        logging.error("Timeout")
-        flag = 1
-    finally:
-        signal.alarm(0)
-    if flag == 0:
+        logging.error("Error: " + str(e))
+        time.sleep(60)
+        if flag < 3:
+            logging.info("retry after 60s: " + str(flag + 1))
+            return gpt_interface(content, model, flag + 1)
+        else:
+            logging.info("max retry times reached, return timeout")
+            output = "timeout"
+    if flag < 3:
         # output = process_json_stream(response.text)
         output = chat_completion.choices[0].message.content
         logging.info("\n-------------generate result-------------\n " + output + "----------------------------------\n")
@@ -128,7 +129,10 @@ def generate_test(json_data, path, number=10):
                 logging.info("\n-------------source code-------------\n " + source_code + "----------------------------------\n")
                 for k in range(number): 
                     logging.info("No." + str(k + 1) + " generated result for " + third_path + " -- " + "\n")
-                    output = gpt_interface(data)
+                    if j == 1: # 由于gpt4接口昂贵，先跳过full context的生成
+                        output = "null"
+                    else:
+                        output = gpt_interface(data)
                     file.write("No." + str(k + 1) + " generated result --------------------------\n\n")
                     file.write(output + "\n\n\n")
                     file.flush()
@@ -151,17 +155,21 @@ def generate_test(json_data, path, number=10):
 
 
 if __name__ == "__main__":
-    # file_list = []
-    # source_file_path = "source_file_parser/"
+    file_list = []
+    source_file_path = "source_file_parser_for_4/"
 
-    # for file_name in os.listdir(source_file_path):
-    #     if file_name.endswith(".json"):
-    #         file_list.append(os.path.join(source_file_path, file_name))
+    for file_name in os.listdir(source_file_path):
+        if file_name.endswith(".json"):
+            file_list.append(os.path.join(source_file_path, file_name))
 
-    # for file_name in file_list:
-    #     project_name = file_name.split('/')[-1].split('.')[0]
-    #     with open(file_name, 'r') as file:
-    #         json_data = json.load(file)
-    #     generate_test(json_data, 'chatgpt_generate_result/' + project_name + '/', 10)
+    for file_name in file_list:
+        project_name = file_name.split('/')[-1].split('.')[0]
+        with open(file_name, 'r') as file:
+            json_data = json.load(file)
+        generate_test(json_data, 'gpt4_generate_result/' + project_name + '/', 10)
 
     # print(gpt_interface("hello world"))
+
+# 这儿记录一下，现在跑的是jfreechart，一共6个method
+# 待会跑Java，里面有35个method，跑完之后再跑其他的
+# Java跑的达到接口限制，有的method没有得出结果，根据log观察是31，33，34这三个method存在部分的timeout

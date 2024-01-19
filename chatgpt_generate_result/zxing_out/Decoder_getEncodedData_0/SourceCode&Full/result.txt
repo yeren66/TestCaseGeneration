@@ -122,51 +122,129 @@ private static String getEncodedData(boolean[] correctedBits) throws FormatExcep
 
 No.1 generated result --------------------------
 
-Timeout
+package com.google.zxing.aztec.decoder;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DecoderTest {
+    @Test
+    public void getEncodedDataTest() {
+        boolean[] correctedBits = new boolean[20];  // Replace with actual corrected bits
+        try {
+            String result = Decoder.highLevelDecode(correctedBits);
+            assertEquals("expectedResult", result);  // Replace `expectedResult` with the expected result
+        } catch (FormatException e) {
+            fail("Exception thrown: " + e.getMessage());
+        }
+    }
+}
 
 
 No.2 generated result --------------------------
 
-Timeout
+
+String result = Decoder.highLevelDecode(correctedBits);
+assertEquals("ExpectedResult", result);
+
 
 
 No.3 generated result --------------------------
 
-Timeout
+@Test
+public void getEncodedDataTest() throws FormatException {
+    boolean[] correctedBits = new boolean[]{
+        true, false, true, false, true, true, true, false, 
+        true, true, false, false, true, true, true, true
+    };
+    String expectedResult = "Hello";
+    String result = Decoder.highLevelDecode(correctedBits);
+    assertEquals(expectedResult, result);
+}
 
 
 No.4 generated result --------------------------
 
-Timeout
+// Arrange
+String expected = "TestString";
+boolean[] correctedBits = new boolean[48];
+DecoderTest.CorrectedBitsResult result = new DecoderTest.CorrectedBitsResult(correctedBits, 0, 0);
+
+// Act
+String actual = Decoder.getEncodedData(correctedBits);
+
+// Assert
+assertEquals(expected, actual);
 
 
 No.5 generated result --------------------------
 
-Timeout
+@Test
+public void getEncodedDataTest() {
+    // create a boolean array representing corrected bits
+    boolean[] correctedBits = new boolean[32];
+    
+    // FILL the correctedBits array with appropriate values
+    
+    // call the getEncodedData method with the correctedBits array
+    String result = Decoder.getEncodedData(correctedBits);
+    
+    // assert that the result is not null
+    assertNotNull(result);
+}
 
 
 No.6 generated result --------------------------
 
-Timeout
+@Test
+public void getEncodedDataTest() {
+    boolean[] correctedBits = new boolean[] {true, false, false, true, true, false, true, true};
+    String expected = "ABCD";
+    String actual = Decoder.highLevelDecode(correctedBits);
+    assertEquals(expected, actual);
+}
 
 
 No.7 generated result --------------------------
 
-Timeout
+@Test
+public void getEncodedDataTest() throws FormatException {
+    boolean[] correctedBits = {true, false, true, true, false, true, true, false, true, false};
+    String expectedOutput = "ABCD";
+    String actualOutput = Decoder.getEncodedData(correctedBits);
+    assertEquals(expectedOutput, actualOutput);
+}
 
 
 No.8 generated result --------------------------
 
-Timeout
+@Test
+public void getEncodedDataTest() {
+    boolean[] correctedBits = new boolean[]{true, false, true, false, true, true, false, false};
+    try {
+        String expected = "ABCD";
+        String actual = Decoder.getEncodedData(correctedBits);
+        assertEquals(expected, actual);
+    } catch (FormatException e) {
+        fail("Unexpected FormatException thrown");
+    }
+}
 
 
 No.9 generated result --------------------------
 
-Timeout
+@Test
+public void getEncodedDataTest() throws FormatException {
+    boolean[] correctedBits = new boolean[32];  // replace with actual correctedBits array
+    String encodedData = Decoder.getEncodedData(correctedBits);
+    assertNotNull(encodedData);
+}
 
 
 No.10 generated result --------------------------
 
-Timeout
+DecoderTest test = new DecoderTest();
+String expected = "testString";
+assertEquals(expected, test.getEncodedDataTest());
 
 

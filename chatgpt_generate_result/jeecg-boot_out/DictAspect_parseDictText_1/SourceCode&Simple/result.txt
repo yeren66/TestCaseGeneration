@@ -118,40 +118,17 @@ private Object parseDictText(Object result) {
 
 No.1 generated result --------------------------
 
-package org.jeecg.common.aspect;
-
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class DictAspectTest {
-    @Test
-    public void parseDictTextTest() {
-        // Create an instance of DictAspect
-        DictAspect dictAspect = new DictAspect(commonAPI, redisTemplate, objectMapper);
-
-        // Create a Result object
-        Result result = new Result();
-        IPage iPage = new IPage();
-        List<Object> records = new ArrayList<>();
-        // Add test records to the list
-        // Fill in the test records according to your requirements
-        records.add(new Object());
-        iPage.setRecords(records);
-        result.setResult(iPage);
-
-        // Call the parseDictText method
-        Result modifiedResult = (Result) dictAspect.parseDictText(result);
-
-        // Assert the expected output
-        IPage modifiedIPage = (IPage) modifiedResult.getResult();
-        List<Object> modifiedRecords = modifiedIPage.getRecords();
-        assertNotNull(modifiedRecords);
-        // Add assertions for the modified records according to your requirements
-        // For example:
-        // assertEquals(expectedRecord1, modifiedRecords.get(0));
-        // assertEquals(expectedRecord2, modifiedRecords.get(1));
-        // ...
-    }
+@Test
+public void parseDictTextTest() {
+    // Create test data and objects
+    Object result = new Object();
+    
+    // Perform the method to be tested
+    DictAspect dictAspect = new DictAspect();
+    Object expectedResult = dictAspect.parseDictText(result);
+    
+    // Assert the expected result
+    assertNotNull(expectedResult);
 }
 
 
@@ -159,105 +136,55 @@ No.2 generated result --------------------------
 
 @Test
 public void parseDictTextTest() {
-    // Create mock objects for the required dependencies
-    CommonAPI commonApi = mock(CommonAPI.class);
-    RedisTemplate redisTemplate = mock(RedisTemplate.class);
-    ObjectMapper objectMapper = mock(ObjectMapper.class);
+    // Create a new instance of the class containing the parseDictText method
+    DictAspect aspect = new DictAspect();
 
-    // Create an instance of the DictAspect class
-    DictAspect dictAspect = new DictAspect(commonApi, redisTemplate, objectMapper);
+    // Create a mock Result object
+    Result mockResult = new Result();
+    IPage mockPage = new IPage();
+    mockResult.setResult(mockPage);
 
-    // Create objects for the test data
-    List<Object> records = new ArrayList<>();
-    Object result = new Result(new PageImpl(records));
-    records.add(<Mock Record Object>); // Add mock record objects to the list
+    // Create a mock records list
+    List<Object> mockRecords = new ArrayList<>();
+    mockPage.setRecords(mockRecords);
 
-    // Set up mock behavior for the commonApi, redisTemplate, and objectMapper dependencies using when...thenReturn
-    when(commonApi.translateDictValue(anyString(), anyString(), anyString(), anyString())).thenReturn("TranslatedValue");
-    when(redisTemplate.opsForHash().hasKey(anyString(), anyString())).thenReturn(true);
-    when(redisTemplate.opsForHash().get(anyString(), anyString())).thenReturn("DictValue");
-    when(objectMapper.writeValueAsString(any())).thenReturn("JsonString");
-    when(objectMapper.readValue(anyString(), any(Class.class))).thenReturn(<Mock Result Object>);
-
-    // Call the parseDictText method
-    Object parsedResult = dictAspect.parseDictText(result);
-
-    // Perform assertions on parsedResult and any other expected output
+    // Add some mock data to the records list
     // ...
+
+    // Call the parseDictText method and assert the result
+    Object result = aspect.parseDictText(mockResult);
+    assertNotNull(result);
 }
+
 
 
 No.3 generated result --------------------------
 
 @Test
-    public void parseDictTextTest() {
-        // Create a mock object for the result
-        Result result = new Result();
-        IPage iPage = new IPage();
-        List<Object> records = new ArrayList<>();
-        // Add test records to the list
-        
-        // Add the test records to the iPage object
-        iPage.setRecords(records);
-        // Set the iPage object as the result of the result mock object
-        result.setResult(iPage);
-        
-        // Call the parseDictText() method with the result object
-        Object parsedResult = parseDictText(result);
-        
-        // Assert that the parsedResult is the same as the result object
-        assertEquals(result, parsedResult);
-    }
+public void parseDictTextTest() {
+    Object result = null; // Replace null with appropriate test input
+    DictAspect dictAspect = new DictAspect();
+    Object actualResult = dictAspect.parseDictText(result);
+    // Add assertions based on expected behavior
+}
 
 
 No.4 generated result --------------------------
 
-package org.jeecg.common.aspect;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class DictAspectTest {
-    @Test
-    public void parseDictTextTest() {
-        // Create an instance of the DictAspect class
-        DictAspect dictAspect = new DictAspect();
-
-        // Create a mock result
-        Result result = new Result();
-        result.setResult("Some result");
-
-        // Call the parseDictText method and pass the mock result
-        Object parsedResult = dictAspect.parseDictText(result);
-
-        // Assert that the parsedResult is equal to the result
-        assertEquals(result, parsedResult);
-    }
-}
+// Create a new instance of DictAspect and call the parseDictText method with a valid object
+DictAspect dictAspect = new DictAspect();
+Object result = new Object();
+Object actual = dictAspect.parseDictText(result);
+assertEquals(result, actual);
 
 
 No.5 generated result --------------------------
 
-package org.jeecg.common.aspect;
-
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class DictAspectTest {
-    @Test
-    public void parseDictTextTest() {
-        // Create an instance of DictAspect
-        DictAspect dictAspect = new DictAspect();
-
-        // Test data
-        Object result = new Result();
-
-        // Invoke the parseDictText method
-        Object actualResult = dictAspect.parseDictText(result);
-
-        // Assert the expected result against the actual result
-        assertEquals(result, actualResult);
-    }
+@Test
+public void parseDictTextTest() {
+    // Create test data
+    // Execute the method being tested
+    // Verify the output
 }
 
 
@@ -265,19 +192,16 @@ No.6 generated result --------------------------
 
 @Test
 public void parseDictTextTest() {
+    // Create test data
+    Object result = new Object();
+
+    // Call the method to be tested
     DictAspect dictAspect = new DictAspect();
-    Result result = new Result();
-    IPage records = new IPage();
-    List<Object> recordList = new ArrayList<>();
-    // Add test objects to the record list
-    // ...
-    records.setRecords(recordList);
-    result.setResult(records);
-    
     Object parsedResult = dictAspect.parseDictText(result);
-    
-    // Assert the expected values after parsing
-    // ...
+
+    // Verify the result
+    assertNotNull(parsedResult);
+    assertEquals(result, parsedResult);
 }
 
 
@@ -285,111 +209,88 @@ No.7 generated result --------------------------
 
 @Test
 public void parseDictTextTest() {
-    // Create mock objects
-    Result result = new Result();
-    IPage iPage = new IPage();
-    result.setResult(iPage);
-    List<Object> records = new ArrayList<>();
-    iPage.setRecords(records);
-    
-    // Add records to the list
-    records.add(new Object());
-    
-    // Create an instance of the class under test
-    DictAspect dictAspect = new DictAspect();
-    
+    // Create mock objects and set up test data
+    Object result = null;
+
     // Call the method under test
-    Object output = dictAspect.parseDictText(result);
-    
-    // Assert the output
-    assertEquals(result, output);
+    Object actualResult = new DictAspect().parseDictText(result);
+
+    // Verify the expected output
+    assertEquals(result, actualResult, "The parsed result should match the expected result");
 }
 
 
 No.8 generated result --------------------------
 
-@Test
-public void parseDictTextTest() {
-    DictAspect dictAspect = new DictAspect();
-    Object result = dictAspect.parseDictText(null);
-    assertNull(result);
+public class DictAspectTest {
+    @Test
+    public void parseDictTextTest() {
+        // Create a new instance of the class containing the parseDictText method
+        DictAspect dictAspect = new DictAspect();
+
+        // Create a mock Result object to use as input for the parseDictText method
+        Result mockResult = new Result();
+        IPage mockIPage = new IPage();
+        List<Object> mockRecords = new ArrayList<>();
+        
+        // Fill the mockRecord list with sample data
+        // ...
+
+        // Set the mock data on the mock objects
+        mockIPage.setRecords(mockRecords);
+        mockResult.setResult(mockIPage);
+        
+        // Call the parseDictText method with the mock Result object
+        Object parsedResult = dictAspect.parseDictText(mockResult);
+        
+        // Perform assertions on the parsedResult object
+        // ...
+    }
 }
 
 
 No.9 generated result --------------------------
 
-package org.jeecg.common.aspect;
+@Test
+public void parseDictTextTest() {
+    // Create test data
+    Result result = new Result();
+    IPage iPage = new IPage();
+    List<Object> records = new ArrayList<>();
+    records.add(new Object());
+    iPage.setRecords(records);
+    result.setResult(iPage);
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+    // Create instance of DictAspect
+    DictAspect dictAspect = new DictAspect();
 
-public class DictAspectTest {
+    // Call the method parseDictText on the test data
+    Object parsedResult = dictAspect.parseDictText(result);
     
-    @Test
-    public void parseDictTextTest() {
-        // Create an instance of DictAspect
-        DictAspect dictAspect = new DictAspect();
-        
-        // Create a mock result object
-        Object result = new Result();
-        
-        // Call the parseDictText method with the mock result object
-        Object parsedResult = dictAspect.parseDictText(result);
-        
-        // Assert the expected output
-        assertNotNull(parsedResult);
-        assertEquals(result, parsedResult);
-    }
+    // Verify the result
+    assertNotNull(parsedResult);
 }
 
 
 No.10 generated result --------------------------
 
-package org.jeecg.common.aspect;
-
-import org.jeecg.common.aspect.annotation.Dict;
-import org.jeecg.common.constant.CommonConstant;
-import org.jeecg.common.system.vo.DictModel;
-import org.jeecg.common.util.oConvertUtils;
-import org.junit.jupiter.api.Test;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.util.StringUtils;
-
-import java.lang.reflect.Field;
-import java.util.*;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 public class DictAspectTest {
     @Test
     public void parseDictTextTest() {
+        // Create an instance of the object to be tested
         DictAspect dictAspect = new DictAspect();
-        
-        // Step 1. Prepare the mock data
-        // Create the mock Result object
+
+        // Create a mock Result object to pass to the method
         Result result = new Result();
-        // Create the mock IPage object
-        IPage iPage = new IPage() {
-            @Override
-            public List<Object> getRecords() {
-                // return a list of records
-                return new ArrayList<>();
-            }
-            
-            // other methods implementation
-            
-        };
-        result.setResult(iPage);
-        
-        // Step 2. Call the parseDictText() method with the mock data
+
+        // Call the method and store the returned object
         Object parsedResult = dictAspect.parseDictText(result);
-        
-        // Step 3. Assert the result
+
+        // Add assertions to verify the correctness of the parsed result
         assertNotNull(parsedResult);
-        assertTrue(parsedResult instanceof Result);
-        
-        // other assertions
+        // Other assertions as needed based on the expected behavior of the parseDictText method
     }
 }
+
 
 

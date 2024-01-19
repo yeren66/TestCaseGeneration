@@ -13,13 +13,10 @@ No.1 generated result --------------------------
 
 @Test
 public void sortTest() {
-    QuickSort quickSort = new QuickSort();
-    Integer[] array = {5, 2, 9, 1, 7};
-    
-    Integer[] expected = {1, 2, 5, 7, 9};
-    Integer[] actual = quickSort.sort(array);
-    
-    assertArrayEquals(expected, actual);
+    QuickSort<Integer> quickSort = new QuickSort<>();
+    Integer[] array = {5, 3, 8, 6, 2, 7, 4, 1};
+    Integer[] sortedArray = {1, 2, 3, 4, 5, 6, 7, 8};
+    assertEquals(sortedArray, quickSort.sort(array));
 }
 
 
@@ -28,39 +25,21 @@ No.2 generated result --------------------------
 @Test
 public void sortTest() {
     QuickSort quickSort = new QuickSort();
-    Integer[] array = {5, 2, 1, 8, 4};
-    Integer[] expected = {1, 2, 4, 5, 8};
+    Integer[] array = {5, 3, 1, 2, 4};
+    Integer[] expected = {1, 2, 3, 4, 5};
     assertArrayEquals(expected, quickSort.sort(array));
 }
 
 
 No.3 generated result --------------------------
 
-package com.thealgorithms.sorts;
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class QuickSortTest {
-    @Test
-    public void sortTest() {
-        QuickSort quickSort = new QuickSort();
-        
-        // Test case 1: Sorting empty array
-        Integer[] emptyArray = new Integer[0];
-        Integer[] expectedEmptyArray = new Integer[0];
-        assertArrayEquals(expectedEmptyArray, quickSort.sort(emptyArray));
-        
-        // Test case 2: Sorting array with one element
-        Integer[] singleElementArray = {1};
-        Integer[] expectedSingleElementArray = {1};
-        assertArrayEquals(expectedSingleElementArray, quickSort.sort(singleElementArray));
-        
-        // Test case 3: Sorting array with multiple elements
-        Integer[] multipleElementsArray = {5, 1, 3, 2, 4};
-        Integer[] expectedMultipleElementsArray = {1, 2, 3, 4, 5};
-        assertArrayEquals(expectedMultipleElementsArray, quickSort.sort(multipleElementsArray));
-    }
+@Test
+public void sortTest() {
+    QuickSort quickSort = new QuickSort();
+    Integer[] inputArray = {5, 3, 8, 4, 1, 2};
+    Integer[] expectedOutput = {1, 2, 3, 4, 5, 8};
+    assertArrayEquals(expectedOutput, quickSort.sort(inputArray));
 }
 
 
@@ -68,32 +47,22 @@ No.4 generated result --------------------------
 
 @Test
 public void sortTest() {
-    Integer[] array = {5, 2, 9, 1, 7};
+    Integer[] array = {5, 3, 8, 6, 2, 7, 1, 4};
     QuickSort quickSort = new QuickSort();
     Integer[] sortedArray = quickSort.sort(array);
-    Integer[] expectedArray = {1, 2, 5, 7, 9};
-    assertArrayEquals(expectedArray, sortedArray);
+    Integer[] expected = {1, 2, 3, 4, 5, 6, 7, 8};
+    assertArrayEquals(expected, sortedArray);
 }
 
 
 No.5 generated result --------------------------
 
-package com.thealgorithms.sorts;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class QuickSortTest {
-    @Test
-    public void sortTest() {
-        Integer[] array = {5, 3, 1, 2, 4};
-        Integer[] expected = {1, 2, 3, 4, 5};
-        
-        QuickSort<Integer> quickSort = new QuickSort<>();
-        Integer[] result = quickSort.sort(array);
-        
-        assertArrayEquals(expected, result);
-    }
+@Test
+public void sortTest() {
+    QuickSort quickSort = new QuickSort();
+    Integer[] testArray = {5, 2, 9, 1, 5, 6};
+    Integer[] expected = {1, 2, 5, 5, 6, 9};
+    assertArrayEquals(expected, quickSort.sort(testArray));
 }
 
 
@@ -101,13 +70,10 @@ No.6 generated result --------------------------
 
 @Test
 public void sortTest() {
-    QuickSort quickSort = new QuickSort();
-    Integer[] array = {5, 2, 7, 1, 9};
-    Integer[] expected = {1, 2, 5, 7, 9};
-    
-    quickSort.sort(array);
-    
-    assertArrayEquals(expected, array);
+  QuickSort quickSort = new QuickSort();
+  Integer[] inputArray = {4, 2, 5, 3, 1};
+  Integer[] expected = {1, 2, 3, 4, 5};
+  assertArrayEquals(expected, quickSort.sort(inputArray));
 }
 
 
@@ -115,32 +81,23 @@ No.7 generated result --------------------------
 
 @Test
 public void sortTest() {
-    Integer[] array = {5, 2, 9, 1, 7};
     QuickSort quickSort = new QuickSort();
-    Integer[] sortedArray = quickSort.sort(array);
-    Integer[] expectedArray = {1, 2, 5, 7, 9};
-    assertArrayEquals(expectedArray, sortedArray);
+    Integer[] inputArray = {4, 2, 6, 1, 5, 3};
+    Integer[] expectedOutput = {1, 2, 3, 4, 5, 6};
+    Integer[] actualOutput = quickSort.sort(inputArray);
+    assertArrayEquals(expectedOutput, actualOutput);
 }
 
 
 No.8 generated result --------------------------
 
-package com.thealgorithms.sorts;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class QuickSortTest {
-    @Test
-    public void sortTest() {
-        QuickSort quickSort = new QuickSort();
-        Integer[] array = {5, 2, 7, 1, 3};
-
-        quickSort.sort(array);
-
-        Integer[] expected = {1, 2, 3, 5, 7};
-        assertArrayEquals(expected, array);
-    }
+@Test
+public void sortTest() {
+    Integer[] inputArray = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
+    QuickSort quickSort = new QuickSort();
+    Integer[] sortedArray = quickSort.sort(inputArray);
+    Integer[] expectedArray = {1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9};
+    assertArrayEquals(expectedArray, sortedArray);
 }
 
 
@@ -149,10 +106,9 @@ No.9 generated result --------------------------
 @Test
 public void sortTest() {
     QuickSort quickSort = new QuickSort();
-    Integer[] array = {5, 3, 8, 2, 1};
-    Integer[] expected = {1, 2, 3, 5, 8};
-    Integer[] result = quickSort.sort(array);
-    assertArrayEquals(expected, result);
+    Integer[] inputArray = {5, 3, 8, 2, 9, 1};
+    Integer[] expectedArray = {1, 2, 3, 5, 8, 9};
+    assertArrayEquals(expectedArray, quickSort.sort(inputArray));
 }
 
 
@@ -160,11 +116,11 @@ No.10 generated result --------------------------
 
 @Test
 public void sortTest() {
+    Integer[] inputArray = {5, 2, 7, 3, 9, 1};
     QuickSort quickSort = new QuickSort();
-    Integer[] array = {5, 2, 9, 1, 7};
-    Integer[] expected = {1, 2, 5, 7, 9};
-    Integer[] sortedArray = quickSort.sort(array);
-    assertArrayEquals(expected, sortedArray);
+    quickSort.sort(inputArray);
+    Integer[] expectedArray = {1, 2, 3, 5, 7, 9};
+    assertArrayEquals(expectedArray, inputArray);
 }
 
 

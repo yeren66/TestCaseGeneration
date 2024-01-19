@@ -33,105 +33,67 @@ No.1 generated result --------------------------
 
 @Test
 public void sizeTest() {
-    BaseLinkedQueuePad0 queue = new BaseLinkedQueuePad0();
-    int expectedSize = <FILL>; // Choose the expected size
-    
+    BaseLinkedQueuePad0<Integer> queue = new BaseLinkedQueuePad0<>();
+    for (int i = 0; i < 10; i++) {
+        queue.offer(i);
+    }
+    int expectedSize = 10;
     int actualSize = queue.size();
-    
     assertEquals(expectedSize, actualSize);
 }
 
 
 No.2 generated result --------------------------
 
-package org.jctools.queues;
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BaseLinkedQueuePad0Test {
-    @Test
-    public void sizeTest() {
-        LinkedQueueNode<Integer> node1 = new LinkedQueueNode<>();
-        LinkedQueueNode<Integer> node2 = new LinkedQueueNode<>();
-        LinkedQueueNode<Integer> node3 = new LinkedQueueNode<>();
-        
-        node1.soNext(node2);
-        node2.soNext(node3);
-        
-        BaseLinkedQueuePad0<Integer> queue = new BaseLinkedQueuePad0<>();
-        queue.soConsumerNode(node1);
-        queue.soProducerNode(node3);
-        
-        int result = queue.size();
-        
-        assertEquals(2, result);
-    }
+public void sizeTest() {
+    BaseLinkedQueuePad0 queue = new BaseLinkedQueuePad0();  
+    assertEquals(0, queue.size());
 }
 
 
 No.3 generated result --------------------------
 
-package org.jctools.queues;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BaseLinkedQueuePad0Test {
-    @Test
-    public void sizeTest() {
-        BaseLinkedQueuePad0<String> queue = new BaseLinkedQueuePad0<>(); // Replace 'BaseLinkedQueuePad0' with the actual class name
-
-        // Test when the producer and consumer nodes are the same
-        int expectedSize1 = 0; // Replace with the expected size
-        assertEquals(expectedSize1, queue.size());
-
-        // Test when there are elements in the queue
-        // Add elements to the queue
-        // Call queue.size() method
-        // Compare the returned value with the expected size using assertEquals()
-
-        // Test when the elements in the queue have been consumed
-        // Add elements to the queue
-        // Consume elements from the queue
-        // Call queue.size() method
-        // Compare the returned value with the expected size using assertEquals()
-        
-        // Test when there are more elements in the queue than Integer.MAX_VALUE
-        // Add elements to the queue such that their count exceeds Integer.MAX_VALUE
-        // Call queue.size() method
-        // Compare the returned value with Integer.MAX_VALUE using assertEquals()
-    }
+@Test
+public void sizeTest() {
+    BaseLinkedQueuePad0 baseLinkedQueuePad0 = new BaseLinkedQueuePad0();
+    int size = baseLinkedQueuePad0.size();
+    assertEquals(0, size);
 }
 
 
 No.4 generated result --------------------------
 
-package org.jctools.queues;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BaseLinkedQueuePad0Test {
-    @Test
-    public void sizeTest() {
-        BaseLinkedQueuePad0<String> queue = new BaseLinkedQueuePad0<>();
-        LinkedQueueNode<String> producerNode = new LinkedQueueNode<>();
-        LinkedQueueNode<String> consumerNode = new LinkedQueueNode<>();
-        producerNode.soNext(consumerNode);
-
-        queue.producerNode = () -> producerNode;
-        queue.consumerNode = () -> consumerNode;
-
-        int expectedSize = 5;
-        int actualSize = queue.size();
-        assertEquals(expectedSize, actualSize);
+@Test
+public void sizeTest() {
+    LinkedQueueNode<Integer> node = new LinkedQueueNode<>(5);
+    LinkedQueueNode<Integer> producerNode = new LinkedQueueNode<>(10);
+    for (int i = 0; i < 5; i++) {
+        node.soNext(new LinkedQueueNode<>(i));
+        LinkedQueueNode<Integer> prevProducerNode = producerNode;
+        producerNode = new LinkedQueueNode<>(i);
+        prevProducerNode.soNext(producerNode);
     }
+    int expectedSize = 5;
+    int actualSize = node.size();
+    assertEquals(expectedSize, actualSize);
 }
 
 
 No.5 generated result --------------------------
 
+
+@Test
+public void sizeTest() {
+    BaseLinkedQueuePad0 queue = new BaseLinkedQueuePad0();
+    int result = queue.size();
+    assertEquals(0, result);
+}
+
+
+No.6 generated result --------------------------
+
+
 package org.jctools.queues;
 
 import org.junit.jupiter.api.*;
@@ -140,35 +102,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BaseLinkedQueuePad0Test {
     @Test
     public void sizeTest() {
-        BaseLinkedQueuePad0<String> queue = new BaseLinkedQueuePad0<String>();
-        LinkedQueueNode<String> chaserNode = new LinkedQueueNode<String>();
-        LinkedQueueNode<String> producerNode = new LinkedQueueNode<String>();
-
-        int size = 0;
-        while (chaserNode != producerNode && chaserNode != null && size < Integer.MAX_VALUE) {
-            LinkedQueueNode<String> next = chaserNode.lvNext();
-            if (next == chaserNode) {
-                break;
-            }
-            chaserNode = next;
-            size++;
-        }
-
-        assertEquals(size, queue.size());
+        BaseLinkedQueuePad0<Integer> queue = new BaseLinkedQueuePad0<>();
+        assertEquals(0, queue.size());
     }
-}
-
-
-No.6 generated result --------------------------
-
-@Test
-public void sizeTest() {
-    BaseLinkedQueuePad0 queue = new BaseLinkedQueuePad0();
-    int expectedSize = // insert expected size here;
-
-    int actualSize = queue.size();
-
-    assertEquals(expectedSize, actualSize);
 }
 
 
@@ -177,8 +113,8 @@ No.7 generated result --------------------------
 @Test
 public void sizeTest() {
     BaseLinkedQueuePad0 queue = new BaseLinkedQueuePad0();
-    int size = queue.size();
-    assertEquals(0, size);
+    // Add elements to the queue
+    // Assert.assertEquals(expectedSize, queue.size());
 }
 
 
@@ -187,8 +123,14 @@ No.8 generated result --------------------------
 @Test
 public void sizeTest() {
     BaseLinkedQueuePad0 queue = new BaseLinkedQueuePad0();
-    int size = queue.size();
-    assertEquals(0, size);
+    // Add elements to the queue
+    queue.offer(5);
+    queue.offer(10);
+    queue.offer(15);
+    // Test the size method
+    int expectedSize = 3;
+    int actualSize = queue.size();
+    assertEquals(expectedSize, actualSize);
 }
 
 
@@ -197,28 +139,11 @@ No.9 generated result --------------------------
 @Test
 public void sizeTest() {
     BaseLinkedQueuePad0 queue = new BaseLinkedQueuePad0();
-    int expectedSize = 0;
+    int expectedSize = 5;
+    for (int i = 0; i < expectedSize; i++) {
+        queue.offer(i);
+    }
     int actualSize = queue.size();
-    assertEquals(expectedSize, actualSize);
-    
-    // Add elements to the queue
-    // Simulate adding elements to the queue
-    // ...
-
-    // Update the expected size based on the number of elements added
-    expectedSize = // Calculate the expected size based on the added elements
-    actualSize = queue.size();
-    assertEquals(expectedSize, actualSize);
-    
-    // Repeat the above steps to add more elements and recheck the size
-    
-    // Finally, remove elements from the queue
-    // Simulate removing elements from the queue
-    // ...
-
-    // Update the expected size based on the removed elements
-    expectedSize = // Calculate the expected size based on the removed elements
-    actualSize = queue.size();
     assertEquals(expectedSize, actualSize);
 }
 
@@ -227,9 +152,17 @@ No.10 generated result --------------------------
 
 @Test
 public void sizeTest() {
-    BaseLinkedQueuePad0Test testQueue = new BaseLinkedQueuePad0Test();
-    int result = testQueue.size();
-    assertEquals(<expected result>, result);
+    LinkedQueueNode<Integer> node1 = new LinkedQueueNode<>(1);
+    LinkedQueueNode<Integer> node2 = new LinkedQueueNode<>(2);
+    LinkedQueueNode<Integer> node3 = new LinkedQueueNode<>(3);
+    node1.soNext(node2);
+    node2.soNext(node3);
+    linkedQueuePad0.lvNext(node3);
+
+    int expectedSize = 3;
+    int actualSize = linkedQueuePad0.size();
+
+    assertEquals(expectedSize, actualSize);
 }
 
 

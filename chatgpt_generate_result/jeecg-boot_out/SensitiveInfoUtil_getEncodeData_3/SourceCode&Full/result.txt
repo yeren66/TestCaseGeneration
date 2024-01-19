@@ -46,39 +46,44 @@ public static String getEncodeData(String data, SensitiveEnum sensitiveEnum){
 
 No.1 generated result --------------------------
 
-@Test
-public void getEncodeDataTest() {
-    String data = "SomeSensitiveData";
-    SensitiveEnum sensitiveEnum = SensitiveEnum.ENCODE;
-    String expected = "EncodedData";
-
-    String result = SensitiveInfoUtil.getEncodeData(data, sensitiveEnum);
-
-    assertEquals(expected, result);
-}
+String result = SensitiveInfoUtil.getEncodeData("Testing123", SensitiveEnum.ENCODE);
+assertEquals("Expected Encoded Data", "EncodedString123", result);
 
 
 No.2 generated result --------------------------
 
 @Test
 public void getEncodeDataTest() {
-    String data = "test data";
+    // Test case for SensitiveEnum.ENCODE
+    String data = "123456";
     SensitiveEnum sensitiveEnum = SensitiveEnum.ENCODE;
-    String expected = "encrypted data";
     String result = SensitiveInfoUtil.getEncodeData(data, sensitiveEnum);
-    assertEquals(expected, result);
+    assertEquals("Expected Encoded Data", "encrypted_data", result);
+    
+    // Test case for SensitiveEnum.CHINESE_NAME
+    // Add test case for CHINESE_NAME sensitive data type
+    
+    // Test case for SensitiveEnum.ID_CARD
+    // Add test case for ID_CARD sensitive data type
+    
+    // Continue adding test cases for the remaining SensitiveEnum types
 }
+
 
 
 No.3 generated result --------------------------
 
 @Test
 public void getEncodeDataTest() {
+    // Given
     String data = "1234567890";
     SensitiveEnum sensitiveEnum = SensitiveEnum.ENCODE;
-    String expected = "encryptedData";
-    String actual = SensitiveInfoUtil.getEncodeData(data, sensitiveEnum);
-    assertEquals(expected, actual);
+    
+    // When
+    String result = SensitiveInfoUtil.getEncodeData(data, sensitiveEnum);
+    
+    // Then
+    assertEquals("EXPECTED_ENCODED_RESULT", result);
 }
 
 
@@ -86,76 +91,21 @@ No.4 generated result --------------------------
 
 @Test
 public void getEncodeDataTest() {
-    // Test ENCODE case
-    String data1 = "some data";
-    SensitiveEnum sensitiveEnum1 = SensitiveEnum.ENCODE;
-    String encryptedData1 = SensitiveInfoUtil.getEncodeData(data1, sensitiveEnum1);
-    assertNotNull(encryptedData1);
-    // Add assertion to check if data1 is encrypted correctly
-    
-    // Test CHINESE_NAME case
-    String data2 = "李四";
-    SensitiveEnum sensitiveEnum2 = SensitiveEnum.CHINESE_NAME;
-    String processedData2 = SensitiveInfoUtil.getEncodeData(data2, sensitiveEnum2);
-    assertNotNull(processedData2);
-    // Add assertion to check if data2 is processed correctly
-    
-    // Test other cases (ID_CARD, FIXED_PHONE, MOBILE_PHONE, ADDRESS, EMAIL, BANK_CARD, CNAPS_CODE)
-    // Use the same pattern to test the remaining cases
-    
+    String data = "1234567890"; 
+    SensitiveEnum sensitiveEnum = SensitiveEnum.ENCODE;
+    String expected = "xUwBZm2BL/PdeZvWO9yR6Q==";
+    String result = SensitiveInfoUtil.getEncodeData(data, sensitiveEnum);
+    assertEquals(expected, result);
 }
 
 
 No.5 generated result --------------------------
 
-package org.jeecg.common.desensitization.util;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class SensitiveInfoUtilTest {
-    @Test
-    public void getEncodeDataTest() {
-        // Test case for SensitiveEnum.ENCODE
-        String encodedData = SensitiveInfoUtil.getEncodeData("sensitive data", SensitiveEnum.ENCODE);
-        assertEquals("encrypted data", encodedData); // Replace "encrypted data" with the expected encrypted string
-
-        // Test case for SensitiveEnum.CHINESE_NAME
-        String chineseNameData = SensitiveInfoUtil.getEncodeData("张三", SensitiveEnum.CHINESE_NAME);
-        assertEquals("张*", chineseNameData); // Replace "张*" with the expected format for Chinese name
-
-        // Test case for SensitiveEnum.ID_CARD
-        String idCardData = SensitiveInfoUtil.getEncodeData("123456789012345678", SensitiveEnum.ID_CARD);
-        assertEquals("************5678", idCardData); // Replace "************5678" with the expected format for ID card
-
-        // Test case for SensitiveEnum.FIXED_PHONE
-        String fixedPhoneData = SensitiveInfoUtil.getEncodeData("021-12345678", SensitiveEnum.FIXED_PHONE);
-        assertEquals("****5678", fixedPhoneData); // Replace "****5678" with the expected format for fixed phone number
-
-        // Test case for SensitiveEnum.MOBILE_PHONE
-        String mobilePhoneData = SensitiveInfoUtil.getEncodeData("13812345678", SensitiveEnum.MOBILE_PHONE);
-        assertEquals("138******5678", mobilePhoneData); // Replace "138******5678" with the expected format for mobile phone number
-
-        // Test case for SensitiveEnum.ADDRESS
-        String addressData = SensitiveInfoUtil.getEncodeData("北京市朝阳区某某街道123号", SensitiveEnum.ADDRESS);
-        assertEquals("北京市朝阳区****", addressData); // Replace "北京市朝阳区****" with the expected format for address
-
-        // Test case for SensitiveEnum.EMAIL
-        String emailData = SensitiveInfoUtil.getEncodeData("test@example.com", SensitiveEnum.EMAIL);
-        assertEquals("t**@example.com", emailData); // Replace "t**@example.com" with the expected format for email
-
-        // Test case for SensitiveEnum.BANK_CARD
-        String bankCardData = SensitiveInfoUtil.getEncodeData("6222600123456789", SensitiveEnum.BANK_CARD);
-        assertEquals("6222600**********6789", bankCardData); // Replace "6222600**********6789" with the expected format for bank card number
-        
-        // Test case for SensitiveEnum.CNAPS_CODE
-        String cnapsCodeData = SensitiveInfoUtil.getEncodeData("12345678", SensitiveEnum.CNAPS_CODE);
-        assertEquals("12********", cnapsCodeData); // Replace "12********" with the expected format for cnaps code
-
-        // Test case for default
-        String defaultData = SensitiveInfoUtil.getEncodeData("some data", SensitiveEnum.UNKNOWN);
-        assertEquals("some data", defaultData); // Replace "some data" with the expected default value
-    }
+@Test
+public void getEncodeDataTest() {
+    String expectedResult = "****1234";
+    String actualResult = SensitiveInfoUtil.getEncodeData("1234567890", SensitiveEnum.FIXED_PHONE);
+    assertEquals(expectedResult, actualResult);
 }
 
 
@@ -163,13 +113,8 @@ No.6 generated result --------------------------
 
 @Test
 public void getEncodeDataTest() {
-    String data = "sensitive data";
-    SensitiveEnum sensitiveEnum = SensitiveEnum.ENCODE;
-    String expectedResult = "encrypted data";
-    
-    String result = SensitiveInfoUtil.getEncodeData(data, sensitiveEnum);
-    
-    assertEquals(expectedResult, result);
+    String result = SensitiveInfoUtil.getEncodeData("1234567890", SensitiveEnum.ENCODE);
+    assertEquals("EncryptedValue", result);
 }
 
 
@@ -177,16 +122,17 @@ No.7 generated result --------------------------
 
 @Test
 public void getEncodeDataTest() {
-    // Create test data
-    String data = "Sensitive Data";
-    SensitiveEnum sensitiveEnum = SensitiveEnum.ENCODE;
+    String name = "张三";
+    String encodedName = SensitiveInfoUtil.getEncodeData(name, SensitiveEnum.CHINESE_NAME);
+    assertEquals("张**", encodedName);
     
-    // Call the method under test
-    String result = SensitiveInfoUtil.getEncodeData(data, sensitiveEnum);
+    String id = "320483199802102532";
+    String encodedId = SensitiveInfoUtil.getEncodeData(id, SensitiveEnum.ID_CARD);
+    assertEquals("**************2532", encodedId);
     
-    // Assert the result
-    assertNotNull(result);
-    // Add more assertions as needed
+    String phone = "13811112222";
+    String encodedPhone = SensitiveInfoUtil.getEncodeData(phone, SensitiveEnum.MOBILE_PHONE);
+    assertEquals("138******2222", encodedPhone);
 }
 
 
@@ -194,13 +140,11 @@ No.8 generated result --------------------------
 
 @Test
 public void getEncodeDataTest() {
-    String data = "1234567890";
     SensitiveEnum sensitiveEnum = SensitiveEnum.ENCODE;
-    String expectedResult = "encryptedData";
-    
-    String result = SensitiveInfoUtil.getEncodeData(data, sensitiveEnum);
-    
-    assertEquals(expectedResult, result);
+    String input = "Test Data";
+    String expected = "Encrypted Data";
+    String actual = SensitiveInfoUtil.getEncodeData(input, sensitiveEnum);
+    assertEquals(expected, actual);
 }
 
 
@@ -208,49 +152,21 @@ No.9 generated result --------------------------
 
 @Test
 public void getEncodeDataTest() {
-    // Test ENCODE case
-    String result1 = SensitiveInfoUtil.getEncodeData("data", SensitiveEnum.ENCODE);
-    assertEquals(<EXPECTED_VALUE>, result1);
-    
-    // Test CHINESE_NAME case
-    String result2 = SensitiveInfoUtil.getEncodeData("data", SensitiveEnum.CHINESE_NAME);
-    assertEquals(<EXPECTED_VALUE>, result2);
-    
-    // Test ID_CARD case
-    String result3 = SensitiveInfoUtil.getEncodeData("data", SensitiveEnum.ID_CARD);
-    assertEquals(<EXPECTED_VALUE>, result3);
-    
-    // Test FIXED_PHONE case
-    String result4 = SensitiveInfoUtil.getEncodeData("data", SensitiveEnum.FIXED_PHONE);
-    assertEquals(<EXPECTED_VALUE>, result4);
-    
-    // Test MOBILE_PHONE case
-    String result5 = SensitiveInfoUtil.getEncodeData("data", SensitiveEnum.MOBILE_PHONE);
-    assertEquals(<EXPECTED_VALUE>, result5);
-    
-    // Test ADDRESS case
-    String result6 = SensitiveInfoUtil.getEncodeData("data", SensitiveEnum.ADDRESS);
-    assertEquals(<EXPECTED_VALUE>, result6);
-    
-    // Test EMAIL case
-    String result7 = SensitiveInfoUtil.getEncodeData("data", SensitiveEnum.EMAIL);
-    assertEquals(<EXPECTED_VALUE>, result7);
-    
-    // Test BANK_CARD case
-    String result8 = SensitiveInfoUtil.getEncodeData("data", SensitiveEnum.BANK_CARD);
-    assertEquals(<EXPECTED_VALUE>, result8);
-    
-    // Test CNAPS_CODE case
-    String result9 = SensitiveInfoUtil.getEncodeData("data", SensitiveEnum.CNAPS_CODE);
-    assertEquals(<EXPECTED_VALUE>, result9);
+    String actual = SensitiveInfoUtil.getEncodeData("JohnDoe", SensitiveEnum.ENCODE);
+    String expected = "encryptedJohnDoe"; 
+    assertEquals(expected, actual);
+}
 
 
 No.10 generated result --------------------------
 
 @Test
 public void getEncodeDataTest() {
-    String result = SensitiveInfoUtil.getEncodeData("test data", SensitiveEnum.ENCODE);
-    assertEquals("expected encrypted data", result);
+    String testData = "Test123";
+    SensitiveEnum sensitiveEnum = SensitiveEnum.ENCODE;
+    String actual = SensitiveInfoUtil.getEncodeData(testData, sensitiveEnum);
+    String expected = "EncodedTest123"; // Placeholder value, replace with expected output
+    assertEquals(expected, actual);
 }
 
 

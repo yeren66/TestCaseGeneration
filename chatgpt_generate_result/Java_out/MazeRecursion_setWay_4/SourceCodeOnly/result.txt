@@ -35,70 +35,48 @@ public static boolean setWay(int[][] map, int i, int j) {
 
 No.1 generated result --------------------------
 
-int[][] map = {
-    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-    {1, 0, 0, 1, 0, 0, 0, 1, 0, 1},
-    {1, 0, 0, 1, 0, 0, 0, 1, 0, 1},
-    {1, 0, 0, 0, 0, 1, 1, 0, 0, 1},
-    {1, 0, 1, 1, 1, 0, 0, 0, 0, 1},
-    {1, 0, 0, 0, 1, 0, 0, 0, 0, 1},
-    {1, 0, 1, 0, 0, 0, 1, 0, 0, 1},
-    {1, 0, 1, 1, 1, 0, 1, 1, 0, 1},
-    {1, 1, 1, 0, 0, 0, 0, 0, 0, 1},
-    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
-};
-
 @Test
 public void setWayTest() {
-    boolean result = MazeRecursion.setWay(map, 1, 1);
-    assertTrue(result);
+    int[][] map = {
+        {1, 1, 1, 1, 1},
+        {1, 0, 0, 0, 1},
+        {1, 1, 1, 0, 1},
+        {1, 0, 0, 0, 0},
+        {1, 1, 1, 1, 1}
+    };
+    assertTrue(setWay(map, 1, 1));
 }
 
 
 No.2 generated result --------------------------
 
-package com.thealgorithms.backtracking;
+@Test
+public void setWayTest() {
+    int[][] map = {
+        {1, 1, 1, 1, 1, 1, 1, 1},
+        {1, 0, 0, 0, 1, 0, 0, 1},
+        {1, 0, 0, 0, 1, 0, 0, 1},
+        {1, 1, 1, 0, 0, 0, 1, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1}
+    };
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MazeRecursionTest {
-    @Test
-    public void setWayTest() {
-        int[][] map = new int[][] {{1, 1, 1, 1, 1, 1, 1},
-                                   {1, 0, 0, 0, 0, 0, 1},
-                                   {1, 1, 1, 0, 1, 1, 1},
-                                   {1, 1, 1, 0, 1, 1, 1},
-                                   {1, 0, 0, 0, 0, 0, 1},
-                                   {1, 0, 1, 1, 1, 1, 1},
-                                   {1, 1, 1, 2, 1, 1, 1}};
-        assertTrue(setWay(map, 1, 1));
-        assertEquals(2, map[6][5]);
-    }
+    assertTrue(MazeRecursion.setWay(map, 1, 1));
 }
 
 
 No.3 generated result --------------------------
 
+
 @Test
 public void setWayTest() {
     int[][] map = {
         {1, 1, 1, 1, 1, 1, 1},
+        {1, 0, 0, 0, 1, 0, 1},
         {1, 0, 0, 0, 0, 0, 1},
-        {1, 0, 0, 0, 0, 0, 1},
-        {1, 0, 0, 0, 0, 0, 1},
-        {1, 0, 0, 0, 0, 0, 1},
-        {1, 0, 0, 0, 0, 0, 1},
+        {1, 0, 1, 0, 0, 1, 1},
         {1, 1, 1, 1, 1, 1, 1}
     };
-    
-    assertTrue(setWay(map, 1, 1));
-    
-    for (int[] row : map) {
-        for (int num : row) {
-            assertEquals(2, num, "Expected value of 2");
-        }
-    }
+    assertTrue(MazeRecursion.setWay(map, 1, 1));
 }
 
 
@@ -107,36 +85,34 @@ No.4 generated result --------------------------
 @Test
 public void setWayTest() {
     int[][] map = {
-        {1, 1, 1, 1, 1, 1, 1},
-        {1, 0, 0, 0, 0, 0, 1},
-        {1, 0, 1, 1, 1, 0, 1},
-        {1, 0, 1, 0, 0, 0, 1},
-        {1, 0, 1, 0, 1, 0, 1},
-        {1, 0, 0, 0, 1, 0, 1},
-        {1, 1, 1, 1, 1, 1, 1}
+        {1, 1, 1, 1, 1, 1, 1, 1},
+        {1, 0, 0, 0, 0, 0, 0, 1},
+        {1, 1, 1, 0, 1, 1, 1, 1},
+        {1, 1, 1, 0, 1, 1, 1, 1},
+        {1, 0, 0, 0, 0, 0, 0, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1}
     };
 
-    assertTrue(setWay(map, 1, 1));
+    assertTrue(MazeRecursion.setWay(map, 1, 1));
 }
 
 
 No.5 generated result --------------------------
 
-public class MazeRecursionTest {
-    @Test
-    public void setWayTest() {
-        int[][] map = { { 1, 1, 1, 1, 1, 1, 1 },
-                        { 1, 0, 0, 0, 0, 0, 1 },
-                        { 1, 0, 1, 1, 1, 0, 1 },
-                        { 1, 0, 1, 0, 0, 0, 1 },
-                        { 1, 0, 1, 0, 1, 0, 1 },
-                        { 1, 0, 0, 0, 1, 0, 1 },
-                        { 1, 1, 1, 1, 1, 1, 1 } };
-
-        boolean result = MazeRecursion.setWay(map, 1, 1);
-        assertTrue(result);
-    }
+@Test
+public void setWayTest() {
+    int[][] map = {
+        {1, 1, 1, 1, 1, 1, 1, 1},
+        {1, 0, 0, 0, 1, 0, 0, 1},
+        {1, 0, 0, 0, 1, 0, 1, 1},
+        {1, 1, 1, 0, 1, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 1, 1, 1, 1, 1, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1}
+    };
+    assertTrue(MazeRecursion.setWay(map, 1, 1));
 }
+
 
 
 No.6 generated result --------------------------
@@ -146,11 +122,8 @@ public void setWayTest() {
     int[][] map = { {1, 1, 1, 1, 1, 1, 1},
                     {1, 0, 0, 0, 0, 0, 1},
                     {1, 1, 1, 0, 1, 1, 1},
-                    {1, 1, 1, 0, 1, 1, 1},
-                    {1, 0, 0, 0, 0, 0, 1},
-                    {1, 0, 1, 1, 1, 0, 1},
-                    {1, 1, 1, 1, 1, 0, 1} };
-
+                    {1, 0, 1, 0, 0, 0, 1},
+                    {1, 1, 1, 1, 1, 1, 1} };
     assertTrue(MazeRecursion.setWay(map, 1, 1));
 }
 
@@ -161,87 +134,62 @@ No.7 generated result --------------------------
 public void setWayTest() {
     int[][] map = {
         {1, 1, 1, 1, 1, 1, 1},
-        {1, 0, 0, 0, 0, 0, 1},
-        {1, 0, 1, 0, 1, 0, 1},
-        {1, 0, 1, 0, 1, 0, 1},
-        {1, 0, 1, 0, 1, 0, 1},
+        {1, 0, 0, 0, 1, 0, 1},
+        {1, 0, 0, 0, 1, 0, 1},
         {1, 0, 0, 0, 0, 0, 1},
         {1, 1, 1, 1, 1, 1, 1}
     };
-    boolean result = setWay(map, 1, 1);
-    assertTrue(result);
-    // Add assertions to verify the expected state of the map after executing the setWay method.
-    // For example, you can verify that map[6][5] is equal to 2.
-    // You can also check other positions to ensure they are correctly marked as 2 or 3.
+    assertTrue(MazeRecursion.setWay(map, 1, 1));
 }
+
 
 
 No.8 generated result --------------------------
 
 @Test
 public void setWayTest() {
-    int[][] map = {
-        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-        {1, 0, 0, 1, 0, 0, 0, 1, 0, 1},
-        {1, 0, 0, 1, 0, 0, 0, 1, 0, 1},
-        {1, 0, 0, 0, 0, 1, 1, 0, 0, 1},
-        {1, 0, 1, 1, 1, 0, 0, 0, 0, 1},
-        {1, 0, 0, 0, 1, 0, 0, 0, 0, 1},
-        {1, 0, 1, 0, 0, 0, 1, 0, 0, 1},
-        {1, 0, 1, 1, 1, 0, 1, 1, 0, 1},
-        {1, 1, 1, 0, 0, 0, 0, 0, 0, 1},
-        {1, 1, 1, 0, 0, 0, 0, 0, 0, 1}
-    };
-    boolean result = MazeRecursion.setWay(map, 1, 1);
-    assertTrue(result);
-    assertEquals(2, map[6][5]);
+    int[][] map = {{1, 1, 1, 1, 1, 1, 1},
+                   {1, 0, 0, 0, 0, 0, 1},
+                   {1, 1, 1, 1, 1, 0, 1},
+                   {1, 0, 0, 0, 0, 0, 1},
+                   {1, 1, 1, 1, 1, 1, 1}};
+    assertTrue(MazeRecursion.setWay(map, 1, 1));
 }
+
 
 
 No.9 generated result --------------------------
 
-package com.thealgorithms.backtracking;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MazeRecursionTest {
-    @Test
-    public void setWayTest() {
-        int[][] map = {{1,1,1,1,1,1,1,1,1,1},
-                       {1,0,0,0,0,0,0,0,0,1},
-                       {1,0,0,0,0,0,0,0,0,1},
-                       {1,0,0,0,0,0,0,0,0,1},
-                       {1,0,0,0,0,0,0,0,0,1},
-                       {1,0,0,0,0,0,0,0,0,1},
-                       {1,0,0,0,0,0,0,0,0,1},
-                       {1,0,0,0,0,0,0,0,0,1},
-                       {1,0,0,0,0,0,0,0,0,1},
-                       {1,1,1,1,1,1,1,1,1,1}};
-        
-        assertTrue(setWay(map, 1, 1));
-        
-        int[][] expectedOutput = {{1,1,1,1,1,1,1,1,1,1},
-                                  {1,2,2,2,2,2,2,2,2,1},
-                                  {1,0,0,0,0,0,0,0,2,1},
-                                  {1,0,0,0,0,0,0,0,
+@Test
+public void setWayTest() {
+    int[][] map = {{1,1,1,1,1,1,1,1},
+                   {1,0,0,0,0,0,0,1},
+                   {1,1,1,1,1,1,0,1},
+                   {1,1,0,0,0,0,0,1},
+                   {1,1,0,1,0,1,0,1},
+                   {1,1,0,0,0,0,0,1},
+                   {1,0,0,0,1,0,0,1},
+                   {1,1,1,1,1,1,1,1}};
+    assertTrue(setWay(map, 1, 1));
+}
 
 
 No.10 generated result --------------------------
 
 @Test
-public void setWayTest() {
+public void shouldFindPath() {
     int[][] map = {
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 1, 1, 1, 0, 0, 0, 1, 1, 0},
-        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0},
-        {0, 1, 1, 1, 1, 1, 0, 1, 1, 0},
-        {0, 1, 1, 1, 1, 1, 0, 0, 0, 0},
-        {0, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-        {0, 1, 1, 1, 1, 1, 1, 1, 1, 0}
+        {1, 1, 1, 1, 1, 1, 1, 1},
+        {1, 0, 0, 0, 0, 0, 0, 1},
+        {1, 1, 1, 0, 1, 1, 1, 1},
+        {1, 1, 1, 0, 1, 1, 1, 1},
+        {1, 0, 0, 0, 0, 0, 1, 1},
+        {1, 0, 1, 0, 1, 1, 1, 1},
+        {1, 0, 0, 0, 0, 0, 0, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1}
     };
-
-    assertTrue(setWay(map, 0, 0));
+    assertTrue(MazeRecursion.setWay(map, 1, 1));
 }
+
 
 

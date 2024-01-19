@@ -21,25 +21,17 @@ No.1 generated result --------------------------
 
 @Test
 public void decimalToHexTest() {
-    int decimal = 65;
-    String expectedHex = "41";
-    
-    String actualHex = OctalToHexadecimal.decimalToHex(decimal);
-    
-    assertEquals(expectedHex, actualHex);
+    assertEquals("5A0", OctalToHexadecimal.decimalToHex(1440));
 }
 
 
 No.2 generated result --------------------------
 
-@Test
 public void decimalToHexTest() {
-    assertEquals("0", OctalToHexadecimal.decimalToHex(0));
-    assertEquals("1", OctalToHexadecimal.decimalToHex(1));
-    assertEquals("A", OctalToHexadecimal.decimalToHex(10));
-    assertEquals("F", OctalToHexadecimal.decimalToHex(15));
-    assertEquals("10", OctalToHexadecimal.decimalToHex(16));
-    assertEquals("1F", OctalToHexadecimal.decimalToHex(31));
+    int decimal = 26;
+    String expectedResult = "1A";
+    String actualResult = OctalToHexadecimal.decimalToHex(decimal);
+    assertEquals(expectedResult, actualResult);
 }
 
 
@@ -47,16 +39,12 @@ No.3 generated result --------------------------
 
 @Test
 public void decimalToHexTest() {
-    // Test when the decimal number is 0
+    // Testing for positive decimal number
+    assertEquals("1A", OctalToHexadecimal.decimalToHex(26));
+    // Testing for 0 decimal number
     assertEquals("0", OctalToHexadecimal.decimalToHex(0));
-
-    // Test when the decimal number is positive
-    assertEquals("A", OctalToHexadecimal.decimalToHex(10));
-    assertEquals("64", OctalToHexadecimal.decimalToHex(100));
-
-    // Test when the decimal number is negative
+    // Testing for negative decimal number
     assertEquals("0", OctalToHexadecimal.decimalToHex(-10));
-    assertEquals("0", OctalToHexadecimal.decimalToHex(-100));
 }
 
 
@@ -64,8 +52,7 @@ No.4 generated result --------------------------
 
 @Test
 public void decimalToHexTest() {
-    String hex = OctalToHexadecimal.decimalToHex(100);
-    assertEquals("64", hex);
+    assertEquals("1A", OctalToHexadecimal.decimalToHex(26));
 }
 
 
@@ -73,11 +60,14 @@ No.5 generated result --------------------------
 
 @Test
 public void decimalToHexTest() {
-    int decimal = 24;
-    String expectedHex = "18";
+    // Given
+    int inputDecimal = 123;
     
-    String actualHex = OctalToHexadecimal.decimalToHex(decimal);
+    // When
+    String actualHex = OctalToHexadecimal.decimalToHex(inputDecimal);
     
+    // Then
+    String expectedHex = "7B";
     assertEquals(expectedHex, actualHex);
 }
 
@@ -85,75 +75,37 @@ public void decimalToHexTest() {
 No.6 generated result --------------------------
 
 @Test
-    public void decimalToHexTest() {
-        assertEquals("0", OctalToHexadecimal.decimalToHex(0));
-        assertEquals("1", OctalToHexadecimal.decimalToHex(1));
-        assertEquals("A", OctalToHexadecimal.decimalToHex(10));
-        assertEquals("F", OctalToHexadecimal.decimalToHex(15));
-        assertEquals("10", OctalToHexadecimal.decimalToHex(16));
-        assertEquals("19", OctalToHexadecimal.decimalToHex(25));
-        assertEquals("3E8", OctalToHexadecimal.decimalToHex(1000));
-        assertEquals("7FFF", OctalToHexadecimal.decimalToHex(32767));
-        assertEquals("FFFF", OctalToHexadecimal.decimalToHex(65535));
-    }
+public void decimalToHexTest() {
+    // Test case 1: when input is 0
+    assertEquals("0", OctalToHexadecimal.decimalToHex(0));
+    
+    // Test case 2: when input is a positive decimal number
+    assertEquals("1F", OctalToHexadecimal.decimalToHex(31));
+}
 
 
 No.7 generated result --------------------------
 
 @Test
-    public void decimalToHexTest() {
-        int decimal = OctalToHexadecimal.octToDec("27");
-        String hex = OctalToHexadecimal.decimalToHex(decimal);
-        assertEquals("1B", hex);
-    }
+public void decimalToHexTest() {
+    assertEquals("1A", OctalToHexadecimal.decimalToHex(26));
+}
 
 
 No.8 generated result --------------------------
 
-@Test
 public void decimalToHexTest() {
-    // Test case 1: Decimal number is positive
-    int decimal1 = 10;
-    String expectedHex1 = "A";
-    String actualHex1 = OctalToHexadecimal.decimalToHex(decimal1);
-    assertEquals(expectedHex1, actualHex1);
-
-    // Test case 2: Decimal number is negative
-    int decimal2 = -10;
-    String expectedHex2 = "0";
-    String actualHex2 = OctalToHexadecimal.decimalToHex(decimal2);
-    assertEquals(expectedHex2, actualHex2);
-
-    // Test case 3: Decimal number is zero
-    int decimal3 = 0;
-    String expectedHex3 = "0";
-    String actualHex3 = OctalToHexadecimal.decimalToHex(decimal3);
-    assertEquals(expectedHex3, actualHex3);
+    assertEquals("1A", OctalToHexadecimal.decimalToHex(26));
 }
 
 
 No.9 generated result --------------------------
 
-package com.thealgorithms.conversions;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class OctalToHexadecimalTest {
-    @Test
-    public void decimalToHexTest() {
-        String result = OctalToHexadecimal.decimalToHex(10);
-        assertEquals("A", result);
-        
-        result = OctalToHexadecimal.decimalToHex(25);
-        assertEquals("19", result);
-        
-        result = OctalToHexadecimal.decimalToHex(100);
-        assertEquals("64", result);
-        
-        result = OctalToHexadecimal.decimalToHex(255);
-        assertEquals("FF", result);
-    }
+@Test
+public void decimalToHexTest() {
+    assertEquals("5A", OctalToHexadecimal.decimalToHex(90));
+    assertEquals("1B", OctalToHexadecimal.decimalToHex(27));
+    assertEquals("0", OctalToHexadecimal.decimalToHex(0));
 }
 
 
@@ -161,17 +113,7 @@ No.10 generated result --------------------------
 
 @Test
 public void decimalToHexTest() {
-    // Test case 1: Input d = 0, expected output = "0"
-    assertEquals("0", OctalToHexadecimal.decimalToHex(0));
-    
-    // Test case 2: Input d = 15, expected output = "F"
-    assertEquals("F", OctalToHexadecimal.decimalToHex(15));
-    
-    // Test case 3: Input d = 255, expected output = "FF"
-    assertEquals("FF", OctalToHexadecimal.decimalToHex(255));
-    
-    // Test case 4: Input d = 16, expected output = "10"
-    assertEquals("10", OctalToHexadecimal.decimalToHex(16));
+    assertEquals("7F", OctalToHexadecimal.decimalToHex(127));
 }
 
 

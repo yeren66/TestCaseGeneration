@@ -1,0 +1,30 @@
+{
+    "project_name": "Java",
+    "file_name": "SegmentTree.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/datastructures/trees/SegmentTree.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.datastructures.trees",
+    "docstring": null,
+    "source_code": "/* A function to get the sum of the elements from index l to index r. This will be called\n * internally*/\nprivate int getSumTree(int start, int end, int q_start, int q_end, int seg_index) {\n    if (q_start <= start && q_end >= end) {\n        return this.seg_t[seg_index];\n    }\n\n    if (q_start > end || q_end < start) {\n        return 0;\n    }\n\n    int mid = start + (end - start) / 2;\n    return (getSumTree(start, mid, q_start, q_end, seg_index * 2 + 1) + getSumTree(mid + 1, end, q_start, q_end, seg_index * 2 + 2));\n}\n",
+    "class_name": "SegmentTree",
+    "method_name": "getSumTree",
+    "arguments": [
+        "int start",
+        "int end",
+        "int q_start",
+        "int q_end",
+        "int seg_index"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

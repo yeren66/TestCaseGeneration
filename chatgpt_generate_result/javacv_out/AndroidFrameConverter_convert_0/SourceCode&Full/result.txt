@@ -56,101 +56,50 @@ public Frame convert(byte[] data, int width, int height) {
 
 No.1 generated result --------------------------
 
-package org.bytedeco.javacv;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AndroidFrameConverterTest {
-    @Test
-    public void convertTest() {
-        byte[] data = new byte[100]; // sample data
-        int width = 10; // sample width
-        int height = 10; // sample height
-
-        // Create an instance of AndroidFrameConverter
-        AndroidFrameConverter converter = new AndroidFrameConverter();
-
-        // Call the convert method and get the result
-        Frame result = converter.convert(data, width, height);
-
-        // Perform assertions on the result
-        assertNotNull(result);
-        assertEquals(width, result.imageWidth);
-        assertEquals(height, result.imageHeight);
-        assertEquals(3, result.imageChannels);
-    }
+@Test
+public void convertYUVTest() {
+    byte[] data = new byte[100];
+    int width = 10;
+    int height = 10;
+    FrameConverter<Bitmap> converter = new AndroidFrameConverter();
+    Frame result = converter.convert(data, width, height);
+    assertNotNull(result);
 }
 
 
 No.2 generated result --------------------------
 
-package org.bytedeco.javacv;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AndroidFrameConverterTest {
-    @Test
-    public void convertTest() {
-        byte[] data = { 1, 2, 3, 4, 5, 6 };
-        int width = 2;
-        int height = 2;
-        
-        AndroidFrameConverter converter = new AndroidFrameConverter();
-        Frame frame = converter.convert(data, width, height);
-        
-        assertNotNull(frame);
-        assertEquals(width, frame.imageWidth);
-        assertEquals(height, frame.imageHeight);
-        
-        // Add additional assertions or verifications as needed
-    }
+public void convertTest() {
+    byte[] data = // sample data;
+    int width = // sample width;
+    int height = // sample height;
+    AndroidFrameConverter androidFrameConverter = new AndroidFrameConverter();
+    Frame expectedResult = androidFrameConverter.convert(data, width, height);
+    Frame actualResult = // call the method to be tested;
+    assertEquals(expectedResult, actualResult);
 }
 
 
 No.3 generated result --------------------------
 
-@Test
-    public void convertTest() {
-        byte[] data = new byte[4];
-        data[0] = 10;
-        data[1] = 20;
-        data[2] = 30;
-        data[3] = 40;
-        int width = 2;
-        int height = 2;
-        
-        AndroidFrameConverter converter = new AndroidFrameConverter();
-        Frame frame = converter.convert(data, width, height);
-        
-        // Perform assertions on the frame object
-        assertEquals(width, frame.imageWidth);
-        assertEquals(height, frame.imageHeight);
-        assertEquals(Frame.DEPTH_UBYTE, frame.imageDepth);
-        assertEquals(3, frame.imageChannels);
-        assertNotNull(frame.image);
-        
-        // Continue with additional assertions if necessary
-    }
+FrameConverter converter = new AndroidFrameConverter();
+Frame inputFrame = new Frame(640, 480, Frame.DEPTH_UBYTE, 3);
+Bitmap bitmapOutput = converter.convert(inputFrame);
+Frame frameOutput = converter.convert(bitmapOutput);
+assertNotNull(bitmapOutput);
+assertNotNull(frameOutput);
 
 
 No.4 generated result --------------------------
 
 @Test
 public void convertTest() {
-    // Create a byte array to simulate image data
-    byte[] data = new byte[width * height];
-    
-    // Set up the expected frame
-    Frame expectedFrame = new Frame(width, height, Frame.DEPTH_UBYTE, 3);
-    ByteBuffer out = (ByteBuffer)expectedFrame.image[0];
-    
-    // Perform the conversion
-    Frame result = convert(data, width, height);
-    
-    // Compare the results
-    assertArrayEquals(expectedFrame.image[0].array(), result.image[0].array());
+    AndroidFrameConverter converter = new AndroidFrameConverter();
+    byte[] data = new byte[10];
+    int width = 100;
+    int height = 100;
+    Frame result = converter.convert(data, width, height);
+    assertNotNull(result);
 }
 
 
@@ -158,83 +107,62 @@ No.5 generated result --------------------------
 
 @Test
 public void convertTest() {
-    AndroidFrameConverter converter = new AndroidFrameConverter();
-    byte[] data = {0, 255, 0, 128, 255, 128};
-    int width = 2;
-    int height = 1;
-    Frame frame = converter.convert(data, width, height);
-    assertNotNull(frame);
-    assertEquals(width, frame.imageWidth);
-    assertEquals(height, frame.imageHeight);
-    assertEquals(3, frame.imageChannels);
-    assertEquals(Frame.DEPTH_UBYTE, frame.imageDepth);
-    ByteBuffer out = (ByteBuffer) frame.image[0];
-    assertNotNull(out);
-    assertEquals(width * height * 3, out.remaining());
+    byte[] data = {/* your test data here */};
+    int width = /* your test width here */;
+    int height = /* your test height here */;
+    Frame expected = new Frame(width, height, Frame.DEPTH_UBYTE, 3);
+
+    AndroidFrameConverter androidFrameConverter = new AndroidFrameConverter();
+    Frame result = androidFrameConverter.convert(data, width, height);
+
+    assertEquals(expected, result);
 }
 
 
 No.6 generated result --------------------------
 
-package org.bytedeco.javacv;
+@Test
+public void convertTest() {
+    byte[] data = new byte[100];
+    int width = 50;
+    int height = 50;
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+    // Create an instance of the AndroidFrameConverter class
+    AndroidFrameConverter converter = new AndroidFrameConverter();
 
-public class AndroidFrameConverterTest {
-    @Test
-    public void convertTest() {
-        byte[] data = new byte[10];
-        int width = 2;
-        int height = 2;
-        
-        AndroidFrameConverter converter = new AndroidFrameConverter();
-        Frame frame = converter.convert(data, width, height);
-        
-        assertNotNull(frame);
-        assertEquals(width, frame.imageWidth);
-        assertEquals(height, frame.imageHeight);
-        assertEquals(3, frame.imageChannels);
-        
-        // Add more assertions if needed
-    }
+    // Call the convert method with the given data, width, and height
+    Frame result = converter.convert(data, width, height);
+    
+    // Add assertions to verify the result
+    assertNotNull(result);
+    assertEquals(width, result.imageWidth);
+    assertEquals(height, result.imageHeight);
 }
 
 
 No.7 generated result --------------------------
 
-@Test
-public void convertTest() {
-    AndroidFrameConverter converter = new AndroidFrameConverter();
-    byte[] data = new byte[320 * 240 * 2]; // assuming data size of 320x240 and 2 channels
-    int width = 320;
-    int height = 240;
-    
-    Frame result = converter.convert(data, width, height);
-    
-    assertNotNull(result);
-    assertEquals(width, result.imageWidth);
-    assertEquals(height, result.imageHeight);
-    assertEquals(3, result.imageChannels);
-    // add more assertions for verifying the correctness of the conversion
-}
+ @Test
+    public void convertTest() {
+        byte[] data = new byte[100];
+        int width = 10;
+        int height = 10;
+        AndroidFrameConverter converter = new AndroidFrameConverter();
+        Frame result = converter.convert(data, width, height);
+        assertNotNull(result);
+    }
 
 
 No.8 generated result --------------------------
 
 @Test
 public void convertTest() {
-    byte[] data = new byte[10];
-    int width = 5;
-    int height = 2;
-
-    AndroidFrameConverter converter = new AndroidFrameConverter();
-    Frame frame = converter.convert(data, width, height);
-
+    byte[] data = new byte[100]; // replace with actual data
+    int width = 10;
+    int height = 10;
+    
+    Frame frame = convert(data, width, height);
     assertNotNull(frame);
-    assertEquals(width, frame.imageWidth);
-    assertEquals(height, frame.imageHeight);
-    assertEquals(3, frame.imageChannels);
 }
 
 
@@ -243,37 +171,26 @@ No.9 generated result --------------------------
 @Test
 public void convertTest() {
     AndroidFrameConverter converter = new AndroidFrameConverter();
-    byte[] data = new byte[720 * 480]; // sample input data
-    Frame result = converter.convert(data, 720, 480);
+    byte[] data = new byte[]{ /* test data */ };
+    int width = 640;
+    int height = 480;
+    Frame result = converter.convert(data, width, height);
     assertNotNull(result);
-    assertEquals(720, result.imageWidth);
-    assertEquals(480, result.imageHeight);
-    assertEquals(3, result.imageChannels);
-    assertEquals(Frame.DEPTH_UBYTE, result.imageDepth);
 }
 
 
 No.10 generated result --------------------------
 
-package org.bytedeco.javacv;
+Frame frame = // create a new Frame object with the necessary parameters
+byte[] data = { /* fill with sample data */ };
+int width = // specify the width;
+int height = // specify the height;
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+AndroidFrameConverter androidFrameConverter = new AndroidFrameConverter();
+Frame result = androidFrameConverter.convert(data, width, height);
 
-public class AndroidFrameConverterTest {
-    @Test
-    public void convertTest() {
-        AndroidFrameConverter converter = new AndroidFrameConverter();
-        byte[] data = new byte[100]; // sample data
-        int width = 10; // sample width
-        int height = 10; // sample height
-        
-        Frame convertedFrame = converter.convert(data, width, height);
-        
-        assertNotNull(convertedFrame);
-        assertEquals(width, convertedFrame.imageWidth);
-        assertEquals(height, convertedFrame.imageHeight);
-    }
-}
+// Add assertions to verify the correctness of the conversion
+// For example:
+// assertEquals(expectedResult, result);
 
 

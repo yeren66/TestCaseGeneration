@@ -13,27 +13,26 @@ No.1 generated result --------------------------
 
 @Test
 public void getEurekaServerServiceUrlsTest() {
-    ApolloEurekaClientConfig config = new ApolloEurekaClientConfig(mockBizConfig, mockRefreshScope);
-    List<String> urls = config.getEurekaServerServiceUrls("myZone");
-    assertEquals(expectedUrls, urls);
+    ApolloEurekaClientConfig config = new ApolloEurekaClientConfig(new BizConfig(), new RefreshScope());
+    List<String> expected = Arrays.asList("http://example.com");
+    List<String> actual = config.getEurekaServerServiceUrls("testZone");
+    assertEquals(expected, actual);
 }
 
 
 No.2 generated result --------------------------
 
-package com.ctrip.framework.apollo.biz.eureka;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class ApolloEurekaClientConfigTest {
-    @Test
-    public void getEurekaServerServiceUrlsTest() {
-        ApolloEurekaClientConfig clientConfig = new ApolloEurekaClientConfig(null, null);
-        List<String> urls = clientConfig.getEurekaServerServiceUrls("myZone");
-        assertNotNull(urls);
-        // Add assertions for the expected behavior of the method
-    }
+@Test
+public void getEurekaServerServiceUrlsTest() {
+    // Given
+    ApolloEurekaClientConfig apolloEurekaClientConfig = new ApolloEurekaClientConfig();
+    String myZone = "testZone";
+    
+    // When
+    List<String> result = apolloEurekaClientConfig.getEurekaServerServiceUrls(myZone);
+    
+    // Then
+    assertNotNull(result);
 }
 
 
@@ -42,13 +41,9 @@ No.3 generated result --------------------------
 @Test
 public void getEurekaServerServiceUrlsTest() {
     ApolloEurekaClientConfig apolloEurekaClientConfig = new ApolloEurekaClientConfig(new BizConfig(), new RefreshScope());
-    String myZone = "myZone";
-    List<String> expectedUrls = Arrays.asList("url1", "url2", "url3");
-    apolloEurekaClientConfig.getBizConfig().setEurekaServiceUrls(expectedUrls);
-
-    List<String> actualUrls = apolloEurekaClientConfig.getEurekaServerServiceUrls(myZone);
-
-    assertEquals(expectedUrls, actualUrls);
+    List<String> result = apolloEurekaClientConfig.getEurekaServerServiceUrls("myZone");
+    // Add assertions here
+    assertEquals(Collections.emptyList(), result);  // example assertion
 }
 
 
@@ -56,112 +51,84 @@ No.4 generated result --------------------------
 
 @Test
 public void getEurekaServerServiceUrlsTest() {
-    ApolloEurekaClientConfig config = new ApolloEurekaClientConfig(new BizConfig(), new RefreshScope());
-    List<String> urls = config.getEurekaServerServiceUrls("myZone");
-  
-    // Add assertions here to test the output of the method
-    assertEquals(3, urls.size());
-    assertTrue(urls.contains("http://localhost:8761/eureka/"));
+    // Given
+    ApolloEurekaClientConfig apolloEurekaClientConfig = new ApolloEurekaClientConfig(bizConfig, refreshScope);
+    String myZone = "testZone";
+    
+    // When
+    List<String> result = apolloEurekaClientConfig.getEurekaServerServiceUrls(myZone);
+    
+    // Then
+    assertNotNull(result);
+    // Add more assertions as needed...
 }
 
 
 No.5 generated result --------------------------
 
-
-package com.ctrip.framework.apollo.biz.eureka;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-import org.mockito.Mockito;
-import java.util.ArrayList;
-import java.util.List;
-
-public class ApolloEurekaClientConfigTest {
-
-    @Test
-    public void getEurekaServerServiceUrlsTest() {
-        BizConfig bizConfig = Mockito.mock(BizConfig.class);
-        ApolloEurekaClientConfig apolloEurekaClientConfig = new ApolloEurekaClientConfig(bizConfig, Mockito.mock(RefreshScope.class));
-
-        // Mocking empty list
-        Mockito.when(bizConfig.eurekaServiceUrls()).thenReturn(new ArrayList<>());
-        List<String> result1 = apolloEurekaClientConfig.getEurekaServerServiceUrls("myZone");
-        assertEquals(0, result1.size());
-
-        // Mocking non-empty list
-        List<String> urls = new ArrayList<>();
-        urls.add("http://localhost:8761/eureka");
-        urls.add("http://localhost:8762/eureka");
-        Mockito.when(bizConfig.eurekaServiceUrls()).thenReturn(urls);
-        List<String> result2 = apolloEurekaClientConfig.getEurekaServerServiceUrls("myZone");
-        assertEquals(2, result2.size());
-        assertEquals(urls, result2);
-    }
-}
-
+List<String> urls = Arrays.asList("http://example.com", "http://test.com");
+List<String> result = apolloEurekaClientConfig.getEurekaServerServiceUrls("myZone");
+assertEquals(urls, result);
 
 
 No.6 generated result --------------------------
 
 @Test
 public void getEurekaServerServiceUrlsTest() {
-    ApolloEurekaClientConfig config = new ApolloEurekaClientConfig(mockBizConfig, mockRefreshScope);
-    List<String> urls = new ArrayList<>();
-    urls.add("http://example.com");
+    // Create an instance of ApolloEurekaClientConfig
+    ApolloEurekaClientConfig config = new ApolloEurekaClientConfig(new BizConfig(), new RefreshScope());
     
-    when(mockBizConfig.eurekaServiceUrls()).thenReturn(urls);
+    // Create a test case for when the list of service urls is empty
+    List<String> emptyUrls = new ArrayList<>();
+    when(config.getEurekaServerServiceUrls("myZone")).thenReturn(emptyUrls);
+    List<String> result1 = config.getEurekaServerServiceUrls("myZone");
+    assertTrue(result1.isEmpty());
     
-    List<String> result = config.getEurekaServerServiceUrls("myZone");
-    
-    assertEquals(urls, result);
+    // Create a test case for when the list of service urls is not empty
+    List<String> nonEmptyUrls = Arrays.asList("url1", "url2");
+    when(config.getEurekaServerServiceUrls("myZone")).thenReturn(nonEmptyUrls);
+    List<String> result2 = config.getEurekaServerServiceUrls("myZone");
+    assertArrayEquals(nonEmptyUrls.toArray(), result2.toArray());
 }
+
 
 
 No.7 generated result --------------------------
 
-@Test
-public void getEurekaServerServiceUrlsTest() {
-    ApolloEurekaClientConfig eurekaClientConfig = new ApolloEurekaClientConfig(bizConfig, refreshScope);
-    String myZone = "myZone";
-    List<String> expectedUrls = List.of("http://localhost:8761/eureka");
-    
-    List<String> actualUrls = eurekaClientConfig.getEurekaServerServiceUrls(myZone);
-    
-    assertEquals(expectedUrls, actualUrls);
+
+    @Test
+    public void getEurekaServerServiceUrlsTest() {
+        String myZone = "testZone";
+        List<String> expectedUrls = Arrays.asList("url1", "url2", "url3");
+        BizConfig mockBizConfig = mock(BizConfig.class);
+        EurekaClientConfigBean eurekaClientConfigBean = new ApolloEurekaClientConfig(mockBizConfig, mock(RefreshScope.class));
+        
+        when(mockBizConfig.eurekaServiceUrls()).thenReturn(expectedUrls);
+        List<String> actualUrls = eurekaClientConfigBean.getEurekaServerServiceUrls(myZone);
+        
+        assertEquals(expectedUrls, actualUrls);
+    }
 }
 
 
 No.8 generated result --------------------------
 
 @Test
-public void getEurekaServerServiceUrlsTest() {
-    ApolloEurekaClientConfig config = new ApolloEurekaClientConfig(new BizConfig(), new RefreshScope());
-    List<String> urls = new ArrayList<>();
-    urls.add("http://localhost:8761/eureka");
-    config.bizConfig = new BizConfig() {
-        @Override
-        public List<String> eurekaServiceUrls() {
-            return urls;
-        }
-    };
-    
-    String myZone = "myZone";
-    List<String> result = config.getEurekaServerServiceUrls(myZone);
-    
-    assertEquals(urls, result);
-}
+ public void getEurekaServerServiceUrlsTest() {
+   ApolloEurekaClientConfig config = new ApolloEurekaClientConfig(new BizConfig(), new RefreshScope());
+   String myZone = "testZone";
+   List<String> result = config.getEurekaServerServiceUrls(myZone);
+   assertNotNull(result);
+ }
 
 
 No.9 generated result --------------------------
 
 @Test
 public void getEurekaServerServiceUrlsTest() {
-    ApolloEurekaClientConfig config = new ApolloEurekaClientConfig(new BizConfig(), new RefreshScope());
-
-    List<String> urls = config.getEurekaServerServiceUrls("myZone");
-
+    ApolloEurekaClientConfig eurekaClientConfig = new ApolloEurekaClientConfig(new BizConfig(), new RefreshScope());
+    List<String> urls = eurekaClientConfig.getEurekaServerServiceUrls("defaultZone");
     assertNotNull(urls);
-    // additional assertions based on the expected behavior of getEurekaServerServiceUrls() 
 }
 
 
@@ -169,17 +136,10 @@ No.10 generated result --------------------------
 
 @Test
 public void getEurekaServerServiceUrlsTest() {
-    String myZone = "testZone";
-    List<String> expectedUrls = new ArrayList<>();
-    expectedUrls.add("http://localhost:8761/eureka/");
-    
-    BizConfig bizConfig = mock(BizConfig.class);
-    when(bizConfig.eurekaServiceUrls()).thenReturn(expectedUrls);
-    
-    ApolloEurekaClientConfig config = new ApolloEurekaClientConfig(bizConfig, mock(RefreshScope.class));
-    List<String> actualUrls = config.getEurekaServerServiceUrls(myZone);
-    
-    assertEquals(expectedUrls, actualUrls);
+    // Test case 1
+    ApolloEurekaClientConfig apolloEurekaClientConfig = new ApolloEurekaClientConfig(bizConfig, refreshScope);
+    List<String> urls = apolloEurekaClientConfig.getEurekaServerServiceUrls("myZone");
+    assertNotNull(urls);
 }
 
 

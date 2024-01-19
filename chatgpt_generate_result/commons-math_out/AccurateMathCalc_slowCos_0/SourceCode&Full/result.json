@@ -13,15 +13,15 @@
         "double[] result"
     ],
     "generate_test": [
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout"
+        "@Test\npublic void slowCosTest() {\n    double x = 0.5;\n    double[] result = new double[2];\n    double slowCosResult = AccurateMathCalc.slowCos(x, result);\n    // Add assertions here to verify the correctness of the slowCos method\n    // For example:\n    assertEquals(0.8775825618903728, slowCosResult, 1e-15);\n}",
+        "@Test\npublic void slowCosTest() {\n    double x = 0.5;\n    double[] result = new double[2];\n    double actual = AccurateMathCalc.slowCos(x, result);\n    double expected = Math.cos(x);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void slowCosTest() {\n    double x = 0.5; // example input\n    double[] result = new double[2]; // initialize result array\n    double actual = AccurateMathCalc.slowCos(x, result); // call the slowCos method\n    double expected = Math.cos(x); // compute expected result using standard library\n    assertEquals(expected, actual, 0.000001); // assert the actual result matches the expected result\n    // print out the whole test case\n    System.out.println(\"Input x: \" + x);\n    System.out.println(\"Expected Result: \" + expected);\n    System.out.println(\"Actual Result: \" + actual);\n    System.out.println(\"Result Array: {\" + result[0] + \", \" + result[1] + \"}\");\n}",
+        "@Test\npublic void slowCosTest() {\n    double x = 0.5; // Example input for testing\n    double[] result = new double[2]; // Placeholder for storing the result in extended precision\n    double actual = AccurateMathCalc.slowCos(x, result); // Call the slowCos method with input and result placeholder\n    double expected = Math.cos(x); // The expected output using standard Math library method\n    assertEquals(expected, actual, 0.001); // Assert that the actual result matches the expected result within a tolerance\n    // Output the whole test case\n    System.out.println(\"Input x: \" + x);\n    System.out.println(\"Expected: \" + expected);\n    System.out.println(\"Actual: \" + actual);\n    System.out.println(\"Extended Precision Result: \" + result[0] + \" + \" + result[1]);\n}",
+        "@Test\npublic void slowCosTest() {\n    double x = 0.5;\n    double[] result = new double[2];\n    double actual = AccurateMathCalc.slowCos(x, result);\n    double expected = Math.cos(x);\n    double tolerance = 1e-15;\n    assertEquals(expected, actual, tolerance);\n    assertEquals(expected, result[0] + result[1], tolerance);\n}",
+        "@Test\npublic void slowCosTest() {\n    double x = 0.5;\n    double[] result = new double[2];\n    double expected = Math.cos(x);\n    double actual = AccurateMathCalc.slowCos(x, result);\n    assertEquals(expected, actual, 0.0001);\n    // Output the whole test case\n    System.out.println(\"Expected: \" + expected);\n    System.out.println(\"Actual: \" + actual);\n    System.out.println(\"Result[0]: \" + result[0]);\n    System.out.println(\"Result[1]: \" + result[1]);\n}",
+        "    @Test\n    public void slowCosTest() {\n        double x = 0.5;  // Example input for testing slowCos\n        final double delta = 1.0e-15;  // Tolerance for floating-point comparisons\n\n        double[] result = new double[2];\n        double actual = AccurateMathCalc.slowCos(x, result);\n\n        // Use the actual result to complete the test\n        double expected = Math.cos(x);\n        assertEquals(expected, actual, delta);\n    }\n",
+        "@Test\npublic void slowCosTest() {\n    // Given\n    double x = 0.5;\n    double[] result = new double[2];\n    \n    // When\n    double cos = AccurateMathCalc.slowCos(x, result);\n    \n    // Then\n    assertEquals(0.8775825618903728, cos, 0.00001);\n    assertEquals(0.8775825618903728, result[0] + result[1], 0.00001);\n}",
+        "public void slowCosTest() {\n    double x = Math.PI / 4; // arbitrary value for x\n    double[] result = new double[2]; // placeholder for the result in extended precision\n    double expected = Math.cos(x); // expected value using standard Math.cos() function\n    \n    // Call the slowCos method\n    double actual = AccurateMathCalc.slowCos(x, result);\n    \n    // Assert expected value and actual value are equal\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void slowCosTest() {\n    double x = 0.5;\n    double[] result = new double[2];\n    double actual = AccurateMathCalc.slowCos(x, result);\n    assertEquals(Math.cos(x), actual, 0.0001);\n}"
     ]
 }

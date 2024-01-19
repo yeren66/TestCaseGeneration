@@ -1,0 +1,158 @@
+Source code: 
+
+
+public static String toLowerCase(String s) {
+    char[] values = s.toCharArray();
+    for (int i = 0; i < values.length; ++i) {
+        if (Character.isLetter(values[i]) && Character.isUpperCase(values[i])) {
+            values[i] = Character.toLowerCase(values[i]);
+        }
+    }
+    return new String(values);
+}
+
+
+
+No.1 generated result --------------------------
+
+package com.thealgorithms.strings;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class LowerTest {
+
+    @Test
+    public void toLowerCaseTest() {
+        // Test with a basic string
+        assertEquals("hello", Lower.toLowerCase("Hello"), "Should convert 'Hello' to 'hello'");
+
+        // Test with a string that is already in lowercase
+        assertEquals("hello", Lower.toLowerCase("hello"), "Should not change 'hello'");
+
+        // Test with a string containing all uppercase letters
+        assertEquals("world", Lower.toLowerCase("WORLD"), "Should convert 'WORLD' to 'world'");
+
+        // Test with a string containing numbers and symbols; they should remain unchanged
+        assertEquals("123!@#abc", Lower.toLowerCase("123!@#ABC"), "Should only change letters to lowercase");
+
+        // Test with a string that is empty
+        assertEquals("", Lower.toLowerCase(""), "An empty string should remain unchanged");
+
+        // Test with a string containing a mix of upper and lower case letters
+        assertEquals("java is fun!", Lower.toLowerCase("Java IS Fun!"), "Should convert mixed case to all lowercase");
+
+        // Test with a string containing non-English characters (which may or may not have case)
+        assertEquals("функция", Lower.toLowerCase("Функция"), "Should handle non-English characters if there is a case");
+    }
+}
+
+
+No.2 generated result --------------------------
+
+package com.thealgorithms.strings;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class LowerTest {
+
+    @Test
+    public void toLowerCaseTest() {
+        assertEquals("hello", Lower.toLowerCase("Hello"), "Conversion to lower case failed for word with initial uppercase");
+        assertEquals("hello world", Lower.toLowerCase("Hello World"), "Conversion to lower case failed for sentence with uppercase");
+        assertEquals("already lowercase", Lower.toLowerCase("already lowercase"), "Conversion to lower case failed for already lowercase sentence");
+        assertEquals("", Lower.toLowerCase(""), "Conversion to lower case failed for empty string");
+        assertEquals("123", Lower.toLowerCase("123"), "Conversion to lower case failed for string with digits");
+        assertEquals("@#$%^&*", Lower.toLowerCase("@#$%^&*"), "Conversion to lower case failed for string with special characters");
+        assertEquals("hello123", Lower.toLowerCase("Hello123"), "Conversion to lower case failed for alphanumeric string");
+        assertEquals("स्वागतम्", Lower.toLowerCase("स्वागतम्"), "Conversion to lower case failed for non-Latin characters");
+    }
+}
+
+
+No.3 generated result --------------------------
+
+package com.thealgorithms.strings;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class LowerTest {
+    @Test
+    public void toLowerCaseTest() {
+        // Test with standard mixed case string
+        assertEquals("hello", Lower.toLowerCase("Hello"), "Should convert to all lower case");
+        
+        // Test with all upper case string
+        assertEquals("world", Lower.toLowerCase("WORLD"), "Should convert to all lower case");
+
+        // Test with all lower case string (no conversion expected)
+        assertEquals("peace", Lower.toLowerCase("peace"), "Should remain the same as input");
+
+        // Test with numeric and special characters (no letters)
+        assertEquals("12345!@#", Lower.toLowerCase("12345!@#"), "Should remain the same as input");
+
+        // Test with empty string
+        assertEquals("", Lower.toLowerCase(""), "Should return empty string for empty input");
+
+        // Test with string containing spaces
+        assertEquals("a b c", Lower.toLowerCase("A B C"), "Should convert letters to lower case and retain spaces");
+
+        // Test with null input
+        assertThrows(NullPointerException.class, () -> Lower.toLowerCase(null), "Should throw NullPointerException for null input");
+    }
+}
+
+
+No.4 generated result --------------------------
+
+package com.thealgorithms.strings;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class LowerTest {
+    @Test
+    public void toLowerCaseTest() {
+        assertEquals("hello", Lower.toLowerCase("Hello"));
+        assertEquals("world", Lower.toLowerCase("World"));
+        assertEquals("test", Lower.toLowerCase("test"));
+        assertEquals("", Lower.toLowerCase(""));
+        assertEquals("123", Lower.toLowerCase("123"));
+        assertEquals("hello world!", Lower.toLowerCase("Hello World!"));
+        assertEquals("java programming", Lower.toLowerCase("Java Programming"));
+    }
+}
+
+
+No.5 generated result --------------------------
+
+Timeout
+
+
+No.6 generated result --------------------------
+
+Timeout
+
+
+No.7 generated result --------------------------
+
+Timeout
+
+
+No.8 generated result --------------------------
+
+Timeout
+
+
+No.9 generated result --------------------------
+
+Timeout
+
+
+No.10 generated result --------------------------
+
+Timeout
+
+

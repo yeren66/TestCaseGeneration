@@ -15,15 +15,15 @@
         "int bY"
     ],
     "generate_test": [
-        "@Test\npublic void distanceTest() {\n    // Given\n    int aX = 2;\n    int aY = 4;\n    int bX = 6;\n    int bY = 8;\n\n    // When\n    float result = MathUtils.distance(aX, aY, bX, bY);\n\n    // Then\n    float expected = 5.656854f;\n    assertEquals(expected, result, 0.0001f);\n}",
-        "@Test\npublic void distanceTest() {\n    // Test case 1: For points (1, 2) and (3, 4), the expected distance is approximately 2.828427\n    float actualDistance1 = MathUtils.distance(1, 2, 3, 4);\n    float expectedDistance1 = 2.828427f;\n    assertEquals(expectedDistance1, actualDistance1, 0.01f);\n\n    // Test case 2: For points (-2, 0) and (3, -4), the expected distance is approximately 6.403124\n    float actualDistance2 = MathUtils.distance(-2, 0, 3, -4);\n    float expectedDistance2 = 6.403124f;\n    assertEquals(expectedDistance2, actualDistance2, 0.01f);\n\n    // Test case 3: For points (0, 0) and (0, 0), the expected distance is 0.0\n    float actualDistance3 = MathUtils.distance(0, 0, 0, 0);\n    float expectedDistance3 = 0.0f;\n    assertEquals(expectedDistance3, actualDistance3, 0.01f);\n}",
-        "@Test\npublic void distanceTest() {\n    float actual = MathUtils.distance(2, 3, 5, 7);\n    float expected = 5.0f;\n    assertEquals(expected, actual);\n}",
-        "@Test\npublic void distanceTest() {\n    float result = MathUtils.distance(1, 2, 3, 4);\n    assertEquals(2.828, result, 0.001);\n}",
-        "@Test\npublic void distanceTest() {\n    float result = MathUtils.distance(3, 4, 6, 8);\n    assertEquals(5.0, result, 0.01);\n}",
-        "@Test\npublic void distanceTest() {\n    // Arrange\n    int aX = 1;\n    int aY = 2;\n    int bX = 3;\n    int bY = 4;\n    float expectedDistance = 2.828427f;\n    \n    // Act\n    float actualDistance = MathUtils.distance(aX, aY, bX, bY);\n    \n    // Assert\n    assertEquals(expectedDistance, actualDistance, 0.001);\n}",
-        "@Test\npublic void distanceTest() {\n    float result = MathUtils.distance(3, 4, 5, 6);\n    assertEquals(2.828427, result, 0.001);\n}",
-        "@Test\npublic void distanceTest() {\n    int aX = 3;\n    int aY = 4;\n    int bX = 0;\n    int bY = 0;\n    \n    float expectedDistance = 5.0f;\n    float actualDistance = MathUtils.distance(aX, aY, bX, bY);\n    \n    assertEquals(expectedDistance, actualDistance, 0.001);\n}",
-        "@Test\n    public void distanceTest() {\n        float result = MathUtils.distance(0, 0, 3, 4);\n        assertEquals(5.0f, result);\n    }",
-        "@Test\npublic void distanceTest() {\n    float distance = MathUtils.distance(0, 0, 3, 4);\n    assertEquals(5.0, distance);\n}"
+        "public void distanceTest() {\n  assertEquals(3.605, MathUtils.distance(1, 2, 4, 3), 0.001);\n}",
+        "@Test\npublic void distanceTest() {\n    assertEquals(5.0f, MathUtils.distance(2, 3, 5, 7));\n}",
+        "@Test\npublic void distanceTest() {\n    float actual = MathUtils.distance(3, 4, 0, 0);\n    float expected = 5.0f;\n    assertEquals(expected, actual, 0.0001);\n}",
+        "@Test\npublic void distanceTest() {\n    int aX = 2;\n    int aY = 3;\n    int bX = 5;\n    int bY = 7;\n    float expectedDistance = 5.0f;\n    float actualDistance = MathUtils.distance(aX, aY, bX, bY);\n    assertEquals(expectedDistance, actualDistance);\n}",
+        "@Test\npublic void distanceTest() {\n    float result = MathUtils.distance(2, 3, 6, 5);\n    assertEquals(4.47213595499958, result);\n}",
+        "@Test\npublic void distanceTest() {\n    float expected = 5.0f;\n    float actual = MathUtils.distance(3, 4, 6, 8);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void distanceTest() {\n    float result = MathUtils.distance(3, 4, 0, 0);\n    assertEquals(5.0, result, 0.001);\n}",
+        "@Test\npublic void distanceTest() {\n    int aX = 5;\n    int aY = 7;\n    int bX = 8;\n    int bY = 12;\n    float expectedDistance = 5.8309f;\n    float actualDistance = MathUtils.distance(aX, aY, bX, bY);\n    assertEquals(expectedDistance, actualDistance, 0.0001);\n}",
+        "@Test\npublic void distanceTest() {\n    float expected = 5.0f;\n    float actual = MathUtils.distance(1, 2, 4, 6);\n    assertEquals(expected, actual, 0.001);\n}",
+        "@Test\npublic void distanceTest() {\n    float result = MathUtils.distance(3, 4, 0, 0);\n    assertEquals(5.0, result);\n}"
     ]
 }

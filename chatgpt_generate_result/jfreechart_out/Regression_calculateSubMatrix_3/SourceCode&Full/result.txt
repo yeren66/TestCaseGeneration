@@ -45,103 +45,65 @@ private static double[][] calculateSubMatrix(double[][] matrix){
 
 No.1 generated result --------------------------
 
-
-package org.jfree.data.statistics;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class RegressionTest {
-    @Test
-    public void calculateSubMatrixTest() {
+public void calculateSubMatrixTest() {
         double[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-        double[][] expected = {{5, 6}, {8, 9}};
-        double[][] result = Regression.calculateSubMatrix(matrix);
-        assertArrayEquals(expected, result);
+        double[][] expected = {{0, 0}, {1, 2}};
+        double[][] actual = Regression.calculateSubMatrix(matrix);
+        assertArrayEquals(expected, actual);
     }
-}
-
 
 
 No.2 generated result --------------------------
 
-double[][] testMatrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-double[][] expectedResult = {{5, 6}, {8, 9}};
-double[][] result = Regression.calculateSubMatrix(testMatrix);
-assertArrayEquals(expectedResult, result);
+double[][] matrix = {
+    {1, 2},
+    {3, 4}
+};
+
+double[][] result = Regression.calculateSubMatrix(matrix);
+
+double[][] expected = {
+    {3}
+};
+
+assertArrayEquals(expected, result);
 
 
 No.3 generated result --------------------------
 
-@Test
 public void calculateSubMatrixTest() {
-    // Test for a 2x2 matrix
-    double[][] matrix = {{1.0, 2.0}, {3.0, 4.0}};
-    double[][] expected = {{4.0}};
-    double[][] result = Regression.calculateSubMatrix(matrix);
-    assertArrayEquals(expected, result);
-    
-    // Test for a 3x3 matrix
-    matrix = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
-    expected = {{5.0, 6.0}, {8.0, 9.0}};
-    result = Regression.calculateSubMatrix(matrix);
-    assertArrayEquals(expected, result);
-    
-    // Test for a 4x4 matrix
-    matrix = {{1.0, 2.0, 3.0, 4.0}, {5.0, 6.0, 7.0, 8.0}, {9.0, 10.0, 11.0, 12.0}, {13.0, 14.0, 15.0, 16.0}};
-    expected = {{6.0, 7.0, 8.0}, {10.0, 11.
+    double[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    double[][] expected = {{5, 6}, {8, 9}};
+    double[][] actual = Regression.calculateSubMatrix(matrix);
+    assertArrayEquals(expected, actual, 0.0001);
+}
 
 
 No.4 generated result --------------------------
 
-package org.jfree.data.statistics;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class RegressionTest {
-    @Test
-    public void calculateSubMatrixTest() {
-        double[][] matrix = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
-        double[][] expected = {{5.0, 6.0}, {8.0, 9.0}};
-        double[][] actual = Regression.calculateSubMatrix(matrix);
-        assertArrayEquals(expected, actual);
-    }
+@Test
+public void calculateSubMatrixTest() {
+    double[][] matrix = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+    double[][] expectedResult = {{-3.0, -3.0}, {0.0, 0.0}};
+    double[][] result = Regression.calculateSubMatrix(matrix);
+    assertArrayEquals(expectedResult, result);
 }
 
 
 No.5 generated result --------------------------
 
-@Test
-public void calculateSubMatrixTest() {
-    double[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    double[][] expected = {{5, 6}, {8, 9}};
-    double[][] result = Regression.calculateSubMatrix(matrix);
-    for (int i = 0; i < expected.length; i++) {
-        assertArrayEquals(expected[i], result[i], 0.0001);
-    }
-}
+double[][] matrix = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+double[][] expectedResult = {{-3.0, -3.0}, {-6.0, -6.0}};
+double[][] actualResult = Regression.calculateSubMatrix(matrix);
+assertArrayEquals(expectedResult, actualResult);
 
 
 No.6 generated result --------------------------
 
-@Test
-public void calculateSubMatrixTest() {
-    double[][] matrix = {
-        {1.0, 2.0, 3.0},
-        {4.0, 5.0, 6.0},
-        {7.0, 8.0, 9.0}
-    };
-
-    double[][] expected = {
-        {5.0, 6.0},
-        {8.0, 9.0}
-    };
-
-    double[][] result = Regression.calculateSubMatrix(matrix);
-
-    assertArrayEquals(expected, result);
-}
+double[][] testMatrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+double[][] expectedResult = {{5, 6}, {8, 9}};
+double[][] result = Regression.calculateSubMatrix(testMatrix);
+assertArrayEquals(expectedResult, result);
 
 
 No.7 generated result --------------------------
@@ -157,58 +119,30 @@ public void calculateSubMatrixTest() {
 
 No.8 generated result --------------------------
 
-@Test
-    public void calculateSubMatrixTest() {
-        double[][] matrix = {
-            {1.0, 2.0, 3.0},
-            {4.0, 5.0, 6.0},
-            {7.0, 8.0, 9.0}
-        };
-        double[][] expectedSubMatrix = {
-            {5.0, 6.0},
-            {8.0, 9.0}
-        };
-        double[][] subMatrix = calculateSubMatrix(matrix);
-        assertArrayEquals(expectedSubMatrix, subMatrix);
-    }
+double[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+double[][] expectedResult = {{5, 4}, {8, 7}};
+double[][] actualResult = Regression.calculateSubMatrix(matrix);
+assertArrayEquals(expectedResult, actualResult);
 
 
 No.9 generated result --------------------------
 
-@Test
+
 public void calculateSubMatrixTest() {
-    double[][] matrix = {
-        {2.0, 3.0, 4.0},
-        {5.0, 6.0, 7.0},
-        {8.0, 9.0, 10.0},
-    };
-    
-    double[][] expected = {
-        {3.0, 4.0},
-        {6.0, 7.0}
-    };
-    
-    double[][] result = Regression.calculateSubMatrix(matrix);
-    
-    assertArrayEquals(expected, result);
+    double[][] inputMatrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    double[][] expectedSubMatrix = {{5, 6}, {8, 9}};
+
+    double[][] actualSubMatrix = Regression.calculateSubMatrix(inputMatrix);
+
+    assertArrayEquals(expectedSubMatrix, actualSubMatrix);
 }
 
 
 No.10 generated result --------------------------
 
-package org.jfree.data.statistics;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class RegressionTest {
-    @Test
-    public void calculateSubMatrixTest() {
-        double[][] matrix = new double[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-        double[][] expected = new double[][]{{5, 6}, {8, 9}};
-        double[][] result = Regression.calculateSubMatrix(matrix);
-        assertArrayEquals(expected, result);
-    }
-}
+double[][] inputMatrix = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+double[][] expectedResult = {{-3.0, -5.0}, {-6.0, -8.0}};
+double[][] actualResult = Regression.calculateSubMatrix(inputMatrix);
+assertArrayEquals(expectedResult, actualResult);
 
 

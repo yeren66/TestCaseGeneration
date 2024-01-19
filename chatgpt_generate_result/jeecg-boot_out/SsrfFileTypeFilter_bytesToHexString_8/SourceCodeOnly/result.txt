@@ -23,58 +23,42 @@ No.1 generated result --------------------------
 
 @Test
 public void bytesToHexStringTest() {
-    byte[] input = {10, 20, 30};
-    String expectedResult = "0a141e";
-    
-    String result = bytesToHexString(input);
-    
-    assertEquals(expectedResult, result);
+    byte[] testBytes = {10, 20, 30, 40, 50};
+    String expected = "0a141e2832";
+    String result = bytesToHexString(testBytes);
+    assertEquals(expected, result);
 }
 
 
 No.2 generated result --------------------------
 
 @Test
-public void bytesToHexStringTest() {
-    byte[] src = {12, 34, 56, 78};
-    String expectedResult = "0c22384e";
-
-    String result = bytesToHexString(src);
-
-    assertEquals(expectedResult, result);
-}
+    public void bytesToHexStringTest() {
+        byte[] testBytes = {(byte) 0x48, (byte) 0x65, (byte) 0x6C, (byte) 0x6C, (byte) 0x6F};
+        String expected = "48656c6c6f";
+        assertEquals(expected, bytesToHexString(testBytes));
+    }
 
 
 No.3 generated result --------------------------
 
 @Test
 public void bytesToHexStringTest() {
-    // Test case 1: Empty source array
-    byte[] src1 = null;
-    assertNull(bytesToHexString(src1));
-    
-    // Test case 2: Empty source array
-    byte[] src2 = new byte[0];
-    assertNull(bytesToHexString(src2));
-    
-    // Test case 3: Source array with one element
-    byte[] src3 = { 10 };
-    assertEquals("0a", bytesToHexString(src3));
-    
-    // Test case 4: Source array with multiple elements
-    byte[] src4 = { 10, 11, 12, 13 };
-    assertEquals("0a0b0c0d", bytesToHexString(src4));
-    }
+    byte[] testBytes = new byte[] {10, 20, 30};
+    String expected = "0a141e";
+    String result = bytesToHexString(testBytes);
+    assertEquals(expected, result);
+}
 
 
 No.4 generated result --------------------------
 
 @Test
 public void bytesToHexStringTest() {
-    byte[] src = new byte[]{10, 20, 30};
-    String expected = "0a141e";
-    String result = bytesToHexString(src);
-    assertEquals(expected, result);
+    byte[] input = new byte[]{0, 1, 127, -128, -1};
+    String expectedOutput = "00017f80ff";
+    String actualOutput = SsrfFileTypeFilter.bytesToHexString(input);
+    assertEquals(expectedOutput, actualOutput);
 }
 
 
@@ -82,34 +66,33 @@ No.5 generated result --------------------------
 
 @Test
 public void bytesToHexStringTest() {
-  byte[] bytes = {1, 2, 3};
-  String expected = "010203";
-  
-  String result = bytesToHexString(bytes);
-  
-  assertEquals(expected, result);
+    byte[] testBytes = {1, 2, 3, 4};
+    String expected = "01020304";
+    String actual = bytesToHexString(testBytes);
+    assertEquals(expected, actual);
 }
 
 
 No.6 generated result --------------------------
 
-@Test
-public void bytesToHexStringTest() {
-    byte[] bytes = {10, 20, 30, 40, 50};
-    String expected = "0a141e2832";
-    String result = bytesToHexString(bytes);
-    assertEquals(expected, result);
-}
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+    @Test
+    public void bytesToHexStringTest() {
+        byte[] byteArray = {10, 20, 30, 40, 50};
+        String expected = "0a141e2832";
+        String result = bytesToHexString(byteArray);
+        assertEquals(expected, result);
+    }
 
 
 No.7 generated result --------------------------
 
-@Test
 public void bytesToHexStringTest() {
-    byte[] testBytes = {10, 20, 30};
-    String expected = "0a141e";
-    String actual = SsrfFileTypeFilter.bytesToHexString(testBytes);
-    assertEquals(expected, actual);
+    byte[] input = {(byte)0xCA, (byte)0xFE, (byte)0xBA, (byte)0xBE};
+    String expected = "cafebabecafebabe";
+    String result = SsrfFileTypeFilter.bytesToHexString(input);
+    assertEquals(expected, result);
 }
 
 
@@ -117,9 +100,9 @@ No.8 generated result --------------------------
 
 @Test
 public void bytesToHexStringTest() {
-    byte[] src = { 0x12, 0x34, 0xAB, 0xCD };
-    String expected = "1234abcd";
-    String result = bytesToHexString(src);
+    byte[] input = {10, 20, 30};
+    String expected = "0a141e";
+    String result = bytesToHexString(input);
     assertEquals(expected, result);
 }
 
@@ -128,38 +111,21 @@ No.9 generated result --------------------------
 
 @Test
 public void bytesToHexStringTest() {
-    byte[] testArray1 = {0x12, 0x34, 0x56};
-    String expectedResult1 = "123456";
-    assertEquals(expectedResult1, bytesToHexString(testArray1));
-
-    byte[] testArray2 = {0x00, 0xFF, 0xA1};
-    String expectedResult2 = "00ffa1";
-    assertEquals(expectedResult2, bytesToHexString(testArray2));
-
-    byte[] testArray3 = {};
-    String expectedResult3 = "";
-    assertEquals(expectedResult3, bytesToHexString(testArray3));
-
-    byte[] testArray4 = null;
-    assertNull(bytesToHexString(testArray4));
+    byte[] input = {10, 20, 30, 40, 50};
+    String expectedResult = "0a141e2832";
+    String actualResult = bytesToHexString(input);
+    assertEquals(expectedResult, actualResult);
 }
 
 
 No.10 generated result --------------------------
 
-package org.jeecg.common.util.filter;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class SsrfFileTypeFilterTest {
-    @Test
-    public void bytesToHexStringTest() {
-        byte[] src = {0x12, 0x34, 0x56};
-        String expectedResult = "123456";
-        String result = bytesToHexString(src);
-        assertEquals(expectedResult, result);
-    }
+@Test
+public void bytesToHexStringTest() {
+    byte[] testArr = {10, 20, 30};
+    String expected = "0a141e";
+    String result = bytesToHexString(testArr);
+    assertEquals(expected, result);
 }
 
 

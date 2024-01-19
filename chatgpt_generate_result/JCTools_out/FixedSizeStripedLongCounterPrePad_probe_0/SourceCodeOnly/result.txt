@@ -34,29 +34,16 @@ No.1 generated result --------------------------
 
 @Test
 public void probeTest() {
-    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();
-    int probe = counter.probe();
-    assertNotNull(probe);
-    // Add additional assertions or verifications if needed
+    int result = probe();
+    assertEquals(expected, result);
 }
 
 
 No.2 generated result --------------------------
 
-package org.jctools.counters;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class FixedSizeStripedLongCounterPrePadTest {
-    @Test
-    public void probeTest() {
-        FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();
-        int result = counter.probe();
-        assertNotNull(result);
-        // additional assertions based on expected behavior of the probe() method
-        // and the value it should return
-    }
+@Test
+public void probeTest() {
+    assertEquals(expectedProbeValue, probe());
 }
 
 
@@ -65,27 +52,16 @@ No.3 generated result --------------------------
 @Test
 public void probeTest() {
     FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();
-    int probe = counter.probe();
-    assertNotNull(probe);
-    assertTrue(probe >= 0);
+    int result = counter.probe();
+    assertNotNull(result);
 }
 
 
 No.4 generated result --------------------------
 
-package org.jctools.counters;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class FixedSizeStripedLongCounterPrePadTest {
-    @Test
-    public void probeTest() {
-        FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();
-        int expectedProbe = counter.probe();
-        int actualProbe = counter.probe();
-        assertEquals(expectedProbe, actualProbe);
-    }
+@Test
+public void probeTest() {
+    assertEquals(12345, probe());
 }
 
 
@@ -93,9 +69,9 @@ No.5 generated result --------------------------
 
 @Test
 public void probeTest() {
-    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();
-    int probe = counter.probe();
-    assertTrue(probe >= 0);
+    int result = probe();
+    assertNotNull(result);
+    assertEquals(expectedResult, result);
 }
 
 
@@ -105,7 +81,7 @@ No.6 generated result --------------------------
 public void probeTest() {
     FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();
     int result = counter.probe();
-    assertEquals(result, <EXPECTED_RESULT>);
+    assertNotNull(result);
 }
 
 
@@ -114,9 +90,9 @@ No.7 generated result --------------------------
 @Test
 public void probeTest() {
     FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();
-    int expectedProbe = counter.probe();
-    int actualProbe = counter.probe();
-    assertEquals(expectedProbe, actualProbe);
+    int expected = counter.probe();
+    int actual = probe();
+    assertEquals(expected, actual);
 }
 
 
@@ -124,9 +100,14 @@ No.8 generated result --------------------------
 
 @Test
 public void probeTest() {
-    int probe = new FixedSizeStripedLongCounterPrePad().probe(); 
-    int expectedProbe = 123456; // replace with the expected probe value
-    assertEquals(expectedProbe, probe);
+    // Given
+    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();
+    
+    // When
+    int result = counter.probe();
+    
+    // Then
+    assertNotNull(result);
 }
 
 
@@ -134,28 +115,19 @@ No.9 generated result --------------------------
 
 @Test
 public void probeTest() {
-    FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter();
-    int expectedProbe = counter.probe();
-    int actualProbe = counter.probe();
-    assertEquals(expectedProbe, actualProbe);
+    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();
+    int result = counter.probe();
+    assertNotNull(result);
 }
 
 
 No.10 generated result --------------------------
 
-package org.jctools.counters;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class FixedSizeStripedLongCounterPrePadTest {
-    @Test
-    public void probeTest() {
-        FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();
-        int result = counter.probe();
-        assertNotNull(result);
-        // Add assertions here based on the expected behavior of the probe() method
-    }
+@Test
+public void probeTest() {
+    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();
+    int result = counter.probe();
+    assertNotNull(result);
 }
 
 

@@ -1,0 +1,64 @@
+Source code: 
+
+/*
+ * @brief Swaps the bits at the position posA and posB from data
+ */
+public static int bitSwap(int data, final int posA, final int posB) {
+    if (SingleBitOperations.getBit(data, posA) != SingleBitOperations.getBit(data, posB)) {
+        data ^= (1 << posA) ^ (1 << posB);
+    }
+    return data;
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

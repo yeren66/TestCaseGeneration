@@ -122,87 +122,48 @@ private static String getEncodedData(boolean[] correctedBits) throws FormatExcep
 
 No.1 generated result --------------------------
 
-package com.google.zxing.aztec.decoder;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class DecoderTest {
-    @Test
-    public void getEncodedDataTest() throws FormatException {
-        // Input data
-        boolean[] correctedBits = new boolean[]{true, false, true, false, true, true, false, true};
-
-        // Expected result
-        String expected = "ABC";
-
-        // Actual result
-        String actual = Decoder.getEncodedData(correctedBits);
-
-        // Compare the actual result with the expected result
-        assertEquals(expected, actual);
-    }
+@Test
+public void getEncodedDataTest() throws FormatException {
+    boolean[] exampleBits = {true, false, true, false, true, false, false, true};
+    String result = getEncodedData(exampleBits);
+    assertEquals("ExpectedEncodedString", result);
 }
 
 
 No.2 generated result --------------------------
 
-package com.google.zxing.aztec.decoder;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class DecoderTest {
-    @Test
-    public void getEncodedDataTest() {
-        boolean[] correctedBits = new boolean[]{true, false, true, true, false, true}; // Example corrected bits
-        String expected = "Test"; // Example expected result
-        
-        try {
-            String result = Decoder.getEncodedData(correctedBits);
-            assertEquals(expected, result);
-        } catch (Exception e) {
-            fail("An exception occurred: " + e.getMessage());
-        }
-    }
+@Test
+public void getEncodedDataTest() {
+  boolean[] correctedBits = new boolean[] {true, false, true, true, false, true, false, false};
+  try {
+    String result = getEncodedData(correctedBits);
+    assertEquals("ExpectedResult", result);
+  } catch (FormatException e) {
+    fail("Format Exception occurred");
+  }
 }
 
 
 No.3 generated result --------------------------
 
-package com.google.zxing.aztec.decoder;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class DecoderTest {
-    @Test
-    public void getEncodedDataTest() throws FormatException {
-        boolean[] bits = {true, true, false, true, false}; // example inputs
-        String expectedResult = "TestString"; // example expected output
-        
-        String result = getEncodedData(bits);
-        
-        assertEquals(expectedResult, result);
-    }
+@Test
+public void getEncodedDataTest() {
+    boolean[] correctedBits = {true, false, true, false, true, false, true, false, true, false};
+    assertEquals("HELLO", getEncodedData(correctedBits));
 }
 
 
 No.4 generated result --------------------------
 
 @Test
-public void getEncodedDataTest() throws FormatException {
-    // Define input boolean array
-    boolean[] correctedBits = new boolean[]{true, false, true, false, true, true, false, true, true, false};
-
-    // Define expected result
-    String expectedResult = "Hello";
-
-    // Call getEncodedData method
-    String result = Decoder.getEncodedData(correctedBits);
-
-    // Compare expected result with the actual result
-    assertEquals(expectedResult, result);
+public void getEncodedDataTest() {
+    boolean[] correctedBits = {true, false, true, false, true, false, true, true, false, true};
+    try {
+        String output = Decoder.getEncodedData(correctedBits);
+        assertEquals("ExpectedOutput", output);
+    } catch (FormatException e) {
+        fail("Format exception thrown");
+    }
 }
 
 
@@ -210,101 +171,74 @@ No.5 generated result --------------------------
 
 @Test
 public void getEncodedDataTest() {
-  boolean[] correctedBits = new boolean[]{false, true, false, true, true, true, false, true, false, false, true, true, false, true, false, false, true, true, true, false, true, true, true, true, false};
-  String expectedOutput = "Hello World";
-  String actualOutput = null;
-  
-  try {
-    actualOutput = Decoder.getEncodedData(correctedBits);
-  } catch (FormatException e) {
-    fail("FormatException occurred: " + e.getMessage());
-  }
-  
-  assertEquals(expectedOutput, actualOutput);
+    boolean[] correctedBits = {true, false, true, false, true, false, true, false};  // replace with actual correctedBits array
+    try {
+        String result = Decoder.getEncodedData(correctedBits);
+        assertEquals("ExpectedResultStringHere", result);
+    } catch (FormatException e) {
+        fail("Unexpected FormatException");
+    }
 }
 
 
 No.6 generated result --------------------------
 
-
 @Test
-public void getEncodedDataTest() throws FormatException {
-  boolean[] correctedBits = {true, true, true, true, true, false, true, true, true, false, true, true, true, false, true};
-  String expected = "Hello";
-  String actual = Decoder.getEncodedData(correctedBits);
-  assertEquals(expected, actual);
+public void getEncodedDataTest() {
+    boolean[] testCorrectedBits = new boolean[10];
+    try {
+       String result = getEncodedData(testCorrectedBits);
+       assertEquals("ExpectedResult", result);
+    } catch (FormatException fe) {
+       fail("FormatException thrown");
+    }
 }
-
 
 
 No.7 generated result --------------------------
 
 @Test
-public void getEncodedDataTest() throws FormatException {
-    boolean[] correctedBits = {true, false, true, false, false, true, true, true, false, false};
-    String expectedResult = "Hello";
-    
-    String actualResult = getEncodedData(correctedBits);
-    
-    assertEquals(expectedResult, actualResult);
+public void getEncodedDataTest() {
+    boolean[] correctedBits = {true, false, true, false, true, false, true, false};
+    String expected = "SUTD";
+    String actual = getEncodedData(correctedBits);
+    assertEquals(expected, actual);
 }
 
 
 No.8 generated result --------------------------
 
-package com.google.zxing.aztec.decoder;
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class DecoderTest {
-    @Test
-    public void getEncodedDataTest() throws FormatException {
-        boolean[] correctedBits = {true, false, false, true, true, false, true, false, true, false, false, true};
-        
-        String expectedResult = "Hello";
-        String actualResult = getEncodedData(correctedBits);
-        
-        assertEquals(expectedResult, actualResult);
-    }
+@Test
+public void getEncodedDataTest() {
+    boolean[] testBits = {false, true, true, false, true, false, false};
+    String expectedOutput = "<expectedOutput>";
+    String actualOutput = getEncodedData(testBits);
+    assertEquals(expectedOutput, actualOutput);
 }
 
 
 No.9 generated result --------------------------
 
-package com.google.zxing.aztec.decoder;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class DecoderTest {
-    @Test
-    public void getEncodedDataTest() {
-        boolean[] correctedBits = {true, false, true, true, false, true};
-        String expectedOutput = ""; // Replace with the expected output of the getEncodedData method
-        
-        String actualOutput = "";
-        try {
-            actualOutput = Encoder.getEncodedData(correctedBits);
-        } catch (FormatException e) {
-            e.printStackTrace();
-        }
-        
-        assertEquals(expectedOutput, actualOutput);
-    }
+@Test
+public void getEncodedDataTest() {
+  boolean[] correctedBits = {true, false, true, true, false};
+  String result = getEncodedData(correctedBits);
+  assertEquals("ExpectedResult", result);
 }
 
 
 No.10 generated result --------------------------
 
 @Test
-public void getEncodedDataTest() throws FormatException {
-    boolean[] correctedBits = {true, true, false, true, true, false, true, false, true};
-    String expected = "ABCD";
-  
-    String result = Decoder.getEncodedData(correctedBits);
-    
-    assertEquals(expected, result);
+public void getEncodedDataTest() {
+    boolean[] correctedBits = new boolean[10];
+    try {
+        String result = Decoder.getEncodedData(correctedBits);
+        assertNotNull(result);
+    } catch (FormatException e) {
+        fail("Error in getting encoded data: " + e.getMessage());
+    }
 }
 
 

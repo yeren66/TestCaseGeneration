@@ -10,15 +10,15 @@
     "method_name": "peek",
     "arguments": [],
     "generate_test": [
-        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(1);\n    stack.push(2);\n    stack.push(3);\n    assertEquals(3, stack.peek());\n    stack.pop();\n    assertEquals(2, stack.peek());\n}",
-        "@Test\npublic void peekTest() {\n    // Create a new instance of the StackArrayList class\n    StackArrayList stack = new StackArrayList();\n\n    // Push elements to the stack\n    stack.push(1);\n    stack.push(2);\n    stack.push(3);\n\n    // Call the peek method and assert the correct value is returned\n    int result = stack.peek();\n    assertEquals(3, result);\n}",
-        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n\n    // Verify exception is thrown when stack is empty\n    assertThrows(EmptyStackException.class, () -> {\n        stack.peek();\n    });\n\n    // Add elements to the stack\n    stack.push(1);\n    stack.push(2);\n    stack.push(3);\n\n    // Verify the peek method returns the top element\n    assertEquals(3, stack.peek());\n}",
-        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(1);\n    stack.push(2);\n    stack.push(3);\n    int result = stack.peek();\n    assertEquals(3, result);\n}",
-        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n\n    assertThrows(EmptyStackException.class, () -> stack.peek());\n    \n    stack.push(10);\n    assertEquals(10, stack.peek());\n\n    stack.push(20);\n    stack.push(30);\n    assertEquals(30, stack.peek());\n\n    stack.pop();\n    assertEquals(20, stack.peek());\n\n    stack.pop();\n    stack.pop();\n    assertThrows(EmptyStackException.class, () -> stack.peek());\n}",
-        "@Test\n    public void peekTest() {\n        StackArrayList stack = new StackArrayList();\n\n        // Test when stack is empty\n        assertThrows(EmptyStackException.class, () -> {\n            stack.peek();\n        });\n\n        // Test when stack has elements\n        stack.push(1);\n        stack.push(2);\n        stack.push(3);\n        int peeked = stack.peek();\n        assertEquals(3, peeked);\n        assertEquals(3, stack.size());\n    }",
-        "@Test\n    public void peekTest() {\n        StackArrayList stack = new StackArrayList();\n        stack.push(1);\n        stack.push(2);\n        assertEquals(2, stack.peek());\n    }",
-        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(1);\n    stack.push(2);\n    stack.push(3);\n\n    int result = stack.peek();\n    assertEquals(3, result);\n}",
-        "@Test\n    public void peekTest() {\n        StackArrayList stack = new StackArrayList();\n        int[] elements = {1, 2, 3, 4, 5};\n        \n        for (int element : elements) {\n            stack.push(element);\n        }\n        \n        int expected = 5;\n        int actual = stack.peek();\n        \n        assertEquals(expected, actual);\n    }",
-        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(1);\n    stack.push(2);\n    stack.push(3);\n    assertEquals(3, stack.peek());\n}"
+        "@Test\n    public void peekTest() {\n        StackArrayList stack = new StackArrayList();\n        stack.push(5);\n        assertEquals(5, stack.peek());\n    }\n",
+        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(3);\n    assertEquals(3, stack.peek());\n}",
+        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(1);\n    stack.push(2);\n    assertEquals(2, stack.peek());\n}",
+        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(1);\n    stack.push(2);\n    stack.push(3);\n    assertEquals(3, stack.peek());\n}",
+        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(5);\n    assertEquals(5, stack.peek());\n}",
+        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(5);\n    assertEquals(5, stack.peek());\n}",
+        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    assertThrows(EmptyStackException.class, () -> stack.peek());\n}",
+        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(10);\n    stack.push(20);\n    int expected = 20;\n    int actual = stack.peek();\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(1);\n    stack.push(2);\n    assertEquals(2, stack.peek());\n}",
+        "assertEquals(5, stack.peek());"
     ]
 }

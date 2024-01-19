@@ -28,15 +28,10 @@ No.1 generated result --------------------------
 
 @Test
 public void toStringTest() {
-    NonBlockingHashMap<Integer, String> map = new NonBlockingHashMap<>();
-    map.put(1, "One");
-    map.put(2, "Two");
-    map.put(3, "Three");
-    
-    String expected = "{1=One, 2=Two, 3=Three}";
-    String actual = map.toString();
-    
-    assertEquals(expected, actual);
+    NonBlockingHashMap map = new NonBlockingHashMap();
+    map.put("key1", "value1");
+    map.put("key2", "value2");
+    assertEquals("{key1=value1, key2=value2}", map.toString());
 }
 
 
@@ -44,11 +39,16 @@ No.2 generated result --------------------------
 
 @Test
 public void toStringTest() {
-    NonBlockingHashMap<TypeK, TypeV> map = new NonBlockingHashMap<>();
-    map.put(key1, value1);
-    map.put(key2, value2);
-    String expected = "{key1=value1, key2=value2}";
-    assertEquals(expected, map.toString());
+  // Create a NonBlockingHashMap instance
+  NonBlockingHashMap map = new NonBlockingHashMap();
+  
+  // Add some key-value pairs to the map
+  map.put(1, "One");
+  map.put(2, "Two");
+  map.put(3, "Three");
+
+  // Verify the expected output of the toString method
+  assertEquals("{1=One, 2=Two, 3=Three}", map.toString());
 }
 
 
@@ -56,15 +56,11 @@ No.3 generated result --------------------------
 
 @Test
 public void toStringTest() {
-    NonBlockingHashMap<TypeK, TypeV> map = new NonBlockingHashMap<>();
-    map.put(key1, value1);
-    map.put(key2, value2);
-    map.put(key3, value3);
-
-    String expected = "{key1=value1, key2=value2, key3=value3}";
-    String actual = map.toString();
-
-    assertEquals(expected, actual);
+    NonBlockingHashMap map = new NonBlockingHashMap();
+    map.put("key1", "value1");
+    map.put("key2", "value2");
+    map.put("key3", "value3");
+    assertEquals("{key1=value1, key2=value2, key3=value3}", map.toString());
 }
 
 
@@ -72,15 +68,12 @@ No.4 generated result --------------------------
 
 @Test
 public void toStringTest() {
-    NonBlockingHashMap<String, Integer> map = new NonBlockingHashMap<>();
-    map.put("A", 1);
-    map.put("B", 2);
-    map.put("C", 3);
-
-    String expected = "{A=1, B=2, C=3}";
-    String actual = map.toString();
-
-    assertEquals(expected, actual);
+    NonBlockingHashMap testMap = new NonBlockingHashMap();
+    String expectedResult = "{1=test, 2=test2}";
+    testMap.put(1, "test");
+    testMap.put(2, "test2");
+    String actualResult = testMap.toString();
+    assertEquals(expectedResult, actualResult);
 }
 
 
@@ -88,14 +81,11 @@ No.5 generated result --------------------------
 
 @Test
 public void toStringTest() {
-    NonBlockingHashMap<TypeK, TypeV> map = new NonBlockingHashMap<>();
-    map.put(key1, value1);
-    map.put(key2, value2);
-    
-    String expectedToString = "{" + key1 + "=" + value1 + ", " + key2 + "=" + value2 + "}";
-    String actualToString = map.toString();
-    
-    assertEquals(expectedToString, actualToString);
+    NonBlockingHashMap map = new NonBlockingHashMap();
+    map.put("key1", "value1");
+    map.put("key2", "value2");
+    map.put("key3", "value3");
+    assertEquals("{key1=value1, key2=value2, key3=value3}", map.toString());
 }
 
 
@@ -103,15 +93,10 @@ No.6 generated result --------------------------
 
 @Test
 public void toStringTest() {
-  NonBlockingHashMap<TypeK, TypeV> map = new NonBlockingHashMap<>();
-  map.put(key1, value1);
-  map.put(key2, value2);
-  map.put(key3, value3);
-  
-  String expected = "{key1=value1, key2=value2, key3=value3}";
-  String actual = map.toString();
-  
-  assertEquals(expected, actual);
+  NonBlockingHashMap map = new NonBlockingHashMap();
+  String expectedOutput = "{}";
+  String actualOutput = map.toString();
+  assertEquals(expectedOutput, actualOutput);
 }
 
 
@@ -119,13 +104,11 @@ No.7 generated result --------------------------
 
 @Test
 public void toStringTest() {
-    NonBlockingHashMap<TypeK, TypeV> map = new NonBlockingHashMap<>();
-    // Add some entries to the map
-    map.put(key1, value1);
-    map.put(key2, value2);
-    // Invoke the toString method and verify the output
-    String expected = "{key1=value1, key2=value2}";
-    assertEquals(expected, map.toString());
+    NonBlockingHashMap map = new NonBlockingHashMap();
+    map.put("key1", "value1");
+    map.put("key2", "value2");
+    map.put("key3", "value3");
+    assertEquals("{key1=value1, key2=value2, key3=value3}", map.toString());
 }
 
 
@@ -133,12 +116,11 @@ No.8 generated result --------------------------
 
 @Test
 public void toStringTest() {
-    NonBlockingHashMap map = new NonBlockingHashMap();
-    map.put("key1", "value1");
-    map.put("key2", "value2");
-    map.put("key3", "value3");
-    String expected = "{key1=value1, key2=value2, key3=value3}";
-    assertEquals(expected, map.toString());
+  NonBlockingHashMap map = new NonBlockingHashMap();
+  map.put("key1", "value1");
+  map.put("key2", "value2");
+  
+  assertEquals("{key1=value1, key2=value2}", map.toString());
 }
 
 
@@ -146,12 +128,10 @@ No.9 generated result --------------------------
 
 @Test
 public void toStringTest() {
-  NonBlockingHashMap<TypeK, TypeV> map = new NonBlockingHashMap<>();
-  map.put(key1, value1);
-  map.put(key2, value2);
-  String expected = "{key1=value1, key2=value2}";
-  String actual = map.toString();
-  assertEquals(expected, actual);
+    NonBlockingHashMap map = new NonBlockingHashMap();
+    String expected = "{}";
+    String actual = map.toString();
+    assertEquals(expected, actual);
 }
 
 
@@ -159,17 +139,12 @@ No.10 generated result --------------------------
 
 @Test
 public void toStringTest() {
-   // Create a NonBlockingHashMap instance
-   NonBlockingHashMap<TypeK, TypeV> map = new NonBlockingHashMap<>();
-
-   // Add some key-value pairs to the map
-   map.put(key1, value1);
-   map.put(key2, value2);
-   map.put(key3, value3);
-
-   // Call the toString() method and assert the output
-   String expectedOutput = "{key1=value1, key2=value2, key3=value3}";
-   assertEquals(expectedOutput, map.toString());
+    NonBlockingHashMap map = new NonBlockingHashMap();
+    String expected = "{key1=value1, key2=value2}";
+    map.put("key1", "value1");
+    map.put("key2", "value2");
+    String result = map.toString();
+    assertEquals(expected, result);
 }
 
 

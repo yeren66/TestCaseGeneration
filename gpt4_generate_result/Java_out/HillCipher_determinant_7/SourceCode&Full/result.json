@@ -1,0 +1,27 @@
+{
+    "project_name": "Java",
+    "file_name": "HillCipher.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/ciphers/HillCipher.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.ciphers",
+    "docstring": null,
+    "source_code": "// Determinant calculator\npublic static int determinant(int[][] a, int n) {\n    int det = 0, sign = 1, p = 0, q = 0;\n\n    if (n == 1) {\n        det = a[0][0];\n    } else {\n        int[][] b = new int[n - 1][n - 1];\n        for (int x = 0; x < n; x++) {\n            p = 0;\n            q = 0;\n            for (int i = 1; i < n; i++) {\n                for (int j = 0; j < n; j++) {\n                    if (j != x) {\n                        b[p][q++] = a[i][j];\n                        if (q % (n - 1) == 0) {\n                            p++;\n                            q = 0;\n                        }\n                    }\n                }\n            }\n            det = det + a[0][x] * determinant(b, n - 1) * sign;\n            sign = -sign;\n        }\n    }\n    return det;\n}\n",
+    "class_name": "HillCipher",
+    "method_name": "determinant",
+    "arguments": [
+        "int[][] a",
+        "int n"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

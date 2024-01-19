@@ -30,10 +30,9 @@ No.1 generated result --------------------------
 
 @Test
 public void checkAccessTokenTest() {
-    AdminServiceAuthenticationFilter filter = new AdminServiceAuthenticationFilter();
-    String token = "ABC123";
-    boolean expected = filter.checkAccessToken(token);
-    assertTrue(expected);
+  AdminServiceAuthenticationFilter filter = new AdminServiceAuthenticationFilter();
+  boolean result = filter.checkAccessToken("testToken");
+  assertTrue(result);
 }
 
 
@@ -41,22 +40,9 @@ No.2 generated result --------------------------
 
 @Test
 public void checkAccessTokenTest() {
-    AdminServiceAuthenticationFilter filter = new AdminServiceAuthenticationFilter();
-    String token = "testToken";
-    
-    // Test case for when access tokens are not configured
-    filter.bizConfig = new BizConfig();
-    assertTrue(filter.checkAccessToken(token));
-    
-    // Test case for when token is empty
-    assertFalse(filter.checkAccessToken(""));
-    
-    // Test case for when access tokens are configured and token is present in the list
-    filter.bizConfig.setAdminServiceAccessTokens("token1,token2,token3");
-    assertTrue(filter.checkAccessToken("token2"));
-    
-    // Test case for when access tokens are configured but token is not present in the list
-    assertFalse(filter.checkAccessToken("invalidToken"));
+  AdminServiceAuthenticationFilter filter = new AdminServiceAuthenticationFilter();
+  boolean actualResult = filter.checkAccessToken("test_token");
+  assertTrue(actualResult);
 }
 
 
@@ -64,26 +50,10 @@ No.3 generated result --------------------------
 
 @Test
 public void checkAccessTokenTest() {
-    AdminServiceAuthenticationFilter adminServiceAuthenticationFilter = new AdminServiceAuthenticationFilter();
-    adminServiceAuthenticationFilter.setBizConfig(new BizConfig());
-    
-    // Test case 1: Empty access tokens, token provided
-    boolean result1 = adminServiceAuthenticationFilter.checkAccessToken("123");
-    assertEquals(true, result1, "Expected: true");
-    
-    // Test case 2: Non-empty access tokens, empty token
-    adminServiceAuthenticationFilter.getBizConfig().setAdminServiceAccessTokens("token1,token2,token3");
-    boolean result2 = adminServiceAuthenticationFilter.checkAccessToken("");
-    assertEquals(false, result2, "Expected: false");
-    
-    // Test case 3: Non-empty access tokens, non-empty token
-    boolean result3 = adminServiceAuthenticationFilter.checkAccessToken("token2");
-    assertEquals(true, result3, "Expected: true");
-    
-    // Test case 4: Different access tokens, token not in list
-    adminServiceAuthenticationFilter.getBizConfig().setAdminServiceAccessTokens("token1,token3");
-    boolean result4 = adminServiceAuthenticationFilter.checkAccessToken("token2");
-    assertEquals(false, result4, "Expected: false");
+  AdminServiceAuthenticationFilter filter = new AdminServiceAuthenticationFilter();
+  String token = "exampleToken";
+  boolean result = filter.checkAccessToken(token);
+  assertTrue(result);
 }
 
 
@@ -92,54 +62,25 @@ No.4 generated result --------------------------
 @Test
 public void checkAccessTokenTest() {
     AdminServiceAuthenticationFilter filter = new AdminServiceAuthenticationFilter();
-    String validToken = "validToken";
-    String invalidToken = "invalidToken";
     
-    // Test with empty access tokens
-    boolean result1 = filter.checkAccessToken(validToken);
-    assertTrue(result1);
+    // Check with valid access token
+    assertTrue(filter.checkAccessToken("validToken"));
     
-    // Test with non-empty access tokens
-    boolean result2 = filter.checkAccessToken(invalidToken);
-    assertFalse(result2);
-    
-    // Test with valid access tokens
-    boolean result3 = filter.checkAccessToken(validToken);
-    assertTrue(result3);
+    // Check with invalid access token
+    assertFalse(filter.checkAccessToken("invalidToken"));
 }
 
 
 No.5 generated result --------------------------
 
-package com.ctrip.framework.apollo.adminservice.filter;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AdminServiceAuthenticationFilterTest {
-    @Test
-    public void checkAccessTokenTest() {
-        // Create an instance of the AdminServiceAuthenticationFilter class
-        AdminServiceAuthenticationFilter filter = new AdminServiceAuthenticationFilter();
-        
-        // Set the access token in 'filter' object to a valid token
-        filter.setToken("valid_token");
-        
-        // Call the checkAccessToken() method of 'filter' object and assert that it returns 'true'
-        assertTrue(filter.checkAccessToken(filter.getToken()));
-        
-        // Set the access token in 'filter' object to an invalid token
-        filter.setToken("invalid_token");
-        
-        // Call the checkAccessToken() method of 'filter' object and assert that it returns 'false'
-        assertFalse(filter.checkAccessToken(filter.getToken()));
-        
-        // Set the access token in 'filter' object to null
-        filter.setToken(null);
-        
-        // Call the checkAccessToken() method of 'filter' object and assert that it returns 'false'
-        assertFalse(filter.checkAccessToken(filter.getToken()));
-    }
+@Test
+public void checkAccessTokenTest() {
+  AdminServiceAuthenticationFilter adminServiceAuthenticationFilter = new AdminServiceAuthenticationFilter();
+  
+  String token = "exampleToken";
+  boolean result = adminServiceAuthenticationFilter.checkAccessToken(token);
+  
+  assertTrue(result);
 }
 
 
@@ -147,99 +88,40 @@ No.6 generated result --------------------------
 
 @Test
 public void checkAccessTokenTest() {
-    AdminServiceAuthenticationFilter filter = new AdminServiceAuthenticationFilter();
-    String token = "exampleToken";
-    boolean expectedResult = <expected result based on the code>;
-
-    boolean actualResult = filter.checkAccessToken(token);
-
-    assertEquals(expectedResult, actualResult);
+  AdminServiceAuthenticationFilter filter = new AdminServiceAuthenticationFilter();
+  String token = "testToken";
+  boolean result = filter.checkAccessToken(token);
+  assertTrue(result);
 }
 
 
 No.7 generated result --------------------------
 
-private boolean checkAccessToken(String token) {
-  String accessTokens = bizConfig.getAdminServiceAccessTokens();
-
-  // if user forget to configure access tokens, then default to pass
-  if (Strings.isNullOrEmpty(accessTokens)) {
-    return true;
-  }
-
-  // no need to check
-  if (Strings.isNullOrEmpty(token)) {
-    return false;
-  }
-
-  // update cache
-  if (!accessTokens.equals(lastAccessTokens)) {
-    synchronized (this) {
-      accessTokenList = ACCESS_TOKEN_SPLITTER.splitToList(accessTokens);
-      lastAccessTokens = accessTokens;
-    }
-  }
-
-  return accessTokenList.contains(token);
-}
-
 @Test
 public void checkAccessTokenTest() {
+    // create an instance of the class with the method to test
     AdminServiceAuthenticationFilter filter = new AdminServiceAuthenticationFilter();
-    String validToken = "validToken";
-    String invalidToken = "invalidToken";
-    
-    // Test case 1: When access tokens are not configured
-    bizConfig.setAdminServiceAccessTokens(null);
-    assertTrue(filter.checkAccessToken(validToken), "Access tokens not configured. Should default to pass");
-    
-    // Test case 2: When token is empty
-    bizConfig.setAdminServiceAccessTokens("accessToken1,accessToken2");
-    assertFalse(filter.checkAccessToken(""), "Token is empty. Should return false");
-    
-    // Test case 3: When token is valid
-    bizConfig.setAdminServiceAccessTokens("accessToken1,accessToken2");
-    assertTrue(filter.checkAccessToken(validToken), "Token is valid. Should return true");
-    
-    // Test case 4: When token is invalid
-    bizConfig.setAdminServiceAccessTokens("accessToken1,accessToken2");
-    assertFalse(filter.checkAccessToken(invalidToken), "Token is invalid. Should return false");
-    
-    // Test case 5: When access tokens are updated in config
-    bizConfig.setAdminServiceAccessTokens("updatedAccessToken1,updatedAccessToken2");
-    assertTrue(filter.checkAccessToken(validToken), "Access tokens updated. Should return true for valid token");
-    assertFalse(filter.checkAccessToken(invalidToken), "Access tokens updated. Should return false for invalid token");
+  
+    // test case 1: accessTokens is empty, token is irrelevant
+    assertTrue(filter.checkAccessToken(""));
+  
+    // test case 2: accessTokens is not empty, token is empty
+    assertFalse(filter.checkAccessToken(""));
+  
+    // test case 3: accessTokens and token are not empty, mock accessTokens and token for testing
+    filter.bizConfig = new BizConfig(); // assuming BizConfig is a class with the getAdminServiceAccessTokens method
+    filter.bizConfig.setAdminServiceAccessTokens("token1,token2,token3");
+    assertTrue(filter.checkAccessToken("token2"));
+    assertFalse(filter.checkAccessToken("invalidToken"));
 }
 
 
 No.8 generated result --------------------------
 
-package com.ctrip.framework.apollo.adminservice.filter;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AdminServiceAuthenticationFilterTest {
-    @Test
-    public void checkAccessTokenTest() {
-        // create an instance of AdminServiceAuthenticationFilter
-        AdminServiceAuthenticationFilter filter = new AdminServiceAuthenticationFilter();
-        
-        // set the value for bizConfig's adminServiceAccessTokens
-        filter.bizConfig.setAdminServiceAccessTokens("<access_token_1>,<access_token_2>,...");
-        
-        // test with a valid token
-        assertTrue(filter.checkAccessToken("<access_token_1>"));
-        
-        // test with an invalid token
-        assertFalse(filter.checkAccessToken("<invalid_token>"));
-        
-        // test with empty token
-        assertFalse(filter.checkAccessToken(""));
-        
-        // test with null token
-        assertFalse(filter.checkAccessToken(null));
-    }
+@Test
+public void checkAccessTokenTest() {
+   boolean result = new AdminServiceAuthenticationFilter.checkAccessToken("sampleToken");
+   assertTrue(result);
 }
 
 
@@ -247,28 +129,11 @@ No.9 generated result --------------------------
 
 @Test
 public void checkAccessTokenTest() {
-    AdminServiceAuthenticationFilter adminServiceAuthenticationFilter = new AdminServiceAuthenticationFilter();
-    boolean result;
-
-    // Test when access tokens are not configured
-    adminServiceAuthenticationFilter.<FILL> // Call method to configure access tokens to null
-    result = adminServiceAuthenticationFilter.checkAccessToken(null);
-    assertTrue(result);
-
-    // Test when access tokens are configured and token parameter is null
-    adminServiceAuthenticationFilter.<FILL> // Call method to configure access tokens to a valid value
-    result = adminServiceAuthenticationFilter.checkAccessToken(null);
-    assertFalse(result);
-
-    // Test when access tokens are configured and token parameter is not in the list
-    adminServiceAuthenticationFilter.<FILL> // Call method to configure an access token list
-    result = adminServiceAuthenticationFilter.checkAccessToken("invalidToken");
-    assertFalse(result);
-
-    // Test when access tokens are configured and token parameter is in the list
-    adminServiceAuthenticationFilter.<FILL> // Call method to configure an access token list
-    result = adminServiceAuthenticationFilter.checkAccessToken("validToken");
-    assertTrue(result);
+    AdminServiceAuthenticationFilter filter = new AdminServiceAuthenticationFilter();
+    String token = "exampleToken";
+    boolean result = filter.checkAccessToken(token);
+    boolean expectedResult = <expectedResult>;
+    assertEquals(expectedResult, result);
 }
 
 
@@ -276,24 +141,25 @@ No.10 generated result --------------------------
 
 @Test
 public void checkAccessTokenTest() {
-    AdminServiceAuthenticationFilter filter = new AdminServiceAuthenticationFilter();
-    // Test when access tokens are not configured
-    boolean result1 = filter.checkAccessToken("token");
-    assertTrue(result1);
-    
-    // Test when access tokens are configured and token is empty
-    filter.bizConfig = new BizConfig();
-    boolean result2 = filter.checkAccessToken("");
-    assertFalse(result2);
-    
-    // Test when access tokens are configured, token is not empty, and token is in access token list
-    filter.lastAccessTokens = "token1,token2,token3";
-    boolean result3 = filter.checkAccessToken("token2");
-    assertTrue(result3);
-    
-    // Test when access tokens are configured, token is not empty, and token is not in access token list
-    boolean result4 = filter.checkAccessToken("invalidToken");
-    assertFalse(result4);
+  // Create an instance of the class
+  AdminServiceAuthenticationFilter filter = new AdminServiceAuthenticationFilter();
+  
+  // Test case 1: user forgets to configure access tokens, default to pass
+  String emptyToken = "";
+  assertTrue(filter.checkAccessToken(emptyToken));
+
+  // Test case 2: no need to check, token is empty
+  String accessTokens = "token1,token2,token3";
+  String emptyToken = "";
+  assertFalse(filter.checkAccessToken(emptyToken));
+
+  // Test case 3: valid token in access token list
+  String validToken = "token1";
+  assertTrue(filter.checkAccessToken(validToken));
+
+  // Test case 4: invalid token in access token list
+  String invalidToken = "invalidToken";
+  assertFalse(filter.checkAccessToken(invalidToken));
 }
 
 

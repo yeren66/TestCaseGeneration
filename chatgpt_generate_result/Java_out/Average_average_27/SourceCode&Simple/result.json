@@ -12,15 +12,15 @@
         "int[] numbers"
     ],
     "generate_test": [
+        "@Test\npublic void averageTest() {\n    int[] testNumbers = {5, 10, 15, 20};\n    assertEquals(12, Average.average(testNumbers));\n}",
+        "@Test\npublic void averageTest() {\n   int[] numbers = {5, 10, 15, 20, 25};\n   int expected = 15;\n   int actual = Average.average(numbers);\n   assertEquals(expected, actual);\n}",
+        "@Test\npublic void averageTest() {\n    int[] numbers = {10, 20, 30, 40, 50};\n    int expected = 30;\n    int actual = Average.average(numbers);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void averageTest() {\n    int[] testArray = {2, 4, 6, 8};\n    assertEquals(5, Average.average(testArray));\n}",
+        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    assertEquals(3, Average.average(numbers));\n}",
+        "@Test\npublic void averageTest() {\n    int[] numbers = {3, 5, 10, 6, 8};\n    assertEquals(6, Average.average(numbers));\n}",
+        "@Test\npublic void averageTest() {\n    int[] numbers = {10, 20, 30, 40, 50};\n    int expected = 30;\n    int actual = Average.average(numbers);\n    assertEquals(expected, actual);\n}",
         "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expected = 3;\n    int result = Average.average(numbers);\n    assertEquals(expected, result);\n}",
-        "@Test\npublic void averageTest() {\n    // Input\n    int[] numbers = {1, 2, 3, 4, 5};\n    \n    // Expected output\n    int expected = 3;\n    \n    // Actual output\n    int actual = Average.average(numbers);\n    \n    // Assertion\n    assertEquals(expected, actual);\n}",
-        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expected = 3;\n    int actual = Average.average(numbers);\n    assertEquals(expected, actual);\n    \n    int[] emptyNumbers = {};\n    assertThrows(IllegalArgumentException.class, () -> {\n        Average.average(emptyNumbers);\n    });\n    \n    int[] nullNumbers = null;\n    assertThrows(IllegalArgumentException.class, () -> {\n        Average.average(nullNumbers);\n    });\n}",
-        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expectedAverage = 3;\n    int actualAverage = Average.average(numbers);\n    assertEquals(expectedAverage, actualAverage);\n}",
-        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expectedAverage = 3;\n    int actualAverage = Average.average(numbers);\n    assertEquals(expectedAverage, actualAverage);\n}",
-        "@Test\npublic void averageTest() {\n    // Arrange\n    int[] numbers = {1, 2, 3, 4, 5};\n    \n    // Act\n    int result = Average.average(numbers);\n    \n    // Assert\n    assertEquals(3, result);\n}",
-        "@Test\npublic void averageTest() {\n    // Arrange\n    int[] numbers = {1, 2, 3, 4, 5};\n    \n    // Act\n    int result = Average.average(numbers);\n    \n    // Assert\n    assertEquals(3, result);\n}",
-        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    int expected = 3;\n    int actual = Average.average(numbers);\n    assertEquals(expected, actual);\n}",
-        "package com.thealgorithms.maths;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class AverageTest {\n    @Test\n    public void averageTest() {\n        int[] testNumbers = {1, 2, 3, 4, 5};\n        int expectedAverage = 3;\n        int actualAverage = Average.average(testNumbers);\n        assertEquals(expectedAverage, actualAverage, \"Incorrect average calculation\");\n    }\n}",
-        "package com.thealgorithms.maths;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class AverageTest {\n    @Test\n    public void averageTest() {\n        int[] numbers = {1, 2, 3, 4, 5};\n        int expectedAverage = 3;\n        int actualAverage = Average.average(numbers);\n        assertEquals(expectedAverage, actualAverage);\n    }\n}"
+        "@Test\npublic void averageTest() {\n    int[] testNumbers = {3, 5, 10, 15, 20};\n    int expectedAverage = 10;\n    int actualAverage = Average.average(testNumbers);\n    assertEquals(expectedAverage, actualAverage);\n}",
+        "@Test\npublic void averageTest() {\n    int[] numbers = {1, 2, 3, 4, 5};\n    assertEquals(3, Average.average(numbers));\n}"
     ]
 }

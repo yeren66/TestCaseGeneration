@@ -317,58 +317,47 @@ public int BlobAnalysis(IplImage Src,           // input image
 
 No.1 generated result --------------------------
 
-// Test inputs
-IplImage Src = new IplImage();
-int Col0 = 0;
-int Row0 = 0;
-int Cols = 10;
-int Rows = 10;
-int Border = 0;
-int MinArea = 5;
-
-// Expected outputs
-int expectedMaxLabel = 0;
-
-// Run the method and validate the result
-Blobs instance = new Blobs();
-int result = instance.BlobAnalysis(Src, Col0, Row0, Cols, Rows, Border, MinArea);
-assertEquals(expectedMaxLabel, result);
+int result = BlobAnalysis(Src, Col0, Row0, Cols, Rows, Border, MinArea);
+System.out.println("Result of blob analysis: " + result);
+assertEquals(expectedResult, result);
 
 
 No.2 generated result --------------------------
 
-In the JUNIT test case, write the necessary code to test the BlobAnalysis method. This can be done by creating an instance of the Blobs class, creating an input image for testing, and calling the BlobAnalysis method with appropriate arguments. Then, assert the expected output with the actual output of the BlobAnalysis method.
+@Test
+public void BlobAnalysisTest() {
+    int expectedMaxLabel = 5; // Expected max label after blob analysis
+    IplImage image = cvLoadImage("path_to_your_image", CV_LOAD_IMAGE_GRAYSCALE); // Load the test image
+    Blobs blobs = new Blobs(); // Create an instance of the Blobs class
+    int actualMaxLabel = blobs.BlobAnalysis(image, 0, 0, image.width(), image.height(), 0, 100); // Perform blob analysis
+    assertEquals(expectedMaxLabel, actualMaxLabel); // Check if the actual max label matches the expected max label
+}
 
 
 No.3 generated result --------------------------
 
 package org.bytedeco.javacv;
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BlobsTest {
     @Test
     public void BlobAnalysisTest() {
-        // Create an instance of the Blobs class
-        Blobs blobs = new Blobs();
-        
-        // Create an IplImage object for testing purposes
-        IplImage src = cvCreateImage(cvSize(200, 200), IPL_DEPTH_8U, 1);
-        
-        // Set up other parameters for the BlobAnalysis method
+        // Initialize necessary variables and objects for testing
+        IplImage src = new IplImage();
         int col0 = 0;
         int row0 = 0;
-        int cols = 200;
-        int rows = 200;
-        int border = 0;
-        int minArea = 10;
-        
-        // Call the BlobAnalysis method and store the result
+        int cols = 10;
+        int rows = 10;
+        int border = 1;
+        int minArea = 100;
+
+        // Call the BlobAnalysis method
+        Blobs blobs = new Blobs();
         int result = blobs.BlobAnalysis(src, col0, row0, cols, rows, border, minArea);
-        
-        // Assert that the result is greater than 0
-        assertTrue(result > 0);
+
+        // Validate the result
+        assertEquals(0, result);
     }
 }
 
@@ -377,110 +366,90 @@ No.4 generated result --------------------------
 
 @Test
 public void BlobAnalysisTest() {
-    // Create test data
-    IplImage src = cvCreateImage(cvSize(10, 10), IPL_DEPTH_8U, 1);
-    int col0 = 0;
-    int row0 = 0;
-    int cols = 10;
-    int rows = 10;
-    int border = 0;
-    int minArea = 5; // example minimum area
-    
-    // Expected output
-    int expectedMaxLabel = 1;
-    
-    // Call the BlobAnalysis method
-    int actualMaxLabel = BlobAnalysis(src, col0, row0, cols, rows, border, minArea);
-    
-    // Check if the actualMaxLabel matches the expectedMaxLabel
-    assertEquals(expectedMaxLabel, actualMaxLabel);
+    IplImage image = cvLoadImage("path_to_image", CV_LOAD_IMAGE_GRAYSCALE);
+    Blobs blob = new Blobs();
+    int result = blob.BlobAnalysis(image, 0, 0, 100, 100, 1, 50);
+    assertEquals(1, result);
 }
 
 
 No.5 generated result --------------------------
 
-package org.bytedeco.javacv;
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BlobsTest {
-    @Test
-    public void BlobAnalysisTest() {
-        // Create input image for testing
-        IplImage src = new IplImage();
-        // Set up other necessary variables for testing
-        int col0 = 0;
-        int row0 = 0;
-        int cols = 10;
-        int rows = 10;
-        int border = 0;
-        int minArea = 0;
-        // Create an instance of the Blobs class
-        Blobs blobs = new Blobs();
-        // Call the BlobAnalysis method with the given parameters
-        int maxLabel = blobs.BlobAnalysis(src, col0, row0, cols, rows, border, minArea);
-        // Assertions to test the correctness of the result
-        assertEquals(0, maxLabel); // Assuming the expected maximum label is 0
-        // More assertions can be added based on the expected behavior of the BlobAnalysis method
-    }
+public void BlobAnalysisTest() {
+    IplImage src = cvLoadImage("path_to_image");
+    int col0 = 0;
+    int row0 = 0;
+    int cols = 100;
+    int rows = 100;
+    int border = 0;
+    int minArea = 25;
+    
+    Blobs blobs = new Blobs();
+    int result = blobs.BlobAnalysis(src, col0, row0, cols, rows, border, minArea);
+    
+    assertEquals(expectedResult, result);
 }
+
 
 
 No.6 generated result --------------------------
 
 @Test
 public void BlobAnalysisTest() {
-    IplImage image = cvLoadImage("path_to_image.jpg");
-    Blobs blobs = new Blobs();
-    int maxLabel = blobs.BlobAnalysis(image, 0, 0, image.width(), image.height(), 1, 100);
-    
-    // Add assertions here to test the BlobAnalysis method 
-    // and verify the values returned by the method.
-    
-    assertEquals(expectedMaxLabel, maxLabel);
+    // Initialize test image
+    IplImage testImage = cvLoadImage("test.jpg");
+
+    // Create test parameters
+    int col0 = 0;
+    int row0 = 0;
+    int cols = testImage.copts();
+    int rows = testImage.rows();
+    int border = 0;
+    int minArea = 10;
+
+    // Call the BlobAnalysis method
+    int result = BlobAnalysis(testImage, col0, row0, cols, rows, border, minArea);
+
+    // Assert the result
+    assertEquals(expectedResult, result);
+
+    // Release the test image
+    cvReleaseImage(testImage);
 }
 
 
 No.7 generated result --------------------------
 
-import org.bytedeco.javacv.IplImage;
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+// Source image, region of interest, and other necessary variables
+IplImage src = ...
 
-public class BlobsTest {
-    @Test
-    public void BlobAnalysisTest() {
-        IplImage src = ...; // Create or mock the input image
-        
-        int col0 = ...; // Set the start of ROI
-        int row0 = ...;
-        int cols = ...; // Set the size of ROI
-        int rows = ...;
-        int border = ...; // Set the border color
-        int minArea = ...; // Set the minimum region area
-        
-        Blobs blobs = new Blobs(); // Create an instance of the Blobs class
-        
-        int maxLabel = blobs.BlobAnalysis(src, col0, row0, cols, rows, border, minArea); // Call the BlobAnalysis method
-        
-        // Perform assertions on the output
-        assertEquals(expectedMaxLabel, maxLabel);
-        // ... Add more assertions as needed
-    }
-}
+int col0 = ...
+int row0 = ...
+int cols = ...
+int rows = ...
+int border = ...
+int minArea = ...
+
+// Expected result for BlobAnalysis method
+int expectedMaxLabel = ...
+
+// Call the BlobAnalysis method
+Blobs blobs = new Blobs();
+int actualMaxLabel = blobs.BlobAnalysis(src, col0, row0, cols, rows, border, minArea);
+
+// Compare the actual max label with the expected max label
+assertEquals(expectedMaxLabel, actualMaxLabel);
 
 
 No.8 generated result --------------------------
 
 @Test
 public void BlobAnalysisTest() {
-    IplImage src = // create a test input image
-
-    Blobs blobs = new Blobs();
-    int result = blobs.BlobAnalysis(src, 0, 0, src.width(), src.height(), 0, 100);
-
-    assertEquals(expectedResult, result);
+    int expectedMaxLabel = 5;
+    IplImage image = cvLoadImage("path_to_image");
+    int actualMaxLabel = BlobAnalysis(image, 0, 0, image.width(), image.height(), 0, 100);
+    assertEquals(expectedMaxLabel, actualMaxLabel);
 }
 
 
@@ -488,44 +457,31 @@ No.9 generated result --------------------------
 
 @Test
 public void BlobAnalysisTest() {
-    IplImage src = new IplImage();
-    int col0 = <FILL>;
-    int row0 = <FILL>;
-    int cols = <FILL>;
-    int rows = <FILL>;
-    int border = <FILL>;
-    int minArea = <FILL>;
-    
-    Blobs blobs = new Blobs();
-    int result = blobs.BlobAnalysis(src, col0, row0, cols, rows, border, minArea);
-    
-    assertEquals(<EXPECTED RESULT>, result);
+    IplImage image = new IplImage();
+    int result = BlobAnalysis(image, 0, 0, 100, 100, 1, 50);
+    assertEquals(5, result);
 }
 
 
 No.10 generated result --------------------------
 
+@Test
+public void BlobAnalysisTest() {
+    // Input parameters
+    IplImage img = cvLoadImage("testImage.jpg");
+    int col0 = 0;
+    int row0 = 0;
+    int col = img.width();
+    int row = img.height();
+    int border = 0;
+    int minArea = 100;
 
-package org.bytedeco.javacv;
+    // Call BlobAnalysis method
+    Blobs blobs = new Blobs();
+    int maxLabel = blobs.BlobAnalysis(img, col0, row0, col, row, border, minArea);
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BlobsTest {
-    @Test
-    public void BlobAnalysisTest() {
-        // Create a test image
-        IplImage testImage = cvCreateImage(cvSize(10, 10), 8, 1);
-        cvSet(testImage, cvScalarAll(255));
-        
-        // Call the BlobAnalysis method
-        Blobs blobs = new Blobs();
-        int maxLabel = blobs.BlobAnalysis(testImage, 0, 0, 10, 10, 0, 10);
-        
-        // Assert the result
-        assertEquals(0, maxLabel);
-    }
+    // Assert
+    assertEquals(1, maxLabel);
 }
-
 
 

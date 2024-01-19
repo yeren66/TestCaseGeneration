@@ -26,22 +26,13 @@ public boolean equals(Object obj) {
 
 No.1 generated result --------------------------
 
-@Test
 public void equalsTest() {
-    Series series1 = new Series("Key", "Description");
-    Series series2 = new Series("Key", "Description");
-    Series series3 = new Series("DifferentKey", "Description");
-    Series series4 = new Series("Key", "DifferentDescription");
-    
-    // Testing equal objects
-    assertTrue(series1.equals(series1));
-    assertTrue(series1.equals(series2));
-    
-    // Testing unequal objects
-    assertFalse(series1.equals(null));
-    assertFalse(series1.equals(new Object()));
-    assertFalse(series1.equals(series3));
-    assertFalse(series1.equals(series4));
+    Series series1 = new Series("1", "First series");
+    Series series2 = new Series("2", "Second series");
+    assertTrue(series1.equals(series1)); // reflexive
+    assertTrue(series1.equals(series2) == series2.equals(series1)); // symmetric
+    assertEquals(series1.equals(series2), series1.equals(series2)); // consistent
+    assertFalse(series1.equals(null)); // null comparison
 }
 
 
@@ -49,36 +40,9 @@ No.2 generated result --------------------------
 
 @Test
 public void equalsTest() {
-    // Create two instances of Series with the same properties
-    Series series1 = new Series("key", "description");
-    Series series2 = new Series("key", "description");
-    
-    // Assert that series1 is equal to itself
-    assertTrue(series1.equals(series1));
-    
-    // Assert that series1 is equal to series2
-    assertTrue(series1.equals(series2));
-    
-    // Assert that series1 is not equal to null
-    assertFalse(series1.equals(null));
-    
-    // Create an instance of a different class
-    Object obj = new Object();
-    
-    // Assert that series1 is not equal to obj
-    assertFalse(series1.equals(obj));
-    
-    // Create an instance of Series with a different key
-    Series series3 = new Series("differentKey", "description");
-    
-    // Assert that series1 is not equal to series3
-    assertFalse(series1.equals(series3));
-    
-    // Create an instance of Series with a different description
-    Series series4 = new Series("key", "differentDescription");
-    
-    // Assert that series1 is not equal to series4
-    assertFalse(series1.equals(series4));
+    assertTrue(series.equals(series));
+    assertFalse(series.equals(null));
+    assertFalse(series.equals(new Object()));
 }
 
 
@@ -86,15 +50,9 @@ No.3 generated result --------------------------
 
 @Test
 public void equalsTest() {
-    Series series1 = new Series("key", "description");
-    Series series2 = new Series("key", "description");
-    Series series3 = new Series("key1", "description");
-    
-    assertTrue(series1.equals(series1)); // same object
-    assertTrue(series1.equals(series2)); // equal objects
-    assertFalse(series1.equals(series3)); // unequal objects
-    assertFalse(series1.equals(null)); // null object
-    assertFalse(series1.equals("")); // different class
+    Series series1 = new Series("key1", "description1");
+    Series series2 = new Series("key1", "description1");
+    assertTrue(series1.equals(series2));
 }
 
 
@@ -102,36 +60,9 @@ No.4 generated result --------------------------
 
 @Test
 public void equalsTest() {
-    Series series1 = new Series();
-    series1.setKey("Key");
-    series1.setDescription("Description");
-    
-    Series series2 = new Series();
-    series2.setKey("Key");
-    series2.setDescription("Description");
-    
-    Series series3 = new Series();
-    series3.setKey("Key2");
-    series3.setDescription("Description2");
-    
-    // Null check
-    assertFalse(series1.equals(null));
-    
-    // Reflexivity
-    assertTrue(series1.equals(series1));
-    
-    // Symmetry and Transitivity
-    assertTrue(series1.equals(series2) && series2.equals(series1) && series1.equals(series2));
-    
-    // Consistency
-    assertTrue(series1.equals(series2));
-    assertTrue(series1.equals(series2));
-    
-    // Non-nullity
-    assertFalse(series1.equals(series3));
-    
-    // Check with different class object
-    assertFalse(series1.equals("Some string"));
+    Series series1 = new Series("key", "description");
+    Series series2 = new Series("key", "description");
+    assertEquals(series1, series2);
 }
 
 
@@ -139,53 +70,63 @@ No.5 generated result --------------------------
 
 @Test
 public void equalsTest() {
-    Object obj = new Series("key", "description");
-    assertTrue(obj.equals(obj)); // same object should return true
+    Series series1 = new Series("key", "description");
+    Series series2 = new Series("key", "description");
     
-    Object obj2 = new Series("key", "description");
-    assertTrue(obj.equals(obj2)); // two objects with the same key and description should return true
-    
-    Object obj3 = new Series("key2", "description");
-    assertFalse(obj.equals(obj3)); // objects with different keys should return false
-    
-    Object obj4 = new Series("key", "description2");
-    assertFalse(obj.equals(obj4)); // objects with different descriptions should return false
-    
-    Object obj5 = new OtherClass(); // different class should return false
-    assertFalse(obj.equals(obj5));
-    
-    Object obj6 = null;
-    assertFalse(obj.equals(obj6)); // comparison with null should return false
+    assertTrue(series1.equals(series2));
 }
 
 
 No.6 generated result --------------------------
 
 @Test
-    public void equalsTest() {
-        Series series1 = new Series("Key", "Description");
-        Series series2 = new Series("Key", "Description");
-        Series series3 = new Series("DifferentKey", "Description");
-        Series series4 = new Series("Key", "DifferentDescription");
-        
-        // Test equal objects
-        assertTrue(series1.equals(series2));
-        
-        // Test different keys
-        assertFalse(series1.equals(series3));
-        
-        // Test different descriptions
-        assertFalse(series1.equals(series4));
-        
-        // Test with non-Series object
-        assertFalse(series1.equals("Not a Series object"));
-        
-        // Test with null object
-        assertFalse(series1.equals(null));
-    }
+public void equalsTest() {
+    // Create two Series objects with the same key and description
+    Series s1 = new Series("Key", "Description");
+    Series s2 = new Series("Key", "Description");
+    
+    // Test if the two Series objects are equal
+    assertTrue(s1.equals(s2));
+}
 
 
 No.7 generated result --------------------------
+
+
+@Test
+public void equalsTest() {
+    Series series1 = new Series("key1", "description1");
+    Series series2 = new Series("key1", "description1");
+    Series series3 = new Series("key2", "description2");
+
+    // Test when both Series objects are equal
+    assertTrue(series1.equals(series2));
+
+    // Test when both Series objects are not equal
+    assertFalse(series1.equals(series3));
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void equalsTest() {
+    Series series1 = new Series("key1", "description1");
+    Series series2 = new Series("key2", "description2");
+    Series series3 = series1;
+    
+    // Test if series1 equals itself
+    assertTrue(series1.equals(series1));
+    
+    // Test if series1 equals series2
+    assertFalse(series1.equals(series2));
+    
+    // Test if series1 equals series3
+    assertTrue(series1.equals(series3));
+}
+
+
+No.9 generated result --------------------------
 
 @Test
 public void equalsTest() {
@@ -201,73 +142,14 @@ public void equalsTest() {
 }
 
 
-No.8 generated result --------------------------
-
-@Test
-public void equalsTest() {
-    Series series1 = new Series("Key", "Description");
-    Series series2 = new Series("Key", "Description");
-    Series series3 = new Series("Key2", "Description2");
-    
-    // Test case 1: Test if the objects are equal
-    assertTrue(series1.equals(series2));
-    
-    // Test case 2: Test if the objects are not equal
-    assertFalse(series1.equals(series3));
-    
-    // Test case 3: Test if the objects are not of the same type
-    assertFalse(series1.equals("abc"));
-    
-    // Test case 4: Test if the objects are the same instance
-    assertTrue(series1.equals(series1));
-}
-
-
-No.9 generated result --------------------------
-
-@Test
-public void equalsTest() {
-    Series series1 = new Series();
-    Series series2 = new Series();
-    series1.setKey("key1");
-    series1.setDescription("description1");
-    series2.setKey("key1");
-    series2.setDescription("description1");
-    assertEquals(true, series1.equals(series2));
-    assertEquals(true, series2.equals(series1));
-    
-    series2.setDescription("description2");
-    assertEquals(false, series1.equals(series2));
-    assertEquals(false, series2.equals(series1));
-    
-    series2.setKey("key2");
-    assertEquals(false, series1.equals(series2));
-    assertEquals(false, series2.equals(series1));
-    
-    series2.setDescription("description1");
-    assertEquals(false, series1.equals(series2));
-    assertEquals(false, series2.equals(series1));
-}
-
-
 No.10 generated result --------------------------
 
-In the equalsTest method of the SeriesTest class, fill in the code for the unit test as follows:
-
-Series series1 = new Series();
-series1.setKey("key1");
-series1.setDescription("description1");
-
-Series series2 = new Series();
-series2.setKey("key2");
-series2.setDescription("description2");
-
-Series series3 = new Series();
-series3.setKey("key1");
-series3.setDescription("description1");
-
-assertEquals(series1, series1); // check if series1 equals itself
-assertEquals(series1, series3); // check if series1 equals series3
-assertNotEquals(series1, series2); // check if series1 does not equal series2
+@Test
+public void equalsTest() {
+    Series series1 = new Series("key1", "description1");
+    Series series2 = new Series("key2", "description2");
+    assertTrue(series1.equals(series1)); // reflexive
+    assertFalse(series1.equals(null));    // false if obj is null
+}
 
 

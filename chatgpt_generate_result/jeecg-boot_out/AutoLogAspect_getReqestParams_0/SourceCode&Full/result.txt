@@ -51,21 +51,26 @@ private String getReqestParams(HttpServletRequest request, JoinPoint joinPoint) 
 
 No.1 generated result --------------------------
 
-package org.jeecg.common.aspect;
+@Test
+public void getReqestParamsTest() {
+    // Create mock HttpServletRequest and JoinPoint objects
+    HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
+    JoinPoint joinPoint = Mockito.mock(JoinPoint.class);
+    
+    // Set up the mock objects
+    Object[] paramsArray = new Object[2];
+    paramsArray[0] = "param1";
+    paramsArray[1] = "param2";
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AutoLogAspectTest {
-    @Test
-    public void getReqestParamsTest() {
-        AutoLogAspect aspect = new AutoLogAspect();
-        HttpServletRequest request = new MockHttpServletRequest();
-        JoinPoint joinPoint = new MockJoinPoint();
-        String params = aspect.getReqestParams(request, joinPoint);
-        assertNotNull(params);
-        // Add additional assertions if necessary
-    }
+    // Test the getReqestParams method
+    AutoLogAspect autoLogAspect = new AutoLogAspect();
+    String result = autoLogAspect.getReqestParams(request, joinPoint, paramsArray);
+  
+    // Set the expected result
+    String expected = "\"param1\",\"param2\"";
+  
+    // Verify the result
+    assertEquals(expected, result);
 }
 
 
@@ -73,35 +78,27 @@ No.2 generated result --------------------------
 
 package org.jeecg.common.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.junit.jupiter.api.Test;
-import org.springframework.mock.web.MockHttpServletRequest;
 
-import static org.junit.jupiter.api.Assertions.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AutoLogAspectTest {
-
     @Test
     public void getReqestParamsTest() {
-        // Create a mock HttpServletRequest
-        MockHttpServletRequest request = new MockHttpServletRequest();
-        request.setMethod("POST");
-        request.setParameter("param1", "value1");
-        request.setParameter("param2", "value2");
-
-        // Create a mock JoinPoint
-        // Here, we can create a mock JoinPoint using a mocking framework like Mockito
-
-        JoinPoint joinPoint = <create-mock-join-point>;
-
-        // Create an instance of AutoLogAspect
-        AutoLogAspect aspect = new AutoLogAspect();
-
-        // Call the getReqestParams method
-        String params = aspect.getReqestParams(request, joinPoint);
-
-        // Assert that the params variable contains the expected value
-        // Based on the given source code, the expected value should be '{"param1":"value1","param2":"value2"}'
-        assertEquals("{\"param1\":\"value1\",\"param2\":\"value2\"}", params);
+        // Arrange
+        AutoLogAspect autoLogAspect = new AutoLogAspect();
+        HttpServletRequest request = new HttpServletRequestWrapper(null);
+        JoinPoint joinPoint = null;
+        
+        // Act
+        String result = autoLogAspect.getReqestParams(request, joinPoint);
+        
+        // Assert
+        assertEquals("", result);
     }
 }
 
@@ -110,248 +107,158 @@ No.3 generated result --------------------------
 
 @Test
 public void getReqestParamsTest() {
+    // Given
     HttpServletRequest request = mock(HttpServletRequest.class);
     JoinPoint joinPoint = mock(JoinPoint.class);
-    Object[] paramsArray = new Object[1];
-    paramsArray[0] = "testParam";
     when(request.getMethod()).thenReturn("POST");
+    
+    Object[] paramsArray = { "param1", "param2" };
     when(joinPoint.getArgs()).thenReturn(paramsArray);
     
-    String expectedParams = "\"testParam\"";
+    // When
+    String result = autoLogAspect.getReqestParams(request, joinPoint);
     
-    String actualParams = getReqestParams(request, joinPoint);
-    
-    assertEquals(expectedParams, actualParams);
+    // Then
+    assertEquals("["param1","param2"]", result);
 }
 
 
 No.4 generated result --------------------------
 
-package org.jeecg.common.aspect;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-public class AutoLogAspectTest {
-    @Test
-    public void getReqestParamsTest() {
-        AutoLogAspect aspect = new AutoLogAspect();
-        MockHttpServletRequest request = new MockHttpServletRequest();
-        request.addParameter("param1", "value1");
-        request.addParameter("param2", "value2");
-
-        JoinPoint joinPoint = new JoinPoint() {
-            @Override
-            public String toString() {
-                return "JoinPoint";
-            }
-        };
-
-        String result = aspect.getReqestParams(request, joinPoint);
-        String expected = "  param1: value1  param2: value2";
-        assertEquals(expected, result);
-    }
+@Test
+public void getReqestParamsTest() {
+    HttpServletRequest request = mock(HttpServletRequest.class);
+    JoinPoint joinPoint = mock(JoinPoint.class);
+    
+    AutoLogAspect autoLogAspect = new AutoLogAspect();
+    
+    String expectedResult = "";  // specify the expected result
+    
+    // Call the method under test
+    String result = autoLogAspect.getReqestParams(request, joinPoint);
+    
+    assertEquals(expectedResult, result);
 }
 
 
 No.5 generated result --------------------------
 
-package org.jeecg.common.aspect;
-
-import org.junit.jupiter.api.Test;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-public class AutoLogAspectTest {
-
-    @Test
-    public void getReqestParamsTest() {
-        // Create a mock HttpServletRequest
-        MockHttpServletRequest request = new MockHttpServletRequest();
-        request.setMethod("POST");
-        request.addParameter("param1", "value1");
-        request.addParameter("param2", "value2");
-
-        // Set the ServletRequestAttributes with the mock HttpServletRequest
-        ServletRequestAttributes attributes = new ServletRequestAttributes(request);
-        RequestContextHolder.setRequestAttributes(attributes);
-
-        // Create an instance of the AutoLogAspect class
-        AutoLogAspect aspect = new AutoLogAspect();
-
-        // Call the getReqestParams method and check the result
-        String params = aspect.getReqestParams(request, null);
-
-        assertNotNull(params);
-        assertEquals("  param1: value1  param2: value2", params);
-    }
-}
+String expectedResult = "Expected result";
+// Perform the unit test actions
+String actualResult = getReqestParams(request, joinPoint);
+// Assert the result
+assertEquals(expectedResult, actualResult);
 
 
 No.6 generated result --------------------------
 
-@Test
-public void getReqestParamsTest() {
-    AutoLogAspect aspect = new AutoLogAspect();
-    HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
-    JoinPoint joinPoint = Mockito.mock(JoinPoint.class);
-    
-    // Test when HTTP method is POST
-    Mockito.when(request.getMethod()).thenReturn("POST");
-    Mockito.when(joinPoint.getArgs()).thenReturn(new Object[] { "param1", "param2" });
-    String expectedParams = "  arg0: param1  arg1: param2";
-    String actualParams = aspect.getReqestParams(request, joinPoint);
-    assertEquals(expectedParams, actualParams);
-    
-    // Test when HTTP method is GET
-    Mockito.when(request.getMethod()).thenReturn("GET");
-    Mockito.when(joinPoint.getArgs()).thenReturn(new Object[] { "param1", "param2" });
-    expectedParams = "";
-    actualParams = aspect.getReqestParams(request, joinPoint);
-    assertEquals(expectedParams, actualParams);
+package org.jeecg.common.aspect;
+
+import org.aspectj.lang.JoinPoint;
+import org.jeecg.common.api.vo.Result;
+import org.jeecg.common.aspect.annotation.AutoLog;
+import org.jeecg.common.constant.CommonConstant;
+import org.jeecg.common.constant.enums.ModuleType;
+import org.jeecg.common.constant.enums.OperateTypeEnum;
+import org.jeecg.common.system.vo.LoginUser;
+import org.jeecg.common.util.IpUtils;
+import org.jeecg.common.util.oConvertUtils;
+import org.jeecg.common.util.SpringContextUtils;
+import org.junit.jupiter.api.*;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Method;
+import java.util.Date;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+
+public class AutoLogAspectTest {
+    @Test
+    public void getReqestParamsTest() {
+        AutoLogAspect autoLogAspect = new AutoLogAspect();
+        HttpServletRequest request = null; // Fill with appropriate HttpServletRequest parameter
+        JoinPoint joinPoint = null; // Fill with appropriate JoinPoint parameter
+        String expectedResult = ""; // Fill with the expected result
+        String actualResult = autoLogAspect.getReqestParams(request, joinPoint);
+        assertEquals(expectedResult, actualResult);
+    }
 }
+
 
 
 No.7 generated result --------------------------
 
 @Test
 public void getReqestParamsTest() {
-    // Create a mock HttpServletRequest object
-    HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
+    HttpServletRequest request = mock(HttpServletRequest.class);
+    when(request.getMethod()).thenReturn("POST");
 
-    // Create a mock JoinPoint object
-    JoinPoint joinPoint = Mockito.mock(JoinPoint.class);
+    JoinPoint joinPoint = mock(JoinPoint.class);
+    Object[] args = new Object[]{"arg1", "arg2", new BindingResult(), mock(ServletRequest.class), mock(ServletResponse.class), mock(MultipartFile.class)};
+    when(joinPoint.getArgs()).thenReturn(args);
 
-    // Set the expected method type of the request
-    Mockito.when(request.getMethod()).thenReturn("POST");
+    AutoLogAspect autoLogAspect = new AutoLogAspect();
+    String result = autoLogAspect.getReqestParams(request, joinPoint);
 
-    // Set the expected arguments of the joinPoint
-    Object[] paramsArray = { "param1", "param2" };
-    Mockito.when(joinPoint.getArgs()).thenReturn(paramsArray);
-
-    // Create an instance of the AutoLogAspect class
-    AutoLogAspect aspect = new AutoLogAspect();
-
-    // Call the getReqestParams method and assert the result
-    String result = aspect.getReqestParams(request, joinPoint);
-    assertEquals("{\"0\":\"param1\",\"1\":\"param2\"}", result);
+    assertNotNull(result);
+    assertEquals("", result);
 }
 
 
 No.8 generated result --------------------------
 
 @Test
-    public void getReqestParamsTest() {
-        // Arrange
-        AutoLogAspect aspect = new AutoLogAspect();
-        HttpServletRequest request = new MockHttpServletRequest();
-        JoinPoint joinPoint = new MockJoinPoint();
-
-        // Act
-        String result = aspect.getReqestParams(request, joinPoint);
-
-        // Assert
-        assertNotNull(result);
-        assertEquals("", result);
-    }
+public void getReqestParamsTest() {
+    // Given
+    HttpServletRequest request = mock(HttpServletRequest.class);
+    JoinPoint joinPoint = mock(JoinPoint.class);
+    
+    // When
+    String result = autoLogAspect.getReqestParams(request, joinPoint);
+    
+    // Then
+    assertEquals(expectedResult, result);
+}
 
 
 No.9 generated result --------------------------
 
-private String getReqestParams(HttpServletRequest request, JoinPoint joinPoint) {
-        String httpMethod = request.getMethod();
-        String params = "";
-        if (CommonConstant.HTTP_POST.equals(httpMethod) || CommonConstant.HTTP_PUT.equals(httpMethod) || CommonConstant.HTTP_PATCH.equals(httpMethod)) {
-            Object[] paramsArray = joinPoint.getArgs();
-            // java.lang.IllegalStateException: It is illegal to call this method if the current request is not in asynchronous mode (i.e. isAsyncStarted() returns false)
-            //  https://my.oschina.net/mengzhang6/blog/2395893
-            Object[] arguments  = new Object[paramsArray.length];
-            for (int i = 0; i < paramsArray.length; i++) {
-                if (paramsArray[i] instanceof BindingResult || paramsArray[i] instanceof ServletRequest || paramsArray[i] instanceof ServletResponse || paramsArray[i] instanceof MultipartFile) {
-                    //ServletRequest cannot be serialized, exclude it from the input parameter, otherwise an exception will be thrown: java.lang.IllegalStateException: It is illegal to call this method if the current request is not in asynchronous mode (i.e. isAsyncStarted() returns false)
-                    //ServletResponse cannot be serialized, exclude it from the input parameter, otherwise an exception will be thrown: java.lang.IllegalStateException: getOutputStream() has already been called for this response
-                    continue;
-                }
-                arguments[i] = paramsArray[i];
-            }
-            //update-begin-author:taoyan date:20200724 for:Filter out log data that is too long
-            PropertyFilter profilter = new PropertyFilter() {
-                @Override
-                public boolean apply(Object o, String name, Object value) {
-                    int length = 500;
-                    if(value!=null && value.toString().length()>length){
-                        return false;
-                    }
-                    return true;
-                }
-            };
-            params = JSONObject.toJSONString(arguments, profilter);
-            //update-end-author:taoyan date:20200724 for:Filter out log data that is too long
-        } else {
-            MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-            Method method = signature.getMethod();
-            // Request method parameter values
-            Object[] args = joinPoint.getArgs();
-            // Request method parameter names
-            LocalVariableTableParameterNameDiscoverer u = new LocalVariableTableParameterNameDiscoverer();
-            String[] paramNames = u.getParameterNames(method);
-            if (args != null && paramNames != null) {
-                for (int i = 0; i < args.length; i++) {
-                    params += "  " + paramNames[i] + ": " + args[i];
-                }
-            }
-        }
-        return params;
-    }
-
 @Test
-    public void getReqestParamsTest() {
-        HttpServletRequest request = mock(HttpServletRequest.class);
-        JoinPoint joinPoint = mock(JoinPoint.class);
-        MethodSignature signature = mock(MethodSignature.class);
-        Method method = mock(Method.class);
-        
-        when(request.getMethod()).thenReturn("POST");
-        when(joinPoint.getArgs()).thenReturn(new Object[] {"param1", "param2"});
-        when(joinPoint.getSignature()).thenReturn(signature);
-        when(signature.getMethod()).thenReturn(method);
-        when(method.getName()).thenReturn("methodName");
-        when(method.getParameters()).thenReturn(new Parameter[] {new Parameter(String.class, "param1"), new Parameter(Integer.class, "param2")});
-        
-        AutoLogAspect aspect = new AutoLogAspect();
-        String result = aspect.getReqestParams(request, joinPoint);
-        
-        assertEquals("  param1: param1  param2: param2", result);
-    }
+public void getReqestParamsTest() {
+    // Create a mock for HttpServletRequest
+    HttpServletRequest request = mock(HttpServletRequest.class);
+    
+    // Create a mock for JoinPoint
+    JoinPoint joinPoint = mock(JoinPoint.class);
+    
+    // Set up the method for mock
+    when(request.getMethod()).thenReturn("GET");
+    
+    // Execute the method being tested
+    AutoLogAspect autoLogAspect = new AutoLogAspect();
+    String result = autoLogAspect.getReqestParams(request, joinPoint);
+    
+    // Assertions
+    assertEquals("", result);
+}
 
 
 No.10 generated result --------------------------
 
 @Test
 public void getReqestParamsTest() {
-    HttpServletRequest request = mock(HttpServletRequest.class);
-    JoinPoint joinPoint = mock(JoinPoint.class);
-    String expectedParams = ""; // <FILL> - Provide the expected value for params
+    AutoLogAspect aspect = new AutoLogAspect();
+    HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
+    JoinPoint joinPoint = Mockito.mock(JoinPoint.class);
+    when(request.getMethod()).thenReturn("GET");
+    when(joinPoint.getArgs()).thenReturn(new Object[]{"arg1", "arg2"});
     
-    // Mock the behavior of request.getMethod()
-    when(request.getMethod()).thenReturn(CommonConstant.HTTP_POST);
-    
-    // Mock the behavior of joinPoint.getArgs()
-    Object[] paramsArray = new Object[]{/* Mock the array of paramsArray objects */};
-    when(joinPoint.getArgs()).thenReturn(paramsArray);
-    
-    // Call the method under test
-    String actualParams = getReqestParams(request, joinPoint);
-    
-    // Assert the result
-    assertEquals(expectedParams, actualParams);
+    assertEquals("  0: arg1  1: arg2", aspect.getReqestParams(request, joinPoint));
 }
 
 

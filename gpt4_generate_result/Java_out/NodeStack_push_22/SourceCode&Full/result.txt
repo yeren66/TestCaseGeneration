@@ -1,0 +1,71 @@
+Source code: 
+
+
+public void push(Item item) {
+    NodeStack<Item> newNs = new NodeStack<Item>(item);
+
+    if (this.isEmpty()) {
+        NodeStack.setHead(new NodeStack<>(item));
+        newNs.setNext(null);
+        newNs.setPrevious(null);
+    } else {
+        newNs.setPrevious(NodeStack.head);
+        NodeStack.head.setNext(newNs);
+        NodeStack.setHead(newNs);
+    }
+
+    NodeStack.setSize(NodeStack.getSize() + 1);
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

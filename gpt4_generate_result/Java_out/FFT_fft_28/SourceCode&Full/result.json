@@ -1,0 +1,27 @@
+{
+    "project_name": "Java",
+    "file_name": "FFT.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/maths/FFT.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.maths",
+    "docstring": "/**\n     * Iterative In-Place Radix-2 Cooley-Tukey Fast Fourier Transform Algorithm\n     * with Bit-Reversal. The size of the input signal must be a power of 2. If\n     * it isn't then it is padded with zeros and the output FFT will be bigger\n     * than the input signal.\n     *\n     * <p>\n     * More info:\n     * https://www.algorithm-archive.org/contents/cooley_tukey/cooley_tukey.html\n     * https://www.geeksforgeeks.org/iterative-fast-fourier-transformation-polynomial-multiplication/\n     * https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm\n     * https://cp-algorithms.com/algebra/fft.html\n     *  @param x The discrete signal which is then converted to the FFT or the\n     * IFFT of signal x.\n     * @param inverse True if you want to find the inverse FFT.\n     * @return\n     */",
+    "source_code": "\npublic static ArrayList<Complex> fft(ArrayList<Complex> x, boolean inverse) {\n    /* Pad the signal with zeros if necessary */\n    paddingPowerOfTwo(x);\n    int N = x.size();\n    int log2N = findLog2(N);\n    x = fftBitReversal(N, log2N, x);\n    int direction = inverse ? -1 : 1;\n\n    /* Main loop of the algorithm */\n    for (int len = 2; len <= N; len *= 2) {\n        double angle = -2 * Math.PI / len * direction;\n        Complex wlen = new Complex(Math.cos(angle), Math.sin(angle));\n        for (int i = 0; i < N; i += len) {\n            Complex w = new Complex(1, 0);\n            for (int j = 0; j < len / 2; j++) {\n                Complex u = x.get(i + j);\n                Complex v = w.multiply(x.get(i + j + len / 2));\n                x.set(i + j, u.add(v));\n                x.set(i + j + len / 2, u.subtract(v));\n                w = w.multiply(wlen);\n            }\n        }\n    }\n    x = inverseFFT(N, inverse, x);\n    return x;\n}\n",
+    "class_name": "FFT",
+    "method_name": "fft",
+    "arguments": [
+        "ArrayList<Complex> x",
+        "boolean inverse"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

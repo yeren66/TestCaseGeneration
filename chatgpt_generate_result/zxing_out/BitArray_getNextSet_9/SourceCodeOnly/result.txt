@@ -25,40 +25,31 @@ No.1 generated result --------------------------
 
 @Test
 public void getNextSetTest() {
-    BitArray bitArray = new BitArray();
-    bitArray.setBits(new int[]{1, 2, 3, 4, 5});
-    
-    int result = bitArray.getNextSet(0);
-    
-    assertEquals(0, result);
+    BitArrayTest bitArrayTest = new BitArrayTest();
+    assertEquals(4, bitArrayTest.getNextSet(5));
 }
 
 
 No.2 generated result --------------------------
 
-package com.google.zxing.common;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BitArrayTest {
-    @Test
-    public void getNextSetTest() {
-        BitArray bitArray = new BitArray();
-        int result = bitArray.getNextSet(0);
-        assertEquals(0, result);
-    }
+@Test
+public void getNextSetTest() {
+    BitArray bitArray = new BitArray();
+    bitArray.setBit(0, true);
+    bitArray.setBit(1, true);
+    int result = bitArray.getNextSet(1);
+    assertEquals(1, result);
 }
 
 
 No.3 generated result --------------------------
 
 public void getNextSetTest() {
-  BitArray bitArray = new BitArray(64); // Assuming size is 64
-  int from = 0;
-  int expectedOutput = 0; // Assuming the expected output for the given input from is 0
-  int actualOutput = bitArray.getNextSet(from);
-  assertEquals(expectedOutput, actualOutput);
+  BitArray bitArray = new BitArray();
+  bitArray.appendBit(0);
+  bitArray.appendBit(1);
+  assertEquals(1, bitArray.getNextSet(0));
+  assertEquals(1, bitArray.getNextSet(1));
 }
 
 
@@ -66,9 +57,9 @@ No.4 generated result --------------------------
 
 @Test
 public void getNextSetTest() {
-    BitArray bitArray = new BitArray();
-    int result = bitArray.getNextSet(<from>);
-    assertEquals(<expectedResult>, result);
+    BitArrayTest bitArrayTest = new BitArrayTest();
+    int result = bitArrayTest.getNextSet(3);
+    assertEquals(5, result);
 }
 
 
@@ -76,31 +67,23 @@ No.5 generated result --------------------------
 
 @Test
 public void getNextSetTest() {
-    // Create a BitArray object with bits data
-    BitArray bitArray = new BitArray(new int[]{5});
-
-    // Test case 1: from < size
-    int result1 = bitArray.getNextSet(2);
-    assertEquals(2, result1);
-
-    // Test case 2: from = size
-    int result2 = bitArray.getNextSet(5);
-    assertEquals(5, result2);
-
-    // Test case 3: from > size
-    int result3 = bitArray.getNextSet(8);
-    assertEquals(5, result3);
+    int[] bits = new int[4];
+    bits[0] = 5;
+    bits[1] = 10;
+    bits[2] = 0;
+    bits[3] = 15;
+    BitArrayTest bat = new BitArrayTest();
+    assertEquals(1, bat.getNextSet(5, bits)); 
 }
-
 
 
 No.6 generated result --------------------------
 
 @Test
 public void getNextSetTest() {
-    BitArrayTest bitArrayTest = new BitArrayTest();
-    int result = bitArrayTest.getNextSet(0);
-    assertEquals(32, result);
+    BitArray arr = new BitArray();
+    int result = arr.getNextSet(14);
+    assertEquals(15, result);
 }
 
 
@@ -108,48 +91,20 @@ No.7 generated result --------------------------
 
 @Test
 public void getNextSetTest() {
-  BitArray bitArray = new BitArray();
-  int from = 0;
-  int expectedResult = 4;
-  
-  int result = bitArray.getNextSet(from);
-  
-  assertEquals(expectedResult, result);
+    int[] bits = {5, 10, 15, 20};
+    int size = 4;
+    BitArrayTest bitArrayTest = new BitArrayTest(bits, size);
+    assertEquals(10, bitArrayTest.getNextSet(4));
 }
 
 
 No.8 generated result --------------------------
 
-package com.google.zxing.common;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BitArrayTest {
-    @Test
-    public void getNextSetTest() {
-        BitArray bitArray = new BitArray(); // Assuming BitArray is the class containing the source code
-        
-        // Test case 1: from = 0
-        int result1 = bitArray.getNextSet(0);
-        assertEquals(0, result1);
-        
-        // Test case 2: from = 5
-        int result2 = bitArray.getNextSet(5);
-        assertEquals(8, result2);
-        
-        // Test case 3: from = 32
-        int result3 = bitArray.getNextSet(32);
-        assertEquals(32, result3);
-        
-        // Test case 4: from = 50
-        int result4 = bitArray.getNextSet(50);
-        assertEquals(50, result4);
-        
-        // Test case 5: from = 1000
-        int result5 = bitArray.getNextSet(1000);
-        assertEquals(1000, result5);
-    }
+@Test
+public void getNextSetTest() {
+    BitArrayTest bitArrayTest = new BitArrayTest();
+    int result = bitArrayTest.getNextSet(10);
+    assertEquals(15, result);
 }
 
 
@@ -157,11 +112,10 @@ No.9 generated result --------------------------
 
 @Test
 public void getNextSetTest() {
-    BitArray bitArray = new BitArray();
-    int from = 0;
-    int expected = 1;
-    int actual = bitArray.getNextSet(from);
-    assertEquals(expected, actual);
+    int[] bits = {1, 2, 3, 0, 7, 8, 9};
+    BitArrayTest bitArrayTest = new BitArrayTest(bits);
+    assertEquals(1, bitArrayTest.getNextSet(0));
+    assertEquals(5, bitArrayTest.getNextSet(4));
 }
 
 
@@ -169,16 +123,9 @@ No.10 generated result --------------------------
 
 @Test
 public void getNextSetTest() {
-    BitArrayTest bitArrayTest = new BitArrayTest();
-    
-    int result = bitArrayTest.getNextSet(0);
-    assertEquals(0, result);
-    
-    result = bitArrayTest.getNextSet(32);
-    assertEquals(32, result);
-    
-    result = bitArrayTest.getNextSet(64);
-    assertEquals(64, result);
+    BitArrayTest test = new BitArrayTest();
+    int result = test.getNextSet(5);
+    assertEquals(5, result);
 }
 
 

@@ -24,18 +24,15 @@ No.1 generated result --------------------------
 
 @Test
 public void desEncryptTest() {
+    String data = "exampleData";
+    String key = "exampleKey";
+    String iv = "exampleIV";
+    
     try {
-        String data = "exampleData";
-        String key = "exampleKey";
-        String iv = "exampleIV";
-        
         String encryptedData = AesEncryptUtil.desEncrypt(data, key, iv);
-        
-        assertNotNull(encryptedData);
-        // Add additional assertions for the expected encrypted data
-        
+        assertEquals("expectedEncryptedData", encryptedData);
     } catch (Exception e) {
-        fail("An exception occurred: " + e.getMessage());
+        fail("Exception thrown: " + e.getMessage());
     }
 }
 
@@ -44,15 +41,12 @@ No.2 generated result --------------------------
 
 @Test
 public void desEncryptTest() {
+    String data = "exampleData";
+    String key = "exampleKey";
+    String iv = "exampleIV";
     try {
-        String data = "<data>";
-        String key = "<key>";
-        String iv = "<iv>";
-        String expected = "<expected result>";
-
         String result = AesEncryptUtil.desEncrypt(data, key, iv);
-
-        assertEquals(expected, result);
+        assertEquals(expectedResult, result);
     } catch (Exception e) {
         fail("An exception occurred: " + e.getMessage());
     }
@@ -61,21 +55,18 @@ public void desEncryptTest() {
 
 No.3 generated result --------------------------
 
-@Test
-public void desEncryptTest() {
-    try {
-        String data = "encrypted data";
-        String key = "encryption key";
-        String iv = "initialization vector";
-        
-        String encryptedData = "encrypted data"; // replace with actual encrypted data
-        
-        String decryptedData = AesEncryptUtil.desEncrypt(data, key, iv);
-        
-        assertEquals(encryptedData, decryptedData);
-    } catch (Exception e) {
-        e.printStackTrace();
-        fail("An exception occurred.");
+public class AesEncryptUtilTest {
+    @Test
+    public void desEncryptTest() {
+        String data = "encryptedData";
+        String key = "encryptionKey";
+        String iv = "encryptionIV";
+        try {
+            String result = AesEncryptUtil.desEncrypt(data, key, iv);
+            assertEquals("expectedDecryptedText", result);
+        } catch (Exception e) {
+            fail("Exception thrown: " + e.getMessage());
+        }
     }
 }
 
@@ -86,20 +77,22 @@ package org.jeecg.common.util.encryption;
 
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import org.apache.commons.codec.binary.Base64;
 
 public class AesEncryptUtilTest {
     @Test
     public void desEncryptTest() {
-        String data = ""; // enter the test data
-        String key = ""; // enter the encryption key
-        String iv = ""; // enter the initialization vector
-
         try {
-            String encryptedData = AesEncryptUtil.desEncrypt(data, key, iv);
-            // assert the expected decrypted value
-            assertEquals("", encryptedData);
+            String encryptedData = "sampleEncryptedData";
+            String key = "sampleKey";
+            String iv = "sampleIV";
+            String decryptedData = AesEncryptUtil.desEncrypt(encryptedData, key, iv);
+            assertEquals("expectedDecryptedData", decryptedData);
         } catch (Exception e) {
-            fail("An exception occurred: " + e.getMessage());
+            fail("Exception thrown: " + e.getMessage());
         }
     }
 }
@@ -109,22 +102,51 @@ No.5 generated result --------------------------
 
 @Test
 public void desEncryptTest() {
+    String data = "exampleData";
+    String key = "exampleKey";
+    String iv = "exampleIV";
     try {
-        String data = ""; // Write test data
-        String key = ""; // Write test key
-        String iv = ""; // Write test iv
-        String expected = ""; // Write expected result
-        
         String result = AesEncryptUtil.desEncrypt(data, key, iv);
-        
-        assertEquals(expected, result);
+        assertEquals(expectedResult, result);
     } catch (Exception e) {
-        fail("An exception occurred: " + e.getMessage());
+        fail("Exception thrown");
     }
 }
 
 
 No.6 generated result --------------------------
+
+@Test
+public void desEncryptTest() {
+    try {
+        String encryptedData = "sampleEncryptedData";
+        String key = "sampleKey";
+        String iv = "sampleIV";
+        String decrypted = AesEncryptUtil.desEncrypt(encryptedData, key, iv);
+        assertEquals("expectedDecryptedData", decrypted);
+    } catch (Exception e) {
+        fail("Exception thrown: " + e.getMessage());
+    }
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void desEncryptTest() {
+    try {
+        String data = "encryptedData";
+        String key = "encryptionKey";
+        String iv = "encryptionIV";
+        String result = AesEncryptUtil.desEncrypt(data, key, iv);
+        assertEquals("expectedDecryptedString", result);
+    } catch (Exception e) {
+        fail("Exception occurred: " + e.getMessage());
+    }
+}
+
+
+No.8 generated result --------------------------
 
 package org.jeecg.common.util.encryption;
 
@@ -135,49 +157,16 @@ public class AesEncryptUtilTest {
     @Test
     public void desEncryptTest() {
         try {
-            String data = "encryptedData";
-            String key = "encryptionKey";
-            String iv = "initializationVector";
-
-            String encryptedData = AesEncryptUtil.desEncrypt(data, key, iv);
-
-            // Assert statements
-            assertEquals("decryptedData", encryptedData);
+            String data = "someData";
+            String key = "someKey";
+            String iv = "someIV";
+            String encryptedData = "encrypt123"; // Provide sample encrypted data here
+            String expectedResult = "decryptedData"; // Provide expected decrypted data here
+            String result = AesEncryptUtil.desEncrypt(encryptedData, key, iv);
+            assertEquals(expectedResult, result);
         } catch (Exception e) {
-            fail("An exception occurred: " + e.getMessage());
+            fail("Exception thrown: " + e.getMessage());
         }
-    }
-}
-
-
-No.7 generated result --------------------------
-
-@Test
-public void desEncryptTest() throws Exception {
-    String data = "abcdefghijklmnopqrstuvwxyz";
-    String key = "1234567890123456";
-    String iv = "1234567890123456";
-
-    String encryptedData = AesEncryptUtil.desEncrypt(data, key, iv);
-    String decryptedData = desEncrypt(encryptedData, key, iv);
-
-    assertEquals(data, decryptedData);
-}
-
-
-No.8 generated result --------------------------
-
-@Test
-public void desEncryptTest() {
-    String data = "…"; // provide test data
-    String key = "…"; // provide test key
-    String iv = "…"; // provide test iv
-
-    try {
-        String result = AesEncryptUtil.desEncrypt(data, key, iv);
-        assertEquals("expectedResult", result); // provide expected decrypted result
-    } catch (Exception e) {
-        e.printStackTrace();
     }
 }
 
@@ -187,16 +176,15 @@ No.9 generated result --------------------------
 @Test
 public void desEncryptTest() {
     try {
-        String data = "..."; // Provide the test data
-        String key = "..." // Provide the test key
-        String iv = "..." // Provide the test iv
-
-        String encryptedData = AesEncryptUtil.encrypt(data, key, iv);
-        String decryptedData = AesEncryptUtil.desEncrypt(encryptedData, key, iv);
-
-        assertEquals(data, decryptedData, "Decrypted data should match the original data");
+        String data = "exampleData";
+        String key = "exampleKey";
+        String iv = "exampleIV";
+        String expected = "expectedResult";
+        String result = AesEncryptUtil.desEncrypt(data, key, iv);
+        
+        assertEquals(expected, result);
     } catch (Exception e) {
-        fail("An exception occurred: " + e.getMessage());
+        fail("Exception thrown: " + e.getMessage());
     }
 }
 
@@ -204,17 +192,19 @@ public void desEncryptTest() {
 No.10 generated result --------------------------
 
 @Test
-    public void desEncryptTest() {
-        String data = "SGVsbG8gV29ybGQ="; // encrypted data
-        String key = "ThisIsAKey123456"; // encryption key
-        String iv = "ThisIsAnIV123456"; // initialization vector
-
-        try {
-            String decryptedData = AesEncryptUtil.desEncrypt(data, key, iv);
-            assertEquals("Hello World", decryptedData);
-        } catch (Exception e) {
-            fail("An exception occurred: " + e.getMessage());
-        }
+public void desEncryptTest() {
+    try {
+        String data = "exampleData";
+        String key = "exampleKey";
+        String iv = "exampleIV";
+        String expectedResult = "expectedResult";
+        
+        String encryptedData = AesEncryptUtil.desEncrypt(data, key, iv);
+        
+        assertEquals(expectedResult, encryptedData);
+    } catch (Exception e) {
+        fail("Exception thrown: " + e.getMessage());
     }
+}
 
 

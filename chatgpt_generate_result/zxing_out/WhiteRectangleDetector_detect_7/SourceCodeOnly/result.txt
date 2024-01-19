@@ -157,179 +157,90 @@ No.1 generated result --------------------------
 
 @Test
 public void detectTest() {
-   try {
-      ResultPoint[] expected = new ResultPoint[4];
-      expected[0] = new ResultPoint(0, 0);
-      expected[1] = new ResultPoint(0, 5);
-      expected[2] = new ResultPoint(5, 5);
-      expected[3] = new ResultPoint(5, 0);
-      
-      WhiteRectangleDetector detector = new WhiteRectangleDetector();
-      ResultPoint[] actual = detector.detect();
-      
-      assertArrayEquals(expected, actual);
-   } catch (NotFoundException e) {
-      fail("Exception should not be thrown");
-   }
+    ResultPoint[] expectedResult = {new ResultPoint(2.0f, 3.0f), new ResultPoint(3.0f, 4.0f), new ResultPoint(4.0f, 3.0f), new ResultPoint(3.0f, 2.0f)};
+    WhiteRectangleDetector whiteRectangleDetector = new WhiteRectangleDetector();
+    ResultPoint[] actualResult = whiteRectangleDetector.detect();
+    assertArrayEquals(expectedResult, actualResult);
 }
 
 
 No.2 generated result --------------------------
 
-package com.google.zxing.common.detector;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class WhiteRectangleDetectorTest {
-    @Test
-    public void detectTest() {
-        int leftInit = 0;
-        int rightInit = 10;
-        int upInit = 0;
-        int downInit = 10;
-        int width = 20;
-        int height = 20;
-        
-        WhiteRectangleDetector detector = new WhiteRectangleDetector(leftInit, rightInit, upInit, downInit, width, height);
-        
-        try {
-            ResultPoint[] expectedResult = detector.detect();
-            
-            // Add assertions to validate the expected result
-            
-        } catch (NotFoundException e) {
-            fail("Exception thrown: " + e.getMessage());
-        }   
-    }
+ResultPoint[] result = new ResultPoint[4];
+try {
+    WhiteRectangleDetector whiteRectangleDetector = new WhiteRectangleDetector(luminances);
+    result = whiteRectangleDetector.detect();
+    assertNotNull(result);
+} catch (NotFoundException e) {
+    fail("NotFoundException thrown: " + e.getMessage());
 }
 
 
 No.3 generated result --------------------------
 
 @Test
-public void detectTest() throws NotFoundException {
-    // Given
-    int leftInit = 0;
-    int rightInit = 10;
-    int upInit = 0;
-    int downInit = 10;
-    int width = 20;
-    int height = 20;
-    WhiteRectangleDetector whiteRectangleDetector = new WhiteRectangleDetector(leftInit, rightInit, upInit, downInit, width, height);
-    
-    // When
-    ResultPoint[] result = whiteRectangleDetector.detect();
-    
-    // Then
-    // Assert the expected result based on the specific test case
+public void detectTest() {
+    try {
+        WhiteRectangleDetector detector = new WhiteRectangleDetector(); // instantiate the class to be tested
+        ResultPoint[] result = detector.detect(); // call the method to be tested
+        assertNotNull(result); // assert that the result is not null
+        // add specific assertions for the expected behavior of the detect method
+    } catch (NotFoundException e) {
+        fail("NotFoundException should not be thrown");
+    }
 }
 
 
 No.4 generated result --------------------------
 
-
-    @Test
-    public void detectTest() throws NotFoundException {
-        int leftInit = <FILL>;
-        int rightInit = <FILL>;
-        int upInit = <FILL>;
-        int downInit = <FILL>;
-        int width = <FILL>;
-        int height = <FILL>;
-        
-        WhiteRectangleDetector whiteRectangleDetector = new WhiteRectangleDetector(leftInit, rightInit, upInit, downInit, width, height);
-        ResultPoint[] resultPoints = whiteRectangleDetector.detect();
-        
-        // Assert the expected values of resultPoints here
-        // ...
+@Test
+public void detectTest() {
+    try {
+      ResultPoint[] resultPoints = detector.detect();
+      assertNotNull(resultPoints);
+      // Add additional assertions as needed
+    } catch (NotFoundException e) {
+      fail("NotFoundException should not have been thrown");
     }
-
+}
 
 
 No.5 generated result --------------------------
 
-
-    @Test
-    public void detectTest() {
-        WhiteRectangleDetector detector = new WhiteRectangleDetector();
-        
-        // Set up the necessary variables for the test
-        int leftInit = 0;
-        int rightInit = 10;
-        int upInit = 0;
-        int downInit = 10;
-        int width = 20;
-        int height = 20;
-        
-        // Set up the expected result
-        ResultPoint[] expectedResult = new ResultPoint[4];
-        
-        // Set up any other necessary variables for the test
-        
-        // Call the detect() method and store the result
-        ResultPoint[] result = null;
-        try {
-            result = detector.detect(leftInit, rightInit, upInit, downInit, width, height);
-        } catch (NotFoundException e) {
-            fail("Exception thrown: " + e.getMessage());
-        }
-        
-        // Assert that the result matches the expected result
-        assertArrayEquals(expectedResult, result);
-    }
-
+@Test
+public void detectTest() {
+  // Initialize the object to be tested
+  WhiteRectangleDetector detector = new WhiteRectangleDetector(image);
+  
+  // Call the method to be tested
+  ResultPoint[] result = detector.detect();
+  
+  // Assert the expected result
+  <FILL>
+}
 
 
 No.6 generated result --------------------------
 
-@Test
-public void detectTest() throws NotFoundException {
-    int leftInit = 0;
-    int rightInit = 10;
-    int upInit = 0;
-    int downInit = 10;
-    int width = 20;
-    int height = 20;
-    
-    WhiteRectangleDetector detector = new WhiteRectangleDetector(leftInit, rightInit, upInit, downInit, width, height);
-    
-    ResultPoint[] expectedPoints = new ResultPoint[4];
-    expectedPoints[0] = new ResultPoint(5.0f, 5.0f);
-    expectedPoints[1] = new ResultPoint(10.0f, 5.0f);
-    expectedPoints[2] = new ResultPoint(10.0f, 10.0f);
-    expectedPoints[3] = new ResultPoint(5.0f, 10.0f);
-    
-    ResultPoint[] detectedPoints = detector.detect();
-    
-    assertArrayEquals(expectedPoints, detectedPoints);
+ResultPoint[] result = null;
+try {
+    result = new WhiteRectangleDetector(EMPTY_MATRIX).detect();
+} catch (NotFoundException e) {
+    fail("NotFoundException was thrown: " + e.getMessage());
 }
+assertNotNull(result);
 
 
 No.7 generated result --------------------------
 
 @Test
 public void detectTest() {
-    int width = 20;
-    int height = 20;
-    int leftInit = 0;
-    int rightInit = width - 1;
-    int upInit = 0;
-    int downInit = height - 1;
-
-    WhiteRectangleDetector detector = new WhiteRectangleDetector(width, height, leftInit, rightInit, upInit, downInit);
-
-    ResultPoint[] expected = new ResultPoint[4];
-    expected[0] = new ResultPoint(4, 4);
-    expected[1] = new ResultPoint(16, 4);
-    expected[2] = new ResultPoint(16, 16);
-    expected[3] = new ResultPoint(4, 16);
-
+    ResultPoint[] result;
     try {
-        ResultPoint[] actual = detector.detect();
-        assertArrayEquals(expected, actual);
+        result = whiteRectangleDetectorInstance.detect();
+        // Assert statements for the expected output
     } catch (NotFoundException e) {
-        fail("Should not throw NotFoundException");
+        fail("NotFoundException thrown");
     }
 }
 
@@ -337,65 +248,50 @@ public void detectTest() {
 No.8 generated result --------------------------
 
 @Test
-public void detectTest() throws NotFoundException {
-  int leftInit = 0;
-  int rightInit = 0;
-  int upInit = 0;
-  int downInit = 0;
-  int width = 10;
-  int height = 10;
-
-  WhiteRectangleDetector detector = new WhiteRectangleDetector(leftInit, rightInit, upInit, downInit, width, height);
-  ResultPoint[] result = detector.detect();
-  
-  // Add assertions here to verify the expected output of the detect method
-  
-  assertEquals(expectedResultLength, result.length);
-  // ...
+public void detectTest() {
+    ResultPoint[] expectedPoints = { new ResultPoint(10, 20), new ResultPoint(30, 40) };
+    
+    WhiteRectangleDetector detector = new WhiteRectangleDetector(10, 20, 30, 40);
+    ResultPoint[] detectedPoints = detector.detect();
+    
+    assertArrayEquals(expectedPoints, detectedPoints);
 }
 
 
 No.9 generated result --------------------------
 
 @Test
-public void detectTest() throws NotFoundException {
-    int leftInit = <initial value>;
-    int rightInit = <initial value>;
-    int upInit = <initial value>;
-    int downInit = <initial value>;
-    int width = <width value>;
-    int height = <height value>;
-    
-    WhiteRectangleDetector detector = new WhiteRectangleDetector(leftInit, rightInit, upInit, downInit, width, height);
-    
-    ResultPoint[] expectedPoints = detector.detect();
-    ResultPoint[] actualPoints = new ResultPoint[<expectedPoints.length>];
-    System.arraycopy(expectedPoints, 0, actualPoints, 0, expectedPoints.length);
-    
-    assertArrayEquals(expectedPoints, actualPoints);
+public void detectTest() {
+  // Create a new instance of the WhiteRectangleDetector class
+  WhiteRectangleDetector detector = new WhiteRectangleDetector(image);
+
+  // Call the detect method
+  try {
+    ResultPoint[] result = detector.detect();
+
+    // Perform assertions on the result, such as checking the size of the result array
+    // and the values of individual ResultPoint objects
+    assertEquals(4, result.length);
+    // Add more specific assertions based on the expected behavior of the detect method
+  } catch (NotFoundException e) {
+    // Handle the NotFoundException, if expected
+    fail("Exception should not be thrown");
+  }
 }
+
 
 
 No.10 generated result --------------------------
 
-@Test
-public void detectTest() throws NotFoundException {
-    // Initialize the necessary variables for testing
-    int leftInit = <FILL>;
-    int rightInit = <FILL>;
-    int upInit = <FILL>;
-    int downInit = <FILL>;
-    int width = <FILL>;
-    int height = <FILL>;
-    
-    // Create an instance of the class to be tested
-    WhiteRectangleDetector detector = new WhiteRectangleDetector(leftInit, rightInit, upInit, downInit, width, height);
-    
-    // Call the detect() method and capture the result
-    ResultPoint[] result = detector.detect();
-    
-    // Perform the necessary assertions on the result
-    // ...
+
+public void detectTest() {
+    try {
+        ResultPoint[] result = new WhiteRectangleDetector(<FILL>).detect();
+        // perform assertions on the result array
+        // Example: assertEquals(4, result.length);
+    } catch (NotFoundException e) {
+        fail("NotFoundException thrown");
+    }
 }
 
 

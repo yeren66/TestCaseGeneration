@@ -1,0 +1,27 @@
+{
+    "project_name": "Java",
+    "file_name": "Merge_K_SortedLinkedlist.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/datastructures/lists/Merge_K_SortedLinkedlist.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.datastructures.lists",
+    "docstring": "/**\n     * This function merge K sorted LinkedList\n     *\n     * @param a array of LinkedList\n     * @param N size of array\n     * @return node\n     */",
+    "source_code": "\nNode mergeKList(Node[] a, int N) {\n    // Min Heap\n    PriorityQueue<Node> min = new PriorityQueue<>(Comparator.comparingInt(x -> x.data));\n\n    // adding head of all linkedList in min heap\n    min.addAll(Arrays.asList(a).subList(0, N));\n\n    // Make new head among smallest heads in K linkedList\n    Node head = min.poll();\n    min.add(head.next);\n    Node curr = head;\n\n    // merging LinkedList\n    while (!min.isEmpty()) {\n        Node temp = min.poll();\n        curr.next = temp;\n        curr = temp;\n\n        // Add Node in min Heap only if temp.next is not null\n        if (temp.next != null) {\n            min.add(temp.next);\n        }\n    }\n\n    return head;\n}\n",
+    "class_name": "Merge_K_SortedLinkedlist",
+    "method_name": "mergeKList",
+    "arguments": [
+        "Node a",
+        "int N"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

@@ -12,15 +12,15 @@
         "PieDataset dataset"
     ],
     "generate_test": [
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout"
+        "timeout",
+        "timeout",
+        "timeout",
+        "timeout",
+        "timeout",
+        "timeout",
+        "timeout",
+        "timeout",
+        "timeout",
+        "timeout"
     ]
 }

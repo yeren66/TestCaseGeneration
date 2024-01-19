@@ -11,20 +11,8 @@ public static float distance(int aX, int aY, int bX, int bY) {
 
 No.1 generated result --------------------------
 
-@Test
 public void distanceTest() {
-    // Given
-    int aX = 2;
-    int aY = 4;
-    int bX = 6;
-    int bY = 8;
-
-    // When
-    float result = MathUtils.distance(aX, aY, bX, bY);
-
-    // Then
-    float expected = 5.656854f;
-    assertEquals(expected, result, 0.0001f);
+  assertEquals(3.605, MathUtils.distance(1, 2, 4, 3), 0.001);
 }
 
 
@@ -32,20 +20,7 @@ No.2 generated result --------------------------
 
 @Test
 public void distanceTest() {
-    // Test case 1: For points (1, 2) and (3, 4), the expected distance is approximately 2.828427
-    float actualDistance1 = MathUtils.distance(1, 2, 3, 4);
-    float expectedDistance1 = 2.828427f;
-    assertEquals(expectedDistance1, actualDistance1, 0.01f);
-
-    // Test case 2: For points (-2, 0) and (3, -4), the expected distance is approximately 6.403124
-    float actualDistance2 = MathUtils.distance(-2, 0, 3, -4);
-    float expectedDistance2 = 6.403124f;
-    assertEquals(expectedDistance2, actualDistance2, 0.01f);
-
-    // Test case 3: For points (0, 0) and (0, 0), the expected distance is 0.0
-    float actualDistance3 = MathUtils.distance(0, 0, 0, 0);
-    float expectedDistance3 = 0.0f;
-    assertEquals(expectedDistance3, actualDistance3, 0.01f);
+    assertEquals(5.0f, MathUtils.distance(2, 3, 5, 7));
 }
 
 
@@ -53,9 +28,9 @@ No.3 generated result --------------------------
 
 @Test
 public void distanceTest() {
-    float actual = MathUtils.distance(2, 3, 5, 7);
+    float actual = MathUtils.distance(3, 4, 0, 0);
     float expected = 5.0f;
-    assertEquals(expected, actual);
+    assertEquals(expected, actual, 0.0001);
 }
 
 
@@ -63,8 +38,13 @@ No.4 generated result --------------------------
 
 @Test
 public void distanceTest() {
-    float result = MathUtils.distance(1, 2, 3, 4);
-    assertEquals(2.828, result, 0.001);
+    int aX = 2;
+    int aY = 3;
+    int bX = 5;
+    int bY = 7;
+    float expectedDistance = 5.0f;
+    float actualDistance = MathUtils.distance(aX, aY, bX, bY);
+    assertEquals(expectedDistance, actualDistance);
 }
 
 
@@ -72,8 +52,8 @@ No.5 generated result --------------------------
 
 @Test
 public void distanceTest() {
-    float result = MathUtils.distance(3, 4, 6, 8);
-    assertEquals(5.0, result, 0.01);
+    float result = MathUtils.distance(2, 3, 6, 5);
+    assertEquals(4.47213595499958, result);
 }
 
 
@@ -81,18 +61,9 @@ No.6 generated result --------------------------
 
 @Test
 public void distanceTest() {
-    // Arrange
-    int aX = 1;
-    int aY = 2;
-    int bX = 3;
-    int bY = 4;
-    float expectedDistance = 2.828427f;
-    
-    // Act
-    float actualDistance = MathUtils.distance(aX, aY, bX, bY);
-    
-    // Assert
-    assertEquals(expectedDistance, actualDistance, 0.001);
+    float expected = 5.0f;
+    float actual = MathUtils.distance(3, 4, 6, 8);
+    assertEquals(expected, actual);
 }
 
 
@@ -100,8 +71,8 @@ No.7 generated result --------------------------
 
 @Test
 public void distanceTest() {
-    float result = MathUtils.distance(3, 4, 5, 6);
-    assertEquals(2.828427, result, 0.001);
+    float result = MathUtils.distance(3, 4, 0, 0);
+    assertEquals(5.0, result, 0.001);
 }
 
 
@@ -109,33 +80,32 @@ No.8 generated result --------------------------
 
 @Test
 public void distanceTest() {
-    int aX = 3;
-    int aY = 4;
-    int bX = 0;
-    int bY = 0;
-    
-    float expectedDistance = 5.0f;
+    int aX = 5;
+    int aY = 7;
+    int bX = 8;
+    int bY = 12;
+    float expectedDistance = 5.8309f;
     float actualDistance = MathUtils.distance(aX, aY, bX, bY);
-    
-    assertEquals(expectedDistance, actualDistance, 0.001);
+    assertEquals(expectedDistance, actualDistance, 0.0001);
 }
 
 
 No.9 generated result --------------------------
 
 @Test
-    public void distanceTest() {
-        float result = MathUtils.distance(0, 0, 3, 4);
-        assertEquals(5.0f, result);
-    }
+public void distanceTest() {
+    float expected = 5.0f;
+    float actual = MathUtils.distance(1, 2, 4, 6);
+    assertEquals(expected, actual, 0.001);
+}
 
 
 No.10 generated result --------------------------
 
 @Test
 public void distanceTest() {
-    float distance = MathUtils.distance(0, 0, 3, 4);
-    assertEquals(5.0, distance);
+    float result = MathUtils.distance(3, 4, 0, 0);
+    assertEquals(5.0, result);
 }
 
 

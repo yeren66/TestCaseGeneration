@@ -15,92 +15,65 @@ turn clsName;
 
 No.1 generated result --------------------------
 
-package org.jeecg.common.util;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MyClassLoaderTest {
-    @Test
-    public void getPackPathTest() {
-        Object object = new Object();
-        assertThrows(IllegalArgumentException.class, () -> MyClassLoader.getPackPath(null));
-        String expected = object.getClass().getName();
-        String actual = MyClassLoader.getPackPath(object);
-        assertEquals(expected, actual);
-    }
+@Test
+public void getPackPathTest() {
+    Object object = new Object();
+    String result = MyClassLoader.getPackPath(object);
+    assertEquals("java.lang.Object", result);
 }
 
 
 No.2 generated result --------------------------
 
 @Test
-public void getPackPathTest() {
-    // Create an object for testing
-    Object object = new MyClass();
-
-    // Call the method under test
-    String result = MyClassLoader.getPackPath(object);
-
-    // Verify the result
-    assertEquals("org.example.MyClass", result);
-}
-
-// Dummy class for testing
-class MyClass {
-    // class implementation
-}
+ public void getPackPathTest() {
+     Object obj = new Object();
+     assertEquals(obj.getClass().getName(), MyClassLoader.getPackPath(obj));
+ }
 
 
 No.3 generated result --------------------------
 
-package org.jeecg.common.util;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MyClassLoaderTest {
-    @Test
-    public void getPackPathTest() {
-        Object object = new Object();
-        String expected = "java.lang.Object";
-        String actual = MyClassLoader.getPackPath(object);
-        assertEquals(expected, actual);
-    }
+@Test
+public void getPackPathTest() {
+    // Given
+    Object object = new Object();
+    
+    // When
+    String result = MyClassLoader.getPackPath(object);
+    
+    // Then
+    assertNotNull(result);
+    assertEquals("java.lang.Object", result);
 }
 
 
 No.4 generated result --------------------------
 
 @Test
-    public void getPackPathTest() {
-        String expected = "org.jeecg.common.util.MyClassLoaderTest";
-        Object object = new MyClassLoaderTest();
-        String actual = MyClassLoader.getPackPath(object);
-        assertEquals(expected, actual);
-    }
+public void getPackPathTest() {
+    // Arrange
+    Object object = new Object();
+    
+    // Act
+    String result = MyClassLoader.getPackPath(object);
+    
+    // Assert
+    assertNotNull(result);
+
+    // Output the whole test case
+    System.out.println("Test case completed.");
+}
 
 
 No.5 generated result --------------------------
 
 @Test
 public void getPackPathTest() {
-    Object object = new Object();
-    try {
-        MyClassLoader.getPackPath(object);
-        fail("Expected IllegalArgumentException to be thrown");
-    } catch (IllegalArgumentException e) {
-        assertEquals("参数不能为空！", e.getMessage());
-    }
-    
-    object = new MyClass();
-    String expected = "org.jeecg.common.util.MyClass";
-    String actual = MyClassLoader.getPackPath(object);
-    assertEquals(expected, actual);
-}
-
-class MyClass {
-    // Class implementation
+  Object testObj = new Object();
+  String expected = "java.lang.Object";
+  String result = MyClassLoader.getPackPath(testObj);
+  assertEquals(expected, result);
 }
 
 
@@ -109,12 +82,9 @@ No.6 generated result --------------------------
 @Test
 public void getPackPathTest() {
     Object object = new Object();
-    try {
-        String result = MyClassLoader.getPackPath(object);
-        assertEquals("Object", result);
-    } catch (IllegalArgumentException e) {
-        fail("Should not throw an exception");
-    }
+    String expectedResult = "java.lang.Object";
+    String actualResult = MyClassLoader.getPackPath(object);
+    assertEquals(expectedResult, actualResult);
 }
 
 
@@ -122,16 +92,17 @@ No.7 generated result --------------------------
 
 @Test
 public void getPackPathTest() {
-    Object object = new Object();
+    Class myClass = MyClassLoader.getClassByScn("org.jeecg.common.util.MyClassLoader");
+    Object myObject = null;
     try {
-        MyClassLoader.getPackPath(object);
-    } catch (IllegalArgumentException e) {
-        assertEquals("参数不能为空！", e.getMessage());
+        myObject = myClass.newInstance();
+    } catch (InstantiationException e) {
+        e.printStackTrace();
+    } catch (IllegalAccessException e) {
+        e.printStackTrace();
     }
-    
-    object = new MyClass();
-    String result = MyClassLoader.getPackPath(object);
-    assertEquals("org.jeecg.common.util.MyClass", result);
+    String packPath = MyClassLoader.getPackPath(myObject);
+    assertEquals("org.jeecg.common.util.MyClassLoader", packPath);
 }
 
 
@@ -140,19 +111,8 @@ No.8 generated result --------------------------
 @Test
 public void getPackPathTest() {
     Object object = new Object();
-    try {
-        MyClassLoader.getPackPath(object);
-        fail("Expected java.lang.IllegalArgumentException to be thrown");
-    } catch (IllegalArgumentException e) {
-        assertEquals("参数不能为空！", e.getMessage());
-    }
-    object = new MyClass();
-    String expected = "org.jeecg.common.util.MyClass";
-    String actual = MyClassLoader.getPackPath(object);
-    assertEquals(expected, actual);
-}
-    
-class MyClass {
+    String result = MyClassLoader.getPackPath(object);
+    assertEquals("java.lang.Object", result);
 }
 
 
@@ -160,36 +120,19 @@ No.9 generated result --------------------------
 
 @Test
 public void getPackPathTest() {
-    try {
-        Object object = new Object(); // Create an instance of the object
-        String expected = object.getClass().getName(); // Get the expected result
-
-        String actual = MyClassLoader.getPackPath(object); // Invoke the method under test
-
-        assertEquals(expected, actual); // Assert that the expected and actual values are equal
-    } catch (IllegalArgumentException e) {
-        fail("An unexpected IllegalArgumentException was thrown.");
-    }
+    String result = MyClassLoader.getPackPath(new Object());
+    assertEquals("java.lang.Object", result);
 }
 
 
 No.10 generated result --------------------------
 
 @Test
-public void getPackPathTest() {
-    // Create an object to test
-    Object object = new Object();
-
-    // Test case 1: Test with a non-null object
-    String result1 = MyClassLoader.getPackPath(object);
-    assertNotNull(result1);
-    // Add assertions for the expected result
-
-    // Test case 2: Test with a null object
-    IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-        MyClassLoader.getPackPath(null);
-    });
-    // Add assertion for the expected exception message
-}
+    public void getPackPathTest() {
+        Object object = new Object();
+        String expected = "java.lang.Object";
+        String result = MyClassLoader.getPackPath(object);
+        assertEquals(expected, result);
+    }
 
 

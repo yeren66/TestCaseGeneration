@@ -18,7 +18,7 @@ No.1 generated result --------------------------
 
 @Test
 public void listPS3CamerasTest() {
-    String[] expected = {"uuid1", "uuid2", "uuid3"};
+    String[] expected = {"camera1", "camera2", "camera3"}; // Replace with actual cameraUUIDs
     String[] actual = PS3EyeFrameGrabber.listPS3Cameras();
     assertArrayEquals(expected, actual);
 }
@@ -28,39 +28,16 @@ No.2 generated result --------------------------
 
 @Test
 public void listPS3CamerasTest() {
-    // Arrange
-    String[] expected = new String[0];
-    
-    // Act
-    String[] actual = PS3EyeFrameGrabber.listPS3Cameras();
-    
-    // Assert
-    assertArrayEquals(expected, actual);
+    String[] result = PS3EyeFrameGrabber.listPS3Cameras();
+    assertNotNull(result);
+    assertEquals(3, result.length);
+    assertEquals("camera1", result[0]);
+    assertEquals("camera2", result[1]);
+    assertEquals("camera3", result[2]);
 }
 
 
 No.3 generated result --------------------------
-
-@Test
-public void listPS3CamerasTest() {
-    String[] result = PS3EyeFrameGrabber.listPS3Cameras();
-    assertNotNull(result);
-    assertEquals(3, result.length);
-    assertEquals("uuid1", result[0]);
-    assertEquals("uuid2", result[1]);
-    assertEquals("uuid3", result[2]);
-}
-
-
-No.4 generated result --------------------------
-
-
-String[] result = PS3EyeFrameGrabber.listPS3Cameras();
-assertEquals(0, result.length);
-
-
-
-No.5 generated result --------------------------
 
 @Test
 public void listPS3CamerasTest() {
@@ -70,14 +47,31 @@ public void listPS3CamerasTest() {
 }
 
 
+No.4 generated result --------------------------
+
+@Test
+public void listPS3CamerasTest() {
+    String[] expected = {"uuid1", "uuid2", "uuid3"};
+    assertArrayEquals(expected, PS3EyeFrameGrabber.listPS3Cameras());
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void listPS3CamerasTest() {
+    String[] result = PS3EyeFrameGrabber.listPS3Cameras();
+    assertNotNull(result);
+    assertArrayEquals(new String[]{"uuid1", "uuid2", "uuid3"}, result);
+}
+
+
 No.6 generated result --------------------------
 
 @Test
 public void listPS3CamerasTest() {
-    String[] expected = {"UUID1", "UUID2", "UUID3"}; // TODO: Replace "UUID1", "UUID2", "UUID3" with actual UUIDs
-    
+    String[] expected = {"uuid1", "uuid2"};
     String[] actual = PS3EyeFrameGrabber.listPS3Cameras();
-    
     assertArrayEquals(expected, actual);
 }
 
@@ -86,9 +80,9 @@ No.7 generated result --------------------------
 
 @Test
 public void listPS3CamerasTest() {
-    String[] expected = { "uuid1", "uuid2", "uuid3" }; // replace with the expected UUIDs
-    String[] actual = PS3EyeFrameGrabber.listPS3Cameras();
-    assertArrayEquals(expected, actual);
+    String[] expectedUUIDs = new String[]{"UUID1", "UUID2", "UUID3"};
+    String[] actualUUIDs = PS3EyeFrameGrabber.listPS3Cameras();
+    assertArrayEquals(expectedUUIDs, actualUUIDs);
 }
 
 
@@ -96,27 +90,19 @@ No.8 generated result --------------------------
 
 @Test
 public void listPS3CamerasTest() {
-    String[] expectedResult = {"uuid1", "uuid2"};
-    
-    // Mocking the getCameraCount() method
-    Mockito.when(PS3EyeFrameGrabber.getCameraCount()).thenReturn(2);
-    
-    // Mocking the cameraUUID() method
-    Mockito.when(CLCamera.cameraUUID(Mockito.anyInt())).thenReturn("uuid1", "uuid2");
-    
-    // Calling the method to be tested
-    String[] actualResult = PS3EyeFrameGrabber.listPS3Cameras();
-    
-    // Asserting the expected result with the actual result
-    assertArrayEquals(expectedResult, actualResult);
+    String[] cameraList = PS3EyeFrameGrabber.listPS3Cameras();
+    assertNotNull(cameraList);
+    assertNotEquals(0, cameraList.length);
 }
 
 
 No.9 generated result --------------------------
 
+@Test
 public void listPS3CamerasTest() {
-        String[] expected = {"uuid1", "uuid2", "uuid3"};
-        assertArrayEquals(expected, PS3EyeFrameGrabber.listPS3Cameras());
+    String[] expected = {"uuid1", "uuid2", "uuid3"};
+    String[] actual = PS3EyeFrameGrabber.listPS3Cameras();
+    assertArrayEquals(expected, actual);
 }
 
 
@@ -124,8 +110,12 @@ No.10 generated result --------------------------
 
 @Test
 public void listPS3CamerasTest() {
-    String[] expected = new String[]{"uuid1", "uuid2", "uuid3"}; // replace with expected uuids
-    assertArrayEquals(expected, PS3EyeFrameGrabber.listPS3Cameras());
+    String[] actualList = PS3EyeFrameGrabber.listPS3Cameras();
+    assertNotNull(actualList);
+    assertEquals(expectedList.length, actualList.length);
+    for (int i = 0; i < actualList.length; i++) {
+        assertEquals(expectedList[i], actualList[i]);
+    }
 }
 
 

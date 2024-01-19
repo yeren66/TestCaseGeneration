@@ -15,153 +15,29 @@ public static String toLowerCase(String s) {
 
 No.1 generated result --------------------------
 
-public class LowerTest {
-    @Test
-    public void toLowerCaseTest() {
-        String input = "HELLO";
-        String expected = "hello";
-        String actual = Lower.toLowerCase(input);
-        assertEquals(expected, actual);
-    }
+
+public void toLowerCaseTest() {
+    assertEquals("hello", Lower.toLowerCase("Hello"));
 }
 
 
 No.2 generated result --------------------------
 
-package com.thealgorithms.strings;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class LowerTest {
-    @Test
-    public void toLowerCaseTest() {
-        String input = "HELLO";
-        String expectedOutput = "hello";
-        String actualOutput = Lower.toLowerCase(input);
-        assertEquals(expectedOutput, actualOutput);
-    }
+@Test
+public void toLowerCaseTest() {
+    assertEquals("hello world", Lower.toLowerCase("Hello World"));
 }
 
 
 No.3 generated result --------------------------
 
-package com.thealgorithms.strings;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class LowerTest {
-    @Test
-    public void toLowerCaseTest() {
-        // Input
-        String input = "Hello World";
-        
-        // Expected Output
-        String expectedOutput = "hello world";
-        
-        // Actual Output
-        String actualOutput = Lower.toLowerCase(input);
-        
-        // Assert
-        assertEquals(expectedOutput, actualOutput);
-    }
+@Test
+public void toLowerCaseTest() {
+    assertEquals("hello", Lower.toLowerCase("Hello"));
 }
 
 
 No.4 generated result --------------------------
-
-@Test
-
-
-No.5 generated result --------------------------
-
-public class LowerTest {
-    @Test
-    public void toLowerCaseTest() {
-        // Test Case 1: Input is all uppercase letters
-        String result1 = Lower.toLowerCase("HELLO");
-        assertEquals("hello", result1);
-
-        // Test Case 2: Input contains a mix of uppercase and lowercase letters
-        String result2 = Lower.toLowerCase("HelloWorld");
-        assertEquals("helloworld", result2);
-
-        // Test Case 3: Input is already in lowercase
-        String result3 = Lower.toLowerCase("hello");
-        assertEquals("hello", result3);
-    }
-}
-
-
-No.6 generated result --------------------------
-
-package com.thealgorithms.strings;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class LowerTest {
-    @Test
-    public void toLowerCaseTest() {
-        assertEquals("hello world", Lower.toLowerCase("Hello World"));
-        assertEquals("abcdefg", Lower.toLowerCase("AbCdEfG"));
-        assertEquals("12345", Lower.toLowerCase("12345"));
-    }
-}
-
-
-No.7 generated result --------------------------
-
-public void toLowerCaseTest() {
-        // Test Case 1: Input is null
-        String str1 = null;
-        String expected1 = null;
-        String result1 = Lower.toUpperCase(str1);
-        assertEquals(expected1, result1);
-        
-        // Test Case 2: Input is empty string
-        String str2 = "";
-        String expected2 = "";
-        String result2 = Lower.toUpperCase(str2);
-        assertEquals(expected2, result2);
-        
-        // Test Case 3: Input has uppercase letters
-        String str3 = "Hello World";
-        String expected3 = "hello world";
-        String result3 = Lower.toUpperCase(str3);
-        assertEquals(expected3, result3);
-        
-        // Test Case 4: Input has lowercase letters
-        String str4 = "hello world";
-        String expected4 = "hello world";
-        String result4 = Lower.toUpperCase(str4);
-        assertEquals(expected4, result4);
-        
-        // Test Case 5: Input has special characters
-        String str5 = "Hello World!";
-        String expected5 = "hello world!";
-        String result5 = Lower.toUpperCase(str5);
-        assertEquals(expected5, result5);
-        
-        // Test Case 6: Input has numbers
-        String str6 = "Hello123";
-        String expected6 = "hello123";
-        String result6 = Lower.toUpperCase(str6);
-        assertEquals(expected6, result6);
-    }
-
-
-No.8 generated result --------------------------
-
-@Test
-public void toLowerCaseTest() {
-    String result = Lower.toLowerCase("Hello World");
-    assertEquals("hello world", result);
-}
-
-
-No.9 generated result --------------------------
 
 @Test
 public void toLowerCaseTest() {
@@ -172,22 +48,59 @@ public void toLowerCaseTest() {
 }
 
 
+No.5 generated result --------------------------
+
+@Test
+public void toLowerCaseTest() {
+    assertEquals("hello", Lower.toLowerCase("HELLO"));
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void toLowerCaseTest() {
+    assertEquals("this is a lowercase test", Lower.toLowerCase("THIS IS A LOWERCASE TEST"));
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void toLowerCaseTest() {
+    String input = "Hello";
+    String expected = "hello";
+    String actual = Lower.toLowerCase(input);
+    assertEquals(expected, actual);
+}
+
+
+No.8 generated result --------------------------
+
+public void toLowerCaseTest() {
+    String input = "Hello World";
+    String expectedOutput = "hello world";
+    String actualOutput = Lower.toLowerCase(input);
+    assertEquals(expectedOutput, actualOutput);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void toLowerCaseTest() {
+    assertEquals("hello world", LowerTest.toLowerCase("HELLO WORLD"));
+}
+
+
 No.10 generated result --------------------------
 
-package com.thealgorithms.strings;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class LowerTest {
-    @Test
-    public void toLowerCaseTest() {
-        String input = "Hello World!";
-        String expectedOutput = "hello world!";
-        String actualOutput = Lower.toLowerCase(input);
-        
-        assertEquals(expectedOutput, actualOutput);
-    }
+@Test
+public void toLowerCaseTest() {
+    String input = "Hello";
+    String expectedOutput = "hello";
+    String actualOutput = Lower.toLowerCase(input);
+    assertEquals(expectedOutput, actualOutput);
 }
 
 

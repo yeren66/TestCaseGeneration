@@ -102,29 +102,26 @@ public void installMplusTest() {
     Object searchObj = new Object();
     Map<String, String[]> parameterMap = new HashMap<>();
     QueryGenerator.installMplus(queryWrapper, searchObj, parameterMap);
-    // add assertions here
+    // Add assertions here as needed
 }
 
 
 No.2 generated result --------------------------
 
-package org.jeecg.common.system.query;
+@Test
+public void installMplusTest() {
+    // Arrange
+    QueryWrapper<?> queryWrapper = new QueryWrapper<>();
+    Object searchObj = new Object();
+    Map<String, String[]> parameterMap = new HashMap<>();
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+    // Act
+    installMplus(queryWrapper, searchObj, parameterMap);
 
-public class QueryGeneratorTest {
-    @Test
-    public void installMplusTest() {
-        QueryWrapper<Object> queryWrapper = new QueryWrapper<>();
-        Object searchObj = new Object();
-        Map<String, String[]> parameterMap = new HashMap<>();
-        
-        QueryGenerator.installMplus(queryWrapper, searchObj, parameterMap);
-        
-        // Add assertions here
-        // ...
-    }
+    // Assert
+    // Add assertion statements here based on the expected behavior of the installMplus method
+    // For example:
+    // assertEquals(expectedValue, actualValue);
 }
 
 
@@ -132,44 +129,54 @@ No.3 generated result --------------------------
 
 @Test
 public void installMplusTest() {
-    QueryWrapper<Object> queryWrapper = new QueryWrapper<>();
-    Object searchObj = new Object(); // Replace with the appropriate search object
-    Map<String, String[]> parameterMap = new HashMap<>(); // Replace with the appropriate parameter map
+    // create QueryWrapper
+    QueryWrapper<?> queryWrapper = new QueryWrapper<>();
+	
+	// create search object
+    Object searchObj = new Object();
+	
+	// create parameter map
+    Map<String, String[]> parameterMap = new HashMap<>();
+	
+    // Add test logic here
+    installMplus(queryWrapper, searchObj, parameterMap);
     
-    QueryGenerator.installMplus(queryWrapper, searchObj, parameterMap);
-    
-    // Add assertions to verify the behavior of the installMplus method
+    // Assert the expected output
+    // Add assertion logic here
 }
 
 
 No.4 generated result --------------------------
 
-
 @Test
 public void installMplusTest() {
+    // Arrange
     QueryWrapper<Object> queryWrapper = new QueryWrapper<>();
-    Object searchObj = new Object(); // replace with your search object
-    Map<String, String[]> parameterMap = new HashMap<>(); // replace with your parameter map
-    
-    QueryGenerator.installMplus(queryWrapper, searchObj, parameterMap);
-    
-    // Assert statements
-    // ...
-}
+    Object searchObj = new Object();
+    Map<String, String[]> parameterMap = new HashMap<>();
 
+    // Act
+    installMplus(queryWrapper, searchObj, parameterMap);
+
+    // Assert
+    // Add your assertions here
+}
 
 
 No.5 generated result --------------------------
 
 @Test
 public void installMplusTest() {
+    // Arrange
     QueryWrapper<?> queryWrapper = new QueryWrapper<>();
     Object searchObj = new Object();
     Map<String, String[]> parameterMap = new HashMap<>();
     
-    QueryGenerator.installMplus(queryWrapper, searchObj, parameterMap);
-
-    // Add assertions here to verify the functionality of the installMplus method
+    // Act
+    installMplus(queryWrapper, searchObj, parameterMap);
+    
+    // Assert
+    // Add assertion statements based on the expected output of the installMplus method
 }
 
 
@@ -177,73 +184,79 @@ No.6 generated result --------------------------
 
 @Test
 public void installMplusTest() {
-    QueryWrapper<?> queryWrapper = new QueryWrapper<>();
+    QueryWrapper<Object> queryWrapper = new QueryWrapper<>();
     Object searchObj = new Object();
     Map<String, String[]> parameterMap = new HashMap<>();
-    QueryGenerator.installMplus(queryWrapper, searchObj, parameterMap);
-    // Add your assertions here
+    
+    // Add test case code here
+    
+    // Assert statements for the test case
 }
 
 
 No.7 generated result --------------------------
 
-QueryWrapper<TestClass> queryWrapper = new QueryWrapper<>();
-TestClass searchObj = new TestClass();
-Map<String, String[]> parameterMap = new HashMap<>();
-QueryGenerator.installMplus(queryWrapper, searchObj, parameterMap);
+@Test
+public void installMplusTest() {
+    QueryWrapper<?> queryWrapper = new QueryWrapper<>();
+    Object searchObj = new Object();
+    Map<String, String[]> parameterMap = new HashMap<>();
+    
+    // perform the unit test
+    QueryGenerator.installMplus(queryWrapper, searchObj, parameterMap);
+    
+    // add assertions if needed
+}
 
 
 No.8 generated result --------------------------
 
-// Create objects for testing
-QueryWrapper<?> queryWrapper = new QueryWrapper<>();
-Object searchObj = new Object();
-Map<String, String[]> parameterMap = new HashMap<>();
+@Test
+public void installMplusTest() {
+    // Arrange
+    QueryWrapper<?> queryWrapper = new QueryWrapper<>();
+    Object searchObj = new Object();
+    Map<String, String[]> parameterMap = new HashMap<>();
 
-// Call the installMplus method
-QueryGenerator.installMplus(queryWrapper, searchObj, parameterMap);
+    // Act
+    installMplus(queryWrapper, searchObj, parameterMap);
 
-// Verify the results
-// Add your assertions here
+    // Assert
+    // Add assertion statements here
+}
 
 
 No.9 generated result --------------------------
 
-
-    @Test
-    public void installMplusTest() {
-        QueryWrapper<?> queryWrapper = new QueryWrapper<>();
-        Object searchObj = new Object(); // Dummy value
-        Map<String, String[]> parameterMap = new HashMap<>(); // Dummy value
-        
-        // Call the installMplus method
-        installMplus(queryWrapper, searchObj, parameterMap);
-        
-        // Assert statements for the expected behavior of the method
-        <FILL> // Add the necessary assert statements
-    }
-
+@Test
+public void installMplusTest() {
+    // Given
+    QueryWrapper<?> queryWrapper = new QueryWrapper<>();
+    Object searchObj = new Object();
+    Map<String, String[]> parameterMap = new HashMap<>();
+    
+    // When
+    QueryGenerator.installMplus(queryWrapper, searchObj, parameterMap);
+    
+    // Then
+    // Add assertions as needed
+}
 
 
 No.10 generated result --------------------------
 
-package org.jeecg.common.system.query;
+@Test
+public void installMplusTest() {
+    // Given
+    QueryWrapper<?> queryWrapper = new QueryWrapper<>();
+    Object searchObj = new Object();
+    Map<String, String[]> parameterMap = new HashMap<>();
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+    // When
+    QueryGenerator.installMplus(queryWrapper, searchObj, parameterMap);
 
-public class QueryGeneratorTest {
-    @Test
-    public void installMplusTest() {
-        QueryWrapper<Object> queryWrapper = new QueryWrapper<>();
-        Object searchObj = new Object();
-        Map<String, String[]> parameterMap = new HashMap<>();
-
-        QueryGenerator.installMplus(queryWrapper, searchObj, parameterMap);
-
-        // Add assertions here
-
-    }
+    // Then
+    // Add assertions if required
 }
 
 

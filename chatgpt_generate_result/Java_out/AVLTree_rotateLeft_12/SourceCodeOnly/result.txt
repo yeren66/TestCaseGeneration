@@ -32,32 +32,22 @@ No.1 generated result --------------------------
 
 @Test
 public void rotateLeftTest() {
+    // Initialize AVL tree object
     AVLTree tree = new AVLTree();
-    Node a = new Node(5);
-    Node b = new Node(10);
-    Node c = new Node(15);
-    
-    // Set up the tree structure
-    a.right = b;
-    a.parent = null;
-    b.parent = a;
-    b.left = c;
-    c.parent = b;
-    
-    // Call the rotateLeft method
-    Node result = tree.rotateLeft(a);
-    
-    // Verify the expected changes in the tree structure
-    assertEquals(b, result);
-    assertEquals(a, b.parent);
-    assertEquals(null, a.right);
-    assertEquals(b, c.parent);
-    assertEquals(a, c.left);
-    
-    // Verify the expected balances
-    assertEquals(0, a.balance);
-    assertEquals(0, b.balance);
-    assertEquals(0, c.balance);
+
+    // Add nodes to the tree
+    tree.insert(10);
+    tree.insert(20);
+    tree.insert(30);
+    tree.insert(40);
+
+    // Perform rotation left test
+    Node rootNode = tree.getRoot();
+    Node newRoot = rootNode.rotateLeft(rootNode);
+    // Add assertions to verify the rotation
+    assertEquals(20, newRoot.getKey());
+    assertEquals(10, newRoot.getLeft().getKey());
+    assertEquals(30, newRoot.getRight().getKey());
 }
 
 
@@ -65,15 +55,11 @@ No.2 generated result --------------------------
 
 @Test
 public void rotateLeftTest() {
-    AVLTTree avlTree = new AVLTTree();
-    Node a = new Node();
-    Node b = avlTree.rotateLeft(a);
-    
-    // Add assertions to test the rotation logic
-    // For example:
-    // assertEquals(a.parent, b);
-    // assertEquals(b.left, a);
-    // ...
+    Node nodeA = new Node();
+    Node nodeB = new Node();
+    AVLTree avlTree = new AVLTree();
+    Node result = avlTree.rotateLeft(nodeA);
+    assertNotNull(result);
 }
 
 
@@ -81,12 +67,15 @@ No.3 generated result --------------------------
 
 @Test
 public void rotateLeftTest() {
-    Node a = new Node(1); // Create a sample Node
-    Node b = avlTree.rotateLeft(a); // Call the rotateLeft method on the AVLTree
-    // Assert statements to verify the correctness of the rotation operation
-    assertEquals(b, a.right);
-    assertEquals(a.parent, b.parent);
-    // Continue adding more assertions as necessary...
+    Node a = new Node(5);
+    Node b = new Node(10);
+    a.right = b;
+    b.parent = a;
+    
+    AVLTree tree = new AVLTree();
+    tree.rotateLeft(a);
+    
+    // Add assertions to test the rotation
 }
 
 
@@ -94,183 +83,92 @@ No.4 generated result --------------------------
 
 @Test
 public void rotateLeftTest() {
-    AVLTree avlTree = new AVLTree();
-    Node rootNode = new Node(5);
-    Node leftNode = new Node(3);
-    Node rightNode = new Node(7);
+    Node a = new Node(5); 
+    Node b = new Node(10);
+    a.setRight(b);
     
-    rootNode.left = leftNode;
-    rootNode.right = rightNode;
-    leftNode.parent = rootNode;
-    rightNode.parent = rootNode;
+    // perform the left rotation
+    Node rotatedNode = avlTree.rotateLeft(a);
     
-    Node rotatedNode = avlTree.rotateLeft(rootNode);
-    
-    // Assert that the parent of the rotated node is equal to the parent of the original right node
-    assertEquals(rightNode.parent, rotatedNode.parent);
-    
-    // Assert that the left child of the original node is now the right child of the rotated node
-    assertEquals(leftNode, rotatedNode.right);
-    
-    // Assert that the parent of the original left child is now the rotated node
-    assertEquals(rotatedNode, leftNode.parent);
-    
-    // Assert that the parent of the original right child is still the original node
-    assertEquals(rootNode, rightNode.parent);
-    
-    // Assert any additional conditions or checks for this rotation
-    <FILL>
+    // perform assertions to check the correctness of the rotation
+    // for example:
+    assertEquals(b, rotatedNode); // check if b is the new root after rotation
+    assertEquals(a, b.getLeft()); // check if a is the left child of the new root
 }
 
 
 No.5 generated result --------------------------
 
-package com.thealgorithms.datastructures.trees;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AVLTreeTest {
-    @Test
-    public void rotateLeftTest() {
-        Node a = new Node(); // create a new Node object
-        Node b = a.right;
-        b.parent = a.parent;
-
-        a.right = b.left;
-
-        if (a.right != null) {
-            a.right.parent = a;
-        }
-
-        b.left = a;
-        a.parent = b;
-
-        if (b.parent != null) {
-            if (b.parent.right == a) {
-                b.parent.right = b;
-            } else {
-                b.parent.left = b;
-            }
-        }
-
-        setBalance(a, b);
-
-        Node expected = b; // define expected output
-        Node actual = rotateLeft(a); // call the method to be tested
-
-        assertEquals(expected, actual); // assert that the expected output matches the actual output
-    }
+@Test
+public void rotateLeftTest() {
+    Node a = new Node(5);
+    Node b = new Node(10);
+    a.right = b;
+    
+    Node result = avlTree.rotateLeft(a);
+    
+    assertEquals(expectedResult, result);
 }
 
 
 No.6 generated result --------------------------
 
 @Test
-    public void rotateLeftTest() {
-        AVLTree tree = new AVLTree();
-        Node a = new Node(5);
-        Node b = new Node(10);
-        Node c = new Node(15);
-
-        // Constructing the initial tree
-        a.right = b;
-        b.parent = a;
-        b.left = c;
-        c.parent = b;
-
-        // Calling the rotateLeft() function
-        Node result = tree.rotateLeft(a);
-
-        // Asserting the expected results
-        assertNull(a.right);
-        assertEquals(b, a.parent);
-        assertEquals(a, b.left);
-        assertEquals(b, a.parent);
-        assertEquals(c, b.parent);
-        assertEquals(a, c.right);
-        assertEquals(0, a.balance);
-        assertEquals(0, b.balance);
-    }
+public void rotateLeftTest() {
+    Node a = new Node(5);
+    Node b = new Node(10);
+    a.setRight(b);
+    Node c = new Node(15);
+    b.setLeft(c);
+    
+    Node result = rotateLeft(a);
+    
+    assertEquals(b, result);
+    assertEquals(a, result.getLeft());
+    assertEquals(c, b.getLeft());
+}
 
 
 No.7 generated result --------------------------
 
-package com.thealgorithms.datastructures.trees;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AVLTreeTest {
-    @Test
-    public void rotateLeftTest() {
-        Node a = new Node();
-        Node b = a.right;
-        b.parent = a.parent;
-
-        a.right = b.left;
-
-        if (a.right != null) {
-            a.right.parent = a;
-        }
-
-        b.left = a;
-        a.parent = b;
-
-        if (b.parent != null) {
-            if (b.parent.right == a) {
-                b.parent.right = b;
-            } else {
-                b.parent.left = b;
-            }
-        }
-
-        setBalance(a, b);
-
-        Node expected = a; // expected output
-        Node actual = rotateLeft(a); // actual output
-
-        assertEquals(expected, actual);
-    }
+@Test
+public void rotateLeftTest() {
+    Node parent = new Node(10);
+    Node a = new Node(5);
+    Node b = new Node(15);
+    a.parent = parent;
+    parent.left = a;
+    parent.right = b;
+    
+    AVLTree avlTree = new AVLTree();
+    Node result = avlTree.rotateLeft(a);
+    
+    assertEquals(result, b);
 }
 
 
 No.8 generated result --------------------------
 
-package com.thealgorithms.datastructures.trees;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AVLTreeTest {
-    @Test
+@Test
     public void rotateLeftTest() {
-        AVLTree tree = new AVLTree();
-        Node a = new Node(4);
-        Node b = new Node(2);
-        Node c = new Node(6);
-        Node d = new Node(1);
-        Node e = new Node(3);
-        Node f = new Node(5);
-        Node g = new Node(7);
-
-        tree.insert(a);
-        tree.insert(b);
-        tree.insert(c);
-        tree.insert(d);
-        tree.insert(e);
-        tree.insert(f);
-        tree.insert(g);
-
-        Node rotated = tree.rotateLeft(a);
-
-        // Assert statements to check the rotation
-        assertNull(rotated.parent);
-        assertEquals(b, rotated);
-        assertNull(a.parent);
-        assertEquals(c, a);
-        assertNull(c.parent);
-        assertEquals(a, c.right);
+        Node a = new Node(10);
+        Node b = new Node(20);
+        a.right = b;
+        b.parent = a;
+        Node c = new Node(30);
+        b.left = c;
+        c.parent = b;
+        
+        // Perform the rotateLeft operation
+        AVLTree avlTree = new AVLTree();
+        Node result = avlTree.rotateLeft(a);
+        
+        // Assert the expected outcome
+        assertEquals(b, result);
+        assertEquals(a, b.left);
+        assertEquals(b, a.parent);
+        assertNull(b.parent);
+        assertEquals(a, b.parent);
     }
 }
 
@@ -279,107 +177,31 @@ No.9 generated result --------------------------
 
 @Test
 public void rotateLeftTest() {
-    AVLTree tree = new AVLTree();
-
-    // Create nodes for the tree
-    Node a = new Node(1);
-    Node b = new Node(2);
-    Node c = new Node(3);
-    Node d = new Node(4);
-    
-    // Set the parent-child relationships
+    AVLTree avlTree = new AVLTree();
+    Node a = new Node(5);
+    Node b = new Node(10);
     a.right = b;
-    b.parent = a;
-    b.left = c;
-    c.parent = b;
-    b.right = d;
-    d.parent = b;
     
-    // Call the rotateLeft method
-    Node result = tree.rotateLeft(a);
-    
-    // Check if the rotations are performed correctly
-    assertNull(result.parent);
+    Node result = avlTree.rotateLeft(a);
+    // Add assertions to verify the correct rotation logic
+    // For example:
     assertEquals(b, result);
-    assertNull(c.parent);
-    assertEquals(a, c);
-    assertEquals(b, c.parent);
-    assertEquals(d, b.right);
-    assertEquals(b, d.parent);
-    assertNull(a.right);
-    
-    // Check if the balance is set correctly
-    assertEquals(-1, a.balance);
-    assertEquals(0, b.balance);
-    assertEquals(0, c.balance);
-    assertEquals(0, d.balance);
+    assertEquals(a, b.left);
+    assertEquals(b, a.parent);
+    // Add more assertions as needed
 }
 
 
 No.10 generated result --------------------------
 
-package com.thealgorithms.datastructures.trees;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AVLTreeTest {
-    @Test
-    public void rotateLeftTest() {
-        Node a = new Node(); // create a test node
-
-        // Perform the rotateLeft operation
-        Node b = a.right;
-        b.parent = a.parent;
-
-        a.right = b.left;
-
-        if (a.right != null) {
-            a.right.parent = a;
-        }
-
-        b.left = a;
-        a.parent = b;
-
-        if (b.parent != null) {
-            if (b.parent.right == a) {
-                b.parent.right = b;
-            } else {
-                b.parent.left = b;
-            }
-        }
-
-        setBalance(a, b);
-
-        // Check the expected results
-
-        // Verify that b is the new root of the tree
-        assertEquals(b, a.parent);
-
-        // Verify that a is the left child of b
-        assertEquals(a, b.left);
-
-        // Verify that a's parent is b
-        assertEquals(b, a.parent);
-
-        // Verify that a's right child is null
-        assertNull(a.right);
-
-        // Verify that b's parent is a's original parent
-        assertEquals(a.parent, b.parent);
-
-        // Verify that a's original parent's right child is b
-        if (b.parent.right == a) {
-            assertEquals(b.parent.right, b);
-        } else {
-            assertEquals(b.parent.left, b);
-        }
-
-        // Verify the balance of a and b nodes
-        setBalance(a, b);
-        assertEquals(a.balanceFactor, expectedBalanceA);
-        assertEquals(b.balanceFactor, expectedBalanceB);
-    }
+@Test
+public void rotateLeftTest() {
+    AVLTree tree = new AVLTree();
+    Node a = new Node(5);
+    Node b = new Node(10);
+    a.right = b;
+    
+    assertEquals(b, tree.rotateLeft(a));
 }
 
 

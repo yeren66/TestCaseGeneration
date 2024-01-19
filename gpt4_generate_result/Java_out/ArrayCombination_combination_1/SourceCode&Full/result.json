@@ -1,0 +1,27 @@
+{
+    "project_name": "Java",
+    "file_name": "ArrayCombination.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/backtracking/ArrayCombination.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.backtracking",
+    "docstring": "/**\n     * Find all combinations of 1..n by creating an array and using backtracking in Combination.java\n     * @param n max value of the array.\n     * @param k length of combination\n     * @return a list of all combinations of length k. If k == 0, return null.\n     */",
+    "source_code": "\npublic static List<TreeSet<Integer>> combination(int n, int k) {\n    if (n <= 0) {\n        return null;\n    }\n    length = k;\n    Integer[] arr = new Integer[n];\n    for (int i = 1; i <= n; i++) {\n        arr[i - 1] = i;\n    }\n    return Combination.combination(arr, length);\n}\n",
+    "class_name": "ArrayCombination",
+    "method_name": "combination",
+    "arguments": [
+        "int n",
+        "int k"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

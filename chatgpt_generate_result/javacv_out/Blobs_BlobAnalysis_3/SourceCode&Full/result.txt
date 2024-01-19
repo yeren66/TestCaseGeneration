@@ -317,51 +317,207 @@ public int BlobAnalysis(IplImage Src,           // input image
 
 No.1 generated result --------------------------
 
-Timeout
+package org.bytedeco.javacv;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BlobsTest {
+    @Test
+    public void BlobAnalysisTest() {
+        // Create a test image
+        IplImage testImage = new IplImage(10, 10);
+        int col0 = 0;
+        int row0 = 0;
+        int cols = 10;
+        int rows = 10;
+        int border = 0;
+        int minArea = 1;
+        
+        // Call the BlobAnalysis method
+        Blobs blobs = new Blobs();
+        int result = blobs.BlobAnalysis(testImage, col0, row0, cols, rows, border, minArea);
+        
+        // Verify that the result is valid
+        assertTrue(result >= 0);
+    }
+}
 
 
 No.2 generated result --------------------------
 
-Timeout
+package org.bytedeco.javacv;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BlobsTest {
+    @Test
+    public void BlobAnalysisTest() {
+        // Create a new Blobs object
+        Blobs blobs = new Blobs();
+        
+        // Initialize required variables
+        IplImage image = new IplImage();
+        int col0 = 0;
+        int row0 = 0;
+        int cols = 10;
+        int rows = 10;
+        int border = 0;
+        int minArea = 50;
+        
+        // Call the BlobAnalysis method
+        int result = blobs.BlobAnalysis(image, col0, row0, cols, rows, border, minArea);
+        
+        // Assert the result
+        assertEquals(0, result); // Add the expected result after testing
+        
+        // Print the region data for verification
+        blobs.PrintRegionData();
+    }
+}
 
 
 No.3 generated result --------------------------
 
-Timeout
+@Test
+public void BlobAnalysisTest() {
+    // Create a test instance of Blobs class
+    Blobs blobs = new Blobs();
+    
+    // Create a test IplImage with input data
+    IplImage testImage = new IplImage();
+    // Set test data for the image
+    
+    // Set test values for other parameters
+    int col0 = 0;
+    int row0 = 0;
+    int cols = 100;
+    int rows = 100;
+    int border = 1;
+    int minArea = 50;
+    
+    // Call the BlobAnalysis method
+    int result = blobs.BlobAnalysis(testImage, col0, row0, cols, rows, border, minArea);
+    
+    // Assert the result
+    assertEquals(expectedMaxLabel, result);
+}
 
 
 No.4 generated result --------------------------
 
-Timeout
+// Create a Blobs object and call the BlobAnalysis method
+Blobs blob = new Blobs();
+IplImage image = new IplImage();
+int result = blob.BlobAnalysis(image, 0, 0, 100, 1, 10);
+assertEquals(0, result);  // Replace with expected result
 
 
 No.5 generated result --------------------------
 
-Timeout
+@Test
+public void BlobAnalysisTest() {
+    // Create a test case to verify the BlobAnalysis method in the Blobs class
+    IplImage image = new IplImage();
+    Blobs blobs = new Blobs();
+    int result = blobs.BlobAnalysis(image, 0, 0, 100, 100, 1);
+    assertEquals(0, result); // Replace 0 with the expected result based on the input image and parameters
+}
 
 
 No.6 generated result --------------------------
 
-Timeout
+public void BlobAnalysisTest() {
+    IplImage src = new IplImage();
+    Blobs blobs = new Blobs();
+    int col0 = 0;
+    int row0 = 0;
+    int cols = 100;  // assuming a smaller value for testing
+    int rows = 100;  // assuming a smaller value for testing
+    int border = 0;
+    int minArea = 10;
+    int maxExpectedLabel = 100;  // Assuming a max label to check for
+    int actualMaxLabel = blobs.BlobAnalysis(src, col0, row0, cols, rows, border, minArea);
+    assertEquals(maxExpectedLabel, actualMaxLabel);
+}
 
 
 No.7 generated result --------------------------
 
-Timeout
+package org.bytedeco.javacv;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BlobsTest {
+    @Test
+    public void BlobAnalysisTest() {
+        // Create a new Blobs object
+        Blobs blob = new Blobs();
+        
+        // Create an IplImage object
+        IplImage image = new IplImage();  // Replace with actual image data
+        
+        // Call the BlobAnalysis method and assert the result
+        int result = blob.BlobAnalysis(image, -1, -1, -1, -1, 20);
+        assertEquals(0, result); // Replace 0 with expected result
+    }
+}
 
 
 No.8 generated result --------------------------
 
-Timeout
+import org.bytedeco.opencv.opencv_core.IplImage;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class BlobsTest {
+    @Test
+    public void BlobAnalysisTest() {
+        IplImage image = new IplImage();
+        Blobs blob = new Blobs();
+        int result = blob.BlobAnalysis(image, 0, 0, 100, 100, 0, 20);
+        assertEquals(0, result);
+    }
+}
 
 
 No.9 generated result --------------------------
 
-Timeout
+@Test
+public void BlobAnalysisTest() {
+    IplImage image = new IplImage();
+    Blobs blob = new Blobs();
+    int col0 = 0;
+    int row0 = 0;
+    int cols = 100;
+    int rows = 100;
+    int border = 0;
+    int minArea = 50;
+    int result = blob.BlobAnalysis(image, col0, row0, cols, rows, border, minArea);
+    // assert statements
+    assertEquals(1, result); // Assuming 1 as the expected result
+}
 
 
 No.10 generated result --------------------------
 
-Timeout
+@Test
+public void BlobAnalysisTest() {
+    // Create a sample image for testing
+    IplImage testImage = new IplImage();
+    // Set up test parameters
+    int col0 = 0;
+    int row0 = 0;
+    int cols = 100; // sample size of ROI
+    int rows = 100;
+    int border = 0; // black border
+    int minArea = 10; // minimum region area
+    // Create an instance of the Blobs class
+    Blobs blobs = new Blobs();
+    // Call the BlobAnalysis method and check if it returns a valid result
+    int result = blobs.BlobAnalysis(testImage, col0, row0, cols, rows, border, minArea);
+    assertNotNull(result);
+}
 
 

@@ -1,0 +1,26 @@
+{
+    "project_name": "Java",
+    "file_name": "HeapSort.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/sorts/HeapSort.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.sorts",
+    "docstring": "/**\n     * For simplicity, we are considering the heap root index as 1 instead of 0.\n     * It simplifies future calculations. Because of that we are decreasing the\n     * provided indexes by 1 in {@link #swap(Object[], int, int)} and\n     * {@link #less(Comparable[], int, int)} functions.\n     */",
+    "source_code": "\n@Override\npublic <T extends Comparable<T>> T[] sort(T[] unsorted) {\n    int n = unsorted.length;\n    heapify(unsorted, n);\n    while (n > 1) {\n        swap(unsorted, 1, n--);\n        siftDown(unsorted, 1, n);\n    }\n    return unsorted;\n}\n",
+    "class_name": "HeapSort",
+    "method_name": "sort",
+    "arguments": [
+        "T unsorted"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

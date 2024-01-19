@@ -12,15 +12,15 @@
         "String s"
     ],
     "generate_test": [
-        "@Test\npublic void toLowerCaseTest() {\n    String input = \"HELLO WORLD\";\n    String expectedOutput = \"hello world\";\n    String actualOutput = Lower.toLowerCase(input);\n    assertEquals(expectedOutput, actualOutput);\n}",
-        "package com.thealgorithms.strings;\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class LowerTest {\n    @Test\n    public void toLowerCaseTest() {\n        String input = \"Hello, World!\";\n        String expectedOutput = \"hello, world!\";\n        String actualOutput = Lower.toLowerCase(input);\n        assertEquals(expectedOutput, actualOutput);\n    }\n}",
-        "@Test\npublic void toLowerCaseTest() {\n    String input = \"ABCD\";\n    String expectedOutput = \"abcd\";\n    String actualOutput = Lower.toLowerCase(input);\n    assertEquals(expectedOutput, actualOutput);\n}",
-        "package com.thealgorithms.strings;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class LowerTest {\n    @Test\n    public void toLowerCaseTest() {\n        String input = \"HelloWORLD\";\n        String expectedOutput = \"helloworld\";\n        String actualOutput = Lower.toLowerCase(input);\n        assertEquals(expectedOutput, actualOutput);\n    }\n}",
-        "@BeforeEach\npublic void setUp() {\n    // Initialize any necessary variables\n}\n\n@Test\npublic void toLowerCaseTest() {\n    String input = \"HELLO WORLD\";\n    String expectedOutput = \"hello world\";\n    \n    String actualOutput = Lower.toLowerCase(input);\n    \n    assertEquals(expectedOutput, actualOutput);\n}",
-        "@Test\npublic void toLowerCaseTest() {\n    String input = \"Hello World!\";\n    String expectedOutput = \"hello world!\";\n    String actualOutput = Lower.toLowerCase(input);\n    assertEquals(expectedOutput, actualOutput);\n}",
-        "@Test\npublic void toLowerCaseTest() {\n    String input = \"HELLO WORLD\";\n    String expected = \"hello world\";\n    String result = Lower.toLowerCase(input);\n    assertEquals(expected, result);\n}",
-        "package com.thealgorithms.strings;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class LowerTest {\n    @Test\n    public void toLowerCaseTest() {\n        String result = Lower.toLowerCase(\"Hello World\");\n        assertEquals(\"hello world\", result);\n    }\n}",
-        "package com.thealgorithms.strings;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class LowerTest {\n    @Test\n    public void toLowerCaseTest() {\n        String result = Lower.toLowerCase(\"Hello World\");\n        assertEquals(\"hello world\", result);\n    }\n}",
-        "@Test\npublic void toLowerCaseTest() {\n    assertEquals(\"hello world\", Lower.toLowerCase(\"Hello World\"));\n    assertEquals(\"i love programming\", Lower.toLowerCase(\"I Love Programming\"));\n    assertEquals(\"123\", Lower.toLowerCase(\"123\"));\n    assertEquals(\"\", Lower.toLowerCase(\"\"));\n}"
+        "@Test\npublic void toLowerCaseTest() {\n    String input = \"HELLO\";\n    String expected = \"hello\";\n    String actual = Lower.toLowerCase(input);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void toLowerCaseTest() {\n    String input = \"Hello World\";\n    String expectedOutput = \"hello world\";\n    String actualOutput = Lower.toLowerCase(input);\n    assertEquals(expectedOutput, actualOutput);\n}",
+        "@Test\npublic void toLowerCaseTest() {\n    String input = \"HelloWorld\";\n    String expected = \"helloworld\";\n    String actual = Lower.toLowerCase(input);\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void toLowerCaseTest() {\n    String result = Lower.toLowerCase(\"TestingLower\");\n    assertEquals(\"testinglower\", result);\n}",
+        "@Test\npublic void toLowerCaseTest() {\n    String input = \"HelloWorld\";\n    String expectedResult = \"helloworld\";\n    String actualResult = Lower.toLowerCase(input);\n    assertEquals(expectedResult, actualResult);\n}\n",
+        "\n    @Test\n    public void toLowerCaseTest() {\n        assertEquals(\"hello\", Lower.toLowerCase(\"Hello\"));\n        assertEquals(\"world\", Lower.toLowerCase(\"World\"));\n    }",
+        "@Test\npublic void toLowerCaseTest() {\n    String input = \"Hello World\";\n    String expected = \"hello world\";\n    String result = Lower.toLowerCase(input);\n    assertEquals(expected, result, \"String should be converted to lowercase\");\n}",
+        "@Test\npublic void toLowerCaseTest() {\n    assertEquals(\"hello\", Lower.toLowerCase(\"Hello\"));\n}",
+        "@Test\npublic void toLowerCaseTest() {\n    String input = \"Hello\";\n    String expected = \"hello\";\n    String actual = Lower.toLowerCase(input);\n    assertEquals(expected, actual);\n}",
+        "@Test\n    public void toLowerCaseTest() {\n        String input = \"Hello\";\n        String expected = \"hello\";\n        String actual = Lower.toLowerCase(input);\n        assertEquals(expected, actual);\n    }"
     ]
 }

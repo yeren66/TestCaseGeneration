@@ -36,43 +36,21 @@ private Boolean checkRoute(String routeId) {
 
 No.1 generated result --------------------------
 
-package org.jeecg.handler.swagger;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MySwaggerResourceProviderTest {
-    @Test
-    public void checkRouteTest() {
-        MySwaggerResourceProvider provider = new MySwaggerResourceProvider(null); // Create an instance of MySwaggerResourceProvider
-        Boolean result = provider.checkRoute("routeId"); // Call the checkRoute method with the appropriate routeId
-        assertEquals(false, result); // Verify the expected result using assertEquals
-    }
+@Test
+public void checkRouteTest() {
+    MySwaggerResourceProvider mySwaggerResourceProvider = new MySwaggerResourceProvider(routeLocator);
+    Boolean result = mySwaggerResourceProvider.checkRoute("testRouteId");
+    assertTrue(result);
 }
 
 
 No.2 generated result --------------------------
 
-package org.jeecg.handler.swagger;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MySwaggerResourceProviderTest {
-    @Test
-    public void checkRouteTest() {
-        MySwaggerResourceProvider provider = new MySwaggerResourceProvider(null);
-
-        // Test case 1: routeId exists
-        String routeId1 = "route1";
-        Boolean hasRoute1 = provider.checkRoute(routeId1);
-        assertTrue(hasRoute1);
-
-        // Test case 2: routeId does not exist
-        String routeId2 = "route2";
-        Boolean hasRoute2 = provider.checkRoute(routeId2);
-        assertFalse(hasRoute2);
-    }
+@Test
+public void checkRouteTest() {
+    MySwaggerResourceProvider provider = new MySwaggerResourceProvider(routeLocator);
+    Boolean result = provider.checkRoute("testRouteId");
+    assertTrue(result);
 }
 
 
@@ -80,47 +58,29 @@ No.3 generated result --------------------------
 
 @Test
 public void checkRouteTest() {
-    // Create an instance of MySwaggerResourceProvider
-    MySwaggerResourceProvider provider = new MySwaggerResourceProvider(null);
-
-    // Set the necessary properties values
-    provider.serverAddr = "localhost:8848";
-    provider.namespace = "testNamespace";
-    provider.group = "testGroup";
-    provider.username = "testUsername";
-    provider.password = "testPassword";
-
-    // Call the checkRoute method with a route ID
-    boolean result = provider.checkRoute("exampleRouteId");
-
-    // Assert the result
+    MySwaggerResourceProvider mySwaggerResourceProvider = new MySwaggerResourceProvider(null);
+    Boolean result = mySwaggerResourceProvider.checkRoute("testRoute");
     assertTrue(result);
 }
 
 
 No.4 generated result --------------------------
 
-package org.jeecg.handler.swagger;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MySwaggerResourceProviderTest {
-    @Test
-    public void checkRouteTest() {
-        MySwaggerResourceProvider provider = new MySwaggerResourceProvider(routeLocator);
-        Boolean hasRoute = provider.checkRoute("routeId");
-        assertTrue(hasRoute);
-    }
+@Test
+public void checkRouteTest() {
+    MySwaggerResourceProvider mySwaggerResourceProvider = new MySwaggerResourceProvider(routeLocator);
+    Boolean result = mySwaggerResourceProvider.checkRoute("routeId");
+    assertTrue(result);
 }
 
 
 No.5 generated result --------------------------
 
+@Test
 public void checkRouteTest() {
-        MySwaggerResourceProvider provider = new MySwaggerResourceProvider(null);
-        Boolean result = provider.checkRoute("routeId");
-        assertFalse(result);
+    MySwaggerResourceProvider mySwaggerResourceProvider = new MySwaggerResourceProvider(routeLocator);
+    Boolean result = mySwaggerResourceProvider.checkRoute("routeId");
+    assertTrue(result);
 }
 
 
@@ -128,78 +88,52 @@ No.6 generated result --------------------------
 
 @Test
 public void checkRouteTest() {
-    MySwaggerResourceProvider provider = new MySwaggerResourceProvider(null);
-    Boolean result = provider.checkRoute("routeId");
-    assertTrue(result);
+    MySwaggerResourceProvider mySwaggerResourceProvider = new MySwaggerResourceProvider(new RouteLocator());
+    Boolean result = mySwaggerResourceProvider.checkRoute("routeId");
+    assertEquals(true, result);
 }
 
 
 No.7 generated result --------------------------
 
-package org.jeecg.handler.swagger;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MySwaggerResourceProviderTest {
-    @Test
-    public void checkRouteTest() {
-        String routeId = "exampleRouteId";
-        MySwaggerResourceProvider mySwaggerResourceProvider = new MySwaggerResourceProvider(null); // pass any required dependencies in the constructor
-        Boolean result = mySwaggerResourceProvider.checkRoute(routeId);
-        assertFalse(result); // add appropriate assertions to validate the functionality of the checkRoute method
-    }
+@Test
+public void checkRouteTest() {
+    MySwaggerResourceProvider provider = new MySwaggerResourceProvider(null);
+    Boolean result = provider.checkRoute("routeId");
+    assertFalse(result);
 }
 
 
 No.8 generated result --------------------------
 
-package org.jeecg.handler.swagger;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MySwaggerResourceProviderTest {
-    @Test
-    public void checkRouteTest() {
-        MySwaggerResourceProvider provider = new MySwaggerResourceProvider(null);
-        Boolean result = provider.checkRoute("routeId");
-        assertTrue(result); // Assert that the result is true
-    }
+@Test
+public void checkRouteTest() {
+    // Given
+    MySwaggerResourceProvider provider = new MySwaggerResourceProvider(routeLocator);
+    String routeId = "testRoute";
+    
+    // When
+    Boolean result = provider.checkRoute(routeId);
+    
+    // Then
+    assertTrue(result);
 }
 
 
 No.9 generated result --------------------------
 
-package org.jeecg.handler.swagger;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MySwaggerResourceProviderTest {
-    @Test
-    public void checkRouteTest() {
-        MySwaggerResourceProvider mySwaggerResourceProvider = new MySwaggerResourceProvider(null);
-        Boolean result = mySwaggerResourceProvider.checkRoute("routeId");
-        assertFalse(result);
-    }
-}
+    MySwaggerResourceProvider mySwaggerResourceProvider = new MySwaggerResourceProvider(null);
+    Boolean result = mySwaggerResourceProvider.checkRoute("testRouteId");
+    assertTrue(result);
 
 
 No.10 generated result --------------------------
 
-package org.jeecg.handler.swagger;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MySwaggerResourceProviderTest {
-    @Test
-    public void checkRouteTest() {
-        MySwaggerResourceProvider mySwaggerResourceProvider = new MySwaggerResourceProvider(null); // Replace null with an instance of RouteLocator
-        Boolean result = mySwaggerResourceProvider.checkRoute("routeId");
-        assertTrue(result);
-    }
+@Test
+public void checkRouteTest() {
+    MySwaggerResourceProvider myProvider = new MySwaggerResourceProvider(null);
+    Boolean result = myProvider.checkRoute("testRouteId");
+    assertTrue(result);
 }
 
 

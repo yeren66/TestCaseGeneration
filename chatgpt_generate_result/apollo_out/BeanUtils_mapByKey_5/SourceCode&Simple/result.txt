@@ -27,73 +27,26 @@ public static <K, V> Map<K, V> mapByKey(String key, List<?> list) {
 
 No.1 generated result --------------------------
 
-@Test
-public void mapByKeyTest() {
-    List<MyObject> list = new ArrayList<>();
-    list.add(new MyObject(1, "one"));
-    list.add(new MyObject(2, "two"));
-    Map<Integer, MyObject> map = BeanUtils.mapByKey("id", list);
-    assertEquals(2, map.size());
-    assertEquals("one", map.get(1).getName());
-    assertEquals("two", map.get(2).getName());
-}
 
-class MyObject {
-    private int id;
-    private String name;
+Map<String, Object> testMap = BeanUtils.mapByKey("id", Collections.singletonList(new TestObject("1", "test")));
+assertEquals(1, testMap.size());
+assertTrue(testMap.containsKey("1"));
 
-    public MyObject(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-}
 
 
 No.2 generated result --------------------------
 
 @Test
 public void mapByKeyTest() {
-    // Given
     String key = "id";
-    List<TestObject> list = new ArrayList<>();
-    TestObject obj1 = new TestObject("123", "John");
-    TestObject obj2 = new TestObject("456", "Jane");
-    list.add(obj1);
-    list.add(obj2);
-    
-    // When
-    Map<String, TestObject> result = BeanUtils.mapByKey(key, list);
-    
-    // Then
-    assertEquals(2, result.size());
-    assertEquals(obj1, result.get("123"));
-    assertEquals(obj2, result.get("456"));
-}
+    List<Object> list = new ArrayList<>();
+    // Add test data to the list
 
-class TestObject {
-    private String id;
-    private String name;
-    
-    public TestObject(String id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-    
-    public String getId() {
-        return id;
-    }
-    
-    public String getName() {
-        return name;
-    }
+    Map<String, Object> expectedMap = new HashMap<>();
+    // Add expected mappings to the expectedMap
+
+    Map<String, Object> resultMap = BeanUtils.mapByKey(key, list);
+    assertEquals(expectedMap, resultMap);
 }
 
 
@@ -101,15 +54,18 @@ No.3 generated result --------------------------
 
 @Test
 public void mapByKeyTest() {
-    List<Object> list = new ArrayList<>();
-    // Add objects to the list
+    String key = "id";
+    List<MyObject> list = new ArrayList<>();
+    MyObject obj1 = new MyObject();
+    obj1.setId(1);
+    MyObject obj2 = new MyObject();
+    obj2.setId(2);
+    list.add(obj1);
+    list.add(obj2);
     
-    Map<Object, Object> expectedMap = new HashMap<>();
-    // Add expected key-value pairs to the map
-    
-    Map<Object, Object> actualMap = BeanUtils.mapByKey("key", list);
-    
-    assertEquals(expectedMap, actualMap);
+    Map<Integer, MyObject> result = BeanUtils.mapByKey(key, list);
+    assertEquals(1, result.get(1).getId());
+    assertEquals(2, result.get(2).getId());
 }
 
 
@@ -117,30 +73,18 @@ No.4 generated result --------------------------
 
 @Test
 public void mapByKeyTest() {
-    String key = "id";
-    List<User> userList = new ArrayList<>();
-    userList.add(new User(1, "John"));
-    userList.add(new User(2, "Jane"));
-  
-    Map<Integer, User> expectedMap = new HashMap<>();
-    expectedMap.put(1, new User(1, "John"));
-    expectedMap.put(2, new User(2, "Jane"));
-  
-    Map<Integer, User> actualMap = BeanUtils.mapByKey(key, userList);
-  
-    assertEquals(expectedMap, actualMap);
-}
-
-class User {
-    private int id;
-    private String name;
-  
-    public User(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-  
-    // getters and setters
+    List<String> list = new ArrayList<>();
+    list.add("apple");
+    list.add("banana");
+    list.add("cherry");
+    Map<String, String> result = BeanUtils.mapByKey("fruit", list);
+    assertEquals(3, result.size());
+    assertTrue(result.containsKey("apple"));
+    assertTrue(result.containsValue("apple"));
+    assertTrue(result.containsKey("banana"));
+    assertTrue(result.containsValue("banana"));
+    assertTrue(result.containsKey("cherry"));
+    assertTrue(result.containsValue("cherry"));
 }
 
 
@@ -148,32 +92,16 @@ No.5 generated result --------------------------
 
 @Test
 public void mapByKeyTest() {
-    List<Object> list = new ArrayList<>(); // create a list of objects
-    list.add(new MyClass("key1", 1)); // add objects to the list
-    list.add(new MyClass("key2", 2));
-    list.add(new MyClass("key3", 3));
-    
-    Map<String, MyClass> expected = new HashMap<>(); // create the expected map
-    expected.put("key1", new MyClass("key1", 1)); // add key-value pairs to the map
-    expected.put("key2", new MyClass("key2", 2));
-    expected.put("key3", new MyClass("key3", 3));
-    
-    Map<String, MyClass> result = BeanUtils.mapByKey("key", list); // call the method to test
-    
-    assertEquals(expected, result); // assert that the expected map is equal to the result
-}
-
-// Define a sample class
-class MyClass {
-    private String key;
-    private Integer value;
-    
-    public MyClass(String key, Integer value) {
-        this.key = key;
-        this.value = value;
-    }
-    
-    // getters and setters
+    List<String> list = new ArrayList<>();
+    list.add("apple");
+    list.add("banana");
+    list.add("orange");
+    Map<String, String> result = BeanUtils.mapByKey("fruit", list);
+    Map<String, String> expectedResult = new HashMap<>();
+    expectedResult.put("apple", "apple");
+    expectedResult.put("banana", "banana");
+    expectedResult.put("orange", "orange");
+    assertEquals(expectedResult, result);
 }
 
 
@@ -181,24 +109,15 @@ No.6 generated result --------------------------
 
 @Test
 public void mapByKeyTest() {
-    // Prepare test data
-    List<MyObject> list = new ArrayList<>(); // Replace MyObject with the actual object type in the list
-    MyObject obj1 = new MyObject(); // Replace MyObject with the actual object type
-    obj1.setKey("key1"); // Set the key value for obj1
-    obj1.setValue("value1"); // Set the value for obj1
-    list.add(obj1);
-    MyObject obj2 = new MyObject(); // Replace MyObject with the actual object type
-    obj2.setKey("key2"); // Set the key value for obj2
-    obj2.setValue("value2"); // Set the value for obj2
-    list.add(obj2);
-    
-    // Execute the method to test
-    Map<String, MyObject> resultMap = BeanUtils.mapByKey("key", list); // Replace "key" with the actual key field name
-    
-    // Verify the result
-    assertEquals(2, resultMap.size());
-    assertEquals(obj1, resultMap.get("key1")); // Replace "key1" with the actual key value of obj1
-    assertEquals(obj2, resultMap.get("key2")); // Replace "key2" with the actual key value of obj2
+    List<String> list = new ArrayList<>();
+    list.add("apple");
+    list.add("banana");
+    list.add("cherry");
+    Map<String, String> map = BeanUtils.mapByKey("fruit", list);
+    assertEquals(3, map.size());
+    assertEquals("apple", map.get("apple"));
+    assertEquals("banana", map.get("banana"));
+    assertEquals("cherry", map.get("cherry"));
 }
 
 
@@ -206,16 +125,12 @@ No.7 generated result --------------------------
 
 @Test
 public void mapByKeyTest() {
-    String key = "someKey";
-    List<Object> list = new ArrayList<>();
-    // Add test objects to the list
-    
-    Map<String, Object> expectedMap = new HashMap<>();
-    // Add expected key-value pairs to the map
-    
-    Map<String, Object> actualMap = BeanUtils.mapByKey(key, list);
-    
-    assertEquals(expectedMap, actualMap);
+    List<String> list = new ArrayList<>();
+    list.add("apple");
+    list.add("banana");
+    Map<String, String> map = BeanUtils.mapByKey("fruit", list);
+    assertEquals("apple", map.get("apple"));
+    assertEquals("banana", map.get("banana"));
 }
 
 
@@ -223,18 +138,20 @@ No.8 generated result --------------------------
 
 @Test
 public void mapByKeyTest() {
-    List<Object> list = new ArrayList<>();
-    list.add(new Person("John", 30));
-    list.add(new Person("Jane", 25));
-    list.add(new Person("Mike", 40));
+    // Create sample list
+    List<String> list = new ArrayList<>();
+    list.add("apple");
+    list.add("banana");
+    list.add("orange");
     
-    Map<String, Object> actualMap = BeanUtils.mapByKey("name", list);
+    // Create map with key as the first character and value as the entire string
+    Map<Character, String> expectedMap = new HashMap<>();
+    expectedMap.put('a', "apple");
+    expectedMap.put('b', "banana");
+    expectedMap.put('o', "orange");
     
-    Map<String, Object> expectedMap = new HashMap<>();
-    expectedMap.put("John", new Person("John", 30));
-    expectedMap.put("Jane", new Person("Jane", 25));
-    expectedMap.put("Mike", new Person("Mike", 40));
-    
+    // Call the method and compare the result with the expected map
+    Map<Character, String> actualMap = BeanUtils.mapByKey("charAt", list); // assuming "charAt" is the key
     assertEquals(expectedMap, actualMap);
 }
 
@@ -243,41 +160,17 @@ No.9 generated result --------------------------
 
 @Test
 public void mapByKeyTest() {
-    String key = "id";
-    List<TestClass> list = new ArrayList<>();
-    TestClass obj1 = new TestClass(1, "John");
-    TestClass obj2 = new TestClass(2, "Jane");
-    TestClass obj3 = new TestClass(3, "Alice");
-    list.add(obj1);
-    list.add(obj2);
-    list.add(obj3);
+    List<String> list = new ArrayList<>();
+    list.add("apple");
+    list.add("banana");
     
-    Map<Integer, TestClass> expectedMap = new HashMap<>();
-    expectedMap.put(1, obj1);
-    expectedMap.put(2, obj2);
-    expectedMap.put(3, obj3);
-    
-    Map<Integer, TestClass> actualMap = BeanUtils.mapByKey(key, list);
+    Map<String, String> expectedMap = new HashMap<>();
+    expectedMap.put("apple", "apple");
+    expectedMap.put("banana", "banana");
+
+    Map<String, String> actualMap = BeanUtils.mapByKey("name", list);
     
     assertEquals(expectedMap, actualMap);
-}
-
-class TestClass {
-    private int id;
-    private String name;
-    
-    public TestClass(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-    
-    public int getId() {
-        return id;
-    }
-    
-    public String getName() {
-        return name;
-    }
 }
 
 
@@ -285,17 +178,17 @@ No.10 generated result --------------------------
 
 @Test
 public void mapByKeyTest() {
-  List<TestClass> list = new ArrayList<>();
-  list.add(new TestClass(1, "One"));
-  list.add(new TestClass(2, "Two"));
-  
-  Map<Integer, TestClass> expectedMap = new HashMap<>();
-  expectedMap.put(1, new TestClass(1, "One"));
-  expectedMap.put(2, new TestClass(2, "Two"));
-  
-  Map<Integer, TestClass> actualMap = BeanUtils.mapByKey("id", list);
-  
-  assertEquals(expectedMap, actualMap);
+    String key = "id";
+    List<Entity> list = new ArrayList<>();
+    Entity entity1 = new Entity(1, "A");
+    Entity entity2 = new Entity(2, "B");
+    list.add(entity1);
+    list.add(entity2);
+    Map<Integer, Entity> result = BeanUtils.mapByKey(key, list);
+    Map<Integer, Entity> expected = new HashMap<>();
+    expected.put(1, entity1);
+    expected.put(2, entity2);
+    assertEquals(expected, result);
 }
 
 

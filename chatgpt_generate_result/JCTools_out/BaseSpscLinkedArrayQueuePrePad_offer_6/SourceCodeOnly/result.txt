@@ -29,13 +29,75 @@ No.1 generated result --------------------------
 
 @Test
 public void offerTest() {
-    BaseSpscLinkedArrayQueuePrePad queue = new BaseSpscLinkedArrayQueuePrePad();
-    Object element = new Object();
-    assertTrue(queue.offer(element));
+    BaseSpscLinkedArrayQueuePrePad<String> queue = new BaseSpscLinkedArrayQueuePrePad<>();
+    boolean result = queue.offer("test");
+    assertTrue(result);
 }
 
 
 No.2 generated result --------------------------
+
+@Test
+public void offerTest() {
+    BaseSpscLinkedArrayQueuePrePadTest queue = new BaseSpscLinkedArrayQueuePrePadTest();
+    boolean result = queue.offer("test");
+    assertTrue(result);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void offerTest() {
+    BaseSpscLinkedArrayQueuePrePad queue = new BaseSpscLinkedArrayQueuePrePad();
+    boolean result = queue.offer("test");
+    assertTrue(result);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void offerTest() {
+    // Arrange
+    String element = "Test Element";
+    
+    // Act
+    boolean result = queue.offer(element);
+    
+    // Assert
+    assertTrue(result);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void offerTest() {
+    BaseSpscLinkedArrayQueuePrePad<String> queue = new BaseSpscLinkedArrayQueuePrePad<>();
+    assertTrue(queue.offer("Test"));
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+public void offerTest() {
+    BaseSpscLinkedArrayQueuePrePad<Integer> queue = new BaseSpscLinkedArrayQueuePrePad<>(16);
+    assertTrue(queue.offer(5));
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void offerTest() {
+    BaseSpscLinkedArrayQueuePrePad<Integer> queue = new BaseSpscLinkedArrayQueuePrePad<>();
+    assertTrue(queue.offer(5));
+}
+
+
+No.8 generated result --------------------------
 
 @Test
 public void offerTest() {
@@ -45,158 +107,15 @@ public void offerTest() {
 }
 
 
-No.3 generated result --------------------------
-
-package org.jctools.queues;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BaseSpscLinkedArrayQueuePrePadTest {
-    @Test
-    public void offerTest() {
-        // Create an instance of BaseSpscLinkedArrayQueuePrePad
-        BaseSpscLinkedArrayQueuePrePad<Integer> queue = new BaseSpscLinkedArrayQueuePrePad<>();
-
-        // Add elements to the queue
-        assertTrue(queue.offer(1));
-        assertTrue(queue.offer(2));
-        assertTrue(queue.offer(3));
-
-        // Verify the elements in the queue
-        assertEquals(3, queue.size());
-        assertEquals(1, queue.poll());
-        assertEquals(2, queue.poll());
-        assertEquals(3, queue.poll());
-        assertEquals(0, queue.size());
-    }
-}
-
-
-No.4 generated result --------------------------
-
-@Test
-public void offerTest() {
-    BaseSpscLinkedArrayQueuePrePad queue = new BaseSpscLinkedArrayQueuePrePad();
-    String element = "TestElement";
-    boolean result = queue.offer(element);
-    assertTrue(result);
-}
-
-
-No.5 generated result --------------------------
-
-package org.jctools.queues;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BaseSpscLinkedArrayQueuePrePadTest {
-    @Test
-    public void offerTest() {
-        BaseSpscLinkedArrayQueuePrePad<String> queue = new BaseSpscLinkedArrayQueuePrePad<>();
-        String element = "test";
-        assertTrue(queue.offer(element));
-    }
-}
-
-
-No.6 generated result --------------------------
-
-package org.jctools.queues;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BaseSpscLinkedArrayQueuePrePadTest {
-    @Test
-    public void offerTest() {
-        BaseSpscLinkedArrayQueuePrePadTest queue = new BaseSpscLinkedArrayQueuePrePadTest();
-        assertFalse(queue.offer(null), "Should throw NullPointerException for null offer");
-        
-        // Add more assertions to test other scenarios as desired
-        // For example:
-        // assertTrue(queue.offer(element), "Should return true for successful offer");
-        // assertFalse(queue.offer(element), "Should return false when buffer is full");
-    }
-}
-
-
-No.7 generated result --------------------------
-
-@Test
-public void offerTest() {
-    BaseSpscLinkedArrayQueuePrePad queue = new BaseSpscLinkedArrayQueuePrePad();
-    String element = "test";
-    boolean result = queue.offer(element);
-    assertTrue(result);
-}
-
-
-No.8 generated result --------------------------
-
-package org.jctools.queues;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BaseSpscLinkedArrayQueuePrePadTest {
-    @Test
-    public void offerTest() {
-        BaseSpscLinkedArrayQueuePrePad<Object> queue = new BaseSpscLinkedArrayQueuePrePad<>();
-
-        assertThrows(NullPointerException.class, () -> {
-            queue.offer(null);
-        });
-
-        // Test case for when index is less than producerBufferLimit
-        Object element1 = new Object();
-        assertTrue(queue.offer(element1));
-        
-        // Test case for when index is greater than or equal to producerBufferLimit
-        Object element2 = new Object();
-        assertFalse(queue.offer(element2));
-    }
-}
-
-
 No.9 generated result --------------------------
 
-@Override
-public boolean offer(final E e)
-{
-    // Objects.requireNonNull(e);
-    if (null == e)
-    {
-        throw new NullPointerException();
-    }
-    // local load of field to avoid repeated loads after volatile reads
-    final E[] buffer = producerBuffer;
-    final long index = lpProducerIndex();
-    final long mask = producerMask;
-    final long offset = calcCircularRefElementOffset(index, mask);
-    // expected hot path
-    if (index < producerBufferLimit)
-    {
-        writeToQueue(buffer, e, index, offset);
-        return true;
-    }
-    return offerColdPath(buffer, mask, index, offset, e, null);
-}
+@Test
+public void offerTest() {
+    BaseSpscLinkedArrayQueuePrePad queue = new BaseSpscLinkedArrayQueuePrePad();
 
-package org.jctools.queues;
+    boolean result = queue.offer("test");
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BaseSpscLinkedArrayQueuePrePadTest {
-    @Test
-    public void offerTest() {
-        BaseSpscLinkedArrayQueuePrePad queue = new BaseSpscLinkedArrayQueuePrePad();
-        boolean result = queue.offer(new Object());
-
-        assertTrue(result);
-    }
+    assertFalse(result);
 }
 
 
@@ -204,14 +123,9 @@ No.10 generated result --------------------------
 
 @Test
 public void offerTest() {
-    BaseSpscLinkedArrayQueuePrePad<String> queue = new BaseSpscLinkedArrayQueuePrePad<>();
-    String element = "element1";
-    
-    // Test case 1: offer a non-null element
-    assertTrue(queue.offer(element));
-    
-    // Test case 2: offer a null element - should throw NullPointerException
-    assertThrows(NullPointerException.class, () -> queue.offer(null));
+    E testElement = // create test element
+    boolean result = queue.offer(testElement);
+    assertTrue(result);
 }
 
 

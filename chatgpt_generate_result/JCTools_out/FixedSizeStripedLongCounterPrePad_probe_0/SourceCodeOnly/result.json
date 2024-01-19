@@ -10,15 +10,15 @@
     "method_name": "probe",
     "arguments": [],
     "generate_test": [
-        "@Test\npublic void probeTest() {\n    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();\n    int probe = counter.probe();\n    assertNotNull(probe);\n    // Add additional assertions or verifications if needed\n}",
-        "package org.jctools.counters;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class FixedSizeStripedLongCounterPrePadTest {\n    @Test\n    public void probeTest() {\n        FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();\n        int result = counter.probe();\n        assertNotNull(result);\n        // additional assertions based on expected behavior of the probe() method\n        // and the value it should return\n    }\n}",
-        "@Test\npublic void probeTest() {\n    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();\n    int probe = counter.probe();\n    assertNotNull(probe);\n    assertTrue(probe >= 0);\n}",
-        "package org.jctools.counters;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class FixedSizeStripedLongCounterPrePadTest {\n    @Test\n    public void probeTest() {\n        FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();\n        int expectedProbe = counter.probe();\n        int actualProbe = counter.probe();\n        assertEquals(expectedProbe, actualProbe);\n    }\n}",
-        "@Test\npublic void probeTest() {\n    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();\n    int probe = counter.probe();\n    assertTrue(probe >= 0);\n}",
-        "@Test\npublic void probeTest() {\n    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();\n    int result = counter.probe();\n    assertEquals(result, <EXPECTED_RESULT>);\n}",
-        "@Test\npublic void probeTest() {\n    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();\n    int expectedProbe = counter.probe();\n    int actualProbe = counter.probe();\n    assertEquals(expectedProbe, actualProbe);\n}",
-        "@Test\npublic void probeTest() {\n    int probe = new FixedSizeStripedLongCounterPrePad().probe(); \n    int expectedProbe = 123456; // replace with the expected probe value\n    assertEquals(expectedProbe, probe);\n}",
-        "@Test\npublic void probeTest() {\n    FixedSizeStripedLongCounter counter = new FixedSizeStripedLongCounter();\n    int expectedProbe = counter.probe();\n    int actualProbe = counter.probe();\n    assertEquals(expectedProbe, actualProbe);\n}",
-        "package org.jctools.counters;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class FixedSizeStripedLongCounterPrePadTest {\n    @Test\n    public void probeTest() {\n        FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();\n        int result = counter.probe();\n        assertNotNull(result);\n        // Add assertions here based on the expected behavior of the probe() method\n    }\n}"
+        "@Test\npublic void probeTest() {\n    int result = probe();\n    assertEquals(expected, result);\n}",
+        "@Test\npublic void probeTest() {\n    assertEquals(expectedProbeValue, probe());\n}",
+        "@Test\npublic void probeTest() {\n    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();\n    int result = counter.probe();\n    assertNotNull(result);\n}",
+        "@Test\npublic void probeTest() {\n    assertEquals(12345, probe());\n}",
+        "@Test\npublic void probeTest() {\n    int result = probe();\n    assertNotNull(result);\n    assertEquals(expectedResult, result);\n}",
+        "@Test\npublic void probeTest() {\n    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();\n    int result = counter.probe();\n    assertNotNull(result);\n}",
+        "@Test\npublic void probeTest() {\n    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();\n    int expected = counter.probe();\n    int actual = probe();\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void probeTest() {\n    // Given\n    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();\n    \n    // When\n    int result = counter.probe();\n    \n    // Then\n    assertNotNull(result);\n}",
+        "@Test\npublic void probeTest() {\n    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();\n    int result = counter.probe();\n    assertNotNull(result);\n}",
+        "@Test\npublic void probeTest() {\n    FixedSizeStripedLongCounterPrePad counter = new FixedSizeStripedLongCounterPrePad();\n    int result = counter.probe();\n    assertNotNull(result);\n}"
     ]
 }

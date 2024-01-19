@@ -1,0 +1,82 @@
+Source code: 
+
+
+Node mergeKList(Node[] a, int N) {
+    // Min Heap
+    PriorityQueue<Node> min = new PriorityQueue<>(Comparator.comparingInt(x -> x.data));
+
+    // adding head of all linkedList in min heap
+    min.addAll(Arrays.asList(a).subList(0, N));
+
+    // Make new head among smallest heads in K linkedList
+    Node head = min.poll();
+    min.add(head.next);
+    Node curr = head;
+
+    // merging LinkedList
+    while (!min.isEmpty()) {
+        Node temp = min.poll();
+        curr.next = temp;
+        curr = temp;
+
+        // Add Node in min Heap only if temp.next is not null
+        if (temp.next != null) {
+            min.add(temp.next);
+        }
+    }
+
+    return head;
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

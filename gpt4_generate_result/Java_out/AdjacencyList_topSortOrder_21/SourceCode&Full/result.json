@@ -1,0 +1,24 @@
+{
+    "project_name": "Java",
+    "file_name": "KahnsAlgorithm.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/datastructures/graphs/KahnsAlgorithm.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.datastructures.graphs",
+    "docstring": "/**\n     * Returns an ArrayList with vertices arranged in topological order\n     */",
+    "source_code": "\nArrayList<E> topSortOrder() {\n    calculateInDegree();\n    Queue<E> q = new LinkedList<E>();\n\n    for (E vertex : inDegree.keySet()) {\n        if (inDegree.get(vertex) == 0) {\n            q.add(vertex);\n        }\n    }\n\n    ArrayList<E> answer = new ArrayList<>();\n\n    while (!q.isEmpty()) {\n        E current = q.poll();\n        answer.add(current);\n        for (E adjacent : graph.getAdjacents(current)) {\n            inDegree.put(adjacent, inDegree.get(adjacent) - 1);\n            if (inDegree.get(adjacent) == 0) {\n                q.add(adjacent);\n            }\n        }\n    }\n\n    return answer;\n}\n",
+    "class_name": "AdjacencyList",
+    "method_name": "topSortOrder",
+    "arguments": [],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

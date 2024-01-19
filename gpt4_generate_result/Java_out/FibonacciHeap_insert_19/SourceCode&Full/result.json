@@ -1,0 +1,26 @@
+{
+    "project_name": "Java",
+    "file_name": "FibonacciHeap.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/datastructures/heaps/FibonacciHeap.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.datastructures.heaps",
+    "docstring": "/**\n     * Creates a node (of type HeapNode) which contains the given key, and inserts it into the heap.\n     *\n     * @pre key>=0\n     * @post (numOfnodes = = $prev numOfnodes + 1)\n     * @post empty == false\n     * $ret = the HeapNode we inserted\n     */",
+    "source_code": "\npublic HeapNode insert(int key) {\n    HeapNode toInsert = new HeapNode(key); // creates the node\n    if (this.empty()) {\n        this.min = toInsert;\n    } else { // tree is not empty\n        min.setNext(toInsert);\n        this.updateMin(toInsert);\n    }\n    this.numOfHeapNodes++;\n    this.numOfTrees++;\n    return toInsert;\n}\n",
+    "class_name": "FibonacciHeap",
+    "method_name": "insert",
+    "arguments": [
+        "int key"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

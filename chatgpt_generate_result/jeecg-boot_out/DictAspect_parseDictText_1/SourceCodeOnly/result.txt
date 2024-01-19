@@ -118,88 +118,44 @@ private Object parseDictText(Object result) {
 
 No.1 generated result --------------------------
 
-
-package org.jeecg.common.aspect;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import org.jeecg.common.aspect.DictAspect;
-import org.jeecg.common.aspect.Dict;
-import org.jeecg.common.aspect.DictModel;
-import org.jeecg.common.constant.CommonConstant;
-import org.jeecg.common.util.oConvertUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
-
-public class DictAspectTest {
-    @Test
-    public void parseDictTextTest() {
-        Object result = new Object(); // dummy object
-
-        // Create test data
-        Result mockResult = new Result();
-        IPage mockPage = new IPage();
-        List<Object> mockRecords = new ArrayList<>();
-        Object mockRecord = new Object(); // dummy record
-        mockRecords.add(mockRecord);
-        mockPage.setRecords(mockRecords);
-        mockResult.setResult(mockPage);
-        result = mockResult;
-
-        DictAspect dictAspect = new DictAspect();
-        Object parsedResult = dictAspect.parseDictText(result);
-
-        // Verify the result
-        // <FILL>
-    }
+@Test
+public void parseDictTextTest() {
+    // Create a mock Result object
+    Result result = new Result();
+    
+    // Create a mock IPage object
+    IPage iPage = new IPage();
+    
+    // Set up records for the IPage
+    List<Object> records = new ArrayList<>();
+    // Add mock records to the list
+    records.add(new Object());
+    records.add(new Object());
+    iPage.setRecords(records);
+    
+    // Set the IPage as the result of the Result object
+    result.setResult(iPage);
+    
+    // Call the parseDictText method with the mock Result object
+    Object parsedResult = parseDictText(result);
+    
+    // Assert that the parsedResult is not null
+    assertNotNull(parsedResult);
 }
-
 
 
 No.2 generated result --------------------------
 
-package org.jeecg.common.aspect;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class DictAspectTest {
-    @Test
-    public void parseDictTextTest() {
-        DictAspect dictAspect = new DictAspect();
-        
-        // Create a Result object for testing
-        Result result = new Result();
-        IPage iPage = new IPage();
-        List<Object> records = new ArrayList<>();
-        
-        // Add some records to the list
-        records.add(new Object());
-        records.add(new Object());
-        
-        iPage.setRecords(records);
-        result.setResult(iPage);
-        
-        // Call the parseDictText method and get the result
-        Object resultAfterParsing = dictAspect.parseDictText(result);
-        
-        // Perform assertions to verify the correctness of the result
-        assertNotNull(resultAfterParsing);
-        assertTrue(resultAfterParsing instanceof Result);
-        Result resultObj = (Result) resultAfterParsing;
-        assertTrue(resultObj.getResult() instanceof IPage);
-        IPage iPageResult = (IPage) resultObj.getResult();
-        assertEquals(records.size(), iPageResult.getRecords().size());
-    }
+@Test
+public void parseDictTextTest() {
+    // Create a new object for testing
+    Object result = new Object();
+    
+    // Call the parseDictText method and assert the result
+    Object actualResult = parseDictText(result);
+    
+    // Add assertions for expected results
+    // ...
 }
 
 
@@ -207,42 +163,34 @@ No.3 generated result --------------------------
 
 @Test
 public void parseDictTextTest() {
-    // Set up test data
-    Result result = new Result();
-    List<Object> records = new ArrayList<>();
-    // Add records to the list
-    // ...
-    // Set the records in the Result object
-    ((IPage) result.getResult()).setRecords(records);
+    // Create a mock Result object
+    Result mockResult = new Result();
+    IPage mockIPage = new IPage();
+    mockResult.setResult(mockIPage);
     
-    // Create an instance of the class under test
-    DictAspect dictAspect = new DictAspect();
+    // Create a list of mock records
+    List<Object> mockRecords = new ArrayList<>();
+    // Add mock records to the list
     
-    // Call the method being tested
-    Object actualResult = dictAspect.parseDictText(result);
+    // Set the mock records to the mock IPage
+    mockIPage.setRecords(mockRecords);
     
-    // Assert the expected result
-    assertNotNull(actualResult);
-    // Add more assertions as needed for the specific functionality being tested
-    // ...
+    // Call the parseDictText method with the mock result and assert the expected output
+    Object result = parseDictText(mockResult);
+    // Assert the expected output
+    assertEquals(expectedOutput, result);
 }
+
 
 
 No.4 generated result --------------------------
 
 @Test
 public void parseDictTextTest() {
-    // Create a mock Result object
-    Result result = new Result();
-  
-    // Set up the mock Result object with data
-    // ...
-
-    // Call the method being tested
-    Object actualResult = parseDictText(result);
-
-    // Verify the expected output
-    // ...
+    // Create a test case for the parseDictText method.
+    // For example, initialize the input and expected output,
+    // call the parseDictText method, and compare the actual output with the expected output.
+    // Assert.assertEquals(expectedOutput, actualOutput);
 }
 
 
@@ -250,21 +198,16 @@ No.5 generated result --------------------------
 
 @Test
 public void parseDictTextTest() {
-    // mock data
-    Result result = new Result();
-    IPage page = new IPage();
-    List<Object> records = new ArrayList<>();
-    // create objects and add values to fields
-    //...
-    page.setRecords(records);
-    result.setResult(page);
-    
-    // invoke the method to test
+    // Arrange
+    Object result = new Result();  // assuming Result is a class
     DictAspect dictAspect = new DictAspect();
+    
+    // Act
     Object parsedResult = dictAspect.parseDictText(result);
     
-    // assert the output
-    // ...
+    // Assert
+    assertNotNull(parsedResult);
+    // Add more assertions as needed
 }
 
 
@@ -272,121 +215,12 @@ No.6 generated result --------------------------
 
 @Test
 public void parseDictTextTest() {
-    // Create a sample Result object
-    Result result = new Result();
-    // Create a sample IPage object
-    IPage page = new IPage();
-    // Set the records in the IPage object
-    List<Object> records = new ArrayList<>();
-    records.add(<Sample Record 1>);
-    records.add(<Sample Record 2>);
-    page.setRecords(records);
-    // Set the IPage object as the result in the Result object
-    result.setResult(page);
-    
-    // Call the parseDictText method
-    Object output = parseDictText(result);
-    
-    // Assert that the output is equal to the expected result
-    assertEquals(result, output);
+    // Create a test case and mock the necessary objects
+    // Write the necessary assertions to test the parseDictText method
 }
 
 
 No.7 generated result --------------------------
-
-@Test
-    public void parseDictTextTest() {
-        // Prepare input
-        Object result = prepareTestInput();
-
-        // Call the method
-        Object output = parseDictText(result);
-
-        // Verify the result
-        assertParseDictText(output);
-    }
-
-    private Object prepareTestInput() {
-        // Create a sample Result object
-        Result result = new Result();
-        result.setResult(new IPage());
-
-        // Add records to the IPage
-        List<Object> records = new ArrayList<>();
-        records.add(createRecord("field1", "value1"));
-        records.add(createRecord("field2", "value2"));
-        ((IPage) result.getResult()).setRecords(records);
-
-        return result;
-    }
-
-    private Object createRecord(String fieldName, String value) {
-        Map<String, String> record = new HashMap<>();
-        record.put(fieldName, value);
-        return record;
-    }
-
-    private void assertParseDictText(Object output) {
-        // Verify the updated result
-        assertTrue(output instanceof Result);
-        assertTrue(((Result) output).getResult() instanceof IPage);
-        List<Object> records = ((IPage) ((Result) output).getResult()).getRecords();
-        assertEquals(2, records.size());
-
-        // Verify the translated dict fields
-        Map<String, String> record1 = (Map<String, String>) records.get(0);
-        assertEquals("value1", record1.get("field1"));
-        assertEquals("translatedValue1", record1.get("field1_text"));
-
-        Map<String, String> record2 = (Map<String, String>) records.get(1);
-        assertEquals("value2", record2.get("field2"));
-        assertEquals("translatedValue2", record2.get("field2_text"));
-    }
-
-
-No.8 generated result --------------------------
-
-@Test
-public void parseDictTextTest() {
-    // Create a sample input object
-    Object result = new Result();
-    ((Result) result).setResult(new IPage());
-
-    // Create a list of records
-    List<Object> records = new ArrayList<>();
-    records.add(new Record("Field1Value", "Field2Value"));
-    records.add(new Record("Field3Value", "Field4Value"));
-    ((IPage) ((Result) result).getResult()).setRecords(records);
-
-    // Call the parseDictText method
-    Object output = parseDictText(result);
-
-    // Validate the output
-    assertNotNull(output);
-    assertTrue(output instanceof Result);
-    assertNotNull(((Result) output).getResult());
-    assertTrue(((Result) output).getResult() instanceof IPage);
-
-    IPage outputPage = (IPage) ((Result) output).getResult();
-    assertNotNull(outputPage.getRecords());
-    assertEquals(2, outputPage.getRecords().size());
-
-    for (Object record : outputPage.getRecords()) {
-        assertTrue(record instanceof JSONObject);
-        JSONObject jsonObject = (JSONObject) record;
-
-        // Validate the presence of dict text fields
-        assertTrue(jsonObject.containsKey("Field1Value_text"));
-        assertTrue(jsonObject.containsKey("Field2Value_text"));
-
-        // Validate the dict text values
-        assertEquals("Field1Text", jsonObject.get("Field1Value_text"));
-        assertEquals("Field2Text", jsonObject.get("Field2Value_text"));
-    }
-}
-
-
-No.9 generated result --------------------------
 
 package org.jeecg.common.aspect;
 
@@ -396,18 +230,48 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DictAspectTest {
     @Test
     public void parseDictTextTest() {
-        // Creating a mock object for the "result" parameter
-        Object result = new Result();
+        // Create an instance of the class to be tested
+        DictAspect dictAspect = new DictAspect();
 
-        // Setting up necessary data for the test
-        // ...
-        
-        // Calling the method to be tested
-        Object parsedResult = parseDictText(result);
-        
-        // Asserting the expected output
-        // ...
+        // Create test data and test the parseDictText method
+        Object testData = new Object();
+        Object result = dictAspect.parseDictText(testData);
+
+        // Add assertions to verify the result
+        assertNotNull(result);
+        // Add more specific assertions based on the expected behavior of the method
+        // For example, check if the result is of the expected type, has certain properties, etc.
     }
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void parseDictTextTest() {
+    // Instantiate the object to be tested
+    Object result = new Object();
+    // Invoke the method being tested
+    Object testResult = parseDictText(result);
+    // Assert the expected result
+    assertNotNull(testResult);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void parseDictTextTest() {
+    // Arrange
+    // Create a mock Result object
+    Result mockResult = new Result();
+
+    // Act
+    Object result = parseDictText(mockResult);
+
+    // Assert
+    assertNotNull(result);
+    // Add more assertions based on the expected behavior of parseDictText
 }
 
 
@@ -415,20 +279,17 @@ No.10 generated result --------------------------
 
 @Test
 public void parseDictTextTest() {
-    // Create input data
-    Object result = new Result();
-    List<Object> records = new ArrayList<>();
-    IPage<Object> page = new Page<>();
-    page.setRecords(records);
-    ((Result) result).setResult(page);
-
-    // Call the method under test
-    Object output = parseDictText(result);
-
-    // Verify the output
+    // Set up the test data
+    Object result = new Result();  // Substitute with appropriate data
+    DictAspect aspect = new DictAspect();
+    
+    // Call the method to be tested
+    Object output = aspect.parseDictText(result);
+    
+    // Perform assertions on the output
+    // Add assertions based on the expected behavior of parseDictText
+    // For example:
     assertNotNull(output);
-    assertEquals(result, output);
-    // Assert other conditions
 }
 
 

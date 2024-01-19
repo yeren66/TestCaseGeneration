@@ -25,51 +25,27 @@ public static void validate(String jdbcUrl){
 
 No.1 generated result --------------------------
 
-package org.jeecg.common.util.security;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class JdbcSecurityUtilTest {
-    @Test
-    public void validateTest() {
-        String jdbcUrl = "jdbc:mysql://localhost:3306/test?user=root&password=123456";
-        assertDoesNotThrow(() -> JdbcSecurityUtil.validate(jdbcUrl));
-        
-        jdbcUrl = "jdbc:oracle:thin:@localhost:1521:test?user=root&password=123456";
-        assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
-        
-        jdbcUrl = "jdbc:mysql://localhost:3306/test?user=root&password=123456&allowMultiQueries=true";
-        assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
-    }
+@Test
+public void validateTest() {
+    String jdbcUrl = "jdbc:mysql://localhost:3306/test?user=root&password=123456";
+    assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
 }
 
 
 No.2 generated result --------------------------
 
-public void validateTest() {
-    String jdbcUrl = "jdbc:mysql://localhost:3306/database?user=root&password=123456";
-    JeecgBootException exception = assertThrows(JeecgBootException.class, () -> {
-        JdbcSecurityUtil.validate(jdbcUrl);
-    });
-    assertEquals("连接地址有安全风险，【password】", exception.getMessage());
-}
+String jdbcUrl = "jdbc:mysql://localhost/database?username=root&password=pass123";
+assertDoesNotThrow(() -> JdbcSecurityUtil.validate(jdbcUrl));
 
 
 No.3 generated result --------------------------
 
 @Test
 public void validateTest() {
-    // Set up the test data
-    String jdbcUrl = "jdbc:mysql://localhost:3306/database?user=root&password=abc123";
-    
-    // Perform the test
-    JeecgBootException exception = assertThrows(JeecgBootException.class, () -> {
-        JdbcSecurityUtil.validate(jdbcUrl);
+    String jdbcUrl = "jdbc:mysql://localhost:3306/mydatabase?user=root&password=123456";
+    assertThrows(JeecgBootException.class, () -> {
+        JdbcSecurityUtilTest.validate(jdbcUrl);
     });
-    
-    // Verify the result
-    assertEquals("连接地址有安全风险，【password】", exception.getMessage());
 }
 
 
@@ -77,10 +53,8 @@ No.4 generated result --------------------------
 
 @Test
 public void validateTest() {
-    String jdbcUrl = "jdbc:mysql://localhost:3306/test?username=root&password=pass123";
-    Assertions.assertDoesNotThrow(() -> {
-        JdbcSecurityUtil.validate(jdbcUrl);
-    });
+    String jdbcUrl = "jdbc:mysql://localhost:3306/test?username=root&password=123456";
+    assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
 }
 
 
@@ -88,13 +62,9 @@ No.5 generated result --------------------------
 
 @Test
 public void validateTest() {
-    String jdbcUrl = "jdbc:mysql://localhost:3306/test?username=root&password=123456";
-    JeecgBootException exception = assertThrows(JeecgBootException.class, () -> {
-        JdbcSecurityUtil.validate(jdbcUrl);
-    });
-    String expectedMessage = "连接地址有安全风险，【password】";
-    String actualMessage = exception.getMessage();
-    assertTrue(actualMessage.contains(expectedMessage));
+   assertThrows(JeecgBootException.class, () -> {
+      JdbcSecurityUtil.validate("jdbc:mysql://localhost:3306/myDB?username=root&password=123456");
+   });
 }
 
 
@@ -102,10 +72,8 @@ No.6 generated result --------------------------
 
 @Test
 public void validateTest() {
-    String jdbcUrl = "jdbc:mysql://localhost:3306/test?username=root&password=pass123";
-    assertThrows(JeecgBootException.class, () -> {
-        JdbcSecurityUtil.validate(jdbcUrl);
-    });
+    String jdbcUrl = "jdbc:mysql://localhost:3306/mydb?user=root&password=123456";
+    assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
 }
 
 
@@ -113,70 +81,34 @@ No.7 generated result --------------------------
 
 @Test
 public void validateTest() {
-    String jdbcUrl = "jdbc:mysql://localhost:3306/testdb?username=root&password=pass123";
-    assertDoesNotThrow(() -> JdbcSecurityUtil.validate(jdbcUrl));
-    
-    jdbcUrl = "jdbc:mysql://localhost:3306/testdb?username=root&password=pass123&allowMultiQueries=true";
-    JeecgBootException exception = assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
-    assertEquals("连接地址有安全风险，【allowMultiQueries】", exception.getMessage());
-    
-    jdbcUrl = "";
-    assertDoesNotThrow(() -> JdbcSecurityUtil.validate(jdbcUrl));
-    
-    jdbcUrl = "jdbc:mysql://localhost:3306/testdb";
-    assertDoesNotThrow(() -> JdbcSecurityUtil.validate(jdbcUrl));
-    
-    jdbcUrl = "jdbc:mysql://localhost:3306/testdb?";
-    assertDoesNotThrow(() -> JdbcSecurityUtil.validate(jdbcUrl));
+    String jdbcUrl = "jdbc:mysql://localhost:3306/test?user=root&password=pass123";
+    assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
 }
 
 
 No.8 generated result --------------------------
 
 @Test
-public void validateTest() {
-    String jdbcUrl = "jdbc:mysql://localhost:3306/testdb?user=root&password=123456";
-    try {
+    public void validateTest() {
+        String jdbcUrl = "jdbc:postgresql://localhost:5432/somedb?user=admin&password=pass123&ssl=true";
         JdbcSecurityUtil.validate(jdbcUrl);
-    } catch (JeecgBootException e) {
-        assertEquals("连接地址有安全风险，【user】", e.getMessage());
     }
-}
 
 
 No.9 generated result --------------------------
 
 @Test
 public void validateTest() {
-    // Test case 1: Empty jdbcUrl
-    String jdbcUrl1 = "";
-    validate(jdbcUrl1);
-    
-    // Test case 2: jdbcUrl does not contain urlConcatChar
-    String jdbcUrl2 = "jdbc:mysql://localhost/test";
-    validate(jdbcUrl2);
-    
-    // Test case 3: jdbcUrl contains urlConcatChar and notAllowedProps
-    String jdbcUrl3 = "jdbc:mysql://localhost/test?username=admin&password=pass123";
-    assertThrows(JeecgBootException.class, () -> {
-        validate(jdbcUrl3);
-    });
-    
-    // Test case 4: jdbcUrl contains urlConcatChar but not notAllowedProps
-    String jdbcUrl4 = "jdbc:mysql://localhost/test?username=admin&driver=com.mysql.jdbc.Driver";
-    validate(jdbcUrl4);
+    String jdbcUrl = "jdbc:mysql://localhost:3306/myDB?user=root&password=12345";
+    assertThrows(JeecgBootException.class, () -> JdbcSecurityUtil.validate(jdbcUrl));
 }
-
 
 
 No.10 generated result --------------------------
 
 @Test
 public void validateTest() {
-    String jdbcUrl = "jdbc:mysql://localhost:3306/mydatabase?user=root&password=pass123";
-    assertDoesNotThrow(() -> JdbcSecurityUtil.validate(jdbcUrl));
+    assertThrows(JeecgBootException.class, () -> validate("jdbc:mysql://localhost:3306/testdb?user=root&password=123456"));
 }
-
-In this unit test, I have provided a sample JDBC URL that contains both allowed and disallowed properties. I'm using the assertDoesNotThrow() method to verify that the validate() method does not throw any exceptions when validating the JDBC URL.
 
 

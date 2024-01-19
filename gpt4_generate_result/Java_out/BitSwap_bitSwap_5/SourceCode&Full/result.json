@@ -1,0 +1,28 @@
+{
+    "project_name": "Java",
+    "file_name": "BitSwap.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/bitmanipulation/BitSwap.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.bitmanipulation",
+    "docstring": null,
+    "source_code": "/*\n * @brief Swaps the bits at the position posA and posB from data\n */\npublic static int bitSwap(int data, final int posA, final int posB) {\n    if (SingleBitOperations.getBit(data, posA) != SingleBitOperations.getBit(data, posB)) {\n        data ^= (1 << posA) ^ (1 << posB);\n    }\n    return data;\n}\n",
+    "class_name": "BitSwap",
+    "method_name": "bitSwap",
+    "arguments": [
+        "int data",
+        "int posA",
+        "int posB"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

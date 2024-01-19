@@ -1,0 +1,94 @@
+Source code: 
+
+
+@Override
+public <T extends Comparable<T>> T[] sort(T[] array) {
+    doSort(array, 0, array.length - 1);
+    return array;
+}
+
+
+
+No.1 generated result --------------------------
+
+Timeout
+
+
+No.2 generated result --------------------------
+
+Timeout
+
+
+No.3 generated result --------------------------
+
+Timeout
+
+
+No.4 generated result --------------------------
+
+Timeout
+
+
+No.5 generated result --------------------------
+
+Timeout
+
+
+No.6 generated result --------------------------
+
+Timeout
+
+
+No.7 generated result --------------------------
+
+Timeout
+
+
+No.8 generated result --------------------------
+
+Timeout
+
+
+No.9 generated result --------------------------
+
+Timeout
+
+
+No.10 generated result --------------------------
+
+package com.thealgorithms.sorts;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+
+public class QuickSortTest {
+
+    private QuickSort quickSort;
+
+    @BeforeEach
+    public void setUp() {
+        quickSort = new QuickSort();
+    }
+
+    @Test
+    public void sortTest() {
+        Integer[] actual = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
+        Integer[] expected = {1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9};
+
+        // You might want to replace the 'sort' method call depending on the actual method signature
+        actual = quickSort.sort(actual);
+
+        assertArrayEquals(expected, actual, "The sorted arrays do not match.");
+
+        String[] actualStrs = {"banana", "apple", "lime", "cherry", "apricot"};
+        String[] expectedStrs = {"apple", "apricot", "banana", "cherry", "lime"};
+        
+        // For String arrays
+        actualStrs = quickSort.sort(actualStrs);
+
+        assertArrayEquals(expectedStrs, actualStrs, "The sorted string arrays do not match.");
+    }
+}
+
+

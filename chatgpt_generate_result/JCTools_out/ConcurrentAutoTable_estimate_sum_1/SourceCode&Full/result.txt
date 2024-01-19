@@ -20,9 +20,9 @@ No.1 generated result --------------------------
 
 @Test
 public void estimate_sumTest() {
-    ConcurrentAutoTable autoTable = new ConcurrentAutoTable();
-    long expectedSum = autoTable.get();
-    long actualSum = autoTable.estimate_get();
+    ConcurrentAutoTable cat = new ConcurrentAutoTable();
+    long expectedSum = cat.estimate_get();
+    long actualSum = cat.estimate_sum();
     assertEquals(expectedSum, actualSum);
 }
 
@@ -31,37 +31,30 @@ No.2 generated result --------------------------
 
 @Test
 public void estimate_sumTest() {
-  ConcurrentAutoTable concurrentAutoTable = new ConcurrentAutoTable();
-  long result = concurrentAutoTable.estimate_get();
-  assertEquals(result, concurrentAutoTable.estimate_sum());
+    ConcurrentAutoTable cat = new ConcurrentAutoTable();
+    long expected = cat.estimate_get();
+    assertEquals(expected, cat.estimate_sum());
 }
 
 
 No.3 generated result --------------------------
 
 @Test
-    public void estimate_sumTest() {
-        ConcurrentAutoTable autoTable = new ConcurrentAutoTable();
-        long expected = autoTable.sum();
-        long actual = autoTable.estimate_get();
-        assertEquals(expected, actual);
-    }
+public void estimate_sumTest() {
+    ConcurrentAutoTable cat = new ConcurrentAutoTable();
+    long expected = cat.estimate_get();
+    long actual = cat.estimate_sum();
+    assertEquals(expected, actual);
+}
 
 
 No.4 generated result --------------------------
 
-public class ConcurrentAutoTableTest {
-    @Test
-    public void estimate_sumTest() {
-        // Create an instance of ConcurrentAutoTable
-        ConcurrentAutoTable cat = new ConcurrentAutoTable();
-
-        // Call the estimate_get method
-        long result = cat.estimate_get();
-
-        // Assert the expected result with the actual result
-        assertEquals(0, result);
-    }
+@Test
+public void estimate_sumTest() {
+    ConcurrentAutoTable cat = new ConcurrentAutoTable();
+    long result = cat.estimate_get();
+    assertEquals(result, cat.estimate_sum());
 }
 
 
@@ -69,59 +62,31 @@ No.5 generated result --------------------------
 
 @Test
 public void estimate_sumTest() {
-    ConcurrentAutoTable table = new ConcurrentAutoTable();
-    long expectedSum = table.get(); // get the current sum
-    long actualSum = table.estimate_get(); // get the estimated sum
-    
-    assertEquals(expectedSum, actualSum, "The estimated sum should be equal to the current sum");
+    ConcurrentAutoTable cat = new ConcurrentAutoTable();
+    long expected = cat.estimate_get();
+    long result = cat.estimate_sum();
+    assertEquals(expected, result);
 }
 
 
 No.6 generated result --------------------------
 
-
-package org.jctools.maps;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class ConcurrentAutoTableTest {
-    @Test
-    public void estimate_sumTest() {
-        ConcurrentAutoTable table = new ConcurrentAutoTable();
-        
-        // Populate the table with some values
-        table.add(10);
-        table.add(20);
-        table.add(30);
-        
-        // Calculate the expected sum
-        long expectedSum = 10 + 20 + 30;
-        
-        // Test the estimate_get() method
-        long estimatedSum = table.estimate_get();
-        
-        // Assert that the estimated sum is within an acceptable range
-        assertTrue(estimatedSum >= expectedSum - 10 && estimatedSum <= expectedSum + 10);
-    }
+@Test
+public void estimate_sumTest() {
+    ConcurrentAutoTable cat = new ConcurrentAutoTable();
+    long expectedSum = cat.estimate_get();
+    assertEquals(expectedSum, cat.estimate_sum());
 }
-
 
 
 No.7 generated result --------------------------
 
-package org.jctools.maps;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class ConcurrentAutoTableTest {
-    @Test
-    public void estimate_sumTest() {
-        ConcurrentAutoTable table = new ConcurrentAutoTable();
-        long estimateSum = table.estimate_get();
-        assertEquals(table.get(), estimateSum);
-    }
+@Test
+public void estimate_sumTest() {
+    ConcurrentAutoTable cat = new ConcurrentAutoTable();
+    long expected = cat.estimate_get();
+    long result = cat.estimate_sum();
+    assertEquals(expected, result);
 }
 
 
@@ -129,52 +94,32 @@ No.8 generated result --------------------------
 
 @Test
 public void estimate_sumTest() {
-    ConcurrentAutoTable table = new ConcurrentAutoTable();
-    long expectedSum = table.get(); //initial sum is the value of the table
-    long estimatedSum = table.estimate_get(); //estimated sum using the fuzzy method
+    ConcurrentAutoTable cat = new ConcurrentAutoTable();
     
-    assertEquals(expectedSum, estimatedSum); //assert that the initial sum and estimated sum are equal
+    long expected = cat.get();
+    long result = cat.estimate_get();
     
-    //Add some values to the table
-    table.add(10);
-    table.add(20);
-    
-    expectedSum += 10 + 20; //update the expected sum
-    
-    estimatedSum = table.estimate_get(); //update the estimated sum using the fuzzy method
-    
-    assertEquals(expectedSum, estimatedSum); //assert that the updated sum and estimated sum are equal
+    assertEquals(expected, result, "The estimated sum does not match the actual sum");
 }
 
 
 No.9 generated result --------------------------
 
 @Test
-public void estimate_sumTest() { 
-    ConcurrentAutoTable table = new ConcurrentAutoTable(); // Create an instance of ConcurrentAutoTable
-    long expectedSum = table.get(); // Get the expected sum from the table
-    long actualSum = table.estimate_get(); // Get the estimated sum from the table
-    assertEquals(expectedSum, actualSum, "The estimated sum should be equal to the actual sum");
+public void estimate_sumTest() {
+    ConcurrentAutoTable table = new ConcurrentAutoTable();
+    long actual = table.estimate_get();
+    assertEquals(expected, actual);
 }
 
 
 No.10 generated result --------------------------
 
-
-package org.jctools.maps;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class ConcurrentAutoTableTest {
-    @Test
-    public void estimate_sumTest() {
-        ConcurrentAutoTable table = new ConcurrentAutoTable();
-        long estimatedSum = table.estimate_get();
-        long actualSum = table.get();
-        assertEquals(actualSum, estimatedSum);
-    }
+@Test
+public void estimate_sumTest() {
+    ConcurrentAutoTable table = new ConcurrentAutoTable();
+    long result = table.estimate_sum();
+    assertEquals(expectedResult, result);
 }
-
 
 

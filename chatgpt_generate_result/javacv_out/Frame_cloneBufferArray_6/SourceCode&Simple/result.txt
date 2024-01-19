@@ -98,264 +98,165 @@ No.1 generated result --------------------------
 
 @Test
 public void cloneBufferArrayTest() {
-    Buffer[] srcBuffers = new Buffer[2];
-    Buffer[] clonedBuffers = new Buffer[2];
-    srcBuffers[0] = ByteBuffer.allocateDirect(100);
-    srcBuffers[1] = FloatBuffer.allocate(50);
-
-    Pointer opaque = Frame.cloneBufferArray(srcBuffers, clonedBuffers);
-
-    assertNotNull(opaque);
-    assertTrue(clonedBuffers[0] instanceof ByteBuffer);
-    assertTrue(clonedBuffers[1] instanceof FloatBuffer);
-
-    assertEquals(100, clonedBuffers[0].capacity());
-    assertEquals(50, clonedBuffers[1].capacity());
-
-    for (int i = 0; i < srcBuffers.length; i++) {
-        srcBuffers[i].rewind();
-        clonedBuffers[i].rewind();
-    }
+    Buffer[] srcBuffers = new Buffer[10];
+    Buffer[] clonedBuffers = new Buffer[10];
+    Pointer result = Frame.cloneBufferArray(srcBuffers, clonedBuffers);
+    assertNotNull(result);
 }
 
 
 No.2 generated result --------------------------
 
-package org.bytedeco.javacv;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class FrameTest {
-    @Test
-    public void cloneBufferArrayTest() {
-        Buffer[] srcBuffers = new Buffer[2];
-        srcBuffers[0] = ByteBuffer.allocate(4);
-        srcBuffers[1] = DoubleBuffer.allocate(8);
-        
-        Buffer[] clonedBuffers = new Buffer[2];
-        
-        Pointer result = Frame.cloneBufferArray(srcBuffers, clonedBuffers);
-        
-        assertNotNull(result);
-    }
+@Test
+public void cloneBufferArrayTest() {
+    Buffer[] srcBuffers = new Buffer[5];
+    Buffer[] clonedBuffers = new Buffer[5];
+    Pointer result = Frame.cloneBufferArray(srcBuffers, clonedBuffers);
+    assertNotNull(result);
 }
 
 
 No.3 generated result --------------------------
 
-@Test
-public void cloneBufferArrayTest() {
-    Buffer[] srcBuffers = new Buffer[] {ByteBuffer.allocate(10), ByteBuffer.allocate(20)};
-    Buffer[] clonedBuffers = new Buffer[2];
-    
-    Pointer result = Frame.cloneBufferArray(srcBuffers, clonedBuffers);
-    
-    assertNotNull(result);
-    assertEquals(clonedBuffers.length, srcBuffers.length);
-    for (int i = 0; i < srcBuffers.length; i++) {
-        assertEquals(clonedBuffers[i].limit(), srcBuffers[i].limit());
-        assertEquals(clonedBuffers[i].position(), srcBuffers[i].position());
-        assertEquals(clonedBuffers[i].remaining(), srcBuffers[i].remaining());
+    @Test
+    public void cloneBufferArrayTest() {
+        // Initialize test buffers
+        ByteBuffer byteBuffer = ByteBuffer.allocate(10);
+        ShortBuffer shortBuffer = ShortBuffer.allocate(10);
+        IntBuffer intBuffer = IntBuffer.allocate(10);
+        LongBuffer longBuffer = LongBuffer.allocate(10);
+        FloatBuffer floatBuffer = FloatBuffer.allocate(10);
+        DoubleBuffer doubleBuffer = DoubleBuffer.allocate(10);
+        Buffer[] srcBuffers = {byteBuffer, shortBuffer, intBuffer, longBuffer, floatBuffer, doubleBuffer};
+        Buffer[] clonedBuffers = new Buffer[6];
+
+        // Call the method under test
+        Pointer result = Frame.cloneBufferArray(srcBuffers, clonedBuffers);
+
+        // Assert the result
+        assertNotNull(result);
     }
-}
 
 
 No.4 generated result --------------------------
 
 @Test
 public void cloneBufferArrayTest() {
-    // Define the source and cloned buffer arrays
-    Buffer[] srcBuffers = new Buffer[2];
-    srcBuffers[0] = ByteBuffer.allocate(10);
-    srcBuffers[1] = ShortBuffer.allocate(10);
-
+    ByteBuffer byteBuffer = ByteBuffer.allocate(10);
+    Buffer[] srcBuffers = {byteBuffer};
     Buffer[] clonedBuffers = new Buffer[srcBuffers.length];
-
-    // Call the method to be tested
-    Pointer opaque = Frame.cloneBufferArray(srcBuffers, clonedBuffers);
-
-    // Perform assertions
-    assertNotNull(opaque);
-    assertEquals(srcBuffers[0].capacity() + srcBuffers[1].capacity(), opaque.capacity());
-    assertEquals(ByteBuffer.class, clonedBuffers[0].getClass());
-    assertEquals(ShortBuffer.class, clonedBuffers[1].getClass());
+    Pointer result = Frame.cloneBufferArray(srcBuffers, clonedBuffers);
+    assertNotNull(result);
 }
 
 
 No.5 generated result --------------------------
 
 @Test
-public void cloneBufferArrayTest() {
-    // Create source buffers
-    ByteBuffer byteBuffer = ByteBuffer.allocate(100);
-    ShortBuffer shortBuffer = ShortBuffer.allocate(50);
-    
-    // Set values for source buffers
-    byteBuffer.put((byte) 1);
-    shortBuffer.put((short) 2);
-    
-    // Create cloned buffers
-    Buffer[] clonedBuffers = new Buffer[2];
-    
-    // Call the method being tested
-    Pointer result = Frame.cloneBufferArray(new Buffer[]{byteBuffer, shortBuffer}, clonedBuffers);
-    
-    // Assert the correctness of the cloned buffers
-    assertTrue(clonedBuffers[0] instanceof ByteBuffer);
-    assertTrue(clonedBuffers[1] instanceof ShortBuffer);
-    assertEquals(1, ((ByteBuffer)clonedBuffers[0]).get());
-    assertEquals(2, ((ShortBuffer)clonedBuffers[1]).get());
-    
-    // Assert the correctness of the result
-    assertNotNull(result);
-}
+    public void cloneBufferArrayTest() {
+        // Create source buffers and cloned buffers
+        Buffer[] srcBuffers = new Buffer[3];
+        Buffer[] clonedBuffers = new Buffer[3];
+
+        // Create some example data for the source buffers
+        ByteBuffer byteBuffer1 = ByteBuffer.allocate(10);
+        ByteBuffer byteBuffer2 = ByteBuffer.allocate(15);
+        ByteBuffer byteBuffer3 = ByteBuffer.allocate(20);
+        srcBuffers[0] = byteBuffer1;
+        srcBuffers[1] = byteBuffer2;
+        srcBuffers[2] = byteBuffer3;
+
+        // Call the method to test
+        Pointer result = Frame.cloneBufferArray(srcBuffers, clonedBuffers);
+
+        // Validate the result and cloned buffers
+        assertNotNull(result);
+        assertNotNull(clonedBuffers[0]);
+        assertNotNull(clonedBuffers[1]);
+        assertNotNull(clonedBuffers[2]);
+    }
 
 
 No.6 generated result --------------------------
 
 @Test
-    public void cloneBufferArrayTest() {
-        Buffer[] srcBuffers = new Buffer[5];
-        srcBuffers[0] = ByteBuffer.allocate(10);
-        srcBuffers[1] = ShortBuffer.allocate(20);
-        srcBuffers[2] = IntBuffer.allocate(15);
-        srcBuffers[3] = LongBuffer.allocate(25);
-        srcBuffers[4] = FloatBuffer.allocate(30);
+public void cloneBufferArrayTest() {
+    // Create srcBuffers and clonedBuffers
+    Buffer[] srcBuffers = new Buffer[10];
+    Buffer[] clonedBuffers = new Buffer[10];
 
-        Buffer[] clonedBuffers = new Buffer[srcBuffers.length];
-        Pointer opaque = cloneBufferArray(srcBuffers, clonedBuffers);
+    // Populate srcBuffers with some test data
+    // ...
 
-        // Assert statements
+    // Call the method to be tested
+    Pointer result = Frame.cloneBufferArray(srcBuffers, clonedBuffers);
 
-        // Check if the opaque pointer is not null
-        assertNotNull(opaque);
-
-        // Check if the clonedBuffers array is not null
-        assertNotNull(clonedBuffers);
-
-        // Check if the length of the clonedBuffers array is equal to the length of srcBuffers
-        assertEquals(srcBuffers.length, clonedBuffers.length);
-
-        // Check if each cloned buffer has the same limit and position as its corresponding source buffer
-        for (int i = 0; i < srcBuffers.length; i++) {
-            assertEquals(srcBuffers[i].limit(), clonedBuffers[i].limit());
-            assertEquals(srcBuffers[i].position(), clonedBuffers[i].position());
-        }
-
-        // Check if each cloned buffer has the same content as its corresponding source buffer
-        for (int i = 0; i < srcBuffers.length; i++) {
-            for (int j = 0; j < srcBuffers[i].limit(); j++) {
-                assertEquals(srcBuffers[i].get(j), clonedBuffers[i].get(j));
-            }
-        }
-    }
+    // Perform assertions on the result
+    assertNotNull(result);
+    // Add more assertions as needed
+}
 
 
 No.7 generated result --------------------------
 
-@Test
-public void cloneBufferArrayTest() {
-    // Test data
-    ByteBuffer byteBuffer1 = ByteBuffer.allocate(10);
-    ByteBuffer byteBuffer2 = ByteBuffer.allocate(20);
-    ByteBuffer[] srcBuffers = {byteBuffer1, byteBuffer2};
-    Buffer[] clonedBuffers = new Buffer[2];
+private static Pointer cloneBufferArrayTest() {
+      //create test data
+      int length = 5;
+      Buffer[] srcBuffers = new Buffer[length];
+      Buffer[] clonedBuffers = new Buffer[length];
 
-    // Invoke the method
-    Pointer result = Frame.cloneBufferArray(srcBuffers, clonedBuffers);
+      for (int i = 0; i < srcBuffers.length; i++) {
+          if (i % 2 == 0) {
+              srcBuffers[i] = ByteBuffer.allocate(10);
+              clonedBuffers[i] = ByteBuffer.allocate(10);
+          } else {
+              srcBuffers[i] = ShortBuffer.allocate(10);
+              clonedBuffers[i] = ShortBuffer.allocate(10);
+          }
+      }
 
-    // Assertions
-    assertNotNull(result);
-    assertEquals(30, result.capacity());
-    assertEquals(2, clonedBuffers.length);
+      //call the method being tested
+      Pointer result = Frame.cloneBufferArray(srcBuffers, clonedBuffers);
 
-    // Check cloned buffers
-    assertTrue(clonedBuffers[0] instanceof ByteBuffer);
-    assertTrue(clonedBuffers[1] instanceof ByteBuffer);
-
-    ByteBuffer clonedBuffer1 = (ByteBuffer) clonedBuffers[0];
-    ByteBuffer clonedBuffer2 = (ByteBuffer) clonedBuffers[1];
-
-    assertEquals(10, clonedBuffer1.capacity());
-    assertEquals(20, clonedBuffer2.capacity());
-
-    // Check buffer data
-    assertArrayEquals(byteBuffer1.array(), clonedBuffer1.array());
-    assertArrayEquals(byteBuffer2.array(), clonedBuffer2.array());
-}
+      //perform assertions
+      assertNotNull(result);
+      // add more assertions if needed
+      return result;
+  }
 
 
 No.8 generated result --------------------------
 
-package org.bytedeco.javacv;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class FrameTest {
-    @Test
-    public void cloneBufferArrayTest() {
-        // Create the source and cloned buffer arrays
-        Buffer[] srcBuffers = new Buffer[3];
-        Buffer[] clonedBuffers = new Buffer[3];
-        
-        // Create some sample buffers
-        ByteBuffer byteBuffer = ByteBuffer.allocate(10);
-        ShortBuffer shortBuffer = ShortBuffer.allocate(10);
-        IntBuffer intBuffer = IntBuffer.allocate(10);
-        
-        // Assign the sample buffers to the source buffer array
-        srcBuffers[0] = byteBuffer;
-        srcBuffers[1] = shortBuffer;
-        srcBuffers[2] = intBuffer;
-        
-        // Call the cloneBufferArray() method
-        Pointer result = Frame.cloneBufferArray(srcBuffers, clonedBuffers);
-        
-        // Verify that the cloned buffer array is populated correctly
-        assertArrayEquals(srcBuffers, clonedBuffers);
-        
-        // Verify that the result is not null
-        assertNotNull(result);
-    }
+@Test
+public void cloneBufferArrayTest() {
+    // Arrange
+    Buffer[] srcBuffers = new Buffer[1];
+    Buffer[] clonedBuffers = new Buffer[1];
+    
+    srcBuffers[0] = ByteBuffer.allocate(1024);
+    
+    // Act
+    Pointer result = Frame.cloneBufferArray(srcBuffers, clonedBuffers);
+    
+    // Assert
+    assertNotNull(result);
 }
 
 
 No.9 generated result --------------------------
 
-package org.bytedeco.javacv;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-import java.nio.DoubleBuffer;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
-import java.nio.LongBuffer;
-import java.nio.ShortBuffer;
-
-public class FrameTest {
-    @Test
-    public void cloneBufferArrayTest() {
-        Frame frame = new Frame();
-
-        // Create sample source buffers
-        ByteBuffer bb1 = ByteBuffer.allocate(10);
-        ByteBuffer bb2 = ByteBuffer.allocate(20);
-        Buffer[] srcBuffers = new Buffer[] {bb1, bb2};
-        
-  	    // Create cloned buffers
-        Buffer[] clonedBuffers = new Buffer[srcBuffers.length];
-
-        // Call the method to be tested
-        Pointer result = frame.cloneBufferArray(srcBuffers, clonedBuffers);
-
-        // Assert the output
-        assertNotNull(result);
-    }
+@Test
+public void cloneBufferArrayTest() {
+    // Create test input
+    Buffer[] srcBuffers = new Buffer[1]; // Replace with actual test input
+    Buffer[] clonedBuffers = new Buffer[1]; // Replace with actual test output
+    
+    // Call the method under test
+    Pointer result = Frame.cloneBufferArray(srcBuffers, clonedBuffers);
+    
+    // Perform assertions
+    assertNotNull(result);
+    // Add more assertions as needed
 }
 
 
@@ -363,21 +264,19 @@ No.10 generated result --------------------------
 
 @Test
 public void cloneBufferArrayTest() {
-    Buffer[] srcBuffers = new Buffer[2];
+    // Create source and cloned buffer arrays
+    Buffer[] srcBuffers = new Buffer[1];
     srcBuffers[0] = ByteBuffer.allocate(10);
-    srcBuffers[1] = ShortBuffer.allocate(5);
-
-    Buffer[] clonedBuffers = new Buffer[2];
-
-    Pointer opaque = Frame.cloneBufferArray(srcBuffers, clonedBuffers);
-
-    assertNotNull(opaque);
+    Buffer[] clonedBuffers = new Buffer[1];
+    
+    // Call the method to be tested
+    Pointer result = Frame.cloneBufferArray(srcBuffers, clonedBuffers);
+    
+    // Perform assertions for the expected output
+    assertNotNull(result);
+    assertTrue(result instanceof BytePointer);
     assertNotNull(clonedBuffers[0]);
-    assertNotNull(clonedBuffers[1]);
+    assertTrue(clonedBuffers[0] instanceof ByteBuffer);
 }
-
-In this test case, we have created two source buffers - one ByteBuffer and one ShortBuffer. We then create an array to store the cloned buffers. The Frame.cloneBufferArray() method is called with the source buffers and cloned buffers as arguments. 
-
-We check that the opaque pointer, as well as the cloned buffers, are not null to ensure that the cloning process was successful.
 
 

@@ -35,96 +35,71 @@ public static boolean setWay(int[][] map, int i, int j) {
 
 No.1 generated result --------------------------
 
-int[][] map = new int[8][7];
-        
-// Set the ceiling and floor to 1
-for (int i = 0; i < 7; i++) {
-    map[0][i] = 1;
-    map[7][i] = 1;
+@Test
+public void setWayTest() {
+    int[][] map = {
+        {1, 1, 1, 1, 1, 1, 1},
+        {1, 0, 0, 0, 1, 0, 1},
+        {1, 0, 1, 0, 1, 0, 1},
+        {1, 0, 1, 0, 1, 0, 1},
+        {1, 0, 0, 0, 0, 0, 1},
+        {1, 1, 1, 1, 1, 1, 1}
+    };
+    assertTrue(MazeRecursion.setWay(map, 1, 1));
 }
-
-// Then we set the left and right wall to 1
-for (int i = 0; i < 8; i++) {
-    map[i][0] = 1;
-    map[i][6] = 1;
-}
-
-// Here we set the obstacle
-map[3][1] = 1;
-map[3][2] = 1;
-
-boolean result = MazeRecursion.setWay(map, 1, 1);
-
-assertTrue(result);
 
 
 No.2 generated result --------------------------
 
 @Test
-public void setWayTest() {
-    int[][] map = new int[][]{
-            {1, 1, 1, 1, 1, 1, 1},
-            {1, 0, 0, 0, 0, 0, 1},
-            {1, 1, 1, 1, 0, 0, 1},
-            {1, 0, 0, 0, 1, 1, 1},
-            {1, 0, 1, 1, 1, 0, 1},
-            {1, 0, 0, 0, 1, 0, 1},
-            {1, 1, 1, 1, 1, 0, 1},
-            {1, 1, 1, 1, 1, 1, 1}
-    };
-    boolean result = MazeRecursion.setWay(map, 1, 1);
-    assertTrue(result);
-}
+    public void setWayTest() {
+        int[][] map = new int[8][7];
+        for (int i = 0; i < 7; i++) {
+            map[0][i] = 1;
+            map[7][i] = 1;
+        }
+        for (int i = 0; i < 8; i++) {
+            map[i][0] = 1;
+            map[i][6] = 1;
+        }
+        map[3][1] = 1;
+        map[3][2] = 1;
+        assertTrue(MazeRecursion.setWay(map, 1, 1));
+    }
 
 
 No.3 generated result --------------------------
 
 @Test
 public void setWayTest() {
-    int[][] expectedMap = {
+    int[][] map = {
         {1, 1, 1, 1, 1, 1, 1},
-        {1, 2, 2, 2, 2, 2, 1},
-        {1, 0, 0, 0, 0, 2, 1},
-        {1, 0, 1, 1, 0, 2, 1},
-        {1, 0, 1, 1, 0, 0, 1},
-        {1, 0, 2, 2, 2, 0, 1},
+        {1, 0, 0, 0, 0, 0, 1},
+        {1, 0, 1, 0, 1, 0, 1},
+        {1, 0, 1, 0, 1, 0, 1},
+        {1, 0, 0, 0, 0, 1, 1},
         {1, 1, 1, 1, 1, 1, 1},
-        {1, 1, 1, 1, 1, 1, 1}
+        {1, 1, 1, 1, 1, 1, 1},
     };
 
-    boolean result = MazeRecursion.setWay(new int[8][7], 1, 1);
-
-    assertTrue(result);
-    assertArrayEquals(expectedMap, map);
+    assertTrue(MazeRecursion.setWay(map, 1, 1)); // Expected outcome: true
 }
+
 
 
 No.4 generated result --------------------------
 
 @Test
 public void setWayTest() {
-    int[][] map = new int[8][7];
-    
-    for (int i = 0; i < 7; i++) {
-        map[0][i] = 1;
-        map[7][i] = 1;
-    }
-
-    for (int i = 0; i < 8; i++) {
-        map[i][0] = 1;
-        map[i][6] = 1;
-    }
-
-    map[3][1] = 1;
-    map[3][2] = 1;
-
+    int[][] map = {{1, 1, 1, 1, 1, 1, 1},
+                   {1, 0, 0, 0, 1, 0, 1},
+                   {1, 0, 1, 0, 1, 0, 1},
+                   {1, 0, 1, 0, 1, 1, 1},
+                   {1, 0, 0, 0, 0, 0, 1},
+                   {1, 1, 1, 1, 1, 0, 1},
+                   {1, 1, 1, 1, 1, 1, 1},
+                   {1, 1, 1, 1, 1, 1, 1}};
     assertTrue(MazeRecursion.setWay(map, 1, 1));
-    
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 7; j++) {
-            assertTrue(map[i][j] == 2 || map[i][j] == 3);
-        }
-    }
 }
 
 
@@ -134,156 +109,78 @@ No.5 generated result --------------------------
 public void setWayTest() {
     int[][] map = {{1, 1, 1, 1, 1, 1, 1},
                    {1, 0, 0, 0, 0, 0, 1},
-                   {1, 0, 1, 1, 0, 0, 1},
-                   {1, 0, 1, 1, 0, 0, 1},
-                   {1, 0, 0, 0, 0, 0, 1},
+                   {1, 0, 1, 1, 0, 1, 1},
+                   {1, 0, 0, 1, 0, 0, 1},
+                   {1, 1, 0, 0, 0, 1, 1},
                    {1, 1, 1, 1, 1, 1, 1},
                    {1, 1, 1, 1, 1, 1, 1},
                    {1, 1, 1, 1, 1, 1, 1}};
-    
-    boolean result = MazeRecursion.setWay(map, 1, 1);
-    
-    assertTrue(result);
+
+    assertTrue(MazeRecursion.setWay(map, 1, 1));
 }
 
 
 No.6 generated result --------------------------
 
-package com.thealgorithms.backtracking;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MazeRecursionTest {
     @Test
     public void setWayTest() {
-        int[][] map = new int[8][7];
-        
-        // Initialize the map
-        for (int i = 0; i < 7; i++) {
-            map[0][i] = 1;
-            map[7][i] = 1;
-        }
-        for (int i = 0; i < 8; i++) {
-            map[i][0] = 1;
-            map[i][6] = 1;
-        }
-        map[3][1] = 1;
-        map[3][2] = 1;
-        
-        // Run the setWay method
-        boolean result = MazeRecursion.setWay(map, 1, 1);
-        
-        // Verify the result
-        assertTrue(result);
-        
-        // Verify the changes made to the map
-        int[][] expectedMap = {
+        int[][] map = {
             {1, 1, 1, 1, 1, 1, 1},
-            {1, 2, 0, 0, 0, 0, 1},
-            {1, 2, 2, 2, 0, 0, 1},
-            {1, 1, 1, 0, 0, 0, 1},
             {1, 0, 0, 0, 0, 0, 1},
-            {1, 0, 0, 0, 0, 0, 1},
+            {1, 0, 1, 1, 1, 0, 1},
+            {1, 0, 1, 0, 0, 0, 1},
+            {1, 0, 1, 1, 1, 0, 1},
             {1, 0, 0, 0, 0, 0, 1},
             {1, 1, 1, 1, 1, 1, 1}
         };
-        assertArrayEquals(expectedMap, map);
+        
+        assertTrue(MazeRecursion.setWay(map, 1, 1));
     }
-}
 
 
 No.7 generated result --------------------------
 
 @Test
-public void setWayTest() {
-    int[][] map = new int[][] {
-        {1, 1, 1, 1, 1, 1, 1},
-        {1, 0, 0, 0, 0, 0, 1},
-        {1, 0, 1, 1, 0, 1, 1},
-        {1, 0, 1, 1, 0, 0, 1},
-        {1, 0, 0, 0, 1, 0, 1},
-        {1, 0, 1, 1, 1, 0, 1},
-        {1, 1, 1, 1, 1, 2, 1},
-        {1, 1, 1, 1, 1, 1, 1}
-    };
-    boolean result = MazeRecursion.setWay(map, 1, 1);
-    assertTrue(result);
-}
+    public void setWayTest() {
+        int[][] map = {
+            {1, 1, 1, 1, 1, 1, 1},
+            {1, 0, 0, 0, 0, 0, 1},
+            {1, 1, 1, 1, 1, 1, 1},
+            {1, 0, 1, 1, 0, 0, 1},
+            {1, 0, 0, 1, 0, 1, 0},
+            {1, 1, 0, 0, 0, 1, 1},
+            {1, 1, 1, 1, 1, 1, 1},
+            {1, 1, 1, 1, 1, 1, 1}
+        };
+        
+        assertTrue(MazeRecursion.setWay(map, 1, 1));
+    }
 
 
 No.8 generated result --------------------------
 
-package com.thealgorithms.backtracking;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MazeRecursionTest {
-    @Test
-    public void setWayTest() {
-        int[][] map = new int[8][7];
-        
-        // Initialize the map
-        
-        // Set the ceiling and floor to 1
-        for (int i = 0; i < 7; i++) {
-            map[0][i] = 1;
-            map[7][i] = 1;
-        }
-
-        // Set the left and right walls to 1
-        for (int i = 0; i < 8; i++) {
-            map[i][0] = 1;
-            map[i][6] = 1;
-        }
-
-        // Set the obstacle
-        map[3][1] = 1;
-        map[3][2] = 1;
-
-        // Set the expected result
-        boolean expectedResult = true;
-
-        // Call the method to test
-        boolean actualResult = MazeRecursion.setWay(map, 1, 1);
-
-        // Assert the result
-        assertEquals(expectedResult, actualResult);
-    }
+@Test
+public void setWayTest() {
+    int[][] map = {
+        {1, 1, 1, 1, 1, 1, 1},
+        {1, 0, 0, 0, 1, 0, 1},
+        {1, 1, 1, 0, 1, 0, 1},
+        {1, 0, 0, 0, 1, 0, 1},
+        {1, 1, 1, 1, 1, 1, 1},
+        {1, 1, 1, 1, 1, 1, 1},
+        {1, 1, 1, 1, 1, 1, 1},
+        {1, 1, 1, 1, 1, 1, 1}
+    };
+    assertTrue(MazeRecursion.setWay(map, 1, 1));
 }
 
 
 No.9 generated result --------------------------
 
-@Test
 public void setWayTest() {
-    int[][] maze = new int[8][7];
-    for (int i = 0; i < 7; i++) {
-        maze[0][i] = 1;
-        maze[7][i] = 1;
-    }
-    for (int i = 0; i < 8; i++) {
-        maze[i][0] = 1;
-        maze[i][6] = 1;
-    }
-    maze[3][1] = 1;
-    maze[3][2] = 1;
-    
-    MazeRecursion.setWay(maze, 1, 1);
-    
-    int[][] expected = {
-        {1, 1, 1, 1, 1, 1, 1},
-        {1, 2, 0, 0, 0, 0, 1},
-        {1, 2, 2, 0, 0, 0, 1},
-        {1, 1, 1, 1, 0, 0, 1},
-        {1, 0, 0, 0, 0, 0, 1},
-        {1, 1, 0, 0, 0, 0, 1},
-        {1, 1, 1, 1, 1, 2, 1},
-        {1, 1, 1, 1, 1, 3, 1}
-    };
-    
-    assertArrayEquals(expected, maze);
+    int[][] map = new int[8][7];
+    MazeRecursion.setWay(map, 1, 1);
+    assertEquals(2, map[6][5]);
 }
 
 
@@ -291,15 +188,17 @@ No.10 generated result --------------------------
 
 @Test
 public void setWayTest() {
-    int[][] map = new int[8][7];
-    // Set the maze map with obstacles and walls
-    // ... (initialize the maze map)
-    
-    boolean result = MazeRecursion.setWay(map, 1, 1);
-    
-    assertTrue(result);
-    // Assert the expected values in the map after the ball's path is found
-    // ... (assertions)
+    int[][] map = {
+        {1, 1, 1, 1, 1, 1, 1},
+        {1, 0, 0, 0, 0, 0, 1},
+        {1, 0, 1, 1, 0, 0, 1},
+        {1, 0, 1, 0, 0, 0, 1},
+        {1, 0, 1, 1, 1, 1, 1},
+        {1, 0, 0, 0, 0, 0, 1},
+        {1, 1, 1, 1, 1, 1, 1}
+    };
+    assertTrue(MazeRecursion.setWay(map, 1, 1));
 }
+
 
 

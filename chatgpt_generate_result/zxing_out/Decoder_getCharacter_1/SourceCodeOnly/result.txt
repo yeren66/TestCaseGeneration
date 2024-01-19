@@ -26,12 +26,10 @@ No.1 generated result --------------------------
 @Test
 public void getCharacterTest() {
     Table table = Table.UPPER;
-    int code = 10;
-    String expected = UPPER_TABLE[code];
-    
-    String result = getCharacter(table, code);
-    
-    assertEquals(expected, result);
+    int code = 65;
+    String expectedResult = "A";
+    String actualResult = getCharacter(table, code);
+    assertEquals(expectedResult, actualResult);
 }
 
 
@@ -39,10 +37,9 @@ No.2 generated result --------------------------
 
 @Test
 public void getCharacterTest() {
-    assertEquals("A", getCharacter(Table.UPPER, 0));
-    assertEquals("a", getCharacter(Table.LOWER, 0));
-    assertEquals("0", getCharacter(Table.DIGIT, 0));
-    // Add more test cases as needed
+    Table table = Table.UPPER;
+    int code = 65;
+    assertEquals(Decoder.getCharacter(table, code), "A");
 }
 
 
@@ -50,29 +47,23 @@ No.3 generated result --------------------------
 
 @Test
 public void getCharacterTest() {
-    assertEquals("A", getCharacter(Table.UPPER, 0));
-    assertEquals("z", getCharacter(Table.LOWER, 25));
-    assertEquals("?", getCharacter(Table.MIXED, 63));
-    assertEquals(",", getCharacter(Table.PUNCT, 10));
-    assertEquals("3", getCharacter(Table.DIGIT, 3));
-
-    assertThrows(IllegalStateException.class, () -> {
-        getCharacter(Table.valueOf("INVALID_TABLE"), 0);
-    });
+    Table table = Table.UPPER;
+    int code = 65;
+    String expected = "A";
+    String result = getCharacter(table, code);
+    assertEquals(expected, result);
 }
 
 
 No.4 generated result --------------------------
 
-   @Test
-    public void getCharacterTest() {
-        assertEquals(Decoder.getCharacter(Table.UPPER, 0), UPPER_TABLE[0]);
-        assertEquals(Decoder.getCharacter(Table.LOWER, 5), LOWER_TABLE[5]);
-        assertEquals(Decoder.getCharacter(Table.MIXED, 10), MIXED_TABLE[10]);
-        assertEquals(Decoder.getCharacter(Table.PUNCT, 15), PUNCT_TABLE[15]);
-        assertEquals(Decoder.getCharacter(Table.DIGIT, 20), DIGIT_TABLE[20]);
-        assertThrows(IllegalStateException.class, () -> Decoder.getCharacter(Table.UNKNOWN, 0));
-    }
+@Test
+  public void getCharacterTest() {
+        assertEquals("A", getCharacter(Table.UPPER, 0));
+        assertEquals("a", getCharacter(Table.LOWER, 0));
+        assertEquals("!", getCharacter(Table.PUNCT, 0));
+        assertEquals("0", getCharacter(Table.DIGIT, 0));
+  }
 
 
 No.5 generated result --------------------------
@@ -80,12 +71,10 @@ No.5 generated result --------------------------
 @Test
 public void getCharacterTest() {
     Table table = Table.UPPER;
-    int code = 65;
+    int code = 10;
     String expected = "A";
-    
-    String result = getCharacter(table, code);
-    
-    assertEquals(expected, result);
+    String actual = getCharacter(table, code);
+    assertEquals(expected, actual);
 }
 
 
@@ -93,11 +82,9 @@ No.6 generated result --------------------------
 
 @Test
 public void getCharacterTest() {
-    Table table = Table.UPPER;
-    int code = 0;
-    String expected = UPPER_TABLE[0];
-    String result = getCharacter(table, code);
-    assertEquals(expected, result);
+    Table table = Table.LOWER;
+    String result = Decoder.getCharacter(table, 8);
+    assertEquals("z", result);
 }
 
 
@@ -106,34 +93,9 @@ No.7 generated result --------------------------
 @Test
 public void getCharacterTest() {
     Table table = Table.UPPER;
-    int code = 65;
-    String expected = "A";
-    String actual = getCharacter(table, code);
-    assertEquals(expected, actual);
-
-    table = Table.LOWER;
-    code = 97;
-    expected = "a";
-    actual = getCharacter(table, code);
-    assertEquals(expected, actual);
-
-    table = Table.MIXED;
-    code = 32;
-    expected = " ";
-    actual = getCharacter(table, code);
-    assertEquals(expected, actual);
-
-    table = Table.PUNCT;
-    code = 33;
-    expected = "!";
-    actual = getCharacter(table, code);
-    assertEquals(expected, actual);
-
-    table = Table.DIGIT;
-    code = 48;
-    expected = "0";
-    actual = getCharacter(table, code);
-    assertEquals(expected, actual);
+    int code = 1;
+    String result = getCharacter(table, code);
+    assertEquals(UPPER_TABLE[code], result);
 }
 
 
@@ -141,40 +103,11 @@ No.8 generated result --------------------------
 
 @Test
 public void getCharacterTest() {
-    // Test case for UPPER table
-    Table table1 = Table.UPPER;
-    int code1 = 0;
-    String expectedCharacter1 = UPPER_TABLE[code1];
-    String actualCharacter1 = getCharacter(table1, code1);
-    assertEquals(expectedCharacter1, actualCharacter1);
-
-    // Test case for LOWER table
-    Table table2 = Table.LOWER;
-    int code2 = 1;
-    String expectedCharacter2 = LOWER_TABLE[code2];
-    String actualCharacter2 = getCharacter(table2, code2);
-    assertEquals(expectedCharacter2, actualCharacter2);
-
-    // Test case for MIXED table
-    Table table3 = Table.MIXED;
-    int code3 = 2;
-    String expectedCharacter3 = MIXED_TABLE[code3];
-    String actualCharacter3 = getCharacter(table3, code3);
-    assertEquals(expectedCharacter3, actualCharacter3);
-
-    // Test case for PUNCT table
-    Table table4 = Table.PUNCT;
-    int code4 = 3;
-    String expectedCharacter4 = PUNCT_TABLE[code4];
-    String actualCharacter4 = getCharacter(table4, code4);
-    assertEquals(expectedCharacter4, actualCharacter4);
-
-    // Test case for DIGIT table
-    Table table5 = Table.DIGIT;
-    int code5 = 4;
-    String expectedCharacter5 = DIGIT_TABLE[code5];
-    String actualCharacter5 = getCharacter(table5, code5);
-    assertEquals(expectedCharacter5, actualCharacter5);
+    Table table = Table.UPPER;
+    int code = 65; // Example code value
+    String expected = "A"; // Expected output based on the given code and table
+    String actual = getCharacter(table, code);
+    assertEquals(expected, actual);
 }
 
 
@@ -182,59 +115,26 @@ No.9 generated result --------------------------
 
 @Test
 public void getCharacterTest() {
-  // Test case for UPPER table
-  Table upperTable = Table.UPPER;
-  int uppercaseCode = 1;
-  String expectedUppercaseChar = UPPER_TABLE[uppercaseCode];
-  String actualUppercaseChar = getCharacter(upperTable, uppercaseCode);
-  assertEquals(expectedUppercaseChar, actualUppercaseChar);
-  
-  // Test case for LOWER table
-  Table lowerTable = Table.LOWER;
-  int lowercaseCode = 2;
-  String expectedLowercaseChar = LOWER_TABLE[lowercaseCode];
-  String actualLowercaseChar = getCharacter(lowerTable, lowercaseCode);
-  assertEquals(expectedLowercaseChar, actualLowercaseChar);
-  
-  // Test case for MIXED table
-  Table mixedTable = Table.MIXED;
-  int mixedCode = 3;
-  String expectedMixedChar = MIXED_TABLE[mixedCode];
-  String actualMixedChar = getCharacter(mixedTable, mixedCode);
-  assertEquals(expectedMixedChar, actualMixedChar);
-  
-  // Test case for PUNCT table
-  Table punctTable = Table.PUNCT;
-  int punctCode = 4;
-  String expectedPunctChar = PUNCT_TABLE[punctCode];
-  String actualPunctChar = getCharacter(punctTable, punctCode);
-  assertEquals(expectedPunctChar, actualPunctChar);
-  
-  // Test case for DIGIT table
-  Table digitTable = Table.DIGIT;
-  int digitCode = 5;
-  String expectedDigitChar = DIGIT_TABLE[digitCode];
-  String actualDigitChar = getCharacter(digitTable, digitCode);
-  assertEquals(expectedDigitChar, actualDigitChar);
-  
-  // Test case for default table
-  Table defaultTable = Table.DEFAULT;
-  int defaultCode = 6;
-  assertThrows(IllegalStateException.class, () -> getCharacter(defaultTable, defaultCode));
+    Table table = Table.UPPER;
+    int code = 65;
+    String expected = "A";
+    
+    String actual = getCharacter(table, code);
+    
+    assertEquals(expected, actual);
 }
+
 
 
 No.10 generated result --------------------------
 
 @Test
 public void getCharacterTest() {
-    Table table = Table.UPPER;
-    int code = 0;
-    String expected = UPPER_TABLE[0];
-    
-    String actual = getCharacter(table, code);
-    
-    assertEquals(expected, actual);
+    assertEquals("A", getCharacter(Table.UPPER, 0));
+    assertEquals("a", getCharacter(Table.LOWER, 0));
+    assertEquals("0", getCharacter(Table.DIGIT, 0));
+    assertEquals("!", getCharacter(Table.PUNCT, 0));
+    assertEquals("a", getCharacter(Table.MIXED, 0));
 }
 
 

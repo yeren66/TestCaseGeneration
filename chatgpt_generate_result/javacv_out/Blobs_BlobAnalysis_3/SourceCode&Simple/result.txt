@@ -319,77 +319,197 @@ No.1 generated result --------------------------
 
 @Test
 public void BlobAnalysisTest() {
-    // Create mock IplImage
-    IplImage src = opencv
+    IplImage src = new IplImage();
+    int col0 = 0;
+    int row0 = 0;
+    int cols = 100;
+    int rows = 100;
+    int border = 1;
+    int minArea = 50;
+    
+    Blobs blobs = new Blobs();
+    int result = blobs.BlobAnalysis(src, col0, row0, cols, rows, border, minArea);
+    
+    assertEquals(0, result);  // replace with actual expected value
+}
 
 
 No.2 generated result --------------------------
 
 @Test
 public void BlobAnalysisTest() {
-    IplImage src = cvCreateImage(cvSize(100, 100
+    // Create an instance of IplImage
+    IplImage image = new IplImage();
+    
+    // Add test parameters
+    int col0 = 0;
+    int row0 = 0;
+    int cols = 100;
+    int rows = 100;
+    int border = 1;
+    int minArea = 50;
+
+    // Create an instance of Blobs class
+    Blobs blobs = new Blobs();
+
+    // Call the BlobAnalysis method and assert the expected output
+    int result = blobs.BlobAnalysis(image, col0, row0, cols, rows, border, minArea);
+    // Add assertion
+    assertEquals(0, result);  // Replace 0 with the expected result
+}
 
 
 No.3 generated result --------------------------
 
 @Test
-    public void BlobAnalysisTest() {
-        // prepare input image
-        IplImage src = ...
-        
-       
+public void BlobAnalysisTest() {
+    // Create an IplImage object to use for the test
+    IplImage testImage = ...; // initialize with test image data
+
+    // Set the parameters for the BlobAnalysis method
+    int col0 = 0;
+    int row0 = 0;
+    int cols = 100; // example value
+    int rows = 100; // example value
+    int border = 1; // example value
+    int minArea = 100; // example value
+
+    // Create a Blobs object to test the BlobAnalysis method
+    Blobs blobs = new Blobs();
+
+    // Call the BlobAnalysis method and get the result
+    int maxLabel = blobs.BlobAnalysis(testImage, col0, row0, cols, rows, border, minArea);
+
+    // Verify the result
+    assertEquals(expectedMaxLabel, maxLabel); // replace expectedMaxLabel with the expected result
+}
 
 
 No.4 generated result --------------------------
 
-@Test
-public void BlobAnalysisTest() {
-    IplImage image = cvCreateImage(cvSize(10, 10
+IplImage Src = new IplImage();
+int Col0 = 0, Row0 = 0, Cols = 10, Rows = 10, Border = 1, MinArea = 10;
+Blobs blob = new Blobs();
+assertEquals(0, blob.BlobAnalysis(Src, Col0, Row0, Cols, Rows, Border, MinArea));
 
 
 No.5 generated result --------------------------
 
 @Test
-public void BlobAnalysisTest() {
-    IplImage src = new IplImage();
-    int col0 =
+    public void BlobAnalysisTest() {
+        // Create a test IplImage
+        IplImage testImage = new IplImage();
+
+        // Call the BlobAnalysis method with test data
+        Blobs blobs = new Blobs();
+        int result = blobs.BlobAnalysis(testImage, 0, 0, 100, 100, 0, 50);
+
+        // Assert the result
+        assertEquals(0, result); // Replace 0 with the expected result
+    }
 
 
 No.6 generated result --------------------------
 
 @Test
 public void BlobAnalysisTest() {
-    // Create a sample image and initialize values
-    IplImage sampleImage
+    // Create an IplImage object for testing
+    IplImage testImage = ...; // instantiate the test image
+
+    // Set the parameters for the BlobAnalysis method
+    int col0 = 0;
+    int row0 = 0;
+    int cols = testImage.width();
+    int rows = testImage.height();
+    int border = 0;
+    int minArea = 100;
+
+    // Call the BlobAnalysis method and assert the result
+    Blobs blobs = new Blobs();
+    int result = blobs.BlobAnalysis(testImage, col0, row0, cols, rows, border, minArea);
+    assertEquals(expectedResult, result); // provide the expected result for comparison
+}
 
 
 No.7 generated result --------------------------
 
 @Test
 public void BlobAnalysisTest() {
-    IplImage img = new IplImage();
-    // set up other
+    // Create a test IplImage
+    IplImage image = new IplImage();
+    // Set up the parameters for the BlobAnalysis method
+    int col0 = 0;
+    int row0 = 0;
+    int cols = 100;
+    int rows = 100;
+    int border = 0;
+    int minArea = 100;
+    // Call the BlobAnalysis method and store the result
+    Blobs blobs = new Blobs();
+    int result = blobs.BlobAnalysis(image, col0, row0, cols, rows, border, minArea);
+    // Assert the expected result
+    assertEquals(expectedResult, result);
+}
 
 
 No.8 generated result --------------------------
 
 @Test
 public void BlobAnalysisTest() {
-    IplImage inputImage = opencv_core.cvLoadImage("path_to
+    // Initialize necessary variables and objects
+    IplImage image = new IplImage();
+    int col0 = 0;
+    int row0 = 0;
+    int cols = 10;
+    int rows = 10;
+    int border = 1;
+    int minArea = 100;
+    
+    // Create an instance of the Blobs class
+    Blobs blobs = new Blobs();
+    
+    // Call the BlobAnalysis method
+    int maxLabel = blobs.BlobAnalysis(image, col0, row0, cols, rows, border, minArea);
+    
+    // Perform assertions based on the expected output
+    assertNotNull(image);
+    assertEquals(10, maxLabel);
+}
 
 
 No.9 generated result --------------------------
 
-@Test
-public void BlobAnalysisTest() {
-    IplImage src = cvCreateImage(cvSize(640, 480
+package org.bytedeco.javacv;
+
+import org.bytedeco.opencv.opencv_core.IplImage;
+import org.bytedeco.opencv.opencv_core.CvMat;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BlobsTest {
+    @Test
+    public void BlobAnalysisTest() {
+        Blobs blobs = new Blobs();
+        IplImage image = new IplImage();
+        int result = blobs.BlobAnalysis(image, 0, 0, 100, 100, 1);
+        assertEquals(0, result); // Replace with expected value
+    }
+}
 
 
 No.10 generated result --------------------------
 
-@Test
-public void BlobAnalysisTest() {
-    // Create input image
-    IplImage src = cvCreateImage(cv
+ // Sample completed unit test
+Blobs blobs = new Blobs();
+IplImage image = new IplImage();
+int col0 = 0;
+int row0 = 0;
+int cols = 100;
+int rows = 100;
+int border = 1;
+int minArea = 10;
+int result = blobs.BlobAnalysis(image, col0, row0, cols, rows, border, minArea);
+// Add assertion here to validate the result
 
 

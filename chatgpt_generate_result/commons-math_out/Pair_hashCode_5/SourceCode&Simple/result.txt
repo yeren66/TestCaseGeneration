@@ -17,10 +17,10 @@ No.1 generated result --------------------------
 
 @Test
 public void hashCodeTest() {
-    Pair<String, Integer> pair = new Pair<>("key", 5);
-    int expectedHashCode = pair.hashCode();
-
-    assertEquals(expectedHashCode, pair.hashCode());
+    Pair<Integer, String> pair = new Pair<>(5, "test");
+    int expected = 5 + "test".hashCode();
+    
+    assertEquals(expected, pair.hashCode());
 }
 
 
@@ -28,49 +28,30 @@ No.2 generated result --------------------------
 
 @Test
 public void hashCodeTest() {
-    Pair<Integer, String> pair = new Pair<>(1, "value");
-    int expectedHashCode = pair.getKey().hashCode() + 37 * pair.getValue().hashCode();
-    int actualHashCode = pair.hashCode();
-    assertEquals(expectedHashCode, actualHashCode);
+    Pair<String, Integer> pair = new Pair<>("test", 100);
+    int expected = 123; // Replace with expected hash code value
+    int result = pair.hashCode();
+    assertEquals(expected, result);
 }
 
 
 No.3 generated result --------------------------
 
 @Test
-public void hashCodeTest() {
-    Pair<String, Integer> pair = new Pair<>("Key", 1);
-    int expectedHashCode = pair.getKey() == null ? 0 : pair.getKey().hashCode();
-    int h = pair.getValue() == null ? 0 : pair.getValue().hashCode();
-    expectedHashCode = 37 * expectedHashCode + h ^ (h >>> 16);
-
-    int actualHashCode = pair.hashCode();
-
-    assertEquals(expectedHashCode, actualHashCode);
-}
+    public void hashCodeTest() {
+        Pair<String, Integer> pair = new Pair<>("key", 123);
+        int expected = pair.hashCode();
+        assertEquals(expected, pair.hashCode());
+    }
 
 
 No.4 generated result --------------------------
 
-package org.apache.commons.math4.legacy.core;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class PairTest {
-    @Test
-    public void hashCodeTest() {
-        Pair<String, Integer> pair = new Pair<>("key", 123);
-        int expectedHashCode = pair.getKey() == null ? 0 : pair.getKey().hashCode();
-
-        final int h = pair.getValue() == null ? 0 : pair.getValue().hashCode();
-
-        expectedHashCode = 37 * expectedHashCode + h ^ (h >>> 16);
-
-        int actualHashCode = pair.hashCode();
-
-        assertEquals(expectedHashCode, actualHashCode);
-    }
+@Test
+public void hashCodeTest() {
+    Pair<String, Integer> pair = new Pair<>("key", 5);
+    int expectedHashCode = 31 * ("key" == null ? 0 : "key".hashCode()) + (5 == null ? 0 : 5.hashCode());
+    assertEquals(expectedHashCode, pair.hashCode());
 }
 
 
@@ -78,56 +59,32 @@ No.5 generated result --------------------------
 
 @Test
 public void hashCodeTest() {
-    // Create a Pair instance
-    Pair<String, Integer> pair = new Pair<>("key", 10);
-    
-    // Calculate the expected hash code
-    int expectedHashCode = 37 * ("key" == null ? 0 : "key".hashCode());
-    final int h = 10 == null ? 0 : 10.hashCode();
-    expectedHashCode = expectedHashCode + h ^ (h >>> 16);
-
-    // Verify the actual and expected hash codes
-    assertEquals(expectedHashCode, pair.hashCode());
+    Pair<Integer, String> pair = Pair.create(1, "test");
+    assertEquals(1234567, pair.hashCode());
 }
 
 
 No.6 generated result --------------------------
 
-package org.apache.commons.math4.legacy.core;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class PairTest {
-    @Test
-    public void hashCodeTest() {
-        Pair<String, Integer> pair = new Pair<>("key", 123);
-        int expected = pair.getKey() == null ? 0 : pair.getKey().hashCode();
-        final int h = pair.getValue() == null ? 0 : pair.getValue().hashCode();
-        expected = 37 * expected + h ^ (h >>> 16);
-
-        int result = pair.hashCode();
-
-        assertEquals(expected, result);
-    }
+@Test
+public void hashCodeTest() {
+    Pair<String, Integer> pair = new Pair<>("test", 123);
+    int expectedHashCode = (pair.getKey() == null ? 0 : pair.getKey().hashCode()) * 37 +
+            (pair.getValue() == null ? 0 : pair.getValue().hashCode());
+    int result = pair.hashCode();
+    assertEquals(expectedHashCode, result);
 }
 
 
 No.7 generated result --------------------------
 
-package org.apache.commons.math4.legacy.core;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class PairTest {
-    @Test
-    public void hashCodeTest() {
-        Pair<String, Integer> pair = new Pair<>("key", 123);
-        int expectedHashCode = 37 * ("key" == null ? 0 : "key".hashCode()) + (123 == null ? 0 : 123.hashCode());
-        int actualHashCode = pair.hashCode();
-        assertEquals(expectedHashCode, actualHashCode);
-    }
+@Test
+public void hashCodeTest() {
+    Pair<Integer, String> pair = new Pair<>(5, "test");
+    int expected = 37 * (pair.getKey() == null ? 0 : pair.getKey().hashCode()) +
+                   (pair.getValue() == null ? 0 : pair.getValue().hashCode()) * (pair.getValue() == null ? 0 : pair.getValue().hashCode()) ^ 
+                   ((pair.getValue() == null ? 0 : pair.getValue().hashCode()) >>> 16);
+    assertEquals(expected, pair.hashCode());
 }
 
 
@@ -135,35 +92,21 @@ No.8 generated result --------------------------
 
 @Test
 public void hashCodeTest() {
-    Pair<Integer, String> pair = Pair.create(123, "Hello");
-    int expectedResult = pair.getKey().hashCode();
-    final int h = pair.getValue() == null ? 0 : pair.getValue().hashCode();
-    expectedResult = 37 * expectedResult + h ^ (h >>> 16);
-    int actualResult = pair.hashCode();
-    assertEquals(expectedResult, actualResult);
+    Pair<String, Integer> pair = new Pair<>("key", 10);
+    int expectedHashCode = 31 * (("key" == null ? 0 : "key".hashCode()) + (31 * (10 == null ? 0 : 10.hashCode())));
+
+    assertEquals(expectedHashCode, pair.hashCode());
 }
 
 
 No.9 generated result --------------------------
 
-package org.apache.commons.math4.legacy.core;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class PairTest {
-    @Test
-    public void hashCodeTest() {
-        Pair<String, Integer> pair = new Pair<>("key", 10);
-        
-        int expected = pair.getKey().hashCode();
-        expected = 37 * expected + pair.getValue().hashCode();
-        expected ^= expected >>> 16;
-        
-        int actual = pair.hashCode();
-        
-        assertEquals(expected, actual);
-    }
+@Test
+public void hashCodeTest() {
+    Pair<Integer, String> pair = new Pair<>(1, "test");
+    int expectedHashCode = 31 * (pair.getKey() == null ? 0 : pair.getKey().hashCode()) + (pair.getValue() == null ? 0 : pair.getValue().hashCode());
+    int actualHashCode = pair.hashCode();
+    assertEquals(expectedHashCode, actualHashCode);
 }
 
 
@@ -171,11 +114,9 @@ No.10 generated result --------------------------
 
 @Test
 public void hashCodeTest() {
-    Pair<String, Integer> pair = Pair.create("key", 123);
-    int expectedHashCode = pair.getKey().hashCode() * 37 + pair.getValue().hashCode();
-    
+    Pair<String, Integer> pair = new Pair<>("Test", 100);
+    int expectedHashCode = 31 * ("Test" == null ? 0 : "Test".hashCode()) + (100 == null ? 0 : 100.hashCode());
     int actualHashCode = pair.hashCode();
-    
     assertEquals(expectedHashCode, actualHashCode);
 }
 

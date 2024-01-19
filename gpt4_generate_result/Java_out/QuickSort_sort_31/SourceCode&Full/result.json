@@ -1,0 +1,26 @@
+{
+    "project_name": "Java",
+    "file_name": "QuickSort.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/sorts/QuickSort.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.sorts",
+    "docstring": "/**\n     * This method implements the Generic Quick Sort\n     *\n     * @param array The array to be sorted Sorts the array in increasing order\n     */",
+    "source_code": "\n@Override\npublic <T extends Comparable<T>> T[] sort(T[] array) {\n    doSort(array, 0, array.length - 1);\n    return array;\n}\n",
+    "class_name": "QuickSort",
+    "method_name": "sort",
+    "arguments": [
+        "T array"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

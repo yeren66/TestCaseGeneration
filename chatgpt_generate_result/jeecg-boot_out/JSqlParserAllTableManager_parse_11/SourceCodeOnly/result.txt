@@ -89,18 +89,12 @@ public Map<String, SelectSqlInfo> parse() throws JSQLParserException {
 No.1 generated result --------------------------
 
 public void parseTest() {
+    JSqlParserAllTableManager manager = new JSqlParserAllTableManager("SELECT * FROM table1");
     try {
-        JSqlParserAllTableManager manager = new JSqlParserAllTableManager();
-        manager.setSql("SELECT * FROM customers");
         Map<String, SelectSqlInfo> result = manager.parse();
-        
-        // Assert statements
         assertNotNull(result);
-        assertEquals(1, result.size());
-        // Add more assert statements as needed
     } catch (JSQLParserException e) {
-        e.printStackTrace();
-        fail("An exception occurred while parsing the SQL");
+        fail("Exception thrown: " + e.getMessage());
     }
 }
 
@@ -109,49 +103,43 @@ No.2 generated result --------------------------
 
 @Test
 public void parseTest() {
-    JSqlParserAllTableManager manager = new JSqlParserAllTableManager("SELECT * FROM users");
-    try {
-        Map<String, SelectSqlInfo> result = manager.parse();
-        assertNotNull(result);
-        // Add assertions for the expected output
-        // For example:
-        assertTrue(result.containsKey("users"));
-        assertEquals("SELECT * FROM users", result.get("users").getParsedSql());
-    } catch (JSQLParserException e) {
-        fail("An exception occurred during parsing: " + e.getMessage());
-    }
+    // Create a new instance of the JSqlParserAllTableManager class
+    JSqlParserAllTableManager parser = new JSqlParserAllTableManager();
+    // Initialize the sql string to be parsed
+    parser.setSql("SELECT * FROM table_name");
+    // Create a new HashMap to hold the expected result
+    Map<String, SelectSqlInfo> expected = new HashMap<>();
+    expected.put("table_name", new SelectSqlInfo());
+    // Parse the sql and compare the result against the expected Map
+    assertEquals(expected, parser.parse());
 }
 
 
 No.3 generated result --------------------------
 
 @Test
-public void parseTest() throws JSQLParserException {
+public void parseTest() {
     JSqlParserAllTableManager manager = new JSqlParserAllTableManager();
-    manager.setSql("SELECT * FROM table1");
-
-    Map<String, SelectSqlInfo> result = manager.parse();
-
+    Map<String, SelectSqlInfo> result = null;
+    assertDoesNotThrow(() -> result = manager.parse());
     assertNotNull(result);
-    assertEquals(1, result.size());
+    assertEquals(result.getClass(), Map.class);
 }
 
 
 No.4 generated result --------------------------
 
+@Test
 public void parseTest() {
-   JSqlParserAllTableManager manager = new JSqlParserAllTableManager("SELECT * FROM employees");
-   Map<String, SelectSqlInfo> result = null;
-   try {
-      result = manager.parse();
-   } catch (JSQLParserException e) {
-      e.printStackTrace();
-   }
-   
-   // Assertion
-   assertNotNull(result);
-   assertEquals(1, result.size());
-   assertTrue(result.containsKey("employees"));
+  // Arrange
+  String sql = "SELECT * FROM users";
+  JSqlParserAllTableManager manager = new JSqlParserAllTableManager(sql);
+  Map<String, SelectSqlInfo> expected = new HashMap<>();
+  expected.put("users", new SelectSqlInfo()); // Add expected data
+  // Act
+  Map<String, SelectSqlInfo> result = manager.parse();
+  // Assert
+  assertEquals(expected, result);
 }
 
 
@@ -159,136 +147,99 @@ No.5 generated result --------------------------
 
 @Test
 public void parseTest() {
-    JSqlParserAllTableManager manager = new JSqlParserAllTableManager();
-    String sql = "SELECT * FROM employees";
-    manager.setSql(sql);
     try {
-        Map<String, SelectSqlInfo> result = manager.parse();
+        // Create an instance of JSqlParserAllTableManager
+        JSqlParserAllTableManager parser = new JSqlParserAllTableManager();
+        // Set the SQL string to be parsed
+        parser.setSql("SELECT column1, column2 FROM table1");
+        // Call the parse method
+        Map<String, SelectSqlInfo> result = parser.parse();
+        // Add assertions to check the result
         assertNotNull(result);
-        assertFalse(result.isEmpty());
-        assertEquals(1, result.size());
-        assertTrue(result.containsKey("employees"));
-        SelectSqlInfo sqlInfo = result.get("employees");
-        assertTrue(sqlInfo.isSelectAll());
-        assertNull(sqlInfo.getSelectFields());
-        assertNull(sqlInfo.getRealSelectFields());
+        // Add more assertions based on the expected output
     } catch (JSQLParserException e) {
-        e.printStackTrace();
-        fail("An exception occurred while parsing the SQL");
+        fail("Exception not expected");
     }
 }
 
 
 No.6 generated result --------------------------
 
-@Test
-public void parseTest() throws JSQLParserException {
-    JSqlParserAllTableManager manager = new JSqlParserAllTableManager();
-    manager.setSql("SELECT * FROM customers;");
-    Map<String, SelectSqlInfo> result = manager.parse();
-    // Assertion to check if the result is not null
-    assertNotNull(result);
-    // Assertion to check if the size of the result is 1
-    assertEquals(1, result.size());
-    // Assertion to check if the table name is "customers"
-    assertTrue(result.containsKey("customers"));
-    // Assertion to check if the SelectSqlInfo object is not null
-    assertNotNull(result.get("customers"));
-    // Assertion to check if the SelectSqlInfo object has the selectAll flag set to true
-    assertTrue(result.get("customers").isSelectAll()); 
+public class JSqlParserAllTableManagerTest {
+    @Test
+    public void parseTest() {
+        // Arrange
+        String sql = "SELECT column1, column2 FROM table1";
+        JSqlParserAllTableManager manager = new JSqlParserAllTableManager(sql);
+        
+        // Act
+        Map<String, SelectSqlInfo> result = manager.parse();
+        
+        // Assert
+        assertNotNull(result);
+        // Add any specific assertions based on the expected behavior of the parse method
+    }
 }
 
 
 No.7 generated result --------------------------
 
 @Test
-    public void parseTest() throws JSQLParserException {
-        JSqlParserAllTableManager manager = new JSqlParserAllTableManager();
-        manager.setSql("SELECT id, name FROM employees;");
+public void parseTest() {
+    JSqlParserAllTableManager manager = new JSqlParserAllTableManager("SELECT * FROM employee");
+    try {
         Map<String, SelectSqlInfo> result = manager.parse();
         assertNotNull(result);
-        assertEquals(1, result.size());
-        SelectSqlInfo sqlInfo = result.get("employees");
-        assertNotNull(sqlInfo);
-        assertTrue(sqlInfo.isSelectAll());
-        assertNull(sqlInfo.getSelectFields());
-        assertNull(sqlInfo.getRealSelectFields());
+    } catch (JSQLParserException e) {
+        fail("Exception thrown");
     }
+}
 
 
 No.8 generated result --------------------------
 
+
+@Test
 public void parseTest() {
-    try {
-        JSqlParserAllTableManager manager = new JSqlParserAllTableManager();
-        // Set up the SQL query to be parsed
-        manager.setSql("SELECT * FROM table1");
-        
-        // Call the parse method
-        Map<String, SelectSqlInfo> result = manager.parse();
-        
-        // Assert that the result is not null
-        assertNotNull(result);
-        
-        // Assert that the size of the map is 1
-        assertEquals(1, result.size());
-    } catch (JSQLParserException e) {
-        fail("An exception occurred during parsing.");
-    }
+    JSqlParserAllTableManager manager = new JSqlParserAllTableManager();
+    String sql = "SELECT * FROM employees";
+    Map<String, SelectSqlInfo> result = manager.parse(sql);
+    assertNotNull(result);
 }
 
 
 No.9 generated result --------------------------
 
-package org.jeecg.common.util.sqlparse;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class JSqlParserAllTableManagerTest {
-    @Test
-    public void parseTest() {
-        // Create an instance of JSqlParserAllTableManager
-        JSqlParserAllTableManager manager = new JSqlParserAllTableManager();
-        
-        // Set the sql property of the manager
-        
-        try {
-            // Call the parse() method on the manager and store the result in a variable
-            Map<String, SelectSqlInfo> result = manager.parse();
-            
-            // Make assertions to verify the correctness of the result
-            
-            // ...
-        } catch (JSQLParserException e) {
-            // Handle the exception
-        }
+@Test
+public void parseTest() {
+    JSqlParserAllTableManager jSqlParserAllTableManager = new JSqlParserAllTableManager();
+    Map<String, SelectSqlInfo> map = null;
+    try {
+        map = jSqlParserAllTableManager.parse();
+    } catch (JSQLParserException e) {
+        e.printStackTrace();
     }
+    assertNotNull(map);
 }
 
 
 No.10 generated result --------------------------
 
 @Test
-public void parseTest() throws JSQLParserException {
+public void parseTest() {
+    // Create an instance of JSqlParserAllTableManager
     JSqlParserAllTableManager manager = new JSqlParserAllTableManager();
-    
-    // Set up test data
-    String sql = "SELECT * FROM table1";
-    manager.setSql(sql);
-    
-    // Call the method to be tested
+
+    // Set the sql parameter
+    manager.setSql("SELECT * FROM test_table");
+
+    // Call the parse method
     Map<String, SelectSqlInfo> result = manager.parse();
-    
-    // Assert the result
+
+    // Assertions
     assertNotNull(result);
     assertEquals(1, result.size());
-    assertTrue(result.containsKey("table1"));
-    
-    SelectSqlInfo sqlInfo = result.get("table1");
-    assertTrue(sqlInfo.isSelectAll());
-    assertNull(sqlInfo.getSelectFields());
-    assertNull(sqlInfo.getRealSelectFields());
+    assertTrue(result.containsKey("test_table"));
 }
 
 

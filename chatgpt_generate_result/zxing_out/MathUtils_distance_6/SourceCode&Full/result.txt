@@ -13,8 +13,8 @@ No.1 generated result --------------------------
 
 @Test
 public void distanceTest() {
-    float result = MathUtils.distance(1, 2, 3, 4);
-    assertEquals(2.828427f, result, 0.001f);
+    float result = MathUtils.distance(2, 3, 6, 5);
+    assertEquals(result, 4.47213595499958f);
 }
 
 
@@ -22,76 +22,52 @@ No.2 generated result --------------------------
 
 @Test
 public void distanceTest() {
-    int aX = 3;
-    int aY = 4;
-    int bX = 0;
-    int bY = 0;
-    float result = MathUtils.distance(aX, aY, bX, bY);
-    assertEquals(5.0f, result);
+    float result = MathUtils.distance(3, 4, 5, 8);
+    assertEquals(5.0, result);
 }
 
 
 No.3 generated result --------------------------
 
-package com.google.zxing.common.detector;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MathUtilsTest {
-    @Test
+@Test
     public void distanceTest() {
-        // Test case 1
-        float result1 = MathUtils.distance(0, 0, 3, 4);
-        assertEquals(5.0f, result1);
-
-        // Test case 2
-        float result2 = MathUtils.distance(5, 5, 10, 10);
-        assertEquals(7.0710678f, result2, 0.0001);
+        float result = MathUtils.distance(3, 5, 8, 10);
+        assertEquals((float) 7.071068, result, 0.000001);
     }
-}
 
 
 No.4 generated result --------------------------
 
 @Test
 public void distanceTest() {
-    float distance = MathUtils.distance(2, 3, 5, 6);
-    assertEquals(4.2426405f, distance, 0.00001f);
+    float result = MathUtils.distance(3, 4, 6, 8);
+    assertEquals(5.0, result);
 }
 
 
 No.5 generated result --------------------------
 
-package com.google.zxing.common.detector;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MathUtilsTest {
-    @Test
-    public void distanceTest() {
-        float distance = MathUtils.distance(3, 4, 6, 8);
-        assertEquals(5.0f, distance);
-    }
+@Test
+public void distanceTest() {
+    assertEquals(5.0, MathUtils.distance(0, 0, 3, 4));
 }
 
 
 No.6 generated result --------------------------
 
-package com.google.zxing.common.detector;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MathUtilsTest {
-
-    @Test
-    public void distanceTest() {
-        float expectedDistance = 5.0f;
-        float actualDistance = MathUtils.distance(0, 0, 3, 4);
-        assertEquals(expectedDistance, actualDistance);
-    }
+@Test
+public void distanceTest() {
+    // Given
+    int aX = 3;
+    int aY = 4;
+    int bX = 3;
+    int bY = 2;
+    
+    // When
+    float result = MathUtils.distance(aX, aY, bX, bY);
+    
+    // Then
+    assertEquals(2.0f, result);
 }
 
 
@@ -99,24 +75,18 @@ No.7 generated result --------------------------
 
 @Test
 public void distanceTest() {
-    float result = MathUtils.distance(0, 0, 3, 4);
-    assertEquals(5.0f, result);
+  float expectedDistance = MathUtils.distance(3, 4, 7, 1);
+  float actualDistance = (float) Math.sqrt(Math.pow(3-7, 2) + Math.pow(4-1, 2));
+  assertEquals(expectedDistance, actualDistance);
 }
 
 
 No.8 generated result --------------------------
 
-package com.google.zxing.common.detector;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class MathUtilsTest {
-    @Test
-    public void distanceTest() {
-        float result = MathUtils.distance(1, 2, 3, 4);
-        assertEquals(2.8284271f, result, 0.000001f);
-    }
+@Test
+public void distanceTest() {
+    float result = MathUtils.distance(3, 4, 6, 7);
+    assertEquals(4.24264f, result, 0.0001);
 }
 
 
@@ -124,24 +94,17 @@ No.9 generated result --------------------------
 
 @Test
 public void distanceTest() {
-    // Test case 1
-    assertEquals(5, MathUtils.distance(3, 4, 7, 1));
-
-    // Test case 2
-    assertEquals(10, MathUtils.distance(-2, -2, 0, 8));
-
-    // Test case 3
-    assertEquals(0, MathUtils.distance(0, 0, 0, 0));
+    float expected = (float)Math.sqrt(8 + 8);
+    float result = MathUtils.distance(3, 4, 7, 6);
+    assertEquals(expected, result);
 }
 
 
 No.10 generated result --------------------------
 
-@Test
 public void distanceTest() {
-    float actualDistance = MathUtils.distance(1, 2, 3, 4);
-    float expectedDistance = (float) Math.sqrt(8);
-    assertEquals(expectedDistance, actualDistance);
-}
+        float result = MathUtils.distance(3, 4, 0, 0);
+        assertEquals(5.0, result, 0.0);
+    }
 
 

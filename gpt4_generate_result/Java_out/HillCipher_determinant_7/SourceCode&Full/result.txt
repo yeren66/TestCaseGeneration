@@ -1,0 +1,83 @@
+Source code: 
+
+// Determinant calculator
+public static int determinant(int[][] a, int n) {
+    int det = 0, sign = 1, p = 0, q = 0;
+
+    if (n == 1) {
+        det = a[0][0];
+    } else {
+        int[][] b = new int[n - 1][n - 1];
+        for (int x = 0; x < n; x++) {
+            p = 0;
+            q = 0;
+            for (int i = 1; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (j != x) {
+                        b[p][q++] = a[i][j];
+                        if (q % (n - 1) == 0) {
+                            p++;
+                            q = 0;
+                        }
+                    }
+                }
+            }
+            det = det + a[0][x] * determinant(b, n - 1) * sign;
+            sign = -sign;
+        }
+    }
+    return det;
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

@@ -99,92 +99,6 @@ public boolean remove(int value) {
 
 No.1 generated result --------------------------
 
-
-package com.thealgorithms.datastructures.trees;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BinaryTreeTest {
-    @Test
-    public void removeTest() {
-        BinaryTree tree = new BinaryTree();
-        tree.put(5);
-        tree.put(3);
-        tree.put(7);
-        tree.remove(3);
-        assertNull(tree.find(3));
-        assertNotNull(tree.find(5));
-        assertNotNull(tree.find(7));
-        assertTrue(tree.remove(5));
-        assertTrue(tree.remove(7));
-        assertNull(tree.find(5));
-        assertNull(tree.find(7));
-        assertNull(tree.getRoot());
-    }
-}
-
-
-
-No.2 generated result --------------------------
-
-@Test
-public void removeTest() {
-    BinaryTree testTree = new BinaryTree();
-    testTree.put(5);
-    testTree.put(3);
-    testTree.put(7);
-    testTree.put(2);
-    testTree.put(4);
-    testTree.put(6);
-    testTree.put(8);
-
-    // Remove a node with no children
-    assertTrue(testTree.remove(4));
-    assertNull(testTree.find(4));
-
-    // Remove a node with one child
-    assertTrue(testTree.remove(7));
-    assertNull(testTree.find(7));
-
-    // Remove a node with two children
-    assertTrue(testTree.remove(3));
-    assertNull(testTree.find(3));
-}
-
-
-No.3 generated result --------------------------
-
-@Test
-public void removeTest() {
-    BinaryTree tree = new BinaryTree();
-    tree.put(5);
-    tree.put(3);
-    tree.put(7);
-    
-    // Test removing a value that doesn't exist
-    assertFalse(tree.remove(1));
-    
-    // Test removing a leaf node
-    assertTrue(tree.remove(3));
-    assertNull(tree.find(3));
-    
-    // Test removing a node with two children
-    assertTrue(tree.remove(5));
-    assertNull(tree.find(5));
-    assertNotNull(tree.find(7));
-    assertNotNull(tree.findSuccessor(tree.find(7)));
-
-    // Test removing the root node
-    assertTrue(tree.remove(7));
-    assertNull(tree.find(7));
-    assertNotNull(tree.getRoot());
-}
-
-
-
-No.4 generated result --------------------------
-
 @Test
 public void removeTest() {
     BinaryTree tree = new BinaryTree();
@@ -196,116 +110,77 @@ public void removeTest() {
     tree.put(6);
     tree.put(8);
     
-    assertTrue(tree.remove(2)); // Removing a leaf node
-    assertFalse(tree.remove(9)); // Value doesn't exist
-    
-    assertTrue(tree.remove(3)); // Node with one child (right child)
-    
-    assertTrue(tree.remove(7)); // Node with one child (left child)
-    assertFalse(tree.remove(7)); // Value has already been removed
-    
-    assertTrue(tree.remove(5)); // Node with two children
-    
-    assertTrue(tree.remove(6)); // Removing a leaf node
-    assertTrue(tree.remove(8)); // Removing a leaf node
-    
-    assertNull(tree.getRoot()); // Tree should be empty
+    tree.remove(4);
+    assertFalse(tree.remove(9));
+}
+
+
+No.2 generated result --------------------------
+
+@Test
+public void removeTest() {
+    BinaryTree tree = new BinaryTree();
+    tree.put(4);
+    tree.put(2);
+    tree.put(6);
+    tree.put(1);
+    tree.put(3);
+    tree.put(5);
+    tree.put(7);
+    assertTrue(tree.remove(2)); // Testing removal of node with one child
+    assertFalse(tree.remove(9)); // Testing removal of non-existent node
+    assertTrue(tree.remove(4)); // Testing removal of root node with two children
+    assertTrue(tree.remove(6)); // Testing removal of internal node with two children
+}
+
+
+No.3 generated result --------------------------
+
+BinaryTree tree = new BinaryTree();
+tree.put(5);
+tree.put(3);
+tree.put(8);
+tree.put(4);
+tree.put(7);
+tree.put(9);
+tree.remove(4);
+assertEquals(null, tree.find(4)); // Expected output is null because 4 should be removed from the tree
+
+
+No.4 generated result --------------------------
+
+@Test
+public void removeTest() {
+    BinaryTree bt = new BinaryTree();
+    bt.put(5);
+    bt.put(3);
+    bt.put(7);
+    assertTrue(bt.remove(5));
+    assertFalse(bt.remove(10));
 }
 
 
 No.5 generated result --------------------------
 
-   @Test
-    public void removeTest() {
-        BinaryTree tree = new BinaryTree();
-        tree.put(10);
-        tree.put(5);
-        tree.put(15);
-        tree.put(3);
-        tree.put(7);
-        
-        assertTrue(tree.remove(3));
-        assertFalse(tree.remove(8));
-        assertTrue(tree.remove(10));
-        
-        assertNull(tree.find(3));
-        assertNotNull(tree.find(5));
-        assertNotNull(tree.find(7));
-        assertNull(tree.find(10));
-    }
+@Test
+public void removeTest() {
+    BinaryTree tree = new BinaryTree();
+    tree.put(10);
+    tree.put(5);
+    tree.put(15);
+    tree.put(3);
+    tree.put(7);
+    tree.put(13);
+    tree.put(17);
+    assertTrue(tree.remove(3));
+    assertFalse(tree.remove(20));
+    assertTrue(tree.remove(15));
+    assertTrue(tree.remove(10));
+    assertFalse(tree.remove(10));
+}
 
 
 No.6 generated result --------------------------
-
-package com.thealgorithms.datastructures.trees;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BinaryTreeTest {
-    @Test
-    public void removeTest() {
-        BinaryTree tree = new BinaryTree();
-        tree.put(10);
-        tree.put(5);
-        tree.put(15);
-        tree.put(3);
-        
-        // Testing removal of a value that exists in the tree
-        assertTrue(tree.remove(5));
-        
-        // Testing removal of a value that doesn't exist in the tree
-        assertFalse(tree.remove(8));
-        
-        // Testing removal of the root node
-        assertTrue(tree.remove(10));
-        
-        // Testing removal of a leaf node
-        assertTrue(tree.remove(3));
-
-        // Testing removal of a value when there are no elements in the tree
-        assertFalse(tree.remove(10));
-    }
-}
-
-
-No.7 generated result --------------------------
-
-package com.thealgorithms.datastructures.trees;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class BinaryTreeTest {
-    @Test
-    public void removeTest() {
-        BinaryTree tree = new BinaryTree();
-        
-        // Inserting elements into the tree for testing
-        tree.put(10);
-        tree.put(5);
-        tree.put(15);
-        tree.put(3);
-        tree.put(7);
-        tree.put(12);
-        tree.put(20);
-        
-        // Removing a value that doesn't exist in the tree
-        assertFalse(tree.remove(1));
-        
-        // Removing a leaf node
-        assertTrue(tree.remove(3));
-        
-        // Removing a node with two children
-        assertTrue(tree.remove(5));
-        
-        // Removing a node with one child
-        assertTrue(tree.remove(15));
-    }
-}
-
-
-No.8 generated result --------------------------
 
 @Test
 public void removeTest() {
@@ -315,32 +190,69 @@ public void removeTest() {
     tree.put(7);
     tree.put(2);
     tree.put(4);
+    tree.put(6);
+    tree.put(8);
+    assertTrue(tree.remove(5));
+}
 
-    boolean result = tree.remove(3);
 
-    assertTrue(result);
-    assertNull(tree.find(3));
-    assertEquals(4, tree.getRoot().left.data);
+No.7 generated result --------------------------
+
+java
+    @Test
+    public void removeTest() {
+        BinaryTree tree = new BinaryTree();
+        tree.put(10);
+        tree.put(5);
+        tree.put(15);
+        tree.remove(5);
+        assertNull(tree.find(5));
+        tree.remove(10);
+        assertNull(tree.find(10));
+        tree.remove(15);
+        assertNull(tree.find(15));
+   }
+ 
+
+
+No.8 generated result --------------------------
+
+@Test
+public void removeTest() {
+    BinaryTree tree = new BinaryTree();
+    tree.put(5);
+    tree.put(3);
+    tree.put(8);
+    tree.put(1);
+    tree.put(4);
+    tree.put(6);
+    tree.put(9);
+    tree.remove(8);
+    assertEquals(null, tree.find(8));
 }
 
 
 No.9 generated result --------------------------
 
-@Test
+    @Test
     public void removeTest() {
-        BinaryTree tree = new BinaryTree();
-        tree.put(5);
-        tree.put(3);
-        tree.put(7);
-        tree.put(2);
-        tree.put(4);
-        tree.put(6);
-        tree.put(8);
-
-        assertTrue(tree.remove(5));
-        assertFalse(tree.remove(9));
-        assertTrue(tree.remove(3));
-        assertTrue(tree.remove(8));
+        // Create a binary tree
+        BinaryTree bt = new BinaryTree();
+        
+        // Add nodes to the binary tree
+        bt.put(50);
+        bt.put(30);
+        bt.put(20);
+        bt.put(40);
+        bt.put(70);
+        bt.put(60);
+        bt.put(80);
+        
+        // Remove a node from the binary tree
+        boolean result = bt.remove(30);
+        
+        // Assert that the node was removed successfully
+        assertTrue(result);
     }
 
 
@@ -351,16 +263,15 @@ public void removeTest() {
     BinaryTree tree = new BinaryTree();
     tree.put(5);
     tree.put(3);
-    tree.put(7);
+    tree.put(8);
     tree.put(2);
     tree.put(4);
-    tree.put(6);
-    tree.put(8);
-    
-    assertTrue(tree.remove(3));
-    assertTrue(tree.remove(7));
+    tree.put(7);
+    tree.put(10);
+    assertTrue(tree.remove(8));
+    assertFalse(tree.remove(9));
     assertTrue(tree.remove(5));
-    assertFalse(tree.remove(10));
+    assertEquals(4, tree.getRoot().data);
 }
 
 

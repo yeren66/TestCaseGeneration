@@ -1,0 +1,26 @@
+{
+    "project_name": "Java",
+    "file_name": "IIRFilter.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/audiofilters/IIRFilter.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.audiofilters",
+    "docstring": "/**\n     * Process a single sample\n     *\n     * @param sample the sample to process\n     * @return the processed sample\n     */",
+    "source_code": "\npublic double process(double sample) {\n    double result = 0.0;\n\n    // Process\n    for (int i = 1; i <= order; i++) {\n        result += (coeffsB[i] * historyX[i - 1] - coeffsA[i] * historyY[i - 1]);\n    }\n    result = (result + coeffsB[0] * sample) / coeffsA[0];\n\n    // Feedback\n    for (int i = order - 1; i > 0; i--) {\n        historyX[i] = historyX[i - 1];\n        historyY[i] = historyY[i - 1];\n    }\n\n    historyX[0] = sample;\n    historyY[0] = result;\n\n    return result;\n}\n",
+    "class_name": "IIRFilter",
+    "method_name": "process",
+    "arguments": [
+        "double sample"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

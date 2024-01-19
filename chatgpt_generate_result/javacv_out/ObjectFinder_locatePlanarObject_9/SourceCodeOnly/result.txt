@@ -49,20 +49,21 @@ double[] locatePlanarObject(KeyPointVector objectKeypoints, Mat objectDescriptor
 
 No.1 generated result --------------------------
 
+@Test
+public void locatePlanarObjectTest() {
+    // Create KeyPointVector, Mat, and double array to use as input for the method
+    KeyPointVector objectKeypoints = new KeyPointVector();
+    Mat objectDescriptors = new Mat();
+    KeyPointVector imageKeypoints = new KeyPointVector();
+    Mat imageDescriptors = new Mat();
+    double[] srcCorners = new double[8]; // Replace 8 with the actual length of the array
 
-double[] srcCorners = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0};
+    // Call the method and store the result in a variable
+    double[] result = locatePlanarObject(objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, srcCorners);
 
-KeyPointVector objectKeypoints = new KeyPointVector();
-Mat objectDescriptors = new Mat();
-KeyPointVector imageKeypoints = new KeyPointVector();
-Mat imageDescriptors = new Mat();
-
-ObjectFinder objectFinder = new ObjectFinder();
-
-double[] result = objectFinder.locatePlanarObject(objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, srcCorners);
-
-// Asserting that the result is not null
-assertNotNull(result);
+    // Assert the expected output based on the input provided
+    assertNotNull(result); // Change this assertion based on the expected behavior of the method
+}
 
 
 
@@ -70,105 +71,86 @@ No.2 generated result --------------------------
 
 @Test
 public void locatePlanarObjectTest() {
+    // Create KeyPointVector, Mat, double array
     KeyPointVector objectKeypoints = new KeyPointVector();
     Mat objectDescriptors = new Mat();
     KeyPointVector imageKeypoints = new KeyPointVector();
     Mat imageDescriptors = new Mat();
-    double[] srcCorners = {0, 0, 1, 0, 1, 1, 0, 1};
-
-    double[] dstCorners = locatePlanarObject(objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, srcCorners);
-
-    assertNotNull(dstCorners);
-    assertNotEquals(0, dstCorners.length);
+    double[] srcCorners = new double[8];
+    
+    // Call the locatePlanarObject method
+    double[] result = locatePlanarObject(objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, srcCorners);
+    
+    // Assert the result is not null
+    assertNotNull(result);
 }
+
 
 
 No.3 generated result --------------------------
 
-package org.bytedeco.javacv;
+@Test
+public void locatePlanarObjectTest() {
+    // Create KeyPointVector and Mat objects
+    KeyPointVector objectKeypoints = new KeyPointVector();
+    Mat objectDescriptors = new Mat();
+    KeyPointVector imageKeypoints = new KeyPointVector();
+    Mat imageDescriptors = new Mat();
+    
+    // Create double array for srcCorners
+    double[] srcCorners = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0};
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+    // Call the method to be tested
+    double[] result = locatePlanarObject(objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, srcCorners);
 
-public class ObjectFinderTest {
-    @Test
-    public void locatePlanarObjectTest() {
-        KeyPointVector objectKeypoints = new KeyPointVector();
-        Mat objectDescriptors = new Mat();
-        KeyPointVector imageKeypoints = new KeyPointVector();
-        Mat imageDescriptors = new Mat();
-        double[] srcCorners = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0};
-        
-        double[] dstCorners = locatePlanarObject(objectKeypoints, objectDescriptors,
-                                                 imageKeypoints, imageDescriptors,
-                                                 srcCorners);
-        
-        assertNotNull(dstCorners);
-    }
+    // Assert the expected output
+    assertNotNull(result);
 }
 
 
 No.4 generated result --------------------------
 
-package org.bytedeco.javacv;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class ObjectFinderTest {
-    @Test
-    public void locatePlanarObjectTest() {
-        // Create test data
-        KeyPointVector objectKeypoints = new KeyPointVector();
-        Mat objectDescriptors = new Mat();
-        KeyPointVector imageKeypoints = new KeyPointVector();
-        Mat imageDescriptors = new Mat();
-        double[] srcCorners = new double[8];
-
-        // Call the method to be tested
-        ObjectFinder objectFinder = new ObjectFinder();
-        double[] result = objectFinder.locatePlanarObject(objectKeypoints, objectDescriptors, 
-                                                        imageKeypoints, imageDescriptors, 
-                                                        srcCorners);
-        
-        // Assert the expected result
-        assertNull(result);
-    }
-}
+double[] result = locatePlanarObject(objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, srcCorners);
+assertNotNull(result);
 
 
 No.5 generated result --------------------------
 
 @Test
 public void locatePlanarObjectTest() {
-    KeyPointVector objectKeypoints = new KeyPointVector();
-    Mat objectDescriptors = new Mat();
-    KeyPointVector imageKeypoints = new KeyPointVector();
-    Mat imageDescriptors = new Mat();
-    double[] srcCorners = {1.0, 2.0, 3.0, 4.0}; // Replace with appropriate values
-
+    // Create test data
+    KeyPointVector objectKeypoints = createObjectKeypoints();
+    Mat objectDescriptors = createObjectDescriptors();
+    KeyPointVector imageKeypoints = createImageKeypoints();
+    Mat imageDescriptors = createImageDescriptors();
+    double[] srcCorners = {0, 0, 1, 0, 1, 1, 0, 1};
+    
+    // Call the method
     double[] result = locatePlanarObject(objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, srcCorners);
-
+    
+    // Test the result
     assertNotNull(result);
-    // Add additional assertions based on expected output
+    assertEquals(8, result.length);
 }
+
 
 
 No.6 generated result --------------------------
 
 @Test
 public void locatePlanarObjectTest() {
+    // Arrange
     KeyPointVector objectKeypoints = new KeyPointVector();
     Mat objectDescriptors = new Mat();
     KeyPointVector imageKeypoints = new KeyPointVector();
     Mat imageDescriptors = new Mat();
-    double[] srcCorners = {0, 0, 1, 0, 1, 1, 0, 1};
-
-    ObjectFinder objectFinder = new ObjectFinder();
-    double[] dstCorners = objectFinder.locatePlanarObject(objectKeypoints, objectDescriptors,
-        imageKeypoints, imageDescriptors, srcCorners);
-
-    assertNotNull(dstCorners);
+    double[] srcCorners = {0.0, 0.0, 100.0, 0.0, 100.0, 100.0, 0.0, 100.0};
+    
+    // Act
+    double[] result = locatePlanarObject(objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, srcCorners);
+    
+    // Assert
+    assertArrayEquals(new double[]{}, result);
 }
 
 
@@ -176,54 +158,51 @@ No.7 generated result --------------------------
 
 @Test
 public void locatePlanarObjectTest() {
-    // Create objectKeypoints
+    // Create test data
     KeyPointVector objectKeypoints = new KeyPointVector();
-    objectKeypoints.resize(4);
-    objectKeypoints.get(0).pt().put(10, 20);
-    objectKeypoints.get(1).pt().put(30, 40);
-    objectKeypoints.get(2).pt().put(50, 60);
-    objectKeypoints.get(3).pt().put(70, 80);
-    
-    // Create objectDescriptors
     Mat objectDescriptors = new Mat();
-    
-    // Create imageKeypoints
     KeyPointVector imageKeypoints = new KeyPointVector();
-    imageKeypoints.resize(4);
-    imageKeypoints.get(0).pt().put(100, 200);
-    imageKeypoints.get(1).pt().put(300, 400);
-    imageKeypoints.get(2).pt().put(500, 600);
-    imageKeypoints.get(3).pt().put(700, 800);
-    
-    // Create imageDescriptors
     Mat imageDescriptors = new Mat();
-    
-    // Create srcCorners
-    double[] srcCorners = {10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0};
-    
-    // Call the method
-    double[] result = locatePlanarObject(objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, srcCorners);
-    
-    // Assert the expected result
-    double[] expected = <expected_result>;
-    assertArrayEquals(expected, result);
+    double[] srcCorners = {0, 0, 1, 0, 1, 1, 0, 1};
 
+    // Create ObjectFinder instance
+    ObjectFinder finder = new ObjectFinder();
+
+    // Call the method and test the output
+    double[] result = finder.locatePlanarObject(objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, srcCorners);
+
+    // Assert the result
+    assertArrayEquals(expectedOutput, result);
 }
 
 
 No.8 generated result --------------------------
 
-@Test
-public void locatePlanarObjectTest() {
-    KeyPointVector objectKeypoints = new KeyPointVector();
-    Mat objectDescriptors = new Mat();
-    KeyPointVector imageKeypoints = new KeyPointVector();
-    Mat imageDescriptors = new Mat();
-    double[] srcCorners = new double[]{};
+package org.bytedeco.javacv;
 
-    double[] result = locatePlanarObject(objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, srcCorners);
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-    assertNull(result);
+public class ObjectFinderTest {
+    @Test
+    public void locatePlanarObjectTest() {
+        // Create instance of KeyPointVector, Mat, double[] and ObjectFinder class
+        KeyPointVector objectKeypoints = new KeyPointVector();
+        Mat objectDescriptors = new Mat();
+        KeyPointVector imageKeypoints = new KeyPointVector();
+        Mat imageDescriptors = new Mat();
+        double[] srcCorners = new double[8];
+        for (int i = 0; i < 8; i++) {
+            srcCorners[i] = i+1;
+        }
+
+        ObjectFinder objectFinder = new ObjectFinder();
+        double[] result = objectFinder.locatePlanarObject(objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, srcCorners);
+
+        // Complete the test assertions
+        assertNotNull(result, "Result should not be null");
+        assertEquals(8, result.length, "Result should contain 8 elements");
+    }
 }
 
 
@@ -231,45 +210,33 @@ No.9 generated result --------------------------
 
 @Test
 public void locatePlanarObjectTest() {
-    // Create objectKeypoints
-    KeyPointVector objectKeypoints = new KeyPointVector();
-    // Create objectDescriptors
-    Mat objectDescriptors = new Mat();
-    // Create imageKeypoints
-    KeyPointVector imageKeypoints = new KeyPointVector();
-    // Create imageDescriptors
-    Mat imageDescriptors = new Mat();
-    // Create srcCorners
-    double[] srcCorners = {0, 0, 1, 0, 1, 1, 0, 1};
-
-    // Create expected dstCorners
-    double[] expectedCorners = {0, 0, 1, 0, 1, 1, 0, 1};
-
-    // Call the method
-    double[] result = locatePlanarObject(objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, srcCorners);
-
-    // Assert the result
-    assertArrayEquals(expectedCorners, result);
+    // Arrange
+    // Create the necessary objects and parameters for the test
+    
+    // Act
+    // Call the `locatePlanarObject` method with the necessary parameters
+    
+    // Assert
+    // Check the output and compare with expected results
 }
 
 
 No.10 generated result --------------------------
 
-@Test
 public void locatePlanarObjectTest() {
-    // Creating dummy data for testing
-    KeyPointVector objectKeypoints = new KeyPointVector();
-    Mat objectDescriptors = new Mat();
-    KeyPointVector imageKeypoints = new KeyPointVector();
-    Mat imageDescriptors = new Mat();
-    double[] srcCorners = {1.0, 2.0, 3.0, 4.0}; // Example srcCorners, replace with actual values
-    
-    // Calling the method to be tested
+    // Create test data for objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, and srcCorners
+    KeyPointVector objectKeypoints = <create test objectKeypoints>;
+    Mat objectDescriptors = <create test objectDescriptors>;
+    KeyPointVector imageKeypoints = <create test imageKeypoints>;
+    Mat imageDescriptors = <create test imageDescriptors>;
+    double[] srcCorners = <create test srcCorners>;
+
+    // Call the method to be tested
     double[] result = locatePlanarObject(objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, srcCorners);
-    
-    // Asserting the expected output
+
+    // Add assertions to check the expected result against the actual result
     assertNotNull(result);
-    assertEquals(expectedDstCorners, result); // Replace expectedDstCorners with the expected output
+    // Add more assertions based on the business logic of the method
 }
 
 

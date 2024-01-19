@@ -1,0 +1,24 @@
+{
+    "project_name": "Java",
+    "file_name": "StackArrayList.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/datastructures/stacks/StackArrayList.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.datastructures.stacks",
+    "docstring": "/**\n     * Return the element at the top of this stack without removing it from the\n     * stack.\n     *\n     * @return the element at the top of this stack.\n     */",
+    "source_code": "\npublic int peek() {\n    if (isEmpty()) {\n        throw new EmptyStackException();\n    }\n    return stack.get(stack.size() - 1);\n}\n",
+    "class_name": "StackArrayList",
+    "method_name": "peek",
+    "arguments": [],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

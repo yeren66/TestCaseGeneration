@@ -14,11 +14,11 @@ No.1 generated result --------------------------
 
 @Test
 public void peekTest() {
-    StackArrayList stack = new StackArrayList();
+    StackArrayList<Integer> stack = new StackArrayList<>();
     stack.push(1);
     stack.push(2);
-    int result = stack.peek();
-    assertEquals(2, result);
+    stack.push(3);
+    assertEquals(3, stack.peek());
 }
 
 
@@ -27,11 +27,10 @@ No.2 generated result --------------------------
 @Test
 public void peekTest() {
     StackArrayList stack = new StackArrayList();
+    stack.push(5);
     stack.push(10);
-    stack.push(20);
-    stack.push(30);
-    int peekedElement = stack.peek();
-    assertEquals(30, peekedElement);
+    int result = stack.peek();
+    assertEquals(10, result);
 }
 
 
@@ -39,13 +38,11 @@ No.3 generated result --------------------------
 
 @Test
 public void peekTest() {
+    // Creating a new stack
     StackArrayList stack = new StackArrayList();
-    stack.push(1);
-    stack.push(2);
-    stack.push(3);
-    int result = stack.peek();
-    assertEquals(3, result);
-    assertEquals(3, stack.size());
+    stack.push(5);
+    stack.push(10);
+    assertEquals(10, stack.peek());
 }
 
 
@@ -53,35 +50,25 @@ No.4 generated result --------------------------
 
 @Test
 public void peekTest() {
+    // Create a new stack
     StackArrayList stack = new StackArrayList();
     stack.push(5);
     stack.push(10);
+    stack.push(15);
     
-    int result = stack.peek();
-    assertEquals(10, result);
+    // Test the peek method
+    assertEquals(15, stack.peek());
 }
 
 
 No.5 generated result --------------------------
 
-package com.thealgorithms.datastructures.stacks;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class StackArrayListTest {
-    @Test
-    public void peekTest() {
-        StackArrayList stack = new StackArrayList();
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        
-        int expected = 3;
-        int actual = stack.peek();
-        
-        assertEquals(expected, actual);
-    }
+@Test
+public void peekTest() {
+    StackArrayList stack = new StackArrayList();
+    stack.push(10);
+    stack.push(20);
+    assertEquals(20, stack.peek());
 }
 
 
@@ -90,37 +77,21 @@ No.6 generated result --------------------------
 @Test
 public void peekTest() {
     StackArrayList stack = new StackArrayList();
-    stack.push(1);
-    stack.push(2);
-    int result = stack.peek();
-    assertEquals(2, result);
+    stack.push(5);
+    stack.push(10);
+    assertEquals(10, stack.peek());
 }
 
 
 No.7 generated result --------------------------
 
-package com.thealgorithms.datastructures.stacks;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class StackArrayListTest {
-    private StackArrayList stack;
-
-    @BeforeEach
-    public void setUp() {
-        stack = new StackArrayList();
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-    }
-
-    @Test
-    public void peekTest() {
-        int expected = 3;
-        int actual = stack.peek();
-        assertEquals(expected, actual);
-    }
+@Test
+public void peekTest() {
+    StackArrayList stack = new StackArrayList();
+    stack.push(5);
+    stack.push(10);
+    int result = stack.peek();
+    assertEquals(10, result);
 }
 
 
@@ -129,38 +100,20 @@ No.8 generated result --------------------------
 @Test
 public void peekTest() {
     StackArrayList stack = new StackArrayList();
-    stack.push(1);
-    
-    int result = stack.peek();
-    
-    assertEquals(1, result);
-    
-    stack.pop();
-  
-    assertThrows(EmptyStackException.class, () -> {
-        stack.peek();
-    });
+    stack.push(5);
+    stack.push(10);
+    assertEquals(10, stack.peek());
 }
 
 
 No.9 generated result --------------------------
 
-package com.thealgorithms.datastructures.stacks;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class StackArrayListTest {
-    @Test
-    public void peekTest() {
-        StackArrayList stack = new StackArrayList();
-        stack.push(5);
-        stack.push(10);
-        stack.push(15);
-        int expected = 15;
-        int actual = stack.peek();
-        assertEquals(expected, actual);
-    }
+@Test
+public void peekTest() {
+    StackArrayList stack = new StackArrayList();
+    stack.push(10);
+    stack.push(20);
+    assertEquals(20, stack.peek());
 }
 
 
@@ -168,12 +121,10 @@ No.10 generated result --------------------------
 
 @Test
 public void peekTest() {
-    StackArrayList stackList = new StackArrayList();
-    stackList.push(5);
-    stackList.push(10);
-    stackList.push(15);
-    int result = stackList.peek();
-    assertEquals(15, result);
+    StackArrayList stack = new StackArrayList();
+    stack.push(5);
+    stack.push(10);
+    assertEquals(10, stack.peek());
 }
 
 

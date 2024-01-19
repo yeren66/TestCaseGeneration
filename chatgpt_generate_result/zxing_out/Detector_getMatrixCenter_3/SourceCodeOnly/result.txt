@@ -64,43 +64,29 @@ private Point getMatrixCenter() {
 No.1 generated result --------------------------
 
 @Test
-    public void getMatrixCenterTest() {
-        // Create a new instance of the class under test
-        DetectorClass detector = new DetectorClass(); 
-        
-        // Create a mock image to use in the test
-        Image mockImage = createMockImage(); 
-        
-        // Set up the corner points for the white rectangle detector
-        ResultPoint[] cornerPoints = createMockCornerPoints(); 
-        
-        // Set up the expected center coordinates
-        int expectedCx = 10;
-        int expectedCy = 20;
-        
-        // Mock the necessary method calls in the class under test
-        when(mockImage.getWidth()).thenReturn(20);
-        when(mockImage.getHeight()).thenReturn(30);
-        when(detector.detect()).thenReturn(cornerPoints);
-        when(detector.getFirstDifferent(any(Point.class), anyBoolean(), anyInt(), anyInt())).thenReturn(new ResultPoint(1, 1));
-        when(MathUtils.round(anyFloat())).thenReturn(expectedCx).thenReturn(expectedCy);
-          
-        // Call the method under test
-        Point actualCenter = detector.getMatrixCenter();
-        
-        // Assert the results
-        assertEquals(expectedCx, actualCenter.getX());
-        assertEquals(expectedCy, actualCenter.getY());
-    }
+public void getMatrixCenterTest() {
+    // Create an instance of the class where the getMatrixCenter method is located
+    // Call the getMatrixCenter method with a sample image and validate the result
+    // Use assertions to verify that the center of the matrix is correctly computed
+    // Ensure the method handles exceptions that may occur during the computation of the matrix center
+}
 
 
 No.2 generated result --------------------------
 
 @Test
 public void getMatrixCenterTest() {
+    // Create an image
     BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
-    Detector detector = new Detector(image);
-    Point center = detector.getMatrixCenter();
+    // Fill the image with white pixels to simulate the condition
+    for (int x = 0; x < image.getWidth(); x++) {
+        for (int y = 0; y < image.getHeight(); y++) {
+            image.setRGB(x, y, Color.WHITE.getRGB());
+        }
+    }
+    // Call the getMatrixCenter method and assert the result
+    Point center = getMatrixCenter();
+    assertNotNull(center);
     assertEquals(50, center.getX());
     assertEquals(50, center.getY());
 }
@@ -110,52 +96,24 @@ No.3 generated result --------------------------
 
 @Test
 public void getMatrixCenterTest() {
-    // Set up the image for testing
-    BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
-    
-    // Create a Detector object
-    Detector detector = new Detector(image);
-    
-    // Call the getMatrixCenter method
-    Point center = detector.getMatrixCenter();
-    
-    // Verify that the returned center is not null
-    assertNotNull(center);
-    
-    // Verify that the x-coordinate of the center is within the image bounds
-    assertTrue(center.getX() >= 0 && center.getX() < image.getWidth());
-    
-    // Verify that the y-coordinate of the center is within the image bounds
-    assertTrue(center.getY() >= 0 && center.getY() < image.getHeight());
+  Point expectedCenter = new Point(100, 150);
+  Point actualCenter = getMatrixCenter();
+  assertEquals(expectedCenter, actualCenter, "Center of the matrix is not as expected");
 }
 
 
 No.4 generated result --------------------------
 
-package com.google.zxing.aztec.detector;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class DetectorTest {
-    @Test
-    public void getMatrixCenterTest() {
-        // Create a sample image
-        Image image = new Image("sample.jpg");
-        
-        // Create a new instance of the class being tested
-        Detector detector = new Detector();
-        
-        // Call the method under test
-        Point center = detector.getMatrixCenter(image);
-        
-        // Assert that the computed center is not null
-        assertNotNull(center);
-        
-        // Assert that the computed center is within a certain range of expected values
-        assertEquals(50, center.getX(), "Invalid X coordinate");
-        assertEquals(50, center.getY(), "Invalid Y coordinate");
-    }
+@Test
+public void getMatrixCenterTest() {
+    // Create a test image
+    BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
+    // Create an instance of the class containing the getMatrixCenter method
+    YourClassNameHere instance = new YourClassNameHere();
+    // Call the method and retrieve the result
+    Point result = instance.getMatrixCenter();
+    // Assert the expected result
+    assertEquals(new Point(50, 50), result);
 }
 
 
@@ -163,61 +121,38 @@ No.5 generated result --------------------------
 
 @Test
 public void getMatrixCenterTest() {
-   // Create a new image for testing
-   // BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_GRAY);
-
-   // Create an instance of the class under test
-   Detector detector = new Detector();
-
-   // Call the method under test
-   Point center = detector.getMatrixCenter();
-
-   // Perform assertions on the result
-   assertNotNull(center);
-   assertEquals(expectedX, center.getX());
-   assertEquals(expectedY, center.getY());
-
-   // Additional assertions if necessary
+    // Create an image and call the method getMatrixCenter()
+    // Check the expected output against the actual output
+    // Use assertions to compare the expected output and actual output
+    // For example:
+    // Point expected = new Point(50, 50);
+    // Point actual = getMatrixCenter();
+    // assertEquals(expected, actual);
 }
 
 
 No.6 generated result --------------------------
 
-@Test
-public void getMatrixCenterTest() {
-    try {
-        // Create a mock image for testing
-        BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
-        
-        // Create instance of the class containing the method to be tested
-        Detector detector = new Detector();
-        
-        // Call the method and get the result
-        Point centerPoint = detector.getMatrixCenter(image);
-        
-        // Assert that the center point coordinates are correct
-        assertEquals(50, centerPoint.getX());
-        assertEquals(50, centerPoint.getY());
-    } catch (Exception e) {
-        fail("An exception occurred: " + e.getMessage());
-    }
-}
+
+        Point center = getMatrixCenter();
+        assertNotNull(center);
+
 
 
 No.7 generated result --------------------------
 
 @Test
 public void getMatrixCenterTest() {
-    // Create an instance of the class that contains the method we want to test
-    Detector detector = new Detector();
+    // Create an instance of the class
+    DetectorTest detectorTest = new DetectorTest();
 
-    // Create a mock image to pass as a parameter to the method
+    // Set up the image
     BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
-
-    // Run the method and store the result
-    Point center = detector.getMatrixCenter(image);
-
-    // Verify the result
+    
+    // Call the method and capture the result
+    Point center = detectorTest.getMatrixCenter(image);
+    
+    // Assert the expected result
     assertEquals(new Point(50, 50), center);
 }
 
@@ -226,112 +161,47 @@ No.8 generated result --------------------------
 
 @Test
 public void getMatrixCenterTest() {
-  // Create a new instance of the class under test
-  Detector detector = new Detector();
+  // Arrange
+  // Create a mock image for testing
 
-  // Create a mock image to use for testing
-  Image image = new Image();
+  // Act
+  // Call the getMatrixCenter() method with the mock image
   
-  // Set up any necessary test data for the image
-  
-  // Invoke the method under test
-  Point center = detector.getMatrixCenter(image);
-  
-  // Perform assertions to validate the result
-  assertEquals(expectedCenterX, center.getX());
-  assertEquals(expectedCenterY, center.getY());
+  // Assert
+  // Verify that the expected center point is returned
 }
 
 
 No.9 generated result --------------------------
 
+@Test
+public void getMatrixCenterTest() {
+    // Create a mock image and corner points for testing
+    BufferedImage testImage = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
+    ResultPoint[] testCornerPoints = new ResultPoint[4];
 
-package com.google.zxing.aztec.detector;
+    // Set up the test case
+    Detector detector = new Detector(testImage);
+    Point center = detector.getMatrixCenter();
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class DetectorTest {
-    @Test
-    public void getMatrixCenterTest() {
-        // Initialize image
-        Image image = // create an instance of Image;
-
-        // Create objects for corner points
-        ResultPoint pointA = null;
-        ResultPoint pointB = null;
-        ResultPoint pointC = null;
-        ResultPoint pointD = null;
-
-        try {
-            // Get corner points using WhiteRectangleDetector
-            ResultPoint[] cornerPoints = new WhiteRectangleDetector(image).detect();
-            pointA = cornerPoints[0];
-            pointB = cornerPoints[1];
-            pointC = cornerPoints[2];
-            pointD = cornerPoints[3];
-        } catch (NotFoundException e) {
-            // Handle NotFoundException
-        }
-
-        // Compute the center of the rectangle
-        int cx = MathUtils.round((pointA.getX() + pointD.getX() + pointB.getX() + pointC.getX()) / 4.0f);
-        int cy = MathUtils.round((pointA.getY() + pointD.getY() + pointB.getY() + pointC.getY()) / 4.0f);
-
-        // Redetermine the white rectangle starting from previously computed center
-        try {
-            ResultPoint[] cornerPoints = new WhiteRectangleDetector(image, 15, cx, cy).detect();
-            pointA = cornerPoints[0];
-            pointB = cornerPoints[1];
-            pointC = cornerPoints[2];
-            pointD = cornerPoints[3];
-        } catch (NotFoundException e) {
-            // Handle NotFoundException
-        }
-
-        // Recompute the center of the rectangle
-        cx = MathUtils.round((pointA.getX() + pointD.getX() + pointB.getX() + pointC.getX()) / 4.0f);
-        cy = MathUtils.round((pointA.getY() + pointD.getY() + pointB.getY() + pointC.getY()) / 4.0f);
-
-        // Create expected center point
-        Point expectedCenter = new Point(cx, cy);
-
-        // Call the method to get actual center point
-        Point actualCenter = getMatrixCenter();
-
-        // Assert the expected and actual center points are equal
-        assertEquals(expectedCenter, actualCenter);
-    }
+    // Assert the expected center point is equal to the actual center point
+    assertEquals(new Point(50, 50), center);
 }
-
 
 
 No.10 generated result --------------------------
 
-package com.google.zxing.aztec.detector;
+@Test
+public void getMatrixCenterTest() {
+    // Create a test image
+    BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
+    // Fill the image with the required data
+    Point center = new Point(50, 50);
+    // Call the getMatrixCenter method
+    Point result = getMatrixCenter();
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-import com.google.zxing.NotFoundException;
-import com.google.zxing.ResultPoint;
-import com.google.zxing.common.WhiteRectangleDetector;
-import com.google.zxing.common.detector.MathUtils;
-
-public class DetectorTest {
-    @Test
-    public void getMatrixCenterTest() {
-        // Create a test image
-        BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
-
-        // Create a Detector object
-        Detector detector = new Detector(image);
-
-        // Get the matrix center
-        Point center = detector.getMatrixCenter();
-
-        // Check if the center is valid
-        assertNotNull(center);
-    }
+    // Check if the result matches the expected center
+    assertEquals(center, result);
 }
 
 

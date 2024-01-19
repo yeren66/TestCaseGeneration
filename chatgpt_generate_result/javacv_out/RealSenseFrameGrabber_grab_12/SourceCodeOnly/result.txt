@@ -45,99 +45,57 @@ No.1 generated result --------------------------
 
 @Test
 public void grabTest() {
-    FrameGrabber frameGrabber = new FrameGrabber();
-    Frame frame = frameGrabber.grab();
-    assertNotNull(frame);
+    // Create an instance of RealSenseFrameGrabber
+    RealSenseFrameGrabber grabber = new RealSenseFrameGrabber();
+    // Call the grab method and assert that it does not return null
+    assertNotNull(grabber.grab());
 }
 
 
 No.2 generated result --------------------------
 
-package org.bytedeco.javacv;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class RealSenseFrameGrabberTest {
-    @Test
-    public void grabTest() throws Exception {
-        // Create an instance of RealSenseFrameGrabber
-        RealSenseFrameGrabber frameGrabber = new RealSenseFrameGrabber();
-
-        // Call the grab() method
-        Frame result = frameGrabber.grab();
-
-        // Assert the result to the expected value
-        assertNotNull(result); // Assuming the expected result is a non-null value
-    }
+Frame frame = null;
+try {
+    frame = new Frame();
+    assertNotNull(frame.grab());
+} catch (Exception e) {
+    fail("Exception thrown: " + e.getMessage());
 }
 
 
 No.3 generated result --------------------------
 
-@Test
-public void grabTest() {
-    try {
-        RealSenseFrameGrabber grabber = new RealSenseFrameGrabber();
-        Frame result = grabber.grab();
-        assertNotNull(result);
-    } catch (Exception e) {
-        fail("Exception thrown: " + e.getMessage());
-    }
+public void grabTest() throws Exception {
+    // Write a test case to cover the grab() method in the RealSenseFrameGrabber class
 }
 
 
 No.4 generated result --------------------------
 
+@Test
 public void grabTest() {
-    try {
-        RealSenseFrameGrabber frameGrabber = new RealSenseFrameGrabber();
-        Frame grabbedFrame = frameGrabber.grab();
-        assertNotNull(grabbedFrame);
-    } catch (Exception e) {
-        fail("An exception occurred: " + e.getMessage());
-    }
+    // Create an instance of the RealSenseFrameGrabber
+    RealSenseFrameGrabber grabber = new RealSenseFrameGrabber();
+    
+    // Test the grab() method
+    assertThrows(Exception.class, () -> {
+        grabber.grab();
+    });
 }
+
 
 
 No.5 generated result --------------------------
 
-package org.bytedeco.javacv;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class RealSenseFrameGrabberTest {
-    @Test
-    public void grabTest() {
-        RealSenseFrameGrabber grabber = new RealSenseFrameGrabber();
-        
-        try {
-            Frame result = grabber.grab();
-            // Add assertions here to verify the expected results
-            
-        } catch (Exception e) {
-            fail("An exception occurred: " + e.getMessage());
-        }
-    }
-}
+public Frame frame = null;
+Assertions.assertNotNull(frame.grab());
 
 
 No.6 generated result --------------------------
 
-@Test
 public void grabTest() {
-    RealSenseFrameGrabber grabber = new RealSenseFrameGrabber();
-
-    try {
-        Frame result = grabber.grab();
-
-        // Add assertions to verify the result
-        assertNotNull(result);
-        // Additional assertions...
-    } catch (Exception e) {
-        fail("Exception occurred during test: " + e.getMessage());
-    }
+    RealSenseFrameGrabber frameGrabber = new RealSenseFrameGrabber();
+    assertNotNull(frameGrabber);
 }
 
 
@@ -145,67 +103,55 @@ No.7 generated result --------------------------
 
 @Test
 public void grabTest() {
-    try {
-        RealSenseFrameGrabber grabber = new RealSenseFrameGrabber();
-        Frame frame = grabber.grab();
-
-        assertNotNull(frame);
-        // Additional assertions or verifications can be added here
-
-    } catch (Exception e) {
-        fail("Exception occurred: " + e.getMessage());
-    }
+    // Given
+    RealSenseFrameGrabber grabber = new RealSenseFrameGrabber();
+    
+    // When
+    Frame result = grabber.grab();
+    
+    // Then
+    assertNotNull(result);
 }
 
 
 No.8 generated result --------------------------
 
 @Test
-public void grabTest() throws Exception {
-    FrameGrabber frameGrabber = new FrameGrabber();
-    Frame frame = frameGrabber.grab();
+public void grabTest() {
+    // Create instance of RealSenseFrameGrabber
+    RealSenseFrameGrabber grabber = new RealSenseFrameGrabber();
+    
+    // Set up the necessary parameters
+    grabber.device = new RealSense.context();
 
-    assertNotNull(frame);
-}
+    // Perform the grab method
+    Frame result = null;
+    try {
+        result = grabber.grab();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
 
+    // Verify the result, assert the output
+    assertNotNull(result);
+  }
 
 
 No.9 generated result --------------------------
 
-package org.bytedeco.javacv;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class RealSenseFrameGrabberTest {
-    @Test
-    public void grabTest() {
-        // Create an instance of the RealSenseFrameGrabber class
-        RealSenseFrameGrabber grabber = new RealSenseFrameGrabber();
-
-        try {
-            // Call the grab method of the RealSenseFrameGrabber class
-            Frame frame = grabber.grab();
-
-            // Assert that the returned frame is not null
-            assertNotNull(frame);
-        } catch (Exception e) {
-            // Handle any exceptions thrown by the grab method
-            e.printStackTrace();
-        }
-    }
-}
+public Frame frame = new Frame();
+assertThrows(Exception.class, () -> {
+  frame.grab();
+});
 
 
 No.10 generated result --------------------------
 
-@Test
-public void grabTest() throws Exception {
-    FrameGrabber frameGrabber = new RealSenseFrameGrabber();
-
-    Frame result = frameGrabber.grab();
-
-    assertEquals(null, result);
+public Frame frameGrabber() throws Exception {
+  // setup
+  FrameGrabber frameGrabber = new FrameGrabber();
+  // execute and verify
+  assertNotNull(frameGrabber.grab());
 }
 
 

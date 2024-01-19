@@ -10,15 +10,15 @@
     "method_name": "peek",
     "arguments": [],
     "generate_test": [
-        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(1);\n    stack.push(2);\n    int result = stack.peek();\n    assertEquals(2, result);\n}",
-        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(10);\n    stack.push(20);\n    stack.push(30);\n    int peekedElement = stack.peek();\n    assertEquals(30, peekedElement);\n}",
-        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(1);\n    stack.push(2);\n    stack.push(3);\n    int result = stack.peek();\n    assertEquals(3, result);\n    assertEquals(3, stack.size());\n}",
-        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(5);\n    stack.push(10);\n    \n    int result = stack.peek();\n    assertEquals(10, result);\n}",
-        "package com.thealgorithms.datastructures.stacks;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class StackArrayListTest {\n    @Test\n    public void peekTest() {\n        StackArrayList stack = new StackArrayList();\n        stack.push(1);\n        stack.push(2);\n        stack.push(3);\n        \n        int expected = 3;\n        int actual = stack.peek();\n        \n        assertEquals(expected, actual);\n    }\n}",
-        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(1);\n    stack.push(2);\n    int result = stack.peek();\n    assertEquals(2, result);\n}",
-        "package com.thealgorithms.datastructures.stacks;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class StackArrayListTest {\n    private StackArrayList stack;\n\n    @BeforeEach\n    public void setUp() {\n        stack = new StackArrayList();\n        stack.push(1);\n        stack.push(2);\n        stack.push(3);\n    }\n\n    @Test\n    public void peekTest() {\n        int expected = 3;\n        int actual = stack.peek();\n        assertEquals(expected, actual);\n    }\n}",
-        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(1);\n    \n    int result = stack.peek();\n    \n    assertEquals(1, result);\n    \n    stack.pop();\n  \n    assertThrows(EmptyStackException.class, () -> {\n        stack.peek();\n    });\n}",
-        "package com.thealgorithms.datastructures.stacks;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class StackArrayListTest {\n    @Test\n    public void peekTest() {\n        StackArrayList stack = new StackArrayList();\n        stack.push(5);\n        stack.push(10);\n        stack.push(15);\n        int expected = 15;\n        int actual = stack.peek();\n        assertEquals(expected, actual);\n    }\n}",
-        "@Test\npublic void peekTest() {\n    StackArrayList stackList = new StackArrayList();\n    stackList.push(5);\n    stackList.push(10);\n    stackList.push(15);\n    int result = stackList.peek();\n    assertEquals(15, result);\n}"
+        "@Test\npublic void peekTest() {\n    StackArrayList<Integer> stack = new StackArrayList<>();\n    stack.push(1);\n    stack.push(2);\n    stack.push(3);\n    assertEquals(3, stack.peek());\n}",
+        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(5);\n    stack.push(10);\n    int result = stack.peek();\n    assertEquals(10, result);\n}",
+        "@Test\npublic void peekTest() {\n    // Creating a new stack\n    StackArrayList stack = new StackArrayList();\n    stack.push(5);\n    stack.push(10);\n    assertEquals(10, stack.peek());\n}",
+        "@Test\npublic void peekTest() {\n    // Create a new stack\n    StackArrayList stack = new StackArrayList();\n    stack.push(5);\n    stack.push(10);\n    stack.push(15);\n    \n    // Test the peek method\n    assertEquals(15, stack.peek());\n}",
+        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(10);\n    stack.push(20);\n    assertEquals(20, stack.peek());\n}",
+        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(5);\n    stack.push(10);\n    assertEquals(10, stack.peek());\n}",
+        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(5);\n    stack.push(10);\n    int result = stack.peek();\n    assertEquals(10, result);\n}",
+        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(5);\n    stack.push(10);\n    assertEquals(10, stack.peek());\n}",
+        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(10);\n    stack.push(20);\n    assertEquals(20, stack.peek());\n}",
+        "@Test\npublic void peekTest() {\n    StackArrayList stack = new StackArrayList();\n    stack.push(5);\n    stack.push(10);\n    assertEquals(10, stack.peek());\n}"
     ]
 }

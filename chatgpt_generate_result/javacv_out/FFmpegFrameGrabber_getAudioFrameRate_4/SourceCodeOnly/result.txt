@@ -24,14 +24,14 @@ public double getAudioFrameRate() {
 
 No.1 generated result --------------------------
 
+@Test
 public void getAudioFrameRateTest() {
-    FFmpegFrameGrabber frameGrabber = new FFmpegFrameGrabber();
-    frameGrabber.setAudio_st(new AudioStream());
-    frameGrabber.setSamples_frame(new SampleFrame());
-    
-    double expectedFrameRate = 0.0;
-    double actualFrameRate = frameGrabber.getAudioFrameRate();
-    assertEquals(expectedFrameRate, actualFrameRate);
+    FFmpegFrameGrabber grabber = new FFmpegFrameGrabber();
+    grabber.samples_frame = new Frame();
+    grabber.samples_frame.setNb_samples(10);
+    grabber.setSampleRate(44100);
+    double result = grabber.getAudioFrameRate();
+    assertEquals(4410.0, result);
 }
 
 
@@ -39,15 +39,11 @@ No.2 generated result --------------------------
 
 @Test
 public void getAudioFrameRateTest() {
-    FFmpegFrameGrabber frameGrabber = new FFmpegFrameGrabber();
-    frameGrabber.audio_st = new FFmpegFrameGrabber.Stream();
-    frameGrabber.samples_frame = new Frame();
-    frameGrabber.samples_frame.samples = 10;
-
-    double expected = 48000 / 10; // Assuming getSampleRate() returns 48000
-
-    double result = frameGrabber.getAudioFrameRate();
-    assertEquals(expected, result, 0.001);
+    FFmpegFrameGrabber grabber = new FFmpegFrameGrabber();
+    grabber.getAudioFrameRate();
+    // Add assertions to verify the output
+    // For example:
+    // assertEquals(expectedOutput, actualOutput);
 }
 
 
@@ -55,9 +51,11 @@ No.3 generated result --------------------------
 
 @Test
 public void getAudioFrameRateTest() {
-    FFmpegFrameGrabber frameGrabber = new FFmpegFrameGrabber();
-    double audioFrameRate = frameGrabber.getAudioFrameRate();
-    assertEquals(0.0, audioFrameRate);
+   FFmpegFrameGrabber grabber = new FFmpegFrameGrabber();
+   grabber.setSamplesFrame(new Frame());
+   grabber.setAudioSt(new AVStream());
+   grabber.setFrameGrabbed(true);
+   assertEquals(0, grabber.getAudioFrameRate());
 }
 
 
@@ -66,12 +64,9 @@ No.4 generated result --------------------------
 @Test
 public void getAudioFrameRateTest() {
     FFmpegFrameGrabber grabber = new FFmpegFrameGrabber();
-    grabber.setAudioTimestamp(12345L);
-    double expected = 44.1;
-
-    double result = grabber.getAudioFrameRate();
-
-    assertEquals(expected, result);
+    grabber.start();
+    assertEquals(0.0, grabber.getAudioFrameRate());
+    grabber.stop();
 }
 
 
@@ -80,23 +75,8 @@ No.5 generated result --------------------------
 @Test
 public void getAudioFrameRateTest() {
     FFmpegFrameGrabber frameGrabber = new FFmpegFrameGrabber();
-
-    // Test 1: audio_st is null
-    double result1 = frameGrabber.getAudioFrameRate();
-    assertEquals(0.0, result1);
-
-    // Test 2: samples_frame is null or has no samples
-    frameGrabber.audio_st = new AVStream();
-    double result2 = frameGrabber.getAudioFrameRate();
-    assertEquals(0.0, result2);
-
-    // Test 3: samples_frame is not null and has samples
-    SampleFrame samples_frame = new SampleFrame();
-    samples_frame.setNb_samples(100);
-    frameGrabber.samples_frame = samples_frame;
-    double result3 = frameGrabber.getAudioFrameRate();
-    double expected3 = ((double) frameGrabber.getSampleRate()) / samples_frame.nb_samples();
-    assertEquals(expected3, result3);
+    double result = frameGrabber.getAudioFrameRate();
+    assertEquals(0.0, result);
 }
 
 
@@ -104,111 +84,41 @@ No.6 generated result --------------------------
 
 @Test
 public void getAudioFrameRateTest() {
-    FFmpegFrameGrabber grabber = new FFmpegFrameGrabber();
-    double expectedFrameRate = 0.0;
-
-    // Test when audio_st is null
-    grabber.audio_st = null;
-    double actualFrameRate = grabber.getAudioFrameRate();
-    assertEquals(expectedFrameRate, actualFrameRate);
-
-    // Test when samples_frame is null
-    grabber.audio_st = new AVStream();
-    grabber.samples_frame = null;
-    expectedFrameRate = 0.0;
-    actualFrameRate = grabber.getAudioFrameRate();
-    assertEquals(expectedFrameRate, actualFrameRate);
-
-    // Test when nb_samples is 0
-    grabber.samples_frame = new AVFrame();
-    expectedFrameRate = 0.0;
-    actualFrameRate = grabber.getAudioFrameRate();
-    assertEquals(expectedFrameRate, actualFrameRate);
-
-    // Test when nb_samples is not 0
-    grabber.samples_frame.setNb_samples(10);
-    grabber.setSampleRate(100);
-    expectedFrameRate = 10.0;
-    actualFrameRate = grabber.getAudioFrameRate();
-    assertEquals(expectedFrameRate, actualFrameRate);
+    FFmpegFrameGrabber frameGrabber = new FFmpegFrameGrabber("video.mp4");
+    double result = frameGrabber.getAudioFrameRate();
+    assertEquals(expectedResult, result);
 }
 
 
 No.7 generated result --------------------------
 
-
-package org.bytedeco.javacv;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class FFmpegFrameGrabberTest {
-    @Test
-    public void getAudioFrameRateTest() {
-        FFmpegFrameGrabber grabber = new FFmpegFrameGrabber("inputFile.mp4");
-        
-        // Test when audio_st is null
-        grabber.audio_st = null;
-        double result1 = grabber.getAudioFrameRate();
-        assertEquals(0.0, result1);
-
-        // Test when samples_frame is null or empty
-        grabber.audio_st = new AVStream();
-        grabber.samples_frame = null;
-        double result2 = grabber.getAudioFrameRate();
-        assertEquals(0.0, result2);
-        
-        // Test when samples_frame is not null and nb_samples is not 0
-        grabber.samples_frame = new AVFrame();
-        grabber.samples_frame.nb_samples(10);
-        grabber.setSampleRate(44100);
-        double result3 = grabber.getAudioFrameRate();
-        assertEquals(44100/10, result3);
-        
-        // Test when samples_frame is not null but nb_samples is 0
-        grabber.samples_frame.nb_samples(0);
-        double result4 = grabber.getAudioFrameRate();
-        assertEquals(0.0, result4);
-    }
+@Test
+public void getAudioFrameRateTest() {
+    FFmpegFrameGrabber grabber = new FFmpegFrameGrabber();
+    grabber.setAudioSampleRate(44100);
+    grabber.getAudioFrameRate();
+    assertEquals(44100, grabber.getAudioFrameRate());
 }
-
 
 
 No.8 generated result --------------------------
 
-@Test
 public void getAudioFrameRateTest() {
     FFmpegFrameGrabber grabber = new FFmpegFrameGrabber();
-    grabber.setAudioStream(0);
-    double expected = 0.0;
-    double actual = grabber.getAudioFrameRate();
-    assertEquals(expected, actual, 0.0);
+    grabber.setAudioSamples(new AudioSamples());
+    grabber.setSampleRate(44100);
+    
+    assertEquals(0.0, grabber.getAudioFrameRate());
 }
 
 
 No.9 generated result --------------------------
 
-package org.bytedeco.javacv;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-
-public class FFmpegFrameGrabberTest {
-    @Test
-    public void getAudioFrameRateTest() {
-        // Create a mock FFmpegFrameGrabber object
-        FFmpegFrameGrabber grabber = mock(FFmpegFrameGrabber.class);
-
-        // Set up the conditions for the test
-        when(grabber.getAudioStream()).thenReturn(new FFmpegStream());
-
-        // Call the method under test
-        double frameRate = grabber.getAudioFrameRate();
-
-        // Verify the result
-        assertEquals(0.0, frameRate);
-    }
+@Test
+public void getAudioFrameRateTest() {
+    FFmpegFrameGrabberTest grabber = new FFmpegFrameGrabberTest();
+    double result = grabber.getAudioFrameRate();
+    assertEquals(0.0, result);
 }
 
 
@@ -216,44 +126,13 @@ No.10 generated result --------------------------
 
 @Test
 public void getAudioFrameRateTest() {
-    // Create a new instance of FFmpegFrameGrabber
-    FFmpegFrameGrabber grabber = new FFmpegFrameGrabber();
-    
-    // Set the audio_st field to null
-    grabber.audio_st = null;
-    
-    // Call the getAudioFrameRate() method and assert that it returns 0.0
-    assertEquals(0.0, grabber.getAudioFrameRate());
-    
-    // Set the audio_st field to a non-null value
-    grabber.audio_st = new SomeAudioStream();
-    
-    // Set the samples_frame field to null and call the grabFrame() method
-    // It should throw an exception, so catch it and assert that getAudioFrameRate() returns 0.0
-    grabber.samples_frame = null;
-    assertThrows(Exception.class, () -> grabber.grabFrame(true, false, false, false, false));
-    assertEquals(0.0, grabber.getAudioFrameRate());
-    
-    // Set the samples_frame field to a non-null value with nb_samples() == 0
-    grabber.samples_frame = new SomeAudioSampleFrame(0);
-    
-    // Call the getAudioFrameRate() method and assert that it returns 0.0
-    assertEquals(0.0, grabber.getAudioFrameRate());
-    
-    // Set the samples_frame field to a non-null value with nb_samples() > 0
-    grabber.samples_frame = new SomeAudioSampleFrame(100);
-    
-    // Set the sampleRate field to a non-zero value
-    grabber.setSampleRate(44100);
-    
-    // Call the getAudioFrameRate() method and calculate the expected result
-    double expectedFrameRate = 44100.0 / 100;
-    assertEquals(expectedFrameRate, grabber.getAudioFrameRate());
-    
-    // Set the samples_frame field back to null and call the getAudioFrameRate() method
-    // It should return 0.0 again
-    grabber.samples_frame = null;
-    assertEquals(0.0, grabber.getAudioFrameRate());
+    FFmpegFrameGrabber frameGrabber = new FFmpegFrameGrabber();
+    frameGrabber.setSampleRate(44100); //set a sample rate for testing purposes
+    double expected = 44100 / 100; //expected result, using 100 as the value for samples_frame.nb_samples()
+
+    // Call the getAudioFrameRate method and compare the output with the expected result
+    double actual = frameGrabber.getAudioFrameRate();
+    assertEquals(expected, actual);
 }
 
 

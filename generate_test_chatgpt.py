@@ -4,27 +4,25 @@ from prompts import instruct_prompt_large_2, instruct_prompt_large_1
 from tqdm import tqdm
 import logging
 import signal
+import time
 import os
 from openai import OpenAI
 
 # 设置 API key 和 API base URL
-api_key = "sk-tjdLt6Pu69aLn4BL238d43EeE0884547993cA43b1cEcFa76"
-base_url = "https://api.132999.xyz/v1"
+api_key = "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"
+# base_url = "https://api.132999.xyz/v1"
 
 client = OpenAI(
-    api_key=api_key,
-    base_url=base_url
+    api_key=api_key
 )
 
-logging.basicConfig(filename='log/log_file_generate.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='log/log_file_generate_chatgpt.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
-def gpt_interface(content, model='gpt-3.5-turbo') -> str:
+
+def gpt_interface(content, model='gpt-3.5-turbo-1106', flag=0) -> str:
     """
     Call the chatgpt-3.5 interface to generate test cases with data.
     """
-    flag = 0
-    signal.signal(signal.SIGALRM, _timeout)
-    signal.alarm(180) 
     try:
         chat_completion = client.chat.completions.create(
             messages=[
@@ -36,12 +34,19 @@ def gpt_interface(content, model='gpt-3.5-turbo') -> str:
             model=model,
         )
     except Exception as e:
-        output = "Timeout"
-        logging.error("Timeout")
-        flag = 1
-    finally:
-        signal.alarm(0)
-    if flag == 0:
+        logging.error("Error: " + str(e))
+        match = re.match('context_length_exceeded', str(e))
+        if match:
+            logging.info("context_length_exceeded")
+            return "context_length_exceeded"
+        time.sleep(60)
+        if flag < 3:
+            logging.info("retry after 60s: " + str(flag + 1))
+            return gpt_interface(content, model, flag + 1)
+        else:
+            logging.info("max retry times reached, return timeout")
+            output = "timeout"
+    if flag < 3:
         # output = process_json_stream(response.text)
         output = chat_completion.choices[0].message.content
         logging.info("\n-------------generate result-------------\n " + output + "----------------------------------\n")
@@ -162,6 +167,8 @@ if __name__ == "__main__":
         project_name = file_name.split('/')[-1].split('.')[0]
         with open(file_name, 'r') as file:
             json_data = json.load(file)
-        generate_test(json_data, 'chatgpt_generate_result/' + project_name + '/', 10)
+        generate_test(json_data, 'chatgpt_generate_result/' + project_name + '/', 10)\
 
-    # print(gpt_interface("hello world"))
+    # print(gpt_interface("hello world, what's your version?"))
+
+# 不得不记录一下，有的method full context过长，导致接口返回失败，在此对其做限制

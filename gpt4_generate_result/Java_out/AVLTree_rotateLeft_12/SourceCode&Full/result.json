@@ -1,0 +1,26 @@
+{
+    "project_name": "Java",
+    "file_name": "AVLTree.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/datastructures/trees/AVLTree.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.datastructures.trees",
+    "docstring": null,
+    "source_code": "private Node rotateLeft(Node a) {\n    Node b = a.right;\n    b.parent = a.parent;\n\n    a.right = b.left;\n\n    if (a.right != null) {\n        a.right.parent = a;\n    }\n\n    b.left = a;\n    a.parent = b;\n\n    if (b.parent != null) {\n        if (b.parent.right == a) {\n            b.parent.right = b;\n        } else {\n            b.parent.left = b;\n        }\n    }\n\n    setBalance(a, b);\n\n    return b;\n}\n",
+    "class_name": "AVLTree",
+    "method_name": "rotateLeft",
+    "arguments": [
+        "Node a"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

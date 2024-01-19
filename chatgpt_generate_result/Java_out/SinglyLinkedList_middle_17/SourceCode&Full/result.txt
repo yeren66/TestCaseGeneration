@@ -21,170 +21,31 @@ No.1 generated result --------------------------
 @Test
 public void middleTest() {
     SinglyLinkedList list = new SinglyLinkedList();
-    list.insertHead(1);
-    list.insertHead(2);
-    list.insertHead(3);
-    list.insertHead(4);
-    list.insertHead(5);
-
-    Node middleNode = list.middle();
-
-    assertEquals(3, middleNode.value);
+    list.insert(1);
+    list.insert(2);
+    list.insert(3);
+    list.insert(4);
+    Node middle = list.middle();
+    assertEquals(3, middle.value);
 }
+
 
 
 No.2 generated result --------------------------
 
-@Test
 public void middleTest() {
-    SinglyLinkedList list = new SinglyLinkedList();
-    Node node1 = new Node(1);
-    Node node2 = new Node(2);
-    Node node3 = new Node(3);
-    Node node4 = new Node(4);
-    list.setHead(node1);
-    node1.next = node2;
-    node2.next = node3;
-    node3.next = node4;
-
-    Node middleNode = list.middle();
-    assertEquals(2, middleNode.value);
+    SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+    singlyLinkedList.insert(1);
+    singlyLinkedList.insert(2);
+    singlyLinkedList.insert(3);
+    singlyLinkedList.insert(4);
+    singlyLinkedList.insert(5);
+    Node middle = singlyLinkedList.middle();
+    assertEquals(3, middle.value);
 }
 
 
 No.3 generated result --------------------------
-
-
-    @Test
-    public void middleTest() {
-        SinglyLinkedList list = new SinglyLinkedList();
-        list.insert(1);
-        list.insert(2);
-        list.insert(3);
-        list.insert(4);
-        list.insert(5);
-        Node middleNode = list.middle();
-        assertEquals(3, middleNode.value);
-    }
-
-
-
-No.4 generated result --------------------------
-
-package com.thealgorithms.datastructures.lists;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class SinglyLinkedListTest {
-    @Test
-    public void middleTest() {
-        SinglyLinkedList list = new SinglyLinkedList();
-        list.insert(1);
-        list.insert(2);
-        list.insert(3);
-        list.insert(4);
-        list.insert(5);
-        
-        Node middleNode = list.middle();
-        
-        assertEquals(3, middleNode.value);
-    }
-}
-
-
-No.5 generated result --------------------------
-
-package com.thealgorithms.datastructures.lists;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class SinglyLinkedListTest {
-    @Test
-    public void middleTest() {
-        SinglyLinkedList list = new SinglyLinkedList();
-        // Create a test list
-        list.insert(1);
-        list.insert(2);
-        list.insert(3);
-        list.insert(4);
-
-        // Get the middle node
-        Node middleNode = list.middle();
-
-        // Assert the middle node value is expected
-        assertEquals(2, middleNode.value);
-    }
-}
-
-
-No.6 generated result --------------------------
-
-@Test
-    public void middleTest() {
-        SinglyLinkedList list = new SinglyLinkedList();
-        list.insert(1);
-        list.insert(2);
-        list.insert(3);
-        list.insert(4);
-        list.insert(5);
-        
-        Node expectedMiddleNode = list.getHead().next.next;
-        Node actualMiddleNode = list.middle();
-        
-        assertEquals(expectedMiddleNode, actualMiddleNode);
-    }
-
-
-No.7 generated result --------------------------
-
-@Test
-public void middleTest() {
-    SinglyLinkedList list = new SinglyLinkedList();
-    Node node1 = new Node(1);
-    Node node2 = new Node(2);
-    Node node3 = new Node(3);
-    Node node4 = new Node(4);
-    node1.next = node2;
-    node2.next = node3;
-    node3.next = node4;
-    list.setHead(node1);
-    Node middleNode = list.middle();
-    assertEquals(2, middleNode.value);
-}
-
-
-No.8 generated result --------------------------
-
-package com.thealgorithms.datastructures.lists;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class SinglyLinkedListTest {
-    @Test
-    public void middleTest() {
-        // Create a SinglyLinkedList object
-        SinglyLinkedList list = new SinglyLinkedList();
-        
-        // Insert elements into the list
-        list.insert(1);
-        list.insert(2);
-        list.insert(3);
-        list.insert(4);
-        list.insert(5);
-        
-        // Call the middle() method
-        Node result = list.middle();
-        
-        // Assert the value of the middle node
-        assertEquals(3, result.value);
-    }
-}
-
-
-No.9 generated result --------------------------
 
 @Test
 public void middleTest() {
@@ -193,12 +54,95 @@ public void middleTest() {
     list.insert(2);
     list.insert(3);
     list.insert(4);
+    assertEquals(2, list.middle().value);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void middleTest() {
+    SinglyLinkedList list = new SinglyLinkedList();
+    list.insertHead(5);
+    list.insertHead(7);
+    list.insertHead(10);
+    list.insert(3);
+    list.insertNth(1, 4);
+
+    Node expectedMiddle = list.middle();
+
+    assertEquals(7, expectedMiddle.value);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void middleTest() {
+    SinglyLinkedList list = new SinglyLinkedList();
+    list.insert(1);
+    list.insert(2);
+    list.insert(3);
+    list.insert(4);
+    assertEquals(2, list.middle());
+}
+
+
+No.6 generated result --------------------------
+
+public void middleTest() {
+    SinglyLinkedList list = new SinglyLinkedList();
     list.insert(5);
-    
-    Node middleNode = list.middle();
-    
-    // Assert that the value of the middle node is 3
-    assertEquals(3, middleNode.value);
+    list.insert(7);
+    list.insert(10);
+    list.insert(3);
+    list.insert(1);
+    Node actualMiddle = list.middle();
+    assertEquals(7, actualMiddle.value);
+}
+
+
+No.7 generated result --------------------------
+
+
+    @Test
+    public void middleTest() {
+        SinglyLinkedList list = new SinglyLinkedList();
+        list.insertHead(5);
+        list.insertHead(7);
+        list.insertHead(10);
+        list.insert(3);
+        list.insertNth(1, 4);
+        Node middleNode = list.middle();
+        assertEquals(7, middleNode.value);
+    }
+
+
+
+No.8 generated result --------------------------
+
+@Test
+public void middleTest() {
+    Node head = new Node(1, new Node(2, new Node(3, new Node(4, new Node(5)))));
+    SinglyLinkedList list = new SinglyLinkedList();
+    list.setHead(head);
+    Node result = list.middle();
+    assertEquals(3, result.value);
+}
+
+
+No.9 generated result --------------------------
+
+@Test
+public void middleTest() {
+    SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+    singlyLinkedList.insertHead(5);
+    singlyLinkedList.insertHead(7);
+    singlyLinkedList.insertHead(10);
+    singlyLinkedList.insert(3);
+    singlyLinkedList.insertNth(1, 4);
+    Node middleNode = singlyLinkedList.middle();
+    assertEquals(5, middleNode.value);
 }
 
 
@@ -212,11 +156,7 @@ public void middleTest() {
     list.insert(3);
     list.insert(4);
     list.insert(5);
-
-    // Get the middle node
     Node middleNode = list.middle();
-
-    // Check if the middle node is correct
     assertEquals(3, middleNode.value);
 }
 

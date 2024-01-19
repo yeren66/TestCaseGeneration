@@ -29,16 +29,8 @@ public static int getAliquotSum(int n) {
 
 No.1 generated result --------------------------
 
-@Test
 public void getAliquotSumTest() {
-    assertEquals(1, AliquotSum.getAliquotSum(1));
-    assertEquals(3, AliquotSum.getAliquotSum(2));
-    assertEquals(4, AliquotSum.getAliquotSum(3));
-    assertEquals(12, AliquotSum.getAliquotSum(6));
-    assertEquals(28, AliquotSum.getAliquotSum(12));
-    assertEquals(50, AliquotSum.getAliquotSum(24));
-    assertEquals(72, AliquotSum.getAliquotSum(36));
-    assertEquals(98, AliquotSum.getAliquotSum(50));
+    assertEquals(21, AliquotSum.getAliquotSum(12));
 }
 
 
@@ -46,13 +38,23 @@ No.2 generated result --------------------------
 
 @Test
 public void getAliquotSumTest() {
-    int result = AliquotSum.getAliquotSum(100);
-    assertEquals(217, result);
+    int result = AliquotSum.getAliquotSum(100); // Replace 100 with any input value for testing
+    assertEquals(217, result); // Replace 217 with the expected output for the given input value
 }
 
 
 No.3 generated result --------------------------
 
+@Test
+public void getAliquotSumTest() {
+    int n = 10;
+    int expectedSum = 8;
+    int actualSum = AliquotSum.getAliquotSum(n);
+    assertEquals(expectedSum, actualSum);
+}
+
+
+No.4 generated result --------------------------
 
 package com.thealgorithms.maths;
 
@@ -62,45 +64,11 @@ import static org.junit.jupiter.api.Assertions.*;
 public class AliquotSumTest {
     @Test
     public void getAliquotSumTest() {
-        // Test case 1
-        int result1 = AliquotSum.getAliquotSum(100);
-        assertEquals(217, result1, "Incorrect Aliquot Sum for 100");
-
-        // Test case 2
-        int result2 = AliquotSum.getAliquotSum(28);
-        assertEquals(28, result2, "Incorrect Aliquot Sum for 28");
-
-        // Test case 3
-        int result3 = AliquotSum.getAliquotSum(12);
-        assertEquals(16, result3, "Incorrect Aliquot Sum for 12");
-
-        // Test case 4
-        int result4 = AliquotSum.getAliquotSum(0);
-        assertEquals(-1, result4, "Incorrect Aliquot Sum for 0");
-        
-        // Test case 5
-        int result5 = AliquotSum.getAliquotSum(-5);
-        assertEquals(-1, result5, "Incorrect Aliquot Sum for -5");
+        assertEquals(787, AliquotSum.getAliquotSum(496));
+        assertEquals(1, AliquotSum.getAliquotSum(1));
+        assertEquals(-1, AliquotSum.getAliquotSum(0));
+        assertEquals(-1, AliquotSum.getAliquotSum(-10));
     }
-}
-
-
-
-No.4 generated result --------------------------
-
-@Test
-public void getAliquotSumTest() {
-    int result1 = AliquotSum.getAliquotSum(100);
-    assertEquals(217, result1);
-
-    int result2 = AliquotSum.getAliquotSum(12);
-    assertEquals(16, result2);
-
-    int result3 = AliquotSum.getAliquotSum(7);
-    assertEquals(1, result3);
-
-    int result4 = AliquotSum.getAliquotSum(0);
-    assertEquals(-1, result4);
 }
 
 
@@ -108,37 +76,22 @@ No.5 generated result --------------------------
 
 @Test
 public void getAliquotSumTest() {
-    int sum = AliquotSum.getAliquotSum(100);
-    assertEquals(217, sum);
+    // Given
+    int input = 10;
+    int expected = 8;
     
-    sum = AliquotSum.getAliquotSum(36);
-    assertEquals(55, sum);
+    // When
+    int actual = AliquotSum.getAliquotSum(input);
     
-    sum = AliquotSum.getAliquotSum(16);
-    assertEquals(15, sum);
-    
-    sum = AliquotSum.getAliquotSum(72);
-    assertEquals(136, sum);
-    
-    sum = AliquotSum.getAliquotSum(2);
-    assertEquals(1, sum);
-    
-    sum = AliquotSum.getAliquotSum(0);
-    assertEquals(-1, sum);
-    
-    sum = AliquotSum.getAliquotSum(-10);
-    assertEquals(-1, sum);
+    // Then
+    assertEquals(expected, actual);
 }
 
 
 No.6 generated result --------------------------
 
-@Test
-public void getAliquotSumTest() {
-    int expectedSum = 14;
-    int actualSum = AliquotSum.getAliquotSum(10);
-    assertEquals(expectedSum, actualSum);
-}
+
+assertEquals(10, AliquotSum.getAliquotSum(12));
 
 
 No.7 generated result --------------------------
@@ -146,73 +99,35 @@ No.7 generated result --------------------------
 @Test
 public void getAliquotSumTest() {
     int result = AliquotSum.getAliquotSum(100);
-    assertEquals(217, result);
-    result = AliquotSum.getAliquotSum(23);
-    assertEquals(1, result);
-    result = AliquotSum.getAliquotSum(0);
-    assertEquals(-1, result);
+    int expected = 117;
+    assertEquals(expected, result);
 }
 
 
 No.8 generated result --------------------------
 
-@Test
-public void getAliquotSumTest() {
-    int input = 100;
-    int expectedOutput = 217;
-    int actualOutput = AliquotSum.getAliquotSum(input);
-    assertEquals(expectedOutput, actualOutput);
-}
+
+    @Test
+    public void getAliquotSumTest() {
+        assertEquals(24, AliquotSum.getAliquotSum(16));
+        assertEquals(7, AliquotSum.getAliquotSum(5));
+        assertEquals(284, AliquotSum.getAliquotSum(220));
+    }
 
 
 No.9 generated result --------------------------
 
 @Test
 public void getAliquotSumTest() {
-    // Test case 1: n = 12
-    int result1 = AliquotSum.getAliquotSum(12);
-    assertEquals(16, result1);
-    
-    // Test case 2: n = 100
-    int result2 = AliquotSum.getAliquotSum(100);
-    assertEquals(217, result2);
-    
-    // Test case 3: n = 0 (invalid input)
-    int result3 = AliquotSum.getAliquotSum(0);
-    assertEquals(-1, result3);
-    
-    // Test case 4: n = -5 (invalid input)
-    int result4 = AliquotSum.getAliquotSum(-5);
-    assertEquals(-1, result4);
-    
-    // Test case 5: n = 1
-    int result5 = AliquotSum.getAliquotSum(1);
-    assertEquals(0, result5);
+    assertEquals(34, AliquotSum.getAliquotSum(12));
 }
 
 
 No.10 generated result --------------------------
 
-package com.thealgorithms.maths;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AliquotSumTest {
-    @Test
-    public void getAliquotSumTest() {
-        // Test case 1: n is a positive integer
-        int result1 = AliquotSum.getAliquotSum(100);
-        assertEquals(217, result1);
-        
-        // Test case 2: n is 0
-        int result2 = AliquotSum.getAliquotSum(0);
-        assertEquals(-1, result2);
-        
-        // Test case 3: n is a negative integer
-        int result3 = AliquotSum.getAliquotSum(-50);
-        assertEquals(-1, result3);
-    }
+public void getAliquotSumTest() {
+    int result = AliquotSum.getAliquotSum(100);
+    assertEquals(117, result);
 }
 
 

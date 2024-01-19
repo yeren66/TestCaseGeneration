@@ -1,0 +1,97 @@
+Source code: 
+
+
+public static int calculateHammingDistance(String s1, String s2) throws Exception {
+    if (s1.length() != s2.length()) {
+        throw new Exception("String lengths must be equal");
+    }
+
+    int stringLength = s1.length();
+    int counter = 0;
+
+    for (int i = 0; i < stringLength; i++) {
+        if (s1.charAt(i) != s2.charAt(i)) {
+            counter++;
+        }
+    }
+    return counter;
+}
+
+
+
+No.1 generated result --------------------------
+
+package com.thealgorithms.strings;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class HammingDistanceTest {
+
+    @Test
+    public void calculateHammingDistanceTest() throws Exception {
+        // Test for equal strings (Hamming Distance should be 0)
+        assertEquals(0, HammingDistance.calculateHammingDistance("test", "test"));
+
+        // Test for strings with Hamming Distance of 2
+        assertEquals(2, HammingDistance.calculateHammingDistance("1011101", "1001001"));
+
+        // Test for strings with Hamming Distance of 1
+        assertEquals(1, HammingDistance.calculateHammingDistance("karolin", "kathrin"));
+
+        // Test with exception due to different lengths
+        Exception exception = assertThrows(Exception.class, () -> {
+            HammingDistance.calculateHammingDistance("abc", "abcd");
+        });
+        assertEquals("String lengths must be equal", exception.getMessage());
+    }
+}
+
+
+No.2 generated result --------------------------
+
+Timeout
+
+
+No.3 generated result --------------------------
+
+Timeout
+
+
+No.4 generated result --------------------------
+
+Timeout
+
+
+No.5 generated result --------------------------
+
+Timeout
+
+
+No.6 generated result --------------------------
+
+Timeout
+
+
+No.7 generated result --------------------------
+
+Timeout
+
+
+No.8 generated result --------------------------
+
+Timeout
+
+
+No.9 generated result --------------------------
+
+Timeout
+
+
+No.10 generated result --------------------------
+
+Timeout
+
+

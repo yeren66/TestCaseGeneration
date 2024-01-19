@@ -22,27 +22,10 @@ No.1 generated result --------------------------
 
 @Test
 public void isArmstrongTest() {
-    Armstrong armstrong = new Armstrong();
-    
-    // Positive test case: 370 is an Armstrong number
-    int number1 = 370;
-    boolean result1 = armstrong.isArmstrong(number1);
-    assertTrue(result1, "Expected true for Armstrong number " + number1);
-    
-    // Positive test case: 1634 is an Armstrong number
-    int number2 = 1634;
-    boolean result2 = armstrong.isArmstrong(number2);
-    assertTrue(result2, "Expected true for Armstrong number " + number2);
-    
-    // Negative test case: 123 is not an Armstrong number
-    int number3 = 123;
-    boolean result3 = armstrong.isArmstrong(number3);
-    assertFalse(result3, "Expected false for non-Armstrong number " + number3);
-    
-    // Negative test case: 9474 is not an Armstrong number
-    int number4 = 9474;
-    boolean result4 = armstrong.isArmstrong(number4);
-    assertFalse(result4, "Expected false for non-Armstrong number " + number4);
+    int number = 370;
+    Armstrong arm = new Armstrong();
+    boolean result = arm.isArmstrong(number);
+    assertTrue(result);
 }
 
 
@@ -51,62 +34,36 @@ No.2 generated result --------------------------
 @Test
 public void isArmstrongTest() {
     Armstrong armstrong = new Armstrong();
-    
-    // Test case 1: Armstrong number
-    int number1 = 370;
-    assertTrue(armstrong.isArmstrong(number1));
-    
-    // Test case 2: Armstrong number
-    int number2 = 1634;
-    assertTrue(armstrong.isArmstrong(number2));
-    
-    // Test case 3: Not Armstrong number
-    int number3 = 123;
-    assertFalse(armstrong.isArmstrong(number3));
+    assertTrue(armstrong.isArmstrong(370));
+    assertTrue(armstrong.isArmstrong(1634));
+    assertFalse(armstrong.isArmstrong(123));
 }
 
 
 No.3 generated result --------------------------
 
 @Test
-public void isArmstrongTest() {
-    Armstrong armstrong = new Armstrong();
-    
-    assertTrue(armstrong.isArmstrong(370));
-    assertTrue(armstrong.isArmstrong(0));
-    assertFalse(armstrong.isArmstrong(123));
-    assertTrue(armstrong.isArmstrong(1634));
-}
+    public void isArmstrongTest() {
+        boolean result = new Armstrong().isArmstrong(370);
+        assertTrue(result);
+    }
 
 
 No.4 generated result --------------------------
 
 @Test
 public void isArmstrongTest() {
-    // Test case 1
-    int number1 = 370;
-    boolean result1 = new Armstrong().isArmstrong(number1);
-    assertTrue(result1);
-
-    // Test case 2
-    int number2 = 1634;
-    boolean result2 = new Armstrong().isArmstrong(number2);
-    assertTrue(result2);
-
-    // Test case 3
-    int number3 = 123;
-    boolean result3 = new Armstrong().isArmstrong(number3);
-    assertFalse(result3);
+    Armstrong armstrong = new Armstrong();
+    assertTrue(armstrong.isArmstrong(370));
+    assertTrue(armstrong.isArmstrong(1634));
+    assertFalse(armstrong.isArmstrong(123));
 }
 
 
 No.5 generated result --------------------------
 
-@Test
-    public void isArmstrongTest() {
+public void isArmstrongTest() {
         Armstrong armstrong = new Armstrong();
-        assertTrue(armstrong.isArmstrong(370));
-        assertFalse(armstrong.isArmstrong(123));
         assertTrue(armstrong.isArmstrong(1634));
         assertFalse(armstrong.isArmstrong(1234));
     }
@@ -116,35 +73,20 @@ No.6 generated result --------------------------
 
 @Test
 public void isArmstrongTest() {
-    // Arrange
     Armstrong armstrong = new Armstrong();
-    int number = 370;
-    boolean expected = true;
-    
-    // Act
-    boolean actual = armstrong.isArmstrong(number);
-    
-    // Assert
-    assertEquals(expected, actual);
+    assertTrue(armstrong.isArmstrong(370));
+    assertTrue(armstrong.isArmstrong(1634));
+    assertFalse(armstrong.isArmstrong(123));
 }
 
 
 No.7 generated result --------------------------
 
-package com.thealgorithms.maths;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class ArmstrongTest {
-    @Test
-    public void isArmstrongTest() {
-        Armstrong armstrong = new Armstrong();
-        
-        assertTrue(armstrong.isArmstrong(370));
-        assertFalse(armstrong.isArmstrong(123));
-        assertTrue(armstrong.isArmstrong(1634));
-    }
+@Test
+public void isArmstrongTest() {
+    assertTrue(new Armstrong().isArmstrong(370));
+    assertTrue(new Armstrong().isArmstrong(1634));
+    assertFalse(new Armstrong().isArmstrong(123));
 }
 
 
@@ -152,16 +94,12 @@ No.8 generated result --------------------------
 
 @Test
 public void isArmstrongTest() {
-    // Arrange
-    int number = 370;
-    boolean expected = true;
     Armstrong armstrong = new Armstrong();
     
-    // Act
-    boolean actual = armstrong.isArmstrong(number);
+    assertTrue(armstrong.isArmstrong(370));
+    assertTrue(armstrong.isArmstrong(1634));
     
-    // Assert
-    assertEquals(expected, actual);
+    assertFalse(armstrong.isArmstrong(123));
 }
 
 
@@ -169,20 +107,12 @@ No.9 generated result --------------------------
 
 @Test
 public void isArmstrongTest() {
-    Armstrong armstrong = new Armstrong();
+    // Testing positive case
+    assertTrue(new Armstrong().isArmstrong(370));
+    assertTrue(new Armstrong().isArmstrong(1634));
     
-    // Test cases
-    boolean result1 = armstrong.isArmstrong(370);
-    assertTrue(result1, "370 is an Armstrong number");
-    
-    boolean result2 = armstrong.isArmstrong(1634);
-    assertTrue(result2, "1634 is an Armstrong number");
-    
-    boolean result3 = armstrong.isArmstrong(9474);
-    assertFalse(result3, "9474 is not an Armstrong number");
-    
-    boolean result4 = armstrong.isArmstrong(123);
-    assertFalse(result4, "123 is not an Armstrong number");
+    // Testing negative case
+    assertFalse(new Armstrong().isArmstrong(123));
 }
 
 
@@ -190,10 +120,14 @@ No.10 generated result --------------------------
 
 @Test
     public void isArmstrongTest() {
+        // Arrange
         Armstrong armstrong = new Armstrong();
-        assertTrue(armstrong.isArmstrong(370)); // Expected output: true
-        assertTrue(armstrong.isArmstrong(1634)); // Expected output: true
-        assertFalse(armstrong.isArmstrong(123)); // Expected output: false
+        
+        // Act
+        boolean actual = armstrong.isArmstrong(370);
+        
+        // Assert
+        assertTrue(actual);
     }
 
 

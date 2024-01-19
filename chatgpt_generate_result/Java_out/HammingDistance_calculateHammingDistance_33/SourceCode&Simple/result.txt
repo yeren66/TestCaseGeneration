@@ -21,87 +21,69 @@ public static int calculateHammingDistance(String s1, String s2) throws Exceptio
 
 No.1 generated result --------------------------
 
-package com.thealgorithms.strings;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class HammingDistanceTest {
-    @Test
-    public void calculateHammingDistanceTest() {
-        // Test case 1: when s1 and s2 are equal
-        try {
-            int result = HammingDistance.calculateHammingDistance("abc", "abc");
-            assertEquals(0, result);
-        } catch (Exception e) {
-            fail("An exception should not be thrown for equal strings");
-        }
-        
-        // Test case 2: when s1 and s2 have different characters at the same positions
-        try {
-            int result = HammingDistance.calculateHammingDistance("abc", "def");
-            assertEquals(3, result);
-        } catch (Exception e) {
-            fail("An exception should not be thrown for strings with different lengths");
-        }
-        
-        // Test case 3: when s1 and s2 have different lengths
-        try {
-            HammingDistance.calculateHammingDistance("abc", "abcd");
-            fail("Exception should be thrown for strings with different lengths");
-        } catch (Exception e) {
-            String expectedMessage = "String lengths must be equal";
-            assertEquals(expectedMessage, e.getMessage());
-        }
+@Test
+public void calculateHammingDistanceTest() {
+    try {
+        assertEquals(3, HammingDistance.calculateHammingDistance("karolin", "kathrin"));
+        assertEquals(1, HammingDistance.calculateHammingDistance("karolin", "karolin"));
+        assertEquals(2, HammingDistance.calculateHammingDistance("karolin", "kerstin"));
+    } catch (Exception e) {
+        e.printStackTrace();
     }
 }
 
 
 No.2 generated result --------------------------
 
-@Test
 public void calculateHammingDistanceTest() {
     try {
-        int actualResult = HammingDistance.calculateHammingDistance("apple", "apply");
-        int expectedResult = 2;
-        assertEquals(expectedResult, actualResult);
-    } catch(Exception e) {
-        fail("An exception occurred: " + e.getMessage());
+        assertEquals(0, HammingDistance.calculateHammingDistance("abcde", "abcde"));
+        assertEquals(3, HammingDistance.calculateHamjsonDistance("karolin", "kathrin"));
+        assertEquals(1, HammingDistance.calculateHammingDistance("karolin", "kerstin"));
+    } catch (Exception e) {
+        fail("Exception not expected");
     }
 }
 
 
 No.3 generated result --------------------------
 
-
-assertEquals(0, HammingDistance.calculateHammingDistance("", ""));
-assertEquals(3, HammingDistance.calculateHammingDistance("abc", "def"));
-assertEquals(1, HammingDistance.calculateHammingDistance("hello", "helle"));
-
+@Test
+public void calculateHammingDistanceTest() {
+    try {
+        assertEquals(3, HammingDistance.calculateHammingDistance("karolin", "kathrin"));
+        assertEquals(3, HamjsonfinDistance.calculateHammingDistance("karolin", "kerstin"));
+        assertEquals(3, HammingDistance.calculateHammingDistance("1011101", "1001001"));
+    } catch (Exception e) {
+        fail("An exception should not have been thrown");
+    }
+}
 
 
 No.4 generated result --------------------------
 
-@Test
-    public void calculateHammingDistanceTest() throws Exception {
-        String s1 = "abcde";
-        String s2 = "abfde";
-        int expectedDistance = 1;
-        int actualDistance = HammingDistance.calculateHammingDistance(s1, s2);
-        assertEquals(expectedDistance, actualDistance);
-    }
 
+public void calculateHammingDistanceTest() {
+    try {
+        int result = HammingDistance.calculateHammingDistance("karolin", "kathrin");
+        assertEquals(3, result);
+    } catch (Exception e) {
+        fail("An exception should not have been thrown");
+    }
+}
 
 
 No.5 generated result --------------------------
 
 @Test
 public void calculateHammingDistanceTest() {
+    String s1 = "karolin";
+    String s2 = "kathrin";
     try {
-        int result = HammingDistance.calculateHammingDistance("abc", "cba");
-        assertEquals(2, result);
+        int result = HammingDistance.calculateHammingDistance(s1, s2);
+        assertEquals(3, result);
     } catch (Exception e) {
-        fail("Exception should not be thrown");
+        fail("Exception not expected" + e.getMessage());
     }
 }
 
@@ -110,12 +92,11 @@ No.6 generated result --------------------------
 
 @Test
 public void calculateHammingDistanceTest() {
-    try {
-        int result = HammingDistance.calculateHammingDistance("abc", "abc");
-        assertEquals(0, result);
-    } catch (Exception e) {
-        fail("An exception should not have been thrown");
-    }
+    String s1 = "karolin";
+    String s2 = "karolin";
+    assertThrows(Exception.class, () -> {
+        HammingDistance.calculateHammingDistance(s1, s2);
+    });
 }
 
 
@@ -123,13 +104,11 @@ No.7 generated result --------------------------
 
 @Test
 public void calculateHammingDistanceTest() {
-    try {
-        assertEquals(0, HammingDistance.calculateHammingDistance("abcde", "abcde"));
-        assertEquals(3, HammingDistance.calculateHammingDistance("abcde", "abxyz"));
-        assertEquals(5, HammingDistance.calculateHammingDistance("abcde", "vwxyz"));
-    } catch (Exception e) {
-        assertNull(e);
-    }
+    String s1 = "10101";
+    String s2 = "11100";
+    int expected = 2;
+    int actual = HammingDistance.calculateHammingDistance(s1, s2);
+    assertEquals(expected, actual);
 }
 
 
@@ -138,83 +117,34 @@ No.8 generated result --------------------------
 @Test
 public void calculateHammingDistanceTest() {
     try {
-        // Test case 1: s1 and s2 are equal strings
-        String s1 = "abc";
-        String s2 = "abc";
-        int expected1 = 0;
-        int result1 = HammingDistance.calculateHammingDistance(s1, s2);
-        assertEquals(expected1, result1);
-
-        // Test case 2: s1 and s2 have different characters at same positions
-        String s3 = "abc";
-        String s4 = "abd";
-        int expected2 = 1;
-        int result2 = HammingDistance.calculateHammingDistance(s3, s4);
-        assertEquals(expected2, result2);
-
-        // Test case 3: s1 and s2 have different lengths
-        String s5 = "abcd";
-        String s6 = "abc";
-        Exception exception = assertThrows(Exception.class, () -> {
-            HammingDistance.calculateHammingDistance(s5, s6);
-        });
-        String expectedErrorMessage = "String lengths must be equal";
-        String actualErrorMessage = exception.getMessage();
-        assertTrue(actualErrorMessage.contains(expectedErrorMessage));
+        assertEquals(2, HammingDistance.calculateHammingDistance("karolin", "kathrin"));
     } catch (Exception e) {
-        fail("An exception occurred");
+        fail("Exception should not be thrown");
     }
 }
 
 
 No.9 generated result --------------------------
 
-@Test
-public void calculateHammingDistanceTest() {
-    try {
-        int distance = 0;
-        
-        // Test case 1: Two equal strings
-        distance = HammingDistance.calculateHammingDistance("abc", "abc");
-        assertEquals(0, distance);
-        
-        // Test case 2: Two strings with one character difference
-        distance = HammingDistance.calculateHammingDistance("abc", "abd");
-        assertEquals(1, distance);
-        
-        // Test case 3: Two strings with same length but different characters
-        distance = HammingDistance.calculateHammingDistance("abc", "def");
-        assertEquals(3, distance);
-        
-        // Test case 4: Two strings with different lengths
-        assertThrows(Exception.class, () -> {
-            HammingDistance.calculateHammingDistance("abc", "ab");
-        });
-        
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-}
-
+String s1 = "karolin";
+String s2 = "kathrin";
+int expected = 3;
+int result = HammingDistance.calculateHammingDistance(s1, s2);
+assertEquals(expected, result);
 
 
 No.10 generated result --------------------------
 
-package com.thealgorithms.strings;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class HammingDistanceTest {
-    @Test
-    public void calculateHammingDistanceTest() {
-        try {
-            int expected = 2;
-            int actual = HammingDistance.calculateHammingDistance("101010", "111011");
-            assertEquals(expected, actual);
-        } catch (Exception e) {
-            fail("An exception occurred: " + e.getMessage());
-        }
+@Test
+public void calculateHammingDistanceTest() {
+    try {
+        String s1 = "karolin";
+        String s2 = "kathrin";
+        int expected = 3;
+        int actual = HammingDistance.calculateHammingDistance(s1, s2);
+        assertEquals(expected, actual);
+    } catch (Exception e) {
+        fail("An exception was thrown");
     }
 }
 

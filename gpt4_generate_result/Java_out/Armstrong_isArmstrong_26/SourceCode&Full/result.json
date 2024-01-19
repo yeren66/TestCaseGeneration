@@ -1,0 +1,26 @@
+{
+    "project_name": "Java",
+    "file_name": "Armstrong.java",
+    "relative_path": "Java/src/main/java/com/thealgorithms/maths/Armstrong.java",
+    "execute_path": "Java",
+    "package": "com.thealgorithms.maths",
+    "docstring": "/**\n     * Checks whether a given number is an Armstrong number or not.\n     *\n     * @param number the number to check\n     * @return {@code true} if the given number is an Armstrong number, {@code false} otherwise\n     */",
+    "source_code": "\npublic boolean isArmstrong(int number) {\n    long sum = 0;\n    String temp = Integer.toString(number); // Convert the given number to a string\n    int power = temp.length(); // Extract the length of the number (number of digits)\n    long originalNumber = number;\n\n    while (originalNumber > 0) {\n        long digit = originalNumber % 10;\n        sum += (long) Math.pow(digit, power); // The digit raised to the power of the number of digits and added to the sum.\n        originalNumber /= 10;\n    }\n\n    return sum == number;\n}\n",
+    "class_name": "Armstrong",
+    "method_name": "isArmstrong",
+    "arguments": [
+        "int number"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

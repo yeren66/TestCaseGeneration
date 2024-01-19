@@ -16,15 +16,15 @@
         "int Label"
     ],
     "generate_test": [
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout",
-        "Timeout"
+        "@Test\npublic void NextRegionTest() {\n    int actual = Blobs.NextRegion(-1, 0, 100, 500, 15);\n    int expected = 1;\n    assertEquals(expected, actual);\n}",
+        "@Test\npublic void NextRegionTest() {\n    int result = Blobs.NextRegion(1, 0, 100.0, 500.0, 15);\n    assertEquals(1, result);\n}",
+        "    @Test\n    public void NextRegionTest() {\n        int parent = -1;\n        int color = 0;\n        double minArea = 100.0;\n        double maxArea = 500.0;\n        int label = 15;\n        \n        int actualResult = Blobs.NextRegion(parent, color, minArea, maxArea, label);\n        \n        assertEquals(2, actualResult); // Assuming the expected result is 2\n    }",
+        "@Test\npublic void NextRegionTest() {\n    int result = Blobs.NextRegion(0, 0, 100.0, 500.0, 15);\n    assertEquals(16, result);\n}",
+        "@Test\npublic void NextRegionTest() {\n    // Given\n    int Parent = 2;\n    int Color = 0;\n    double MinArea = 50.0;\n    double MaxArea = 200.0;\n    int Label = 3;\n\n    // When\n    int result = Blobs.NextRegion(Parent, Color, MinArea, MaxArea, Label);\n\n    // Then\n    assertEquals(5, result);  // Replace with the expected result\n}",
+        "@Test\npublic void NextRegionTest() {\n    int result = Blobs.NextRegion(-1, 0, 100, 500, 15);\n    assertEquals(expectedResult, result);\n}",
+        "package org.bytedeco.javacv;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class BlobsTest {\n    @Test\n    public void NextRegionTest() {\n        int Parent = 0;\n        int Color = 0;\n        double MinArea = 10.0;\n        double MaxArea = 100.0;\n        int Label = 0;\n        \n        int expected = 1;  // Replace with the expected value\n        \n        int result = Blobs.NextRegion(Parent, Color, MinArea, MaxArea, Label);\n        \n        assertEquals(expected, result);\n    }\n}\n",
+        "// Complete the unit test for NextRegion method\nint result = Blobs.NextRegion(0, 0, 100, 500, 15);\nassertEquals(16, result);",
+        "@Test\npublic void NextRegionTest() {\n    int result = Blobs.NextRegion(-1, 0, 100.0, 500.0, 15);\n    assertEquals(16, result);\n}",
+        "assertAll(\n    () -> assertEquals(expectedOutput1, Blobs.NextRegion(2, 0, 100, 500, 15)),\n    () -> assertEquals(expectedOutput2, Blobs.NextRegion(-1, 1, 100, 500, 15))\n);"
     ]
 }

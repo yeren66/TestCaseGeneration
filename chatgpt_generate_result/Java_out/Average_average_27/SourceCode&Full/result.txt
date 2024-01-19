@@ -17,15 +17,91 @@ public static int average(int[] numbers) {
 No.1 generated result --------------------------
 
 @Test
-    public void averageTest() {
-        int[] numbers = {1, 2, 3, 4, 5};
-        int expected = 3;
-        int actual = Average.average(numbers);
-        assertEquals(expected, actual, "Average calculation is incorrect");
-    }
+public void averageTest() {
+    int[] numbers = {1, 2, 3, 4, 5};
+    int expected = 3;
+    int actual = Average.average(numbers);
+    assertEquals(expected, actual);
+}
 
 
 No.2 generated result --------------------------
+
+@Test
+public void averageTest() {
+    int[] numbers = {3, 5, 8, 11, 14};
+    int expected = 8;
+    int actual = Average.average(numbers);
+    assertEquals(expected, actual);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void averageTest() {
+    int[] numbers = {5, 10, 15, 20};
+    int expected = 12;
+    int actual = Average.average(numbers);
+    assertEquals(expected, actual);
+}
+
+
+No.4 generated result --------------------------
+
+@Test
+public void averageTest() {
+    int[] numbers = {3, 6, 9};
+    int expected = 6;
+    int actual = Average.average(numbers);
+    assertEquals(expected, actual);
+}
+
+
+No.5 generated result --------------------------
+
+@Test
+public void averageTest() {
+    int[] values = {2, 4, 6, 8, 10};
+    int expected = 6;
+    int actual = Average.average(values);
+    assertEquals(expected, actual);
+}
+
+
+No.6 generated result --------------------------
+
+@Test
+    public void averageTest() {
+        int[] numbers = {1, 2, 3, 4, 5};
+        int result = Average.average(numbers);
+        assertEquals(3, result);
+    }
+
+
+No.7 generated result --------------------------
+
+@Test
+public void averageTest() {
+    int[] numbers = {2, 4, 6, 8, 10};
+    int expected = 6;
+    int actual = Average.average(numbers);
+    assertEquals(expected, actual);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void averageTest() {
+    int[] numbers = {2, 4, 6, 8, 10};
+    int expectedAverage = 6;
+    int actualAverage = Average.average(numbers);
+    assertEquals(expectedAverage, actualAverage);
+}
+
+
+No.9 generated result --------------------------
 
 @Test
 public void averageTest() {
@@ -36,138 +112,12 @@ public void averageTest() {
 }
 
 
-No.3 generated result --------------------------
-
-@Test
-public void averageTest() {
-    int[] numbers = {1, 2, 3, 4, 5};
-    int expected = 3;
-    int actual = Average.average(numbers);
-    assertEquals(expected, actual);
-}
-
-
-No.4 generated result --------------------------
-
-public class AverageTest {
-    @Test
-    public void averageTest() {
-        int[] numbers = {1, 2, 3, 4, 5};
-        int expectedAverage = 3;
-        int actualAverage = Average.average(numbers);
-        assertEquals(expectedAverage, actualAverage);
-    }
-}
-
-
-No.5 generated result --------------------------
-
-@Test
-public void averageTest() {
-    int[] numbers = {1, 2, 3, 4, 5};
-    int expected = Average.average(numbers);
-    assertEquals(3, expected);
-}
-
-
-No.6 generated result --------------------------
-
-@Test
-public void averageTest() {
-    int[] numbers = {1, 2, 3, 4, 5};
-    int expected = 3; // Expected average of the numbers array
-    int actual = Average.average(numbers);
-    assertEquals(expected, actual, 0.01);
-}
-
-
-No.7 generated result --------------------------
-
-@Test
-public void averageTest() {
-    int[] numbers = {1, 2, 3, 4, 5};
-    int expected = 3;
-    int result = Average.average(numbers);
-    assertEquals(expected, result);
-}
-
-
-No.8 generated result --------------------------
-
-@Test
-public void averageTest() {
-    int[] numbers = {1, 2, 3, 4, 5};
-    int expected = 3;
-    int result = Average.average(numbers);
-    assertEquals(expected, result);
-}
-
-
-No.9 generated result --------------------------
-
-@Test
-public void averageTest() {
-    int[] numbers = {1, 2, 3, 4, 5};
-    int expected = 3;
-    
-    int result = Average.average(numbers);
-    
-    assertEquals(expected, result);
-}
-
-
 No.10 generated result --------------------------
 
 @Test
 public void averageTest() {
-    // Test case 1: non-empty int array
-    int[] numbers1 = {1, 2, 3, 4, 5};
-    int expected1 = 3; // average of 1, 2, 3, 4, 5 is 3
-    int actual1 = Average.average(numbers1);
-    assertEquals(expected1, actual1);
-
-    // Test case 2: non-empty double array
-    double[] numbers2 = {1.5, 2.5, 3.5};
-    double expected2 = 2.5; // average of 1.5, 2.5, 3.5 is 2.5
-    double actual2 = Average.average(numbers2);
-    assertEquals(expected2, actual2);
-
-    // Test case 3: empty int array
-    int[] numbers3 = {};
-    try {
-        Average.average(numbers3);
-        fail("Expected IllegalArgumentException to be thrown");
-    } catch (IllegalArgumentException e) {
-        assertEquals("Numbers array cannot be empty or null", e.getMessage());
-    }
-
-    // Test case 4: null int array
-    int[] numbers4 = null;
-    try {
-        Average.average(numbers4);
-        fail("Expected IllegalArgumentException to be thrown");
-    } catch (IllegalArgumentException e) {
-        assertEquals("Numbers array cannot be empty or null", e.getMessage());
-    }
-
-    // Test case 5: empty double array
-    double[] numbers5 = {};
-    try {
-        Average.average(numbers5);
-        fail("Expected IllegalArgumentException to be thrown");
-    } catch (IllegalArgumentException e) {
-        assertEquals("Numbers array cannot be empty or null", e.getMessage());
-    }
-
-    // Test case 6: null double array
-    double[] numbers6 = null;
-    try {
-        Average.average(numbers6);
-        fail("Expected IllegalArgumentException to be thrown");
-    } catch (IllegalArgumentException e) {
-        assertEquals("Numbers array cannot be empty or null", e.getMessage());
-    }
+    int[] arr = {5, 10, 15, 20};
+    assertEquals(12, Average.average(arr));
 }
-
 
 

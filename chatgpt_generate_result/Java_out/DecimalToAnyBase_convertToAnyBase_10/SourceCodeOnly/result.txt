@@ -24,47 +24,25 @@ No.1 generated result --------------------------
 
 @Test
 public void convertToAnyBaseTest() {
-    // Positive Test Case
-    int inp1 = 25;
-    int base1 = 2;
-    String expectedResult1 = "11001";
-    String actualResult1 = DecimalToAnyBase.convertToAnyBase(inp1, base1);
-    assertEquals(expectedResult1, actualResult1);
-    
-    // Negative Test Case
-    int inp2 = 10;
-    int base2 = 16;
-    String expectedResult2 = "A";
-    String actualResult2 = DecimalToAnyBase.convertToAnyBase(inp2, base2);
-    assertEquals(expectedResult2, actualResult2);
+    assertEquals("100", DecimalToAnyBase.convertToAnyBase(4, 2));
+    assertEquals("11", DecimalToAnyBase.convertToAnyBase(4, 3));
+    assertEquals("4", DecimalToAnyBase.convertToAnyBase(4, 4));
 }
 
 
 No.2 generated result --------------------------
 
 @Test
-public void convertToAnyBaseTest() {
-    assertEquals("110", convertToAnyBase(6, 2));
-    assertEquals("16", convertToAnyBase(22, 16));
-    assertEquals("102", convertToAnyBase(101, 3));
-}
+    public void convertToAnyBaseTest() {
+        assertEquals("1001", DecimalToAnyBase.convertToAnyBase(9, 2));
+    }
 
 
 No.3 generated result --------------------------
 
 @Test
 public void convertToAnyBaseTest() {
-    // Test Case 1
-    assertEquals("10", convertToAnyBase(2, 2));
-    
-    // Test Case 2
-    assertEquals("1111", convertToAnyBase(15, 2));
-    
-    // Test Case 3
-    assertEquals("FF", convertToAnyBase(255, 16));
-    
-    // Test Case 4
-    assertEquals("100", convertToAnyBase(4, 5));
+    assertEquals("11001", DecimalToAnyBase.convertToAnyBase(25, 2));
 }
 
 
@@ -72,23 +50,15 @@ No.4 generated result --------------------------
 
 @Test
 public void convertToAnyBaseTest() {
-    String result = DecimalToAnyBase.convertToAnyBase(10, 2);
+    // Arrange
+    int inp = 10;
+    int base = 2;
+    
+    // Act
+    String result = DecimalToAnyBase.convertToAnyBase(inp, base);
+    
+    // Assert
     assertEquals("1010", result);
-
-    result = DecimalToAnyBase.convertToAnyBase(10, 8);
-    assertEquals("12", result);
-
-    result = DecimalToAnyBase.convertToAnyBase(10, 16);
-    assertEquals("A", result);
-
-    result = DecimalToAnyBase.convertToAnyBase(15, 2);
-    assertEquals("1111", result);
-
-    result = DecimalToAnyBase.convertToAnyBase(15, 8);
-    assertEquals("17", result);
-
-    result = DecimalToAnyBase.convertToAnyBase(15, 16);
-    assertEquals("F", result);
 }
 
 
@@ -96,10 +66,7 @@ No.5 generated result --------------------------
 
 @Test
 public void convertToAnyBaseTest() {
-    assertEquals("101", convertToAnyBase(5, 2));
-    assertEquals("10", convertToAnyBase(2, 2));
-    assertEquals("D3", convertToAnyBase(211, 16));
-    assertEquals("7", convertToAnyBase(7, 10));
+    assertEquals("1101", DecimalToAnyBase.convertToAnyBase(13, 2));
 }
 
 
@@ -107,10 +74,8 @@ No.6 generated result --------------------------
 
 @Test
 public void convertToAnyBaseTest() {
-    assertEquals("11", convertToAnyBase(3, 2));
-    assertEquals("21", convertToAnyBase(7, 3));
-    assertEquals("AA", convertToAnyBase(170, 16));
-    assertEquals("456", convertToAnyBase(789, 8));
+    DecimalToAnyBaseTest convert = new DecimalToAnyBaseTest();
+    assertEquals("MultipleNumbers", convert.convertToAnyBase(10, 2));
 }
 
 
@@ -118,10 +83,9 @@ No.7 generated result --------------------------
 
 @Test
 public void convertToAnyBaseTest() {
-    assertEquals("10", convertToAnyBase(2, 2));
-    assertEquals("1010", convertToAnyBase(10, 2));
-    assertEquals("A", convertToAnyBase(10, 16));
-    assertEquals("FF", convertToAnyBase(255, 16));
+    assertEquals("100", DecimalToAnyBase.convertToAnyBase(4, 2));
+    assertEquals("11", DecimalToAnyBase.convertToAnyBase(4, 3));
+    assertEquals("4", DecimalToAnyBase.convertToAnyBase(4, 10));
 }
 
 
@@ -129,34 +93,27 @@ No.8 generated result --------------------------
 
 @Test
 public void convertToAnyBaseTest() {
-    assertEquals("111", convertToAnyBase(7, 2));
-    assertEquals("13", convertToAnyBase(10, 3));
-    assertEquals("17", convertToAnyBase(23, 10));
-    assertEquals("A", convertToAnyBase(10, 16));
-    assertEquals("FF", convertToAnyBase(255, 16));
+    assertEquals("1100100", DecimalToAnyBase.convertToAnyBase(100, 2));
 }
 
 
 No.9 generated result --------------------------
 
 @Test
-public void convertToAnyBaseTest() {
-    String result = DecimalToAnyBase.convertToAnyBase(16, 2);
-    assertEquals("10000", result);
-}
+    public void convertToAnyBaseTest() {
+        assertEquals("1111", DecimalToAnyBase.convertToAnyBase(15, 2));
+        assertEquals("17", DecimalToAnyBase.convertToAnyBase(15, 8));
+        assertEquals("F", DecimalToAnyBase.convertToAnyBase(15, 16));
+    }
 
 
 No.10 generated result --------------------------
 
 @Test
 public void convertToAnyBaseTest() {
-    int inp = 123;
-    int base = 2;
-    String expected = "1111011";
-
-    String result = DecimalToAnyBase.convertToAnyBase(inp, base);
-
-    assertEquals(expected, result);
+    assertEquals("1101", convertToAnyBase(13, 2));
+    assertEquals("15", convertToAnyBase(21, 16));
+    assertEquals("63", convertToAnyBase(111, 8));
 }
 
 

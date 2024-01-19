@@ -60,51 +60,149 @@ private NBSI help_copy_impl( int i ) {
 
 No.1 generated result --------------------------
 
-Timeout
+@Test
+public void help_copy_implTest() {
+    NonBlockingSetInt.NBSI nbsi = new NonBlockingSetInt.NBSI(64, null, null);
+    NonBlockingSetInt.NBSI result = nbsi.help_copy_impl(0);
+    assertNotNull(result);
+}
 
 
 No.2 generated result --------------------------
 
-Timeout
+@Test
+public void help_copy_implTest() {
+    // Initialize the NBSI object
+    NonBlockingSetInt.NBSI nbsi = new NonBlockingSetInt.NBSI(63, new ConcurrentAutoTable(), new NonBlockingSetInt());
+    
+    // Call the help_copy_impl method passing in a valid index 'i'
+    NonBlockingSetInt.NBSI result = nbsi.help_copy_impl(5);
+    
+    // Assert that the result is not null
+    assertNotNull(result);
+}
 
 
 No.3 generated result --------------------------
 
-Timeout
+@Test
+public void help_copy_implTest() {
+    // Test the help_copy_impl method with a specific scenario
+    NonBlockingSetInt.NBSI nbsi = new NonBlockingSetInt.NBSI(10, null, null);
+    
+    // Perform the help_copy_impl method and check the result
+    NonBlockingSetInt.NBSI result = nbsi.help_copy_impl(5);
+    // Add assertions here
+}
 
 
 No.4 generated result --------------------------
 
-Timeout
+package org.jctools.maps;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NonBlockingSetIntTest {
+    @Test
+    public void help_copy_implTest() {
+        NonBlockingSetInt.NBSI nbsi = new NonBlockingSetInt.NBSI(10, null, null);
+        
+        NonBlockingSetInt.NBSI result = nbsi.help_copy_impl(5);
+        
+        assertNotNull(result);
+    }
+}
 
 
 No.5 generated result --------------------------
 
-Timeout
+@Test
+public void help_copy_implTest() {
+    // Create a new NonBlockingSetInt object with a max element of 1000
+    NonBlockingSetInt set = new NonBlockingSetInt(1000);
+  
+    // Test the help_copy_impl method by adding an element to the set and calling help_copy_impl
+    set.add(500);
+    NonBlockingSetInt.NBSI result = set._nbsi.help_copy_impl(500);
+    
+    // Check if the result is not null
+    assertNotNull(result);
+  
+    // Add further assertions as needed based on the expected behavior of the help_copy_impl method
+}
 
 
 No.6 generated result --------------------------
 
-Timeout
+@Test
+public void help_copy_implTest() {
+    // Create a new NonBlockingSetInt
+    NonBlockingSetInt set = new NonBlockingSetInt();
+    // Add some elements to the set
+    set.add(5);
+    set.add(10);
+    set.add(15);
+    // Perform the help_copy_impl method test
+    NBSI nbsi = set._nbsi;
+    NBSI nnn = nbsi._new;
+    NBSI result = nbsi.help_copy_impl(5);
+    // Add assertions to verify the behavior of the help_copy_impl method
+    assertEquals(nnn, nbsi._new);
+    assertEquals(nbsi, result);
+}
 
 
 No.7 generated result --------------------------
 
-Timeout
+@Test
+public void help_copy_implTest() {
+    // Create a test case for the help_copy_impl method
+    NonBlockingSetInt.NBSI nbsi = new NonBlockingSetInt.NBSI(63, new ConcurrentAutoTable(), new NonBlockingSetInt());
+    // Add test logic here
+    NonBlockingSetInt.NBSI result = nbsi.help_copy_impl(0);
+    // Add assertions here
+    assertNotNull(result);
+}
 
 
 No.8 generated result --------------------------
 
-Timeout
+    @Test
+    public void help_copy_implTest() {
+        // Create a NBSI object for testing
+        NonBlockingSetInt.NBSI nbsi = new NonBlockingSetInt.NBSI(64, new ConcurrentAutoTable(), new NonBlockingSetInt());
+        // Fill in the test case with the appropriate assertions
+        // Test the help_copy_impl method with different inputs
+        <FILL>
+        
+        // Assert for the output of the method with different inputs
+        // Use assertTrue or assertFalse based on the expected output
+    }
 
 
 No.9 generated result --------------------------
 
-Timeout
+@Test
+public void help_copy_implTest() {
+    NonBlockingSetInt.NBSI nbsi = new NonBlockingSetInt.NBSI(64, new ConcurrentAutoTable(), null);
+    NonBlockingSetInt.NBSI result = nbsi.help_copy_impl(10);
+    // Add assertions here to verify the result
+    assertNotNull(result);
+}
 
 
 No.10 generated result --------------------------
 
-Timeout
+@Test
+public void help_copy_implTest() {
+    // Create a NonBlockingSetInt instance
+    NonBlockingSetInt set = new NonBlockingSetInt();
+    // Call the help_copy_impl method with a specific index
+    NBSI result = set._nbsi.help_copy_impl(1);
+    // Verify that the result is not null
+    assertNotNull(result);
+    // Add additional assertions as needed
+}
 
 

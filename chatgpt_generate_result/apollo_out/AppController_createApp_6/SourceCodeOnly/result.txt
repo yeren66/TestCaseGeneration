@@ -29,26 +29,23 @@ No.1 generated result --------------------------
 
 @Test
 public void createAppTest() {
-    // Arrange
+    // Create a request object with valid app details
     OpenCreateAppDTO req = new OpenCreateAppDTO();
     OpenAppDTO app = new OpenAppDTO();
-    app.setAppId("testAppId");
+    app.setAppId("12345");
     req.setApp(app);
-    req.setAssignAppRoleToSelf(true);
-    HttpServletRequest request = new HttpServletRequest(); // Replace with necessary request object
 
-    // Act
-    try {
-        appController.createApp(req, request);
-    } catch (BadRequestException ex) {
-        // Assert
-        assertEquals("App is null", ex.getMessage());
-    } catch (Exception ex) {
-        // Assert
-        fail("Expected BadRequestException to be thrown");
-    }
+    // Create a mock HttpServletRequest
+    HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
 
-    // Add additional assertions for other scenarios, such as AppId is null, etc.
+    // Create an instance of the controller
+    AppController appController = new AppController();
+
+    // Call the method to be tested
+    appController.createApp(req, request);
+
+    // Add assertions to verify the behavior, such as checking if the app is created
+    // and if the app role is assigned to the consumer
 }
 
 
@@ -56,45 +53,51 @@ No.2 generated result --------------------------
 
 @Test
 public void createAppTest() {
-    // Given
-    OpenCreateAppDTO req = new OpenCreateAppDTO();
-    req.setApp(new OpenAppDTO());
-    req.getApp().setAppId("123");
-    req.setAssignAppRoleToSelf(true);
-    
-    HttpServletRequest request = new MockHttpServletRequest();
-    
-    when(appOpenApiService.createApp(eq(req))).thenReturn(app);
-    
-    // When
-    appController.createApp(req, request);
-    
-    // Then
-    verify(appOpenApiService).createApp(req);
-    verify(consumerService).assignAppRoleToConsumer(anyLong(), eq("123"));
+    // Arrange
+    OpenCreateAppDTO mockReq = new OpenCreateAppDTO();
+    mockReq.setApp(new OpenAppDTO());
+
+    HttpServletRequest mockRequest = Mockito.mock(HttpServletRequest.class);
+    Mockito.when(mockRequest.isAssignAppRoleToSelf()).thenReturn(true);
+
+    ConsumerService mockConsumerService = Mockito.mock(ConsumerService.class);
+    Mockito.when(mockConsumerService.retrieveConsumerId(Mockito.any())).thenReturn(123L);
+
+    AppOpenApiService mockAppOpenApiService = Mockito.mock(AppOpenApiService.class);
+
+    AppController appController = new AppController(mockAppOpenApiService, mockConsumerService);
+
+    // Act
+    appController.createApp(mockReq, mockRequest);
+
+    // Assert
+    Mockito.verify(mockAppOpenApiService, Mockito.times(1)).createApp(mockReq);
+    Mockito.verify(mockConsumerService, Mockito.times(1)).assignAppRoleToConsumer(123L, mockReq.getApp().getAppId());
 }
 
 
 No.3 generated result --------------------------
 
-package com.ctrip.framework.apollo.openapi.v1.controller;
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AppControllerTest {
-    @Test
-    public void createAppTest() {
-        // Arrange
-        OpenCreateAppDTO req = new OpenCreateAppDTO();
-        HttpServletRequest request = new MockHttpServletRequest(); // You will need to import the MockHttpServletRequest class
-
-        // Act
-        // <FILL> - Call the createApp() method with the req and request objects
-
-        // Assert
-        // <FILL> - Add assertions to verify the expected behavior
-    }
+@Test
+public void createAppTest() {
+    // Create test data
+    OpenCreateAppDTO testReq = new OpenCreateAppDTO();
+    OpenAppDTO app = new OpenAppDTO();
+    app.setAppId("testAppId");
+    testReq.setApp(app);
+    testReq.setAssignAppRoleToSelf(true);
+    
+    // Mock HttpServletRequest
+    HttpServletRequest mockRequest = Mockito.mock(HttpServletRequest.class);
+    
+    // Create test instance
+    AppController appController = new AppController();
+    
+    // Test the createApp method
+    appController.createApp(testReq, mockRequest);
+    
+    // Add assertions as needed to validate the behavior
 }
 
 
@@ -102,150 +105,65 @@ No.4 generated result --------------------------
 
 @Test
 public void createAppTest() {
-  OpenCreateAppDTO req = new OpenCreateAppDTO();
-  OpenAppDTO app = new OpenAppDTO();
-  app.setAppId("exampleAppId");
-  req.setApp(app);
-  HttpServletRequest request = mock(HttpServletRequest.class);
+   OpenCreateAppDTO req = new OpenCreateAppDTO();
+   OpenAppDTO app = new OpenAppDTO();
+   app.setAppId(123);
+   req.setApp(app);
+   HttpServletRequest request = new HttpServletRequest(); // Create a mock HttpServletRequest
   
-  when(request.isAssignAppRoleToSelf()).thenReturn(true);
-  
-  // mock the necessary dependencies
-  AppOpenApiService appOpenApiService = mock(AppOpenApiService.class);
-  ConsumerAuthUtil consumerAuthUtil = mock(ConsumerAuthUtil.class);
-  ConsumerService consumerService = mock(ConsumerService.class);
-  
-  // create the controller instance
-  AppController appController = new AppController(appOpenApiService, consumerAuthUtil, consumerService);
-  
-  // call the method to be tested
-  appController.createApp(req, request);
-  
-  // verify that the necessary methods were called
-  verify(appOpenApiService).createApp(req);
-  verify(consumerService).assignAppRoleToConsumer(anyLong(), eq("exampleAppId"));
+   // Call the method to be tested and assert the expected behavior
+   assertThrows(BadRequestException.class, () -> {
+       createApp(req, request);
+   });
 }
 
 
 No.5 generated result --------------------------
 
-package com.ctrip.framework.apollo.openapi.v1.controller;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.web.server.ResponseStatusException;
-
-public class AppControllerTest {
+@Test
+public void createAppTest() {
+    OpenCreateAppDTO req = new OpenCreateAppDTO();
+    OpenAppDTO app = new OpenAppDTO();
+    app.setAppId("testAppId");
+    req.setApp(app);
     
-    private AppController appController;
-    private MockHttpServletRequest request;
-
-    @BeforeEach
-    public void setup() {
-        appController = new AppController();
-        request = new MockHttpServletRequest();
-    }
-    
-    @Test
-    public void createAppTest() {
-        // Arrange
-        OpenCreateAppDTO req = new OpenCreateAppDTO();
-        OpenAppDTO app = new OpenAppDTO();
-        app.setAppId("12345");
-        req.setApp(app);
-        req.setAssignAppRoleToSelf(true);
-
-        // Act and Assert
-        assertThrows(BadRequestException.class, () -> appController.createApp(req, request));
-
-        // Additional assertion for assignAppRoleToConsumer method
-        assertThrows(ResponseStatusException.class, () -> appController.consumerService.assignAppRoleToConsumer(1, app.getAppId()));
-    }
+    // perform the createApp method
+    // assert the expected results
 }
 
 
 No.6 generated result --------------------------
 
-package com.ctrip.framework.apollo.openapi.v1.controller;
-
-import org.junit.jupiter.api.*;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
-import javax.servlet.http.HttpServletRequest;
-
-@SpringBootTest
-@AutoConfigureMockMvc
-@DirtiesContext
-public class AppControllerTest {
-    @Autowired
-    private MockMvc mockMvc;
-
-    @MockBean
-    private ConsumerAuthUtil consumerAuthUtil;
-
-    @MockBean
-    private ConsumerService consumerService;
-
-    @MockBean
-    private AppOpenApiService appOpenApiService;
-
-    @Test
-    public void createAppTest() throws Exception {
-        String appJson = "{
-            "app": {
-                "appId": "testAppId"
-            },
-            "assignAppRoleToSelf": true
-        }";
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/apps")
-            .content(appJson)
-            .contentType(MediaType.APPLICATION_JSON))
-            .andExpect(MockMvcResultMatchers.status().isOk());
-
-        // Verify that the createApp method is called
-        verify(appOpenApiService, times(1)).createApp(any(OpenCreateAppDTO.class));
-
-        // Verify that the assignAppRoleToConsumer method is called if assignAppRoleToSelf is true
-        verify(consumerService, times(1)).assignAppRoleToConsumer(any(Long.class), any(String.class));
-    }
+@Test
+public void createAppTest() {
+    OpenCreateAppDTO req = new OpenCreateAppDTO();
+    OpenAppDTO app = new OpenAppDTO();
+    app.setAppId("TestAppId");
+    req.setApp(app);
+    
+    HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
+    
+    Mockito.when(consumerPermissionValidator.hasCreateApplicationPermission(req)).thenReturn(true);
+    Mockito.when(appOpenApiService.createApp(req)).thenReturn(someReturnValue);
+    
+    // Perform the test and assert the expected behavior
+    appController.createApp(req, request);
+    
+    assertEquals(expectedValue, actualValue);
 }
-
 
 
 No.7 generated result --------------------------
 
-package com.ctrip.framework.apollo.openapi.v1.controller;
+@Test
+public void createAppTest() {
+    OpenCreateAppDTO req = new OpenCreateAppDTO();
+    req.setApp(new OpenAppDTO());
+    req.getApp().setAppId("testAppId");
+    HttpServletRequest request = new MockHttpServletRequest();
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AppControllerTest {
-    @Test
-    public void createAppTest() {
-        // Create the input for the test
-        OpenCreateAppDTO req = new OpenCreateAppDTO();
-        // Set the properties of req object according to the test case scenario
-        // ...
-        
-        // Create a mock HttpServletRequest object
-        HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
-
-        // Call the createApp() method
-        AppController appController = new AppController();
-        appController.createApp(req, request);
-
-        // Assert the expected results
-        // ...
-    }
+    BadRequestException exception = assertThrows(BadRequestException.class, () -> appController.createApp(req, request));
+    assertEquals("AppId is null", exception.getMessage());
 }
 
 
@@ -253,52 +171,23 @@ No.8 generated result --------------------------
 
 @Test
 public void createAppTest() {
-    // Arrange
-    AppController appController = new AppController();
-    OpenCreateAppDTO req = new OpenCreateAppDTO();
-    req.setApp(new OpenAppDTO());
-    HttpServletRequest request = mock(HttpServletRequest.class);
-    when(request.isAssignAppRoleToSelf()).thenReturn(true);
-    when(appController.consumerAuthUtil.retrieveConsumerId(request)).thenReturn(1L);
-    
-    // Act
-    appController.createApp(req, request);
-    
-    // Assert
-    // Add your assertions here to verify the expected results
+    // Create request and set necessary data
+    // Call createApp method
+    // Assert the expected behavior
 }
+
 
 
 No.9 generated result --------------------------
 
-package com.ctrip.framework.apollo.openapi.v1.controller;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AppControllerTest {
-    @Test
-    public void createAppTest() {
-        // Create mock data
-        OpenCreateAppDTO req = new OpenCreateAppDTO();
-        OpenAppDTO app = new OpenAppDTO();
-        app.setAppId("testAppId");
-        req.setApp(app);
-        req.setAssignAppRoleToSelf(true);
-        
-        HttpServletRequest request = mock(HttpServletRequest.class);
-        when(request.getHeader("Authorization")).thenReturn("Bearer testToken");
-
-        // Call the actual method
-        AppController appController = new AppController();
-        appController.createApp(req, request);
-
-        // Assert the results
-        // Here you can add assertions to verify the outcome of the method call,
-        // such as checking if the app has been created and the app role has been assigned correctly.
-        // Example assertion:
-        verify(consumerService).assignAppRoleToConsumer(consumerId, "testAppId");
-    }
+@Test
+public void createAppTest() {
+    OpenCreateAppDTO openCreateAppDTO = new OpenCreateAppDTO();
+    OpenAppDTO openAppDTO = new OpenAppDTO();
+    openAppDTO.setAppId("123");
+    openCreateAppDTO.setApp(openAppDTO);
+    HttpServletRequest request = new HttpServletRequest();
+    // Complete the test case by adding method calls and assertions as per the source code
 }
 
 
@@ -306,34 +195,15 @@ No.10 generated result --------------------------
 
 @Test
 public void createAppTest() {
-    OpenCreateAppDTO req = new OpenCreateAppDTO();
-    HttpServletRequest request = mock(HttpServletRequest.class);
-
-    // 1. Test: App is null
-    assertThrows(BadRequestException.class, () -> {
-        appController.createApp(req, request); 
-    });
-
-    // 2. Test: AppId is null
-    OpenAppDTO app = new OpenAppDTO();
-    req.setApp(app);
-    assertThrows(BadRequestException.class, () -> {
-        appController.createApp(req, request);
-    });
-
-    // 3. Test: Successful creation of app
-    app.setAppId("123"); 
-    assertDoesNotThrow(() -> {
-        appController.createApp(req, request);
-    });
-
-    // 4. Test: Assign app role to self
-    req.setAssignAppRoleToSelf(true);
-    when(consumerAuthUtil.retrieveConsumerId(request)).thenReturn(1L);
-    assertDoesNotThrow(() -> {
-        appController.createApp(req, request);
-    });
-    verify(consumerService, times(1)).assignAppRoleToConsumer(1L, "123");
+    OpenCreateAppDTO openCreateAppDTO = new OpenCreateAppDTO();
+    OpenAppDTO appDTO = new OpenAppDTO();
+    appDTO.setAppId("testAppId");
+    openCreateAppDTO.setApp(appDTO);
+    
+    HttpServletRequest request = new MockHttpServletRequest();
+    
+    AppController appController = new AppController();
+    assertThrows(BadRequestException.class, () -> appController.createApp(openCreateAppDTO, request));
 }
 
 

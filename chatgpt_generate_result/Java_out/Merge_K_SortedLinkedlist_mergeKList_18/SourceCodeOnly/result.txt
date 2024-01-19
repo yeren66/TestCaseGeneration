@@ -34,104 +34,21 @@ No.1 generated result --------------------------
 
 @Test
 public void mergeKListTest() {
-    // Create LinkedLists
-    LinkedList<Integer> list1 = new LinkedList<>();
-    list1.add(1);
-    list1.add(4);
-    list1.add(5);
-
-    LinkedList<Integer> list2 = new LinkedList<>();
-    list2.add(1);
-    list2.add(3);
-    list2.add(4);
-
-    LinkedList<Integer> list3 = new LinkedList<>();
-    list3.add(2);
-    list3.add(6);
-
-    // Merge LinkedLists
-    LinkedList<Integer>[] linkedLists = new LinkedList[]{list1, list2, list3};
-    Merge_K_SortedLinkedlist merge = new Merge_K_SortedLinkedlist();
-    Node result = merge.mergeKList(linkedLists, linkedLists.length);
-
-    // Assert the merged list is correct
-    LinkedList<Integer> expectedResult = new LinkedList<>();
-    expectedResult.add(1);
-    expectedResult.add(1);
-    expectedResult.add(2);
-    expectedResult.add(3);
-    expectedResult.add(4);
-    expectedResult.add(4);
-    expectedResult.add(5);
-    expectedResult.add(6);
-
-    LinkedList<Integer> actualResult = new LinkedList<>();
-    while (result != null) {
-        actualResult.add(result.data);
-        result = result.next;
-    }
-
-    assertEquals(expectedResult, actualResult);
-}
-
-
-No.2 generated result --------------------------
-
-@Test
-    public void mergeKListTest() {
-        // Creating the input linked lists
-        Node[] lists = new Node[3];
-        
-        lists[0] = new Node(1);
-        lists[0].next = new Node(4);
-        lists[0].next.next = new Node(5);
-        
-        lists[1] = new Node(1);
-        lists[1].next = new Node(3);
-        lists[1].next.next = new Node(4);
-        
-        lists[2] = new Node(2);
-        lists[2].next = new Node(6);
-        
-        // Calling the mergeKLists method
-        Node result = mergeKList(lists, 3);
-        
-        // asserting the result
-        assertEquals(1, result.data);
-        assertEquals(1, result.next.data);
-        assertEquals(2, result.next.next.data);
-        assertEquals(3, result.next.next.next.data);
-        assertEquals(4, result.next.next.next.next.data);
-        assertEquals(4, result.next.next.next.next.next.data);
-        assertEquals(5, result.next.next.next.next.next.next.data);
-        assertEquals(6, result.next.next.next.next.next.next.next.data);
-        assertNull(result.next.next.next.next.next.next.next.next);
-    }
-
-
-No.3 generated result --------------------------
-
-@Test
-public void mergeKListTest() {
-    // Create the input linked lists
     Node[] lists = new Node[3];
-    
     lists[0] = new Node(1);
     lists[0].next = new Node(4);
     lists[0].next.next = new Node(5);
-    
+
     lists[1] = new Node(1);
     lists[1].next = new Node(3);
     lists[1].next.next = new Node(4);
-    
+
     lists[2] = new Node(2);
     lists[2].next = new Node(6);
-    
-    // Call the mergeKList method
-    Merge_K_SortedLinkedlist merge = new Merge_K_SortedLinkedlist();
-    Node result = merge.mergeKList(lists, 3);
-    
-    // Assert the result
+
+    Merge_K_SortedLinkedlist mergeKSortedLinkedlist = new Merge_K_SortedLinkedlist();
+    Node result = mergeKSortedLinkedlist.mergeKList(lists, 3);
+
     assertEquals(1, result.data);
     assertEquals(1, result.next.data);
     assertEquals(2, result.next.next.data);
@@ -144,85 +61,87 @@ public void mergeKListTest() {
 }
 
 
+No.2 generated result --------------------------
+
+@Test
+public void mergeKListTest() {
+    Node[] a = new Node[3];
+    a[0] = new Node(1);
+    a[1] = new Node(3);
+    a[2] = new Node(2);
+
+    Node result = mergeKList(a, 3);
+    assertEquals(result.data, 1);
+    assertEquals(result.next.data, 2);
+    assertEquals(result.next.next.data, 3);
+}
+
+
+No.3 generated result --------------------------
+
+@Test
+public void mergeKListTest() {
+    // Create array of Nodes
+    Node[] a = new Node[4];
+    a[0] = new Node(1);
+    a[1] = new Node(4);
+    a[2] = new Node(3);
+    a[3] = new Node(2);
+    
+    // Merge the K sorted linked list
+    Node result = mergeKList(a, 4);
+    
+    // Assertions for the merged linked list
+    assertEquals(1, result.data);
+    assertEquals(2, result.next.data);
+    assertEquals(3, result.next.next.data);
+    assertEquals(4, result.next.next.next.data);
+}
+
+
+
 No.4 generated result --------------------------
 
-package com.thealgorithms.datastructures.lists;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class Merge_K_SortedLinkedlistTest {
-    @Test
-    public void mergeKListTest() {
-        Node[] input = new Node[3];
-        input[0] = new Node(1);
-        input[0].next = new Node(4);
-        input[0].next.next = new Node(5);
-
-        input[1] = new Node(1);
-        input[1].next = new Node(3);
-        input[1].next.next = new Node(4);
-
-        input[2] = new Node(2);
-        input[2].next = new Node(6);
-
-        Merge_K_SortedLinkedlist merge = new Merge_K_SortedLinkedlist();
-
-        Node result = merge.mergeKList(input, 3);
-
-        // Asserting the expected merged LinkedList
-        assertEquals(1, result.data);
-        assertEquals(1, result.next.data);
-        assertEquals(2, result.next.next.data);
-        assertEquals(3, result.next.next.next.data);
-        assertEquals(4, result.next.next.next.next.data);
-        assertEquals(4, result.next.next.next.next.next.data);
-        assertEquals(5, result.next.next.next.next.next.next.data);
-        assertEquals(6, result.next.next.next.next.next.next.next.data);
-        assertNull(result.next.next.next.next.next.next.next.next);
-    }
+@Test
+public void mergeKListTest() {
+    Node[] lists = {new Node(1), new Node(2), new Node(3)};
+    Node result = mergeKList(lists, lists.length);
+    assertEquals(1, result.data);
+    assertEquals(2, result.next.data);
+    assertEquals(3, result.next.next.data);
 }
 
 
 No.5 generated result --------------------------
 
-package com.thealgorithms.datastructures.lists;
+@Test
+public void mergeKListTest() {
+    // Create input LinkedLists
+    Node head1 = new Node(1);
+    head1.next = new Node(4);
+    head1.next.next = new Node(5);
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+    Node head2 = new Node(1);
+    head2.next = new Node(3);
+    head2.next.next = new Node(4);
 
-public class Merge_K_SortedLinkedlistTest {
-    @Test
-    public void mergeKListTest() {
-        // Create the input linked lists
-        Node[] lists = new Node[3];
+    Node head3 = new Node(2);
+    head3.next = new Node(6);
 
-        // Construct the linked list [1->4->5]
-        lists[0] = new Node(1);
-        lists[0].next = new Node(4);
-        lists[0].next.next = new Node(5);
+    Node[] input = {head1, head2, head3};
 
-        // Construct the linked list [1->3->4]
-        lists[1] = new Node(1);
-        lists[1].next = new Node(3);
-        lists[1].next.next = new Node(4);
+    // Call the method to test
+    Node result = mergeKList(input, 3);
 
-        // Construct the linked list [2->6]
-        lists[2] = new Node(2);
-        lists[2].next = new Node(6);
-
-        // Merge the linked lists using mergeKList method
-        Merge_K_SortedLinkedlist mergeObj = new Merge_K_SortedLinkedlist();
-        Node result = mergeObj.mergeKList(lists, 3);
-
-        // Verify the merged linked list
-        int[] expected = {1, 1, 2, 3, 4, 4, 5, 6};
-        int i = 0;
-        while(result != null){
-            assertEquals(expected[i++], result.data);
-            result = result.next;
-        }
-    }
+    // Test the result
+    assertEquals(1, result.data);
+    assertEquals(1, result.next.data);
+    assertEquals(2, result.next.next.data);
+    assertEquals(3, result.next.next.next.data);
+    assertEquals(4, result.next.next.next.next.data);
+    assertEquals(4, result.next.next.next.next.next.data);
+    assertEquals(5, result.next.next.next.next.next.next.data);
+    assertEquals(6, result.next.next.next.next.next.next.next.data);
 }
 
 
@@ -230,10 +149,50 @@ No.6 generated result --------------------------
 
 @Test
 public void mergeKListTest() {
-    Node[] a = new Node[3];
-    int N = 3;
+    Node list1 = new Node(1);
+    list1.next = new Node(4);
+    list1.next.next = new Node(5);
 
-    // Creating linked lists
+    Node list2 = new Node(1);
+    list2.next = new Node(3);
+    list2.next.next = new Node(4);
+
+    Node list3 = new Node(2);
+    list3.next = new Node(6);
+
+    Node[] input = {list1, list2, list3};
+    Node result = mergeKList(input, 3);
+
+    assertEquals(1, result.data);
+    assertEquals(1, result.next.data);
+    assertEquals(2, result.next.next.data);
+    assertEquals(3, result.next.next.next.data);
+    assertEquals(4, result.next.next.next.next.data);
+    assertEquals(4, result.next.next.next.next.next.data);
+    assertEquals(5, result.next.next.next.next.next.next.data);
+    assertEquals(6, result.next.next.next.next.next.next.next.data);
+    assertNull(result.next.next.next.next.next.next.next.next);
+}
+
+
+No.7 generated result --------------------------
+
+@Test
+public void mergeKListTest() {
+    Node[] lists = new Node[]{node1, node2, node3}; // Replace node1, node2, node3 with actual nodes
+    int N = lists.length;
+    Node result = mergeKList(lists, N);
+    // Add assertions here to test the merged linked list
+    // For example:
+    // assertEquals(expectedResult, result);
+}
+
+
+No.8 generated result --------------------------
+
+@Test
+public void mergeKListTest() {
+    Node[] a = new Node[3];
     a[0] = new Node(1);
     a[0].next = new Node(4);
     a[0].next.next = new Node(5);
@@ -245,151 +204,79 @@ public void mergeKListTest() {
     a[2] = new Node(2);
     a[2].next = new Node(6);
 
-    Merge_K_SortedLinkedlist obj = new Merge_K_SortedLinkedlist();
-    Node mergedList = obj.mergeKList(a, N);
+    Node result = mergeKList(a, 3);
 
-    // Assertions
-    assertEquals(1, mergedList.data);
-    assertEquals(1, mergedList.next.data);
-    assertEquals(2, mergedList.next.next.data);
-    assertEquals(3, mergedList.next.next.next.data);
-    assertEquals(4, mergedList.next.next.next.next.data);
-    assertEquals(4, mergedList.next.next.next.next.next.data);
-    assertEquals(5, mergedList.next.next.next.next.next.next.data);
-    assertEquals(6, mergedList.next.next.next.next.next.next.next.data);
-    assertNull(mergedList.next.next.next.next.next.next.next.next);
-}
-
-
-No.7 generated result --------------------------
-
-@Test
-public void mergeKListTest() {
-    // Create test nodes
-    Node node1 = new Node(1);
-    Node node2 = new Node(2);
-    Node node3 = new Node(3);
-    Node node4 = new Node(4);
-    
-    // Set next pointers
-    node1.next = node2;
-    node2.next = node3;
-    node3.next = node4;
-    
-    // Create array of nodes
-    Node[] nodes = new Node[]{node1, node2, node3, node4};
-    
-    // Call the function to be tested
-    Node result = mergeKList(nodes, 4);
-    
-    // Expected output
-    Node expected = new Node(1);
-    expected.next = new Node(2);
-    expected.next.next = new Node(3);
-    expected.next.next.next = new Node(4);
-    
-    // Assertion
-    assertEquals(expected, result);
-}
-
-
-No.8 generated result --------------------------
-
-// Step 1: Create test data
-Node[] a = new Node[3];
-a[0] = new Node(1);
-a[0].next = new Node(4);
-a[0].next.next = new Node(5);
-
-a[1] = new Node(1);
-a[1].next = new Node(3);
-a[1].next.next = new Node(4);
-
-a[2] = new Node(2);
-a[2].next = new Node(6);
-
-// Step 2: Invoke the method being tested
-Merge_K_SortedLinkedlist merge = new Merge_K_SortedLinkedlist();
-Node result = merge.mergeKList(a, 3);
-
-// Step 3: Assert the expected output
-int[] expected = {1, 1, 2, 3, 4, 4, 5, 6};
-int i = 0;
-while (result != null) {
-    assertEquals(expected[i++], result.data);
-    result = result.next;
+    // Add assertions to verify the result
+    assertEquals(1, result.data);
+    assertEquals(1, result.next.data);
+    assertEquals(2, result.next.next.data);
+    assertEquals(3, result.next.next.next.data);
+    assertEquals(4, result.next.next.next.next.data);
+    assertEquals(4, result.next.next.next.next.next.data);
+    assertEquals(5, result.next.next.next.next.next.next.data);
+    assertEquals(6, result.next.next.next.next.next.next.next.data);
 }
 
 
 No.9 generated result --------------------------
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+@Test
+public void mergeKListTest() {
+    Node[] lists = new Node[3]; // assuming 3 linked lists for testing
+    lists[0] = new Node(1); 
+    lists[0].next = new Node(4);
+    lists[0].next.next = new Node(5);
+    lists[1] = new Node(1);
+    lists[1].next = new Node(3);
+    lists[1].next.next = new Node(4);
+    // fill in the rest of the linked list nodes for testing
 
-public class Merge_K_SortedLinkedlistTest {
-    @Test
-    public void mergeKListTest() {
-        // Create test data
-        Node[] a = new Node[3];
-        a[0] = new Node(1);
-        a[0].next = new Node(4);
-        a[0].next.next = new Node(5);
+    Node result = mergeKList(lists, lists.length);
 
-        a[1] = new Node(1);
-        a[1].next = new Node(3);
-        a[1].next.next = new Node(4);
-
-        a[2] = new Node(2);
-        a[2].next = new Node(6);
-
-        // Call the function to be tested
-        Merge_K_SortedLinkedlist mergeKList = new Merge_K_SortedLinkedlist();
-        Node result = mergeKList.mergeKList(a, 3);
-
-        // Verify the result
-        assertEquals(1, result.data);
-        assertEquals(1, result.next.data);
-        assertEquals(2, result.next.next.data);
-        assertEquals(3, result.next.next.next.data);
-        assertEquals(4, result.next.next.next.next.data);
-        assertEquals(4, result.next.next.next.next.next.data);
-        assertEquals(5, result.next.next.next.next.next.next.data);
-        assertEquals(6, result.next.next.next.next.next.next.next.data);
-        assertNull(result.next.next.next.next.next.next.next.next);
-    }
+    // assert the result as expected
+    // e.g. assertEquals(expected, result);
 }
 
 
 No.10 generated result --------------------------
 
-Node[] a = new Node[3]; // Assuming 3 linked lists
-// Creating sample linked lists for testing
-Node head1 = new Node(1);
-head1.next = new Node(4);
-head1.next.next = new Node(5);
-a[0] = head1;
+ @Test
+    public void mergeKListTest() {
+       //creating input linked list
+       Node list1 = new Node(1);
+       list1.next = new Node(4);
+       list1.next.next = new Node(5);
 
-Node head2 = new Node(1);
-head2.next = new Node(3);
-head2.next.next = new Node(4);
-a[1] = head2;
+       Node list2 = new Node(1);
+       list2.next = new Node(3);
+       list2.next.next = new Node(4);
 
-Node head3 = new Node(2);
-head3.next = new Node(6);
-a[2] = head3;
+       Node list3 = new Node(2);
+       list3.next = new Node(6);
 
-Merge_K_SortedLinkedlist obj = new Merge_K_SortedLinkedlist();
-Node mergedListHead = obj.mergeKList(a, 3);
+       Node[] input = {list1, list2, list3};
 
-// Asserting the merged linked list
-assertEquals(1, mergedListHead.data);
-assertEquals(1, mergedListHead.next.data);
-assertEquals(2, mergedListHead.next.next.data);
-assertEquals(3, mergedListHead.next.next.next.data);
-assertEquals(4, mergedListHead.next.next.next.next.data);
-assertEquals(4, mergedListHead.next.next.next.next.next.data);
-assertEquals(5, mergedListHead.next.next.next.next.next.next.data);
-assertEquals(6, mergedListHead.next.next.next.next.next.next.next.data);
-assertTrue(mergedListHead.next.next.next.next.next.next.next.next == null);
+       //expected result
+       Node expected = new Node(1);
+       expected.next = new Node(1);
+       expected.next.next = new Node(2);
+       expected.next.next.next = new Node(3);
+       expected.next.next.next.next = new Node(4);
+       expected.next.next.next.next.next = new Node(4);
+       expected.next.next.next.next.next.next = new Node(5);
+       expected.next.next.next.next.next.next.next = new Node(6);
+
+       //unit test
+       Merge_K_SortedLinkedlist mergeK = new Merge_K_SortedLinkedlist();
+       Node result = mergeK.mergeKList(input, 3);
+       while(expected != null && result != null) {
+           assertEquals(expected.data, result.data);
+           expected = expected.next;
+           result = result.next;
+       }
+       assertNull(expected);
+       assertNull(result);
+    }
+}
 
 

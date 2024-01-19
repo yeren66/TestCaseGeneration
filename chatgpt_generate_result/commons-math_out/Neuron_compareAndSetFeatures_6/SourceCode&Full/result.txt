@@ -34,60 +34,35 @@ public boolean compareAndSetFeatures(double[] expect,
 No.1 generated result --------------------------
 
 @Test
-    public void compareAndSetFeaturesTest() {
-        Neuron neuron = new Neuron(1, new double[]{1.0, 2.0, 3.0});
-        double[] expect = new double[]{1.0, 2.0, 3.0};
-        double[] update = new double[]{4.0, 5.0, 6.0};
-        assertTrue(neuron.compareAndSetFeatures(expect, update));
-        assertFalse(neuron.compareAndSetFeatures(expect, update));
-        assertEquals(2, neuron.getNumberOfAttemptedUpdates());
-        assertEquals(1, neuron.getNumberOfSuccessfulUpdates());
-    }
+public void compareAndSetFeaturesTest() {
+    Neuron neuron = new Neuron(1, new double[]{1, 2, 3});
+    double[] expect = new double[]{1, 2, 3};
+    double[] update = new double[]{4, 5, 6};
+    
+    boolean result = neuron.compareAndSetFeatures(expect, update);
+    
+    assertFalse(result);
+    assertArrayEquals(neuron.getFeatures(), new double[]{1, 2, 3});
+}
 
 
 No.2 generated result --------------------------
 
 @Test
 public void compareAndSetFeaturesTest() {
-    // Create a Neuron instance with initial features
-    double[] initialFeatures = {1.0, 2.0, 3.0};
-    Neuron neuron = new Neuron(1, initialFeatures);
-    
-    // Test case 1: Attempt update with expected values that match current features
-    double[] expect1 = {1.0, 2.0, 3.0};
-    double[] update1 = {4.0, 5.0, 6.0};
-    assertTrue(neuron.compareAndSetFeatures(expect1, update1));
-    assertArrayEquals(update1, neuron.getFeatures());
-    assertEquals(1, neuron.getNumberOfSuccessfulUpdates());
-    
-    // Test case 2: Attempt update with expected values that do not match current features
-    double[] expect2 = {7.0, 8.0, 9.0};
-    double[] update2 = {10.0, 11.0, 12.0};
-    assertFalse(neuron.compareAndSetFeatures(expect2, update2));
-    assertArrayEquals(update1, neuron.getFeatures());  // Features should remain unchanged
-    assertEquals(1, neuron.getNumberOfSuccessfulUpdates());  // Successful updates count should remain unchanged
-    
-    // Test case 3: Attempt update with invalid update size
-    double[] expect3 = {4.0, 5.0, 6.0};
-    double[] update3 = {13.0, 14.0};  // Invalid size
-    assertThrows(NeuralNetException.class, () -> neuron.compareAndSetFeatures(expect3, update3));
-    assertArrayEquals(update1, neuron.getFeatures());  // Features should remain unchanged
-    assertEquals(1, neuron.getNumberOfSuccessfulUpdates());  // Successful updates count should remain unchanged
+    Neuron neuron = new Neuron(1, new double[]{1.0, 2.0, 3.0});
+    assertTrue(neuron.compareAndSetFeatures(new double[]{1.0, 2.0, 3.0}, new double[]{4.0, 5.0, 6.0}));
 }
 
 
 No.3 generated result --------------------------
 
 @Test
-public void compareAndSetFeaturesTest() {
-    double[] expect = {1.0, 2.0, 3.0};
-    double[] update = {4.0, 5.0, 6.0};
-    
-    Neuron neuron = new Neuron(1, expect);
-    boolean result = neuron.compareAndSetFeatures(expect, update);
-    
-    assertTrue(result);
-}
+    public void compareAndSetFeaturesTest() {
+        Neuron neuron = new Neuron(1, new double[]{1.0, 2.0, 3.0});
+        assertTrue(neuron.compareAndSetFeatures(new double[]{1.0, 2.0, 3.0}, new double[]{4.0, 5.0, 6.0}));
+        assertFalse(neuron.compareAndSetFeatures(new double[]{1.0, 2.0, 3.0}, new double[]{7.0, 8.0, 9.0}));
+    }
 
 
 No.4 generated result --------------------------
@@ -97,11 +72,7 @@ public void compareAndSetFeaturesTest() {
     Neuron neuron = new Neuron(1, new double[]{1.0, 2.0, 3.0});
     double[] expect = {1.0, 2.0, 3.0};
     double[] update = {4.0, 5.0, 6.0};
-    
     assertTrue(neuron.compareAndSetFeatures(expect, update));
-    assertArrayEquals(update, neuron.getFeatures());
-    
-    assertFalse(neuron.compareAndSetFeatures(expect, update));
 }
 
 
@@ -109,108 +80,66 @@ No.5 generated result --------------------------
 
 @Test
 public void compareAndSetFeaturesTest() {
-    Neuron neuron = new Neuron(1, new double[]{1.0, 2.0, 3.0});
-    double[] currentFeatures = neuron.getFeatures();
+    Neuron testNeuron = new Neuron(1, new double[]{1.0, 2.0, 3.0});
     double[] expect = new double[]{1.0, 2.0, 3.0};
     double[] update = new double[]{4.0, 5.0, 6.0};
-    
-    // Test when expect values match current features
-    boolean result = neuron.compareAndSetFeatures(expect, update);
-    assertTrue(result);
-    assertArrayEquals(update, neuron.getFeatures());
-    
-    // Test when expect values do not match current features
-    double[] newExpect = new double[]{2.0, 3.0, 4.0};
-    result = neuron.compareAndSetFeatures(newExpect, update);
-    assertFalse(result);
-    assertArrayEquals(update, neuron.getFeatures());
-    
-    // Test when update length is different from neuron size
-    double[] invalidUpdate = new double[]{4.0};
-    assertThrows(NeuralNetException.class, () -> neuron.compareAndSetFeatures(expect, invalidUpdate));
+    assertTrue(testNeuron.compareAndSetFeatures(expect, update));
 }
 
 
 No.6 generated result --------------------------
 
-
-package org.apache.commons.math4.neuralnet;
-
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
-
 public class NeuronTest {
+    private Neuron neuron;
+
+    @BeforeEach
+    public void setup() {
+        double[] initialFeatures = {1.0, 2.0, 3.0};
+        neuron = new Neuron(1, initialFeatures);
+    }
+
     @Test
     public void compareAndSetFeaturesTest() {
-        double[] currentFeatures = {1.0, 2.0, 3.0};
         double[] expectedFeatures = {1.0, 2.0, 3.0};
-        double[] newFeatures = {4.0, 5.0, 6.0};
-
-        Neuron neuron = new Neuron(1, currentFeatures);
-        boolean success = neuron.compareAndSetFeatures(expectedFeatures, newFeatures);
-
-        assertTrue(success);
-        assertArrayEquals(newFeatures, neuron.getFeatures());
+        double[] updatedFeatures = {4.0, 5.0, 6.0};
+        
+        assertTrue(neuron.compareAndSetFeatures(expectedFeatures, updatedFeatures));
     }
 }
 
 
-
 No.7 generated result --------------------------
 
-@Test
-public void compareAndSetFeaturesTest() {
-    Neuron neuron = new Neuron(1, new double[] {1.0, 2.0, 3.0});
-
-    double[] expect = new double[] {1.0, 2.0, 3.0};
-    double[] update = new double[] {4.0, 5.0, 6.0};
-
-    assertTrue(neuron.compareAndSetFeatures(expect, update));
-    assertFalse(neuron.compareAndSetFeatures(expect, update));
-}
+    @Test
+    public void compareAndSetFeaturesTest() {
+        Neuron neuron = new Neuron(1, new double[]{0.5, 0.8, 0.2});
+        double[] expect = {0.5, 0.8, 0.2};
+        double[] update = {0.7, 0.9, 0.3};
+        boolean result = neuron.compareAndSetFeatures(expect, update);
+        assertFalse(result);
+    }
 
 
 No.8 generated result --------------------------
 
+    @Test
     public void compareAndSetFeaturesTest() {
-        // Create a neuron with initial features
-        double[] initialFeatures = {1.0, 2.0, 3.0};
-        Neuron neuron = new Neuron(1, initialFeatures);
-
-        // Define the expected and updated features
-        double[] expectedFeatures = {1.0, 2.0, 3.0};
-        double[] updatedFeatures = {4.0, 5.0, 6.0};
-
-        // Perform the compareAndSetFeatures operation
-        boolean result = neuron.compareAndSetFeatures(expectedFeatures, updatedFeatures);
-
-        // Check the result and assert the expected values
-        assertTrue(result);  // Expecting the update to be successful
-        assertArrayEquals(updatedFeatures, neuron.getFeatures());  // Expecting the features to be updated
+        Neuron neuron = new Neuron(1, new double[]{1.0, 2.0, 3.0});
+        
+        double[] expect = {1.0, 2.0, 3.0};
+        double[] update = {4.0, 5.0, 6.0};
+        
+        assertTrue(neuron.compareAndSetFeatures(expect, update));
     }
 
 
 No.9 generated result --------------------------
 
-@Test
 public void compareAndSetFeaturesTest() {
     Neuron neuron = new Neuron(1, new double[]{1.0, 2.0, 3.0});
-
-    // Test case 1: Update with same values
-    double[] expect1 = {1.0, 2.0, 3.0};
-    double[] update1 = {1.0, 2.0, 3.0};
-    assertTrue(neuron.compareAndSetFeatures(expect1, update1));
-
-    // Test case 2: Update with different values
-    double[] expect2 = {1.0, 2.0, 3.0};
-    double[] update2 = {4.0, 5.0, 6.0};
-    assertFalse(neuron.compareAndSetFeatures(expect2, update2));
-
-    // Test case 3: Update with different lengths
-    double[] expect3 = {1.0, 2.0, 3.0};
-    double[] update3 = {1.0, 2.0};
-    assertThrows(NeuralNetException.class, () ->
-            neuron.compareAndSetFeatures(expect3, update3));
+    double[] expect = {1.0, 2.0, 3.0};
+    double[] update = {4.0, 5.0, 6.0};
+    assertTrue(neuron.compareAndSetFeatures(expect, update));
 }
 
 
@@ -219,10 +148,8 @@ No.10 generated result --------------------------
 @Test
 public void compareAndSetFeaturesTest() {
     Neuron neuron = new Neuron(1, new double[]{1.0, 2.0, 3.0});
-    double[] expect = new double[]{1.0, 2.0, 3.0};
-    double[] update = new double[]{4.0, 5.0, 6.0};
-    
-    assertTrue(neuron.compareAndSetFeatures(expect, update));
+    assertTrue(neuron.compareAndSetFeatures(new double[]{1.0, 2.0, 3.0}, new double[]{4.0, 5.0, 6.0}));
+    assertFalse(neuron.compareAndSetFeatures(new double[]{1.0, 2.0, 3.0}, new double[]{7.0, 8.0, 9.0}));
 }
 
 
