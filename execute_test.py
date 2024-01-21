@@ -84,18 +84,20 @@ def write_coverage_result(path, data):
     with open(file_path, 'w', encoding='utf-8') as file:   
         json.dump(existing_data, file, indent=4)
 
-def result_evaluate(data, file_path, class_name, method_name, package_name, project_name):
+def result_evaluate(generate_code, file_path, class_name, method_name, package_name, project_name):
     result_list = []
-    for j in range(len(data)):
+    for j in range(len(generate_code)):
         logging.info("\nclass_name: " + class_name + " method_name: " + method_name + " index: " + str(j + 1))
         logging.info("\npath: " + file_path)
-        logging.info("\ncode: " + data[j])
+        logging.info("\ncode: " + generate_code[j])
 
-        # 清空文件夹
-        # clean_path(java_file_path)
+        # 进行代码修复
+        # logging.info("\nUsing code repair rules...")
+        # repair_code = code_repair(generate_code[j])
+        repair_code = generate_code[j]
 
         # 进行语法检查
-        syntax_ret = syntax_judge(data[j])
+        syntax_ret = syntax_judge(repair_code)
         if not syntax_ret:
             result_list.append('Syntax Error')
             continue
@@ -104,7 +106,7 @@ def result_evaluate(data, file_path, class_name, method_name, package_name, proj
         # -Drat.skip=true 是遇到License检查才添加的参数
         # -Dsurefire.failIfNoSpecifiedTests=false 是跳过没有测试的类
         # 对于新项目，所需要的参数可能不尽相同，为此可能需要频繁修改此内容。
-        write_file(file_path, syntax_ret, data[j])
+        write_file(file_path, syntax_ret, repair_code)
         logging.info("####################  mvn clean test-compile  ####################")
         sp = subprocess.Popen(
             "mvn clean test-compile -Drat.skip=true -Dsurefire.failIfNoSpecifiedTests=false",
@@ -202,7 +204,7 @@ def result_evaluate(data, file_path, class_name, method_name, package_name, proj
             "package_name": package_name,
             "class_name": class_name,
             "method_name": method_name,
-            "test_code": data[j],
+            "test_code": repair_code,
             "package_metric": package_metric,
             "class_metric": class_metric,
             "method_metric": method_metric,
