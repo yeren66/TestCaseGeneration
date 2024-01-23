@@ -1,0 +1,30 @@
+{
+    "project_name": "javacv",
+    "file_name": "ObjectFinder.java",
+    "relative_path": "javacv/src/main/java/org/bytedeco/javacv/ObjectFinder.java",
+    "execute_path": "javacv",
+    "package": "org.bytedeco.javacv",
+    "docstring": "/** a rough implementation for object location */",
+    "source_code": "\ndouble[] locatePlanarObject(KeyPointVector objectKeypoints, Mat objectDescriptors,\n        KeyPointVector imageKeypoints, Mat imageDescriptors, double[] srcCorners) {\n    ptpairs.clear();\n    if (settings.useFLANN) {\n        flannFindPairs(objectDescriptors, imageDescriptors);\n    } else {\n        findPairs(objectDescriptors, imageDescriptors);\n    }\n    int n = ptpairs.size()/2;\n    logger.info(n + \" matching pairs found\");\n    if (n < settings.matchesMin) {\n        return null;\n    }\n\n    pt1 .resize(n);\n    pt2 .resize(n);\n    mask.resize(n);\n    FloatBuffer pt1Idx = pt1.createBuffer();\n    FloatBuffer pt2Idx = pt2.createBuffer();\n    for (int i = 0; i < n; i++) {\n        Point2f p1 = objectKeypoints.get(ptpairs.get(2*i)).pt();\n        pt1Idx.put(2*i, p1.x()); pt1Idx.put(2*i+1, p1.y());\n        Point2f p2 = imageKeypoints.get(ptpairs.get(2*i+1)).pt();\n        pt2Idx.put(2*i, p2.x()); pt2Idx.put(2*i+1, p2.y());\n    }\n\n    H = findHomography(pt1, pt2, CV_RANSAC, settings.ransacReprojThreshold, mask, 2000, 0.995);\n    if (H.empty() || countNonZero(mask) < settings.matchesMin) {\n        return null;\n    }\n\n    double[] h = (double[])H.createIndexer(false).array();\n    double[] dstCorners = new double[srcCorners.length];\n    for(int i = 0; i < srcCorners.length/2; i++) {\n        double x = srcCorners[2*i], y = srcCorners[2*i + 1];\n        double Z = 1/(h[6]*x + h[7]*y + h[8]);\n        double X = (h[0]*x + h[1]*y + h[2])*Z;\n        double Y = (h[3]*x + h[4]*y + h[5])*Z;\n        dstCorners[2*i    ] = X;\n        dstCorners[2*i + 1] = Y;\n    }\n    return dstCorners;\n}\n",
+    "class_name": "ObjectFinder",
+    "method_name": "locatePlanarObject",
+    "arguments": [
+        "KeyPointVector objectKeypoints",
+        "Mat objectDescriptors",
+        "KeyPointVector imageKeypoints",
+        "Mat imageDescriptors",
+        "double[] srcCorners"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

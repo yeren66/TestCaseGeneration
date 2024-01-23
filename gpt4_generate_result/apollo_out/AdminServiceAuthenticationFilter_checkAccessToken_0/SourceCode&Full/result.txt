@@ -1,0 +1,78 @@
+Source code: 
+
+private boolean checkAccessToken(String token) {
+  String accessTokens = bizConfig.getAdminServiceAccessTokens();
+
+  // if user forget to configure access tokens, then default to pass
+  if (Strings.isNullOrEmpty(accessTokens)) {
+    return true;
+  }
+
+  // no need to check
+  if (Strings.isNullOrEmpty(token)) {
+    return false;
+  }
+
+  // update cache
+  if (!accessTokens.equals(lastAccessTokens)) {
+    synchronized (this) {
+      accessTokenList = ACCESS_TOKEN_SPLITTER.splitToList(accessTokens);
+      lastAccessTokens = accessTokens;
+    }
+  }
+
+  return accessTokenList.contains(token);
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

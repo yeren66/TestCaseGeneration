@@ -1,0 +1,26 @@
+{
+    "project_name": "apollo",
+    "file_name": "ApolloEurekaClientConfig.java",
+    "relative_path": "apollo/apollo-biz/src/main/java/com/ctrip/framework/apollo/biz/eureka/ApolloEurekaClientConfig.java",
+    "execute_path": "apollo",
+    "package": "com.ctrip.framework.apollo.biz.eureka",
+    "docstring": "/**\n   * Assert only one zone: defaultZone, but multiple environments.\n   */",
+    "source_code": "\n@Override\npublic List<String> getEurekaServerServiceUrls(String myZone) {\n  List<String> urls = bizConfig.eurekaServiceUrls();\n  return CollectionUtils.isEmpty(urls) ? super.getEurekaServerServiceUrls(myZone) : urls;\n}\n",
+    "class_name": "ApolloEurekaClientConfig",
+    "method_name": "getEurekaServerServiceUrls",
+    "arguments": [
+        "String myZone"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

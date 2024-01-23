@@ -1,0 +1,27 @@
+{
+    "project_name": "zxing",
+    "file_name": "ReedSolomonDecoder.java",
+    "relative_path": "zxing/core/src/main/java/com/google/zxing/common/reedsolomon/ReedSolomonDecoder.java",
+    "execute_path": "zxing",
+    "package": "com.google.zxing.common.reedsolomon",
+    "docstring": "/**\n   * <p>Decodes given set of received codewords, which include both data and error-correction\n   * codewords. Really, this means it uses Reed-Solomon to detect and correct errors, in-place,\n   * in the input.</p>\n   *\n   * @param received data and error-correction codewords\n   * @param twoS number of error-correction codewords available\n   * @return the number of errors corrected\n   * @throws ReedSolomonException if decoding fails for any reason\n   */",
+    "source_code": "\npublic int decodeWithECCount(int[] received, int twoS) throws ReedSolomonException {\n  GenericGFPoly poly = new GenericGFPoly(field, received);\n  int[] syndromeCoefficients = new int[twoS];\n  boolean noError = true;\n  for (int i = 0; i < twoS; i++) {\n    int eval = poly.evaluateAt(field.exp(i + field.getGeneratorBase()));\n    syndromeCoefficients[syndromeCoefficients.length - 1 - i] = eval;\n    if (eval != 0) {\n      noError = false;\n    }\n  }\n  if (noError) {\n    return 0;\n  }\n  GenericGFPoly syndrome = new GenericGFPoly(field, syndromeCoefficients);\n  GenericGFPoly[] sigmaOmega =\n      runEuclideanAlgorithm(field.buildMonomial(twoS, 1), syndrome, twoS);\n  GenericGFPoly sigma = sigmaOmega[0];\n  GenericGFPoly omega = sigmaOmega[1];\n  int[] errorLocations = findErrorLocations(sigma);\n  int[] errorMagnitudes = findErrorMagnitudes(omega, errorLocations);\n  for (int i = 0; i < errorLocations.length; i++) {\n    int position = received.length - 1 - field.log(errorLocations[i]);\n    if (position < 0) {\n      throw new ReedSolomonException(\"Bad error location\");\n    }\n    received[position] = GenericGF.addOrSubtract(received[position], errorMagnitudes[i]);\n  }\n  return errorLocations.length;\n}\n",
+    "class_name": "ReedSolomonDecoder",
+    "method_name": "decodeWithECCount",
+    "arguments": [
+        "int[] received",
+        "int twoS"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

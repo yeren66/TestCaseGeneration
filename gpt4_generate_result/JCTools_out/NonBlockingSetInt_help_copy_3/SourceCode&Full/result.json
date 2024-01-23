@@ -1,0 +1,24 @@
+{
+    "project_name": "JCTools",
+    "file_name": "NonBlockingSetInt.java",
+    "relative_path": "JCTools/jctools-core/src/main/java/org/jctools/maps/NonBlockingSetInt.java",
+    "execute_path": "JCTools",
+    "package": "org.jctools.maps",
+    "docstring": null,
+    "source_code": "// Help any top-level NBSI to copy until completed.\n// Always return the _new version of *this* NBSI, in case we're nested.\nprivate NBSI help_copy() {\n  // Pick some words to help with - but only help copy the top-level NBSI.\n  // Nested NBSI waits until the top is done before we start helping.\n  NBSI top_nbsi = _non_blocking_set_int._nbsi;\n  final int HELP = 8;       // Tuning number: how much copy pain are we willing to inflict?\n  // We \"help\" by forcing individual bit indices to copy.  However, bits\n  // come in lumps of 64 per word, so we just advance the bit counter by 64's.\n  int idx = top_nbsi._copyIdx.getAndAdd(64*HELP);\n  for( int i=0; i<HELP; i++ ) {\n    int j = idx+i*64;\n    j %= (top_nbsi._bits.length<<6); // Limit, wrap to array size; means we retry indices\n    top_nbsi.help_copy_impl(j   );\n    top_nbsi.help_copy_impl(j+63); // Also force the nested-by-64 bit\n  }\n\n  // Top level guy ready to promote?\n  // Note: WE may not be the top-level guy!\n  if( top_nbsi._copyDone.get() == top_nbsi._sum_bits_length )\n    // One shot CAS to promote - it may fail since we are racing; others\n    // may promote as well\n    if( _non_blocking_set_int.CAS_nbsi( top_nbsi, top_nbsi._new ) ) {\n      //System.out.println(\"Promote at top level to size \"+(_non_blocking_set_int._nbsi._bits.length<<6));\n    }\n\n  // Return the new bitvector for 'fluid' programming style\n  return _new;\n}\n",
+    "class_name": "NonBlockingSetInt",
+    "method_name": "help_copy",
+    "arguments": [],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

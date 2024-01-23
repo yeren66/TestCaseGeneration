@@ -1,0 +1,27 @@
+{
+    "project_name": "zxing",
+    "file_name": "Decoder.java",
+    "relative_path": "zxing/core/src/main/java/com/google/zxing/aztec/decoder/Decoder.java",
+    "execute_path": "zxing",
+    "package": "com.google.zxing.aztec.decoder",
+    "docstring": "/**\n   * Gets the character (or string) corresponding to the passed code in the given table\n   *\n   * @param table the table used\n   * @param code the code of the character\n   */",
+    "source_code": "\nprivate static String getCharacter(Table table, int code) {\n  switch (table) {\n    case UPPER:\n      return UPPER_TABLE[code];\n    case LOWER:\n      return LOWER_TABLE[code];\n    case MIXED:\n      return MIXED_TABLE[code];\n    case PUNCT:\n      return PUNCT_TABLE[code];\n    case DIGIT:\n      return DIGIT_TABLE[code];\n    default:\n      // Should not reach here.\n      throw new IllegalStateException(\"Bad table\");\n  }\n}\n",
+    "class_name": "Decoder",
+    "method_name": "getCharacter",
+    "arguments": [
+        "Table table",
+        "int code"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

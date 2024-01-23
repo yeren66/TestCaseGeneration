@@ -1,0 +1,24 @@
+{
+    "project_name": "commons-math",
+    "file_name": "Pair.java",
+    "relative_path": "commons-math/commons-math-legacy-core/src/main/java/org/apache/commons/math4/legacy/core/Pair.java",
+    "execute_path": "commons-math/commons-math-legacy-core",
+    "package": "org.apache.commons.math4.legacy.core",
+    "docstring": "/**\n     * Compute a hash code.\n     *\n     * @return the hash code value.\n     */",
+    "source_code": "\n@Override\npublic int hashCode() {\n    int result = key == null ? 0 : key.hashCode();\n\n    final int h = value == null ? 0 : value.hashCode();\n    result = 37 * result + h ^ (h >>> 16);\n\n    return result;\n}\n",
+    "class_name": "Pair",
+    "method_name": "hashCode",
+    "arguments": [],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

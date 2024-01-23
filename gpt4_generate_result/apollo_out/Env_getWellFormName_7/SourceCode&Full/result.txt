@@ -1,0 +1,75 @@
+Source code: 
+
+
+private static String getWellFormName(String envName) {
+  if (StringUtils.isBlank(envName)) {
+    return "";
+  }
+
+  String envWellFormName = envName.trim().toUpperCase();
+
+  // special case for production in case of typo
+  if ("PROD".equals(envWellFormName)) {
+    return Env.PRO.name;
+  }
+
+  // special case that FAT & FWS should map to FAT
+  if ("FWS".equals(envWellFormName)) {
+    return Env.FAT.name;
+  }
+
+  return envWellFormName;
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

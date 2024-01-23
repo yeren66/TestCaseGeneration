@@ -1,0 +1,24 @@
+{
+    "project_name": "javacv",
+    "file_name": "FFmpegFrameGrabber.java",
+    "relative_path": "javacv/src/main/java/org/bytedeco/javacv/FFmpegFrameGrabber.java",
+    "execute_path": "javacv",
+    "package": "org.bytedeco.javacv",
+    "docstring": "/**Estimation of audio frames per second.\n     *\n     * Care must be taken as this method may require unnecessary call of\n     * grabFrame(true, false, false, false, false) with frameGrabbed set to true.\n     *\n     * @return (double) getSampleRate()) / samples_frame.nb_samples()\n     * if samples_frame.nb_samples() is not zero, otherwise return 0\n     */",
+    "source_code": "\npublic double getAudioFrameRate() {\n    if (audio_st == null) {\n        return 0.0;\n    } else {\n        if (samples_frame == null || samples_frame.nb_samples() == 0) {\n            try {\n                grabFrame(true, false, false, false, false);\n                frameGrabbed = true;\n            } catch (Exception e) {\n                return 0.0;\n            }\n        }\n        if (samples_frame != null && samples_frame.nb_samples() != 0)\n            return ((double) getSampleRate()) / samples_frame.nb_samples();\n        else return 0.0;\n\n    }\n}\n",
+    "class_name": "FFmpegFrameGrabber",
+    "method_name": "getAudioFrameRate",
+    "arguments": [],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

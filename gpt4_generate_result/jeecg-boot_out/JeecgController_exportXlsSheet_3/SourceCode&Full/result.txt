@@ -1,0 +1,96 @@
+Source code: 
+
+
+protected ModelAndView exportXlsSheet(HttpServletRequest request, T object, Class<T> clazz, String title,String exportFields,Integer pageNum) {
+    // Step.1 组装查询条件
+    QueryWrapper<T> queryWrapper = QueryGenerator.initQueryWrapper(object, request.getParameterMap());
+    LoginUser sysUser = (LoginUser) SecurityUtils.getSubject().getPrincipal();
+    // Step.2 计算分页sheet数据
+    double total = service.count();
+    int count = (int)Math.ceil(total/pageNum);
+    //update-begin-author:liusq---date:20220629--for: 多sheet导出根据选择导出写法调整 ---
+    // Step.3  过滤选中数据
+    String selections = request.getParameter("selections");
+    if (oConvertUtils.isNotEmpty(selections)) {
+        List<String> selectionList = Arrays.asList(selections.split(","));
+        queryWrapper.in("id",selectionList);
+    }
+    //update-end-author:liusq---date:20220629--for: 多sheet导出根据选择导出写法调整 ---
+    // Step.4 多sheet处理
+    List<Map<String, Object>> listMap = new ArrayList<Map<String, Object>>();
+    for (int i = 1; i <=count ; i++) {
+        Page<T> page = new Page<T>(i, pageNum);
+        IPage<T> pageList = service.page(page, queryWrapper);
+        List<T> exportList = pageList.getRecords();
+        Map<String, Object> map = new HashMap<>(5);
+        ExportParams exportParams=new ExportParams(title + "报表", "导出人:" + sysUser.getRealname(), title+i,jeecgBaseConfig.getPath().getUpload());
+        exportParams.setType(ExcelType.XSSF);
+        //map.put("title",exportParams);
+        //表格Title
+        map.put(NormalExcelConstants.PARAMS,exportParams);
+        //表格对应实体
+        map.put(NormalExcelConstants.CLASS,clazz);
+        //数据集合
+        map.put(NormalExcelConstants.DATA_LIST, exportList);
+        listMap.add(map);
+    }
+    // Step.4 AutoPoi 导出Excel
+    ModelAndView mv = new ModelAndView(new JeecgEntityExcelView());
+    //此处设置的filename无效 ,前端会重更新设置一下
+    mv.addObject(NormalExcelConstants.FILE_NAME, title);
+    mv.addObject(NormalExcelConstants.MAP_LIST, listMap);
+    return mv;
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

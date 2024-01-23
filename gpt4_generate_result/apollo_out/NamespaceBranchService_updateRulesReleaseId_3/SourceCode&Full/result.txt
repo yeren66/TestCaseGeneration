@@ -1,0 +1,83 @@
+Source code: 
+
+@Transactional
+public GrayReleaseRule updateRulesReleaseId(String appId, String clusterName,
+                                 String namespaceName, String branchName,
+                                 long latestReleaseId, String operator) {
+  GrayReleaseRule oldRules = grayReleaseRuleRepository.
+      findTopByAppIdAndClusterNameAndNamespaceNameAndBranchNameOrderByIdDesc(appId, clusterName, namespaceName, branchName);
+
+  if (oldRules == null) {
+    return null;
+  }
+
+  GrayReleaseRule newRules = new GrayReleaseRule();
+  newRules.setBranchStatus(NamespaceBranchStatus.ACTIVE);
+  newRules.setReleaseId(latestReleaseId);
+  newRules.setRules(oldRules.getRules());
+  newRules.setAppId(oldRules.getAppId());
+  newRules.setClusterName(oldRules.getClusterName());
+  newRules.setNamespaceName(oldRules.getNamespaceName());
+  newRules.setBranchName(oldRules.getBranchName());
+  newRules.setDataChangeCreatedBy(operator);
+  newRules.setDataChangeLastModifiedBy(operator);
+
+  grayReleaseRuleRepository.save(newRules);
+
+  grayReleaseRuleRepository.delete(oldRules);
+
+  return newRules;
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

@@ -1,0 +1,26 @@
+{
+    "project_name": "zxing",
+    "file_name": "FinderPattern.java",
+    "relative_path": "zxing/core/src/main/java/com/google/zxing/oned/rss/FinderPattern.java",
+    "execute_path": "zxing",
+    "package": "com.google.zxing.oned.rss",
+    "docstring": null,
+    "source_code": "@Override\npublic boolean equals(Object o) {\n  if (!(o instanceof FinderPattern)) {\n    return false;\n  }\n  FinderPattern that = (FinderPattern) o;\n  return value == that.value;\n}\n",
+    "class_name": "FinderPattern",
+    "method_name": "equals",
+    "arguments": [
+        "Object o"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

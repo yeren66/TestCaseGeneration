@@ -1,0 +1,28 @@
+{
+    "project_name": "apollo",
+    "file_name": "GlobalDefaultExceptionHandler.java",
+    "relative_path": "apollo/apollo-common/src/main/java/com/ctrip/framework/apollo/common/controller/GlobalDefaultExceptionHandler.java",
+    "execute_path": "apollo",
+    "package": "com.ctrip.framework.apollo.common.controller",
+    "docstring": null,
+    "source_code": "//\u6253\u5370\u65e5\u5fd7, \u5176\u4e2dlogLevel\u4e3a\u65e5\u5fd7\u7ea7\u522b: ERROR/WARN/DEBUG/INFO/TRACE\nprivate void printLog(String message, Throwable ex, Level logLevel) {\n  switch (logLevel) {\n    case ERROR:\n      logger.error(message, ex);\n      break;\n    case WARN:\n      logger.warn(message, ex);\n      break;\n    case DEBUG:\n      logger.debug(message, ex);\n      break;\n    case INFO:\n      logger.info(message, ex);\n      break;\n    case TRACE:\n      logger.trace(message, ex);\n      break;\n  }\n\n  Tracer.logError(ex);\n}\n",
+    "class_name": "GlobalDefaultExceptionHandler",
+    "method_name": "printLog",
+    "arguments": [
+        "String message",
+        "Throwable ex",
+        "Level logLevel"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

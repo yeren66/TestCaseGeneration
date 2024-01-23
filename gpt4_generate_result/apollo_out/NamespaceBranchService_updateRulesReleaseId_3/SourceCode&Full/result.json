@@ -1,0 +1,31 @@
+{
+    "project_name": "apollo",
+    "file_name": "NamespaceBranchService.java",
+    "relative_path": "apollo/apollo-biz/src/main/java/com/ctrip/framework/apollo/biz/service/NamespaceBranchService.java",
+    "execute_path": "apollo",
+    "package": "com.ctrip.framework.apollo.biz.service",
+    "docstring": null,
+    "source_code": "@Transactional\npublic GrayReleaseRule updateRulesReleaseId(String appId, String clusterName,\n                                 String namespaceName, String branchName,\n                                 long latestReleaseId, String operator) {\n  GrayReleaseRule oldRules = grayReleaseRuleRepository.\n      findTopByAppIdAndClusterNameAndNamespaceNameAndBranchNameOrderByIdDesc(appId, clusterName, namespaceName, branchName);\n\n  if (oldRules == null) {\n    return null;\n  }\n\n  GrayReleaseRule newRules = new GrayReleaseRule();\n  newRules.setBranchStatus(NamespaceBranchStatus.ACTIVE);\n  newRules.setReleaseId(latestReleaseId);\n  newRules.setRules(oldRules.getRules());\n  newRules.setAppId(oldRules.getAppId());\n  newRules.setClusterName(oldRules.getClusterName());\n  newRules.setNamespaceName(oldRules.getNamespaceName());\n  newRules.setBranchName(oldRules.getBranchName());\n  newRules.setDataChangeCreatedBy(operator);\n  newRules.setDataChangeLastModifiedBy(operator);\n\n  grayReleaseRuleRepository.save(newRules);\n\n  grayReleaseRuleRepository.delete(oldRules);\n\n  return newRules;\n}\n",
+    "class_name": "NamespaceBranchService",
+    "method_name": "updateRulesReleaseId",
+    "arguments": [
+        "String appId",
+        "String clusterName",
+        "String namespaceName",
+        "String branchName",
+        "long latestReleaseId",
+        "String operator"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

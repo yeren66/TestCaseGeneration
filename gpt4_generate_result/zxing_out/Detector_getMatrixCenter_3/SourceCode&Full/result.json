@@ -1,0 +1,24 @@
+{
+    "project_name": "zxing",
+    "file_name": "Detector.java",
+    "relative_path": "zxing/core/src/main/java/com/google/zxing/aztec/detector/Detector.java",
+    "execute_path": "zxing",
+    "package": "com.google.zxing.aztec.detector",
+    "docstring": "/**\n   * Finds a candidate center point of an Aztec code from an image\n   *\n   * @return the center point\n   */",
+    "source_code": "\nprivate Point getMatrixCenter() {\n\n  ResultPoint pointA;\n  ResultPoint pointB;\n  ResultPoint pointC;\n  ResultPoint pointD;\n\n  //Get a white rectangle that can be the border of the matrix in center bull's eye or\n  try {\n\n    ResultPoint[] cornerPoints = new WhiteRectangleDetector(image).detect();\n    pointA = cornerPoints[0];\n    pointB = cornerPoints[1];\n    pointC = cornerPoints[2];\n    pointD = cornerPoints[3];\n\n  } catch (NotFoundException e) {\n\n    // This exception can be in case the initial rectangle is white\n    // In that case, surely in the bull's eye, we try to expand the rectangle.\n    int cx = image.getWidth() / 2;\n    int cy = image.getHeight() / 2;\n    pointA = getFirstDifferent(new Point(cx + 7, cy - 7), false, 1, -1).toResultPoint();\n    pointB = getFirstDifferent(new Point(cx + 7, cy + 7), false, 1, 1).toResultPoint();\n    pointC = getFirstDifferent(new Point(cx - 7, cy + 7), false, -1, 1).toResultPoint();\n    pointD = getFirstDifferent(new Point(cx - 7, cy - 7), false, -1, -1).toResultPoint();\n\n  }\n\n  //Compute the center of the rectangle\n  int cx = MathUtils.round((pointA.getX() + pointD.getX() + pointB.getX() + pointC.getX()) / 4.0f);\n  int cy = MathUtils.round((pointA.getY() + pointD.getY() + pointB.getY() + pointC.getY()) / 4.0f);\n\n  // Redetermine the white rectangle starting from previously computed center.\n  // This will ensure that we end up with a white rectangle in center bull's eye\n  // in order to compute a more accurate center.\n  try {\n    ResultPoint[] cornerPoints = new WhiteRectangleDetector(image, 15, cx, cy).detect();\n    pointA = cornerPoints[0];\n    pointB = cornerPoints[1];\n    pointC = cornerPoints[2];\n    pointD = cornerPoints[3];\n  } catch (NotFoundException e) {\n    // This exception can be in case the initial rectangle is white\n    // In that case we try to expand the rectangle.\n    pointA = getFirstDifferent(new Point(cx + 7, cy - 7), false, 1, -1).toResultPoint();\n    pointB = getFirstDifferent(new Point(cx + 7, cy + 7), false, 1, 1).toResultPoint();\n    pointC = getFirstDifferent(new Point(cx - 7, cy + 7), false, -1, 1).toResultPoint();\n    pointD = getFirstDifferent(new Point(cx - 7, cy - 7), false, -1, -1).toResultPoint();\n  }\n\n  // Recompute the center of the rectangle\n  cx = MathUtils.round((pointA.getX() + pointD.getX() + pointB.getX() + pointC.getX()) / 4.0f);\n  cy = MathUtils.round((pointA.getY() + pointD.getY() + pointB.getY() + pointC.getY()) / 4.0f);\n\n  return new Point(cx, cy);\n}\n",
+    "class_name": "Detector",
+    "method_name": "getMatrixCenter",
+    "arguments": [],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

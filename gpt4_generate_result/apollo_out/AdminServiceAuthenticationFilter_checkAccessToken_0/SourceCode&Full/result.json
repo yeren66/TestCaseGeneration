@@ -1,0 +1,26 @@
+{
+    "project_name": "apollo",
+    "file_name": "AdminServiceAuthenticationFilter.java",
+    "relative_path": "apollo/apollo-adminservice/src/main/java/com/ctrip/framework/apollo/adminservice/filter/AdminServiceAuthenticationFilter.java",
+    "execute_path": "apollo",
+    "package": "com.ctrip.framework.apollo.adminservice.filter",
+    "docstring": null,
+    "source_code": "private boolean checkAccessToken(String token) {\n  String accessTokens = bizConfig.getAdminServiceAccessTokens();\n\n  // if user forget to configure access tokens, then default to pass\n  if (Strings.isNullOrEmpty(accessTokens)) {\n    return true;\n  }\n\n  // no need to check\n  if (Strings.isNullOrEmpty(token)) {\n    return false;\n  }\n\n  // update cache\n  if (!accessTokens.equals(lastAccessTokens)) {\n    synchronized (this) {\n      accessTokenList = ACCESS_TOKEN_SPLITTER.splitToList(accessTokens);\n      lastAccessTokens = accessTokens;\n    }\n  }\n\n  return accessTokenList.contains(token);\n}\n",
+    "class_name": "AdminServiceAuthenticationFilter",
+    "method_name": "checkAccessToken",
+    "arguments": [
+        "String token"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

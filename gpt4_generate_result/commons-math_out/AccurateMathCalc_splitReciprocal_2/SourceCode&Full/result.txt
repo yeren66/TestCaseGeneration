@@ -1,0 +1,85 @@
+Source code: 
+
+
+static void splitReciprocal(final double[] in, final double[] result) {
+    final double b = 1.0 / 4194304.0;
+    final double a = 1.0 - b;
+
+    if (in[0] == 0.0) {
+        in[0] = in[1];
+        in[1] = 0.0;
+    }
+
+    result[0] = a / in[0];
+    result[1] = (b * in[0] - a * in[1]) / (in[0] * in[0] + in[0] * in[1]);
+
+    if (result[1] != result[1]) { // can happen if result[1] is NAN
+        result[1] = 0.0;
+    }
+
+    /* Resplit */
+    resplit(result);
+
+    for (int i = 0; i < 2; i++) {
+        /* this may be overkill, probably once is enough */
+        double err = 1.0 - result[0] * in[0] - result[0] * in[1] -
+            result[1] * in[0] - result[1] * in[1];
+        /*err = 1.0 - err; */
+        err *= result[0] + result[1];
+        /*printf("err = %16e\n", err); */
+        result[1] += err;
+    }
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

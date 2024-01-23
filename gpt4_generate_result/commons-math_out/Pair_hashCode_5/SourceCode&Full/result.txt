@@ -1,0 +1,65 @@
+Source code: 
+
+
+@Override
+public int hashCode() {
+    int result = key == null ? 0 : key.hashCode();
+
+    final int h = value == null ? 0 : value.hashCode();
+    result = 37 * result + h ^ (h >>> 16);
+
+    return result;
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

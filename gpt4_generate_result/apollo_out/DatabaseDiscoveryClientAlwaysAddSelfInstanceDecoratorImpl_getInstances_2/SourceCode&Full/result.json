@@ -1,0 +1,26 @@
+{
+    "project_name": "apollo",
+    "file_name": "DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl.java",
+    "relative_path": "apollo/apollo-biz/src/main/java/com/ctrip/framework/apollo/biz/registry/DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl.java",
+    "execute_path": "apollo",
+    "package": "com.ctrip.framework.apollo.biz.registry",
+    "docstring": "/**\n   * if the serviceName is same with self, always return self's instance\n   * @return never be empty list when serviceName is same with self\n   */",
+    "source_code": "\n@Override\npublic List<ServiceInstance> getInstances(String serviceName) {\n  if (Objects.equals(serviceName, this.selfInstance.getServiceName())) {\n    List<ServiceInstance> serviceInstances = this.delegate.getInstances(serviceName);\n    if (containSelf(serviceInstances, this.selfInstance)) {\n      // contains self instance already\n      return serviceInstances;\n    }\n\n    // add self instance to result\n    List<ServiceInstance> result = new ArrayList<>(serviceInstances.size() + 1);\n    result.add(this.selfInstance);\n    result.addAll(serviceInstances);\n    return result;\n  } else {\n    return this.delegate.getInstances(serviceName);\n  }\n}\n",
+    "class_name": "DatabaseDiscoveryClientAlwaysAddSelfInstanceDecoratorImpl",
+    "method_name": "getInstances",
+    "arguments": [
+        "String serviceName"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "project_name": "zxing",
+    "file_name": "BitArray.java",
+    "relative_path": "zxing/core/src/main/java/com/google/zxing/common/BitArray.java",
+    "execute_path": "zxing",
+    "package": "com.google.zxing.common",
+    "docstring": "/**\n   * @param from first bit to check\n   * @return index of first bit that is set, starting from the given index, or size if none are set\n   *  at or beyond this given index\n   * @see #getNextUnset(int)\n   */",
+    "source_code": "\npublic int getNextSet(int from) {\n  if (from >= size) {\n    return size;\n  }\n  int bitsOffset = from / 32;\n  int currentBits = bits[bitsOffset];\n  // mask off lesser bits first\n  currentBits &= -(1 << (from & 0x1F));\n  while (currentBits == 0) {\n    if (++bitsOffset == bits.length) {\n      return size;\n    }\n    currentBits = bits[bitsOffset];\n  }\n  int result = (bitsOffset * 32) + Integer.numberOfTrailingZeros(currentBits);\n  return Math.min(result, size);\n}\n",
+    "class_name": "BitArray",
+    "method_name": "getNextSet",
+    "arguments": [
+        "int from"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

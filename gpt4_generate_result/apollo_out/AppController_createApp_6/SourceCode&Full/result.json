@@ -1,0 +1,27 @@
+{
+    "project_name": "apollo",
+    "file_name": "AppController.java",
+    "relative_path": "apollo/apollo-portal/src/main/java/com/ctrip/framework/apollo/openapi/v1/controller/AppController.java",
+    "execute_path": "apollo",
+    "package": "com.ctrip.framework.apollo.openapi.v1.controller",
+    "docstring": "/**\n   * @see com.ctrip.framework.apollo.portal.controller.AppController#create(AppModel)\n   */",
+    "source_code": "\n@Transactional\n@PreAuthorize(value = \"@consumerPermissionValidator.hasCreateApplicationPermission(#request)\")\n@PostMapping(value = \"/apps\")\npublic void createApp(\n    @RequestBody OpenCreateAppDTO req,\n    HttpServletRequest request\n) {\n  if (null == req.getApp()) {\n    throw new BadRequestException(\"App is null\");\n  }\n  final OpenAppDTO app = req.getApp();\n  if (null == app.getAppId()) {\n    throw new BadRequestException(\"AppId is null\");\n  }\n  // create app\n  this.appOpenApiService.createApp(req);\n  if (req.isAssignAppRoleToSelf()) {\n    long consumerId = this.consumerAuthUtil.retrieveConsumerId(request);\n    consumerService.assignAppRoleToConsumer(consumerId, app.getAppId());\n  }\n}\n",
+    "class_name": "AppController",
+    "method_name": "createApp",
+    "arguments": [
+        "OpenCreateAppDTO req",
+        "HttpServletRequest request"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

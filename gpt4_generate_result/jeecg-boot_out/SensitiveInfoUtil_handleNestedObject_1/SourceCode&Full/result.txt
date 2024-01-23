@@ -1,0 +1,84 @@
+Source code: 
+
+
+public static void handleNestedObject(Object obj, Class entity, boolean isEncode) throws IllegalAccessException {
+    Field[] fields = obj.getClass().getDeclaredFields();
+    for (Field field : fields) {
+        if(field.getType().isPrimitive()){
+            continue;
+        }
+        if(field.getType().equals(entity)){
+            // 对象里面是实体
+            field.setAccessible(true);
+            Object nestedObject = field.get(obj);
+            handlerObject(nestedObject, isEncode);
+            break;
+        }else{
+            // 对象里面是List<实体>
+            if(field.getGenericType() instanceof ParameterizedType){
+                ParameterizedType pt = (ParameterizedType)field.getGenericType();
+                if(pt.getRawType().equals(List.class)){
+                    if(pt.getActualTypeArguments()[0].equals(entity)){
+                        field.setAccessible(true);
+                        Object nestedObject = field.get(obj);
+                        handleList(nestedObject, entity, isEncode);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

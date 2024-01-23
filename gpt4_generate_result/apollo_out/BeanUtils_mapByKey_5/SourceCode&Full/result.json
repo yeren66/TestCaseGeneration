@@ -1,0 +1,27 @@
+{
+    "project_name": "apollo",
+    "file_name": "BeanUtils.java",
+    "relative_path": "apollo/apollo-common/src/main/java/com/ctrip/framework/apollo/common/utils/BeanUtils.java",
+    "execute_path": "apollo",
+    "package": "com.ctrip.framework.apollo.common.utils",
+    "docstring": "/**\n   * \u7528\u4e8e\u5c06\u4e00\u4e2a\u5217\u8868\u8f6c\u6362\u4e3a\u5217\u8868\u4e2d\u7684\u5bf9\u8c61\u7684\u67d0\u4e2a\u5c5e\u6027\u6620\u5c04\u5230\u5217\u8868\u4e2d\u7684\u5bf9\u8c61\n   *\n   * <pre>\n   *      List<UserDTO> userList = userService.queryUsers();\n   *      Map<Integer, userDTO> userIdToUser = BeanUtil.mapByKey(\"userId\", userList);\n   * </pre>\n   *\n   * @param key \u5c5e\u6027\u540d\n   */",
+    "source_code": "\n@SuppressWarnings(\"unchecked\")\npublic static <K, V> Map<K, V> mapByKey(String key, List<?> list) {\n  Map<K, V> map = new HashMap<>();\n  if (CollectionUtils.isEmpty(list)) {\n    return map;\n  }\n  try {\n    Class<?> clazz = list.get(0).getClass();\n    Field field = deepFindField(clazz, key);\n    if (field == null) {\n        throw new IllegalArgumentException(\"Could not find the key\");\n    }\n    field.setAccessible(true);\n    for (Object o : list) {\n      map.put((K) field.get(o), (V) o);\n    }\n  } catch (Exception e) {\n    throw new BeanUtilsException(e);\n  }\n  return map;\n}\n",
+    "class_name": "BeanUtils",
+    "method_name": "mapByKey",
+    "arguments": [
+        "String key",
+        "List<> list"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

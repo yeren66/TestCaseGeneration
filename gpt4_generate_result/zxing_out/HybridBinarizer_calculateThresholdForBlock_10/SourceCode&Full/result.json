@@ -1,0 +1,32 @@
+{
+    "project_name": "zxing",
+    "file_name": "HybridBinarizer.java",
+    "relative_path": "zxing/core/src/main/java/com/google/zxing/common/HybridBinarizer.java",
+    "execute_path": "zxing",
+    "package": "com.google.zxing.common",
+    "docstring": "/**\n   * For each block in the image, calculate the average black point using a 5x5 grid\n   * of the blocks around it. Also handles the corner cases (fractional blocks are computed based\n   * on the last pixels in the row/column which are also used in the previous block).\n   */",
+    "source_code": "\nprivate static void calculateThresholdForBlock(byte[] luminances,\n                                               int subWidth,\n                                               int subHeight,\n                                               int width,\n                                               int height,\n                                               int[][] blackPoints,\n                                               BitMatrix matrix) {\n  int maxYOffset = height - BLOCK_SIZE;\n  int maxXOffset = width - BLOCK_SIZE;\n  for (int y = 0; y < subHeight; y++) {\n    int yoffset = y << BLOCK_SIZE_POWER;\n    if (yoffset > maxYOffset) {\n      yoffset = maxYOffset;\n    }\n    int top = cap(y, subHeight - 3);\n    for (int x = 0; x < subWidth; x++) {\n      int xoffset = x << BLOCK_SIZE_POWER;\n      if (xoffset > maxXOffset) {\n        xoffset = maxXOffset;\n      }\n      int left = cap(x, subWidth - 3);\n      int sum = 0;\n      for (int z = -2; z <= 2; z++) {\n        int[] blackRow = blackPoints[top + z];\n        sum += blackRow[left - 2] + blackRow[left - 1] + blackRow[left] + blackRow[left + 1] + blackRow[left + 2];\n      }\n      int average = sum / 25;\n      thresholdBlock(luminances, xoffset, yoffset, average, width, matrix);\n    }\n  }\n}\n",
+    "class_name": "HybridBinarizer",
+    "method_name": "calculateThresholdForBlock",
+    "arguments": [
+        "byte[] luminances",
+        "int subWidth",
+        "int subHeight",
+        "int width",
+        "int height",
+        "int[][] blackPoints",
+        "BitMatrix matrix"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

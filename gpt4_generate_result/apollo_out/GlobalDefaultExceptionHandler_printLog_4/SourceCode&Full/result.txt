@@ -1,0 +1,77 @@
+Source code: 
+
+//打印日志, 其中logLevel为日志级别: ERROR/WARN/DEBUG/INFO/TRACE
+private void printLog(String message, Throwable ex, Level logLevel) {
+  switch (logLevel) {
+    case ERROR:
+      logger.error(message, ex);
+      break;
+    case WARN:
+      logger.warn(message, ex);
+      break;
+    case DEBUG:
+      logger.debug(message, ex);
+      break;
+    case INFO:
+      logger.info(message, ex);
+      break;
+    case TRACE:
+      logger.trace(message, ex);
+      break;
+  }
+
+  Tracer.logError(ex);
+}
+
+
+
+No.1 generated result --------------------------
+
+null
+
+
+No.2 generated result --------------------------
+
+null
+
+
+No.3 generated result --------------------------
+
+null
+
+
+No.4 generated result --------------------------
+
+null
+
+
+No.5 generated result --------------------------
+
+null
+
+
+No.6 generated result --------------------------
+
+null
+
+
+No.7 generated result --------------------------
+
+null
+
+
+No.8 generated result --------------------------
+
+null
+
+
+No.9 generated result --------------------------
+
+null
+
+
+No.10 generated result --------------------------
+
+null
+
+

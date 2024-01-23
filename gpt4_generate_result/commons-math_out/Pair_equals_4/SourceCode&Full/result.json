@@ -1,0 +1,26 @@
+{
+    "project_name": "commons-math",
+    "file_name": "Pair.java",
+    "relative_path": "commons-math/commons-math-legacy-core/src/main/java/org/apache/commons/math4/legacy/core/Pair.java",
+    "execute_path": "commons-math/commons-math-legacy-core",
+    "package": "org.apache.commons.math4.legacy.core",
+    "docstring": "/**\n     * Compare the specified object with this entry for equality.\n     *\n     * @param o Object.\n     * @return {@code true} if the given object is also a map entry and\n     * the two entries represent the same mapping.\n     */",
+    "source_code": "\n@Override\npublic boolean equals(Object o) {\n    if (this == o) {\n        return true;\n    }\n    if (!(o instanceof Pair)) {\n        return false;\n    } else {\n        Pair<?, ?> oP = (Pair<?, ?>) o;\n        return (key == null ?\n                oP.key == null :\n                key.equals(oP.key)) &&\n            (value == null ?\n             oP.value == null :\n             value.equals(oP.value));\n    }\n}\n",
+    "class_name": "Pair",
+    "method_name": "equals",
+    "arguments": [
+        "Object o"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}

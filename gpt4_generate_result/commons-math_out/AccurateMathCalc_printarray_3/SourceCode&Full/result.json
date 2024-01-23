@@ -1,0 +1,29 @@
+{
+    "project_name": "commons-math",
+    "file_name": "AccurateMathCalc.java",
+    "relative_path": "commons-math/commons-math-core/src/main/java/org/apache/commons/math4/core/jdkmath/AccurateMathCalc.java",
+    "execute_path": "commons-math/commons-math-core",
+    "package": "org.apache.commons.math4.core.jdkmath",
+    "docstring": "/**\n     * Print an array.\n     * @param out text output stream where output should be printed\n     * @param name array name\n     * @param expectedLen expected length of the array\n     * @param array2d array data\n     */",
+    "source_code": "\nstatic void printarray(PrintStream out, String name, int expectedLen, double[][] array2d) {\n    out.println(name);\n    checkLen(expectedLen, array2d.length);\n    out.println(TABLE_START_DECL + \" \");\n    int i = 0;\n    for (double[] array : array2d) { // \"double array[]\" causes PMD parsing error\n        out.print(\"        {\");\n        for (double d : array) { // assume inner array has very few entries\n            out.printf(\"%-25.25s\", format(d)); // multiple entries per line\n        }\n        out.println(\"}, // \" + i++);\n    }\n    out.println(TABLE_END_DECL);\n}\n",
+    "class_name": "AccurateMathCalc",
+    "method_name": "printarray",
+    "arguments": [
+        "PrintStream out",
+        "String name",
+        "int expectedLen",
+        "double[][] array2d"
+    ],
+    "generate_test": [
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    ]
+}
