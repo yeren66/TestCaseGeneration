@@ -183,4 +183,5 @@ if __name__ == "__main__":
 # 跑math，一切顺利
         
 # 这部分是跑full context部分
-# 先跑lang
+# 先跑lang，一切顺利，就是有点费token，一次生成花费大约9k token，折合过来生成一个method的10个full context内容大约需要$1，而有108个method
+# 之后跑java，生产了20个，等token后再生成剩余15个

@@ -20,51 +20,103 @@ public int countGraphs() {
 
 No.1 generated result --------------------------
 
-null
+package com.thealgorithms.datastructures.graphs;
+
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class GraphTest {
+
+    @Test
+    public void countGraphsTest() {
+        // Create a graph of Characters
+        Graph<Character> graphChars = new Graph<>();
+
+        // Create first connected component
+        graphChars.addEdge('a', 'b');
+        graphChars.addEdge('a', 'e');
+        graphChars.addEdge('b', 'e');
+        graphChars.addEdge('b', 'c');
+        graphChars.addEdge('c', 'd');
+        graphChars.addEdge('d', 'a');
+
+        // Create second connected component
+        graphChars.addEdge('x', 'y');
+        graphChars.addEdge('x', 'z');
+
+        // Create third connected component
+        graphChars.addEdge('w', 'w');
+
+        // Create a graph of Integers
+        Graph<Integer> graphInts = new Graph<>();
+
+        // Create first connected component
+        graphInts.addEdge(1, 2);
+        graphInts.addEdge(2, 3);
+        graphInts.addEdge(2, 4);
+        graphInts.addEdge(3, 5);
+
+        // Create second connected component
+        graphInts.addEdge(7, 8);
+        graphInts.addEdge(8, 10);
+        graphInts.addEdge(10, 8);
+        
+        // Check that the count of connected components is correct
+        assertEquals(3, graphChars.countGraphs(), "Incorrect number of connected components in character graph");
+        assertEquals(2, graphInts.countGraphs(), "Incorrect number of connected components in integer graph");
+    }
+}
 
 
 No.2 generated result --------------------------
 
-null
+package com.thealgorithms.datastructures.graphs;
 
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-No.3 generated result --------------------------
+public class GraphTest {
 
-null
+    @Test
+    public void countGraphsTest() {
+        // Testing graph with Character nodes
+        Graph<Character> graphChars = new Graph<>();
+        
+        // Graph 1: Expected to represent one connected component.
+        graphChars.addEdge('a', 'b');
+        graphChars.addEdge('a', 'e');
+        graphChars.addEdge('b', 'e');
+        graphChars.addEdge('b', 'c');
+        graphChars.addEdge('c', 'd');
+        graphChars.addEdge('d', 'a');
 
+        // Nodes 'x', 'y', 'z' create an additional connected component
+        graphChars.addEdge('x', 'y');
+        graphChars.addEdge('x', 'z');
 
-No.4 generated result --------------------------
+        // Node 'w' on its own represents another connected component
+        graphChars.addEdge('w', 'w');
+        
+        // Expecting 3 connected components
+        assertEquals(3, graphChars.countGraphs());
 
-null
+        // Testing graph with Integer nodes
+        Graph<Integer> graphInts = new Graph<>();
 
+        // Graph 2: Expected to represent one connected component.
+        graphInts.addEdge(1, 2);
+        graphInts.addEdge(2, 3);
+        graphInts.addEdge(2, 4);
+        graphInts.addEdge(3, 5);
 
-No.5 generated result --------------------------
+        // Nodes 7, 8, and 10 create an additional connected component
+        graphInts.addEdge(7, 8);
+        graphInts.addEdge(8, 10);
+        graphInts.addEdge(10, 8);
 
-null
-
-
-No.6 generated result --------------------------
-
-null
-
-
-No.7 generated result --------------------------
-
-null
-
-
-No.8 generated result --------------------------
-
-null
-
-
-No.9 generated result --------------------------
-
-null
-
-
-No.10 generated result --------------------------
-
-null
+        // Expecting 2 connected components
+        assertEquals(2, graphInts.countGraphs());
+    }
+}
 
 
