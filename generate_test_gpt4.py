@@ -114,11 +114,11 @@ def generate_test(json_data, path, number=10):
 
         file_path = ['SourceCodeOnly/', 'SourceCode&Full/', 'SourceCode&Simple/']
         prompts = [instruct_prompt_large_1(source_code, test_info), instruct_prompt_large_2(source_code, full_context, test_info), instruct_prompt_large_2(source_code, simple_context, test_info)]
-        second_path = path + json_data[i]['class_name'] + '_' + json_data[i]['method_name'] + '_' + str(i) + '/'
+        second_path = path + json_data[i]['class_name'] + '_' + json_data[i]['method_name'] + '_' + str(i + 5) + '/'
         if not os.path.exists(second_path):
             os.makedirs(second_path)
         for j in range(3):
-            if j == 1:
+            if j == 2:
                 third_path = second_path + file_path[j]
                 if not os.path.exists(third_path):
                     os.makedirs(third_path)
@@ -169,6 +169,7 @@ if __name__ == "__main__":
             json_data = json.load(file)
         generate_test(json_data, 'gpt4_generate_result/' + project_name + '/', 10)
 
+
     # print(gpt_interface("hello world"))
 
 # 这部分是跑code only和simple context部分
@@ -184,4 +185,8 @@ if __name__ == "__main__":
         
 # 这部分是跑full context部分
 # 先跑lang，一切顺利，就是有点费token，一次生成花费大约9k token，折合过来生成一个method的10个full context内容大约需要$1，而有108个method
-# 之后跑java，生产了20个，等token后再生成剩余15个
+# 之后跑java，生产了20个，等token后再生成剩余15个, 生成完成
+# 之后跑Jeecg Boot，这个生成了一半，有点乱，后面理一下，先生成其他的
+# 跑zxing，一切顺利
+# 跑apollo，一切顺利
+# 跑math和javacv，一切顺利
