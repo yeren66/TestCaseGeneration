@@ -1,39 +1,6 @@
 [
     {
         "project_name": "Java",
-        "file_name": "QuickSort.java",
-        "relative_path": "Java/src/main/java/com/thealgorithms/sorts/QuickSort.java",
-        "execute_path": "Java",
-        "package": "com.thealgorithms.sorts",
-        "docstring": "/**\n     * This method implements the Generic Quick Sort\n     *\n     * @param array The array to be sorted Sorts the array in increasing order\n     */",
-        "source_code": "\n@Override\npublic <T extends Comparable<T>> T[] sort(T[] array) {\n    doSort(array, 0, array.length - 1);\n    return array;\n}\n",
-        "class_name": "QuickSort",
-        "method_name": "sort",
-        "argument_name": [
-            "T array"
-        ],
-        "full_context": "package com.thealgorithms.sorts;\n\nimport static com.thealgorithms.sorts.SortUtils.*;\n\n/**\n * @author Varun Upadhyay (https://github.com/varunu28)\n * @author Podshivalov Nikita (https://github.com/nikitap492)\n * @see SortAlgorithm\n */\nclass QuickSort implements SortAlgorithm {\n\n    /**\n     * This method implements the Generic Quick Sort\n     *\n     * @param array The array to be sorted Sorts the array in increasing order\n     */\n    @Override\n    public <T extends Comparable<T>> T[] sort(T[] array) {\n        doSort(array, 0, array.length - 1);\n        return array;\n    }\n\n    /**\n     * The sorting process\n     *\n     * @param left The first index of an array\n     * @param right The last index of an array\n     * @param array The array to be sorted\n     */\n    private static <T extends Comparable<T>> void doSort(T[] array, int left, int right) {\n        if (left < right) {\n            int pivot = randomPartition(array, left, right);\n            doSort(array, left, pivot - 1);\n            doSort(array, pivot, right);\n        }\n    }\n\n    /**\n     * Randomize the array to avoid the basically ordered sequences\n     *\n     * @param array The array to be sorted\n     * @param left The first index of an array\n     * @param right The last index of an array\n     * @return the partition index of the array\n     */\n    private static <T extends Comparable<T>> int randomPartition(T[] array, int left, int right) {\n        int randomIndex = left + (int) (Math.random() * (right - left + 1));\n        swap(array, randomIndex, right);\n        return partition(array, left, right);\n    }\n\n    /**\n     * This method finds the partition index for an array\n     *\n     * @param array The array to be sorted\n     * @param left The first index of an array\n     * @param right The last index of an array Finds the partition index of an\n     * array\n     */\n    private static <T extends Comparable<T>> int partition(T[] array, int left, int right) {\n        int mid = (left + right) >>> 1;\n        T pivot = array[mid];\n\n        while (left <= right) {\n            while (less(array[left], pivot)) {\n                ++left;\n            }\n            while (less(pivot, array[right])) {\n                --right;\n            }\n            if (left <= right) {\n                swap(array, left, right);\n                ++left;\n                --right;\n            }\n        }\n        return left;\n    }\n}\n",
-        "simple_context": "package com.thealgorithms.sorts;\n\nimport static com.thealgorithms.sorts.SortUtils;\n\nclass QuickSort implements SortAlgorithm {\n    public T sort(T array);\n    static private  doSort(T array, int left, int right);\n    static private int randomPartition(T array, int left, int right);\n    static private int partition(T array, int left, int right);\n}\n\n"
-    },
-    {
-        "project_name": "Java",
-        "file_name": "HammingDistance.java",
-        "relative_path": "Java/src/main/java/com/thealgorithms/strings/HammingDistance.java",
-        "execute_path": "Java",
-        "package": "com.thealgorithms.strings",
-        "docstring": "/**\n     * calculate the hamming distance between two strings of equal length\n     *\n     * @param s1 the first string\n     * @param s2 the second string\n     * @return {@code int} hamming distance\n     * @throws Exception\n     */",
-        "source_code": "\npublic static int calculateHammingDistance(String s1, String s2) throws Exception {\n    if (s1.length() != s2.length()) {\n        throw new Exception(\"String lengths must be equal\");\n    }\n\n    int stringLength = s1.length();\n    int counter = 0;\n\n    for (int i = 0; i < stringLength; i++) {\n        if (s1.charAt(i) != s2.charAt(i)) {\n            counter++;\n        }\n    }\n    return counter;\n}\n",
-        "class_name": "HammingDistance",
-        "method_name": "calculateHammingDistance",
-        "argument_name": [
-            "String s1",
-            "String s2"
-        ],
-        "full_context": "package com.thealgorithms.strings;\n\n/* In information theory, the Hamming distance between two strings of equal length\nis the number of positions at which the corresponding symbols are different.\nhttps://en.wikipedia.org/wiki/Hamming_distance\n*/\npublic class HammingDistance {\n\n    /**\n     * calculate the hamming distance between two strings of equal length\n     *\n     * @param s1 the first string\n     * @param s2 the second string\n     * @return {@code int} hamming distance\n     * @throws Exception\n     */\n    public static int calculateHammingDistance(String s1, String s2) throws Exception {\n        if (s1.length() != s2.length()) {\n            throw new Exception(\"String lengths must be equal\");\n        }\n\n        int stringLength = s1.length();\n        int counter = 0;\n\n        for (int i = 0; i < stringLength; i++) {\n            if (s1.charAt(i) != s2.charAt(i)) {\n                counter++;\n            }\n        }\n        return counter;\n    }\n}\n",
-        "simple_context": "package com.thealgorithms.strings;\n\npublic class HammingDistance {\n    static public int calculateHammingDistance(String s1, String s2)throws Exception;\n}\n\n"
-    },
-    {
-        "project_name": "Java",
         "file_name": "Lower.java",
         "relative_path": "Java/src/main/java/com/thealgorithms/strings/Lower.java",
         "execute_path": "Java",

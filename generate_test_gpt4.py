@@ -114,7 +114,7 @@ def generate_test(json_data, path, number=10):
 
         file_path = ['SourceCodeOnly/', 'SourceCode&Full/', 'SourceCode&Simple/']
         prompts = [instruct_prompt_large_1(source_code, test_info), instruct_prompt_large_2(source_code, full_context, test_info), instruct_prompt_large_2(source_code, simple_context, test_info)]
-        second_path = path + json_data[i]['class_name'] + '_' + json_data[i]['method_name'] + '_' + str(i + 5) + '/'
+        second_path = path + json_data[i]['class_name'] + '_' + json_data[i]['method_name'] + '_' + str(i) + '/'
         if not os.path.exists(second_path):
             os.makedirs(second_path)
         for j in range(3):
