@@ -94,5 +94,47 @@ ax.legend(handles=ax.containers, labels=['Accept', 'Test Error', 'Compile Error'
 # plt.text(0.5, 0.5, 'Hello World!', ha='center', va='center', transform=ax.transAxes)
 
 plt.savefig('counts.png', dpi=300, bbox_inches='tight')
-plt.show()
+# plt.show()
+plt.close()
 
+codellama_list = [sum(Accept[0]), sum(Syntax_Error[0]), sum(Compile_Error[0]), sum(Test_Error[0])]
+chatgpt_list = [sum(Accept[1]), sum(Syntax_Error[1]), sum(Compile_Error[1]), sum(Test_Error[1])]
+gpt4_list = [sum(Accept[2]), sum(Syntax_Error[2]), sum(Compile_Error[2]), sum(Test_Error[2])]
+
+# Defining colors for the labels
+colors = {'Accept': 'LimeGreen', 'Syntax Error': 'red', 'Compile Error': 'RoyalBlue', 'Test Error': 'Gold'}
+labels = list(colors.keys())
+
+# # Creating the figure and axes for the subplot (excluding the combined chart this time)
+# fig, axs = plt.subplots(1, 3, figsize=(15, 5))  # Adjusted for 3 pie charts instead of 4
+
+# # Adjusting pie charts to include specific colors based on the label
+# for i, data in enumerate([codellama_list, chatgpt_list, gpt4_list]):
+#     axs[i].pie(data, labels=labels, autopct='%1.1f%%', colors=[colors[label] for label in labels])
+#     axs[i].set_title(['CodeLlama', 'ChatGPT', 'GPT-4'][i] + ' Data')
+
+# plt.tight_layout()
+
+# Adjusting the first chart to include a single legend for the whole subplot area
+fig, axs = plt.subplots(1, 3, figsize=(15, 5))  # Setup for 3 pie charts
+
+# Pie charts without labels inside
+for i, data in enumerate([codellama_list, chatgpt_list, gpt4_list]):
+    wedges, texts, autotexts = axs[i].pie(data, autopct='%1.1f%%', colors=[colors[label] for label in labels], labels=['']*4)
+    axs[i].set_title(['CodeLlama', 'ChatGPT', 'GPT-4'][i] + ' Data')
+
+# Creating a single legend for the first chart and positioning it outside
+handles, labels_list = wedges, labels
+fig.legend(handles, labels_list, title="Label", loc="center right", bbox_to_anchor=(1, 0.5))
+
+plt.tight_layout(pad=3, rect=[0, 0, 0.9, 1])  # Adjust layout to make room for legend
+
+# plt.legend()
+plt.savefig('all_pie_charts.png')
+
+# Saving the figures individually without the combined chart
+for i, data in enumerate([codellama_list, chatgpt_list, gpt4_list], start=1):
+    fig, ax = plt.subplots()
+    ax.pie(data, labels=labels, autopct='%1.1f%%', colors=[colors[label] for label in labels])
+    ax.set_title(['CodeLlama', 'ChatGPT', 'GPT-4'][i-1] + ' Data')
+    plt.savefig(f'colored_pie_chart_{i}.png')
