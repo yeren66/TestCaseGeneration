@@ -1,0 +1,74 @@
+[
+    {
+        "project_name": "jeecg-boot",
+        "file_path": "/home/joseph/java_project/jeecg-boot/jeecg-boot-base-core/src/test/java/org/jeecg/common/util/sqlparse",
+        "package_name": "org.jeecg.common.util.sqlparse",
+        "class_name": "JSqlParserAllTableManager",
+        "method_name": "parse",
+        "test_code": "package org.jeecg.common.util.sqlparse;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class JSqlParserAllTableManagerTest {\n    @Test\n    public void parseTest() {\n        String selectSql = \"SELECT id, user_name FROM user_table\";\n        JSqlParserAllTableManager parser = new JSqlParserAllTableManager(selectSql);\n        assertDoesNotThrow(() -> {\n            parser.parse();\n        });\n    }\n    \n}",
+        "package_metric": 30.6,
+        "class_metric": 48.7,
+        "method_metric": 54.72,
+        "pitest": 19.0
+    },
+    {
+        "project_name": "jeecg-boot",
+        "file_path": "/home/joseph/java_project/jeecg-boot/jeecg-boot-base-core/src/test/java/org/jeecg/common/util/sqlparse",
+        "package_name": "org.jeecg.common.util.sqlparse",
+        "class_name": "JSqlParserAllTableManager",
+        "method_name": "parse",
+        "test_code": "package org.jeecg.common.util.sqlparse;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class JSqlParserAllTableManagerTest {\n    @Test\n    public void parseTest() {\n        String sql = \"SELECT * FROM employees WHERE department = 'sales'\";\n        JSqlParserAllTableManager parser = new JSqlParserAllTableManager(sql);\n        assertDoesNotThrow(() -> {\n            parser.parse();\n        });\n    }\n}",
+        "package_metric": 23.5,
+        "class_metric": 37.39,
+        "method_metric": 56.6,
+        "pitest": 15.0
+    },
+    {
+        "project_name": "jeecg-boot",
+        "file_path": "/home/joseph/java_project/jeecg-boot/jeecg-boot-base-core/src/test/java/org/jeecg/common/util/sqlparse",
+        "package_name": "org.jeecg.common.util.sqlparse",
+        "class_name": "JSqlParserAllTableManager",
+        "method_name": "parse",
+        "test_code": "package org.jeecg.common.util.sqlparse;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class JSqlParserAllTableManagerTest {\n    @Test\n    public void parseTest() {\n        JSqlParserAllTableManager parser = new JSqlParserAllTableManager(\"SELECT * FROM employees;\");\n        assertDoesNotThrow(() -> {\n            parser.parse();\n        });\n    }\n}",
+        "package_metric": 23.5,
+        "class_metric": 37.39,
+        "method_metric": 56.6,
+        "pitest": 15.0
+    },
+    {
+        "project_name": "jeecg-boot",
+        "file_path": "/home/joseph/java_project/jeecg-boot/jeecg-boot-base-core/src/test/java/org/jeecg/common/system/base/controller",
+        "package_name": "org.jeecg.common.system.base.controller",
+        "class_name": "JeecgController",
+        "method_name": "exportXlsSheet",
+        "test_code": "package org.jeecg.common.system.base.controller;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class JeecgControllerTest {\n    @Test\n    public void exportXlsSheetTest() {\n        // Create a mock HttpServletRequest, T object, Class<T> clazz, and other necessary variables\n        // Instantiate the JeecgController\n        // Call the exportXlsSheet method with the mock data\n        // Validate the returned ModelAndView\n    }\n}",
+        "package_metric": 0,
+        "class_metric": 0,
+        "method_metric": 0,
+        "pitest": 0.0
+    },
+    {
+        "project_name": "jeecg-boot",
+        "file_path": "/home/joseph/java_project/jeecg-boot/jeecg-boot-base-core/src/test/java/org/jeecg/common/system/base/controller",
+        "package_name": "org.jeecg.common.system.base.controller",
+        "class_name": "JeecgController",
+        "method_name": "exportXlsSheet",
+        "test_code": "package org.jeecg.common.system.base.controller;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class JeecgControllerTest {\n    @Test\n    public void exportXlsSheetTest() {\n        // Create and set up mock objects such as HttpServletRequest, T object, Class<T> clazz, String title, String exportFields, and Integer pageNum\n        // Call exportXlsSheet method with the mock objects\n        // Verify the expected result\n    }\n}",
+        "package_metric": 0,
+        "class_metric": 0,
+        "method_metric": 0,
+        "pitest": 0.0
+    },
+    {
+        "project_name": "jeecg-boot",
+        "file_path": "/home/joseph/java_project/jeecg-boot/jeecg-boot-base-core/src/test/java/org/jeecg/common/util/encryption",
+        "package_name": "org.jeecg.common.util.encryption",
+        "class_name": "AesEncryptUtil",
+        "method_name": "desEncrypt",
+        "test_code": "package org.jeecg.common.util.encryption;\n\nimport org.junit.jupiter.api.*;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class AesEncryptUtilTest {\n    @Test\n    public void desEncryptTest() {\n        String data = \"abcdefg\";\n        String key = \"1234567890123456\";\n        String iv = \"1234567890123456\";\n        try {\n            String encryptedData = AesEncryptUtil.encrypt(data, key, iv);\n            String decryptedData = AesEncryptUtil.desEncrypt(encryptedData, key, iv);\n            assertEquals(data, decryptedData);\n        } catch (Exception e) {\n            fail(\"Exception thrown: \" + e.getMessage());\n        }\n    }\n}",
+        "package_metric": 78.12,
+        "class_metric": 79.31,
+        "method_metric": 100.0,
+        "pitest": 64.0
+    }
+]
